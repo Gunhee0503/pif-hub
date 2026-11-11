@@ -47,6 +47,16 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .stat{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2);margin-top:8px}
 .stat b{color:var(--ink)}
 .tag{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:99px;padding:3px 9px}
+.ytcard{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;background:#fff;border-radius:22px;padding:18px;margin-bottom:42px;align-items:start}
+.ytbox{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.ytside h3{font-size:20px;font-weight:730;letter-spacing:-.03em;line-height:1.25;margin:6px 0 12px}
+.eplist{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
+.eplist button{display:flex;align-items:center;gap:10px;border:0;background:transparent;border-radius:10px;padding:6px 8px;text-align:left;font:600 14px var(--sans);color:var(--ink);cursor:pointer}
+.eplist button img{width:64px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.eplist button small{display:block;font-size:11px;color:var(--ink2);font-weight:600}
+.eplist button.on{background:#f5f5f7}
+.ytside .go{font-size:14px;color:#0066cc;font-weight:500;text-decoration:none}
+@media(max-width:700px){.ytcard{grid-template-columns:1fr}}
 .course.off{opacity:.62;cursor:default}.course.off:hover{transform:none;box-shadow:none}
 .locknote{background:#fff4e5;border:1px solid #f5d9a3;color:#7a4b00;border-radius:14px;padding:11px 14px;font-size:13.5px;margin:-16px 0 26px}
 .course.dark{background:#000;color:#f5f5f7}
@@ -104,6 +114,15 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 
   <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
   <div class="grid" id="vocab"></div>
+
+  <div class="grp"><b>영상 · 다의어 한방에!</b><span>보카트리 유튜브 시리즈</span></div>
+  <div class="ytcard">
+    <div class="ytbox" id="ytHome"></div>
+    <div class="ytside"><div class="lv" style="color:#ff0033;font-size:11.5px;font-weight:700;letter-spacing:.1em">YOUTUBE · 5편</div>
+      <h3>한 단어, 여러 뜻을<br>하나의 그림으로</h3>
+      <div class="eplist" id="ytEps"></div>
+      <a class="go" id="ytAll" target="_blank" rel="noopener">유튜브에서 전체 보기 ↗</a></div>
+  </div>
 
   <div class="grp"><b>구문 · 구문의 지도</b><span>문장의 구조가 보이면, 해석은 빨라집니다</span></div>
   <div class="grid" id="syntax"></div>
@@ -213,6 +232,18 @@ $('logout').onclick = async () => { if (!confirm('로그아웃할까요? 학습 
     if (m) { $('hName').textContent = m.name; $('hClass').textContent = m.class_name; render([]); only('home'); return; }
   }
   VT.setMe(null); only('login');
+})();
+</script>
+<script src="/shared/yt.js"></script>
+<script>
+(function(){
+  var Y = window.PIFYT; if (!Y) return;
+  var box = document.getElementById('ytHome'), eps = document.getElementById('ytEps');
+  document.getElementById('ytAll').href = Y.url;
+  eps.innerHTML = Y.EPS.map(function(e){ return '<button type="button"><img src="' + Y.thumb(e.id) + '" alt="" loading="lazy"><span><small>' + e.no + '</small>' + e.word + '</span></button>'; }).join('');
+  function pick(i){ Y.mount(box, Y.EPS[i]); [].forEach.call(eps.children, function(b, k){ b.classList.toggle('on', k === i); }); }
+  [].forEach.call(eps.children, function(b, i){ b.onclick = function(){ pick(i); }; });
+  pick(0);
 })();
 </script>
 </body>

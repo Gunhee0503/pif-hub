@@ -158,6 +158,19 @@ br.mb{display:none}
 .v-wmp .m{white-space:nowrap;position:absolute;font-size:14px;font-weight:600;padding:6px 12px;border-radius:99px;background:#fff;border:1px solid #f1c4d1;color:#9b2a4a}
 .v-wmp .m.core{background:var(--wmp);border-color:var(--wmp);color:#fff}
 
+
+/* 다의어 한방에 */
+.ytband{display:grid;grid-template-columns:1fr 1.35fr;gap:36px;align-items:center;background:#fff;border-radius:var(--r);padding:40px;margin-top:20px}
+.ytinfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em}
+.ytinfo h3{font-size:32px;font-weight:740;letter-spacing:-.04em;line-height:1.15;margin:10px 0 12px}
+.ytinfo p{font-size:16px;line-height:1.6;color:#424245;margin-bottom:18px}
+.ytinfo .more{font-size:15px;color:var(--link);font-weight:500}.ytinfo .more::after{content:" ›"}
+.eps{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.eps button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font:600 13px var(--sans);color:var(--ink2);cursor:pointer}
+.eps button b{color:var(--ink3);font-weight:600;margin-right:4px}
+.eps button.on{background:var(--ink);border-color:var(--ink);color:#fff}.eps button.on b{color:#a1a1a6}
+.ytbox{position:relative;aspect-ratio:16/9;border-radius:18px;overflow:hidden;background:#000;box-shadow:0 30px 60px -36px rgba(0,0,0,.45)}
+
 /* syntax map (dark) */
 .dark{background:#000;color:#f5f5f7}
 .dark .sh p{color:#a1a1a6}
@@ -229,6 +242,7 @@ footer a{color:#424245}
   .stats .wrap{grid-template-columns:repeat(2,1fr)}
   .stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid #ececef}
   .tiles,.ed{grid-template-columns:1fr}
+  .ytband{grid-template-columns:1fr;padding:30px 26px;gap:22px}.ytband .ytbox{order:-1}
   .feat{grid-template-columns:1fr 1fr}
   .flow{grid-template-columns:repeat(3,1fr);row-gap:34px}.flow::before{display:none}
 }
@@ -250,6 +264,7 @@ footer a{color:#424245}
   .fc{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:24px 22px}.fc .ic{margin:0;grid-row:span 2}.fc h4{margin:9px 0 6px}
   .edc{padding:36px 26px 30px;min-height:0}.edc h3{font-size:42px}
   .feat{grid-template-columns:1fr}
+  .ytinfo h3{font-size:26px}.ytband{padding:24px 20px}
   .flow{grid-template-columns:repeat(2,1fr)}
   .btns{flex-direction:column;gap:6px}
   .final{padding:96px 0}
@@ -309,6 +324,16 @@ footer a{color:#424245}
       <p>영어-한글 1:1로 외운 뜻이 지문에서 배신하는 다의어 100개. 의미 구별 → 문맥 이해 → 핵심 이미지, 20회차 AI 코칭.</p><span class="more">학습하기</span>
       <div class="vis v-wmp"><div class="w"><u>address</u></div>
         <span class="m" style="left:6%;top:14%">주소</span><span class="m" style="right:10%;top:10%">다루다</span><span class="m" style="left:2%;bottom:20%">연설하다</span><span class="m" style="right:4%;bottom:26%">부르다</span><span class="m core" style="left:50%;bottom:0;transform:translateX(-50%)">말·관심을 그쪽으로 향하게 하다</span></div></a>
+  </div>
+  <div class="ytband">
+    <div class="ytinfo">
+      <div class="lv" style="color:#ff0033">보카트리 유튜브 · 다의어 한방에!</div>
+      <h3>한 단어, 여러 뜻.<br>하나의 그림으로 정리합니다.</h3>
+      <p>charge처럼 뜻이 여러 개인 단어를 핵심 이미지 하나로 꿰어 내는 영상 시리즈. Word Matching에서 풀고, 영상으로 한 번 더 정리하세요.</p>
+      <div class="eps" id="ytEps"></div>
+      <a class="more" id="ytAll" href="#" target="_blank" rel="noopener">유튜브에서 전체 보기</a>
+    </div>
+    <div class="ytbox" id="ytLanding"></div>
   </div>
 </div></section>
 
@@ -406,6 +431,18 @@ footer a{color:#424245}
   var p=v.play(); if(p&&p.catch) p.catch(function(){});
   b.onclick=function(){ v.muted=!v.muted; if(!v.muted){ v.currentTime=0; v.play(); }
     b.classList.toggle('on',!v.muted); b.querySelector('span').textContent=v.muted?'소리 켜기':'소리 끄기'; b.setAttribute('aria-label',b.querySelector('span').textContent); };
+})();
+</script>
+<script src="/shared/yt.js"></script>
+<script>
+(function(){
+  var Y = window.PIFYT; if (!Y) return;
+  var box = document.getElementById('ytLanding'), eps = document.getElementById('ytEps');
+  document.getElementById('ytAll').href = Y.url;
+  function pick(i){ Y.mount(box, Y.EPS[i]); [].forEach.call(eps.children, function(b, k){ b.classList.toggle('on', k === i); }); }
+  eps.innerHTML = Y.EPS.map(function(e){ return '<button type="button"><b>' + e.no + '</b>' + e.word + '</button>'; }).join('');
+  [].forEach.call(eps.children, function(b, i){ b.onclick = function(){ pick(i); }; });
+  pick(0);
 })();
 </script>
 </body>
