@@ -189,14 +189,20 @@
   }
   function chip(m) {
     if (document.getElementById('vt-chip') || document.body.dataset.vtNoChip != null) return;
-    var a = document.createElement('a');
-    a.id = 'vt-chip'; a.href = '/learn/';
-    a.innerHTML = '<span>‹ PIF Hub</span>';
-    a.setAttribute('style', 'position:fixed;left:50%;transform:translateX(-50%);bottom:max(10px,env(safe-area-inset-bottom));z-index:99999;display:flex;align-items:center;gap:6px;' +
-      'padding:6px 12px;border-radius:999px;background:rgba(29,29,31,.72);color:#f4ece0;font:600 12px/1 -apple-system,"Apple SD Gothic Neo",sans-serif;' +
-      'text-decoration:none;box-shadow:0 6px 18px -8px rgba(0,0,0,.5);backdrop-filter:blur(4px)');
-    document.body.appendChild(a);
+    var bar = document.createElement('nav');
+    bar.id = 'vt-chip'; bar.setAttribute('aria-label', 'PIF Hub 이동');
+    var home = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>';
+    bar.innerHTML = '<a href="/" title="처음 화면(소개 페이지)">' + home + '<span>처음으로</span></a><i></i><a href="/learn/">내 학습</a>';
+    bar.setAttribute('style', 'position:fixed;left:50%;transform:translateX(-50%);bottom:max(10px,env(safe-area-inset-bottom));z-index:99999;display:flex;align-items:center;' +
+      'padding:3px;border-radius:999px;background:rgba(29,29,31,.74);box-shadow:0 6px 18px -8px rgba(0,0,0,.5);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)');
+    Array.prototype.forEach.call(bar.querySelectorAll('a'), function (a) {
+      a.setAttribute('style', 'display:flex;align-items:center;gap:5px;padding:6px 11px;border-radius:999px;color:#f5f5f7;' +
+        'font:600 12px/1 -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif;text-decoration:none;white-space:nowrap');
+    });
+    bar.querySelector('i').setAttribute('style', 'width:1px;height:14px;background:rgba(255,255,255,.25)');
+    document.body.appendChild(bar);
   }
+
 
   async function logout() {
     var m = me();

@@ -21,6 +21,7 @@ body{background:var(--paper);letter-spacing:-.01em;word-break:keep-all}
 .btn{border-radius:99px;background:#0071e3}
 .btn.sec{border-radius:99px}
 .fld input{border-radius:12px}
+.back{display:inline-block;font-size:13.5px;color:#0066cc;text-decoration:none;margin:-14px 0 18px}
 .home{max-width:980px;margin:0 auto;padding:22px 20px 70px}
 .top{display:flex;align-items:center;gap:12px;margin-bottom:34px}
 .top .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none}
@@ -59,6 +60,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 <div id="v-boot" class="gate"><div class="brand"><div class="e">PIF Learning Hub</div><div class="b">불러오는 중…</div></div></div>
 
 <div id="v-login" class="gate" hidden>
+  <a class="back" href="/">‹ 처음 화면으로</a>
   <div class="brand"><div class="e">PIF Learning Hub</div><div class="b">학습 시작하기</div><div class="k">어휘는 뿌리로, 구문은 지도로.</div></div>
   <div class="gcard">
     <h2>학생 로그인</h2>
@@ -76,6 +78,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 </div>
 
 <div id="v-pending" class="gate" hidden>
+  <a class="back" href="/">‹ 처음 화면으로</a>
   <div class="brand"><div class="e">PIF Learning Hub</div><div class="b">승인 대기 중</div></div>
   <div class="gcard"><div class="wait">
     <div class="ic">⏳</div>
