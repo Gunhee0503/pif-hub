@@ -172,10 +172,10 @@ let EDITION = 'beacon', OPEN = null;
 const LOCKED_Q = new URLSearchParams(location.search).get('locked');
 
 const CARDS = [
-  { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', desc:'접두사와 어미의 이미지로 처음 보는 단어를 추리합니다. 어휘 추리 → 단어 브릿지 → 예문 빈칸.', unit:'강 완료' },
-  { id:'essential',   lv:'STEP 02 · 어근', c:'#b07a22', desc:'어근과 접두사의 조합으로 단어를 이해합니다. 어원 트리 → 의미 분류 → 실전 3 Part.', unit:'강 완료' },
-  { id:'spectrum',    lv:'STEP 03 · 소리', c:'#7a4fa3', desc:'소리의 변화(P ↔ F)로 게르만어·라틴어 단어 가족을 잇습니다.', unit:'강 통과' },
-  { id:'matching',    lv:'부록 · APPENDIX', c:'#d2416b', desc:'1:1 암기가 지문에서 배신하는 다의어 100개. 의미 구별 → 문맥 이해 → 핵심 이미지, AI 코칭.', unit:'회차 완료', tag:'NEW' }
+  { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', desc:'영어 어휘의 뿌리를 이해하는 첫 단계. 가장 필수적인 어원으로 단어의 구조를 분석하고 의미를 스스로 추론합니다.', unit:'강 완료' },
+  { id:'essential',   lv:'STEP 02 · 핵심', c:'#b07a22', desc:'어원을 활용해 어휘 추론력을 확장하는 핵심 단계. 가성비 높은 핵심 어원으로 단어를 나누고 쪼개고 다시 조합합니다.', unit:'강 완료' },
+  { id:'spectrum',    lv:'STEP 03 · 심화', c:'#7a4fa3', desc:'의미의 깊이와 차이를 이해하는 심화 단계. 게르만어·라틴어 대응과 동족어로 뉘앙스·강도·격식의 차이까지 익힙니다.', unit:'강 통과' },
+  { id:'matching',    lv:'부록 · APPENDIX', c:'#d2416b', desc:'암기한 뜻이 통하지 않는 순간, 진짜 어휘력이 시작됩니다. 핵심 다의어 100개를 핵심 이미지(Core Image)로 꿰뚫는 실전 훈련, AI 코칭.', unit:'회차 완료', tag:'NEW' }
 ];
 
 async function enter(st){
