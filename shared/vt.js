@@ -16,6 +16,13 @@
   };
   var LS = (function () { try { var k = '__vt'; localStorage.setItem(k, 1); localStorage.removeItem(k); return localStorage; } catch (e) { return null; } })();
   var rawSet = LS ? Storage.prototype.setItem : null;
+  /* 이전 주소(voca-tree-*.vercel.app)에서 넘어온 기기 기록: #vtimport=<base64 JSON> */
+  (function () {
+    var h = location.hash || '';
+    if (h.indexOf('#vtimport=') !== 0) return;
+    try { sessionStorage.setItem('vt_import', h.slice(10)); } catch (e) {}
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+  })();
   var rawRemove = LS ? Storage.prototype.removeItem : null;
 
   var sb = (window.supabase && window.supabase.createClient)
@@ -153,6 +160,34 @@
     });
     return changed;
   }
+  function fundUserKey(m) {
+    var z = function (x) { return String(x || '').replace(/[\s:|]/g, '_'); };
+    return z(m.name) + '|' + z(m.class_name) + '|' + z(m.class_code) + '|' + z(String(m.sid).slice(0, 4));
+  }
+  /* 넘어온 기록을 이 학생의 localStorage에 합침. 바뀐 코스 목록을 돌려줌 */
+  function applyImport() {
+    var raw; try { raw = sessionStorage.getItem('vt_import'); } catch (e) {}
+    if (!raw || !LS) return [];
+    var m = me(); if (!m) return [];
+    var data; try { data = JSON.parse(decodeURIComponent(escape(atob(decodeURIComponent(raw))))); } catch (e) { data = null; }
+    try { sessionStorage.removeItem('vt_import'); } catch (e) {}
+    if (!data || typeof data !== 'object') return [];
+    var touched = {};
+    Object.keys(data).forEach(function (k) {
+      var key = k;
+      if (k.indexOf('vocaTreeLessonScores::') === 0 || k.indexOf('vocaTreeTotalLearningTime::') === 0) {
+        var parts = k.split('::'), who = (parts[1] || '').split('|')[0];
+        if (who !== String(m.name).replace(/[\s:|]/g, '_')) return;      // 같은 기기를 쓴 다른 학생 기록은 가져오지 않음
+        key = parts[0] + '::' + fundUserKey(m);
+      }
+      var course = null;
+      Object.keys(COURSES).forEach(function (c) { if (COURSES[c].prefixes.some(function (p) { return key.indexOf(p) === 0; })) course = c; });
+      if (!course || course === 'matching') return;
+      var local = LS.getItem(key), merged = local == null ? data[k] : serial(mergeVal(parse(local), parse(data[k])));
+      if (merged !== local) { try { rawSet.call(LS, key, merged); touched[course] = 1; } catch (e) {} }
+    });
+    return Object.keys(touched);
+  }
   var syncTimers = {};
   function pushState(course) {
     var c = COURSES[course]; if (!c || !me()) return Promise.resolve();
@@ -190,6 +225,8 @@
         if (course && !allowed(course)) { location.replace('/learn/?locked=' + course); return; }
         if (course && COURSES[course].prefixes[0] !== 'vtm_') {
           var changed = await pull([course]);
+          var imp = applyImport();
+          if (imp.length) { await Promise.all(imp.map(function (c) { return pushState(c); })); if (imp.indexOf(course) >= 0) changed = true; }
           var flag = 'vt_reloaded_' + course;
           if (changed && !sessionStorage.getItem(flag)) { sessionStorage.setItem(flag, '1'); location.reload(); return; }
           sessionStorage.removeItem(flag);
@@ -238,7 +275,7 @@
 
   var VT = window.VT = {
     sb: sb, COURSES: COURSES, me: me, setMe: setMe, status: status, requestAccess: requestAccess, errText: errText,
-    access: access, allowed: allowed, save: save, load: load, appendAttempt: appendAttempt, pull: pull, pushState: pushState, clearPrefixes: clearPrefixes,
+    access: access, allowed: allowed, applyImport: applyImport, save: save, load: load, appendAttempt: appendAttempt, pull: pull, pushState: pushState, clearPrefixes: clearPrefixes,
     gate: gate, logout: logout, ai: ai, summarize: {}
   };
 
