@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>어휘 매칭 훈련 · Word Matching Practice | 보카트리</title>
+<meta name="theme-color" content="#b5485f">
+<link rel="icon" href="/essential/icons/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Gowun+Batang:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/vt.css">
+<script src="/shared/supabase.js"></script>
+<script src="/shared/vt.js"></script>
+<script>VT.gate('matching');</script>
+<script src="data.js"></script>
+<style>
+:root{--acc:var(--rose);--acc-soft:var(--rose-soft)}
+.wrap{max-width:760px;margin:0 auto;padding:22px 16px 90px}
+.hd .e{font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--acc)}
+.hd h1{font:600 34px/1.02 var(--disp);margin:8px 0 4px;letter-spacing:-.01em}
+.hd .k{font:700 15px/1.4 var(--serif);color:var(--ink2)}
+.intro{margin:18px 0 22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.intro h2{font:700 19px/1.4 var(--serif);margin:0 0 6px;color:var(--acc)}
+.intro p{font:400 14px/1.75 var(--serif);color:var(--ink2);margin:0 0 12px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.steps div{background:var(--paper);border-radius:12px;padding:10px;font-size:12px;line-height:1.5;color:var(--ink2)}
+.steps b{display:block;font:700 11px/1 var(--mono);color:var(--acc);margin-bottom:5px;letter-spacing:.06em}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.sc{position:relative;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--ink)}
+.sc:hover{border-color:var(--acc)}
+.sc .n{font:700 11px/1 var(--mono);letter-spacing:.12em;color:var(--acc)}
+.sc .w{font:500 15px/1.45 var(--disp);margin:7px 0 9px}
+.sc .st{font-size:12px;color:var(--ink2)}
+.sc .st b{color:var(--ink)}
+.sc.done{background:linear-gradient(180deg,#fff,var(--acc-soft))}
+.sc .pill{position:absolute;top:11px;right:11px;font:700 10px/1 var(--mono);padding:4px 7px;border-radius:99px;background:var(--paper2);color:var(--ink2)}
+.sc.done .pill{background:var(--acc);color:#fff}
+.sc.go .pill{background:var(--gold);color:#fff}
+
+/* session */
+.bar2{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.bar2 button{background:none;border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:12.5px;color:var(--ink2)}
+.bar2 .t{flex:1;font:700 12px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.dots{display:flex;gap:5px;margin-bottom:14px}
+.dots span{flex:1;height:6px;border-radius:99px;background:var(--paper2);position:relative;overflow:hidden}
+.dots span i{position:absolute;inset:0;width:0;background:var(--acc);border-radius:99px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.whead{background:var(--acc);color:#fff;padding:13px 18px;display:flex;align-items:baseline;gap:10px}
+.whead .no{font:700 13px/1 var(--mono);opacity:.85}
+.whead h2{font:600 24px/1.1 var(--disp);margin:0;letter-spacing:.02em}
+.whead .ph{margin-left:auto;font:700 11px/1 var(--mono);letter-spacing:.1em;opacity:.9}
+.blk{padding:16px 18px;border-top:1px solid var(--paper2)}
+.whead+.blk{border-top:0}
+.lab{font:700 11.5px/1 var(--mono);letter-spacing:.12em;color:var(--acc);margin-bottom:8px}
+.lab small{font-family:var(--sans);letter-spacing:0;color:var(--ink2);font-weight:500;margin-left:6px}
+.q{font-size:13.5px;color:var(--ink2);line-height:1.6;margin:-2px 0 10px}
+.sent{font:500 18px/1.6 var(--disp);background:#fffaf0;border:1px solid #efe1c2;border-radius:12px;padding:12px 14px}
+u.tg,.ex u{text-decoration:none;border-bottom:2.5px solid var(--acc);font-weight:600}
+textarea,.inp{width:100%;border:1px solid var(--line);border-radius:11px;background:#fff;padding:11px 12px;font-size:15px;line-height:1.55;resize:vertical}
+textarea[readonly],.inp[readonly]{background:var(--paper);color:var(--ink)}
+.pos{display:flex;flex-wrap:wrap;gap:6px}
+.pos button,.opt{border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 12px;font-size:14px;color:var(--ink)}
+.pos button.on{border-color:var(--acc);background:var(--acc-soft);font-weight:700}
+.pos button.ok,.opt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.pos button.bad,.opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:grid;grid-template-columns:28px 1fr;gap:4px 10px;text-align:left;padding:11px 12px;width:100%}
+.opt .c{grid-row:span 3;font:700 18px/1 var(--disp);color:var(--acc);padding-top:1px}
+.opt .pt{font:700 12.5px/1.3 var(--mono);color:var(--prism)}
+.opt .df{font-size:14.5px;line-height:1.45}
+.opt .ex{font:italic 400 13.5px/1.45 var(--disp);color:var(--ink2)}
+.opt.on{border-color:var(--acc);background:var(--acc-soft);box-shadow:0 0 0 1px var(--acc)}
+.opt:disabled{cursor:default}
+.go{display:flex;gap:8px;margin-top:14px}
+.go .btn{flex:1}
+.btn.acc{background:var(--acc)}
+.fb{border-radius:12px;padding:11px 13px;font-size:14px;line-height:1.6;margin-top:10px}
+.fb.ok{background:var(--ok-soft);border:1px solid #c9dcc3}
+.fb.bad{background:var(--bad-soft);border:1px solid #ecc9c1}
+.fb.info{background:#fffaf0;border:1px solid #efe1c2}
+.fb.ai{background:#f3eef7;border:1px solid #ddd0e8}
+.fb b.h{display:block;font:700 11px/1 var(--mono);letter-spacing:.1em;margin-bottom:6px;color:var(--ink2)}
+.fb ul{margin:6px 0 0;padding-left:18px}
+.fb li{margin:3px 0}
+.ld{display:inline-block;width:13px;height:13px;border:2px solid #cbb9d8;border-top-color:var(--prism);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.s2i{padding:11px 0;border-bottom:1px dashed var(--paper2)}
+.s2i:last-child{border-bottom:0}
+.s2i .en{font:500 15.5px/1.5 var(--disp);margin-bottom:6px}
+.s2i .ko{font-size:14.5px;line-height:2;display:flex;flex-wrap:wrap;align-items:center;gap:2px}
+.s2i .ko input{width:9em;border:0;border-bottom:2px solid var(--acc);background:var(--acc-soft);border-radius:6px 6px 0 0;padding:3px 7px;font-size:15px;text-align:center}
+.s2i .ko input[readonly]{background:var(--paper)}
+.s2i .r{font-size:13px;margin-top:4px;line-height:1.5}
+.s2i .r .ok{color:var(--ok);font-weight:700} .s2i .r .bad{color:var(--bad);font-weight:700}
+.selfj{display:inline-flex;gap:4px;margin-left:6px}
+.selfj button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:3px 9px;font-size:12px}
+.selfj button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.ref{font-size:13px;line-height:1.6;color:var(--ink2);background:var(--paper);border-radius:12px;padding:10px 12px;margin-bottom:10px}
+.ref div{display:flex;gap:6px}
+.ref .c{color:var(--acc);font-weight:700}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:8px}
+.chain span{background:#fff;border:1px solid var(--acc);color:var(--ink);border-radius:99px;padding:5px 11px;font-size:13px;opacity:0;transform:translateY(4px);animation:in .4s forwards}
+.chain em{color:var(--acc);font-style:normal;opacity:0;animation:in .4s forwards}
+@keyframes in{to{opacity:1;transform:none}}
+.core{font:700 17px/1.55 var(--serif);color:var(--ink);margin-top:4px}
+.score{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.score div{background:var(--paper);border-radius:12px;padding:10px 4px}
+.score small{display:block;font:700 10.5px/1 var(--mono);color:var(--ink2);letter-spacing:.08em;margin-bottom:6px}
+.score b{font:600 22px/1 var(--disp)}
+.score .tot{background:var(--acc);color:#fff}.score .tot small{color:#fff;opacity:.85}
+.exl{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+.exl label{display:flex;gap:8px;align-items:flex-start;font-size:13.5px;line-height:1.5;background:#fff;border:1px solid var(--line);border-radius:10px;padding:8px 10px}
+.exl .y{color:var(--ok);font-weight:700}.exl .n{color:var(--bad);font-weight:700}
+table.res{width:100%;border-collapse:collapse;font-size:14px}
+table.res th,table.res td{padding:9px 6px;border-bottom:1px solid var(--paper2);text-align:center}
+table.res th{font:700 11px/1 var(--mono);color:var(--ink2);letter-spacing:.06em}
+table.res td:nth-child(2){text-align:left;font:500 16px/1.2 var(--disp)}
+table.res tr.cl{cursor:pointer} table.res tr.cl:hover{background:var(--paper)}
+.big{font:600 54px/1 var(--disp);color:var(--acc);text-align:center;margin:6px 0 2px}
+.big small{font-size:22px;color:var(--ink2)}
+.toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:.92}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+'use strict';
+const W = window.WMP, BY = {}; W.forEach(w => BY[w.id] = w);
+const CIRC = '①②③④⑤⑥⑦⑧';
+const POS = ['동사','형용사','부사','명사'];
+const POS_EN = {동사:'Verb',형용사:'Adjective',부사:'Adverb',명사:'Noun'};
+const $app = document.getElementById('app');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2,'0');
+const uid = s => 's' + pad(s);
+let AI_OFF = false;           // 서버에 API 키가 없으면 자기채점 모드
+let S = {};                   // session states by number
+let cur = null;               // {s, wi} current session & word index
+
+function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>el.classList.remove('on'), 2200); }
+
+/* ---------- 저장 ---------- */
+function blank(s){ return { words:{}, wi:0, startedAt:Date.now(), finishedAt:null, total:null, history:[], savedAt:0 }; }
+function sess(s){ return S[s] || (S[s] = blank(s)); }
+function wstate(s, id){ const x = sess(s); return x.words[id] || (x.words[id] = { phase:'intro' }); }
+const pending = {};
+function persist(s){
+  const x = sess(s); x.savedAt = Date.now();
+  try { localStorage.setItem('vtm_' + uid(s), JSON.stringify(x)); } catch(e){}
+  clearTimeout(pending[s]); pending[s] = setTimeout(() => push(s), 600);
+}
+async function push(s){
+  const x = sess(s); pending[s] = null;
+  try { await VT.save('matching', uid(s), x, { score: x.total, max: x.total == null ? null : 100, completed: x.finishedAt != null }); }
+  catch(e){ pending[s] = setTimeout(() => push(s), 15000); }
+}
+function flushAll(){ Object.keys(pending).forEach(s => { if (pending[s]) { clearTimeout(pending[s]); push(Number(s)); } }); }
+addEventListener('pagehide', flushAll);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushAll(); });
+
+async function loadAll(){
+  for (let s = 1; s <= 20; s++) { try { const v = JSON.parse(localStorage.getItem('vtm_' + uid(s)) || 'null'); if (v) S[s] = v; } catch(e){} }
+  try {
+    const rows = await VT.load('matching');
+    rows.forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (!m || !r.data) return; const s = Number(m[1]);
+      if (!S[s] || (r.data.savedAt || 0) > (S[s].savedAt || 0)) { S[s] = r.data; try { localStorage.setItem('vtm_' + uid(s), JSON.stringify(r.data)); } catch(e){} }
+      else if ((S[s].savedAt || 0) > (r.data.savedAt || 0)) push(s);
+    });
+  } catch(e){}
+}
+
+/* ---------- 채점 도구 ---------- */
+const norm = t => String(t||'').replace(/[\s.,!?·~'"“”‘’…]/g,'').toLowerCase();
+function variants(ans){
+  const out = new Set();
+  String(ans).split('/').forEach(v => { v = v.trim(); if (!v) return;
+    out.add(norm(v)); out.add(norm(v.replace(/\([^)]*\)/g,''))); out.add(norm(v.replace(/[()]/g,''))); });
+  out.delete(''); return [...out];
+}
+function autoOk(input, ans){ const n = norm(input); if (!n) return false; return variants(ans).some(v => n === v || (v.length >= 2 && n.includes(v))); }
+function s2Score(w, nCorrect){ const t = w.score_table; return Number(t[nCorrect] != null ? t[nCorrect] : t[String(nCorrect)] || 0); }
+function mustNos(w){ return [...(w.must_check.match(/[①-⑧]/g) || [])].map(c => CIRC.indexOf(c) + 1); }
+function selfS3Score(w, explained){
+  const n = w.options.length, k = explained.length, must = mustNos(w);
+  const most = n >= 5 ? 4 : n >= 4 ? 3 : n;
+  if (k >= most && must.every(m => explained.includes(m))) return 6;
+  if (k >= Math.max(2, Math.floor(n/2))) return 4;
+  if (k >= 1) return 2;
+  return 0;
+}
+function stemRe(w){
+  const b = w.word.toLowerCase(), stem = b.slice(0, Math.max(3, b.length - 2));
+  const irr = {bear:'bore|borne|born',hold:'held',draw:'drew|drawn',strike:'struck|stricken',run:'ran',stand:'stood',spare:'spared'}[b];
+  return new RegExp('\\b(' + stem.replace(/[-]/g,'\\-') + "[a-z]*" + (irr ? '|' + irr : '') + ')\\b', 'i');
+}
+const hl = (text, w) => esc(text).replace(stemRe(w), '<u>$1</u>');
+function hlTarget(w){ const s = esc(w.sentence), t = esc(w.target); const re = new RegExp('\\b' + t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b'); return s.replace(re, '<u class="tg">' + t + '</u>'); }
+function wordTotal(st){ return (st.s1Pts||0) + (st.s2Pts||0) + (st.s3Pts||0); }
+
+/* ---------- AI ---------- */
+async function askAI(payload){
+  if (AI_OFF) throw Object.assign(new Error('NO_KEY'), { code:'NO_KEY' });
+  try { return await VT.ai(payload); }
+  catch(e){ if (e.code === 'NO_KEY') AI_OFF = true; throw e; }
+}
+function aiErrText(e){
+  if (e.code === 'NO_KEY') return 'AI 피드백이 아직 켜지지 않았어요. 스스로 채점해 주세요.';
+  if (e.code === 'DAILY_LIMIT') return '오늘 AI 피드백 사용량을 다 썼어요. 내일 다시 받을 수 있어요.';
+  if (e.code === 'NOT_APPROVED') return '로그인 정보를 확인할 수 없어요. 홈에서 다시 들어와 주세요.';
+  return 'AI 피드백을 불러오지 못했어요.';
+}
+
+/* ---------- 목록 ---------- */
+function renderList(){
+  cur = null;
+  const done = Object.values(S).filter(x => x && x.finishedAt).length;
+  let html = `<div class="hd"><div class="e">WORD MATCHING PRACTICE</div><h1>어휘 매칭 훈련</h1>
+    <div class="k">영어-한글 1:1로 외운 뜻이 지문에서 배신하는 단어 100</div></div>
+    <div class="intro"><h2>기억하려 애쓰기보다, 기억할 이유를 만듭니다.</h2>
+    <p>단어 하나에 우리말 뜻 하나를 붙여 외우면, 지문에서 그 뜻이 맞지 않을 때 무너집니다. 여기서는 문형과 문맥으로 뜻을 <b>구별</b>하고, 여러 뜻을 꿰뚫는 <b>하나의 이미지</b>를 스스로 찾습니다.</p>
+    <div class="steps"><div><b>STEP 1 · 4점</b>밑줄 단어와 같은 뜻의 영영정의·예문 고르기</div><div><b>STEP 2 · 10점</b>각 예문의 뜻을 우리말로 완성하기</div><div><b>STEP 3 · 6점</b>여러 뜻을 관통하는 핵심 이미지 쓰기 + AI 피드백</div></div></div>
+    <div class="lab" style="margin-bottom:10px">20회차 · 완료 ${done}/20</div><div class="sgrid">`;
+  for (let s = 1; s <= 20; s++) {
+    const ws = W.filter(w => w.session === s), x = S[s];
+    const nDone = x ? ws.filter(w => x.words[w.id] && x.words[w.id].phase === 'done').length : 0;
+    const cls = x && x.finishedAt ? 'done' : nDone ? 'go' : '';
+    const pill = x && x.finishedAt ? x.total + '점' : nDone ? nDone + '/5' : 'START';
+    html += `<button class="sc ${cls}" data-s="${s}"><span class="pill">${pill}</span><div class="n">${pad(s)}회차</div>
+      <div class="w">${ws.map(w => esc(w.word)).join(' · ')}</div>
+      <div class="st">${x && x.finishedAt ? '완료 · <b>' + x.total + '</b> / 100' : nDone ? '진행 중' : '단어 ' + ws[0].id + '–' + ws[4].id}</div></button>`;
+  }
+  $app.innerHTML = html + '</div>';
+  $app.querySelectorAll('.sc').forEach(b => b.onclick = () => openSession(Number(b.dataset.s)));
+  scrollTo(0,0);
+}
+
+function openSession(s){
+  const x = sess(s);
+  if (x.finishedAt) return renderResult(s);
+  const ws = W.filter(w => w.session === s);
+  let wi = ws.findIndex(w => !x.words[w.id] || x.words[w.id].phase !== 'done');
+  if (wi < 0) wi = 4;
+  cur = { s, wi }; renderWord();
+}
+
+/* ---------- 단어 화면 ---------- */
+const PH = ['intro','s1','s2','s3','done'];
+const PH_LABEL = { intro:'예문 제시', s1:'STEP 1 · 의미 구별', s2:'STEP 2 · 문맥 이해', s3:'STEP 3 · 핵심 이미지', done:'채점 결과' };
+function renderWord(){
+  const { s, wi } = cur, ws = W.filter(w => w.session === s), w = ws[wi], st = wstate(s, w.id);
+  const dots = ws.map((x, i) => { const p = (S[s].words[x.id] || {}).phase || 'intro'; const f = (PH.indexOf(p)) / 4; return `<span><i style="width:${Math.round(f*100)}%"></i></span>`; }).join('');
+  let html = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${pad(s)}회차 · ${wi+1}/5</div></div>
+    <div class="dots">${dots}</div>
+    <div class="card"><div class="whead"><span class="no">${pad(w.id)}.</span><h2>${esc(w.word.toUpperCase())}</h2><span class="ph">${PH_LABEL[st.phase]}</span></div>`;
+  html += secIntro(w, st);
+  if (PH.indexOf(st.phase) >= 1) html += secS1(w, st);
+  if (PH.indexOf(st.phase) >= 2) html += secS2(w, st);
+  if (PH.indexOf(st.phase) >= 3) html += secS3(w, st);
+  if (st.phase === 'done') html += secDone(w, st, wi);
+  $app.innerHTML = html + '</div>';
+  document.getElementById('bk').onclick = renderList;
+  bindWord(w, st);
+  if (st.introDone && !st.trAI && !st.trAIErr && !AI_OFF && !TR_INFLIGHT[w.id]) runTrAI(w, st);
+}
+const TR_INFLIGHT = {};
+
+function secIntro(w, st){
+  const locked = !!st.introDone, ans = w.pos.replace(/\(.*$/,'').trim();
+  let h = `<div class="blk"><div class="lab">예문 제시</div><div class="sent">${hlTarget(w)}</div>
+    <div class="lab" style="margin-top:14px">① 해석 <small>제시된 예문을 스스로 우리말로 해석하세요</small></div>
+    <textarea id="tr" rows="2" ${locked?'readonly':''} placeholder="밑줄 친 단어가 이 문장에서 무슨 뜻인지 생각하며 해석해 보세요">${esc(st.tr||'')}</textarea>
+    <div class="lab" style="margin-top:12px">② 품사 <small>문장 구조를 보고 밑줄 친 단어의 품사를 고르세요</small></div>
+    <div class="pos">${POS.map(p => { let c = st.pos === p ? 'on' : ''; if (locked) c = p === ans ? 'ok' : (st.pos === p ? 'bad' : ''); return `<button data-p="${p}" class="${c}" ${locked?'disabled':''}>${p} ${POS_EN[p]}</button>`; }).join('')}</div>`;
+  if (!locked) h += `<div class="go"><button class="btn acc" id="introGo">제출하고 STEP 1로</button></div>`;
+  else {
+    h += `<div class="fb ${st.pos === ans ? 'ok' : 'bad'}">${st.pos === ans ? '품사 정답!' : `품사는 <b>${esc(w.pos)}</b>예요.`}<br><b>모범 해석</b> ${esc(w.translation)}</div>`;
+    h += aiBox('tr', st.trAI, st.trAIErr);
+  }
+  return h + '</div>';
+}
+function aiBox(key, fb, err){
+  if (fb) {
+    if (key === 'tr') { const v = {good:'잘 옮겼어요', partial:'거의 맞아요', miss:'다시 볼 곳이 있어요'}[fb.verdict] || 'AI 코멘트';
+      return `<div class="fb ai"><b class="h">AI 코치 · ${v}</b>${esc(fb.comment)}${fb.tip ? '<br><span style="color:var(--ink2)">👉 ' + esc(fb.tip) + '</span>' : ''}</div>`; }
+  }
+  if (err) return `<div class="fb ai"><b class="h">AI 코치</b>${esc(err)} ${AI_OFF ? '' : `<button class="lnk" style="display:inline;margin:0" data-retry="${key}">다시 시도</button>`}</div>`;
+  if (key === 'tr' && !AI_OFF) return `<div class="fb ai" id="trAIbox"><span class="ld"></span>AI 코치가 해석을 읽고 있어요…</div>`;
+  return '';
+}
+
+function secS1(w, st){
+  const locked = st.s1 != null && st.s1Checked;
+  let h = `<div class="blk"><div class="lab">STEP 1. 의미 구별 <small>밑줄 친 단어가 문장에서 쓰인 의미와 일치하는 영영정의와 예문의 쌍을 고르세요</small></div><div class="opts">`;
+  w.options.forEach((o, i) => { const n = i + 1; let c = st.s1 === n ? 'on' : '';
+    if (locked) c = n === w.answer ? 'ok' : (st.s1 === n ? 'bad' : '');
+    h += `<button class="opt ${c}" data-o="${n}" ${locked?'disabled':''}><span class="c">${CIRC[i]}</span><span class="pt">${esc(o.pattern)}</span><span class="df">${esc(o.definition)}</span><span class="ex">${hl(o.example, w)}</span></button>`; });
+  h += '</div>';
+  if (!locked) h += `<div class="go"><button class="btn acc" id="s1Go" ${st.s1 ? '' : 'disabled'}>정답 확인</button></div>`;
+  else {
+    const ok = st.s1 === w.answer;
+    h += `<div class="fb ${ok?'ok':'bad'}"><b class="h">${ok ? '정답 · 4점' : '오답 · 0점 — 정답 ' + CIRC[w.answer-1]}</b><b>결정적 단서</b> — ${esc(w.clue)}`;
+    if (w.why_not.length) h += '<ul>' + w.why_not.map(x => `<li><b>${CIRC[x.no-1]}이 아닌 이유</b> — ${esc(x.text)}</li>`).join('') + '</ul>';
+    h += '</div>';
+    if (st.phase === 's1') h += `<div class="go"><button class="btn" id="toS2">STEP 2로</button></div>`;
+  }
+  return h + '</div>';
+}
+
+function secS2(w, st){
+  const locked = !!st.s2Res, n = w.step2.length;
+  let h = `<div class="blk"><div class="lab">STEP 2. 문맥 이해 <small>사전적 정의에 유의하여 각 예문 속 ${esc(w.word.toLowerCase())}의 의미를 우리말로 완성하세요</small></div>`;
+  w.step2.forEach((it, i) => {
+    const parts = esc(it.ko).split(/_{3,}/);
+    const val = (st.s2 || [])[i] || '';
+    const input = `<input class="s2in" data-i="${i}" value="${esc(val)}" ${locked?'readonly':''} autocomplete="off" aria-label="${i+1}번 빈칸">`;
+    h += `<div class="s2i"><div class="en">${CIRC[i]} ${hl(it.en, w)}</div><div class="ko">→ ${parts[0]}${input}${parts.slice(1).join('')}</div>`;
+    if (locked) {
+      const r = st.s2Res[i] || {};
+      if (r.correct == null) h += `<div class="r">모범 답: <b>${esc(w.step2_answers[i])}</b> <span class="selfj" data-i="${i}"><button data-v="1">맞음</button><button data-v="0">틀림</button></span></div>`;
+      else h += `<div class="r"><span class="${r.correct?'ok':'bad'}">${r.correct?'○':'✕'}</span> 모범 답: <b>${esc(w.step2_answers[i])}</b>${r.by === 'ai' ? ' <span style="color:var(--prism)">· AI 판정</span>' : r.by === 'self' ? ' · 자기 채점' : ''}${r.comment ? '<br><span style="color:var(--ink2)">' + esc(r.comment) + '</span>' : ''}</div>`;
+    }
+    h += '</div>';
+  });
+  if (!locked) h += `<div class="go"><button class="btn acc" id="s2Go">채점하기</button></div>`;
+  else if (st.s2Judging) h += `<div class="fb ai"><span class="ld"></span>AI 코치가 자동 판정되지 않은 답을 확인하고 있어요…</div>`;
+  else {
+    const pend = st.s2Res.filter(r => r.correct == null).length;
+    if (pend) h += `<div class="fb info">${st.s2AIErr ? esc(st.s2AIErr) + '<br>' : ''}모범 답과 비교해서 <b>뜻이 같으면 '맞음'</b>을 눌러 주세요. (${pend}개 남음)</div>`;
+    else {
+      const k = st.s2Res.filter(r => r.correct).length;
+      h += `<div class="fb ${k === n ? 'ok' : 'info'}"><b class="h">STEP 2 · ${k}/${n}문항 → ${st.s2Pts}점 / 10</b>환산표 (예문 ${n}개): ${Object.keys(w.score_table).sort((a,b)=>b-a).map(c => c + '개→' + w.score_table[c] + '점').join(' · ')}</div>`;
+      if (st.phase === 's2') h += `<div class="go"><button class="btn" id="toS3">STEP 3로</button></div>`;
+    }
+  }
+  return h + '</div>';
+}
+
+function secS3(w, st){
+  const tries = st.s3Tries || [];
+  const final = st.s3Final;
+  let h = `<div class="blk"><div class="lab">STEP 3. 핵심 의미(이미지) 발견 <small>위 예문들의 다양한 의미에 공통으로 담긴 핵심 이미지를 한 문장으로</small></div>
+    <div class="ref">${w.options.map((o,i) => `<div><span class="c">${CIRC[i]}</span><span>${esc(w.step2_answers[i])} — <i>${esc(o.example)}</i></span></div>`).join('')}</div>`;
+  tries.forEach((t, k) => {
+    h += `<textarea rows="2" readonly>${esc(t.text)}</textarea>`;
+    if (t.ai) h += `<div class="fb ai"><b class="h">AI 코치 · ${k === 0 && tries.length > 1 ? '첫 시도 ' : ''}${t.ai.score}점 / 6</b>${esc(t.ai.feedback)}
+      <div class="exl">${w.options.map((o,i) => `<label><span class="${t.ai.explained.includes(i+1)?'y':'n'}">${t.ai.explained.includes(i+1)?'○':'✕'}</span><span>${CIRC[i]} ${esc(w.step2_answers[i])}</span></label>`).join('')}</div>
+      ${!final && t.ai.hint ? '<div style="margin-top:8px">💡 ' + esc(t.ai.hint) + '</div>' : ''}</div>`;
+    else if (t.err && !final) h += `<div class="fb ai">${esc(t.err)}</div>`;
+  });
+  if (st.s3Judging) h += `<div class="fb ai"><span class="ld"></span>AI 코치가 ①~${CIRC[w.options.length-1]}에 내 문장을 하나씩 넣어 보고 있어요…</div>`;
+  if (!final && !st.s3Judging && !st.s3Self) {
+    const last = tries[tries.length - 1];
+    if (!last) h += `<textarea id="s3" rows="3" placeholder="예) ○○를 △△하는 것">${esc(st.s3Draft||'')}</textarea><div class="go"><button class="btn acc" id="s3Go">${AI_OFF ? '제출하고 모범답안 보기' : 'AI 피드백 받기'}</button></div>`;
+    else if (last.ai && last.ai.score < 6 && tries.length < 2) h += `<div class="lab" style="margin-top:12px">한 번 더 고쳐 쓰기 <small>힌트를 보고 다듬으면 고친 문장으로 채점해요 (1회)</small></div>
+      <textarea id="s3" rows="3">${esc(st.s3Draft || last.text)}</textarea><div class="go"><button class="btn acc" id="s3Go">다시 피드백 받기</button><button class="btn sec" id="s3Fin" style="margin-top:0">이대로 확정</button></div>`;
+    else if (last.ai) h += `<div class="go"><button class="btn" id="s3Fin">모범답안 확인하고 확정</button></div>`;
+    else h += `<div class="go"><button class="btn sec" id="s3Retry" style="margin-top:0">AI 다시 시도</button><button class="btn" id="s3Self">스스로 채점하기</button></div>`;
+  }
+  if (final || st.s3Self) {
+    h += `<div class="fb info"><b class="h">모범답안</b><div class="core">${esc(w.core_image)}</div>
+      <div class="chain">${w.path.map((p,i) => (i ? `<em style="animation-delay:${i*.35-.15}s">→</em>` : '') + `<span style="animation-delay:${i*.35}s">${esc(p)}</span>`).join('')}</div>
+      <div style="margin-top:10px"><b>반드시 확인할 것</b> — ${esc(w.must_check)}</div></div>`;
+  }
+  if (st.s3Self && !final) {
+    const ex = st.s3SelfEx || [];
+    h += `<div class="fb info"><b class="h">자기 채점</b>내가 쓴 문장을 각 예문에 넣어 보고, 설명되는 것을 모두 체크하세요.
+      <div class="exl">${w.options.map((o,i) => `<label><input type="checkbox" class="sx" value="${i+1}" ${ex.includes(i+1)?'checked':''}><span>${CIRC[i]} ${esc(w.step2_answers[i])}</span></label>`).join('')}</div></div>
+      <div class="go"><button class="btn acc" id="s3SelfGo">채점 확정</button></div>`;
+  }
+  if (final) h += `<div class="fb ${st.s3Pts === 6 ? 'ok' : 'info'}"><b class="h">STEP 3 · ${st.s3Pts}점 / 6</b>6점 예문 대부분 설명 · 4점 절반 정도 · 2점 한 가지 뜻만 · 0점 무관/미작성</div>`;
+  return h + '</div>';
+}
+
+function secDone(w, st, wi){
+  const last = wi === 4;
+  return `<div class="blk"><div class="lab">채점 결과</div><div class="score">
+    <div><small>STEP 1</small><b>${st.s1Pts}</b>/4</div><div><small>STEP 2</small><b>${st.s2Pts}</b>/10</div>
+    <div><small>STEP 3</small><b>${st.s3Pts}</b>/6</div><div class="tot"><small>합계</small><b>${wordTotal(st)}</b>/20</div></div>
+    <div class="go"><button class="btn acc" id="next">${last ? '회차 결과 보기' : '다음 단어 →'}</button></div></div>`;
+}
+
+/* ---------- 이벤트 ---------- */
+function bindWord(w, st){
+  const s = cur.s, rerender = () => { persist(s); renderWord(); };
+  const q = sel => $app.querySelector(sel), qa = sel => $app.querySelectorAll(sel);
+  // intro
+  const tr = q('#tr'); if (tr && !st.introDone) tr.oninput = () => { st.tr = tr.value; persist(s); };
+  qa('.pos button:not([disabled])').forEach(b => b.onclick = () => { st.pos = b.dataset.p; st.tr = tr ? tr.value : st.tr; rerender(); });
+  const ig = q('#introGo');
+  if (ig) ig.onclick = () => {
+    st.tr = tr.value.trim();
+    if (st.tr.length < 4) return toast('먼저 예문을 해석해 보세요.');
+    if (!st.pos) return toast('품사를 골라 주세요.');
+    st.introDone = true; st.phase = 's1'; rerender();
+  };
+  qa('[data-retry="tr"]').forEach(b => b.onclick = () => { st.trAIErr = null; renderWord(); });
+  // s1
+  qa('.opt:not([disabled])').forEach(b => b.onclick = () => { st.s1 = Number(b.dataset.o); rerender(); });
+  const s1 = q('#s1Go'); if (s1) s1.onclick = () => { st.s1Checked = true; st.s1Pts = st.s1 === w.answer ? 4 : 0; rerender(); };
+  const t2 = q('#toS2'); if (t2) t2.onclick = () => { st.phase = 's2'; rerender(); setTimeout(() => { const i = q('.s2in'); i && i.focus(); i && i.scrollIntoView({block:'center', behavior:'smooth'}); }, 50); };
+  // s2
+  qa('.s2in:not([readonly])').forEach(inp => inp.oninput = () => { st.s2 = st.s2 || []; st.s2[Number(inp.dataset.i)] = inp.value; persist(s); });
+  const s2 = q('#s2Go'); if (s2) s2.onclick = () => runS2(w, st, s);
+  qa('.selfj').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
+    const i = Number(g.dataset.i); st.s2Res[i] = { correct: b.dataset.v === '1', by:'self' }; finishS2(w, st); rerender(); }));
+  const t3 = q('#toS3'); if (t3) t3.onclick = () => { st.phase = 's3'; rerender(); setTimeout(() => { const i = q('#s3'); i && i.focus(); i && i.scrollIntoView({block:'center', behavior:'smooth'}); }, 50); };
+  // s3
+  const s3t = q('#s3'); if (s3t) s3t.oninput = () => { st.s3Draft = s3t.value; persist(s); };
+  const s3g = q('#s3Go'); if (s3g) s3g.onclick = () => {
+    const text = s3t.value.trim(); if (text.length < 4) return toast('핵심 이미지를 한 문장으로 써 보세요.');
+    if ((st.s3Tries||[]).length && text === st.s3Tries[st.s3Tries.length-1].text) return toast('문장을 고쳐서 다시 제출하세요. 그대로라면 "이대로 확정"을 누르세요.');
+    if (AI_OFF) { st.s3Tries = [{ text }]; st.s3Self = true; return rerender(); }
+    runS3(w, st, s, text);
+  };
+  const rt = q('#s3Retry'); if (rt) rt.onclick = () => { const t = st.s3Tries.pop(); runS3(w, st, s, t.text); };
+  const sf = q('#s3Self'); if (sf) sf.onclick = () => { st.s3Self = true; rerender(); };
+  qa('.sx').forEach(c => c.onchange = () => { st.s3SelfEx = [...qa('.sx')].filter(x => x.checked).map(x => Number(x.value)); persist(s); });
+  const sg = q('#s3SelfGo'); if (sg) sg.onclick = () => { st.s3Pts = selfS3Score(w, st.s3SelfEx || []); st.s3By = 'self'; st.s3Final = true; st.phase = 'done'; rerender(); };
+  const fin = q('#s3Fin'); if (fin) fin.onclick = () => { const last = st.s3Tries[st.s3Tries.length-1]; st.s3Pts = last.ai.score; st.s3By = 'ai'; st.s3Final = true; st.phase = 'done'; rerender(); };
+  // done
+  const nx = q('#next'); if (nx) nx.onclick = () => {
+    if (cur.wi < 4) { cur.wi++; S[s].wi = cur.wi; persist(s); renderWord(); scrollTo(0,0); }
+    else finishSession(s);
+  };
+}
+
+async function runTrAI(w, st){
+  const s = cur.s; TR_INFLIGHT[w.id] = true;
+  try { st.trAI = await askAI({ word_id: w.id, kind:'translation', answer: st.tr }); st.trAIErr = null; }
+  catch(e){ st.trAIErr = aiErrText(e); }
+  TR_INFLIGHT[w.id] = false; persist(s);
+  const box = document.getElementById('trAIbox');
+  if (box && cur && cur.s === s && W.filter(x => x.session === s)[cur.wi].id === w.id) {
+    const tmp = document.createElement('div'); tmp.innerHTML = aiBox('tr', st.trAI, st.trAIErr);
+    const el = tmp.firstElementChild;
+    if (el) { box.replaceWith(el); el.querySelectorAll('[data-retry="tr"]').forEach(b => b.onclick = () => { st.trAIErr = null; renderWord(); }); }
+    else box.remove();
+  }
+}
+
+async function runS2(w, st, s){
+  const n = w.step2.length; st.s2 = [...$app.querySelectorAll('.s2in')].map(i => i.value.trim());
+  const empty = st.s2.filter(v => !v).length;
+  if (empty && !confirm(`빈칸 ${empty}개가 남았어요. 빈칸은 오답 처리돼요. 채점할까요?`)) return;
+  st.s2Res = st.s2.map((v, i) => !v ? { correct:false, by:'auto' } : autoOk(v, w.step2_answers[i]) ? { correct:true, by:'auto' } : { correct:null });
+  const ask = st.s2Res.map((r, i) => r.correct == null ? { no: i+1, answer: st.s2[i] } : null).filter(Boolean);
+  if (ask.length && !AI_OFF) {
+    st.s2Judging = true; persist(s); renderWord();
+    try {
+      const fb = await askAI({ word_id: w.id, kind:'step2', items: ask });
+      (fb.items || []).forEach(it => { const i = it.no - 1; if (st.s2Res[i] && st.s2Res[i].correct == null) st.s2Res[i] = { correct: !!it.correct, by:'ai', comment: it.comment || '' }; });
+    } catch(e){ st.s2AIErr = aiErrText(e); }
+    st.s2Judging = false;
+  }
+  finishS2(w, st); persist(s); renderWord();
+}
+function finishS2(w, st){
+  if (st.s2Res.some(r => r.correct == null)) return;
+  st.s2Pts = s2Score(w, st.s2Res.filter(r => r.correct).length);
+}
+
+async function runS3(w, st, s, text){
+  st.s3Tries = st.s3Tries || []; st.s3Judging = true; st.s3Draft = text; persist(s); renderWord();
+  const t = { text };
+  try { t.ai = await askAI({ word_id: w.id, kind:'step3', answer: text }); }
+  catch(e){ t.err = aiErrText(e); }
+  st.s3Tries.push(t); st.s3Judging = false;
+  if (t.ai && (t.ai.score === 6 || st.s3Tries.length >= 2)) { st.s3Pts = t.ai.score; st.s3By = 'ai'; st.s3Final = true; st.phase = 'done'; }
+  if (t.err && AI_OFF) st.s3Self = true;
+  persist(s); renderWord();
+}
+
+function finishSession(s){
+  const x = sess(s), ws = W.filter(w => w.session === s);
+  x.total = ws.reduce((a, w) => a + wordTotal(x.words[w.id] || {}), 0);
+  x.finishedAt = Date.now();
+  x.history = (x.history || []).concat([{ total: x.total, at: x.finishedAt }]);
+  persist(s); push(s); renderResult(s);
+}
+
+/* ---------- 결과 ---------- */
+function renderResult(s){
+  cur = null;
+  const x = sess(s), ws = W.filter(w => w.session === s);
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${pad(s)}회차 결과</div></div>
+    <div class="card"><div class="blk"><div class="big">${x.total}<small> / 100</small></div>
+    <div style="text-align:center;color:var(--ink2);font-size:13px">${new Date(x.finishedAt).toLocaleDateString('ko-KR')} 완료${x.history && x.history.length > 1 ? ' · ' + x.history.length + '번째 응시' : ''}</div></div>
+    <div class="blk"><table class="res"><tr><th>번호</th><th>단어</th><th>STEP1</th><th>STEP2</th><th>STEP3</th><th>합계</th></tr>
+    ${ws.map(w => { const st = x.words[w.id] || {}; return `<tr class="cl" data-w="${w.id}"><td>${pad(w.id)}</td><td>${esc(w.word)}</td><td>${st.s1Pts||0}</td><td>${st.s2Pts||0}</td><td>${st.s3Pts||0}</td><td><b>${wordTotal(st)}</b></td></tr>`; }).join('')}
+    </table><div style="font-size:12px;color:var(--ink2);margin-top:8px">단어를 누르면 내 답과 해설을 다시 볼 수 있어요.</div></div>
+    <div class="blk"><div class="go" style="margin-top:0"><button class="btn sec" id="again" style="margin-top:0">이 회차 다시 풀기</button><button class="btn acc" id="nextS">${s < 20 ? (s+1) + '회차로' : '목록으로'}</button></div></div></div>`;
+  $app.innerHTML = h; scrollTo(0,0);
+  document.getElementById('bk').onclick = renderList;
+  $app.querySelectorAll('tr.cl').forEach(r => r.onclick = () => { const wi = ws.findIndex(w => w.id === Number(r.dataset.w)); cur = { s, wi, review:true }; renderReview(); });
+  document.getElementById('again').onclick = () => { if (!confirm('처음부터 다시 풀까요? 지금 점수는 응시 기록으로 남아요.')) return;
+    const hist = x.history; S[s] = blank(s); S[s].history = hist; persist(s); openSession(s); };
+  document.getElementById('nextS').onclick = () => s < 20 ? openSession(s + 1) : renderList();
+}
+function renderReview(){
+  renderWord();
+  const bk = document.getElementById('bk'); bk.textContent = '← 회차 결과'; bk.onclick = () => renderResult(cur.s);
+  const nx = document.getElementById('next'); if (nx) nx.remove();
+}
+
+/* ---------- 시작 ---------- */
+(async function(){
+  $app.innerHTML = '<div class="hd"><div class="e">WORD MATCHING PRACTICE</div><h1>어휘 매칭 훈련</h1><div class="k">불러오는 중…</div></div>';
+  await loadAll();
+  Object.values(S).forEach(x => x && Object.values(x.words || {}).forEach(st => { st.s2Judging = false; st.s3Judging = false; }));
+  renderList();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#b8893b"/>
+      <stop offset="100%" stop-color="#9b6f28"/>
+    </linearGradient>
+    <linearGradient id="leafg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fffbe8"/>
+      <stop offset="100%" stop-color="#f0e8d8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="72" fill="url(#bg)"/>
+  <circle cx="120" cy="100" r="180" fill="#fff" opacity="0.05"/>
+  <g transform="translate(256,256) scale(1.0)">
+    <!-- V 두 획 -->
+    <path d="M -110 -110 L 0 100 L -46 100 L -148 -90 Z"
+          fill="url(#leafg)" stroke="#2d2017" stroke-width="6" stroke-linejoin="round"/>
+    <path d="M 110 -110 L 0 100 L 46 100 L 148 -90 Z"
+          fill="url(#leafg)" stroke="#2d2017" stroke-width="6" stroke-linejoin="round"/>
+    <!-- 뿌리 점 -->
+    <circle cx="0" cy="100" r="16" fill="#2d2017"/>
+    <!-- 가지 끝 점 (잎) -->
+    <circle cx="-148" cy="-90" r="14" fill="#2d2017" opacity="0.85"/>
+    <circle cx="148"  cy="-90" r="14" fill="#2d2017" opacity="0.85"/>
+  </g>
+</svg>

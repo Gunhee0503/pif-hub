@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PIF Learning Hub — 어휘와 구문, 하나의 허브에서</title>
+<meta name="description" content="PIF영어의 어휘(VocaTree)·구문(구문의 지도 COMPASS·BEACON) 학습 앱을 하나의 계정으로.">
+<link rel="icon" href="/essential/icons/favicon-32.png">
+<style>
+@font-face{font-family:'Pretendard';src:url('fonts/PretendardVariable.woff2') format('woff2-variations');font-weight:45 920;font-display:swap}
+:root{
+  --ink:#1d1d1f; --ink2:#6e6e73; --ink3:#86868b; --line:#d2d2d7; --bg2:#f5f5f7; --blue:#0071e3; --link:#0066cc;
+  --fund:#2f7d6d; --ess:#b07a22; --spec:#7a4fa3; --wmp:#d2416b; --compass:#2b6cb0; --beacon:#e8a33a;
+  --r:28px; --max:1180px;
+  --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'SF Pro Display','Apple SD Gothic Neo',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);background:#fff;letter-spacing:-.01em;-webkit-font-smoothing:antialiased;word-break:keep-all}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 28px}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.06)}
+.nav .wrap{height:52px;display:flex;align-items:center;gap:34px}
+.logo{display:flex;align-items:center;gap:9px;font-weight:700;font-size:15px;letter-spacing:-.02em}
+.logo img{height:15px}
+.logo span{color:var(--ink2);font-weight:500}
+.nav ul{display:flex;gap:30px;list-style:none;font-size:13px;color:#424245;margin-left:auto}
+.nav .cta{font-size:12.5px;font-weight:600;background:var(--ink);color:#fff;padding:7px 15px;border-radius:99px}
+.burger{display:none;cursor:pointer;margin-left:auto;width:22px;height:12px;position:relative}
+.burger::before,.burger::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:var(--ink);border-radius:2px}
+.burger::before{top:0}.burger::after{bottom:0}
+
+/* hero */
+.hero{text-align:center;padding:92px 0 0;overflow:hidden}
+.gray .stage::after{display:none}
+.eyebrow{font-size:17px;font-weight:600;color:var(--ink2);letter-spacing:-.01em}
+.eyebrow b{background:linear-gradient(90deg,#2f7d6d,#7a4fa3 45%,#d2416b 75%,#e8a33a);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(42px,6.4vw,84px);line-height:1.04;font-weight:750;letter-spacing:-.045em;margin:14px 0 22px}
+.lead{font-size:clamp(17px,1.7vw,22px);line-height:1.5;color:var(--ink2);font-weight:450;max-width:640px;margin:0 auto}
+.btns{display:flex;gap:14px;justify-content:center;align-items:center;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:6px;background:var(--blue);color:#fff;font-size:16px;font-weight:600;padding:13px 24px;border-radius:99px}
+.btn.ghost{background:transparent;color:var(--link);padding:13px 6px}
+.btn.ghost::after{content:"›";font-size:20px;line-height:0;margin-top:-1px}
+
+/* device stage */
+.stage{position:relative;max-width:1020px;margin:68px auto 0;height:610px}
+.mac{position:absolute;left:50%;top:0;transform:translateX(-54%);width:820px}
+.mac .scr{background:#0d0d0f;border-radius:20px 20px 0 0;padding:14px 14px 0;box-shadow:0 0 0 1.5px #c9c9ce inset}
+.mac .scr .in{background:#fbfbfd;border-radius:8px 8px 0 0;height:478px;overflow:hidden;position:relative}
+.mac .base{height:22px;background:linear-gradient(#e3e3e6,#c7c7cc);border-radius:0 0 18px 18px;width:108%;margin-left:-4%;position:relative}
+.mac .base::before{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:140px;height:7px;background:#b5b5ba;border-radius:0 0 10px 10px}
+.phone{position:absolute;right:0;top:70px;width:250px;height:510px;background:#111;border-radius:46px;padding:11px;box-shadow:0 30px 60px -20px rgba(0,0,0,.35),0 0 0 1.5px #3a3a3c inset}
+.phone .in{background:#fff;border-radius:36px;height:100%;overflow:hidden;position:relative}
+.phone .island{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:78px;height:22px;background:#111;border-radius:20px;z-index:3}
+.stage::after{content:"";position:absolute;left:8%;right:8%;bottom:-10px;height:40px;background:radial-gradient(closest-side,rgba(0,0,0,.18),transparent);z-index:-1}
+
+
+/* hero film */
+.film{position:relative;max-width:1120px;margin:64px auto 0;border-radius:30px;overflow:hidden;background:#f3efe3;aspect-ratio:16/9;box-shadow:0 40px 80px -40px rgba(0,0,0,.35)}
+.film video{display:block;width:100%;height:100%;object-fit:cover}
+.snd{position:absolute;right:18px;bottom:18px;display:flex;align-items:center;gap:7px;border:0;cursor:pointer;background:rgba(29,29,31,.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;font:600 13px/1 var(--sans);padding:9px 14px 9px 11px;border-radius:99px}
+.snd svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.snd svg path:first-child{fill:#fff}
+.snd .w{display:none}.snd.on .w{display:block}.snd.on .x{display:none}
+.filmcap{text-align:center;color:var(--ink3);font-size:13.5px;margin:16px 0 0;padding-bottom:84px}
+.hubstage{margin:0 auto 64px}
+
+/* mini UI inside mac (hub dashboard) */
+.ui{font-size:11px;color:var(--ink)}
+.ui .bar{height:38px;display:flex;align-items:center;gap:8px;padding:0 18px;border-bottom:1px solid #ececef;background:#fff}
+.ui .bar b{font-size:12px}.ui .bar i{font-style:normal;color:var(--ink3);margin-left:auto}
+.ui .dots{display:flex;gap:5px}.ui .dots span{width:9px;height:9px;border-radius:50%;background:#e0e0e4}
+.ui .body{padding:22px 24px}
+.ui h4{font-size:20px;font-weight:700;letter-spacing:-.03em}
+.ui .sub{color:var(--ink3);margin:3px 0 16px}
+.ui .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ui .tile{background:#fff;border:1px solid #ececef;border-radius:14px;padding:12px 13px;position:relative;overflow:hidden}
+.ui .tile .k{font-size:9px;font-weight:700;letter-spacing:.08em;color:var(--c)}
+.ui .tile .t{font-size:14px;font-weight:700;margin:4px 0 2px;letter-spacing:-.02em}
+.ui .tile .d{color:var(--ink3);font-size:10px}
+.ui .pb{height:4px;background:#f0f0f3;border-radius:9px;margin-top:10px;overflow:hidden}.ui .pb i{display:block;height:100%;background:var(--c);border-radius:9px}
+.ui .row2{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;margin-top:10px}
+.ui .panel{background:#fff;border:1px solid #ececef;border-radius:14px;padding:12px 14px}
+.ui .panel .h{font-weight:700;font-size:11.5px;margin-bottom:8px;display:flex;justify-content:space-between}
+.ui .panel .h span{color:var(--ink3);font-weight:500}
+.ui .chart{display:flex;align-items:flex-end;gap:7px;height:78px}
+.ui .chart i{flex:1;background:linear-gradient(var(--wmp),#f08aa5);border-radius:5px 5px 2px 2px;opacity:.9}
+.ui .chart i:nth-child(odd){background:linear-gradient(var(--compass),#8ab4e8)}
+.ui .li{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid #f3f3f5}
+.ui .li:last-child{border:0}.ui .li b{font-weight:600}.ui .li span{color:var(--ink3)}
+
+/* mini UI inside phone (word matching) */
+.pu{padding:44px 14px 14px;font-size:10px}
+.pu .top{display:flex;justify-content:space-between;align-items:center;color:var(--ink3);font-weight:600;font-size:9.5px}
+.pu .top b{color:var(--wmp)}
+.pu .prog{display:flex;gap:3px;margin:8px 0 12px}.pu .prog i{flex:1;height:3px;border-radius:3px;background:#eee}.pu .prog i.on{background:var(--wmp)}
+.pu .word{font-size:23px;font-weight:750;letter-spacing:-.03em}
+.pu .step{font-size:9px;font-weight:700;color:var(--wmp);letter-spacing:.06em;margin:2px 0 10px}
+.pu .sent{background:var(--bg2);border-radius:12px;padding:10px 11px;font-size:11px;line-height:1.45}
+.pu .sent u{text-decoration:none;border-bottom:2px solid var(--wmp);font-weight:700}
+.pu .opt{border:1px solid #e6e6ea;border-radius:11px;padding:8px 10px;margin-top:7px;line-height:1.35}
+.pu .opt small{display:block;font-size:8.5px;font-weight:700;color:var(--spec);margin-bottom:2px}
+.pu .opt.on{border-color:#7cc08d;background:#effaf1}
+.pu .ai{margin-top:9px;background:#f4f0fb;border-radius:11px;padding:8px 10px;line-height:1.45}
+.pu .ai b{display:block;font-size:8.5px;letter-spacing:.06em;color:var(--spec);margin-bottom:2px}
+
+/* stats */
+.stats{border-top:1px solid #ececef;border-bottom:1px solid #ececef;margin-top:0}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:34px 10px;text-align:center}
+.stat+.stat{border-left:1px solid #ececef}
+.stat b{display:block;font-size:40px;font-weight:700;letter-spacing:-.04em}
+.stat span{color:var(--ink2);font-size:14px}
+
+/* sections */
+section{padding:120px 0}
+.gray{background:var(--bg2)}
+.sh{text-align:center;margin-bottom:56px}
+.sh .tag{font-size:15px;font-weight:600;color:var(--c,var(--ink2))}
+.sh h2{font-size:clamp(34px,4.6vw,58px);line-height:1.08;font-weight:730;letter-spacing:-.04em;margin:10px 0 16px}
+.sh .mark{font-size:15px;font-weight:700;letter-spacing:.42em;margin:-2px 0 18px;padding-left:.42em;background:linear-gradient(90deg,#2f7d6d,#b07a22 40%,#7a4fa3 70%,#d2416b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sh p{font-size:clamp(16px,1.5vw,20px);color:var(--ink2);line-height:1.55;max-width:620px;margin:0 auto}
+
+/* vocatree tiles */
+.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.t2{background:#fff;border-radius:var(--r);padding:44px 40px 0;min-height:500px;display:flex;flex-direction:column;overflow:hidden;position:relative}
+.t2 .lv{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--c)}
+.t2 h3{font-size:36px;font-weight:730;letter-spacing:-.04em;margin:8px 0 4px}
+.t2 .ko{font-size:15px;color:var(--ink3);font-weight:500}
+.t2 p{font-size:16.5px;line-height:1.55;color:#424245;margin:16px 0 18px;max-width:420px}
+.t2 .more{font-size:15px;color:var(--link);font-weight:500}
+.t2 .more::after{content:" ›"}
+.t2 .new{position:absolute;top:40px;right:40px;font-size:11px;font-weight:700;color:var(--wmp);border:1px solid var(--wmp);border-radius:99px;padding:4px 10px}
+.vis{margin:auto auto 0;width:100%;max-width:440px;height:210px;position:relative;display:flex;align-items:center;justify-content:center}
+/* fundamental visual */
+.v-fund{gap:22px}
+.v-fund .pre{font-size:84px;font-weight:800;letter-spacing:-.05em;color:var(--fund)}
+.v-fund .pre.out{color:#c9ded8}
+.v-fund .mid{display:flex;flex-direction:column;gap:7px;font-size:15px;font-weight:600;color:var(--ink2)}
+.v-fund .mid span{display:flex;align-items:center;gap:8px}
+.v-fund .mid span::before{content:"";width:22px;height:1.5px;background:currentColor;opacity:.4}
+/* essential tree */
+.v-ess .root{width:96px;height:96px;border-radius:50%;background:var(--ess);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:26px;font-weight:750;letter-spacing:-.03em;box-shadow:0 0 0 12px #f6ecda,0 0 0 24px #fbf6ec}
+.v-ess .root small{font-size:10px;font-weight:600;opacity:.85}
+.v-ess .lf{position:absolute;font-size:14px;font-weight:600;background:#fff;border:1px solid #ecdcbc;color:#6d4b12;padding:6px 12px;border-radius:99px}
+/* spectrum */
+.v-spec{flex-direction:column;gap:10px}
+.v-spec .pair{display:grid;grid-template-columns:120px 34px 120px;align-items:center;font-size:20px;font-weight:650;letter-spacing:-.02em}
+.v-spec .pair .g{text-align:right;color:#3a6b7c}.v-spec .pair .l{color:var(--spec)}
+.v-spec .pair i{font-style:normal;text-align:center;color:var(--ink3);font-size:15px}
+.v-spec .bandrow{width:280px;height:6px;border-radius:9px;background:linear-gradient(90deg,#3a6b7c,#5b8fa3,#a58cc4,var(--spec));margin-top:6px}
+/* word matching */
+.v-wmp .w{font-size:46px;font-weight:780;letter-spacing:-.04em}
+.v-wmp .w u{text-decoration:none;background:linear-gradient(transparent 70%,#fbd3df 70%)}
+.v-wmp .m{white-space:nowrap;position:absolute;font-size:14px;font-weight:600;padding:6px 12px;border-radius:99px;background:#fff;border:1px solid #f1c4d1;color:#9b2a4a}
+.v-wmp .m.core{background:var(--wmp);border-color:var(--wmp);color:#fff}
+
+/* syntax map (dark) */
+.dark{background:#000;color:#f5f5f7}
+.dark .sh p{color:#a1a1a6}
+.dark .sh .tag{color:#a1a1a6}
+.ed{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edc{border-radius:var(--r);padding:46px 42px 40px;background:#161617;position:relative;overflow:hidden;min-height:520px;display:flex;flex-direction:column}
+.edc .lvl{font-size:13px;font-weight:600;color:#a1a1a6}
+.edc h3{font-size:54px;font-weight:780;letter-spacing:.04em;margin:6px 0 4px}
+.edc.c h3{background:linear-gradient(120deg,#9cc6f5,#4f8fd6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.edc.b h3{background:linear-gradient(120deg,#ffe2a8,#e8a33a 60%,#d06b2b);-webkit-background-clip:text;background-clip:text;color:transparent}
+.edc .one{font-size:19px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+.edc p{color:#a1a1a6;font-size:15.5px;line-height:1.6;max-width:430px}
+.edc .meta{display:flex;gap:28px;margin:26px 0}
+.edc .meta b{display:block;font-size:30px;font-weight:700;letter-spacing:-.03em;color:#f5f5f7}
+.edc .meta span{font-size:12.5px;color:#86868b}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}
+.chips span{font-size:13px;color:#d2d2d7;border:1px solid #333336;border-radius:99px;padding:6px 12px}
+.edc .glow{position:absolute;width:420px;height:420px;border-radius:50%;right:-160px;top:-160px;filter:blur(10px);opacity:.55}
+.edc.c .glow{background:radial-gradient(closest-side,rgba(79,143,214,.55),transparent)}
+.edc.b .glow{background:radial-gradient(closest-side,rgba(232,163,58,.55),transparent)}
+.edc .more{color:#2997ff;font-size:15px;font-weight:500;margin-top:22px}
+.edc .more::after{content:" ›"}
+.edcap{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:34px;font-size:15px;color:#a1a1a6}
+.edcap i{width:4px;height:4px;border-radius:50%;background:#48484a}
+.syn{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 0;margin:0 auto 64px;font-size:clamp(17px,2.1vw,26px);font-weight:600;letter-spacing:-.02em;color:#f5f5f7}
+.syn span{padding:6px 10px;border-radius:10px}
+.syn .s{background:rgba(79,143,214,.22);color:#9cc6f5}
+.syn .v{background:rgba(232,163,58,.22);color:#ffcf85}
+.syn .o{background:rgba(210,65,107,.22);color:#ff9fbb}
+.syn .x{color:#86868b}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+.flow::before{content:"";position:absolute;top:31px;left:8%;right:8%;height:1px;background:var(--line)}
+.fs{text-align:center;position:relative}
+.fs .n{width:62px;height:62px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:13px;font-weight:700;color:var(--ink2)}
+.fs:last-child .n{background:var(--ink);color:#fff;border-color:var(--ink)}
+.fs b{display:block;font-size:13px;letter-spacing:.1em;font-weight:700}
+.fs span{display:block;font-size:14px;color:var(--ink2);margin-top:5px;line-height:1.45}
+
+/* features */
+.feat{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.fc{background:#fff;border-radius:24px;padding:32px 26px 30px}
+.fc .ic{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;background:var(--bg2)}
+.fc .ic svg{width:22px;height:22px;stroke:var(--ink);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.fc h4{font-size:20px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
+.fc p{font-size:15px;line-height:1.55;color:var(--ink2)}
+
+/* cta / footer */
+.final{text-align:center;padding:130px 0}
+.final h2{font-size:clamp(36px,5vw,64px);font-weight:750;letter-spacing:-.045em;line-height:1.06}
+.final p{color:var(--ink2);font-size:19px;margin-top:16px}
+footer{background:var(--bg2);font-size:12px;color:var(--ink3);padding:26px 0 34px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{height:14px;opacity:.75}
+footer a{color:#424245}
+
+/* responsive */
+@media (max-width:900px){
+  .nav ul,.nav .cta{display:none}.burger{display:block}
+  .hero{padding-top:64px}
+  .stage{height:470px;margin-top:48px}
+  .film{margin-top:52px;border-radius:24px}
+  .mac{width:560px;transform:translateX(-62%)}
+  .mac .scr .in{height:330px}
+  .ui{zoom:.68}
+  .phone{width:196px;height:400px;right:2%;top:40px;border-radius:38px;padding:9px}
+  .phone .in{border-radius:30px}.pu{zoom:.8}
+  .stats .wrap{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid #ececef}
+  .tiles,.ed{grid-template-columns:1fr}
+  .feat{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:repeat(3,1fr);row-gap:34px}.flow::before{display:none}
+}
+@media (max-width:560px){
+  .wrap{padding:0 20px}
+  section{padding:84px 0}
+  .sh{margin-bottom:36px}
+  .stage{height:470px}
+  .mac{display:none}
+  .phone{left:50%;right:auto;transform:translateX(-50%);top:0;width:212px;height:430px}
+  .pu{zoom:.85}
+  .stat{padding:24px 8px}.stat b{font-size:32px}
+  .t2{padding:34px 26px 0;min-height:0}
+  .t2 h3{font-size:30px}.t2 .new{top:32px;right:26px}
+  .vis{width:380px;max-width:none;zoom:.8;height:220px}
+  .edcap{flex-direction:column;gap:6px;font-size:14px}.edcap i{display:none}
+  .syn{flex-direction:column;align-items:center;gap:8px;font-size:16px;margin-bottom:44px}.syn .x{display:none}
+  .fc{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:24px 22px}.fc .ic{margin:0;grid-row:span 2}.fc h4{margin:9px 0 6px}
+  .edc{padding:36px 26px 30px;min-height:0}.edc h3{font-size:42px}
+  .feat{grid-template-columns:1fr}
+  .flow{grid-template-columns:repeat(2,1fr)}
+  .btns{flex-direction:column;gap:6px}
+  .final{padding:96px 0}
+  .film{border-radius:20px;margin-top:44px}.snd{right:10px;bottom:10px;padding:8px}.snd span{display:none}.filmcap{font-size:12.5px;padding:0 6px 64px}
+  .hubstage{margin-bottom:40px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <a class="logo" href="/"><img src="img/pif_logo.png" alt="PIF"><span>Learning Hub</span></a>
+  <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#method">학습 방법</a></li><li><a href="/admin/">선생님</a></li></ul>
+  <a class="cta" href="/learn/">로그인</a>
+  <a class="burger" href="/learn/" aria-label="로그인"></a>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow"><b>PIF Learning Hub</b></div>
+    <h1>단어에서 문장까지,<br>영어가 보이기 시작합니다.</h1>
+    <p class="lead">어휘는 뿌리로, 구문은 지도로. PIF영어의 여섯 가지 학습 앱을 하나의 계정으로 만나세요.</p>
+    <div class="btns"><a class="btn" href="/learn/">학습 시작하기</a><a class="btn ghost" href="#vocatree">코스 둘러보기</a></div>
+  </div>
+  <div class="wrap"><figure class="film">
+    <video id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="video/hero-poster.jpg" data-src-pc="video/hero.mp4" data-src-mobile="video/hero-mobile.mp4" aria-label="PIF 어휘정리노트 가이드 소개 영상"></video>
+    <button class="snd" id="snd" aria-label="소리 켜기"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="w" d="M17 9.5a4 4 0 0 1 0 5"/><path class="x" d="M17 10l4 4M21 10l-4 4"/></svg><span>소리 켜기</span></button>
+  </figure>
+  <figcaption class="filmcap">PIF 어휘정리노트 가이드 · 사전을 찾고, 문맥에 맞추고, 하나의 이미지로 정리하는 법</figcaption></div>
+</header>
+
+<div class="stats"><div class="wrap">
+  <div class="stat"><b>6</b><span>학습 앱, 하나의 계정</span></div>
+  <div class="stat"><b>100</b><span>지문에서 배신하는 다의어</span></div>
+  <div class="stat"><b>14<small style="font-size:.5em">장</small> 42</b><span>구문의 지도 유닛</span></div>
+  <div class="stat"><b>AI</b><span>서술형 답안 코칭</span></div>
+</div></div>
+
+<section class="gray" id="vocatree"><div class="wrap">
+  <div class="sh" style="--c:var(--ess)"><div class="tag">어휘 · VocaTree</div><h2>하나의 뿌리에서,<br>여러 의미로.</h2>
+    <p>단어 하나에 뜻 하나를 붙여 외우지 않습니다. 어원의 이미지로 이해하고, 문맥으로 구별하고, 하나의 그림으로 연결합니다.</p></div>
+  <div class="tiles">
+    <a class="t2" href="/fundamental/" style="--c:var(--fund)"><div class="lv">STEP 01 · 기초</div><h3>Fundamental</h3><div class="ko">보카트리 펀더멘탈</div>
+      <p>접두사와 어미의 이미지로 처음 보는 단어를 추리합니다. 어휘 추리력 → 단어 브릿지 → 예문 빈칸, 4강.</p><span class="more">학습하기</span>
+      <div class="vis v-fund"><span class="pre">in</span><span class="mid"><span>include</span><span>income</span><span>exclude</span><span>export</span></span><span class="pre out">ex</span></div></a>
+
+    <a class="t2" href="/essential/" style="--c:var(--ess)"><div class="lv">STEP 02 · 어근</div><h3>Essential</h3><div class="ko">보카트리 에센셜</div>
+      <p>어근과 접두사의 조합을 '안습'처럼 읽어 냅니다. 어원 트리 → 의미 분류 → 실전 3 Part, 5강.</p><span class="more">학습하기</span>
+      <div class="vis v-ess"><div class="root">port<small>나르다</small></div>
+        <span class="lf" style="left:9%;top:22%">import</span><span class="lf" style="left:4%;top:60%">export</span><span class="lf" style="right:8%;top:18%">support</span><span class="lf" style="right:4%;top:56%">transport</span><span class="lf" style="left:30%;bottom:2%">report</span><span class="lf" style="right:26%;bottom:4%">portable</span></div></a>
+
+    <a class="t2" href="/spectrum/" style="--c:var(--spec)"><div class="lv">STEP 03 · 소리</div><h3>Spectrum</h3><div class="ko">보카트리 스펙트럼</div>
+      <p>게르만어의 F와 라틴어의 P는 같은 뿌리입니다. 소리의 변화로 일상어와 학술어를 한 가족으로 잇습니다.</p><span class="more">학습하기</span>
+      <div class="vis v-spec"><div class="pair"><span class="g">fill · full</span><i>↔</i><span class="l">plenty</span></div><div class="pair"><span class="g">flat</span><i>↔</i><span class="l">plane</span></div><div class="pair"><span class="g">fold</span><i>↔</i><span class="l">apply</span></div><div class="bandrow"></div></div></a>
+
+    <a class="t2" href="/matching/" style="--c:var(--wmp)"><span class="new">NEW</span><div class="lv">부록 · APPENDIX</div><h3>Word Matching</h3><div class="ko">어휘 매칭 훈련</div>
+      <p>영어-한글 1:1로 외운 뜻이 지문에서 배신하는 다의어 100개. 의미 구별 → 문맥 이해 → 핵심 이미지, 20회차 AI 코칭.</p><span class="more">학습하기</span>
+      <div class="vis v-wmp"><div class="w"><u>address</u></div>
+        <span class="m" style="left:6%;top:14%">주소</span><span class="m" style="right:10%;top:10%">다루다</span><span class="m" style="left:2%;bottom:20%">연설하다</span><span class="m" style="right:4%;bottom:26%">부르다</span><span class="m core" style="left:50%;bottom:0;transform:translateX(-50%)">말·관심을 그쪽으로 향하게 하다</span></div></a>
+  </div>
+</div></section>
+
+<section class="dark" id="syntax"><div class="wrap">
+  <div class="sh"><div class="tag">구문 · 구문의 지도 The Syntax Map</div><h2>문장의 구조가 보이면,<br>해석은 빨라집니다.</h2>
+    <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 듣고, 끊어 읽고, 풀면서 14개의 봉인석을 모으는 항해.</p></div>
+  <div class="syn"><span class="s">The way a question is framed</span><span class="x">&nbsp;/&nbsp;</span><span class="v">can change</span><span class="x">&nbsp;/&nbsp;</span><span class="o">the answer people give.</span></div>
+  <div class="ed">
+    <a class="edc c" href="https://syntax-beacon.vercel.app/"><div class="glow"></div><div class="lvl">기본편</div><h3>COMPASS</h3><div class="one">쉬운 어휘로 구문의 길을 익히는 첫 지도</div>
+      <p>BEACON과 같은 14장 구문을 더 쉬운 단어의 예문으로. 어휘 부담 없이 문장 구조 자체에 집중하고, 음성으로 듣고 따라 하며 다집니다.</p>
+      <div class="meta"><div><b>14</b><span>Chapters</span></div><div><b>42</b><span>Units</span></div><div><b>2×</b><span>반복 듣기</span></div></div>
+      <div class="chips"><span>준동사의 본질</span><span>분사의 능동·수동</span><span>시제와 수동태</span><span>관계사 vs 접속사</span><span>가정법</span></div>
+      <span class="more">COMPASS 시작하기</span></a>
+    <a class="edc b" href="https://syntax-beacon.vercel.app/"><div class="glow"></div><div class="lvl">심화편</div><h3>BEACON</h3><div class="one">어려운 어휘로 완성하는 1등급 구문분석</div>
+      <p>같은 구문, 더 어려운 어휘. 수능·고난도 내신 수준의 예문에서도 흔들리지 않고 문장 구조를 읽어 내는 힘을 기릅니다.</p>
+      <div class="meta"><div><b>14</b><span>Chapters</span></div><div><b>42</b><span>Units</span></div><div><b>14</b><span>봉인석 퀘스트</span></div></div>
+      <div class="chips"><span>완료형 준동사</span><span>분사구문의 입체 해석</span><span>비교급 고난도 논리</span><span>가주어·강조</span><span>도치</span><span>복합 구문 돌파</span></div>
+      <span class="more">BEACON 시작하기</span></a>
+  </div>
+  <div class="edcap"><span>같은 14장 · 42유닛 구문</span><i></i><span>예문 어휘 난이도만 다르게</span><i></i><span>COMPASS로 시작해 BEACON으로</span></div>
+</div></section>
+
+<section id="method"><div class="wrap">
+  <div class="sh"><div class="tag">학습 방법</div><h2>무작정 외우지 않습니다.<br>어휘 추리력으로 확장합니다.</h2><div class="mark">VOCATREE</div>
+    <p>모르는 단어를 만나는 순간, 그 단어는 이미 나에게 의미 있는 정보가 됩니다.</p></div>
+  <div class="flow">
+    <div class="fs"><div class="n">01</div><b>READ</b><span>독해 속에서<br>단어를 만납니다</span></div>
+    <div class="fs"><div class="n">02</div><b>ENCOUNTER</b><span>모르는 단어를<br>발견합니다</span></div>
+    <div class="fs"><div class="n">03</div><b>SEARCH</b><span>사전의 여러 정의를<br>살펴봅니다</span></div>
+    <div class="fs"><div class="n">04</div><b>MATCH</b><span>문맥과 문형에 맞는<br>정의를 고릅니다</span></div>
+    <div class="fs"><div class="n">05</div><b>CONNECT</b><span>다양한 의미를<br>연결합니다</span></div>
+    <div class="fs"><div class="n">06</div><b>UNDERSTAND</b><span>하나의 공통<br>이미지로 정리합니다</span></div>
+  </div>
+</div></section>
+
+<section class="gray"><div class="wrap">
+  <div class="sh"><div class="tag">하나의 허브</div><h2>학생은 하나하나 정확하게 배우고,<br>선생님은 한 명 한 명 세심하게 관리합니다.</h2></div>
+  <div class="stage hubstage">
+    <div class="mac"><div class="scr"><div class="in ui">
+      <div class="bar"><div class="dots"><span></span><span></span><span></span></div><b style="margin-left:10px">PIF Learning Hub</b><i>김보카 · 고2 영동일 A반</i></div>
+      <div class="body">
+        <h4>오늘도 한 걸음, 김보카 님</h4><div class="sub">이번 주 학습 4일째 · 이어서 할 코스 2개</div>
+        <div class="grid">
+          <div class="tile" style="--c:var(--fund)"><div class="k">VOCATREE · 01</div><div class="t">Fundamental</div><div class="d">Lesson 3 · ad- 유음화</div><div class="pb"><i style="width:75%"></i></div></div>
+          <div class="tile" style="--c:var(--ess)"><div class="k">VOCATREE · 02</div><div class="t">Essential</div><div class="d">Lesson 2 · 어원 트리</div><div class="pb"><i style="width:40%"></i></div></div>
+          <div class="tile" style="--c:var(--spec)"><div class="k">VOCATREE · 03</div><div class="t">Spectrum</div><div class="d">P ↔ F · fill / flat / fold</div><div class="pb"><i style="width:25%"></i></div></div>
+          <div class="tile" style="--c:var(--wmp)"><div class="k">WORD MATCHING</div><div class="t">어휘 매칭 훈련</div><div class="d">3회차 · Bear 진행 중</div><div class="pb"><i style="width:12%"></i></div></div>
+          <div class="tile" style="--c:var(--compass)"><div class="k">구문의 지도 · 기본</div><div class="t">COMPASS</div><div class="d">Ch 05 · 분사구문</div><div class="pb"><i style="width:36%"></i></div></div>
+          <div class="tile" style="--c:var(--beacon)"><div class="k">구문의 지도 · 심화</div><div class="t">BEACON</div><div class="d">Ch 01 · 준동사의 본질</div><div class="pb"><i style="width:8%"></i></div></div>
+        </div>
+        <div class="row2">
+          <div class="panel"><div class="h">주간 학습 <span>분</span></div><div class="chart"><i style="height:40%"></i><i style="height:62%"></i><i style="height:35%"></i><i style="height:80%"></i><i style="height:55%"></i><i style="height:92%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:30%"></i><i style="height:66%"></i></div></div>
+          <div class="panel"><div class="h">다시 볼 단어 <span>오답 기반</span></div>
+            <div class="li"><b>appreciate</b><span>값이 오르다</span></div><div class="li"><b>observe</b><span>(규칙을) 지키다</span></div><div class="li"><b>yield</b><span>(결과를) 내다</span></div></div>
+        </div>
+      </div>
+    </div></div><div class="base"></div></div>
+
+    <div class="phone"><div class="in"><div class="island"></div><div class="pu">
+      <div class="top"><span>‹ 01회차</span><b>1 / 5</b></div>
+      <div class="prog"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      <div class="word">ADDRESS</div><div class="step">STEP 1 · 의미 구별</div>
+      <div class="sent">Any effective policy must <u>address</u> the root causes of poverty.</div>
+      <div class="opt"><small>address sb</small>to speak formally to a group of people</div>
+      <div class="opt on"><small>address sth</small>to think about a problem and decide how to deal with it</div>
+      <div class="opt"><small>address sth to sb</small>to write the name and location of the receiver</div>
+      <div class="ai"><b>AI 코치</b>뒤에 온 것이 사람인가요, 문제인가요? the root causes가 결정적 단서예요.</div>
+    </div></div></div>
+  </div>
+
+  <div class="feat">
+    <div class="fc"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></div><h4>하나의 계정</h4><p>반 코드로 한 번만 승인받으면 여섯 개 코스를 모두. 기기를 바꿔도 기록이 이어집니다.</p></div>
+    <div class="fc"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3l1.8 4.6L18 9l-4.2 1.4L12 15l-1.8-4.6L6 9l4.2-1.4z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg></div><h4>AI 코치</h4><p>해석과 핵심 이미지 같은 서술형 답안에 바로 피드백. 정답 대신 '어디를 다시 볼지'를 짚어 줍니다.</p></div>
+    <div class="fc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 15v-3M12 15V9M17 15v-5"/></svg></div><h4>선생님 대시보드</h4><p>반별·학생별 진도와 회차 점수, 자주 틀리는 단어와 AI 피드백 기록을 한눈에.</p></div>
+    <div class="fc"><div class="ic"><svg viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg></div><h4>어디서나</h4><p>PC·태블릿·휴대폰 모두. 홈 화면에 설치하면 앱처럼 열리고, 오프라인에서도 이어서 학습합니다.</p></div>
+  </div>
+</div></section>
+
+<div class="final"><div class="wrap">
+  <h2>오늘의 학습을<br>시작하세요.</h2>
+  <p>반 코드는 담당 선생님께 받을 수 있어요.</p>
+  <div class="btns"><a class="btn" href="/learn/">학생 로그인</a><a class="btn ghost" href="/admin/">선생님·원장님 관리자</a></div>
+</div></div>
+
+<footer><div class="wrap">
+  <span><img src="img/pif_logo.png" alt="PIF EDUCATION"></span>
+  <span>PIF영어 잠실관 · 문의 <a href="tel:025557229">02-555-7229</a> · <a href="tel:01095467229">010-9546-7229</a></span>
+  <span>© 2026 PIF EDUCATION. All rights reserved.</span>
+</div></footer>
+<script>
+(function(){
+  var v=document.getElementById('heroVideo'), b=document.getElementById('snd');
+  var mobile=window.matchMedia('(max-width:700px)').matches;
+  v.src=v.dataset[mobile?'srcMobile':'srcPc'];
+  var p=v.play(); if(p&&p.catch) p.catch(function(){});
+  b.onclick=function(){ v.muted=!v.muted; if(!v.muted){ v.currentTime=0; v.play(); }
+    b.classList.toggle('on',!v.muted); b.querySelector('span').textContent=v.muted?'소리 켜기':'소리 끄기'; b.setAttribute('aria-label',b.querySelector('span').textContent); };
+})();
+</script>
+</body>
+</html>

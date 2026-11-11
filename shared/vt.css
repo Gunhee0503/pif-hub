@@ -1,0 +1,48 @@
+/* 보카트리 공통 스타일 (홈·관리자·매칭) */
+:root{
+  --ink:#241c14; --ink2:#5a4a3a; --paper:#f4ece0; --paper2:#ece0cd; --card:#fbf7f0;
+  --line:#d8c9ae; --gold:#b8893b; --gold2:#8e6624; --root:#2a2018;
+  --ok:#4f7f4e; --ok-soft:#e6efe2; --bad:#a23c2f; --bad-soft:#f5e3df;
+  --rose:#b5485f; --rose-soft:#f6e4e8; --prism:#6f5585; --fund:#3d6d63;
+  --shadow:0 14px 40px -18px rgba(40,28,16,.45);
+  --serif:'Gowun Batang','Noto Serif KR',serif; --disp:'Fraunces',Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Pretendard','Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+  --mono:'Space Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-text-size-adjust:100%}
+body{min-height:100vh}
+button{font:inherit;cursor:pointer}
+input,textarea,select{font:inherit;color:inherit}
+[hidden]{display:none!important}
+a{color:inherit}
+
+/* gate (login / pending) */
+.gate{max-width:440px;margin:0 auto;padding:36px 18px 40px}
+.brand{text-align:center;margin-bottom:22px}
+.brand .e{font:600 11px/1 var(--mono);letter-spacing:.32em;color:var(--gold2)}
+.brand .b{font:600 40px/1.05 var(--disp);letter-spacing:-.01em;margin:8px 0 6px}
+.brand .k{font:400 15px/1.4 var(--serif);color:var(--ink2)}
+.gcard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 20px;box-shadow:var(--shadow)}
+.gcard h2{font:700 19px/1.3 var(--serif);margin:0 0 6px}
+.hint{font-size:13px;line-height:1.6;color:var(--ink2);margin-bottom:14px}
+.fld{margin-bottom:12px}
+.fld label{display:block;font-size:12.5px;font-weight:600;color:var(--ink2);margin-bottom:5px}
+.fld input{width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:16px}
+.fld input:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:-1px;border-color:transparent}
+.consent{font-size:11.5px;line-height:1.65;color:var(--ink2);background:var(--paper);border-radius:10px;padding:10px 12px;margin:6px 0 10px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:13px;margin-bottom:14px}
+.chk input{margin-top:2px}
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:12px;background:var(--root);color:var(--paper);font-weight:700;font-size:15px}
+.btn:disabled{opacity:.5;cursor:default}
+.btn.sec{background:transparent;color:var(--ink);border:1px solid var(--line);margin-top:8px}
+.btn.gold{background:var(--gold);color:#fff}
+.lnk{display:block;margin:12px auto 0;background:none;border:0;color:var(--ink2);font-size:12.5px;text-decoration:underline}
+.msg{min-height:18px;font-size:13px;margin-top:10px;line-height:1.5}
+.msg.err{color:var(--bad)} .msg.ok{color:var(--ok)}
+.wait{text-align:center}
+.wait .ic{font-size:38px;margin-bottom:6px}
+.who{font-weight:700;margin-top:6px}
+.pif{text-align:center;margin-top:22px;font-size:12px;color:var(--ink2)}
+.pif img{height:26px;display:block;margin:0 auto 8px;opacity:.85}
+.pif a{text-decoration:none;font-weight:600} .pif i{margin:0 6px;opacity:.4;font-style:normal}

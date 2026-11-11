@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>내 학습 · PIF Learning Hub</title>
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="/essential/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="/essential/icons/apple-touch-icon.png">
+<link rel="stylesheet" href="/shared/vt.css">
+<style>
+@font-face{font-family:'Pretendard';src:url('/fonts/PretendardVariable.woff2') format('woff2-variations');font-weight:45 920;font-display:swap}
+:root{--paper:#f5f5f7;--paper2:#e8e8ed;--card:#fff;--ink:#1d1d1f;--ink2:#6e6e73;--line:#d2d2d7;--gold:#0071e3;--gold2:#6e6e73;--root:#1d1d1f;
+  --sans:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;--serif:var(--sans);--disp:var(--sans);--shadow:0 1px 2px rgba(0,0,0,.04)}
+body{background:var(--paper);letter-spacing:-.01em;word-break:keep-all}
+.brand .e{font:600 13px/1 var(--sans);letter-spacing:0;color:var(--ink2)}
+.brand .b{font:750 34px/1.1 var(--sans);letter-spacing:-.04em}
+.brand .k{font:450 15px/1.5 var(--sans)}
+.gcard{border:0;border-radius:22px;box-shadow:0 10px 40px -20px rgba(0,0,0,.18)}
+.gcard h2{font-weight:700;letter-spacing:-.03em}
+.btn{border-radius:99px;background:#0071e3}
+.btn.sec{border-radius:99px}
+.fld input{border-radius:12px}
+.home{max-width:980px;margin:0 auto;padding:22px 20px 70px}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:34px}
+.top .logo{display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none}
+.top .logo img{height:14px}.top .logo span{color:var(--ink2);font-weight:500}
+.top .me{margin-left:auto;text-align:right;font-size:13px;color:var(--ink2);line-height:1.4}
+.top .me b{color:var(--ink);font-size:14px}
+.top button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:6px 12px;font-size:12.5px;color:var(--ink2)}
+h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-height:1.12;margin-bottom:8px}
+.sub{color:var(--ink2);font-size:16px;margin-bottom:38px}
+.grp{display:flex;align-items:baseline;gap:10px;margin:0 0 14px}
+.grp b{font-size:21px;font-weight:700;letter-spacing:-.03em}
+.grp span{font-size:13.5px;color:var(--ink2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin-bottom:42px}
+.course{position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:#fff;border-radius:22px;padding:22px 22px 20px;transition:transform .2s,box-shadow .2s;min-height:208px}
+.course:hover{transform:translateY(-3px);box-shadow:0 18px 40px -24px rgba(0,0,0,.3)}
+.course .lv{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--c)}
+.course h3{font-size:25px;font-weight:730;letter-spacing:-.035em;margin:6px 0 2px}
+.course .ko{font-size:13.5px;color:var(--ink2);font-weight:500}
+.course p{font-size:14px;line-height:1.55;color:#424245;margin:10px 0 16px}
+.course .foot{margin-top:auto}
+.bar{height:6px;background:#f0f0f3;border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--c);border-radius:99px;transition:width .7s}
+.stat{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2);margin-top:8px}
+.stat b{color:var(--ink)}
+.tag{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:99px;padding:3px 9px}
+.course.dark{background:#000;color:#f5f5f7}
+.course.dark .ko,.course.dark p{color:#a1a1a6}
+.course.dark h3{background:linear-gradient(120deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.course.dark .go{font-size:14px;color:#2997ff;font-weight:500}
+.wide{grid-column:1/-1}
+@media(min-width:700px){.wide{display:grid;grid-template-columns:1.1fr 1fr;gap:10px 28px;align-items:center}.wide .foot{grid-column:2;grid-row:1/4}}
+</style>
+</head>
+<body>
+
+<div id="v-boot" class="gate"><div class="brand"><div class="e">PIF Learning Hub</div><div class="b">불러오는 중…</div></div></div>
+
+<div id="v-login" class="gate" hidden>
+  <div class="brand"><div class="e">PIF Learning Hub</div><div class="b">학습 시작하기</div><div class="k">어휘는 뿌리로, 구문은 지도로.</div></div>
+  <div class="gcard">
+    <h2>학생 로그인</h2>
+    <div class="hint">처음 한 번만 입력하면 담당 선생님께 승인 요청이 갑니다.<br>구문의 지도(BEACON·COMPASS)에서 이미 승인받았다면 같은 정보로 바로 들어갈 수 있어요.</div>
+    <div class="fld"><label for="lgName">이름</label><input id="lgName" maxlength="20" autocomplete="name" placeholder="홍길동"></div>
+    <div class="fld"><label for="lgLast4">휴대폰 번호 뒷자리 4자리</label><input id="lgLast4" inputmode="numeric" maxlength="4" placeholder="1234"></div>
+    <div class="fld"><label for="lgClass">반 코드</label><input id="lgClass" maxlength="12" autocapitalize="characters" placeholder="선생님께 받은 코드"></div>
+    <div class="consent"><b>개인정보 수집·이용 안내</b><br>· 수집 항목: 이름, 휴대폰 번호 뒷자리 4자리, 반<br>· 목적: 학생 확인(담당 선생님 승인) 및 학습 기록 관리<br>· 보관 기간: 수강 종료 후 삭제<br>· 동의하지 않으면 앱을 이용할 수 없습니다.</div>
+    <label class="chk"><input type="checkbox" id="lgAgree"><span>위 내용을 확인했고 개인정보 수집·이용에 동의합니다.</span></label>
+    <button class="btn" id="lgGo">입장하기</button>
+    <div class="msg" id="lgMsg"></div>
+    <a class="lnk" href="/admin/">선생님·원장님 관리자</a>
+  </div>
+  <div class="pif"><img src="/img/pif_logo.png" alt="PIF EDUCATION"><b>문의</b> <a href="tel:025557229">02-555-7229</a><i>|</i><a href="tel:01095467229">010-9546-7229</a></div>
+</div>
+
+<div id="v-pending" class="gate" hidden>
+  <div class="brand"><div class="e">PIF Learning Hub</div><div class="b">승인 대기 중</div></div>
+  <div class="gcard"><div class="wait">
+    <div class="ic">⏳</div>
+    <div class="who" id="pdWho"></div>
+    <div class="hint" style="margin-top:6px">담당 선생님이 승인하면 자동으로 시작돼요.<br>이 화면을 닫아도 괜찮아요.</div>
+    <button class="btn" id="pdCheck">승인 확인하기</button>
+    <button class="btn sec" id="pdEdit">정보 다시 입력</button>
+    <div class="msg" id="pdMsg"></div>
+  </div></div>
+</div>
+
+<div id="v-home" class="home" hidden>
+  <div class="top">
+    <a class="logo" href="/"><img src="/img/pif_logo.png" alt="PIF"><span>Learning Hub</span></a>
+    <div class="me"><b id="hName"></b> 학생 · <span id="hClass"></span></div>
+    <button id="logout">로그아웃</button>
+  </div>
+  <h1 id="hHello">오늘도 한 걸음.</h1>
+  <div class="sub">이어서 할 코스를 골라 시작하세요.</div>
+
+  <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
+  <div class="grid" id="vocab"></div>
+
+  <div class="grp"><b>구문 · 구문의 지도</b><span>문장의 구조가 보이면, 해석은 빨라집니다</span></div>
+  <div class="grid" id="syntax"></div>
+</div>
+
+<script src="/shared/supabase.js"></script>
+<script src="/shared/vt.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+const VIEWS = ['boot','login','pending','home'];
+function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0); }
+function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
+const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching)\/$/.test(n) ? n : null; })();
+const BEACON_URL = 'https://syntax-beacon.vercel.app/';
+let EDITION = 'beacon';
+
+const CARDS = [
+  { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', desc:'접두사와 어미의 이미지로 처음 보는 단어를 추리합니다. 어휘 추리 → 단어 브릿지 → 예문 빈칸.', unit:'강 완료' },
+  { id:'essential',   lv:'STEP 02 · 어근', c:'#b07a22', desc:'어근과 접두사의 조합으로 단어를 이해합니다. 어원 트리 → 의미 분류 → 실전 3 Part.', unit:'강 완료' },
+  { id:'spectrum',    lv:'STEP 03 · 소리', c:'#7a4fa3', desc:'소리의 변화(P ↔ F)로 게르만어·라틴어 단어 가족을 잇습니다.', unit:'강 통과' },
+  { id:'matching',    lv:'부록 · APPENDIX', c:'#d2416b', desc:'1:1 암기가 지문에서 배신하는 다의어 100개. 의미 구별 → 문맥 이해 → 핵심 이미지, AI 코칭.', unit:'회차 완료', tag:'NEW' }
+];
+
+async function enter(st){
+  const prev = VT.me();
+  if (prev && prev.sid !== st.student_id) VT.clearPrefixes();
+  VT.setMe(st); EDITION = st.edition || 'beacon';
+  if (NEXT) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
+  $('hName').textContent = st.name; $('hClass').textContent = st.class_name;
+  $('hHello').textContent = `${st.name} 님, 오늘도 한 걸음.`;
+  render([]); only('home');
+  try { await VT.pull(); } catch(e){}
+  try { render(await VT.load()); } catch(e){}
+}
+function render(rows){
+  $('vocab').innerHTML = CARDS.map(c => {
+    const C = VT.COURSES[c.id]; let done = 0, max = 0, extra = '';
+    if (c.id === 'matching') {
+      const fin = rows.filter(r => r.course === 'matching' && /^s\d\d$/.test(r.unit_id) && r.completed);
+      done = fin.length; max = 20;
+      if (fin.length) extra = '평균 <b>' + Math.round(fin.reduce((a,r)=>a+Number(r.score||0),0)/fin.length) + '</b>점';
+    } else {
+      const r = rows.find(r => r.course === c.id && r.unit_id === 'state');
+      done = r ? Number(r.score||0) : 0; max = r && r.max_score ? Number(r.max_score) : ({fundamental:4,essential:5,spectrum:4})[c.id];
+    }
+    const pct = max ? Math.round(done/max*100) : 0;
+    return `<a class="course" href="${C.path}" style="--c:${c.c}">${c.tag?`<span class="tag">${c.tag}</span>`:''}
+      <div class="lv">${c.lv}</div><h3>${C.name}</h3><div class="ko">${C.ko}</div><p>${c.desc}</p>
+      <div class="foot"><div class="bar"><i style="width:${pct}%"></i></div>
+      <div class="stat"><span><b>${done}</b> / ${max} ${c.unit}</span><span>${extra}</span></div></div></a>`;
+  }).join('');
+  const comp = EDITION === 'compass';
+  $('syntax').innerHTML = `<a class="course dark wide" href="${BEACON_URL}" style="--g1:${comp?'#9cc6f5':'#ffe2a8'};--g2:${comp?'#4f8fd6':'#e8a33a'}">
+      <div><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 쉬운 어휘' : '심화편 · 어려운 어휘'}</div>
+      <h3>${comp ? 'COMPASS' : 'BEACON'}</h3><div class="ko">구문의 지도 ${comp ? '기본편' : '심화편'} · 14 Chapters · 42 Units</div>
+      <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
+      <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
+}
+function showPending(st){
+  only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');
+  clearInterval(window._pd); window._pd = setInterval(checkPending, 20000);
+}
+async function checkPending(manual){
+  try {
+    const st = await VT.status();
+    if (!st) { clearInterval(window._pd); only('login'); return; }
+    if (st.status === 'approved') { clearInterval(window._pd); enter(st); return; }
+    if (st.status === 'rejected') { clearInterval(window._pd); only('login'); say('lgMsg','승인되지 않았어요. 이름·뒷번호·반 코드를 확인해서 다시 요청하거나 선생님께 문의하세요.'); return; }
+    if (manual) say('pdMsg','아직 승인 전이에요. 조금만 기다려 주세요.', true);
+  } catch(e){ if (manual) say('pdMsg', VT.errText(e)); }
+}
+$('pdCheck').onclick = () => checkPending(true);
+$('pdEdit').onclick = () => { clearInterval(window._pd); only('login'); };
+$('lgLast4').oninput = e => { e.target.value = e.target.value.replace(/\D/g,'').slice(0,4); };
+$('lgClass').oninput = e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,''); };
+$('lgGo').onclick = async () => {
+  const name = $('lgName').value.trim(), last4 = $('lgLast4').value.trim(), code = $('lgClass').value.trim();
+  if (!name) return say('lgMsg','이름을 입력해 주세요.');
+  if (!/^\d{4}$/.test(last4)) return say('lgMsg','휴대폰 뒷자리 숫자 4개를 입력해 주세요.');
+  if (!code) return say('lgMsg','반 코드를 입력해 주세요.');
+  if (!$('lgAgree').checked) return say('lgMsg','개인정보 수집·이용에 동의해 주세요.');
+  $('lgGo').disabled = true; say('lgMsg','확인 중…', true);
+  try { const st = await VT.requestAccess(code, name, last4); if (st && st.status === 'approved') enter(st); else showPending(st); }
+  catch(e){ say('lgMsg', VT.errText(e)); }
+  $('lgGo').disabled = false;
+};
+$('logout').onclick = async () => { if (!confirm('로그아웃할까요? 학습 기록은 서버에 저장되어 있어요.')) return; await VT.logout(); location.replace('/learn/'); };
+
+(async function boot(){
+  if (!VT.sb) { only('login'); say('lgMsg','앱을 불러오지 못했어요. 새로고침해 주세요.'); return; }
+  try {
+    const st = await VT.status();
+    if (st && st.status === 'approved') return enter(st);
+    if (st && st.status === 'pending') return showPending(st);
+  } catch(e) {
+    const m = VT.me();
+    if (m) { $('hName').textContent = m.name; $('hClass').textContent = m.class_name; render([]); only('home'); return; }
+  }
+  VT.setMe(null); only('login');
+})();
+</script>
+</body>
+</html>
