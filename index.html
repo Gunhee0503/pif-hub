@@ -186,6 +186,20 @@ br.mb{display:none}
 .v-wmp .m.core{background:var(--wmp);border-color:var(--wmp);color:#fff}
 
 
+/* VocaTree 브랜드 이미지 */
+.vthero{display:grid;grid-template-columns:1fr 1.05fr;align-items:center;gap:20px;background:radial-gradient(120% 90% at 30% 50%,#fbf2e2 0,#f4e7cf 70%);border-radius:var(--r);padding:28px 48px 28px 28px;margin-bottom:28px;overflow:hidden}
+.vtart img{display:block;width:100%;max-width:470px;height:auto;margin:0 auto;-webkit-mask-image:radial-gradient(closest-side,#000 82%,transparent);mask-image:radial-gradient(closest-side,#000 82%,transparent)}
+.vthero .vtsh{text-align:left;margin:0}
+.vtsh p{margin:0}
+.vtsh .tag{color:#8a5d14}
+/* 구문의 지도 카드 이미지 */
+.edc.b{background:linear-gradient(180deg,#5d7983 0,#5d7983 250px,#24343b 420px,#182226)}
+.edc.c{background:linear-gradient(180deg,#1e2536 0,#1e2536 300px,#141a27)}
+.edc .art{margin:-46px -42px 18px;height:300px;display:flex;justify-content:center;align-items:flex-end;overflow:hidden}
+.edc .art img{display:block;height:100%;width:auto}
+.edc.b .art img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(#000 78%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(#000 78%,transparent);mask-composite:intersect}
+.edc.c .art img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(#000 80%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(#000 80%,transparent);mask-composite:intersect}
+.edc.b p,.edc.b .lvl,.edc.b .meta span{color:#c3d0d4}
 /* 문법 · 출제자의 시선 */
 .gband{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center;background:#161617;border:1px solid #2c2c2e;border-radius:var(--r);padding:40px;margin-top:56px}
 .ginfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em;color:#6cb4ff}
@@ -280,6 +294,8 @@ footer a{color:#424245}
   .stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid #ececef}
   .tiles,.ed{grid-template-columns:1fr}
   .ytband{grid-template-columns:1fr;padding:30px 26px;gap:22px}.ytband .ytbox{order:-1}
+  .vthero{grid-template-columns:1fr;padding:22px 22px 30px;gap:6px}.vtart img{max-width:300px}.vthero .vtsh{text-align:center}.vtsh p{margin:0 auto}
+  .edc .art{margin:-36px -26px 16px;height:240px}
   .gband{grid-template-columns:1fr;padding:28px 22px;gap:22px;margin-top:40px}.ginfo h3{font-size:24px}.gcap{display:none}
   .feat{grid-template-columns:1fr 1fr}
   .flow{grid-template-columns:repeat(3,1fr);row-gap:34px}.flow::before{display:none}
@@ -343,8 +359,11 @@ footer a{color:#424245}
 </div></div>
 
 <section class="gray" id="vocatree"><div class="wrap">
-  <div class="sh" style="--c:var(--ess)"><div class="tag">어휘 · VocaTree</div><h2>한 단어를 배우면,<br>열 단어가 보인다.</h2>
+  <div class="vthero">
+    <div class="vtart"><img src="/img/brand/vocatree-light.jpg" alt="VocaTree 마인드맵 보카뷸러리 — 뿌리에서 가지로 뻗어 가는 단어 네트워크" width="960" height="960" loading="lazy"></div>
+    <div class="sh vtsh" style="--c:var(--ess)"><div class="tag">어휘 · VocaTree</div><h2>한 단어를 배우면,<br>열 단어가 보인다.</h2>
     <p>어원과 원리를 이해하면, 단순 암기가 아닌 확장되는 진짜 영어가 시작됩니다. 하나의 뿌리를 심으면, 처음 보는 단어도 스스로 의미를 추론합니다.</p><a class="story" href="/vocatree/">보카트리 이야기 읽기 — AI는 어떻게 고양이를 알아보게 되었나?</a></div>
+  </div>
   <div class="tiles">
     <a class="t2" href="/fundamental/" style="--c:var(--fund)"><div class="lv">STEP 01 · 기초</div><h3>Fundamental</h3><div class="ko">보카트리 펀더멘탈</div>
       <p>접두사와 어미의 이미지로 처음 보는 단어를 추리합니다. 어휘 추리력 → 단어 브릿지 → 예문 빈칸, 4강.</p><span class="more">학습하기</span>
@@ -381,12 +400,12 @@ footer a{color:#424245}
     <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 듣고, 끊어 읽고, 풀면서 14개의 봉인석을 모으는 항해.</p></div>
   <div class="syn"><span class="s">The way a question is framed</span><span class="x">&nbsp;/&nbsp;</span><span class="v">can change</span><span class="x">&nbsp;/&nbsp;</span><span class="o">the answer people give.</span></div>
   <div class="ed">
-    <a class="edc c" href="https://syntax-beacon.vercel.app/"><div class="glow"></div><div class="lvl">기본편</div><h3>COMPASS</h3><div class="one">기본 어휘부터 구문의 길을 익히는 첫 지도</div>
+    <a class="edc c" href="https://syntax-beacon.vercel.app/"><div class="art"><img src="/img/brand/compass.jpg" alt="구문의 지도 COMPASS — 나침반" width="367" height="400" loading="lazy"></div><div class="lvl">기본편</div><h3>COMPASS</h3><div class="one">기본 어휘부터 구문의 길을 익히는 첫 지도</div>
       <p>BEACON과 같은 14장 구문을 기본 어휘의 예문부터. 어휘 부담 없이 문장 구조 자체에 집중하고, 음성으로 듣고 따라 하며 다집니다.</p>
       <div class="meta"><div><b>14</b><span>Chapters</span></div><div><b>42</b><span>Units</span></div><div><b>2×</b><span>반복 듣기</span></div></div>
       <div class="chips"><span>준동사의 본질</span><span>분사의 능동·수동</span><span>시제와 수동태</span><span>관계사 vs 접속사</span><span>가정법</span></div>
       <span class="more">COMPASS 시작하기</span></a>
-    <a class="edc b" href="https://syntax-beacon.vercel.app/"><div class="glow"></div><div class="lvl">심화편</div><h3>BEACON</h3><div class="one">어려운 어휘로 완성하는 1등급 구문분석</div>
+    <a class="edc b" href="https://syntax-beacon.vercel.app/"><div class="art"><img src="/img/brand/beacon.jpg" alt="구문의 지도 BEACON — 등대" width="515" height="389" loading="lazy"></div><div class="lvl">심화편</div><h3>BEACON</h3><div class="one">어려운 어휘로 완성하는 1등급 구문분석</div>
       <p>같은 구문, 더 어려운 어휘. 수능·고난도 내신 수준의 예문에서도 흔들리지 않고 문장 구조를 읽어 내는 힘을 기릅니다.</p>
       <div class="meta"><div><b>14</b><span>Chapters</span></div><div><b>42</b><span>Units</span></div><div><b>14</b><span>봉인석 퀘스트</span></div></div>
       <div class="chips"><span>완료형 준동사</span><span>분사구문의 입체 해석</span><span>비교급 고난도 논리</span><span>가주어·강조</span><span>도치</span><span>복합 구문 돌파</span></div>

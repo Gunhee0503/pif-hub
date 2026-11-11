@@ -78,6 +78,14 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .course.dark h3{background:linear-gradient(120deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
 .course.dark .go{font-size:14px;color:#2997ff;font-weight:500}
 .wide{grid-column:1/-1}
+.course.syn{overflow:hidden;min-height:260px}
+.course.syn.bcn{background:#3e5660}.course.syn.cmp{background:#1e2536}
+.course.syn .stx{position:relative;z-index:1;max-width:52%}
+.course.syn .sart{position:absolute;right:0;top:0;bottom:0;width:52%;background-size:cover;background-position:center;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
+.course.syn.bcn p,.course.syn.bcn .ko{color:#c3d0d4}
+.course.syn .foot{position:relative;z-index:1}
+@media(min-width:700px){.course.syn{display:flex;align-items:flex-start;justify-content:center}.course.syn .foot{grid-column:auto;grid-row:auto;margin-top:16px}}
+@media(max-width:699px){.course.syn .stx{max-width:none}.course.syn .sart{position:relative;width:auto;height:190px;margin:-22px -22px 14px;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}}
 @media(min-width:700px){.wide{display:grid;grid-template-columns:1.1fr 1fr;gap:10px 28px;align-items:center}.wide .foot{grid-column:2;grid-row:1/4}}
 </style>
 </head>
@@ -210,8 +218,8 @@ function render(rows){
   const comp = EDITION === 'compass';
   if (OPEN && !OPEN.includes('syntax')) { $('syntax').innerHTML = `<div class="course off wide" style="--c:#1d1d1f"><div><div class="lv" style="color:#86868b">🔒 미수강</div><h3>구문의 지도</h3><div class="ko">COMPASS 기본편 · BEACON 심화편</div>
       <p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div></div>`; return; }
-  $('syntax').innerHTML = `<a class="course dark wide" href="${BEACON_URL}" style="--g1:${comp?'#9cc6f5':'#ffe2a8'};--g2:${comp?'#4f8fd6':'#e8a33a'}">
-      <div><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 기본 어휘부터' : '심화편 · 어려운 어휘'}</div>
+  $('syntax').innerHTML = `<a class="course dark wide syn ${comp?'cmp':'bcn'}" href="${BEACON_URL}" style="--g1:${comp?'#9cc6f5':'#ffe2a8'};--g2:${comp?'#4f8fd6':'#e8a33a'}">
+      <div class="sart" style="background-image:url(/img/brand/${comp?'compass':'beacon'}.jpg)"></div><div class="stx"><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 기본 어휘부터' : '심화편 · 어려운 어휘'}</div>
       <h3>${comp ? 'COMPASS' : 'BEACON'}</h3><div class="ko">구문의 지도 ${comp ? '기본편' : '심화편'} · 14 Chapters · 42 Units</div>
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
