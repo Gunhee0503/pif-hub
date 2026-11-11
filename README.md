@@ -21,3 +21,10 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 
 ## Word Matching 데이터 수정
 `matching/data.js` 한 파일에 문제·정답·해설이 모두 있습니다. AI 피드백 함수도 이 파일을 읽습니다.
+
+## 문법 STEP · 출제자의 시선 (`/grammar/`)
+- 데이터: `grammar/data.js` (window.GRAM). 학습지 PDF에서 자동 생성:
+  `python3 tools/grammar_pdf.py 학습지.pdf [더.pdf ...]` → 같은 회차는 덮어쓰고 새 회차는 추가 (PyMuPDF 필요)
+- 점수: SET당 STEP1 5 + 밑줄 5개 × (O/X 2 + 고치기·오답 2) = 25, 4 SET = 100
+- 진도: vt_progress (course `grammar`, unit `b01` = 기본 01회), AI 채점: Edge Function `vt-ai` kind `grammar`
+- 학습법 안내 영상: YouTube BxMEUzZn5tw (`shared/yt.js`의 GRAMMAR)

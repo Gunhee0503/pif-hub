@@ -66,6 +66,9 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .eplist button img{width:64px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
 .eplist button small{display:block;font-size:11px;color:var(--ink2);font-weight:600}
 .eplist button.on{background:#f5f5f7}
+.gdesc{font-size:13.5px;line-height:1.6;color:#424245;margin:0 0 14px}
+.gbtn{display:inline-block;background:#2c5f8a;color:#fff;border-radius:99px;padding:10px 18px;font-size:14px;font-weight:600;text-decoration:none}
+.gstat{font-size:12.5px;color:var(--ink2);margin-top:9px}
 .ytside .go{font-size:14px;color:#0066cc;font-weight:500;text-decoration:none}
 @media(max-width:700px){.ytcard{grid-template-columns:1fr}}
 .course.off{opacity:.62;cursor:default}.course.off:hover{transform:none;box-shadow:none}
@@ -137,6 +140,15 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 
   <div class="grp"><b>구문 · 구문의 지도</b><span>청크(Chunk) 덩어리가 보이면, 긴 문장도 한눈에 읽힙니다</span></div>
   <div class="grid" id="syntax"></div>
+
+  <div class="grp" style="margin-top:42px"><b>문법 · 출제자의 시선</b><span>틀린 것을 찾는 데서 멈추지 않고, 틀리게 만들어 보기</span></div>
+  <div class="ytcard" id="gramCard">
+    <div class="ytbox" id="ytGram"></div>
+    <div class="ytside"><div class="lv" style="color:#2c5f8a;font-size:11.5px;font-weight:700;letter-spacing:.1em">GRAMMAR STEP · 과제</div>
+      <h3>문법 STEP 학습지<br>어법 판단 → 출제자 시선</h3>
+      <p class="gdesc">STEP 1 틀린 것 고르기 → STEP 2 밑줄마다 O/X, 틀린 건 고치고 옳은 건 내가 오답 만들기. AI 코치가 채점해요. 처음이면 왼쪽 학습법 영상(12분)을 먼저 보세요.</p>
+      <div id="gramGo"></div></div>
+  </div>
 </div>
 
 <script src="/shared/supabase.js"></script>
@@ -146,7 +158,7 @@ const $ = id => document.getElementById(id);
 const VIEWS = ['boot','login','pending','home'];
 function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0); }
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
-const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching)\/$/.test(n) ? n : null; })();
+const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching|grammar)\/$/.test(n) ? n : null; })();
 const BEACON_URL = 'https://syntax-beacon.vercel.app/';
 let EDITION = 'beacon', OPEN = null;
 const LOCKED_Q = new URLSearchParams(location.search).get('locked');
@@ -191,6 +203,10 @@ function render(rows){
       <div class="foot"><div class="bar"><i style="width:${pct}%"></i></div>
       <div class="stat"><span><b>${done}</b> / ${max} ${c.unit}</span><span>${extra}</span></div></div></a>`;
   }).join('');
+  const gfin = rows.filter(r => r.course === 'grammar' && r.completed);
+  $('gramGo').innerHTML = (OPEN && !OPEN.includes('grammar'))
+    ? '<div class="gstat">🔒 우리 반에서는 아직 열리지 않은 과제예요. 담당 선생님이 열어 주면 이용할 수 있어요.</div>'
+    : `<a class="gbtn" href="/grammar/">과제 시작하기 →</a><div class="gstat">${gfin.length ? `완료 <b>${gfin.length}</b>회 · 평균 <b>${Math.round(gfin.reduce((a,r)=>a+Number(r.score||0),0)/gfin.length)}</b>점` : '아직 완료한 회차가 없어요'}</div>`;
   const comp = EDITION === 'compass';
   if (OPEN && !OPEN.includes('syntax')) { $('syntax').innerHTML = `<div class="course off wide" style="--c:#1d1d1f"><div><div class="lv" style="color:#86868b">🔒 미수강</div><h3>구문의 지도</h3><div class="ko">COMPASS 기본편 · BEACON 심화편</div>
       <p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div></div>`; return; }
@@ -200,7 +216,7 @@ function render(rows){
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
 }
-function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching' }[c]; if (!n) return;
+function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP' }[c]; if (!n) return;
   $('lockNote').textContent = `🔒 ${n}은(는) 우리 반에서 아직 열리지 않은 코스예요. 담당 선생님께 문의해 주세요.`; $('lockNote').hidden = false; }
 function showPending(st){
   only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');
@@ -255,6 +271,7 @@ $('logout').onclick = async () => { if (!confirm('로그아웃할까요? 학습 
   function pick(i){ Y.mount(box, Y.EPS[i]); [].forEach.call(eps.children, function(b, k){ b.classList.toggle('on', k === i); }); }
   [].forEach.call(eps.children, function(b, i){ b.onclick = function(){ pick(i); }; });
   pick(0);
+  var g = document.getElementById('ytGram'); if (g && Y.GRAMMAR) Y.mount(g, Y.GRAMMAR);
 })();
 </script>
 </body>

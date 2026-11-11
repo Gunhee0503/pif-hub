@@ -11,7 +11,7 @@
 <style>
 @font-face{font-family:'Pretendard';src:url('/fonts/PretendardVariable.woff2') format('woff2-variations');font-weight:45 920;font-display:swap}
 :root{--ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;--line:#e5e5ea;--bg:#f5f5f7;--blue:#0071e3;--ok:#248a3d;--bad:#d70015;
-  --fund:#2f7d6d;--ess:#b07a22;--spec:#7a4fa3;--wmp:#d2416b;--compass:#2b6cb0;--beacon:#d08a1e}
+  --fund:#2f7d6d;--ess:#b07a22;--spec:#7a4fa3;--wmp:#d2416b;--compass:#2b6cb0;--beacon:#d08a1e;--gram:#2c5f8a}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;color:var(--ink);background:var(--bg);letter-spacing:-.01em;word-break:keep-all;font-size:14px}
 button,input,select{font:inherit;color:inherit}
@@ -43,7 +43,7 @@ main{max-width:1280px;margin:0 auto;padding:22px 20px 60px}
 .bar select,.bar input{border:1px solid #d2d2d7;border-radius:10px;padding:8px 11px;background:#fff;font-size:13.5px}
 .bar input{min-width:180px}
 .bar .sp{flex:1}
-.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:16px}
 .kpi{background:#fff;border-radius:16px;padding:14px 16px}.kpi small{color:var(--ink2);font-size:12px}.kpi b{display:block;font-size:24px;font-weight:700;letter-spacing:-.03em;margin-top:4px}
 .kpi i{font-style:normal;font-size:12px;color:var(--ink3);font-weight:500}
 .tw{overflow-x:auto;border-radius:16px;background:#fff}
@@ -85,7 +85,7 @@ td.num{font-variant-numeric:tabular-nums}
 .sgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
 .sgrid button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 0;font-size:12px;line-height:1.3}
 .sgrid button b{display:block;font-size:14px}
-.sgrid button.done{background:#fdf0f4;border-color:#f3c3d1}.sgrid button.go{background:#fff7e6;border-color:#f5d9a3}.sgrid button.on{outline:2px solid var(--wmp)}
+.sgrid button.done{background:#fdf0f4;border-color:#f3c3d1}.gsg button.done{background:#e8f0f8;border-color:#bcd0e4}.gsg{grid-template-columns:repeat(auto-fill,minmax(84px,1fr))!important}.sgrid button.go{background:#fff7e6;border-color:#f5d9a3}.sgrid button.on{outline:2px solid var(--wmp)}
 .ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
 .ugrid div{border:1px solid var(--line);border-radius:10px;padding:7px 9px;font-size:12px;line-height:1.45}
 .ugrid div.done{background:#eef6f0;border-color:#c6e2cd}.ugrid div.go{background:#fff7e6;border-color:#f5d9a3}
@@ -124,7 +124,7 @@ td.num{font-variant-numeric:tabular-nums}
       <button data-t="report" class="on">학습 리포트</button>
       <button data-t="classes">반·수강 관리</button>
       <button data-t="pending">승인 대기<span class="badge" id="pdCount" hidden></span></button>
-      <button data-t="words">단어 분석</button>
+      <button data-t="words">단어·문법 분석</button>
       <button data-t="staff" id="tabStaff" hidden>선생님</button>
     </nav>
     <div class="me"><b id="meName"></b><br><span id="meRole"></span></div>
@@ -139,6 +139,7 @@ td.num{font-variant-numeric:tabular-nums}
 <script src="/shared/supabase.js"></script>
 <script src="/shared/vt.js"></script>
 <script src="/matching/data.js"></script>
+<script src="/grammar/data.js"></script>
 <script>
 'use strict';
 const SB = VT.sb, $ = id => document.getElementById(id);
@@ -151,11 +152,16 @@ const COURSES = [
   { id:'essential',   name:'Essential',   c:'var(--ess)' },
   { id:'spectrum',    name:'Spectrum',    c:'var(--spec)' },
   { id:'matching',    name:'Word Matching', c:'var(--wmp)' },
-  { id:'syntax',      name:'구문의 지도',  c:'#1d1d1f' }
+  { id:'syntax',      name:'구문의 지도',  c:'#1d1d1f' },
+  { id:'grammar',     name:'문법 STEP',    c:'var(--gram)' }
 ];
+const GR = (window.GRAM && window.GRAM.rounds) || [];
+const GLV = { '기본':'b', '심화':'a', '실전':'p' };
+const gUid = r => (GLV[r.level] || 'x') + pad(r.round);
+const gSetPts = (set, t) => { const r = t && t.res; if (!r || r.rows.some(x => x.w == null)) return null; return (r.s1 ? 5 : 0) + r.rows.reduce((a, x) => a + (x.ox ? 2 : 0) + (x.w ? 2 : 0), 0); };
 const SYN_READY = 8;   // 구문의 지도 현재 공개 유닛 수 (편별)
 let STAFF = null, STAFFS = [], IS_OWNER = false, TAB = 'report';
-const D = { classes:[], students:[], devices:[], prog:[], syn:[], ct:[], wmp:null };
+const D = { classes:[], students:[], devices:[], prog:[], syn:[], ct:[], wmp:null, gram:null };
 const F = { cls: localStorage.getItem('pifhub_admin_cls') || 'all', q: '' };
 
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
@@ -223,7 +229,7 @@ async function load(){
   D.classes = c.data || []; D.students = st.data || []; D.devices = dv.data || []; STAFFS = sf.data || [STAFF];
   if (F.cls !== 'all' && !D.classes.some(x => x.code === F.cls)) F.cls = 'all';
   const ids = D.students.map(s => s.id);
-  D.prog = []; D.syn = []; D.wmp = null;
+  D.prog = []; D.syn = []; D.wmp = null; D.gram = null;
   if (ids.length) {
     const [p, q] = await Promise.all([
       SB.from('vt_progress').select('student_id,course,unit_id,score,max_score,completed,updated_at').in('student_id', ids),
@@ -247,12 +253,15 @@ function summary(s){
   const rows = D.prog.filter(r => r.student_id === s.id), sy = D.syn.filter(r => r.student_id === s.id);
   const st = c => rows.find(r => r.course === c && r.unit_id === 'state');
   const fin = rows.filter(r => r.course === 'matching' && r.completed);
+  const gfin = rows.filter(r => r.course === 'grammar' && r.completed);
   const synDone = sy.filter(r => synUnit(r.data).done).length;
   const times = rows.map(r => r.updated_at).concat(sy.map(r => r.updated_at)).filter(Boolean).sort();
   return { s, cls: clsOf(s.class_code), fund: st('fundamental'), ess: st('essential'), spec: st('spectrum'),
     mDone: fin.length, mGo: rows.filter(r => r.course === 'matching' && !r.completed).length,
     mAvg: fin.length ? Math.round(fin.reduce((a,r)=>a+Number(r.score||0),0)/fin.length) : null,
-    synDone, synGo: sy.length - synDone, last: times[times.length-1] || null };
+    synDone, synGo: sy.length - synDone, last: times[times.length-1] || null,
+    gDone: gfin.length, gGo: rows.filter(r => r.course === 'grammar' && !r.completed).length,
+    gAvg: gfin.length ? Math.round(gfin.reduce((a,r)=>a+Number(r.score||0),0)/gfin.length) : null };
 }
 function filtered(){
   const q = F.q.trim();
@@ -281,7 +290,8 @@ function renderReport(){
       <div class="kpi"><small>최근 7일 학습</small><b>${S.filter(x => x.last && new Date(x.last) > week).length}명</b></div>
       <div class="kpi"><small>Word Matching 완료</small><b>${fin}<i> 회차</i></b></div>
       <div class="kpi"><small>Word Matching 평균</small><b>${avgs.length ? Math.round(avgs.reduce((a,x)=>a+x.mAvg,0)/avgs.length) + '<i> 점</i>' : '—'}</b></div>
-      <div class="kpi"><small>구문의 지도 완료</small><b>${synTot}<i> 유닛</i></b></div></div>`;
+      <div class="kpi"><small>구문의 지도 완료</small><b>${synTot}<i> 유닛</i></b></div>
+      <div class="kpi"><small>문법 STEP 완료</small><b>${S.reduce((a,x) => a + x.gDone, 0)}<i> 회</i></b></div></div>`;
   if (!S.length) { $('body').innerHTML = h + '<div class="empty">조건에 맞는 학생이 없어요.</div>'; bindFilter(renderReport); bindReportBtns([]); return; }
   S.sort((a,b) => (a.cls.code + a.s.name).localeCompare(b.cls.code + b.s.name));
   h += `<div class="tw"><table><tr><th>이름</th><th>반</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
@@ -294,6 +304,7 @@ function renderReport(){
       <td>${has('spectrum') ? pbar(x.spec,4,'var(--spec)') : locked}</td>
       <td class="num">${has('matching') ? `<b>${x.mDone}</b>/20${x.mAvg != null ? ` <span class="muted">· ${x.mAvg}점</span>` : ''}${x.mGo ? ` <span class="muted">· 진행 ${x.mGo}</span>` : ''}` : locked}</td>
       <td class="num">${has('syntax') ? `<span class="ed" style="--c:${comp?'var(--compass)':'var(--beacon)'}">${comp?'C':'B'}</span> <b>${x.synDone}</b>/${SYN_READY}${x.synGo ? ` <span class="muted">· 진행 ${x.synGo}</span>` : ''}` : locked}</td>
+      <td class="num">${has('grammar') ? `<b>${x.gDone}</b>/${GR.length}${x.gAvg != null ? ` <span class="muted">· ${x.gAvg}점</span>` : ''}${x.gGo ? ` <span class="muted">· 진행 ${x.gGo}</span>` : ''}` : locked}</td>
       <td class="muted">${ago(x.last)}</td></tr>`;
   });
   $('body').innerHTML = h + `</table></div><div class="note">구문의 지도 B = BEACON(심화), C = COMPASS(기본). 숫자는 완료 유닛 / 현재 공개 유닛(${SYN_READY}). 학생을 누르면 코스별 상세 기록을 볼 수 있어요.</div>`;
@@ -303,9 +314,9 @@ function renderReport(){
 function bindReportBtns(S){
   $('reload').onclick = load;
   $('csv').onclick = () => {
-    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','최근학습'];
+    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','최근학습'];
     const v = r => r ? Number(r.score||0) : 0;
-    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
+    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
     const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv' }));
     a.download = `PIF_학습리포트_${new Date().toISOString().slice(0,10)}.csv`; a.click();
@@ -466,6 +477,14 @@ async function openStudent(sid){
       return `<div class="${u.done ? 'done' : 'go'}"><b>${esc(id)}</b>${r.unit_id.startsWith('c-') ? ' <span class="muted">C</span>' : ''}<br>${u.done ? '<span class="ok">완료</span>' : `듣기 ${u.lp}/5`} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`
     : (has('syntax') ? '<div class="muted">기록 없음</div>' : lockH);
   h += '</div>';
+  // 문법 STEP
+  const GP = {}; rows.filter(r => r.course === 'grammar').forEach(r => GP[r.unit_id] = r);
+  h += `<div class="sec" style="--c:var(--gram)"><h3><i></i>문법 STEP · 출제자의 시선 <small>회차를 누르면 답안 전체</small></h3>`;
+  if (has('grammar') || Object.keys(GP).length) {
+    h += `<div class="sgrid gsg">${GR.map(g => { const r = GP[gUid(g)], d = r && r.data, n = d ? g.sets.filter(x => (d.sets[x.set] || {}).graded).length : 0;
+      return `<button data-g="${esc(g.id)}" class="${r && r.completed ? 'done' : n ? 'go' : ''}">${esc(g.level)} ${pad(g.round)}<b>${r && r.completed ? r.score : n ? n + '/' + g.sets.length : '–'}</b></button>`; }).join('')}</div><div id="gDetail"></div>`;
+  } else h += lockH;
+  h += '</div>';
   // Fundamental
   const fr = rows.filter(r => r.course === 'fundamental' && r.unit_id !== 'state').sort((a,b) => a.unit_id.localeCompare(b.unit_id));
   h += `<div class="sec" style="--c:var(--fund)"><h3><i></i>Fundamental</h3>`;
@@ -506,10 +525,39 @@ async function openStudent(sid){
     const k = b.dataset.course, next = s.courses.includes(k) ? s.courses.filter(x => x !== k) : s.courses.concat(k);
     saveCourses(COURSES.map(x => x.id).filter(x => next.includes(x)));
   });
-  $('drawer').querySelectorAll('.sgrid button').forEach(b => b.onclick = () => {
-    $('drawer').querySelectorAll('.sgrid button').forEach(x => x.classList.toggle('on', x === b));
+  $('drawer').querySelectorAll('.sgrid button[data-s]').forEach(b => b.onclick = () => {
+    $('drawer').querySelectorAll('.sgrid button[data-s]').forEach(x => x.classList.toggle('on', x === b));
     sessionDetail(M[Number(b.dataset.s)], Number(b.dataset.s));
   });
+  $('drawer').querySelectorAll('.sgrid button[data-g]').forEach(b => b.onclick = () => {
+    $('drawer').querySelectorAll('.sgrid button[data-g]').forEach(x => x.classList.toggle('on', x === b));
+    const g = GR.find(x => x.id === b.dataset.g); gramDetail(GP[gUid(g)], g);
+  });
+}
+function gramDetail(r, g){
+  const el = $('gDetail');
+  if (!r || !r.data) { el.innerHTML = `<div class="note">${esc(g.level)} ${pad(g.round)}회는 아직 시작하지 않았어요.</div>`; return; }
+  const d = r.data;
+  let h = `<div class="note">${esc(g.level)} ${pad(g.round)}회 · ${r.completed ? '<b>' + r.score + '</b> / ' + (r.max_score || 100) + ' · ' + new Date(d.finishedAt).toLocaleString('ko-KR') : '진행 중'}${d.history && d.history.length > 1 ? ' · 응시 ' + d.history.length + '회 (' + d.history.map(x => x.total).join(' → ') + ')' : ''}</div>`;
+  g.sets.forEach(set => {
+    const t = d.sets[set.set];
+    if (!t || !t.res) { h += `<div class="wd"><div class="h"><b>SET ${pad(set.set)} ${esc(set.title)}</b><span class="muted">${t ? '푸는 중' : '미시작'}</span></div></div>`; return; }
+    const p = gSetPts(set, t);
+    h += `<div class="wd"><div class="h"><b>SET ${pad(set.set)} ${esc(set.title)}</b><span>${p == null ? '<span class="muted">자기채점 대기</span>' : p + ' / 25'}</span></div>
+      <div class="row"><div>STEP 1</div><div>${t.res.s1 ? '<span class="ok">정답</span>' : `<span class="bad">오답</span> ${CIRC[t.s1-1]} 선택 (정답 ${CIRC[set.answer-1]})`}</div></div>`;
+    set.items.forEach((k, i) => {
+      const v = t.rows[i] || {}, rr = t.res.rows[i] || {}, orig = (set.passage.find(x => x.n === k.n) || {}).t || '';
+      const mk = b => b ? '<span class="ok">○</span>' : b === false ? '<span class="bad">✕</span>' : '?';
+      h += `<div class="row"><div>${CIRC[k.n-1]} ${esc(orig)}</div><div>O/X ${mk(rr.ox)} ${esc(v.ox || '—')} <span class="muted">(정답 ${k.ox}${v.pt ? ' · 포인트: ' + esc(v.pt) : ''})</span>`;
+      if (v.ox === 'X') h += `<br>고치기 ${rr.ox ? mk(rr.w) : ''} ${esc(v.a || '빈칸')} <span class="muted">${k.ox === 'X' ? '(정답 ' + esc(k.fix) + ')' : ''}</span>`;
+      if (v.ox === 'O') h += `<br>오답 ${rr.ox ? mk(rr.w) : ''} <b>${esc(v.a || '빈칸')}</b> — ${esc(v.why || '이유 없음')}`;
+      if (rr.by === 'ai' && rr.comment) h += `<div class="ai">AI: ${esc(rr.comment)}</div>`;
+      else if (rr.by === 'self') h += ` <span class="muted">· 자기채점</span>`;
+      h += `</div></div>`;
+    });
+    h += '</div>';
+  });
+  el.innerHTML = h;
 }
 function sessionDetail(r, s){
   const el = $('sDetail');
@@ -548,13 +596,29 @@ async function renderWords(){
     if (st.s1 !== BYW[id].answer && st.s1) a.wrong[st.s1] = (a.wrong[st.s1]||0) + 1;
   }));
   const list = Object.entries(agg).map(([id,a]) => ({ w: BYW[id], a, tot: (a.s1+a.s2)/a.n })).sort((x,y) => x.tot - y.tot);
-  if (!list.length) { $('body').innerHTML = h + '<div class="empty">아직 끝낸 단어가 없어요.</div>'; bindFilter(renderWords); return; }
+  if (!D.gram) { const r = await SB.from('vt_progress').select('student_id,unit_id,data').eq('course','grammar').in('student_id', D.students.map(s => s.id)); D.gram = r.data || []; }
+  const gH = gramAnalysis(ids);
+  if (!list.length) { $('body').innerHTML = h + '<div class="empty">아직 끝낸 단어가 없어요.</div>' + gH; bindFilter(renderWords); return; }
   $('body').innerHTML = h + `<div class="tw"><table><tr><th>단어</th><th>회차</th><th>푼 학생</th><th>STEP 1 정답률</th><th>STEP 2 평균</th><th>해석 빈칸 정답률</th><th>평균 합계</th><th>가장 많이 고른 오답</th></tr>
     ${list.map(x => { const top = Object.entries(x.a.wrong).sort((a,b) => b[1]-a[1])[0];
       return `<tr><td><b>${esc(x.w.word)}</b></td><td>${x.w.session}</td><td>${x.a.n}명</td><td>${Math.round(x.a.s1/6/x.a.n*100)}%</td>
       <td>${(x.a.s2/x.a.n).toFixed(1)} / 14</td><td>${Math.round(x.a.tr/x.a.n*100)}%</td><td><b class="${x.tot<12?'bad':''}">${x.tot.toFixed(1)}</b> / 20</td>
-      <td>${top ? `${CIRC[top[0]-1]} ${esc(x.w.options[top[0]-1].pattern)} <span class="muted">(${top[1]}명)</span>` : '—'}</td></tr>`; }).join('')}</table></div>`;
+      <td>${top ? `${CIRC[top[0]-1]} ${esc(x.w.options[top[0]-1].pattern)} <span class="muted">(${top[1]}명)</span>` : '—'}</td></tr>`; }).join('')}</table></div>` + gH;
   bindFilter(renderWords);
+}
+function gramAnalysis(ids){
+  const agg = {};
+  (D.gram || []).filter(r => ids.has(r.student_id)).forEach(r => { const g = GR.find(x => gUid(x) === r.unit_id); if (!g || !r.data) return;
+    g.sets.forEach(set => { const t = (r.data.sets || {})[set.set]; if (!t || !t.res) return;
+      set.items.forEach((k, i) => { const rr = t.res.rows[i]; if (!rr) return; const key = g.id + '|' + set.set + '|' + k.n;
+        const a = agg[key] || (agg[key] = { g, set, k, n:0, ox:0, w:0 }); a.n++; if (rr.ox) a.ox++; if (rr.w) a.w++; }); }); });
+  const list = Object.values(agg).sort((x, y) => (x.ox + x.w) / x.n - (y.ox + y.w) / y.n);
+  let h = `<h3 style="margin:30px 0 8px;font-size:18px">문법 STEP · 밑줄별 분석</h3><div class="note" style="margin:0 0 10px">채점까지 마친 밑줄을 정답률이 낮은 순서로 보여 줍니다. O/X는 판단, 고치기·오답은 X를 바르게 고치거나 O에서 오답을 만든 것.</div>`;
+  if (!list.length) return h + '<div class="empty">아직 채점된 문법 과제가 없어요.</div>';
+  return h + `<div class="tw"><table><tr><th>회차</th><th>SET</th><th>밑줄</th><th>문법 포인트</th><th>정답</th><th>푼 학생</th><th>O/X 정답률</th><th>고치기·오답 정답률</th></tr>
+    ${list.map(a => { const orig = (a.set.passage.find(x => x.n === a.k.n) || {}).t || ''; const pc = v => Math.round(v / a.n * 100);
+      return `<tr><td>${esc(a.g.level)} ${pad(a.g.round)}</td><td>${pad(a.set.set)}</td><td>${CIRC[a.k.n-1]} <b>${esc(orig)}</b></td><td>${esc(a.k.point)}</td><td>${a.k.ox}</td><td>${a.n}명</td>
+      <td><b class="${pc(a.ox)<60?'bad':''}">${pc(a.ox)}%</b></td><td><b class="${pc(a.w)<60?'bad':''}">${pc(a.w)}%</b></td></tr>`; }).join('')}</table></div>`;
 }
 
 if (!SB) { document.body.innerHTML = '<div class="gate"><h1>불러오지 못했어요</h1></div>'; }

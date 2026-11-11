@@ -186,6 +186,16 @@ br.mb{display:none}
 .v-wmp .m.core{background:var(--wmp);border-color:var(--wmp);color:#fff}
 
 
+/* 문법 · 출제자의 시선 */
+.gband{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center;background:#161617;border:1px solid #2c2c2e;border-radius:var(--r);padding:40px;margin-top:56px}
+.ginfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em;color:#6cb4ff}
+.ginfo h3{font-size:30px;font-weight:740;letter-spacing:-.04em;line-height:1.22;margin:10px 0 14px;color:#f5f5f7}
+.ginfo p{font-size:16px;line-height:1.65;color:#a1a1a6;margin-bottom:18px}
+.gflow{display:flex;flex-wrap:wrap;align-items:center;gap:7px}
+.gflow span{background:#232325;border:1px solid #3a3a3c;border-radius:12px;padding:7px 11px;font-size:13.5px;color:#e8e8ed}
+.gflow b{color:#6cb4ff;margin-right:5px;font-weight:700}
+.gflow em{font-style:normal;color:#6e6e73}
+.gcap{margin-top:16px;font-size:13px;color:#86868b}
 /* 다의어 한방에 */
 .ytband{display:grid;grid-template-columns:1fr 1.35fr;gap:36px;align-items:center;background:#fff;border-radius:var(--r);padding:40px;margin-top:20px}
 .ytinfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em}
@@ -270,6 +280,7 @@ footer a{color:#424245}
   .stat:nth-child(3){border-left:0}.stat:nth-child(n+3){border-top:1px solid #ececef}
   .tiles,.ed{grid-template-columns:1fr}
   .ytband{grid-template-columns:1fr;padding:30px 26px;gap:22px}.ytband .ytbox{order:-1}
+  .gband{grid-template-columns:1fr;padding:28px 22px;gap:22px;margin-top:40px}.ginfo h3{font-size:24px}.gcap{display:none}
   .feat{grid-template-columns:1fr 1fr}
   .flow{grid-template-columns:repeat(3,1fr);row-gap:34px}.flow::before{display:none}
 }
@@ -382,6 +393,16 @@ footer a{color:#424245}
       <span class="more">BEACON 시작하기</span></a>
   </div>
   <div class="edcap"><span>같은 14장 · 42유닛 구문</span><i></i><span>예문 어휘 난이도만 다르게</span><i></i><span>COMPASS로 시작해 BEACON으로</span></div>
+  <div class="gband" id="grammar">
+    <div class="ginfo">
+      <div class="lv">문법 · 출제자의 시선 GRAMMAR STEP</div>
+      <h3>틀린 것을 찾는 데서 멈추지 않고,<br>옳은 것을 틀리게 만들어 봅니다.</h3>
+      <p>PIF의 문법 과제는 지문의 밑줄 다섯 개를 하나하나 점검합니다. 틀린 것은 바르게 고치고, 옳은 것은 출제자가 되어 그럴듯한 오답과 그 이유를 씁니다. 정답이 정해져 있지 않은 오답 만들기는 AI 코치가 바로 채점합니다.</p>
+      <div class="gflow"><span><b>STEP 1</b>틀린 것 고르기</span><em>→</em><span><b>STEP 2</b>밑줄마다 O / X</span><em>→</em><span><b>X</b>바르게 고치기</span><span><b>O</b>내가 만드는 오답</span><em>→</em><span><b>AI</b>채점 · 해설</span></div>
+      <div class="gcap">학습법 안내 영상 · 12분</div>
+    </div>
+    <div class="ytbox" id="ytGramL"></div>
+  </div>
 </div></section>
 
 <section id="method"><div class="wrap">
@@ -477,6 +498,7 @@ footer a{color:#424245}
   eps.innerHTML = Y.EPS.map(function(e){ return '<button type="button"><b>' + e.no + '</b>' + e.word + '</button>'; }).join('');
   [].forEach.call(eps.children, function(b, i){ b.onclick = function(){ pick(i); }; });
   pick(0);
+  var g = document.getElementById('ytGramL'); if (g && Y.GRAMMAR) Y.mount(g, Y.GRAMMAR);
 })();
 </script>
 </body>

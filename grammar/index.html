@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>문법 STEP · 출제자의 시선 | PIF Learning Hub</title>
+<meta name="theme-color" content="#2c5f8a">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Gowun+Batang:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/vt.css">
+<script src="/shared/supabase.js"></script>
+<script src="/shared/vt.js"></script>
+<script>VT.gate('grammar');</script>
+<script src="data.js"></script>
+<script src="/shared/yt.js"></script>
+<style>
+:root{--acc:#2c5f8a;--acc-soft:#e3edf6}
+.wrap{max-width:780px;margin:0 auto;padding:22px 16px 90px}
+.hd .e{font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--acc)}
+.hd h1{font:700 30px/1.15 var(--serif);margin:8px 0 4px;letter-spacing:-.02em}
+.hd .k{font:700 15px/1.4 var(--serif);color:var(--ink2)}
+.intro{margin:18px 0 22px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:var(--shadow)}
+.mb{display:none}@media(max-width:600px){.mb{display:inline}}
+.intro h2{font:700 19px/1.45 var(--serif);margin:0 0 6px;color:var(--acc)}
+.intro p{font:400 14px/1.75 var(--serif);color:var(--ink2);margin:0 0 12px}
+.vid{display:grid;grid-template-columns:1.25fr 1fr;gap:16px;align-items:center;margin-bottom:14px}
+.vbox{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.vside .tg{display:inline-block;font:700 10.5px/1 var(--mono);letter-spacing:.12em;color:#fff;background:#e0312b;border-radius:99px;padding:5px 9px}
+.vside h3{font:700 17px/1.45 var(--serif);margin:9px 0 6px}
+.vside p{font-size:13px;line-height:1.65;color:var(--ink2);margin:0}
+@media(max-width:600px){.vid{grid-template-columns:1fr}}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.steps div{background:var(--paper);border-radius:12px;padding:10px;font-size:12.5px;line-height:1.55;color:var(--ink2)}
+.steps b{display:block;font:700 11px/1 var(--mono);color:var(--acc);margin-bottom:5px;letter-spacing:.06em}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.lvl{font:700 11.5px/1 var(--mono);letter-spacing:.12em;color:var(--acc);margin:6px 0 10px}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.rc{position:relative;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--ink)}
+.rc:hover{border-color:var(--acc)}
+.rc .n{font:700 11px/1 var(--mono);letter-spacing:.12em;color:var(--acc)}
+.rc .w{font:700 14px/1.55 var(--serif);margin:8px 0 9px}
+.rc .st{font-size:12px;color:var(--ink2)} .rc .st b{color:var(--ink)}
+.rc.done{background:linear-gradient(180deg,#fff,var(--acc-soft))}
+.rc .pill{position:absolute;top:11px;right:11px;font:700 10px/1 var(--mono);padding:4px 7px;border-radius:99px;background:var(--paper2);color:var(--ink2)}
+.rc.done .pill{background:var(--acc);color:#fff}
+.rc.go .pill{background:var(--gold);color:#fff}
+.rc.soon{border-style:dashed;background:transparent;color:var(--ink2);cursor:default}
+.rc.soon:hover{border-color:var(--line)}
+
+.bar2{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.bar2 button{background:none;border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:12.5px;color:var(--ink2)}
+.bar2 .t{flex:1;font:700 12px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.dots{display:flex;gap:5px;margin-bottom:14px}
+.dots span{flex:1;height:6px;border-radius:99px;background:var(--paper2)}
+.dots span.on{background:var(--gold)} .dots span.ok{background:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}
+.whead{background:var(--acc);color:#fff;padding:13px 18px;display:flex;align-items:baseline;gap:10px}
+.whead .no{font:700 13px/1 var(--mono);opacity:.85}
+.whead h2{font:700 20px/1.25 var(--serif);margin:0}
+.whead .ph{margin-left:auto;font:700 11px/1 var(--mono);letter-spacing:.1em;opacity:.9;white-space:nowrap}
+.blk{padding:16px 18px;border-top:1px solid var(--paper2)}
+.whead+.blk{border-top:0}
+.lab{font:700 11.5px/1 var(--mono);letter-spacing:.12em;color:var(--acc);margin-bottom:9px}
+.lab small{font-family:var(--sans);letter-spacing:0;color:var(--ink2);font-weight:500;margin-left:6px}
+.psg{font:400 17px/1.95 var(--disp);background:#fffaf0;border:1px solid #efe1c2;border-radius:12px;padding:14px 16px}
+.ul{white-space:nowrap}
+.ul u{text-decoration:none;border-bottom:2px solid var(--ink);padding-bottom:1px}
+.ul .cn{font:600 15px/1 var(--sans);color:var(--acc);margin-right:2px}
+.ul.hit u{border-bottom-color:var(--bad);background:var(--bad-soft)}
+details.tr{margin-top:10px;border:1px solid var(--line);border-radius:12px;background:#fff}
+details.tr summary{cursor:pointer;padding:10px 13px;font-size:13.5px;color:var(--ink2);list-style:none}
+details.tr summary::-webkit-details-marker{display:none}
+details.tr summary b{color:var(--acc)}
+details.tr ol{margin:0;padding:2px 16px 12px 34px;font:400 14px/1.75 var(--serif);color:var(--ink2)}
+details.tr .nt{font-size:11.5px;color:var(--ink2);padding:0 14px 10px}
+.ch{display:flex;gap:8px}
+.ch button{flex:1;border:1px solid var(--line);background:#fff;border-radius:12px;padding:11px 0;font:600 20px/1 var(--sans);color:var(--ink)}
+.ch button.on{border-color:var(--acc);background:var(--acc-soft);box-shadow:0 0 0 1px var(--acc)}
+.ch button.ok{border-color:var(--ok);background:var(--ok-soft)}
+.ch button.bad{border-color:var(--bad);background:var(--bad-soft)}
+.ch button:disabled{cursor:default}
+.row{border:1px solid var(--line);border-radius:14px;padding:12px 13px;margin-bottom:10px;background:#fff}
+.row .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px}
+.row .u{font:600 16px/1.3 var(--disp)}
+.row .u .cn{font:700 15px/1 var(--sans);color:var(--acc);margin-right:4px}
+.row select{margin-left:auto;border:1px solid var(--line);border-radius:9px;padding:6px 8px;font-size:13px;background:#fff;max-width:52%}
+.ox{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.ox button{border:0;background:#fff;padding:7px 16px;font:700 15px/1 var(--sans);color:var(--ink2)}
+.ox button+button{border-left:1px solid var(--line)}
+.ox button.on{background:var(--acc);color:#fff}
+.ox button:disabled{cursor:default}
+.fld2{display:flex;flex-direction:column;gap:6px}
+.fld2 label{font-size:12px;font-weight:600;color:var(--ink2)}
+.inp{width:100%;border:1px solid var(--line);border-radius:10px;background:#fff;padding:9px 11px;font-size:15px;line-height:1.4}
+.inp[readonly]{background:var(--paper)}
+.inp:focus{outline:2px solid var(--acc);outline-offset:-1px;border-color:transparent}
+.hint2{font-size:12.5px;color:var(--ink2);line-height:1.55;margin:-2px 0 2px}
+.res{margin-top:10px;font-size:13.5px;line-height:1.65;border-top:1px dashed var(--paper2);padding-top:9px}
+.res .mk{display:inline-block;min-width:44px;font:700 12px/1 var(--mono);padding:4px 7px;border-radius:7px;margin-right:6px;text-align:center}
+.mk.y{background:var(--ok-soft);color:var(--ok)} .mk.n{background:var(--bad-soft);color:var(--bad)} .mk.p{background:#fff4dc;color:var(--gold2)}
+.res .k{color:var(--ink2)} .res .k b{color:var(--ink)}
+.res .ai{color:#4b5f86}
+.go{display:flex;gap:8px;margin-top:14px}
+.go .btn{flex:1}
+.btn.acc{background:var(--acc)}
+.fb{border-radius:12px;padding:11px 13px;font-size:14px;line-height:1.6;margin-top:10px}
+.fb.ok{background:var(--ok-soft);border:1px solid #c9dcc3}
+.fb.bad{background:var(--bad-soft);border:1px solid #ecc9c1}
+.fb.info{background:#fffaf0;border:1px solid #efe1c2}
+.fb.ai{background:#eef2f8;border:1px solid #d2dcec}
+.ld{display:inline-block;width:13px;height:13px;border:2px solid #c3cfe2;border-top-color:var(--acc);border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
+.selfj{display:inline-flex;gap:4px;margin-left:6px}
+.selfj button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:3px 9px;font-size:12px}
+.score{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;text-align:center}
+.score div{background:var(--paper);border-radius:12px;padding:10px 4px}
+.score small{display:block;font:700 10.5px/1 var(--mono);color:var(--ink2);letter-spacing:.06em;margin-bottom:6px}
+.score b{font:600 22px/1 var(--disp)}
+.score .tot{background:var(--acc);color:#fff}.score .tot small{color:#fff;opacity:.85}
+table.rt{width:100%;border-collapse:collapse;font-size:14px}
+table.rt th,table.rt td{padding:9px 6px;border-bottom:1px solid var(--paper2);text-align:center}
+table.rt th{font:700 11px/1 var(--mono);color:var(--ink2);letter-spacing:.06em}
+table.rt td:nth-child(2){word-break:keep-all;text-align:left;font:700 14px/1.35 var(--serif)}
+table.rt tr.cl{cursor:pointer} table.rt tr.cl:hover{background:var(--paper)}
+.big{font:600 54px/1 var(--disp);color:var(--acc);text-align:center;margin:6px 0 2px}
+.big small{font-size:22px;color:var(--ink2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chips span{background:var(--bad-soft);color:var(--bad);border-radius:99px;padding:5px 10px;font-size:12.5px;font-weight:600}
+.toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:.92}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+'use strict';
+const G = window.GRAM, ROUNDS = G.rounds;
+const CIRC = '①②③④⑤';
+const POINTS = ['문장의 구조','주어의 이해','목적어와 보어','주어·동사 수 일치','동사의 시제','조동사','수동태','가정법','부정사','동명사',
+  '분사·분사구문','접속사','관계대명사','관계부사','병렬 구조','명사·대명사','형용사·부사','비교 구문','어순','강조와 도치'];
+const PTS = { s1: 5, ox: 2, w: 2 };                 // SET당 STEP1 5 + 밑줄 5개 × (O/X 2 + 고치기·오답 2) = 25점
+const LV = { '기본':'b', '심화':'a', '실전':'p' };
+const $app = document.getElementById('app');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2,'0');
+const uid = r => (LV[r.level] || 'x') + pad(r.round);          // 서버 unit_id: b01
+const RB = {}; ROUNDS.forEach(r => RB[r.id] = r);
+const setMax = s => PTS.s1 + s.items.length * (PTS.ox + PTS.w);
+const roundMax = r => r.sets.reduce((a, s) => a + setMax(s), 0);
+let AI_OFF = false, S = {}, cur = null;
+
+function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>el.classList.remove('on'), 2400); }
+
+/* ---------- 저장 ---------- */
+function blank(){ return { sets:{}, si:0, startedAt:Date.now(), finishedAt:null, total:null, history:[], savedAt:0 }; }
+function rs(id){ return S[id] || (S[id] = blank()); }
+function ss(id, setno){ const x = rs(id); const set = RB[id].sets.find(s => s.set === setno);
+  return x.sets[setno] || (x.sets[setno] = { s1:null, rows: set.items.map(() => ({ pt:'', ox:'', a:'', why:'' })), graded:false }); }
+const pending = {};
+function persist(id){
+  const x = rs(id); x.savedAt = Date.now();
+  try { localStorage.setItem('vtg_' + uid(RB[id]), JSON.stringify(x)); } catch(e){}
+  clearTimeout(pending[id]); pending[id] = setTimeout(() => push(id), 600);
+}
+async function push(id){
+  const x = rs(id), r = RB[id]; pending[id] = null;
+  try { await VT.save('grammar', uid(r), x, { score: x.total, max: x.total == null ? null : roundMax(r), completed: x.finishedAt != null }); }
+  catch(e){ pending[id] = setTimeout(() => push(id), 15000); }
+}
+function flushAll(){ Object.keys(pending).forEach(id => { if (pending[id]) { clearTimeout(pending[id]); push(id); } }); }
+addEventListener('pagehide', flushAll);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushAll(); });
+async function loadAll(){
+  ROUNDS.forEach(r => { try { const v = JSON.parse(localStorage.getItem('vtg_' + uid(r)) || 'null'); if (v) S[r.id] = v; } catch(e){} });
+  try {
+    const rows = await VT.load('grammar');
+    rows.forEach(row => { const r = ROUNDS.find(x => uid(x) === row.unit_id); if (!r || !row.data) return;
+      if (!S[r.id] || (row.data.savedAt || 0) > (S[r.id].savedAt || 0)) { S[r.id] = row.data; try { localStorage.setItem('vtg_' + uid(r), JSON.stringify(row.data)); } catch(e){} }
+      else if ((S[r.id].savedAt || 0) > (row.data.savedAt || 0)) push(r.id);
+    });
+  } catch(e){}
+}
+
+/* ---------- 채점 도구 ---------- */
+const norm = t => String(t||'').toLowerCase().replace(/[’‘]/g,"'").replace(/[\s.,!?·~"“”…]/g,'');
+const origOf = (set, n) => (set.passage.find(p => p.n === n) || {}).t || '';
+function fixVariants(k){ const out = new Set([norm(k.fix)]); const m = /→\s*([^.]+)\.?$/.exec(k.expl || ''); if (m) out.add(norm(m[1])); out.delete(''); return [...out]; }
+async function askAI(payload){
+  if (AI_OFF) throw Object.assign(new Error('NO_KEY'), { code:'NO_KEY' });
+  try { return await VT.ai(payload); } catch(e){ if (e.code === 'NO_KEY') AI_OFF = true; throw e; }
+}
+function aiErrText(e){
+  if (e.code === 'NO_KEY') return 'AI 채점이 아직 켜지지 않았어요.';
+  if (e.code === 'DAILY_LIMIT') return '오늘 AI 채점 사용량을 다 썼어요.';
+  if (e.code === 'NOT_APPROVED') return '로그인 정보를 확인할 수 없어요. 홈에서 다시 들어와 주세요.';
+  return 'AI 채점을 불러오지 못했어요.';
+}
+function setPts(set, st){
+  if (!st.res) return null;
+  const r = st.res; if (r.rows.some(x => x.w == null)) return null;
+  return (r.s1 ? PTS.s1 : 0) + r.rows.reduce((a, x) => a + (x.ox ? PTS.ox : 0) + (x.w ? PTS.w : 0), 0);
+}
+
+/* ---------- 목록 ---------- */
+function videoBlock(){
+  return `<div class="vid"><div class="vbox" id="gv"></div><div class="vside"><span class="tg">YOUTUBE · 12분</span>
+    <h3>처음이라면 먼저 보세요<br>출제자의 시선 · 학습법 안내</h3>
+    <p>선생님이 SET 01을 직접 풀며, 밑줄마다 문법 포인트를 짚고 O/X를 판단해 오답까지 만드는 과정을 보여 줍니다.</p></div></div>`;
+}
+function mountVideo(){ const b = document.getElementById('gv'); if (b && window.PIFYT) PIFYT.mount(b, PIFYT.GRAMMAR); }
+function renderList(){
+  cur = null;
+  let h = `<div class="hd"><div class="e">GRAMMAR STEP · 출제자의 시선</div><h1>문법 STEP 학습지</h1><div class="k">어법 판단 → 출제자 시선</div></div>
+    <div class="intro"><h2>틀린 것을 찾는 데서 멈추지 않고,<br>옳은 것을 어떻게 틀리게<br class="mb"> 만들 수 있는지까지.</h2>
+    ${videoBlock()}
+    <div class="steps"><div><b>STEP 1 · 5점</b>지문의 밑줄 다섯 개 중 어법상 틀린 것 하나 고르기</div>
+    <div><b>STEP 2 · O/X 판단</b>밑줄마다 O/X 판단 (각 2점). 문법 포인트는 보기에서 고르되 점수 없음</div>
+    <div><b>X → 고치기 · O → 오답 만들기</b>X는 바르게 고쳐 쓰고, O는 출제자가 되어 그럴듯한 오답과 이유 한 줄 (각 2점)</div></div>
+    <p style="margin:12px 0 0;font-size:12.5px">SET 하나 25점 × 4 = 100점. 먼저 영어로 풀어 보고, 내용이 막힐 때만 해석을 펼쳐 보세요. 오답 만들기는 정해진 답이 없어서 AI 코치가 채점합니다.</p></div>`;
+  const levels = [...new Set(ROUNDS.map(r => r.level))];
+  levels.forEach(lv => {
+    const list = ROUNDS.filter(r => r.level === lv);
+    h += `<div class="lvl">${esc(lv)} · ${list.length}회</div><div class="rgrid">`;
+    list.forEach(r => {
+      const x = S[r.id], nDone = x ? r.sets.filter(s => (x.sets[s.set] || {}).graded).length : 0;
+      const cls = x && x.finishedAt ? 'done' : nDone ? 'go' : '';
+      const pill = x && x.finishedAt ? x.total + '점' : nDone ? nDone + '/' + r.sets.length : 'START';
+      h += `<button class="rc ${cls}" data-r="${esc(r.id)}"><span class="pill">${pill}</span><div class="n">${esc(r.level)} ${pad(r.round)}회</div>
+        <div class="w">${r.sets.map(s => esc(s.title)).join(' · ')}</div>
+        <div class="st">${x && x.finishedAt ? '완료 · <b>' + x.total + '</b> / ' + roundMax(r) : nDone ? '진행 중' : 'SET ' + r.sets.length + '개'}</div></button>`;
+    });
+    h += `<div class="rc soon"><div class="n">NEXT</div><div class="w">다음 회차가 순서대로 올라옵니다</div><div class="st">학습지가 정리되는 대로 업데이트</div></div></div>`;
+  });
+  $app.innerHTML = h; mountVideo();
+  $app.querySelectorAll('.rc[data-r]').forEach(b => b.onclick = () => openRound(b.dataset.r));
+  scrollTo(0,0);
+}
+function openRound(id){
+  const x = rs(id), r = RB[id];
+  if (x.finishedAt) return renderResult(id);
+  let si = r.sets.findIndex(s => !(x.sets[s.set] || {}).graded || setPts(s, x.sets[s.set]) == null);
+  if (si < 0) si = r.sets.length - 1;
+  cur = { id, si }; renderSet();
+}
+
+/* ---------- SET 화면 ---------- */
+function passageHtml(set, st){
+  const hit = st.res ? set.answer : 0;
+  return set.passage.map(p => p.n ? `<span class="ul${p.n === hit ? ' hit' : ''}"><span class="cn">${CIRC[p.n-1]}</span><u>${esc(p.t)}</u></span>` : esc(p.t)).join('');
+}
+function renderSet(){
+  const { id, si } = cur, r = RB[id], set = r.sets[si], st = ss(id, set.set), lock = !!st.res;
+  const dots = r.sets.map((s, i) => { const t = (S[id].sets[s.set] || {}); return `<span class="${t.graded ? 'ok' : i === si ? 'on' : ''}"></span>`; }).join('');
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${esc(r.level)} ${pad(r.round)}회 · SET ${si+1}/${r.sets.length}</div></div>
+    <div class="dots">${dots}</div>
+    <div class="card"><div class="whead"><span class="no">SET ${pad(set.set)}</span><h2>${esc(set.title)}</h2><span class="ph">${lock ? '채점 결과' : '풀이 중'}</span></div>
+    <div class="blk"><div class="lab">STEP 1 <small>밑줄 친 부분 중 어법상 <b>틀린</b> 것은?</small></div>
+    <div class="psg">${passageHtml(set, st)}</div>
+    <details class="tr"><summary>막힐 때만 · <b>우리말 해석 보기</b></summary><ol>${set.tr.map(t => `<li>${esc(t)}</li>`).join('')}</ol>
+    <div class="nt">※ 어법을 바르게 고친 문장 기준의 해석이에요.</div></details>
+    <div class="ch" style="margin-top:12px">${[1,2,3,4,5].map(n => { let c = st.s1 === n ? 'on' : ''; if (lock) c = n === set.answer ? 'ok' : (st.s1 === n ? 'bad' : '');
+      return `<button data-n="${n}" class="${c}" ${lock?'disabled':''} aria-label="${n}번">${CIRC[n-1]}</button>`; }).join('')}</div>
+    ${lock ? `<div class="fb ${st.res.s1 ? 'ok' : 'bad'}"><b>${st.res.s1 ? '정답 · ' + PTS.s1 + '점' : '오답 · 0점'}</b> — 정답은 ${CIRC[set.answer-1]} <b>${esc(origOf(set, set.answer))}</b></div>` : ''}
+    </div>
+    <div class="blk"><div class="lab">STEP 2 <small>밑줄마다 O/X를 판단하고 직접 채워 보세요. 옳은 것은 출제자가 되어 오답을 만듭니다</small></div>`;
+  set.items.forEach((k, i) => { h += rowHtml(set, st, k, i, lock); });
+  if (!lock) h += `<div class="go"><button class="btn acc" id="grade">채점하고 해설 보기</button></div>`;
+  else if (st.judging) h += `<div class="fb ai"><span class="ld"></span>AI 코치가 고친 형태와 내가 만든 오답을 확인하고 있어요…</div>`;
+  else {
+    const pend = st.res.rows.filter(x => x.w == null).length;
+    if (pend) h += `<div class="fb info">${st.aiErr ? esc(st.aiErr) + '<br>' : ''}해설과 예시를 보고 <b>스스로 채점</b>해 주세요. (${pend}개 남음) 오답 만들기는 어법상 확실히 틀리고 이유가 맞으면 '맞음'이에요.</div>`;
+    else {
+      const p = setPts(set, st), r2 = st.res;
+      const ox = r2.rows.filter(x => x.ox).length, w = r2.rows.filter(x => x.w).length;
+      h += `<div class="score" style="margin-top:6px"><div><small>STEP 1</small><b>${r2.s1 ? PTS.s1 : 0}</b></div><div><small>O/X ${ox}/${set.items.length}</small><b>${ox*PTS.ox}</b></div>
+        <div><small>고치기·오답 ${w}/${set.items.length}</small><b>${w*PTS.w}</b></div><div class="tot"><small>SET 점수</small><b>${p}</b><small style="margin:4px 0 0">/ ${setMax(set)}</small></div></div>`;
+      if (!cur.review) h += `<div class="go"><button class="btn" id="next">${si < r.sets.length - 1 ? '다음 SET으로' : '회차 결과 보기'}</button></div>`;
+    }
+  }
+  $app.innerHTML = h + '</div></div>';
+  bindSet(set, st);
+}
+function rowHtml(set, st, k, i, lock){
+  const v = st.rows[i], orig = origOf(set, k.n);
+  let h = `<div class="row" data-i="${i}"><div class="top"><span class="u"><span class="cn">${CIRC[k.n-1]}</span>${esc(orig)}</span>
+    <span class="ox">${['O','X'].map(o => `<button data-ox="${o}" class="${v.ox === o ? 'on' : ''}" ${lock?'disabled':''}>${o}</button>`).join('')}</span>
+    <select data-pt ${lock?'disabled':''} aria-label="문법 포인트"><option value="">문법 포인트 (채점 제외)</option>${POINTS.map((p, j) => `<option value="${p}" ${v.pt === p ? 'selected' : ''}>${pad(j+1)} ${p}</option>`).join('')}</select></div>`;
+  if (v.ox === 'X') h += `<div class="fld2"><label>X → 바르게 고치기</label><input class="inp" data-f="a" value="${esc(v.a)}" ${lock?'readonly':''} placeholder="밑줄 부분을 고친 형태로 쓰세요" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`;
+  else if (v.ox === 'O') h += `<div class="fld2"><label>O → 내가 만드는 오답</label>
+    <input class="inp" data-f="a" value="${esc(v.a)}" ${lock?'readonly':''} placeholder="출제자라면 이 자리를 어떻게 틀리게 만들까?" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <input class="inp" data-f="why" value="${esc(v.why)}" ${lock?'readonly':''} placeholder="왜 틀린지 한 줄" autocomplete="off"></div>`;
+  else if (!lock) h += `<div class="hint2">O 또는 X를 먼저 골라 주세요.</div>`;
+  if (lock) {
+    const r = st.res.rows[i];
+    const wLabel = k.ox === 'X' ? '고치기' : '오답 만들기';
+    h += `<div class="res"><div><span class="mk ${r.ox ? 'y' : 'n'}">O/X ${r.ox ? '○' : '✕'}</span>정답은 <b>${k.ox}</b>${r.ox ? '' : ' — O/X 판단이 달라서 ' + wLabel + ' 점수는 없어요'}</div>`;
+    if (r.ox) {
+      if (r.w == null) h += `<div style="margin-top:5px"><span class="mk p">${wLabel}</span>스스로 채점 <span class="selfj" data-i="${i}"><button data-v="1">맞음</button><button data-v="0">틀림</button></span></div>`;
+      else h += `<div style="margin-top:5px"><span class="mk ${r.w ? 'y' : 'n'}">${wLabel} ${r.w ? '○' : '✕'}</span>${r.by === 'ai' ? '<span style="color:#4b5f86;font-size:12px">AI 판정</span>' : r.by === 'self' ? '<span style="color:var(--ink2);font-size:12px">자기 채점</span>' : ''}${r.comment ? `<div class="ai">${esc(r.comment)}</div>` : ''}</div>`;
+    }
+    h += `<div class="k" style="margin-top:7px"><b>문법 포인트</b> ${esc(k.point)}${v.pt ? ` <span style="font-size:12px">(내가 고른 것: ${esc(v.pt)})</span>` : ''}<br>${esc(k.expl)}<br>
+      ${k.ox === 'X' ? `<b>고친 형태</b> ${esc(k.fix)}` : `<b>오답 예시</b> ${esc(k.wrong_ex)}`}</div></div>`;
+  }
+  return h + '</div>';
+}
+function bindSet(set, st){
+  const { id } = cur, q = s => $app.querySelector(s);
+  q('#bk').onclick = () => cur.review ? renderResult(id) : renderList();
+  const keep = () => { const y = scrollY; renderSet(); scrollTo(0, y); };
+  $app.querySelectorAll('.ch button').forEach(b => b.onclick = () => { st.s1 = Number(b.dataset.n); persist(id); keep(); });
+  $app.querySelectorAll('.row').forEach(row => {
+    const i = Number(row.dataset.i), v = st.rows[i];
+    row.querySelectorAll('[data-ox]').forEach(b => b.onclick = () => { if (v.ox !== b.dataset.ox) { v.ox = b.dataset.ox; v.a = ''; v.why = ''; } persist(id); keep();
+      const f = $app.querySelector(`.row[data-i="${i}"] .inp`); if (f) f.focus({ preventScroll:true }); });
+    const sel = row.querySelector('select'); if (sel) sel.onchange = () => { v.pt = sel.value; persist(id); };
+    row.querySelectorAll('.inp').forEach(inp => inp.oninput = () => { v[inp.dataset.f] = inp.value; persist(id); });
+  });
+  $app.querySelectorAll('.selfj').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
+    const i = Number(g.dataset.i); st.res.rows[i].w = b.dataset.v === '1'; st.res.rows[i].by = 'self'; persist(id); keep(); }));
+  const gb = q('#grade'); if (gb) gb.onclick = () => grade(set, st);
+  const nx = q('#next'); if (nx) nx.onclick = () => {
+    const r = RB[id];
+    if (cur.si < r.sets.length - 1) { cur.si++; S[id].si = cur.si; persist(id); renderSet(); scrollTo(0,0); } else finishRound(id);
+  };
+}
+
+async function grade(set, st){
+  const { id } = cur;
+  if (!st.s1) return toast('STEP 1에서 틀린 것 하나를 먼저 골라 주세요.');
+  const noOx = st.rows.findIndex(v => !v.ox); if (noOx >= 0) return toast(`${CIRC[set.items[noOx].n-1]}의 O/X를 골라 주세요.`);
+  const xs = st.rows.map((v, i) => v.ox === 'X' ? set.items[i].n : 0).filter(Boolean);
+  if (!(xs.length === 1 && xs[0] === st.s1)) {
+    const msg = xs.length === 0 ? `STEP 1에서 ${CIRC[st.s1-1]}를 틀렸다고 골랐는데, STEP 2에서는 모두 O로 표시했어요.`
+      : xs.indexOf(st.s1) < 0 ? `STEP 1에서 고른 ${CIRC[st.s1-1]}를 STEP 2에서는 O로 표시했어요.` : `STEP 2에서 X가 ${xs.length}개예요. 틀린 것은 하나뿐이에요.`;
+    if (!confirm(msg + '\n그대로 채점할까요?')) return;
+  }
+  const empty = st.rows.filter(v => !v.a.trim() || (v.ox === 'O' && !v.why.trim())).length;
+  if (empty && !confirm(`비어 있는 칸이 ${empty}곳 있어요. 빈칸은 0점이에요. 채점할까요?`)) return;
+  const res = { s1: st.s1 === set.answer, rows: [] }, ask = [];
+  set.items.forEach((k, i) => {
+    const v = st.rows[i], ox = v.ox === k.ox, row = { ox, w: false, by: 'auto', comment: '' };
+    if (ox) {
+      const a = v.a.trim();
+      if (k.ox === 'X') {
+        if (!a) row.comment = '고친 형태를 쓰지 않았어요.';
+        else if (fixVariants(k).includes(norm(a))) { row.w = true; }
+        else if (norm(a) === norm(origOf(set, k.n))) row.comment = '원래 밑줄과 같아요. 어디가 틀렸는지 다시 보세요.';
+        else { row.w = null; ask.push({ no: k.n, type: 'fix', answer: a }); }
+      } else {
+        if (!a) row.comment = '오답을 만들지 않았어요.';
+        else if (norm(a) === norm(origOf(set, k.n))) row.comment = '원래 밑줄과 같아서 오답이 아니에요.';
+        else if (!v.why.trim()) row.comment = '왜 틀린지 한 줄을 써야 정답이에요.';
+        else { row.w = null; ask.push({ no: k.n, type: 'wrong', answer: a, why: v.why.trim() }); }
+      }
+    }
+    res.rows.push(row);
+  });
+  st.res = res; st.graded = true; st.gradedAt = Date.now(); st.aiErr = null;
+  if (ask.length && !AI_OFF) {
+    st.judging = true; persist(id); renderSet();
+    try {
+      const fb = await askAI({ kind:'grammar', round: id, set: set.set, items: ask });
+      (fb.items || []).forEach(it => { const i = set.items.findIndex(k => k.n === it.no); if (i >= 0 && res.rows[i].w == null) Object.assign(res.rows[i], { w: !!it.correct, by:'ai', comment: it.comment || '' }); });
+    } catch(e){ st.aiErr = aiErrText(e); }
+    st.judging = false;
+  }
+  persist(id); renderSet();
+  const c = $app.querySelector('.card'); if (c) c.scrollIntoView({ block:'start' });
+}
+
+function finishRound(id){
+  const x = rs(id), r = RB[id];
+  x.total = r.sets.reduce((a, s) => a + (setPts(s, x.sets[s.set] || {}) || 0), 0);
+  x.finishedAt = Date.now();
+  x.history = (x.history || []).concat([{ total: x.total, at: x.finishedAt }]);
+  persist(id); push(id); renderResult(id);
+}
+
+/* ---------- 결과 ---------- */
+function renderResult(id){
+  cur = null;
+  const x = rs(id), r = RB[id], max = roundMax(r);
+  const missed = [];
+  r.sets.forEach(s => { const t = x.sets[s.set]; if (!t || !t.res) return; s.items.forEach((k, i) => { const rr = t.res.rows[i]; if (!rr.ox || rr.w === false) missed.push(k.point); }); });
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${esc(r.level)} ${pad(r.round)}회 결과</div></div>
+    <div class="card"><div class="blk"><div class="big">${x.total}<small> / ${max}</small></div>
+    <div style="text-align:center;color:var(--ink2);font-size:13px">${new Date(x.finishedAt).toLocaleDateString('ko-KR')} 완료${x.history && x.history.length > 1 ? ' · ' + x.history.length + '번째 응시' : ''}</div></div>
+    <div class="blk"><table class="rt"><tr><th>SET</th><th>제목</th><th>STEP1</th><th>O/X</th><th>고치기·오답</th><th>합계</th></tr>
+    ${r.sets.map((s, i) => { const t = x.sets[s.set] || {}, rr = t.res; if (!rr) return `<tr><td>${pad(s.set)}</td><td>${esc(s.title)}</td><td colspan="4">미완료</td></tr>`;
+      return `<tr class="cl" data-i="${i}"><td>${pad(s.set)}</td><td>${esc(s.title)}</td><td>${rr.s1 ? '○' : '✕'}</td><td>${rr.rows.filter(z => z.ox).length}/5</td><td>${rr.rows.filter(z => z.w).length}/5</td><td><b>${setPts(s, t) || 0}</b>/${setMax(s)}</td></tr>`; }).join('')}
+    </table><div style="font-size:12px;color:var(--ink2);margin-top:8px">SET을 누르면 내 답과 해설을 다시 볼 수 있어요.</div></div>
+    ${missed.length ? `<div class="blk"><div class="lab">다시 볼 문법 포인트</div><div class="chips">${[...new Set(missed)].map(p => `<span>${esc(p)}</span>`).join('')}</div></div>` : ''}
+    <div class="blk"><div class="go" style="margin-top:0"><button class="btn sec" id="again" style="margin-top:0">이 회차 다시 풀기</button><button class="btn acc" id="toList">목록으로</button></div></div></div>`;
+  $app.innerHTML = h; scrollTo(0,0);
+  document.getElementById('bk').onclick = renderList;
+  document.getElementById('toList').onclick = renderList;
+  $app.querySelectorAll('tr.cl').forEach(tr => tr.onclick = () => { cur = { id, si: Number(tr.dataset.i), review: true }; renderSet(); scrollTo(0,0); const b = document.getElementById('bk'); b.textContent = '← 회차 결과'; });
+  document.getElementById('again').onclick = () => { if (!confirm('처음부터 다시 풀까요? 지금 점수는 응시 기록으로 남아요.')) return;
+    const hist = x.history; S[id] = blank(); S[id].history = hist; persist(id); openRound(id); };
+}
+
+/* ---------- 시작 ---------- */
+(async function(){
+  $app.innerHTML = '<div class="hd"><div class="e">GRAMMAR STEP · 출제자의 시선</div><h1>문법 STEP 학습지</h1><div class="k">불러오는 중…</div></div>';
+  await loadAll();
+  Object.values(S).forEach(x => x && Object.values(x.sets || {}).forEach(t => { t.judging = false; }));
+  renderList();
+})();
+</script>
+</body>
+</html>

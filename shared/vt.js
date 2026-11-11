@@ -12,7 +12,8 @@
     fundamental: { name: 'Fundamental', ko: '보카트리 펀더멘탈', path: '/fundamental/', prefixes: ['vocaTree'] },
     essential:   { name: 'Essential',   ko: '보카트리 에센셜',   path: '/essential/',   prefixes: ['vte_'] },
     spectrum:    { name: 'Spectrum',    ko: '보카트리 스펙트럼', path: '/spectrum/',    prefixes: ['vts_'] },
-    matching:    { name: 'Word Matching', ko: '어휘 매칭 훈련',  path: '/matching/',    prefixes: ['vtm_'] }
+    matching:    { name: 'Word Matching', ko: '어휘 매칭 훈련',  path: '/matching/',    prefixes: ['vtm_'], native: true },
+    grammar:     { name: 'Grammar STEP',  ko: '문법 · 출제자의 시선', path: '/grammar/', prefixes: ['vtg_'], native: true }
   };
   var LS = (function () { try { var k = '__vt'; localStorage.setItem(k, 1); localStorage.removeItem(k); return localStorage; } catch (e) { return null; } })();
   var rawSet = LS ? Storage.prototype.setItem : null;
@@ -182,7 +183,7 @@
       }
       var course = null;
       Object.keys(COURSES).forEach(function (c) { if (COURSES[c].prefixes.some(function (p) { return key.indexOf(p) === 0; })) course = c; });
-      if (!course || course === 'matching') return;
+      if (!course || COURSES[course].native) return;
       var local = LS.getItem(key), merged = local == null ? data[k] : serial(mergeVal(parse(local), parse(data[k])));
       if (merged !== local) { try { rawSet.call(LS, key, merged); touched[course] = 1; } catch (e) {} }
     });
@@ -215,7 +216,7 @@
     var m = me();
     if (!m) { location.replace('/learn/?next=' + encodeURIComponent(location.pathname)); document.documentElement.style.display = 'none'; return null; }
     if (course && !allowed(course)) { location.replace('/learn/?locked=' + course); document.documentElement.style.display = 'none'; return null; }
-    if (course && COURSES[course] && COURSES[course].prefixes[0] !== 'vtm_') watch(course);
+    if (course && COURSES[course] && !COURSES[course].native) watch(course);
     window.addEventListener('DOMContentLoaded', function () { chip(m); });
     (async function () {
       try {
@@ -223,7 +224,7 @@
         if (!st || st.status !== 'approved' || st.student_id !== m.sid) { setMe(null); clearPrefixes(); location.replace('/learn/'); return; }
         try { await access(); } catch (e) {}
         if (course && !allowed(course)) { location.replace('/learn/?locked=' + course); return; }
-        if (course && COURSES[course].prefixes[0] !== 'vtm_') {
+        if (course && !COURSES[course].native) {
           var changed = await pull([course]);
           var imp = applyImport();
           if (imp.length) { await Promise.all(imp.map(function (c) { return pushState(c); })); if (imp.indexOf(course) >= 0) changed = true; }
