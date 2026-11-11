@@ -79,6 +79,27 @@ td.num{font-variant-numeric:tabular-nums}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:39}
 .drawer h2{font-size:24px;font-weight:750;letter-spacing:-.03em}
 .drawer .x{position:absolute;top:18px;right:18px;border:0;background:var(--bg);width:32px;height:32px;border-radius:50%;font-size:16px}
+.rpsec{background:#f5f3ff;border:1px solid #e4dcfb;border-radius:16px;padding:14px 16px}
+.rpc{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.rpc .seg{background:#fff}.rpc .seg button.on{background:#5b2d8e;color:#fff}
+.rpc input[type=date]{border:1px solid #d2d2d7;border-radius:8px;padding:4px 6px;font:inherit;font-size:12.5px}
+.memo{width:100%;margin-top:10px;border:1px solid #d2d2d7;border-radius:10px;padding:8px 10px;font:inherit;font-size:13px;resize:vertical;background:#fff}
+.rcard{background:#fff;border:1px solid #e5e5ea;border-radius:12px;padding:10px 12px;margin-top:10px}
+.rcard .rh{display:flex;gap:8px;align-items:baseline;font-size:13px;margin-bottom:6px}
+.rtx{width:100%;border:1px solid #e5e5ea;border-radius:8px;padding:10px;font:inherit;font-size:13.5px;line-height:1.65;resize:vertical}
+.ra{display:flex;gap:6px;align-items:center;margin-top:8px}.ra .sp{flex:1}
+.ra .btn,.cc .btn.sm{margin-top:0}
+.cc .rpc .seg{background:#f5f5f7}
+.rplist{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.rplist button{border:1px solid #d2d2d7;background:#fff;border-radius:99px;padding:4px 10px;font-size:12px;color:var(--ink2)}
+.rbl{display:flex;flex-direction:column;gap:8px}
+.rbi{background:#fff;border-radius:14px;padding:10px 14px}
+.rbt{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
+.rbt label{display:flex;align-items:center;gap:6px;min-width:200px}
+.rbm{flex:1;min-width:200px;border:1px solid #e5e5ea;border-radius:8px;padding:6px 9px;font:inherit;font-size:13px}
+.rst{font-size:12.5px;min-width:80px;text-align:right}
+.ld{display:inline-block;width:12px;height:12px;border:2px solid #d9cdf2;border-top-color:#5b2d8e;border-radius:50%;animation:sp .8s linear infinite;vertical-align:-2px;margin-right:6px}
+@keyframes sp{to{transform:rotate(360deg)}}
 .sec{margin-top:24px}.sec h3{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .sec h3 i{width:8px;height:8px;border-radius:50%;background:var(--c)}
 .sec h3 small{font-weight:500;color:var(--ink3);font-size:12px}
@@ -124,6 +145,7 @@ td.num{font-variant-numeric:tabular-nums}
       <button data-t="report" class="on">학습 리포트</button>
       <button data-t="classes">반·수강 관리</button>
       <button data-t="pending">승인 대기<span class="badge" id="pdCount" hidden></span></button>
+      <button data-t="reports">AI 리포트</button>
       <button data-t="words">단어·문법 분석</button>
       <button data-t="staff" id="tabStaff" hidden>선생님</button>
     </nav>
@@ -241,7 +263,7 @@ async function load(){
   $('pdCount').hidden = !pend; $('pdCount').textContent = pend;
   render();
 }
-function render(){ ({ report: renderReport, classes: renderClasses, pending: renderPending, words: renderWords, staff: renderStaff })[TAB](); }
+function render(){ ({ report: renderReport, classes: renderClasses, pending: renderPending, words: renderWords, reports: renderReports, staff: renderStaff })[TAB](); }
 
 /* ---------- 계산 ---------- */
 function synUnit(d){
@@ -450,6 +472,7 @@ async function openStudent(sid){
   const rows = p.data || [];
   const lockH = '<div class="muted">이 학생은 수강하지 않는 코스예요.</div>';
   let h = headH + ` · AI 피드백 ${f.count || 0}회</div>`;
+  h += `<div class="sec rpsec"><h3>✦ AI 리포트 <small>학습 기록으로 초안을 쓰고, 고쳐서 보내세요</small></h3><div id="rpBox"><div class="muted">불러오는 중…</div></div></div>`;
   const movable = D.classes.filter(c => c.code !== s.class_code);
   h += `<div class="sec"><h3>반 이동</h3><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <select id="mvCls" style="border:1px solid #d2d2d7;border-radius:10px;padding:8px 10px;background:#fff;min-width:240px"><option value="">옮길 반 선택</option>${movable.map(c => `<option value="${esc(c.code)}">${esc(c.name)} · ${esc(c.code)}</option>`).join('')}</select>
@@ -503,6 +526,7 @@ async function openStudent(sid){
       const v = k => sp[k] == null ? '<span class="muted">—</span>' : `${esc(sp[k])}${/score/.test(k)?'%':''}`;
       return `<tr><td>Lesson ${n}</td><td>${sp['vts_cls_done_lesson'+n] ? '<span class="ok">완료</span>' : '<span class="muted">—</span>'}</td><td>${v('vts_p01_score_lesson'+n)}</td><td>${v('vts_p02_score_lesson'+n)}</td><td>${v('vts_p03_score_lesson'+n)}</td></tr>`; }).join('')}</table>` : (has('spectrum') ? '<div class="muted">기록 없음</div>' : lockH)) + '</div>';
   $('drawer').innerHTML = h;
+  studentReport(s, rows);
   $('mvGo').onclick = async () => {
     const to = $('mvCls').value; if (!to) return toast('옮길 반을 골라 주세요.');
     if (!confirm(`${s.name} 학생을 '${clsOf(to).name}' 반으로 옮길까요?`)) return;
@@ -577,6 +601,191 @@ function sessionDetail(r, s){
   el.innerHTML = h;
 }
 
+
+/* ---------- AI 리포트 ---------- */
+const AUD = { parent:'학부모님용', student:'학생용', internal:'내부 기록' };
+const ymd = d => { const k = new Date(d.getTime() + 9*3600000); return k.toISOString().slice(0,10); };   // KST 날짜
+const RP = { aud:'parent', per:'week', from:'', to:'' };                                             // 마지막 선택 기억
+function period(per, from, to){
+  const now = new Date(), t = ymd(now);
+  if (per === 'custom' && from && to) return from <= to ? { from, to } : { from: to, to: from };
+  if (per === 'month') { const d = new Date(now); d.setMonth(d.getMonth() - 1); d.setDate(d.getDate() + 1); return { from: ymd(d), to: t }; }
+  return { from: ymd(new Date(now.getTime() - 6*86400000)), to: t };
+}
+const inP = (t, p) => { if (t == null || t === '') return false; const d = new Date(typeof t === 'number' || /^\d+$/.test(t) ? Number(t) : t); if (isNaN(d)) return false; const k = ymd(d); return k >= p.from && k <= p.to; };
+const kd = t => { const d = new Date(typeof t === 'number' || /^\d+$/.test(String(t)) ? Number(t) : t); return isNaN(d) ? null : ymd(d); };
+function buildFacts(s, rows, syn, ai, p){
+  const cls = clsOf(s.class_code), eff = coursesOf(s), has = c => eff.includes(c), days = new Set(), all = [];
+  const mark = t => { const k = kd(t); if (!k) return; all.push(k); if (k >= p.from && k <= p.to) days.add(k); };
+  rows.forEach(r => mark(r.updated_at)); syn.forEach(r => mark(r.updated_at)); ai.forEach(a => mark(a.created_at));
+  const P = v => { try { return JSON.parse(v); } catch(e) { return v; } };
+  const F = { 학생:{ 이름:s.name, 반:cls.name, 구문의지도_편: cls.edition === 'compass' ? 'COMPASS 기본편' : 'BEACON 심화편' },
+    기간:{ 시작:p.from, 끝:p.to }, 수강코스: COURSES.filter(c => has(c.id)).map(c => c.name) };
+  // Fundamental
+  if (has('fundamental')) {
+    const st = rows.find(r => r.course === 'fundamental' && r.unit_id === 'state'), tries = [];
+    rows.filter(r => r.course === 'fundamental' && r.unit_id !== 'state').forEach(r => ((r.data && r.data.attempts) || []).forEach(a => { mark(a.at);
+      if (inP(a.at, p)) tries.push({ 단원: r.unit_id.replace('lesson','Lesson ').replace('-p',' Part '), 점수: a.pct, 틀린단어: (a.mistakes || []).slice(0,8) }); }));
+    F.Fundamental = { 누적_완료강: `${st ? Number(st.score||0) : 0}/4`, 기간내_응시: tries.slice(-12) };
+  }
+  // Essential / Spectrum (기기 기록 묶음: 시각 정보 없음 → 누적)
+  const ls = c => { const r = rows.find(x => x.course === c && x.unit_id === 'state'); return { r, d: (r && r.data && r.data.ls) || {} }; };
+  if (has('essential')) { const { r, d } = ls('essential');
+    F.Essential = { 누적_완료강: `${r ? Number(r.score||0) : 0}/5`, 기간내_학습기록: !!(r && inP(r.updated_at, p)),
+      강별_점수: Object.keys(d).filter(k => /^vte_part_done_lesson\d+$/.test(k)).sort().map(k => { const v = P(d[k]) || {}; return { 강: k.replace(/^.*lesson/,''), 의미분류: v.cls, Part1: v.p1, Part2: v.p2, Part3: v.p3 }; }) }; }
+  if (has('spectrum')) { const { r, d } = ls('spectrum');
+    F.Spectrum = { 누적_통과강: `${r ? Number(r.score||0) : 0}/4`, 기간내_학습기록: !!(r && inP(r.updated_at, p)),
+      강별_점수: Object.keys(d).filter(k => /^vts_p01_score_lesson\d+$/.test(k)).sort().map(k => ({ 강: k.replace(/^.*lesson/,''), 점수: Number(d[k]) })) }; }
+  // Word Matching
+  if (has('matching')) {
+    const ms = rows.filter(r => r.course === 'matching' && /^s\d\d$/.test(r.unit_id)), done = [], going = [];
+    ms.forEach(r => { const d = r.data || {}, n = Number(r.unit_id.slice(1)); (d.history || []).forEach(x => mark(x.at)); mark(d.savedAt);
+      const ws = W.filter(w => w.session === n);
+      (d.history || []).filter(x => inP(x.at, p)).forEach(x => done.push({ 회차: n, 점수: x.total }));
+      if (!d.finishedAt && inP(d.savedAt, p)) going.push({ 회차: n, 진행단어: Object.values(d.words || {}).filter(w => w.phase === 'done').length + '/5' });
+      if ((d.history || []).some(x => inP(x.at, p))) {
+        const weak = ws.filter(w => { const st = (d.words || {})[w.id]; return st && st.phase === 'done' && ((st.s1Pts || 0) === 0 || (st.s2Pts || 0) < 8); }).map(w => w.word);
+        if (weak.length) done[done.length - 1].약한단어 = weak;
+      } });
+    const fin = ms.filter(r => r.completed);
+    F.WordMatching = { 누적_완료회차: `${fin.length}/20`, 누적_평균: fin.length ? Math.round(fin.reduce((a,r)=>a+Number(r.score||0),0)/fin.length) : null,
+      기간내_완료: done, 기간내_진행중: going };
+  }
+  // 구문의 지도
+  if (has('syntax')) {
+    const tot = syn.filter(r => synUnit(r.data).done).length, touched = syn.filter(r => inP(r.updated_at, p));
+    F.구문의지도 = { 누적_완료유닛: `${tot}/${SYN_READY}`, 기간내_학습유닛: touched.map(r => ({ 유닛: r.unit_id.replace(/^c-/,'').replace('ch','Ch').replace('-u',' U'), 완료: synUnit(r.data).done, 듣기: synUnit(r.data).lp + '/5' })) };
+  }
+  // 문법 STEP
+  if (has('grammar')) {
+    const out = [], miss = {}, made = [];
+    GR.forEach(g => { const r = rows.find(x => x.course === 'grammar' && x.unit_id === gUid(g)); if (!r || !r.data) return; const d = r.data;
+      (d.history || []).forEach(x => mark(x.at)); mark(d.savedAt);
+      const touched = inP(d.savedAt, p) || (d.history || []).some(x => inP(x.at, p)); if (!touched) return;
+      out.push({ 회차: `${g.level} ${pad(g.round)}회`, 점수: d.finishedAt && inP(d.finishedAt, p) ? d.total : null, 상태: d.finishedAt ? '완료' : '진행 중',
+        SET별: g.sets.map(set => { const t = (d.sets || {})[set.set]; return t && t.res ? `${pad(set.set)}: ${gSetPts(set, t) ?? '채점 중'}/25` : `${pad(set.set)}: 미완료`; }) });
+      g.sets.forEach(set => { const t = (d.sets || {})[set.set]; if (!t || !t.res) return;
+        set.items.forEach((k, i) => { const rr = t.res.rows[i] || {}, v = t.rows[i] || {};
+          if (!rr.ox || rr.w === false) miss[k.point] = (miss[k.point] || 0) + 1;
+          if (v.ox === 'O' && rr.ox && v.a && made.length < 4) made.push({ 원래: (set.passage.find(x => x.n === k.n) || {}).t, 학생이만든오답: v.a, 이유: v.why, 판정: rr.w ? '정답' : rr.w === false ? '오답' : '미판정' }); }); }); });
+    F.문법STEP = { 기간내_회차: out, 틀린_문법포인트: Object.entries(miss).sort((a,b) => b[1]-a[1]).map(([k,v]) => `${k}(${v})`), 학생이_만든_오답_예: made };
+  }
+  const last = all.sort().pop();
+  F.활동 = { 기간내_학습한_날수: days.size, 마지막_학습일: last || '기록 없음', 기간내_AI피드백_사용: ai.filter(a => inP(a.created_at, p)).length };
+  return F;
+}
+function repControls(id){
+  return `<div class="rpc" id="${id}">
+    <div class="seg" data-k="aud">${Object.entries(AUD).map(([k,v]) => `<button data-v="${k}" class="${RP.aud===k?'on':''}">${v}</button>`).join('')}</div>
+    <div class="seg" data-k="per"><button data-v="week" class="${RP.per==='week'?'on':''}">최근 1주</button><button data-v="month" class="${RP.per==='month'?'on':''}">최근 1개월</button><button data-v="custom" class="${RP.per==='custom'?'on':''}">기간 선택</button></div>
+    <span class="dates" ${RP.per==='custom'?'':'hidden'}><input type="date" data-d="from" value="${RP.from}"> ~ <input type="date" data-d="to" value="${RP.to}"></span>
+    <span class="pv muted"></span></div>`;
+}
+function bindControls(id, onChange){
+  const el = $(id); if (!el) return;
+  const pv = () => { const p = period(RP.per, RP.from, RP.to); el.querySelector('.pv').textContent = `${p.from} ~ ${p.to}`; };
+  el.querySelectorAll('.seg').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
+    RP[g.dataset.k] = b.dataset.v; g.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+    el.querySelector('.dates').hidden = RP.per !== 'custom';
+    if (RP.per === 'custom' && !RP.from) { const p = period('month'); RP.from = p.from; RP.to = p.to; el.querySelector('[data-d=from]').value = RP.from; el.querySelector('[data-d=to]').value = RP.to; }
+    pv(); onChange && onChange(); }));
+  el.querySelectorAll('[data-d]').forEach(i => i.onchange = () => { RP[i.dataset.d] = i.value; pv(); onChange && onChange(); });
+  pv();
+}
+async function genReport(s, rows, syn, ai, memo){
+  const p = period(RP.per, RP.from, RP.to);
+  const facts = buildFacts(s, rows, syn, ai, p);
+  const r = await SB.functions.invoke('hub-report', { body: { student_id: s.id, audience: RP.aud, from: p.from, to: p.to, memo, facts } });
+  if (r.error) { let code = null; try { code = (await r.error.context.json()).error; } catch(e){} throw Object.assign(new Error(code || r.error.message), { code }); }
+  return Object.assign(r.data, { audience: RP.aud, period_from: p.from, period_to: p.to });
+}
+function repErr(e){
+  return ({ NO_KEY:'AI 키가 설정되지 않았어요.', FORBIDDEN:'담당하지 않는 반 학생이에요.', NOT_STAFF:'선생님 계정으로 로그인해 주세요.', DAILY_LIMIT:'오늘 리포트 생성 한도를 넘었어요.', AI_UPSTREAM:'AI 응답이 실패했어요. 잠시 후 다시 시도해 주세요.' })[e.code] || ('리포트를 만들지 못했어요: ' + (e.code || e.message));
+}
+async function saveReport(id, body, status){
+  const { error } = await SB.from('vt_reports').update({ body, status, updated_at: new Date().toISOString() }).eq('id', id);
+  if (error) throw error;
+}
+async function copyText(t){ try { await navigator.clipboard.writeText(t); toast('복사했어요. 카카오톡에 붙여 넣으세요.'); } catch(e) { toast('복사하지 못했어요. 글을 길게 눌러 직접 복사해 주세요.'); } }
+function repCard(r){
+  return `<div class="rcard" data-id="${r.id || ''}"><div class="rh"><b>${AUD[r.audience] || ''}</b><span class="muted">${r.period_from} ~ ${r.period_to}</span>${r.status === 'done' ? '<span class="ok">검토 완료</span>' : '<span class="muted">초안</span>'}</div>
+    <textarea class="rtx" rows="12">${esc(r.body || r.text || r.draft || '')}</textarea>
+    <div class="ra"><button class="btn sm" data-a="copy">복사</button><button class="btn sm sec" data-a="save">검토 완료로 저장</button><span class="sp"></span><span class="muted" style="font-size:12px">${r.id ? '' : '저장 안 됨'}</span></div></div>`;
+}
+function bindRepCard(box, r){
+  const tx = box.querySelector('.rtx');
+  box.querySelector('[data-a=copy]').onclick = () => copyText(tx.value);
+  box.querySelector('[data-a=save]').onclick = async () => { if (!r.id) return toast('저장할 수 없는 초안이에요.');
+    try { await saveReport(r.id, tx.value, 'done'); r.status = 'done'; r.body = tx.value; box.querySelector('.rh').lastElementChild.outerHTML = '<span class="ok">검토 완료</span>'; toast('저장했어요.'); } catch(e) { toast(errMsg(e)); } };
+}
+/* 학생 상세 안의 리포트 */
+async function studentReport(s, rows){
+  const el = $('rpBox'); if (!el) return;
+  const syn = D.syn.filter(r => r.student_id === s.id);
+  let ai = [];
+  const loadAi = async () => { const p = period(RP.per, RP.from, RP.to); const q = await SB.from('vt_ai_feedback').select('created_at').eq('student_id', s.id).gte('created_at', p.from + 'T00:00:00+09:00'); ai = q.data || []; };
+  const prev = await SB.from('vt_reports').select('*').eq('student_id', s.id).order('created_at', { ascending:false }).limit(6);
+  const list = prev.data || [];
+  el.innerHTML = `${repControls('rpCtl')}
+    <textarea id="rpMemo" class="memo" rows="2" placeholder="선생님 메모 (선택) — 예: 수업 태도 좋음, 단어 시험 약함, 다음 달 내신 대비"></textarea>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:8px"><button class="btn sm" id="rpGo">AI 초안 만들기</button><span class="muted" id="rpMsg" style="font-size:12.5px"></span></div>
+    <div id="rpOut"></div>
+    ${list.length ? `<div class="note" style="margin-top:12px">지난 리포트</div><div class="rplist">${list.map(r => `<button data-rid="${r.id}">${new Date(r.created_at).toLocaleDateString('ko-KR')} · ${AUD[r.audience]} · ${r.period_from.slice(5)}~${r.period_to.slice(5)}${r.status === 'done' ? ' ✓' : ''}</button>`).join('')}</div>` : ''}`;
+  bindControls('rpCtl');
+  const show = r => { $('rpOut').innerHTML = repCard(r); bindRepCard($('rpOut').firstElementChild, r); };
+  el.querySelectorAll('[data-rid]').forEach(b => b.onclick = () => show(list.find(x => String(x.id) === b.dataset.rid)));
+  $('rpGo').onclick = async () => {
+    const b = $('rpGo'); b.disabled = true; $('rpMsg').innerHTML = '<span class="ld"></span>기록을 모아 초안을 쓰는 중… (10~20초)';
+    try { await loadAi(); const r = await genReport(s, rows, syn, ai, $('rpMemo').value.trim()); r.body = r.text; show(r); $('rpMsg').textContent = '초안이 저장됐어요. 고친 뒤 복사하거나 검토 완료로 저장하세요.'; }
+    catch(e) { $('rpMsg').textContent = repErr(e); }
+    b.disabled = false;
+  };
+}
+/* 반 전체 리포트 */
+const RB2 = {};   // sid -> {memo, checked, rep, state}
+async function renderReports(){
+  const studs = filtered();
+  let h = `<div class="bar">${classFilter()}<span class="note" style="margin:0">반을 고르고, 학생별 메모를 적은 뒤 한 번에 초안을 만드세요. 초안은 하나씩 고치고 복사해서 보내면 됩니다.</span></div>
+    <div class="cc" style="margin-bottom:14px">${repControls('rbCtl')}
+    <textarea id="rbMemo" class="memo" rows="2" placeholder="반 공통 메모 (선택) — 예: 이번 달은 내신 대비로 문법 STEP을 집중했습니다"></textarea>
+    <div style="display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap"><button class="btn sm" id="rbGo">선택한 학생 초안 만들기</button><button class="btn sm sec" id="rbAll">전체 선택/해제</button><button class="btn sm sec" id="rbCopy">완료된 리포트 모두 복사</button><span class="muted" id="rbMsg" style="font-size:12.5px"></span></div></div>`;
+  if (!studs.length) { $('body').innerHTML = h + '<div class="empty">학생이 없어요.</div>'; bindFilter(renderReports); bindControls('rbCtl'); return; }
+  studs.sort((a,b) => (a.class_code + a.name).localeCompare(b.class_code + b.name));
+  h += `<div class="rbl">${studs.map(s => { const x = RB2[s.id] || (RB2[s.id] = { memo:'', checked:true });
+    return `<div class="rbi" data-sid="${s.id}"><div class="rbt"><label><input type="checkbox" ${x.checked ? 'checked' : ''}> <b>${esc(s.name)}</b> <span class="muted">${esc(clsOf(s.class_code).name)}</span></label>
+      <input class="rbm" placeholder="이 학생 메모 (선택)" value="${esc(x.memo)}"><span class="rst muted">${x.state || ''}</span></div><div class="rbo"></div></div>`; }).join('')}</div>`;
+  $('body').innerHTML = h; bindFilter(renderReports); bindControls('rbCtl');
+  studs.forEach(s => { const x = RB2[s.id], row = document.querySelector(`.rbi[data-sid="${s.id}"]`);
+    row.querySelector('input[type=checkbox]').onchange = e => { x.checked = e.target.checked; };
+    row.querySelector('.rbm').oninput = e => { x.memo = e.target.value; };
+    if (x.rep) { row.querySelector('.rbo').innerHTML = repCard(x.rep); bindRepCard(row.querySelector('.rcard'), x.rep); } });
+  $('rbAll').onclick = () => { const on = !studs.every(s => RB2[s.id].checked); studs.forEach(s => RB2[s.id].checked = on); renderReports(); };
+  $('rbCopy').onclick = () => { const t = studs.map(s => RB2[s.id]).filter(x => x.rep).map(x => { const s = studs.find(z => RB2[z.id] === x); const tx = document.querySelector(`.rbi[data-sid="${s.id}"] .rtx`); return `[${s.name}]\n${tx ? tx.value : x.rep.body}`; }).join('\n\n──────────\n\n');
+    if (!t) return toast('아직 만든 리포트가 없어요.'); copyText(t); };
+  $('rbGo').onclick = async () => {
+    const pick = studs.filter(s => RB2[s.id].checked); if (!pick.length) return toast('학생을 골라 주세요.');
+    if (pick.length > 40 && !confirm(`${pick.length}명 초안을 만들까요? 몇 분 걸릴 수 있어요.`)) return;
+    const p = period(RP.per, RP.from, RP.to), common = $('rbMemo').value.trim(), b = $('rbGo'); b.disabled = true;
+    $('rbMsg').innerHTML = '<span class="ld"></span>기록을 모으는 중…';
+    const ids = pick.map(s => s.id);
+    const [pr, af] = await Promise.all([ SB.from('vt_progress').select('*').in('student_id', ids),
+      SB.from('vt_ai_feedback').select('student_id,created_at').in('student_id', ids).gte('created_at', p.from + 'T00:00:00+09:00') ]);
+    const rows = pr.data || [], ais = af.data || [];
+    let done = 0, fail = 0, i = 0;
+    const work = async () => { while (i < pick.length) { const s = pick[i++], x = RB2[s.id], row = document.querySelector(`.rbi[data-sid="${s.id}"]`);
+      const st = row && row.querySelector('.rst'); if (st) { st.innerHTML = '<span class="ld"></span>작성 중'; }
+      try { const memo = [common, x.memo].filter(Boolean).join(' / ');
+        const r = await genReport(s, rows.filter(z => z.student_id === s.id), D.syn.filter(z => z.student_id === s.id), ais.filter(z => z.student_id === s.id), memo);
+        r.body = r.text; x.rep = r; x.state = '초안 완료'; done++;
+        const cur = document.querySelector(`.rbi[data-sid="${s.id}"]`);
+        if (cur) { cur.querySelector('.rst').textContent = x.state; cur.querySelector('.rbo').innerHTML = repCard(r); bindRepCard(cur.querySelector('.rcard'), r); }
+      } catch(e) { x.state = repErr(e); fail++; const cur = document.querySelector(`.rbi[data-sid="${s.id}"] .rst`); if (cur) cur.textContent = x.state; }
+      const m = $('rbMsg'); if (m) m.innerHTML = `<span class="ld"></span>${done + fail} / ${pick.length}명 처리`; } };
+    await Promise.all([work(), work(), work()]);
+    const m = $('rbMsg'); if (m) m.textContent = `완료: 초안 ${done}명${fail ? ` · 실패 ${fail}명` : ''}. 하나씩 검토해 주세요.`;
+    const bb = $('rbGo'); if (bb) bb.disabled = false;
+  };
+}
 
 /* ---------- 단어 분석 ---------- */
 async function renderWords(){
