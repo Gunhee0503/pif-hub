@@ -3,6 +3,8 @@
 
 사용법:  python3 tools/grammar_pdf.py 학습지.pdf [학습지2.pdf ...]
 같은 회차(기본 01회 등)는 덮어쓰고, 새 회차는 추가합니다.
+환경변수 GRAM_PDF_KEY(Edge Function hub-file 안의 키, base64)가 있으면
+로그인한 사람만 받는 PDF도 함께 만듭니다: grammar/files/<b01>-student.bin (정답 제외), -full.bin (정답 포함)
 """
 import sys, re, json, os, warnings
 warnings.filterwarnings('ignore')
@@ -154,6 +156,28 @@ def parse_pdf(path):
         s.update(keys[s['set']])
     return {'level': level.group(1) if level else '기본', 'round': int(rnd.group(1)) if rnd else 1, 'sets': sets}
 
+LVC = {'기본': 'b', '심화': 'a', '실전': 'p'}
+FILES = os.path.join(os.path.dirname(__file__), '..', 'grammar', 'files')
+
+def encrypt_pdf(path, r):
+    """학습지(정답 페이지 제외)와 전체 PDF를 AES-GCM으로 암호화해 저장"""
+    import base64
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    key = base64.b64decode(os.environ['GRAM_PDF_KEY'])
+    src = fitz.open(path)
+    ans = [i for i, p in enumerate(src) if '정답 및 해설' in p.get_text()]
+    cut = ans[0] if ans else src.page_count
+    os.makedirs(FILES, exist_ok=True)
+    uid = LVC.get(r['level'], 'x') + f"{r['round']:02d}"
+    for kind, last in [('student', cut - 1), ('full', src.page_count - 1)]:
+        d = fitz.open(); d.insert_pdf(src, from_page=0, to_page=last)
+        try: d.subset_fonts()
+        except Exception: pass
+        raw = d.tobytes(garbage=4, deflate=True, clean=True)
+        nonce = os.urandom(12)
+        open(os.path.join(FILES, f'{uid}-{kind}.bin'), 'wb').write(nonce + AESGCM(key).encrypt(nonce, raw, None))
+    return True
+
 def main():
     rounds = []
     if os.path.exists(OUT):
@@ -163,6 +187,11 @@ def main():
     for path in sys.argv[1:]:
         r = parse_pdf(path)
         r['id'] = f"{r['level']}-{r['round']:02d}"
+        uid = LVC.get(r['level'], 'x') + f"{r['round']:02d}"
+        if os.environ.get('GRAM_PDF_KEY'):
+            r['pdf'] = encrypt_pdf(path, r)
+        elif os.path.exists(os.path.join(FILES, f'{uid}-student.bin')):
+            r['pdf'] = True
         rounds = [x for x in rounds if x['id'] != r['id']] + [r]
         print(f"{r['id']}: SET {len(r['sets'])}개")
         for s in r['sets']:

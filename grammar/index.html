@@ -47,6 +47,10 @@
 .rc .pill{position:absolute;top:11px;right:11px;font:700 10px/1 var(--mono);padding:4px 7px;border-radius:99px;background:var(--paper2);color:var(--ink2)}
 .rc.done .pill{background:var(--acc);color:#fff}
 .rc.go .pill{background:var(--gold);color:#fff}
+.rcw{display:flex;flex-direction:column;gap:6px}
+.rcw .rc{flex:1}
+.dl{display:flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:11px;padding:9px;font-size:13px;font-weight:600;color:var(--acc)}
+.dl:hover{border-color:var(--acc)} .dl:disabled{opacity:.6}
 .rc.soon{border-style:dashed;background:transparent;color:var(--ink2);cursor:default}
 .rc.soon:hover{border-color:var(--line)}
 
@@ -229,15 +233,23 @@ function renderList(){
       const x = S[r.id], nDone = x ? r.sets.filter(s => (x.sets[s.set] || {}).graded).length : 0;
       const cls = x && x.finishedAt ? 'done' : nDone ? 'go' : '';
       const pill = x && x.finishedAt ? x.total + '점' : nDone ? nDone + '/' + r.sets.length : 'START';
-      h += `<button class="rc ${cls}" data-r="${esc(r.id)}"><span class="pill">${pill}</span><div class="n">${esc(r.level)} ${pad(r.round)}회</div>
+      h += `<div class="rcw"><button class="rc ${cls}" data-r="${esc(r.id)}"><span class="pill">${pill}</span><div class="n">${esc(r.level)} ${pad(r.round)}회</div>
         <div class="w">${r.sets.map(s => esc(s.title)).join(' · ')}</div>
-        <div class="st">${x && x.finishedAt ? '완료 · <b>' + x.total + '</b> / ' + roundMax(r) : nDone ? '진행 중' : 'SET ' + r.sets.length + '개'}</div></button>`;
+        <div class="st">${x && x.finishedAt ? '완료 · <b>' + x.total + '</b> / ' + roundMax(r) : nDone ? '진행 중' : 'SET ' + r.sets.length + '개'}</div></button>
+        ${r.pdf ? `<button class="dl" data-pdf="${esc(r.id)}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>학습지 PDF 내려받기</button>` : ''}</div>`;
     });
     h += `<div class="rc soon"><div class="n">NEXT</div><div class="w">다음 회차가 순서대로 올라옵니다</div><div class="st">학습지가 정리되는 대로 업데이트</div></div></div>`;
   });
   $app.innerHTML = h; mountVideo();
   $app.querySelectorAll('.rc[data-r]').forEach(b => b.onclick = () => openRound(b.dataset.r));
+  $app.querySelectorAll('.dl[data-pdf]').forEach(b => b.onclick = () => getPdf(RB[b.dataset.pdf], b));
   scrollTo(0,0);
+}
+async function getPdf(r, btn){
+  const t = btn.innerHTML; btn.disabled = true; btn.textContent = '내려받는 중…';
+  try { await VT.download('gram-' + uid(r), 'student', `PIF_문법STEP_${r.level}${pad(r.round)}회_학습지.pdf`); }
+  catch(e){ toast(e.code === 'COURSE_LOCKED' ? '우리 반에서 열리지 않은 과제예요.' : e.code === 'NOT_APPROVED' || e.code === 'NOT_LOGGED_IN' ? '로그인 정보를 확인할 수 없어요. 내 학습에서 다시 들어와 주세요.' : e.code === 'NO_FILE' ? '이 회차는 아직 PDF가 없어요.' : 'PDF를 내려받지 못했어요. 잠시 후 다시 시도해 주세요.'); }
+  btn.disabled = false; btn.innerHTML = t;
 }
 function openRound(id){
   const x = rs(id), r = RB[id];

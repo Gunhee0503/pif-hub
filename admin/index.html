@@ -613,7 +613,9 @@ function gramAnalysis(ids){
       set.items.forEach((k, i) => { const rr = t.res.rows[i]; if (!rr) return; const key = g.id + '|' + set.set + '|' + k.n;
         const a = agg[key] || (agg[key] = { g, set, k, n:0, ox:0, w:0 }); a.n++; if (rr.ox) a.ox++; if (rr.w) a.w++; }); }); });
   const list = Object.values(agg).sort((x, y) => (x.ox + x.w) / x.n - (y.ox + y.w) / y.n);
-  let h = `<h3 style="margin:30px 0 8px;font-size:18px">문법 STEP · 밑줄별 분석</h3><div class="note" style="margin:0 0 10px">채점까지 마친 밑줄을 정답률이 낮은 순서로 보여 줍니다. O/X는 판단, 고치기·오답은 X를 바르게 고치거나 O에서 오답을 만든 것.</div>`;
+  const pdfs = GR.filter(g => g.pdf);
+  let h = `<h3 style="margin:30px 0 8px;font-size:18px">문법 STEP · 밑줄별 분석</h3>
+    ${pdfs.length ? `<div class="bar" style="margin-bottom:10px"><span class="note" style="margin:0">학습지 PDF</span>${pdfs.map(g => `<button class="btn sm sec" data-gpdf="${esc(g.id)}" data-kind="student">${esc(g.level)} ${pad(g.round)}회 학습지</button><button class="btn sm sec" data-gpdf="${esc(g.id)}" data-kind="full">${esc(g.level)} ${pad(g.round)}회 정답 포함</button>`).join('')}</div>` : ''}<div class="note" style="margin:0 0 10px">채점까지 마친 밑줄을 정답률이 낮은 순서로 보여 줍니다. O/X는 판단, 고치기·오답은 X를 바르게 고치거나 O에서 오답을 만든 것.</div>`;
   if (!list.length) return h + '<div class="empty">아직 채점된 문법 과제가 없어요.</div>';
   return h + `<div class="tw"><table><tr><th>회차</th><th>SET</th><th>밑줄</th><th>문법 포인트</th><th>정답</th><th>푼 학생</th><th>O/X 정답률</th><th>고치기·오답 정답률</th></tr>
     ${list.map(a => { const orig = (a.set.passage.find(x => x.n === a.k.n) || {}).t || ''; const pc = v => Math.round(v / a.n * 100);
@@ -621,6 +623,14 @@ function gramAnalysis(ids){
       <td><b class="${pc(a.ox)<60?'bad':''}">${pc(a.ox)}%</b></td><td><b class="${pc(a.w)<60?'bad':''}">${pc(a.w)}%</b></td></tr>`; }).join('')}</table></div>`;
 }
 
+document.addEventListener('click', async ev => {
+  const b = ev.target.closest('[data-gpdf]'); if (!b) return;
+  const g = GR.find(x => x.id === b.dataset.gpdf), full = b.dataset.kind === 'full', t = b.textContent;
+  b.disabled = true; b.textContent = '내려받는 중…';
+  try { await VT.download('gram-' + gUid(g), full ? 'full' : 'student', `PIF_문법STEP_${g.level}${pad(g.round)}회_${full ? '정답포함' : '학습지'}.pdf`); }
+  catch(e){ toast('PDF를 내려받지 못했어요: ' + (e.code || e.message)); }
+  b.disabled = false; b.textContent = t;
+});
 if (!SB) { document.body.innerHTML = '<div class="gate"><h1>불러오지 못했어요</h1></div>'; }
 else { SB.auth.onAuthStateChange(ev => { if (ev === 'SIGNED_OUT') { $('v-app').hidden = true; $('v-login').hidden = false; } }); boot(); }
 </script>
