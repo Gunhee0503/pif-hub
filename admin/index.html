@@ -91,7 +91,10 @@ td.num{font-variant-numeric:tabular-nums}
 .ra .btn,.cc .btn.sm{margin-top:0}
 .cc .rpc .seg{background:#f5f5f7}
 .rplist{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.rplist button{border:1px solid #d2d2d7;background:#fff;border-radius:99px;padding:4px 10px;font-size:12px;color:var(--ink2)}
+.rpi{display:inline-flex;align-items:center;border:1px solid #d2d2d7;background:#fff;border-radius:99px;overflow:hidden}
+.rpi button{border:0;background:transparent;padding:4px 8px 4px 10px;font-size:12px;color:var(--ink2)}
+.rpi .rx{padding:4px 9px 4px 6px;font-size:14px;line-height:1;color:#a1a1a6;border-left:1px solid #ececf0}
+.rpi .rx:hover{color:var(--bad);background:#fff1f2}
 .rbl{display:flex;flex-direction:column;gap:8px}
 .rbi{background:#fff;border-radius:14px;padding:10px 14px}
 .rbt{display:flex;align-items:center;gap:10px;flex-wrap:wrap;font-size:14px}
@@ -710,10 +713,19 @@ async function copyText(t){ try { await navigator.clipboard.writeText(t); toast(
 function repCard(r){
   return `<div class="rcard" data-id="${r.id || ''}"><div class="rh"><b>${AUD[r.audience] || ''}</b><span class="muted">${r.period_from} ~ ${r.period_to}</span>${r.status === 'done' ? '<span class="ok">검토 완료</span>' : '<span class="muted">초안</span>'}</div>
     <textarea class="rtx" rows="12">${esc(r.body || r.text || r.draft || '')}</textarea>
-    <div class="ra"><button class="btn sm" data-a="copy">복사</button><button class="btn sm sec" data-a="save">검토 완료로 저장</button><span class="sp"></span><span class="muted" style="font-size:12px">${r.id ? '' : '저장 안 됨'}</span></div></div>`;
+    <div class="ra"><button class="btn sm" data-a="copy">복사</button><button class="btn sm sec" data-a="save">검토 완료로 저장</button><span class="sp"></span>${r.id ? '<button class="btn sm red" data-a="del">삭제</button>' : '<span class="muted" style="font-size:12px">저장 안 됨</span>'}</div></div>`;
 }
-function bindRepCard(box, r){
+async function deleteReport(r){
+  if (!confirm(`이 리포트를 삭제할까요? (${AUD[r.audience] || ''} · ${r.period_from} ~ ${r.period_to})\n삭제하면 되돌릴 수 없어요.`)) return false;
+  const { data, error } = await SB.from('vt_reports').delete().eq('id', r.id).select('id');
+  if (error) { toast(errMsg(error)); return false; }
+  if (Array.isArray(data) && !data.length) { toast('삭제 권한이 없거나 이미 지워진 리포트예요.'); return false; }
+  toast('삭제했어요.'); return true;
+}
+function bindRepCard(box, r, onDel){
   const tx = box.querySelector('.rtx');
+  const del = box.querySelector('[data-a=del]');
+  if (del) del.onclick = async () => { if (await deleteReport(r)) { box.remove(); onDel && onDel(r); } };
   box.querySelector('[data-a=copy]').onclick = () => copyText(tx.value);
   box.querySelector('[data-a=save]').onclick = async () => { if (!r.id) return toast('저장할 수 없는 초안이에요.');
     try { await saveReport(r.id, tx.value, 'done'); r.status = 'done'; r.body = tx.value; box.querySelector('.rh').lastElementChild.outerHTML = '<span class="ok">검토 완료</span>'; toast('저장했어요.'); } catch(e) { toast(errMsg(e)); } };
@@ -730,13 +742,22 @@ async function studentReport(s, rows){
     <textarea id="rpMemo" class="memo" rows="2" placeholder="선생님 메모 (선택) — 예: 수업 태도 좋음, 단어 시험 약함, 다음 달 내신 대비"></textarea>
     <div style="display:flex;gap:8px;align-items:center;margin-top:8px"><button class="btn sm" id="rpGo">AI 초안 만들기</button><span class="muted" id="rpMsg" style="font-size:12.5px"></span></div>
     <div id="rpOut"></div>
-    ${list.length ? `<div class="note" style="margin-top:12px">지난 리포트</div><div class="rplist">${list.map(r => `<button data-rid="${r.id}">${new Date(r.created_at).toLocaleDateString('ko-KR')} · ${AUD[r.audience]} · ${r.period_from.slice(5)}~${r.period_to.slice(5)}${r.status === 'done' ? ' ✓' : ''}</button>`).join('')}</div>` : ''}`;
+    <div id="rpList"></div>`;
   bindControls('rpCtl');
-  const show = r => { $('rpOut').innerHTML = repCard(r); bindRepCard($('rpOut').firstElementChild, r); };
-  el.querySelectorAll('[data-rid]').forEach(b => b.onclick = () => show(list.find(x => String(x.id) === b.dataset.rid)));
+  const drop = r => { const i = list.findIndex(x => x.id === r.id); if (i >= 0) list.splice(i, 1); drawList(); };
+  const show = r => { $('rpOut').innerHTML = repCard(r); bindRepCard($('rpOut').firstElementChild, r, drop); };
+  const drawList = () => {
+    const box = $('rpList'); if (!box) return;
+    box.innerHTML = list.length ? `<div class="note" style="margin-top:12px">지난 리포트 ${list.length}개</div><div class="rplist">${list.map(r => `<span class="rpi"><button data-rid="${r.id}">${new Date(r.created_at).toLocaleDateString('ko-KR')} · ${AUD[r.audience]} · ${r.period_from.slice(5)}~${r.period_to.slice(5)}${r.status === 'done' ? ' ✓' : ''}</button><button class="rx" data-del="${r.id}" title="삭제" aria-label="삭제">×</button></span>`).join('')}</div>` : '';
+    box.querySelectorAll('[data-rid]').forEach(b => b.onclick = () => show(list.find(x => String(x.id) === b.dataset.rid)));
+    box.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => { const r = list.find(x => String(x.id) === b.dataset.del);
+      if (await deleteReport(r)) { const card = $('rpOut').querySelector(`.rcard[data-id="${r.id}"]`); if (card) card.remove(); drop(r); } });
+  };
+  drawList();
   $('rpGo').onclick = async () => {
     const b = $('rpGo'); b.disabled = true; $('rpMsg').innerHTML = '<span class="ld"></span>기록을 모아 초안을 쓰는 중… (10~20초)';
-    try { await loadAi(); const r = await genReport(s, rows, syn, ai, $('rpMemo').value.trim()); r.body = r.text; show(r); $('rpMsg').textContent = '초안이 저장됐어요. 고친 뒤 복사하거나 검토 완료로 저장하세요.'; }
+    try { await loadAi(); const r = await genReport(s, rows, syn, ai, $('rpMemo').value.trim()); r.body = r.text; show(r); if (r.id) { list.unshift({ id: r.id, audience: r.audience, period_from: r.period_from, period_to: r.period_to, body: r.text, created_at: r.created_at || new Date().toISOString(), status: 'draft' }); drawList(); }
+      $('rpMsg').textContent = '초안이 저장됐어요. 고친 뒤 복사하거나 검토 완료로 저장하세요.'; }
     catch(e) { $('rpMsg').textContent = repErr(e); }
     b.disabled = false;
   };
@@ -758,7 +779,7 @@ async function renderReports(){
   studs.forEach(s => { const x = RB2[s.id], row = document.querySelector(`.rbi[data-sid="${s.id}"]`);
     row.querySelector('input[type=checkbox]').onchange = e => { x.checked = e.target.checked; };
     row.querySelector('.rbm').oninput = e => { x.memo = e.target.value; };
-    if (x.rep) { row.querySelector('.rbo').innerHTML = repCard(x.rep); bindRepCard(row.querySelector('.rcard'), x.rep); } });
+    if (x.rep) { row.querySelector('.rbo').innerHTML = repCard(x.rep); bindRepCard(row.querySelector('.rcard'), x.rep, () => { x.rep = null; x.state = '삭제됨'; row.querySelector('.rst').textContent = x.state; }); } });
   $('rbAll').onclick = () => { const on = !studs.every(s => RB2[s.id].checked); studs.forEach(s => RB2[s.id].checked = on); renderReports(); };
   $('rbCopy').onclick = () => { const t = studs.map(s => RB2[s.id]).filter(x => x.rep).map(x => { const s = studs.find(z => RB2[z.id] === x); const tx = document.querySelector(`.rbi[data-sid="${s.id}"] .rtx`); return `[${s.name}]\n${tx ? tx.value : x.rep.body}`; }).join('\n\n──────────\n\n');
     if (!t) return toast('아직 만든 리포트가 없어요.'); copyText(t); };
@@ -778,7 +799,7 @@ async function renderReports(){
         const r = await genReport(s, rows.filter(z => z.student_id === s.id), D.syn.filter(z => z.student_id === s.id), ais.filter(z => z.student_id === s.id), memo);
         r.body = r.text; x.rep = r; x.state = '초안 완료'; done++;
         const cur = document.querySelector(`.rbi[data-sid="${s.id}"]`);
-        if (cur) { cur.querySelector('.rst').textContent = x.state; cur.querySelector('.rbo').innerHTML = repCard(r); bindRepCard(cur.querySelector('.rcard'), r); }
+        if (cur) { cur.querySelector('.rst').textContent = x.state; cur.querySelector('.rbo').innerHTML = repCard(r); bindRepCard(cur.querySelector('.rcard'), r, () => { x.rep = null; x.state = '삭제됨'; cur.querySelector('.rst').textContent = x.state; }); }
       } catch(e) { x.state = repErr(e); fail++; const cur = document.querySelector(`.rbi[data-sid="${s.id}"] .rst`); if (cur) cur.textContent = x.state; }
       const m = $('rbMsg'); if (m) m.innerHTML = `<span class="ld"></span>${done + fail} / ${pick.length}명 처리`; } };
     await Promise.all([work(), work(), work()]);
