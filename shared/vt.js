@@ -53,6 +53,15 @@
     return '문제가 생겼어요: ' + m;
   }
 
+  /* 반에 열린 코스 ['fundamental',...,'syntax'] + 구문 편(edition) */
+  async function access() {
+    var r = await sb.rpc('vt_my_access'); if (r.error) throw r.error;
+    var a = (r.data && r.data[0]) || null;
+    if (a) { var m = me(); if (m) { m.courses = a.courses; m.edition = a.edition; try { rawSet.call(LS, MARK, JSON.stringify(m)); } catch (e) {} } }
+    return a;
+  }
+  function allowed(course) { var m = me(); return !m || !m.courses || m.courses.indexOf(course) >= 0; }
+
   async function requestAccess(code, name, last4) {
     var s = await sb.auth.getSession(), session = s.data.session;
     if (session && session.user && !session.user.is_anonymous) { await sb.auth.signOut(); session = null; }
@@ -170,12 +179,15 @@
   function gate(course) {
     var m = me();
     if (!m) { location.replace('/learn/?next=' + encodeURIComponent(location.pathname)); document.documentElement.style.display = 'none'; return null; }
+    if (course && !allowed(course)) { location.replace('/learn/?locked=' + course); document.documentElement.style.display = 'none'; return null; }
     if (course && COURSES[course] && COURSES[course].prefixes[0] !== 'vtm_') watch(course);
     window.addEventListener('DOMContentLoaded', function () { chip(m); });
     (async function () {
       try {
         var st = await status();
         if (!st || st.status !== 'approved' || st.student_id !== m.sid) { setMe(null); clearPrefixes(); location.replace('/learn/'); return; }
+        try { await access(); } catch (e) {}
+        if (course && !allowed(course)) { location.replace('/learn/?locked=' + course); return; }
         if (course && COURSES[course].prefixes[0] !== 'vtm_') {
           var changed = await pull([course]);
           var flag = 'vt_reloaded_' + course;
@@ -226,7 +238,7 @@
 
   var VT = window.VT = {
     sb: sb, COURSES: COURSES, me: me, setMe: setMe, status: status, requestAccess: requestAccess, errText: errText,
-    save: save, load: load, appendAttempt: appendAttempt, pull: pull, pushState: pushState, clearPrefixes: clearPrefixes,
+    access: access, allowed: allowed, save: save, load: load, appendAttempt: appendAttempt, pull: pull, pushState: pushState, clearPrefixes: clearPrefixes,
     gate: gate, logout: logout, ai: ai, summarize: {}
   };
 

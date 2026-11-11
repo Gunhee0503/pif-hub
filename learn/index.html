@@ -47,6 +47,8 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .stat{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink2);margin-top:8px}
 .stat b{color:var(--ink)}
 .tag{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:99px;padding:3px 9px}
+.course.off{opacity:.62;cursor:default}.course.off:hover{transform:none;box-shadow:none}
+.locknote{background:#fff4e5;border:1px solid #f5d9a3;color:#7a4b00;border-radius:14px;padding:11px 14px;font-size:13.5px;margin:-16px 0 26px}
 .course.dark{background:#000;color:#f5f5f7}
 .course.dark .ko,.course.dark p{color:#a1a1a6}
 .course.dark h3{background:linear-gradient(120deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -98,6 +100,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
   </div>
   <h1 id="hHello">오늘도 한 걸음.</h1>
   <div class="sub">이어서 할 코스를 골라 시작하세요.</div>
+  <div class="locknote" id="lockNote" hidden></div>
 
   <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
   <div class="grid" id="vocab"></div>
@@ -115,7 +118,8 @@ function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0);
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
 const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching)\/$/.test(n) ? n : null; })();
 const BEACON_URL = 'https://syntax-beacon.vercel.app/';
-let EDITION = 'beacon';
+let EDITION = 'beacon', OPEN = null;
+const LOCKED_Q = new URLSearchParams(location.search).get('locked');
 
 const CARDS = [
   { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', desc:'접두사와 어미의 이미지로 처음 보는 단어를 추리합니다. 어휘 추리 → 단어 브릿지 → 예문 빈칸.', unit:'강 완료' },
@@ -128,7 +132,10 @@ async function enter(st){
   const prev = VT.me();
   if (prev && prev.sid !== st.student_id) VT.clearPrefixes();
   VT.setMe(st); EDITION = st.edition || 'beacon';
-  if (NEXT) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
+  try { const a = await VT.access(); if (a) { OPEN = a.courses; EDITION = a.edition || EDITION; } } catch(e){}
+  const nextCourse = NEXT && NEXT.replace(/\//g,'');
+  if (NEXT && (!OPEN || OPEN.includes(nextCourse))) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
+  if (NEXT || LOCKED_Q) showLockNote(nextCourse || LOCKED_Q);
   $('hName').textContent = st.name; $('hClass').textContent = st.class_name;
   $('hHello').textContent = `${st.name} 님, 오늘도 한 걸음.`;
   render([]); only('home');
@@ -147,18 +154,24 @@ function render(rows){
       done = r ? Number(r.score||0) : 0; max = r && r.max_score ? Number(r.max_score) : ({fundamental:4,essential:5,spectrum:4})[c.id];
     }
     const pct = max ? Math.round(done/max*100) : 0;
+    if (OPEN && !OPEN.includes(c.id)) return `<div class="course off" style="--c:${c.c}"><span class="tag" style="color:#86868b;border-color:#d2d2d7">🔒 미수강</span>
+      <div class="lv">${c.lv}</div><h3>${C.name}</h3><div class="ko">${C.ko}</div><p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div>`;
     return `<a class="course" href="${C.path}" style="--c:${c.c}">${c.tag?`<span class="tag">${c.tag}</span>`:''}
       <div class="lv">${c.lv}</div><h3>${C.name}</h3><div class="ko">${C.ko}</div><p>${c.desc}</p>
       <div class="foot"><div class="bar"><i style="width:${pct}%"></i></div>
       <div class="stat"><span><b>${done}</b> / ${max} ${c.unit}</span><span>${extra}</span></div></div></a>`;
   }).join('');
   const comp = EDITION === 'compass';
+  if (OPEN && !OPEN.includes('syntax')) { $('syntax').innerHTML = `<div class="course off wide" style="--c:#1d1d1f"><div><div class="lv" style="color:#86868b">🔒 미수강</div><h3>구문의 지도</h3><div class="ko">COMPASS 기본편 · BEACON 심화편</div>
+      <p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div></div>`; return; }
   $('syntax').innerHTML = `<a class="course dark wide" href="${BEACON_URL}" style="--g1:${comp?'#9cc6f5':'#ffe2a8'};--g2:${comp?'#4f8fd6':'#e8a33a'}">
       <div><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 쉬운 어휘' : '심화편 · 어려운 어휘'}</div>
       <h3>${comp ? 'COMPASS' : 'BEACON'}</h3><div class="ko">구문의 지도 ${comp ? '기본편' : '심화편'} · 14 Chapters · 42 Units</div>
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
 }
+function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching' }[c]; if (!n) return;
+  $('lockNote').textContent = `🔒 ${n}은(는) 우리 반에서 아직 열리지 않은 코스예요. 담당 선생님께 문의해 주세요.`; $('lockNote').hidden = false; }
 function showPending(st){
   only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');
   clearInterval(window._pd); window._pd = setInterval(checkPending, 20000);

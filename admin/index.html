@@ -3,102 +3,136 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>관리자 · PIF Learning Hub</title>
+<title>전체 관리자 · PIF Learning Hub</title>
 <meta name="robots" content="noindex">
 <link rel="icon" href="/essential/icons/favicon-32.png">
 <style>
 @font-face{font-family:'Pretendard';src:url('/fonts/PretendardVariable.woff2') format('woff2-variations');font-weight:45 920;font-display:swap}
-:root{--ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;--line:#e5e5ea;--bg:#f5f5f7;--blue:#0071e3;--ok:#248a3d;--bad:#d70015;--warn:#b25000;
-  --fund:#2f7d6d;--ess:#b07a22;--spec:#7a4fa3;--wmp:#d2416b}
+:root{--ink:#1d1d1f;--ink2:#6e6e73;--ink3:#86868b;--line:#e5e5ea;--bg:#f5f5f7;--blue:#0071e3;--ok:#248a3d;--bad:#d70015;
+  --fund:#2f7d6d;--ess:#b07a22;--spec:#7a4fa3;--wmp:#d2416b;--compass:#2b6cb0;--beacon:#d08a1e}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'Pretendard',-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif;color:var(--ink);background:var(--bg);letter-spacing:-.01em;word-break:keep-all;font-size:14px}
 button,input,select{font:inherit;color:inherit}
 button{cursor:pointer}
+a{color:var(--blue)}
 [hidden]{display:none!important}
-.gate{max-width:400px;margin:70px auto;padding:0 20px}
+.gate{max-width:400px;margin:60px auto;padding:0 20px}
 .gate h1{font-size:28px;font-weight:750;letter-spacing:-.04em;margin:8px 0 18px}
 .gate .e{color:var(--ink2);font-weight:600;font-size:13px}
 .card{background:#fff;border-radius:18px;padding:22px}
 .fld{margin-bottom:12px}.fld label{display:block;font-size:12.5px;font-weight:600;color:var(--ink2);margin-bottom:5px}
-.fld input{width:100%;border:1px solid #d2d2d7;border-radius:11px;padding:11px 12px;font-size:15px}
-.btn{border:0;border-radius:99px;background:var(--blue);color:#fff;font-weight:600;padding:10px 18px}
+.fld input,.fld select{width:100%;border:1px solid #d2d2d7;border-radius:11px;padding:10px 12px;font-size:15px;background:#fff}
+.btn{border:0;border-radius:99px;background:var(--blue);color:#fff;font-weight:600;padding:9px 16px;white-space:nowrap}
 .btn.w{width:100%;padding:12px}.btn.sec{background:#fff;color:var(--ink);border:1px solid #d2d2d7}
 .btn.sm{padding:6px 12px;font-size:12.5px}.btn.red{background:#fff;color:var(--bad);border:1px solid #f1c2c7}
+.btn:disabled{opacity:.5}
 .lnk{background:none;border:0;color:var(--blue);font-size:13px;margin-top:12px;display:inline-block}
 .msg{min-height:18px;font-size:13px;margin-top:10px}.msg.err{color:var(--bad)}.msg.ok{color:var(--ok)}
-header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-header .in{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;gap:16px}
-header .logo{font-weight:700;font-size:15px;white-space:nowrap}header .logo span{color:var(--ink2);font-weight:500}
-header select{border:1px solid #d2d2d7;border-radius:10px;padding:7px 10px;background:#fff;min-width:180px}
-header .me{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right;white-space:nowrap}
-main{max-width:1200px;margin:0 auto;padding:22px 20px 60px}
-.tabs{display:flex;gap:6px;margin-bottom:16px;flex-wrap:wrap}
-.tabs button{border:0;background:transparent;padding:8px 14px;border-radius:99px;font-weight:600;color:var(--ink2)}
+header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+header .in{max-width:1280px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;gap:18px}
+header .logo{font-weight:700;font-size:15px;white-space:nowrap;text-decoration:none;color:inherit}header .logo span{color:var(--ink2);font-weight:500}
+.tabs{display:flex;gap:2px;overflow-x:auto}
+.tabs button{border:0;background:transparent;padding:7px 12px;border-radius:99px;font-weight:600;color:var(--ink2);white-space:nowrap;font-size:13.5px}
 .tabs button.on{background:var(--ink);color:#fff}
 .badge{display:inline-block;min-width:18px;padding:1px 6px;border-radius:99px;background:var(--bad);color:#fff;font-size:11px;margin-left:4px}
-.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}
-.kpi{background:#fff;border-radius:16px;padding:16px 18px}.kpi small{color:var(--ink2);font-size:12.5px}.kpi b{display:block;font-size:26px;font-weight:700;letter-spacing:-.03em;margin-top:4px}
-table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden}
-th,td{padding:11px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle}
-th{font-size:12px;color:var(--ink2);font-weight:600;background:#fafafc}
+header .me{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right;white-space:nowrap}
+main{max-width:1280px;margin:0 auto;padding:22px 20px 60px}
+.bar{display:flex;gap:10px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.bar select,.bar input{border:1px solid #d2d2d7;border-radius:10px;padding:8px 11px;background:#fff;font-size:13.5px}
+.bar input{min-width:180px}
+.bar .sp{flex:1}
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:16px}
+.kpi{background:#fff;border-radius:16px;padding:14px 16px}.kpi small{color:var(--ink2);font-size:12px}.kpi b{display:block;font-size:24px;font-weight:700;letter-spacing:-.03em;margin-top:4px}
+.kpi i{font-style:normal;font-size:12px;color:var(--ink3);font-weight:500}
+.tw{overflow-x:auto;border-radius:16px;background:#fff}
+table{width:100%;border-collapse:collapse;background:#fff}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;white-space:nowrap}
+th{font-size:11.5px;color:var(--ink2);font-weight:600;background:#fafafc;position:sticky;top:0}
+th .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--c);margin-right:5px;vertical-align:1px}
 tr.cl{cursor:pointer}tr.cl:hover td{background:#f9f9fb}
 td.num{font-variant-numeric:tabular-nums}
-.pb{display:flex;align-items:center;gap:8px}.pb i{display:block;width:70px;height:6px;background:#eee;border-radius:9px;overflow:hidden}.pb i u{display:block;height:100%;background:var(--c)}
+.pb{display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums}.pb i{display:block;width:56px;height:6px;background:#eee;border-radius:9px;overflow:hidden}.pb i u{display:block;height:100%;background:var(--c)}
+.lock{color:#c7c7cc;font-size:12px}
 .muted{color:var(--ink3)}
 .empty{background:#fff;border-radius:16px;padding:40px;text-align:center;color:var(--ink2)}
-.drawer{position:fixed;inset:0 0 0 auto;width:min(760px,100%);background:#fff;z-index:40;box-shadow:-20px 0 60px -30px rgba(0,0,0,.4);overflow-y:auto;padding:22px 24px 60px}
+.ed{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:99px;color:#fff;background:var(--c)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:14px}
+.cc{background:#fff;border-radius:18px;padding:18px}
+.cc .t{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.cc .t b{font-size:17px;letter-spacing:-.02em}.cc .t code{font:600 12.5px ui-monospace,monospace;background:var(--bg);padding:3px 8px;border-radius:7px}
+.cc .t .n{margin-left:auto;color:var(--ink2);font-size:12.5px}
+.cc .row{display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:9px 0;font-size:13px}
+.cc .row>span{color:var(--ink2);font-weight:600;font-size:12px}
+.cc select{border:1px solid #d2d2d7;border-radius:9px;padding:6px 9px;background:#fff;font-size:13px;width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid #d2d2d7;background:#fff;border-radius:99px;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.chip.on{border-color:var(--c);background:var(--c);color:#fff}
+.chip:disabled{cursor:default}
+.seg{display:inline-flex;background:var(--bg);border-radius:99px;padding:3px}
+.seg button{border:0;background:transparent;border-radius:99px;padding:5px 12px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.cc .foot{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.new{border:2px dashed #d2d2d7;background:transparent}
+.drawer{position:fixed;inset:0 0 0 auto;width:min(780px,100%);background:#fff;z-index:40;box-shadow:-20px 0 60px -30px rgba(0,0,0,.4);overflow-y:auto;padding:22px 24px 60px}
 .scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:39}
 .drawer h2{font-size:24px;font-weight:750;letter-spacing:-.03em}
 .drawer .x{position:absolute;top:18px;right:18px;border:0;background:var(--bg);width:32px;height:32px;border-radius:50%;font-size:16px}
 .sec{margin-top:24px}.sec h3{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
 .sec h3 i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.sec h3 small{font-weight:500;color:var(--ink3);font-size:12px}
 .sgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:6px}
 .sgrid button{border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 0;font-size:12px;line-height:1.3}
 .sgrid button b{display:block;font-size:14px}
-.sgrid button.done{background:#fdf0f4;border-color:#f3c3d1}
-.sgrid button.go{background:#fff7e6;border-color:#f5d9a3}
-.sgrid button.on{outline:2px solid var(--wmp)}
+.sgrid button.done{background:#fdf0f4;border-color:#f3c3d1}.sgrid button.go{background:#fff7e6;border-color:#f5d9a3}.sgrid button.on{outline:2px solid var(--wmp)}
+.ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.ugrid div{border:1px solid var(--line);border-radius:10px;padding:7px 9px;font-size:12px;line-height:1.45}
+.ugrid div.done{background:#eef6f0;border-color:#c6e2cd}.ugrid div.go{background:#fff7e6;border-color:#f5d9a3}
 .wd{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-top:10px}
 .wd .h{display:flex;align-items:baseline;gap:8px;margin-bottom:8px}.wd .h b{font-size:17px}.wd .h span{margin-left:auto;font-weight:700}
-.wd .row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:13px;line-height:1.55}
+.wd .row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:6px 0;border-top:1px dashed var(--line);font-size:13px;line-height:1.55;white-space:normal}
 .wd .row>div:first-child{color:var(--ink2);font-weight:600}
 .ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
 .ai{background:#f4f0fb;border-radius:9px;padding:6px 9px;margin-top:4px;color:#3d2a5c}
-.mini{width:100%;border-collapse:collapse}.mini th,.mini td{padding:6px 8px;font-size:12.5px;border-bottom:1px solid var(--line)}
-.note{font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6}
-@media(max-width:760px){.kpis{grid-template-columns:1fr 1fr}.hide-m{display:none}.sgrid{grid-template-columns:repeat(5,1fr)}header .me{display:none}}
+.mini{width:100%;border-collapse:collapse}.mini th,.mini td{padding:6px 8px;font-size:12.5px;border-bottom:1px solid var(--line);position:static}
+.note{font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6;white-space:normal}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:.94}
+@media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(5,1fr)}header .me{display:none}header .in{gap:10px}}
 </style>
 </head>
 <body>
 <div id="v-login" class="gate" hidden>
-  <a href="/" style="display:inline-block;font-size:13.5px;color:#0066cc;text-decoration:none;margin-bottom:16px">‹ 처음 화면으로</a>
-  <div class="e">PIF Learning Hub</div><h1>선생님·원장님 관리자</h1>
+  <a href="/" style="display:inline-block;font-size:13.5px;text-decoration:none;margin-bottom:16px">‹ 처음 화면으로</a>
+  <div class="e">PIF Learning Hub</div><h1>전체 관리자</h1>
   <div class="card">
     <div class="fld"><label for="em">이메일</label><input id="em" type="email" autocomplete="email"></div>
     <div class="fld"><label for="pw">비밀번호</label><input id="pw" type="password" autocomplete="current-password"></div>
     <button class="btn w" id="go">로그인</button>
     <button class="btn w sec" id="su" style="margin-top:8px">처음이면 가입하기</button>
     <div class="msg" id="lm"></div>
-    <div class="note">구문의 지도(BEACON) 관리자와 같은 계정입니다. 원장님이 등록한 이메일만 들어올 수 있어요.</div>
+    <div class="note">원장님이 등록한 이메일만 들어올 수 있어요. 구문의 지도에서 쓰던 관리자 계정 그대로 쓰면 됩니다.</div>
     <button class="lnk" id="rs">비밀번호를 잊었어요</button>
   </div>
 </div>
 
 <div id="v-app" hidden>
   <header><div class="in">
-    <a class="logo" href="/" title="처음 화면으로" style="text-decoration:none;color:inherit">PIF <span>Hub 관리자</span></a>
-    <select id="cls"></select>
+    <a class="logo" href="/" title="처음 화면으로">PIF <span>전체 관리자</span></a>
+    <nav class="tabs" id="tabs">
+      <button data-t="report" class="on">학습 리포트</button>
+      <button data-t="classes">반·수강 관리</button>
+      <button data-t="pending">승인 대기<span class="badge" id="pdCount" hidden></span></button>
+      <button data-t="words">단어 분석</button>
+      <button data-t="staff" id="tabStaff" hidden>선생님</button>
+    </nav>
     <div class="me"><b id="meName"></b><br><span id="meRole"></span></div>
     <button class="btn sm sec" id="out">로그아웃</button>
   </div></header>
-  <main>
-    <div class="tabs"><button data-t="students" class="on">학생 현황</button><button data-t="pending">승인 대기<span class="badge" id="pdCount" hidden></span></button><button data-t="words">Word Matching 단어 분석</button></div>
-    <div id="body"></div>
-    <div class="note">반 만들기·선생님 등록은 <a href="https://syntax-beacon.vercel.app/#admin" target="_blank">구문의 지도 관리자</a>에서 합니다. 학생·반 정보는 두 곳이 같이 씁니다.</div>
-  </main>
+  <main id="body"></main>
 </div>
 <div class="scrim" id="scrim" hidden></div>
 <div class="drawer" id="drawer" hidden></div>
+<div class="toast" id="toast"></div>
 
 <script src="/shared/supabase.js"></script>
 <script src="/shared/vt.js"></script>
@@ -110,10 +144,27 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp
 const pad = n => String(n).padStart(2,'0');
 const CIRC = '①②③④⑤⑥⑦⑧';
 const W = window.WMP, BYW = {}; W.forEach(w => BYW[w.id] = w);
-let STAFF = null, CLASSES = [], CUR = null, TAB = 'students', D = { students:[], devices:[], prog:[] };
+const COURSES = [
+  { id:'fundamental', name:'Fundamental', c:'var(--fund)' },
+  { id:'essential',   name:'Essential',   c:'var(--ess)' },
+  { id:'spectrum',    name:'Spectrum',    c:'var(--spec)' },
+  { id:'matching',    name:'Word Matching', c:'var(--wmp)' },
+  { id:'syntax',      name:'구문의 지도',  c:'#1d1d1f' }
+];
+const SYN_READY = 8;   // 구문의 지도 현재 공개 유닛 수 (편별)
+let STAFF = null, STAFFS = [], IS_OWNER = false, TAB = 'report';
+const D = { classes:[], students:[], devices:[], prog:[], syn:[], wmp:null };
+const F = { cls: localStorage.getItem('pifhub_admin_cls') || 'all', q: '' };
 
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
+function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('on'),2200); }
 function ago(t){ if (!t) return '—'; const d = (Date.now() - new Date(t))/1000; if (d < 3600) return Math.max(1,Math.round(d/60))+'분 전'; if (d < 86400) return Math.round(d/3600)+'시간 전'; if (d < 86400*30) return Math.round(d/86400)+'일 전'; return new Date(t).toLocaleDateString('ko-KR'); }
+const clsOf = code => D.classes.find(c => c.code === code) || { name: code, courses: [], edition: 'beacon' };
+const errMsg = e => { const m = (e && e.message) || String(e);
+  if (/duplicate key|already exists/.test(m)) return '이미 있는 반 코드예요.';
+  if (/foreign key|violates/.test(m)) return '학생이나 기기가 연결된 반은 삭제할 수 없어요.';
+  if (/check constraint/.test(m)) return '반 코드는 영문 대문자·숫자 2~12자로 정해 주세요.';
+  return VT.errText(e); };
 
 /* ---------- 로그인 ---------- */
 $('go').onclick = async () => {
@@ -133,7 +184,7 @@ $('su').onclick = async () => {
 };
 $('rs').onclick = async () => {
   const email = $('em').value.trim(); if (!email) return say('lm','이메일을 먼저 입력해 주세요.');
-  try { const { error } = await SB.auth.resetPasswordForEmail(email, { redirectTo: 'https://syntax-beacon.vercel.app/#admin' }); if (error) throw error;
+  try { const { error } = await SB.auth.resetPasswordForEmail(email, { redirectTo: location.origin + '/admin/' }); if (error) throw error;
     say('lm','비밀번호 재설정 메일을 보냈어요.', true); } catch(e){ say('lm', VT.errText(e)); }
 };
 $('out').onclick = async () => { await SB.auth.signOut(); location.reload(); };
@@ -142,82 +193,219 @@ async function boot(){
   const s = await SB.auth.getSession();
   const u = s.data.session && s.data.session.user;
   if (!u || u.is_anonymous) { $('v-login').hidden = false; $('v-app').hidden = true; return; }
+  if (location.hash.includes('type=recovery')) { const pw = prompt('새 비밀번호 (8자 이상)'); if (pw && pw.length >= 8) { await SB.auth.updateUser({ password: pw }); alert('비밀번호를 바꿨어요.'); } history.replaceState(null,'',location.pathname); }
   const r = await SB.from('staff').select('*').eq('email', (u.email||'').toLowerCase());
   STAFF = r.data && r.data[0];
   if (!STAFF) { $('v-login').hidden = false; say('lm','등록된 선생님 계정이 아니에요. 원장님께 등록을 요청하세요.'); await SB.auth.signOut(); return; }
+  IS_OWNER = STAFF.role === 'owner';
   $('v-login').hidden = true; $('v-app').hidden = false;
-  $('meName').textContent = STAFF.name || STAFF.email; $('meRole').textContent = STAFF.role === 'owner' ? '원장' : '선생님';
-  const c = await SB.from('classes').select('*').order('code'); CLASSES = c.data || [];
-  if (!CLASSES.length) { $('body').innerHTML = '<div class="empty">담당 반이 없어요. 구문의 지도 관리자에서 반을 배정받아 주세요.</div>'; return; }
-  const saved = localStorage.getItem('pifhub_admin_cls');
-  CUR = CLASSES.find(x => x.code === saved) ? saved : CLASSES[0].code;
-  $('cls').innerHTML = CLASSES.map(x => `<option value="${esc(x.code)}" ${x.code===CUR?'selected':''}>${esc(x.name)} (${esc(x.code)})</option>`).join('');
-  $('cls').onchange = () => { CUR = $('cls').value; localStorage.setItem('pifhub_admin_cls', CUR); load(); };
-  document.querySelectorAll('.tabs button').forEach(b => b.onclick = () => { TAB = b.dataset.t; document.querySelectorAll('.tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
+  $('meName').textContent = STAFF.name || STAFF.email; $('meRole').textContent = IS_OWNER ? '원장 · 전체 권한' : '선생님 · 담당 반';
+  $('tabStaff').hidden = !IS_OWNER;
+  document.querySelectorAll('#tabs button').forEach(b => b.onclick = () => { TAB = b.dataset.t; document.querySelectorAll('#tabs button').forEach(x => x.classList.toggle('on', x === b)); render(); });
   load();
 }
 
 async function load(){
   $('body').innerHTML = '<div class="empty">불러오는 중…</div>';
-  const [st, dv] = await Promise.all([
-    SB.from('students').select('*').eq('class_code', CUR).order('name'),
-    SB.from('devices').select('*').eq('class_code', CUR).order('requested_at', { ascending:false })
+  const [c, st, dv, sf] = await Promise.all([
+    SB.from('classes').select('*').order('code'),
+    SB.from('students').select('*').order('name'),
+    SB.from('devices').select('*').order('requested_at', { ascending:false }),
+    SB.from('staff').select('*').order('role').order('email')
   ]);
-  D.students = st.data || []; D.devices = dv.data || [];
+  D.classes = c.data || []; D.students = st.data || []; D.devices = dv.data || []; STAFFS = sf.data || [STAFF];
+  if (F.cls !== 'all' && !D.classes.some(x => x.code === F.cls)) F.cls = 'all';
   const ids = D.students.map(s => s.id);
-  D.prog = [];
-  if (ids.length) { const p = await SB.from('vt_progress').select('student_id,course,unit_id,score,max_score,completed,updated_at').in('student_id', ids); D.prog = p.data || []; }
-  D.wmp = null;
+  D.prog = []; D.syn = []; D.wmp = null;
+  if (ids.length) {
+    const [p, q] = await Promise.all([
+      SB.from('vt_progress').select('student_id,course,unit_id,score,max_score,completed,updated_at').in('student_id', ids),
+      SB.from('progress').select('student_id,unit_id,data,updated_at').in('student_id', ids)
+    ]);
+    D.prog = p.data || []; D.syn = q.data || [];
+  }
   const pend = D.devices.filter(d => d.status === 'pending').length;
   $('pdCount').hidden = !pend; $('pdCount').textContent = pend;
   render();
 }
-function render(){ if (TAB === 'students') renderStudents(); else if (TAB === 'pending') renderPending(); else renderWords(); }
+function render(){ ({ report: renderReport, classes: renderClasses, pending: renderPending, words: renderWords, staff: renderStaff })[TAB](); }
 
-/* ---------- 학생 현황 ---------- */
-function summary(sid){
-  const rows = D.prog.filter(r => r.student_id === sid);
+/* ---------- 계산 ---------- */
+function synUnit(d){
+  d = d || {}; const h = d.heard || [], pass = k => Array.isArray(d[k]) && d[k].some(a => a && a.p);
+  const lp = h.filter(x => (x || 0) >= 2).length;
+  return { lp, done: lp === 5 && pass('gAtt') && pass('wAtt') && pass('rAtt') };
+}
+function summary(s){
+  const rows = D.prog.filter(r => r.student_id === s.id), sy = D.syn.filter(r => r.student_id === s.id);
   const st = c => rows.find(r => r.course === c && r.unit_id === 'state');
-  const mt = rows.filter(r => r.course === 'matching');
-  const fin = mt.filter(r => r.completed);
-  const last = rows.reduce((a,r) => !a || r.updated_at > a ? r.updated_at : a, null);
-  return { fund: st('fundamental'), ess: st('essential'), spec: st('spectrum'), mDone: fin.length, mGo: mt.length - fin.length,
-    mAvg: fin.length ? Math.round(fin.reduce((a,r)=>a+Number(r.score||0),0)/fin.length) : null, last };
+  const fin = rows.filter(r => r.course === 'matching' && r.completed);
+  const synDone = sy.filter(r => synUnit(r.data).done).length;
+  const times = rows.map(r => r.updated_at).concat(sy.map(r => r.updated_at)).filter(Boolean).sort();
+  return { s, cls: clsOf(s.class_code), fund: st('fundamental'), ess: st('essential'), spec: st('spectrum'),
+    mDone: fin.length, mGo: rows.filter(r => r.course === 'matching' && !r.completed).length,
+    mAvg: fin.length ? Math.round(fin.reduce((a,r)=>a+Number(r.score||0),0)/fin.length) : null,
+    synDone, synGo: sy.length - synDone, last: times[times.length-1] || null };
+}
+function filtered(){
+  const q = F.q.trim();
+  return D.students.filter(s => (F.cls === 'all' || s.class_code === F.cls) && (!q || s.name.includes(q) || s.last4.includes(q)));
 }
 function pbar(r, max, c){ const v = r ? Number(r.score||0) : 0, m = r && r.max_score ? Number(r.max_score) : max; return `<div class="pb" style="--c:${c}"><i><u style="width:${m?v/m*100:0}%"></u></i>${v}/${m}</div>`; }
-function renderStudents(){
-  if (!D.students.length) { $('body').innerHTML = '<div class="empty">아직 승인된 학생이 없어요.</div>'; return; }
-  const S = D.students.map(s => Object.assign({ s }, summary(s.id)));
+const locked = '<span class="lock">미수강</span>';
+function classFilter(){
+  return `<select id="fCls"><option value="all">전체 반 (${D.classes.length})</option>${D.classes.map(c => `<option value="${esc(c.code)}" ${F.cls===c.code?'selected':''}>${esc(c.name)} · ${esc(c.code)}</option>`).join('')}</select>`;
+}
+function bindFilter(re){
+  const s = $('fCls'); if (s) s.onchange = () => { F.cls = s.value; localStorage.setItem('pifhub_admin_cls', F.cls); re(); };
+  const q = $('fQ'); if (q) q.oninput = () => { F.q = q.value; clearTimeout(bindFilter._t); bindFilter._t = setTimeout(() => { re(); const n = $('fQ'); n.focus(); n.setSelectionRange(n.value.length, n.value.length); }, 250); };
+}
+
+/* ---------- 학습 리포트 ---------- */
+function renderReport(){
+  const S = filtered().map(summary);
   const week = Date.now() - 7*86400000;
-  const active = S.filter(x => x.last && new Date(x.last) > week).length;
-  const allFin = D.prog.filter(r => r.course === 'matching' && r.completed);
-  const avg = allFin.length ? Math.round(allFin.reduce((a,r)=>a+Number(r.score||0),0)/allFin.length) : '—';
-  let h = `<div class="kpis"><div class="kpi"><small>학생</small><b>${S.length}명</b></div><div class="kpi"><small>최근 7일 학습</small><b>${active}명</b></div>
-    <div class="kpi"><small>Word Matching 완료 회차</small><b>${allFin.length}</b></div><div class="kpi"><small>Word Matching 평균</small><b>${avg}${avg==='—'?'':'점'}</b></div></div>
-    <table><tr><th>이름</th><th class="hide-m">Fundamental</th><th class="hide-m">Essential</th><th class="hide-m">Spectrum</th><th>Word Matching</th><th>최근 학습</th></tr>`;
+  const fin = S.reduce((a,x) => a + x.mDone, 0);
+  const avgs = S.filter(x => x.mAvg != null);
+  const synTot = S.reduce((a,x) => a + x.synDone, 0);
+  let h = `<div class="bar">${classFilter()}<input id="fQ" placeholder="이름·뒷번호 검색" value="${esc(F.q)}"><span class="sp"></span>
+      <button class="btn sm sec" id="csv">CSV 내려받기</button><button class="btn sm sec" id="reload">새로고침</button></div>
+    <div class="kpis"><div class="kpi"><small>학생</small><b>${S.length}명</b></div>
+      <div class="kpi"><small>최근 7일 학습</small><b>${S.filter(x => x.last && new Date(x.last) > week).length}명</b></div>
+      <div class="kpi"><small>Word Matching 완료</small><b>${fin}<i> 회차</i></b></div>
+      <div class="kpi"><small>Word Matching 평균</small><b>${avgs.length ? Math.round(avgs.reduce((a,x)=>a+x.mAvg,0)/avgs.length) + '<i> 점</i>' : '—'}</b></div>
+      <div class="kpi"><small>구문의 지도 완료</small><b>${synTot}<i> 유닛</i></b></div></div>`;
+  if (!S.length) { $('body').innerHTML = h + '<div class="empty">조건에 맞는 학생이 없어요.</div>'; bindFilter(renderReport); bindReportBtns([]); return; }
+  S.sort((a,b) => (a.cls.code + a.s.name).localeCompare(b.cls.code + b.s.name));
+  h += `<div class="tw"><table><tr><th>이름</th><th>반</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
   S.forEach(x => {
-    h += `<tr class="cl" data-id="${x.s.id}"><td><b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span></td>
-      <td class="hide-m">${pbar(x.fund,4,'var(--fund)')}</td><td class="hide-m">${pbar(x.ess,5,'var(--ess)')}</td><td class="hide-m">${pbar(x.spec,4,'var(--spec)')}</td>
-      <td class="num"><b>${x.mDone}</b>/20 ${x.mAvg!=null?`<span class="muted">· 평균 ${x.mAvg}점</span>`:''}${x.mGo?` <span class="muted">· 진행 ${x.mGo}</span>`:''}</td>
+    const has = c => x.cls.courses.includes(c);
+    const comp = x.cls.edition === 'compass';
+    h += `<tr class="cl" data-id="${x.s.id}"><td><b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span></td><td class="muted">${esc(x.cls.name)}</td>
+      <td>${has('fundamental') ? pbar(x.fund,4,'var(--fund)') : locked}</td>
+      <td>${has('essential') ? pbar(x.ess,5,'var(--ess)') : locked}</td>
+      <td>${has('spectrum') ? pbar(x.spec,4,'var(--spec)') : locked}</td>
+      <td class="num">${has('matching') ? `<b>${x.mDone}</b>/20${x.mAvg != null ? ` <span class="muted">· ${x.mAvg}점</span>` : ''}${x.mGo ? ` <span class="muted">· 진행 ${x.mGo}</span>` : ''}` : locked}</td>
+      <td class="num">${has('syntax') ? `<span class="ed" style="--c:${comp?'var(--compass)':'var(--beacon)'}">${comp?'C':'B'}</span> <b>${x.synDone}</b>/${SYN_READY}${x.synGo ? ` <span class="muted">· 진행 ${x.synGo}</span>` : ''}` : locked}</td>
       <td class="muted">${ago(x.last)}</td></tr>`;
   });
-  $('body').innerHTML = h + '</table>';
+  $('body').innerHTML = h + `</table></div><div class="note">구문의 지도 B = BEACON(심화), C = COMPASS(기본). 숫자는 완료 유닛 / 현재 공개 유닛(${SYN_READY}). 학생을 누르면 코스별 상세 기록을 볼 수 있어요.</div>`;
+  bindFilter(renderReport); bindReportBtns(S);
   document.querySelectorAll('tr.cl').forEach(r => r.onclick = () => openStudent(r.dataset.id));
+}
+function bindReportBtns(S){
+  $('reload').onclick = load;
+  $('csv').onclick = () => {
+    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','최근학습'];
+    const v = r => r ? Number(r.score||0) : 0;
+    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
+    const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
+    const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv' }));
+    a.download = `PIF_학습리포트_${new Date().toISOString().slice(0,10)}.csv`; a.click();
+  };
+}
+
+/* ---------- 반·수강 관리 ---------- */
+function renderClasses(){
+  const teachers = STAFFS;
+  const card = c => {
+    const n = D.students.filter(s => s.class_code === c.code).length, dis = IS_OWNER ? '' : 'disabled';
+    return `<div class="cc" data-code="${esc(c.code)}"><div class="t"><b>${esc(c.name)}</b><code>${esc(c.code)}</code><span class="n">학생 ${n}명</span></div>
+      <div class="row"><span>담당</span>${IS_OWNER ? `<select data-k="teacher"><option value="">미지정</option>${teachers.map(t => `<option value="${esc(t.email)}" ${t.email===c.teacher_email?'selected':''}>${esc(t.name || t.email)}${t.role==='owner'?' (원장)':''}</option>`).join('')}</select>` : `<div>${esc(c.teacher_email || '미지정')}</div>`}</div>
+      <div class="row"><span>수강 코스</span><div class="chips">${COURSES.map(k => `<button class="chip ${c.courses.includes(k.id)?'on':''}" style="--c:${k.c}" data-course="${k.id}" ${dis}>${k.name}</button>`).join('')}</div></div>
+      <div class="row"><span>구문 편</span><div class="seg" data-k="edition">${['compass','beacon'].map(e => `<button data-e="${e}" class="${c.edition===e?'on':''}" ${dis}>${e==='compass'?'COMPASS 기본':'BEACON 심화'}</button>`).join('')}</div></div>
+      ${IS_OWNER ? `<div class="foot"><button class="btn sm red" data-del>반 삭제</button></div>` : ''}</div>`;
+  };
+  let h = `<div class="bar"><div class="note" style="margin:0">반마다 학생이 들을 수 있는 코스를 켜고 끕니다. 꺼진 코스는 학생 화면에서 잠기고 기록도 저장되지 않아요.${IS_OWNER ? '' : ' (반 설정은 원장님만 바꿀 수 있어요)'}</div></div><div class="cgrid">`;
+  h += D.classes.map(card).join('');
+  if (IS_OWNER) h += `<div class="cc new"><div class="t"><b>새 반 만들기</b></div>
+    <div class="fld"><label>반 이름</label><input id="ncName" placeholder="예: 고1 영동일 A반(월금)"></div>
+    <div class="fld"><label>반 코드 <span class="muted">학생이 입력하는 코드 · 영문 대문자/숫자 2~12자</span></label><div style="display:flex;gap:6px"><input id="ncCode" maxlength="12" placeholder="예: YD1A" style="text-transform:uppercase"><button class="btn sm sec" id="ncGen" type="button">자동</button></div></div>
+    <div class="fld"><label>담당 선생님</label><select id="ncT"><option value="">미지정</option>${teachers.map(t => `<option value="${esc(t.email)}">${esc(t.name || t.email)}</option>`).join('')}</select></div>
+    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:4px 0 10px;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">수강 코스</span><div class="chips" id="ncCourses">${COURSES.map(k => `<button class="chip on" style="--c:${k.c}" data-course="${k.id}" type="button">${k.name}</button>`).join('')}</div></div>
+    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">구문 편</span><div class="seg" id="ncEd"><button data-e="compass" type="button">COMPASS 기본</button><button data-e="beacon" class="on" type="button">BEACON 심화</button></div></div>
+    <div class="foot"><button class="btn sm" id="ncGo">반 만들기</button></div><div class="msg" id="ncMsg"></div></div>`;
+  $('body').innerHTML = h + '</div>';
+  if (!IS_OWNER) return;
+  const upd = async (code, patch, msg) => {
+    const { error } = await SB.from('classes').update(patch).eq('code', code);
+    if (error) { toast(errMsg(error)); return load(); }
+    Object.assign(D.classes.find(c => c.code === code), patch); toast(msg || '저장했어요'); renderClasses();
+  };
+  document.querySelectorAll('.cc[data-code]').forEach(el => {
+    const code = el.dataset.code, c = D.classes.find(x => x.code === code);
+    el.querySelectorAll('[data-course]').forEach(b => b.onclick = () => {
+      const k = b.dataset.course, on = c.courses.includes(k);
+      const next = on ? c.courses.filter(x => x !== k) : c.courses.concat(k);
+      upd(code, { courses: COURSES.map(x => x.id).filter(x => next.includes(x)) }, `${c.name}: ${COURSES.find(x=>x.id===k).name} ${on ? '잠금' : '열림'}`);
+    });
+    el.querySelectorAll('[data-e]').forEach(b => b.onclick = () => { if (b.dataset.e !== c.edition) upd(code, { edition: b.dataset.e }, `${c.name}: 구문의 지도 ${b.dataset.e.toUpperCase()}`); });
+    const t = el.querySelector('[data-k="teacher"]'); if (t) t.onchange = () => upd(code, { teacher_email: t.value || null }, '담당 선생님을 바꿨어요');
+    const del = el.querySelector('[data-del]'); if (del) del.onclick = async () => {
+      if (!confirm(`'${c.name}' 반을 삭제할까요? 학생이 있는 반은 삭제되지 않아요.`)) return;
+      const { error } = await SB.from('classes').delete().eq('code', code);
+      if (error) return toast(errMsg(error)); toast('삭제했어요'); load();
+    };
+  });
+  document.querySelectorAll('#ncCourses .chip').forEach(b => b.onclick = () => b.classList.toggle('on'));
+  document.querySelectorAll('#ncEd button').forEach(b => b.onclick = () => document.querySelectorAll('#ncEd button').forEach(x => x.classList.toggle('on', x === b)));
+  $('ncCode').oninput = e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,''); };
+  $('ncGen').onclick = () => { const ch = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let s = ''; for (let i = 0; i < 6; i++) s += ch[Math.floor(Math.random()*ch.length)]; $('ncCode').value = s; };
+  $('ncGo').onclick = async () => {
+    const name = $('ncName').value.trim(), code = $('ncCode').value.trim();
+    if (!name) return say('ncMsg','반 이름을 입력해 주세요.');
+    if (!/^[A-Z0-9]{2,12}$/.test(code)) return say('ncMsg','반 코드는 영문 대문자·숫자 2~12자예요.');
+    const courses = [...document.querySelectorAll('#ncCourses .chip.on')].map(b => b.dataset.course);
+    const edition = document.querySelector('#ncEd .on').dataset.e;
+    const { error } = await SB.from('classes').insert({ code, name, teacher_email: $('ncT').value || null, courses, edition });
+    if (error) return say('ncMsg', errMsg(error));
+    toast(`'${name}' 반을 만들었어요. 학생에게 반 코드 ${code}를 알려 주세요.`); load();
+  };
 }
 
 /* ---------- 승인 ---------- */
 function renderPending(){
-  const pend = D.devices.filter(d => d.status === 'pending'), rest = D.devices.filter(d => d.status !== 'pending').slice(0, 30);
-  let h = pend.length ? `<table><tr><th>이름</th><th>뒷번호</th><th>요청</th><th></th></tr>${pend.map(d => `<tr><td><b>${esc(d.name)}</b></td><td>${esc(d.last4)}</td><td class="muted">${ago(d.requested_at)}</td>
-    <td style="text-align:right;white-space:nowrap"><button class="btn sm" data-ok="${d.user_id}">승인</button> <button class="btn sm red" data-no="${d.user_id}">거절</button></td></tr>`).join('')}</table>`
+  const inF = d => F.cls === 'all' || d.class_code === F.cls;
+  const pend = D.devices.filter(d => d.status === 'pending' && inF(d)), rest = D.devices.filter(d => d.status !== 'pending' && inF(d)).slice(0, 40);
+  let h = `<div class="bar">${classFilter()}</div>`;
+  h += pend.length ? `<div class="tw"><table><tr><th>이름</th><th>뒷번호</th><th>반</th><th>요청</th><th></th></tr>${pend.map(d => `<tr><td><b>${esc(d.name)}</b></td><td>${esc(d.last4)}</td><td>${esc(clsOf(d.class_code).name)}</td><td class="muted">${ago(d.requested_at)}</td>
+    <td style="text-align:right"><button class="btn sm" data-ok="${d.user_id}">승인</button> <button class="btn sm red" data-no="${d.user_id}">거절</button></td></tr>`).join('')}</table></div>`
     : '<div class="empty">승인 대기 중인 학생이 없어요.</div>';
-  if (rest.length) h += `<div class="sec"><h3>최근 처리한 기기</h3><table><tr><th>이름</th><th>상태</th><th>처리</th></tr>${rest.map(d => `<tr><td>${esc(d.name)} <span class="muted">${esc(d.last4)}</span></td><td>${d.status==='approved'?'<span class="ok">승인</span>':'<span class="bad">거절</span>'}${d.decided_by==='auto'?' <span class="muted">(자동)</span>':''}</td><td class="muted">${ago(d.decided_at)}</td></tr>`).join('')}</table></div>`;
-  $('body').innerHTML = h;
+  if (rest.length) h += `<div class="sec"><h3>최근 처리한 기기</h3><div class="tw"><table><tr><th>이름</th><th>반</th><th>상태</th><th>처리</th><th></th></tr>${rest.map(d => `<tr><td>${esc(d.name)} <span class="muted">${esc(d.last4)}</span></td><td class="muted">${esc(clsOf(d.class_code).name)}</td><td>${d.status==='approved'?'<span class="ok">승인</span>':'<span class="bad">거절</span>'}${d.decided_by==='auto'?' <span class="muted">(자동)</span>':''}</td><td class="muted">${ago(d.decided_at)}</td>
+    <td style="text-align:right"><button class="btn sm sec" data-rm="${d.user_id}" title="이 기기의 로그인을 해제">기기 해제</button></td></tr>`).join('')}</table></div></div>`;
+  $('body').innerHTML = h; bindFilter(renderPending);
   document.querySelectorAll('[data-ok],[data-no]').forEach(b => b.onclick = async () => {
     b.disabled = true;
     const { error } = await SB.rpc('decide_device', { p_user: b.dataset.ok || b.dataset.no, p_approve: !!b.dataset.ok });
-    if (error) { alert(VT.errText(error)); b.disabled = false; return; }
-    load();
+    if (error) { toast(errMsg(error)); b.disabled = false; return; } load();
+  });
+  document.querySelectorAll('[data-rm]').forEach(b => b.onclick = async () => {
+    if (!confirm('이 기기의 로그인을 해제할까요? 학생 기록은 남아 있고, 다시 로그인하면 같은 학생으로 이어집니다.')) return;
+    const { error } = await SB.rpc('remove_device', { p_user: b.dataset.rm }); if (error) return toast(errMsg(error)); load();
+  });
+}
+
+/* ---------- 선생님 (원장 전용) ---------- */
+function renderStaff(){
+  let h = `<div class="tw"><table><tr><th>이름</th><th>이메일</th><th>권한</th><th>담당 반</th><th></th></tr>${STAFFS.map(t => `<tr><td><b>${esc(t.name || '—')}</b></td><td>${esc(t.email)}</td><td>${t.role === 'owner' ? '원장 (전체)' : '선생님'}</td>
+    <td class="muted">${D.classes.filter(c => c.teacher_email === t.email).map(c => esc(c.name)).join(', ') || '—'}</td>
+    <td style="text-align:right">${t.email === STAFF.email ? '<span class="muted">나</span>' : `<button class="btn sm red" data-del="${esc(t.email)}">삭제</button>`}</td></tr>`).join('')}</table></div>
+    <div class="cc" style="margin-top:14px;max-width:520px"><div class="t"><b>선생님 등록</b></div>
+      <div class="fld"><label>이메일</label><input id="nsE" type="email" placeholder="teacher@example.com"></div>
+      <div class="fld"><label>이름</label><input id="nsN" placeholder="홍길동"></div>
+      <div class="fld"><label>권한</label><select id="nsR"><option value="teacher">선생님 — 담당 반만 보기</option><option value="owner">원장 — 전체 관리</option></select></div>
+      <div class="foot"><button class="btn sm" id="nsGo">등록</button></div><div class="msg" id="nsMsg"></div>
+      <div class="note">등록한 이메일로 이 페이지에서 "처음이면 가입하기"를 하면 바로 쓸 수 있어요. 담당 반은 '반·수강 관리'에서 정합니다.</div></div>`;
+  $('body').innerHTML = h;
+  $('nsGo').onclick = async () => {
+    const email = $('nsE').value.trim().toLowerCase(); if (!/^\S+@\S+\.\S+$/.test(email)) return say('nsMsg','이메일을 확인해 주세요.');
+    const { error } = await SB.from('staff').insert({ email, name: $('nsN').value.trim() || null, role: $('nsR').value });
+    if (error) return say('nsMsg', /duplicate/.test(error.message) ? '이미 등록된 이메일이에요.' : errMsg(error));
+    toast('등록했어요'); load();
+  };
+  document.querySelectorAll('[data-del]').forEach(b => b.onclick = async () => {
+    if (!confirm(`${b.dataset.del} 계정을 삭제할까요? 담당 반이 있으면 먼저 담당을 바꿔 주세요.`)) return;
+    const { error } = await SB.from('staff').delete().eq('email', b.dataset.del); if (error) return toast(errMsg(error)); load();
   });
 }
 
@@ -225,27 +413,40 @@ function renderPending(){
 function closeDrawer(){ $('drawer').hidden = true; $('scrim').hidden = true; }
 $('scrim').onclick = closeDrawer;
 async function openStudent(sid){
-  const s = D.students.find(x => x.id === sid);
-  $('drawer').innerHTML = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)}</h2><div class="muted">${esc(CLASSES.find(c=>c.code===CUR).name)} · 뒷번호 ${esc(s.last4)}</div><div class="empty" style="margin-top:20px">불러오는 중…</div>`;
+  const s = D.students.find(x => x.id === sid), cls = clsOf(s.class_code), has = c => cls.courses.includes(c);
+  const headH = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)}</h2><div class="muted">${esc(cls.name)} · 뒷번호 ${esc(s.last4)}`;
+  $('drawer').innerHTML = headH + `</div><div class="empty" style="margin-top:20px">불러오는 중…</div>`;
   $('drawer').hidden = false; $('scrim').hidden = false; $('drawer').scrollTop = 0;
   const [p, f] = await Promise.all([
     SB.from('vt_progress').select('*').eq('student_id', sid),
-    SB.from('vt_ai_feedback').select('word_id,kind,answer,feedback,created_at').eq('student_id', sid).order('created_at', { ascending:false }).limit(300)
+    SB.from('vt_ai_feedback').select('id', { count:'exact', head:true }).eq('student_id', sid)
   ]);
   const rows = p.data || [];
-  const M = {}; rows.filter(r => r.course === 'matching').forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (m) M[Number(m[1])] = r; });
-  let h = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)}</h2><div class="muted">${esc(CLASSES.find(c=>c.code===CUR).name)} · 뒷번호 ${esc(s.last4)} · AI 피드백 ${ (f.data||[]).length }회</div>`;
+  const lockH = '<div class="muted">이 반은 수강하지 않는 코스예요.</div>';
+  let h = headH + ` · AI 피드백 ${f.count || 0}회</div>`;
   // Word Matching
-  h += `<div class="sec" style="--c:var(--wmp)"><h3><i></i>Word Matching · 어휘 매칭 훈련</h3><div class="sgrid">`;
-  for (let i = 1; i <= 20; i++) { const r = M[i]; const d = r && r.data;
-    const nDone = d ? Object.values(d.words||{}).filter(w => w.phase === 'done').length : 0;
-    h += `<button data-s="${i}" class="${r && r.completed ? 'done' : nDone ? 'go' : ''}">${pad(i)}<b>${r && r.completed ? r.score : nDone ? nDone+'/5' : '–'}</b></button>`; }
-  h += `</div><div id="sDetail"></div></div>`;
+  const M = {}; rows.filter(r => r.course === 'matching').forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (m) M[Number(m[1])] = r; });
+  h += `<div class="sec" style="--c:var(--wmp)"><h3><i></i>Word Matching <small>회차를 누르면 답안 전체</small></h3>`;
+  if (has('matching') || Object.keys(M).length) {
+    h += `<div class="sgrid">`;
+    for (let i = 1; i <= 20; i++) { const r = M[i], d = r && r.data, nDone = d ? Object.values(d.words||{}).filter(w => w.phase === 'done').length : 0;
+      h += `<button data-s="${i}" class="${r && r.completed ? 'done' : nDone ? 'go' : ''}">${pad(i)}<b>${r && r.completed ? r.score : nDone ? nDone+'/5' : '–'}</b></button>`; }
+    h += `</div><div id="sDetail"></div>`;
+  } else h += lockH;
+  h += '</div>';
+  // 구문의 지도
+  const sy = D.syn.filter(r => r.student_id === sid).sort((a,b) => a.unit_id.localeCompare(b.unit_id));
+  const comp = cls.edition === 'compass';
+  h += `<div class="sec" style="--c:${comp ? 'var(--compass)' : 'var(--beacon)'}"><h3><i></i>구문의 지도 · ${comp ? 'COMPASS 기본' : 'BEACON 심화'} <small>듣기 2회 × 5문장 + 문법·어휘·읽기 통과 = 완료</small></h3>`;
+  h += sy.length ? `<div class="ugrid">${sy.map(r => { const u = synUnit(r.data); const id = r.unit_id.replace(/^c-/,'').replace('ch','Ch ').replace('-u',' · U');
+      return `<div class="${u.done ? 'done' : 'go'}"><b>${esc(id)}</b>${r.unit_id.startsWith('c-') ? ' <span class="muted">C</span>' : ''}<br>${u.done ? '<span class="ok">완료</span>' : `듣기 ${u.lp}/5`} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`
+    : (has('syntax') ? '<div class="muted">기록 없음</div>' : lockH);
+  h += '</div>';
   // Fundamental
   const fr = rows.filter(r => r.course === 'fundamental' && r.unit_id !== 'state').sort((a,b) => a.unit_id.localeCompare(b.unit_id));
   h += `<div class="sec" style="--c:var(--fund)"><h3><i></i>Fundamental</h3>`;
   h += fr.length ? `<table class="mini"><tr><th>Lesson · Part</th><th>최고</th><th>응시</th><th>최근 오답</th><th>최근</th></tr>${fr.map(r => { const at = (r.data && r.data.attempts) || [], last = at[at.length-1] || {};
-      return `<tr><td>${esc(r.unit_id.replace('lesson','Lesson ').replace('-p',' · Part '))}</td><td><b>${r.score ?? '—'}%</b></td><td>${at.length}회</td><td class="muted">${esc((last.mistakes||[]).slice(0,6).join(', ')) || '—'}</td><td class="muted">${ago(r.updated_at)}</td></tr>`; }).join('')}</table>` : '<div class="muted">기록 없음</div>';
+      return `<tr><td>${esc(r.unit_id.replace('lesson','Lesson ').replace('-p',' · Part '))}</td><td><b>${r.score ?? '—'}%</b></td><td>${at.length}회</td><td class="muted">${esc((last.mistakes||[]).slice(0,6).join(', ')) || '—'}</td><td class="muted">${ago(r.updated_at)}</td></tr>`; }).join('')}</table>` : (has('fundamental') ? '<div class="muted">기록 없음</div>' : lockH);
   h += '</div>';
   // Essential / Spectrum
   const ls = c => { const r = rows.find(x => x.course === c && x.unit_id === 'state'); return (r && r.data && r.data.ls) || {}; };
@@ -253,11 +454,11 @@ async function openStudent(sid){
   const e = ls('essential'), eRows = Object.keys(e).filter(k => /^vte_part_done_lesson\d+$/.test(k)).sort();
   h += `<div class="sec" style="--c:var(--ess)"><h3><i></i>Essential</h3>` + (eRows.length ? `<table class="mini"><tr><th>강</th><th>의미 분류</th><th>Part 1</th><th>Part 2</th><th>Part 3</th></tr>${eRows.map(k => { const d = P(e[k]) || {};
       const c = v => v == null ? '<span class="muted">—</span>' : `<span class="${v>=80?'ok':''}">${v}%</span>`;
-      return `<tr><td>Lesson ${k.match(/\d+$/)[0]}</td><td>${c(d.cls)}</td><td>${c(d.p1)}</td><td>${c(d.p2)}</td><td>${c(d.p3)}</td></tr>`; }).join('')}</table>` : '<div class="muted">기록 없음</div>') + '</div>';
+      return `<tr><td>Lesson ${k.match(/\d+$/)[0]}</td><td>${c(d.cls)}</td><td>${c(d.p1)}</td><td>${c(d.p2)}</td><td>${c(d.p3)}</td></tr>`; }).join('')}</table>` : (has('essential') ? '<div class="muted">기록 없음</div>' : lockH)) + '</div>';
   const sp = ls('spectrum'), sl = [...new Set(Object.keys(sp).map(k => (k.match(/lesson(\d+)$/)||[])[1]).filter(Boolean))].sort();
   h += `<div class="sec" style="--c:var(--spec)"><h3><i></i>Spectrum</h3>` + (sl.length ? `<table class="mini"><tr><th>강</th><th>의미 분류</th><th>Part 1</th><th>Part 2</th><th>Part 3</th></tr>${sl.map(n => {
       const v = k => sp[k] == null ? '<span class="muted">—</span>' : `${esc(sp[k])}${/score/.test(k)?'%':''}`;
-      return `<tr><td>Lesson ${n}</td><td>${sp['vts_cls_done_lesson'+n] ? '<span class="ok">완료</span>' : '<span class="muted">—</span>'}</td><td>${v('vts_p01_score_lesson'+n)}</td><td>${v('vts_p02_score_lesson'+n)}</td><td>${v('vts_p03_score_lesson'+n)}</td></tr>`; }).join('')}</table>` : '<div class="muted">기록 없음</div>') + '</div>';
+      return `<tr><td>Lesson ${n}</td><td>${sp['vts_cls_done_lesson'+n] ? '<span class="ok">완료</span>' : '<span class="muted">—</span>'}</td><td>${v('vts_p01_score_lesson'+n)}</td><td>${v('vts_p02_score_lesson'+n)}</td><td>${v('vts_p03_score_lesson'+n)}</td></tr>`; }).join('')}</table>` : (has('spectrum') ? '<div class="muted">기록 없음</div>' : lockH)) + '</div>';
   $('drawer').innerHTML = h;
   $('drawer').querySelectorAll('.sgrid button').forEach(b => b.onclick = () => {
     $('drawer').querySelectorAll('.sgrid button').forEach(x => x.classList.toggle('on', x === b));
@@ -282,29 +483,32 @@ function sessionDetail(r, s){
   el.innerHTML = h;
 }
 
+
 /* ---------- 단어 분석 ---------- */
 async function renderWords(){
-  if (!D.students.length) { $('body').innerHTML = '<div class="empty">학생이 없어요.</div>'; return; }
+  const studs = filtered();
+  let h = `<div class="bar">${classFilter()}<span class="note" style="margin:0">학생들이 끝낸 단어를 평균 점수가 낮은 순서로 보여 줍니다. 수업에서 다시 다룰 단어를 고를 때 쓰세요.</span></div>`;
+  if (!studs.length) { $('body').innerHTML = h + '<div class="empty">학생이 없어요.</div>'; bindFilter(renderWords); return; }
   if (!D.wmp) {
-    $('body').innerHTML = '<div class="empty">반 전체 답안을 모으는 중…</div>';
+    $('body').innerHTML = h + '<div class="empty">답안을 모으는 중…</div>';
     const r = await SB.from('vt_progress').select('student_id,unit_id,data').eq('course','matching').in('student_id', D.students.map(s => s.id));
     D.wmp = r.data || [];
   }
-  const agg = {};
-  D.wmp.forEach(r => Object.entries((r.data && r.data.words) || {}).forEach(([id, st]) => {
-    if (st.phase !== 'done') return;
+  const ids = new Set(studs.map(s => s.id)), agg = {};
+  D.wmp.filter(r => ids.has(r.student_id)).forEach(r => Object.entries((r.data && r.data.words) || {}).forEach(([id, st]) => {
+    if (st.phase !== 'done' || !BYW[id]) return;
     const a = agg[id] || (agg[id] = { n:0, s1:0, s2:0, tr:0, wrong:{} });
     a.n++; a.s1 += st.s1Pts||0; a.s2 += st.s2Pts||0; if (st.trOk) a.tr++;
     if (st.s1 !== BYW[id].answer && st.s1) a.wrong[st.s1] = (a.wrong[st.s1]||0) + 1;
   }));
   const list = Object.entries(agg).map(([id,a]) => ({ w: BYW[id], a, tot: (a.s1+a.s2)/a.n })).sort((x,y) => x.tot - y.tot);
-  if (!list.length) { $('body').innerHTML = '<div class="empty">아직 이 반에서 끝낸 단어가 없어요.</div>'; return; }
-  $('body').innerHTML = `<div class="note" style="margin:0 0 10px">이 반 학생들이 끝낸 단어를 평균 점수가 낮은 순서로 보여 줍니다. 수업 시간에 다시 다룰 단어를 고를 때 쓰세요.</div>
-    <table><tr><th>단어</th><th>회차</th><th>푼 학생</th><th>STEP 1 정답률</th><th class="hide-m">STEP 2 평균</th><th class="hide-m">해석 빈칸 정답률</th><th>평균 합계</th><th class="hide-m">가장 많이 고른 오답</th></tr>
+  if (!list.length) { $('body').innerHTML = h + '<div class="empty">아직 끝낸 단어가 없어요.</div>'; bindFilter(renderWords); return; }
+  $('body').innerHTML = h + `<div class="tw"><table><tr><th>단어</th><th>회차</th><th>푼 학생</th><th>STEP 1 정답률</th><th>STEP 2 평균</th><th>해석 빈칸 정답률</th><th>평균 합계</th><th>가장 많이 고른 오답</th></tr>
     ${list.map(x => { const top = Object.entries(x.a.wrong).sort((a,b) => b[1]-a[1])[0];
       return `<tr><td><b>${esc(x.w.word)}</b></td><td>${x.w.session}</td><td>${x.a.n}명</td><td>${Math.round(x.a.s1/6/x.a.n*100)}%</td>
-      <td class="hide-m">${(x.a.s2/x.a.n).toFixed(1)} / 14</td><td class="hide-m">${Math.round(x.a.tr/x.a.n*100)}%</td><td><b class="${x.tot<12?'bad':''}">${x.tot.toFixed(1)}</b> / 20</td>
-      <td class="hide-m">${top ? `${CIRC[top[0]-1]} ${esc(x.w.options[top[0]-1].pattern)} <span class="muted">(${top[1]}명)</span>` : '—'}</td></tr>`; }).join('')}</table>`;
+      <td>${(x.a.s2/x.a.n).toFixed(1)} / 14</td><td>${Math.round(x.a.tr/x.a.n*100)}%</td><td><b class="${x.tot<12?'bad':''}">${x.tot.toFixed(1)}</b> / 20</td>
+      <td>${top ? `${CIRC[top[0]-1]} ${esc(x.w.options[top[0]-1].pattern)} <span class="muted">(${top[1]}명)</span>` : '—'}</td></tr>`; }).join('')}</table></div>`;
+  bindFilter(renderWords);
 }
 
 if (!SB) { document.body.innerHTML = '<div class="gate"><h1>불러오지 못했어요</h1></div>'; }
