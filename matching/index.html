@@ -189,7 +189,7 @@ function stemRe(w){
 }
 const hl = (text, w) => esc(text).replace(stemRe(w), '<u>$1</u>');
 function hlTarget(w){ const s = esc(w.sentence), t = esc(w.target); const re = new RegExp('\\b' + t.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + '\\b'); return s.replace(re, '<u class="tg">' + t + '</u>'); }
-function wordTotal(st){ return (st.s1Pts||0) + (st.s2Pts||0); }   // STEP 3는 점수 없음 (14점 만점)
+function wordTotal(st){ return (st.s1Pts||0) + (st.s2Pts||0); }   // STEP 1 6점 + STEP 2 14점 = 20점 (STEP 3는 점수 없음)
 
 /* ---------- AI ---------- */
 async function askAI(payload){
@@ -212,7 +212,7 @@ function renderList(){
     <div class="k">영어-한글 1:1로 외운 뜻이 지문에서 배신하는 단어 100</div></div>
     <div class="intro"><h2>기억하려 애쓰기보다, 기억할 이유를 만듭니다.</h2>
     <p>단어 하나에 우리말 뜻 하나를 붙여 외우면, 지문에서 그 뜻이 맞지 않을 때 무너집니다. 여기서는 문형과 문맥으로 뜻을 <b>구별</b>하고, 여러 뜻을 꿰뚫는 <b>하나의 이미지</b>를 스스로 찾습니다.</p>
-    <div class="steps"><div><b>STEP 1 · 4점</b>밑줄 단어와 같은 뜻의 영영정의·예문 고르기</div><div><b>STEP 2 · 10점</b>각 예문의 뜻을 우리말로 완성하기</div><div><b>STEP 3 · 해설</b>여러 뜻을 관통하는 핵심 이미지를 써 보고 바로 해설 확인</div></div></div>
+    <div class="steps"><div><b>STEP 1 · 6점</b>밑줄 단어와 같은 뜻의 영영정의·예문 고르기</div><div><b>STEP 2 · 14점</b>각 예문의 뜻을 우리말로 완성하기</div><div><b>STEP 3 · 해설</b>여러 뜻을 관통하는 핵심 이미지를 써 보고 바로 해설 확인</div></div></div>
     <div class="lab" style="margin-bottom:10px">20회차 · 완료 ${done}/20</div><div class="sgrid">`;
   for (let s = 1; s <= 20; s++) {
     const ws = W.filter(w => w.session === s), x = S[s];
@@ -262,7 +262,7 @@ function trParts(w){ const k = w.translation.indexOf(w.tr_blank); return [w.tran
 function secIntro(w, st){
   const locked = !!st.introDone, ans = w.pos.replace(/\(.*$/,'').trim(), [pre, post] = trParts(w);
   const input = `<input class="trin" id="trb" value="${esc(st.trb||'')}" ${locked?'readonly':''} autocomplete="off" aria-label="밑줄 단어의 우리말">`;
-  let h = `<div class="blk"><div class="lab">예문 제시</div><div class="sent">${hlTarget(w)}</div>
+  let h = `<div class="blk" id="blkIntro"><div class="lab">예문 제시</div><div class="sent">${hlTarget(w)}</div>
     <div class="lab" style="margin-top:14px">① 해석 <small>밑줄 친 <b>${esc(w.target)}</b>이(가) 이 문장에서 무슨 뜻인지 빈칸에 우리말로 쓰세요</small></div>
     <div class="s2i" style="padding-top:2px"><div class="ko">${esc(pre)}${input}${esc(post)}</div></div>
     <div class="lab" style="margin-top:12px">② 품사 <small>문장 구조를 보고 밑줄 친 단어의 품사를 고르세요</small></div>
@@ -298,7 +298,7 @@ function secS1(w, st){
   if (!locked) h += `<div class="go"><button class="btn acc" id="s1Go" ${st.s1 ? '' : 'disabled'}>정답 확인</button></div>`;
   else {
     const ok = st.s1 === w.answer;
-    h += `<div class="fb ${ok?'ok':'bad'}"><b class="h">${ok ? '정답 · 4점' : '오답 · 0점 — 정답 ' + CIRC[w.answer-1]}</b><b>결정적 단서</b> — ${esc(w.clue)}`;
+    h += `<div class="fb ${ok?'ok':'bad'}"><b class="h">${ok ? '정답 · 6점' : '오답 · 0점 — 정답 ' + CIRC[w.answer-1]}</b><b>결정적 단서</b> — ${esc(w.clue)}`;
     if (w.why_not.length) h += '<ul>' + w.why_not.map(x => `<li><b>${CIRC[x.no-1]}이 아닌 이유</b> — ${esc(x.text)}</li>`).join('') + '</ul>';
     h += '</div>';
     if (st.phase === 's1') h += `<div class="go"><button class="btn" id="toS2">STEP 2로</button></div>`;
@@ -328,7 +328,7 @@ function secS2(w, st){
     if (pend) h += `<div class="fb info">${st.s2AIErr ? esc(st.s2AIErr) + '<br>' : ''}모범 답과 비교해서 <b>뜻이 같으면 '맞음'</b>을 눌러 주세요. (${pend}개 남음)</div>`;
     else {
       const k = st.s2Res.filter(r => r.correct).length;
-      h += `<div class="fb ${k === n ? 'ok' : 'info'}"><b class="h">STEP 2 · ${k}/${n}문항 → ${st.s2Pts}점 / 10</b>환산표 (예문 ${n}개): ${Object.keys(w.score_table).sort((a,b)=>b-a).map(c => c + '개→' + w.score_table[c] + '점').join(' · ')}</div>`;
+      h += `<div class="fb ${k === n ? 'ok' : 'info'}"><b class="h">STEP 2 · ${k}/${n}문항 → ${st.s2Pts}점 / 14</b>환산표 (예문 ${n}개): ${Object.keys(w.score_table).sort((a,b)=>b-a).map(c => c + '개→' + w.score_table[c] + '점').join(' · ')}</div>`;
       if (st.phase === 's2') h += `<div class="go"><button class="btn" id="toS3">STEP 3로</button></div>`;
     }
   }
@@ -354,8 +354,8 @@ function secS3(w, st){
 function secDone(w, st, wi){
   const last = wi === 4;
   return `<div class="blk"><div class="lab">채점 결과</div><div class="score" style="grid-template-columns:repeat(3,1fr)">
-    <div><small>STEP 1</small><b>${st.s1Pts}</b>/4</div><div><small>STEP 2</small><b>${st.s2Pts}</b>/10</div>
-    <div class="tot"><small>합계</small><b>${wordTotal(st)}</b>/14</div></div>
+    <div><small>STEP 1</small><b>${st.s1Pts}</b>/6</div><div><small>STEP 2</small><b>${st.s2Pts}</b>/14</div>
+    <div class="tot"><small>합계</small><b>${wordTotal(st)}</b>/20</div></div>
     <div class="go"><button class="btn acc" id="next">${last ? '회차 결과 보기' : '다음 단어 →'}</button></div></div>`;
 }
 
@@ -379,7 +379,7 @@ function bindWord(w, st){
   const trj = q('#trj'); if (trj) trj.querySelectorAll('button').forEach(b => b.onclick = () => { st.trOk = b.dataset.v === '1'; st.trBy = 'self'; rerender(); });
   // s1
   qa('.opt:not([disabled])').forEach(b => b.onclick = () => { st.s1 = Number(b.dataset.o); rerender(); });
-  const s1 = q('#s1Go'); if (s1) s1.onclick = () => { st.s1Checked = true; st.s1Pts = st.s1 === w.answer ? 4 : 0; rerender(); };
+  const s1 = q('#s1Go'); if (s1) s1.onclick = () => { st.s1Checked = true; st.s1Pts = st.s1 === w.answer ? 6 : 0; rerender(); };
   const t2 = q('#toS2'); if (t2) t2.onclick = () => { st.phase = 's2'; rerender(); setTimeout(() => { const i = q('.s2in'); i && i.focus(); i && i.scrollIntoView({block:'center', behavior:'smooth'}); }, 50); };
   // s2
   qa('.s2in:not([readonly])').forEach(inp => inp.oninput = () => { st.s2 = st.s2 || []; st.s2[Number(inp.dataset.i)] = inp.value; persist(s); });
@@ -406,10 +406,12 @@ async function runTrAI(w, st){
   try { st.trAI = await askAI({ word_id: w.id, kind:'translation', answer: st.tr }); st.trAIErr = null; st.trOk = st.trAI.verdict !== 'miss'; st.trBy = 'ai'; }
   catch(e){ st.trAIErr = aiErrText(e); }
   TR_INFLIGHT[w.id] = false; persist(s);
-  if (cur && cur.s === s && W.filter(x => x.session === s)[cur.wi].id === w.id) {
-    const y = scrollY, act = document.activeElement && document.activeElement.classList.contains('s2in') ? document.activeElement.dataset.i : null;
-    renderWord(); scrollTo(0, y);
-    if (act != null) { const el = $app.querySelector('.s2in[data-i="' + act + '"]'); if (el) { el.focus(); el.setSelectionRange(el.value.length, el.value.length); } }
+  const blk = document.getElementById('blkIntro');
+  if (blk && cur && cur.s === s && W.filter(x => x.session === s)[cur.wi].id === w.id) {
+    const tmp = document.createElement('div'); tmp.innerHTML = secIntro(w, st);
+    const nb = tmp.firstElementChild; blk.replaceWith(nb);
+    const trj = nb.querySelector('#trj');
+    if (trj) trj.querySelectorAll('button').forEach(bt => bt.onclick = () => { st.trOk = bt.dataset.v === '1'; st.trBy = 'self'; persist(s); const y = scrollY; renderWord(); scrollTo(0, y); });
   }
 }
 
@@ -437,8 +439,7 @@ function finishS2(w, st){
 
 function finishSession(s){
   const x = sess(s), ws = W.filter(w => w.session === s);
-  x.raw = ws.reduce((a, w) => a + wordTotal(x.words[w.id] || {}), 0);
-  x.total = Math.round(x.raw / 70 * 100);   // STEP1·2 원점수 70점 → 100점 환산
+  x.total = ws.reduce((a, w) => a + wordTotal(x.words[w.id] || {}), 0);   // 단어 5개 × 20점 = 100점
   x.finishedAt = Date.now();
   x.history = (x.history || []).concat([{ total: x.total, at: x.finishedAt }]);
   persist(s); push(s); renderResult(s);
@@ -450,9 +451,9 @@ function renderResult(s){
   const x = sess(s), ws = W.filter(w => w.session === s);
   let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${pad(s)}회차 결과</div></div>
     <div class="card"><div class="blk"><div class="big">${x.total}<small> / 100</small></div>
-    <div style="text-align:center;color:var(--ink2);font-size:13px">${x.raw!=null?'원점수 '+x.raw+' / 70 · ':''}${new Date(x.finishedAt).toLocaleDateString('ko-KR')} 완료${x.history && x.history.length > 1 ? ' · ' + x.history.length + '번째 응시' : ''}</div></div>
+    <div style="text-align:center;color:var(--ink2);font-size:13px">${new Date(x.finishedAt).toLocaleDateString('ko-KR')} 완료${x.history && x.history.length > 1 ? ' · ' + x.history.length + '번째 응시' : ''}</div></div>
     <div class="blk"><table class="res"><tr><th>번호</th><th>단어</th><th>STEP1</th><th>STEP2</th><th>STEP3</th><th>합계</th></tr>
-    ${ws.map(w => { const st = x.words[w.id] || {}; return `<tr class="cl" data-w="${w.id}"><td>${pad(w.id)}</td><td>${esc(w.word)}</td><td>${st.s1Pts||0}</td><td>${st.s2Pts||0}</td><td>${st.s3Final?'✓':'–'}</td><td><b>${wordTotal(st)}</b>/14</td></tr>`; }).join('')}
+    ${ws.map(w => { const st = x.words[w.id] || {}; return `<tr class="cl" data-w="${w.id}"><td>${pad(w.id)}</td><td>${esc(w.word)}</td><td>${st.s1Pts||0}</td><td>${st.s2Pts||0}</td><td>${st.s3Final?'✓':'–'}</td><td><b>${wordTotal(st)}</b>/20</td></tr>`; }).join('')}
     </table><div style="font-size:12px;color:var(--ink2);margin-top:8px">단어를 누르면 내 답과 해설을 다시 볼 수 있어요.</div></div>
     <div class="blk"><div class="go" style="margin-top:0"><button class="btn sec" id="again" style="margin-top:0">이 회차 다시 풀기</button><button class="btn acc" id="nextS">${s < 20 ? (s+1) + '회차로' : '목록으로'}</button></div></div></div>`;
   $app.innerHTML = h; scrollTo(0,0);
