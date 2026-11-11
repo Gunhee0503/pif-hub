@@ -268,15 +268,15 @@ function sessionDetail(r, s){
   const el = $('sDetail');
   if (!r || !r.data) { el.innerHTML = `<div class="note">${s}회차는 아직 시작하지 않았어요.</div>`; return; }
   const d = r.data, ws = W.filter(w => w.session === s);
-  let h = `<div class="note">${s}회차 · ${r.completed ? '<b>' + r.score + '</b> / 100 · ' + new Date(d.finishedAt).toLocaleString('ko-KR') : '진행 중'}${d.history && d.history.length > 1 ? ' · 응시 ' + d.history.length + '회 (' + d.history.map(x => x.total).join(' → ') + ')' : ''}</div>`;
+  let h = `<div class="note">${s}회차 · ${r.completed ? '<b>' + r.score + '</b> / 100' + (d.raw != null ? ' (원점수 ' + d.raw + '/70)' : '') + ' · ' + new Date(d.finishedAt).toLocaleString('ko-KR') : '진행 중'}${d.history && d.history.length > 1 ? ' · 응시 ' + d.history.length + '회 (' + d.history.map(x => x.total).join(' → ') + ')' : ''}</div>`;
   ws.forEach(w => {
     const st = d.words[w.id]; if (!st) { h += `<div class="wd"><div class="h"><b>${pad(w.id)}. ${esc(w.word)}</b><span class="muted">미시작</span></div></div>`; return; }
-    const tot = (st.s1Pts||0)+(st.s2Pts||0)+(st.s3Pts||0);
-    h += `<div class="wd"><div class="h"><b>${pad(w.id)}. ${esc(w.word)}</b><span>${st.phase === 'done' ? tot + ' / 20' : '<span class="muted">진행 중</span>'}</span></div>`;
-    h += `<div class="row"><div>해석</div><div>${esc(st.tr || '—')} ${st.pos ? `<span class="muted">· 품사 ${esc(st.pos)}</span>` : ''}${st.trAI ? `<div class="ai">AI: ${esc(st.trAI.comment)}</div>` : ''}</div></div>`;
+    const tot = (st.s1Pts||0)+(st.s2Pts||0);
+    h += `<div class="wd"><div class="h"><b>${pad(w.id)}. ${esc(w.word)}</b><span>${st.phase === 'done' ? tot + ' / 14' : '<span class="muted">진행 중</span>'}</span></div>`;
+    h += `<div class="row"><div>해석 빈칸</div><div>${st.trOk === true ? '<span class="ok">○</span> ' : st.trOk === false ? '<span class="bad">✕</span> ' : ''}${esc(st.trb || st.tr || '—')} <span class="muted">(모범: ${esc(w.tr_blank)})</span> ${st.pos ? `<span class="muted">· 품사 ${esc(st.pos)}${st.pos === w.pos.replace(/\(.*$/,'').trim() ? ' ○' : ' ✕'}</span>` : ''}${st.trAI ? `<div class="ai">AI: ${esc(st.trAI.comment)}</div>` : ''}</div></div>`;
     if (st.s1Checked) h += `<div class="row"><div>STEP 1</div><div>${st.s1 === w.answer ? '<span class="ok">정답</span>' : `<span class="bad">오답</span> ${CIRC[st.s1-1]} 선택 (정답 ${CIRC[w.answer-1]} ${esc(w.options[w.answer-1].pattern)})`} · ${st.s1Pts}점</div></div>`;
     if (st.s2Res) h += `<div class="row"><div>STEP 2</div><div>${w.step2_answers.map((a,i) => { const rr = st.s2Res[i] || {}; return `${CIRC[i]} ${rr.correct ? '<span class="ok">○</span>' : rr.correct === false ? '<span class="bad">✕</span>' : '?'} ${esc((st.s2||[])[i] || '빈칸')} <span class="muted">(모범: ${esc(a)}${rr.by==='ai'?' · AI':rr.by==='self'?' · 자기채점':''})</span>`; }).join('<br>')}<br><b>${st.s2Pts ?? '—'}점</b> / 10</div></div>`;
-    if (st.s3Tries && st.s3Tries.length) h += `<div class="row"><div>STEP 3</div><div>${st.s3Tries.map((t,i) => `${st.s3Tries.length>1?`<span class="muted">${i+1}차</span> `:''}${esc(t.text)}${t.ai ? `<div class="ai">AI ${t.ai.score}점 · ${esc(t.ai.feedback)}</div>` : ''}`).join('<br>')}${st.s3Final ? `<br><b>${st.s3Pts}점</b> / 6 ${st.s3By==='self'?'<span class="muted">(자기채점)</span>':''}` : ''}</div></div>`;
+    if (st.s3Text || (st.s3Tries && st.s3Tries.length)) h += `<div class="row"><div>STEP 3</div><div>${esc(st.s3Text || st.s3Tries.map(t => t.text).join(' / '))} <span class="muted">(점수 없음)</span></div></div>`;
     h += '</div>';
   });
   el.innerHTML = h;
@@ -293,17 +293,17 @@ async function renderWords(){
   const agg = {};
   D.wmp.forEach(r => Object.entries((r.data && r.data.words) || {}).forEach(([id, st]) => {
     if (st.phase !== 'done') return;
-    const a = agg[id] || (agg[id] = { n:0, s1:0, s2:0, s3:0, wrong:{} });
-    a.n++; a.s1 += st.s1Pts||0; a.s2 += st.s2Pts||0; a.s3 += st.s3Pts||0;
+    const a = agg[id] || (agg[id] = { n:0, s1:0, s2:0, tr:0, wrong:{} });
+    a.n++; a.s1 += st.s1Pts||0; a.s2 += st.s2Pts||0; if (st.trOk) a.tr++;
     if (st.s1 !== BYW[id].answer && st.s1) a.wrong[st.s1] = (a.wrong[st.s1]||0) + 1;
   }));
-  const list = Object.entries(agg).map(([id,a]) => ({ w: BYW[id], a, tot: (a.s1+a.s2+a.s3)/a.n })).sort((x,y) => x.tot - y.tot);
+  const list = Object.entries(agg).map(([id,a]) => ({ w: BYW[id], a, tot: (a.s1+a.s2)/a.n })).sort((x,y) => x.tot - y.tot);
   if (!list.length) { $('body').innerHTML = '<div class="empty">아직 이 반에서 끝낸 단어가 없어요.</div>'; return; }
   $('body').innerHTML = `<div class="note" style="margin:0 0 10px">이 반 학생들이 끝낸 단어를 평균 점수가 낮은 순서로 보여 줍니다. 수업 시간에 다시 다룰 단어를 고를 때 쓰세요.</div>
-    <table><tr><th>단어</th><th>회차</th><th>푼 학생</th><th>STEP 1 정답률</th><th class="hide-m">STEP 2 평균</th><th class="hide-m">STEP 3 평균</th><th>평균 합계</th><th class="hide-m">가장 많이 고른 오답</th></tr>
+    <table><tr><th>단어</th><th>회차</th><th>푼 학생</th><th>STEP 1 정답률</th><th class="hide-m">STEP 2 평균</th><th class="hide-m">해석 빈칸 정답률</th><th>평균 합계</th><th class="hide-m">가장 많이 고른 오답</th></tr>
     ${list.map(x => { const top = Object.entries(x.a.wrong).sort((a,b) => b[1]-a[1])[0];
       return `<tr><td><b>${esc(x.w.word)}</b></td><td>${x.w.session}</td><td>${x.a.n}명</td><td>${Math.round(x.a.s1/4/x.a.n*100)}%</td>
-      <td class="hide-m">${(x.a.s2/x.a.n).toFixed(1)} / 10</td><td class="hide-m">${(x.a.s3/x.a.n).toFixed(1)} / 6</td><td><b class="${x.tot<12?'bad':''}">${x.tot.toFixed(1)}</b> / 20</td>
+      <td class="hide-m">${(x.a.s2/x.a.n).toFixed(1)} / 10</td><td class="hide-m">${Math.round(x.a.tr/x.a.n*100)}%</td><td><b class="${x.tot<8?'bad':''}">${x.tot.toFixed(1)}</b> / 14</td>
       <td class="hide-m">${top ? `${CIRC[top[0]-1]} ${esc(x.w.options[top[0]-1].pattern)} <span class="muted">(${top[1]}명)</span>` : '—'}</td></tr>`; }).join('')}</table>`;
 }
 
