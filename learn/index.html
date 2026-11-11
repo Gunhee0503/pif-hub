@@ -219,7 +219,7 @@ function render(rows){
   if (OPEN && !OPEN.includes('syntax')) { $('syntax').innerHTML = `<div class="course off wide" style="--c:#1d1d1f"><div><div class="lv" style="color:#86868b">🔒 미수강</div><h3>구문의 지도</h3><div class="ko">COMPASS 기본편 · BEACON 심화편</div>
       <p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div></div>`; return; }
   $('syntax').innerHTML = `<a class="course dark wide syn ${comp?'cmp':'bcn'}" href="${BEACON_URL}" style="--g1:${comp?'#9cc6f5':'#ffe2a8'};--g2:${comp?'#4f8fd6':'#e8a33a'}">
-      <div class="sart" style="background-image:url(/img/brand/${comp?'compass':'beacon'}.jpg)"></div><div class="stx"><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 기본 어휘부터' : '심화편 · 어려운 어휘'}</div>
+      <div class="sart" style="background-image:url(/img/brand/${comp?'compass':'beacon'}.jpg)"></div><div class="stx"><div class="lv" style="color:#a1a1a6">${comp ? '기본편 · 기본 어휘부터' : '심화편 · 고난도 어휘'}</div>
       <h3>${comp ? 'COMPASS' : 'BEACON'}</h3><div class="ko">구문의 지도 ${comp ? '기본편' : '심화편'} · 14 Chapters · 42 Units</div>
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
