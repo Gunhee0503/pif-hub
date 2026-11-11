@@ -153,12 +153,15 @@ const COURSES = [
 ];
 const SYN_READY = 8;   // 구문의 지도 현재 공개 유닛 수 (편별)
 let STAFF = null, STAFFS = [], IS_OWNER = false, TAB = 'report';
-const D = { classes:[], students:[], devices:[], prog:[], syn:[], wmp:null };
+const D = { classes:[], students:[], devices:[], prog:[], syn:[], ct:[], wmp:null };
 const F = { cls: localStorage.getItem('pifhub_admin_cls') || 'all', q: '' };
 
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
 function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('on'),2200); }
 function ago(t){ if (!t) return '—'; const d = (Date.now() - new Date(t))/1000; if (d < 3600) return Math.max(1,Math.round(d/60))+'분 전'; if (d < 86400) return Math.round(d/3600)+'시간 전'; if (d < 86400*30) return Math.round(d/86400)+'일 전'; return new Date(t).toLocaleDateString('ko-KR'); }
+const teachersOf = code => { const l = D.ct.filter(t => t.class_code === code).map(t => t.email); const c = D.classes.find(x => x.code === code); if (c && c.teacher_email && !l.includes(c.teacher_email)) l.unshift(c.teacher_email); return l; };
+const staffName = e => { const t = STAFFS.find(x => x.email === e); return t ? (t.name || t.email) : e; };
+const coursesOf = s => s.courses || clsOf(s.class_code).courses;
 const clsOf = code => D.classes.find(c => c.code === code) || { name: code, courses: [], edition: 'beacon' };
 const errMsg = e => { const m = (e && e.message) || String(e);
   if (/duplicate key|already exists/.test(m)) return '이미 있는 반 코드예요.';
@@ -207,12 +210,14 @@ async function boot(){
 
 async function load(){
   $('body').innerHTML = '<div class="empty">불러오는 중…</div>';
-  const [c, st, dv, sf] = await Promise.all([
+  const [c, st, dv, sf, ct] = await Promise.all([
     SB.from('classes').select('*').order('code'),
     SB.from('students').select('*').order('name'),
     SB.from('devices').select('*').order('requested_at', { ascending:false }),
-    SB.from('staff').select('*').order('role').order('email')
+    SB.from('staff').select('*').order('role').order('email'),
+    SB.from('class_teachers').select('*')
   ]);
+  D.ct = ct.data || [];
   D.classes = c.data || []; D.students = st.data || []; D.devices = dv.data || []; STAFFS = sf.data || [STAFF];
   if (F.cls !== 'all' && !D.classes.some(x => x.code === F.cls)) F.cls = 'all';
   const ids = D.students.map(s => s.id);
@@ -279,9 +284,9 @@ function renderReport(){
   S.sort((a,b) => (a.cls.code + a.s.name).localeCompare(b.cls.code + b.s.name));
   h += `<div class="tw"><table><tr><th>이름</th><th>반</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
   S.forEach(x => {
-    const has = c => x.cls.courses.includes(c);
+    const has = c => coursesOf(x.s).includes(c);
     const comp = x.cls.edition === 'compass';
-    h += `<tr class="cl" data-id="${x.s.id}"><td><b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span></td><td class="muted">${esc(x.cls.name)}</td>
+    h += `<tr class="cl" data-id="${x.s.id}"><td><b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span>${x.s.courses ? ' <span class="ed" style="--c:#86868b" title="이 학생만 따로 정한 수강 코스">개별</span>' : ''}</td><td class="muted">${esc(x.cls.name)}</td>
       <td>${has('fundamental') ? pbar(x.fund,4,'var(--fund)') : locked}</td>
       <td>${has('essential') ? pbar(x.ess,5,'var(--ess)') : locked}</td>
       <td>${has('spectrum') ? pbar(x.spec,4,'var(--spec)') : locked}</td>
@@ -311,7 +316,7 @@ function renderClasses(){
   const card = c => {
     const n = D.students.filter(s => s.class_code === c.code).length, dis = IS_OWNER ? '' : 'disabled';
     return `<div class="cc" data-code="${esc(c.code)}"><div class="t"><b>${esc(c.name)}</b><code>${esc(c.code)}</code><span class="n">학생 ${n}명</span></div>
-      <div class="row"><span>담당</span>${IS_OWNER ? `<select data-k="teacher"><option value="">미지정</option>${teachers.map(t => `<option value="${esc(t.email)}" ${t.email===c.teacher_email?'selected':''}>${esc(t.name || t.email)}${t.role==='owner'?' (원장)':''}</option>`).join('')}</select>` : `<div>${esc(c.teacher_email || '미지정')}</div>`}</div>
+      <div class="row"><span>담당</span>${IS_OWNER ? `<div class="chips">${teachers.map(t => `<button class="chip ${teachersOf(c.code).includes(t.email)?'on':''}" style="--c:#1d1d1f" data-teacher="${esc(t.email)}">${esc(t.name || t.email)}${t.role==='owner'?' (원장)':''}</button>`).join('')}</div>` : `<div>${teachersOf(c.code).map(e => esc(staffName(e))).join(', ') || '미지정'}</div>`}</div>
       <div class="row"><span>수강 코스</span><div class="chips">${COURSES.map(k => `<button class="chip ${c.courses.includes(k.id)?'on':''}" style="--c:${k.c}" data-course="${k.id}" ${dis}>${k.name}</button>`).join('')}</div></div>
       <div class="row"><span>구문 편</span><div class="seg" data-k="edition">${['compass','beacon'].map(e => `<button data-e="${e}" class="${c.edition===e?'on':''}" ${dis}>${e==='compass'?'COMPASS 기본':'BEACON 심화'}</button>`).join('')}</div></div>
       ${IS_OWNER ? `<div class="foot"><button class="btn sm red" data-del>반 삭제</button></div>` : ''}</div>`;
@@ -321,7 +326,7 @@ function renderClasses(){
   if (IS_OWNER) h += `<div class="cc new"><div class="t"><b>새 반 만들기</b></div>
     <div class="fld"><label>반 이름</label><input id="ncName" placeholder="예: 고1 영동일 A반(월금)"></div>
     <div class="fld"><label>반 코드 <span class="muted">학생이 입력하는 코드 · 영문 대문자/숫자 2~12자</span></label><div style="display:flex;gap:6px"><input id="ncCode" maxlength="12" placeholder="예: YD1A" style="text-transform:uppercase"><button class="btn sm sec" id="ncGen" type="button">자동</button></div></div>
-    <div class="fld"><label>담당 선생님</label><select id="ncT"><option value="">미지정</option>${teachers.map(t => `<option value="${esc(t.email)}">${esc(t.name || t.email)}</option>`).join('')}</select></div>
+    <div class="fld"><label>담당 선생님 <span class="muted">여러 명 선택 가능</span></label><div class="chips" id="ncT">${teachers.map(t => `<button class="chip" style="--c:#1d1d1f" data-teacher="${esc(t.email)}" type="button">${esc(t.name || t.email)}</button>`).join('')}</div></div>
     <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:4px 0 10px;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">수강 코스</span><div class="chips" id="ncCourses">${COURSES.map(k => `<button class="chip on" style="--c:${k.c}" data-course="${k.id}" type="button">${k.name}</button>`).join('')}</div></div>
     <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">구문 편</span><div class="seg" id="ncEd"><button data-e="compass" type="button">COMPASS 기본</button><button data-e="beacon" class="on" type="button">BEACON 심화</button></div></div>
     <div class="foot"><button class="btn sm" id="ncGo">반 만들기</button></div><div class="msg" id="ncMsg"></div></div>`;
@@ -340,14 +345,20 @@ function renderClasses(){
       upd(code, { courses: COURSES.map(x => x.id).filter(x => next.includes(x)) }, `${c.name}: ${COURSES.find(x=>x.id===k).name} ${on ? '잠금' : '열림'}`);
     });
     el.querySelectorAll('[data-e]').forEach(b => b.onclick = () => { if (b.dataset.e !== c.edition) upd(code, { edition: b.dataset.e }, `${c.name}: 구문의 지도 ${b.dataset.e.toUpperCase()}`); });
-    const t = el.querySelector('[data-k="teacher"]'); if (t) t.onchange = () => upd(code, { teacher_email: t.value || null }, '담당 선생님을 바꿨어요');
+    el.querySelectorAll('[data-teacher]').forEach(b => b.onclick = async () => {
+      const cur = teachersOf(code), e = b.dataset.teacher, next = cur.includes(e) ? cur.filter(x => x !== e) : cur.concat(e);
+      const { error } = await SB.rpc('vt_set_class_teachers', { p_class: code, p_emails: next });
+      if (error) return toast(errMsg(error));
+      D.ct = D.ct.filter(t => t.class_code !== code).concat(next.map(x => ({ class_code: code, email: x }))); c.teacher_email = next[0] || null;
+      toast(`${c.name}: 담당 ${next.length ? next.map(staffName).join(', ') : '없음'}`); renderClasses();
+    });
     const del = el.querySelector('[data-del]'); if (del) del.onclick = async () => {
       if (!confirm(`'${c.name}' 반을 삭제할까요? 학생이 있는 반은 삭제되지 않아요.`)) return;
       const { error } = await SB.from('classes').delete().eq('code', code);
       if (error) return toast(errMsg(error)); toast('삭제했어요'); load();
     };
   });
-  document.querySelectorAll('#ncCourses .chip').forEach(b => b.onclick = () => b.classList.toggle('on'));
+  document.querySelectorAll('#ncCourses .chip, #ncT .chip').forEach(b => b.onclick = () => b.classList.toggle('on'));
   document.querySelectorAll('#ncEd button').forEach(b => b.onclick = () => document.querySelectorAll('#ncEd button').forEach(x => x.classList.toggle('on', x === b)));
   $('ncCode').oninput = e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,''); };
   $('ncGen').onclick = () => { const ch = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let s = ''; for (let i = 0; i < 6; i++) s += ch[Math.floor(Math.random()*ch.length)]; $('ncCode').value = s; };
@@ -357,8 +368,10 @@ function renderClasses(){
     if (!/^[A-Z0-9]{2,12}$/.test(code)) return say('ncMsg','반 코드는 영문 대문자·숫자 2~12자예요.');
     const courses = [...document.querySelectorAll('#ncCourses .chip.on')].map(b => b.dataset.course);
     const edition = document.querySelector('#ncEd .on').dataset.e;
-    const { error } = await SB.from('classes').insert({ code, name, teacher_email: $('ncT').value || null, courses, edition });
+    const tEmails = [...document.querySelectorAll('#ncT .chip.on')].map(b => b.dataset.teacher);
+    const { error } = await SB.from('classes').insert({ code, name, teacher_email: tEmails[0] || null, courses, edition });
     if (error) return say('ncMsg', errMsg(error));
+    if (tEmails.length) { const r2 = await SB.rpc('vt_set_class_teachers', { p_class: code, p_emails: tEmails }); if (r2.error) toast(errMsg(r2.error)); }
     toast(`'${name}' 반을 만들었어요. 학생에게 반 코드 ${code}를 알려 주세요.`); load();
   };
 }
@@ -388,7 +401,7 @@ function renderPending(){
 /* ---------- 선생님 (원장 전용) ---------- */
 function renderStaff(){
   let h = `<div class="tw"><table><tr><th>이름</th><th>이메일</th><th>권한</th><th>담당 반</th><th></th></tr>${STAFFS.map(t => `<tr><td><b>${esc(t.name || '—')}</b></td><td>${esc(t.email)}</td><td>${t.role === 'owner' ? '원장 (전체)' : '선생님'}</td>
-    <td class="muted">${D.classes.filter(c => c.teacher_email === t.email).map(c => esc(c.name)).join(', ') || '—'}</td>
+    <td class="muted" style="white-space:normal">${D.classes.filter(c => teachersOf(c.code).includes(t.email)).map(c => esc(c.name)).join(', ') || '—'}</td>
     <td style="text-align:right">${t.email === STAFF.email ? '<span class="muted">나</span>' : `<button class="btn sm red" data-del="${esc(t.email)}">삭제</button>`}</td></tr>`).join('')}</table></div>
     <div class="cc" style="margin-top:14px;max-width:520px"><div class="t"><b>선생님 등록</b></div>
       <div class="fld"><label>이메일</label><input id="nsE" type="email" placeholder="teacher@example.com"></div>
@@ -413,7 +426,7 @@ function renderStaff(){
 function closeDrawer(){ $('drawer').hidden = true; $('scrim').hidden = true; }
 $('scrim').onclick = closeDrawer;
 async function openStudent(sid){
-  const s = D.students.find(x => x.id === sid), cls = clsOf(s.class_code), has = c => cls.courses.includes(c);
+  const s = D.students.find(x => x.id === sid), cls = clsOf(s.class_code), eff = coursesOf(s), has = c => eff.includes(c);
   const headH = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)}</h2><div class="muted">${esc(cls.name)} · 뒷번호 ${esc(s.last4)}`;
   $('drawer').innerHTML = headH + `</div><div class="empty" style="margin-top:20px">불러오는 중…</div>`;
   $('drawer').hidden = false; $('scrim').hidden = false; $('drawer').scrollTop = 0;
@@ -422,8 +435,17 @@ async function openStudent(sid){
     SB.from('vt_ai_feedback').select('id', { count:'exact', head:true }).eq('student_id', sid)
   ]);
   const rows = p.data || [];
-  const lockH = '<div class="muted">이 반은 수강하지 않는 코스예요.</div>';
+  const lockH = '<div class="muted">이 학생은 수강하지 않는 코스예요.</div>';
   let h = headH + ` · AI 피드백 ${f.count || 0}회</div>`;
+  const movable = D.classes.filter(c => c.code !== s.class_code);
+  h += `<div class="sec"><h3>반 이동</h3><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <select id="mvCls" style="border:1px solid #d2d2d7;border-radius:10px;padding:8px 10px;background:#fff;min-width:240px"><option value="">옮길 반 선택</option>${movable.map(c => `<option value="${esc(c.code)}">${esc(c.name)} · ${esc(c.code)}</option>`).join('')}</select>
+      <button class="btn sm" id="mvGo">이동</button></div>
+      <div class="note">학습 기록은 그대로 따라가고, 학생은 다시 로그인할 필요 없어요. 구문의 지도 편(COMPASS/BEACON)과 수강 코스는 새 반 설정을 따릅니다. (이 학생만 따로 정한 코스가 있으면 그대로 유지)</div></div>
+    <div class="sec"><h3>수강 코스 <small>${s.courses ? '이 학생만 따로 지정됨' : '반 설정을 따르는 중'}</small></h3>
+      <div class="seg" id="ovMode"><button data-m="class" class="${s.courses ? '' : 'on'}">반 설정 따르기</button><button data-m="custom" class="${s.courses ? 'on' : ''}">이 학생만 따로 정하기</button></div>
+      <div class="chips" id="ovChips" style="margin-top:10px">${COURSES.map(k => `<button class="chip ${eff.includes(k.id)?'on':''}" style="--c:${k.c}" data-course="${k.id}" ${s.courses ? '' : 'disabled'}>${k.name}</button>`).join('')}</div>
+      <div class="note">반 설정: ${cls.courses.map(c => COURSES.find(k => k.id === c).name).join(', ') || '없음'}</div></div>`;
   // Word Matching
   const M = {}; rows.filter(r => r.course === 'matching').forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (m) M[Number(m[1])] = r; });
   h += `<div class="sec" style="--c:var(--wmp)"><h3><i></i>Word Matching <small>회차를 누르면 답안 전체</small></h3>`;
@@ -460,6 +482,28 @@ async function openStudent(sid){
       const v = k => sp[k] == null ? '<span class="muted">—</span>' : `${esc(sp[k])}${/score/.test(k)?'%':''}`;
       return `<tr><td>Lesson ${n}</td><td>${sp['vts_cls_done_lesson'+n] ? '<span class="ok">완료</span>' : '<span class="muted">—</span>'}</td><td>${v('vts_p01_score_lesson'+n)}</td><td>${v('vts_p02_score_lesson'+n)}</td><td>${v('vts_p03_score_lesson'+n)}</td></tr>`; }).join('')}</table>` : (has('spectrum') ? '<div class="muted">기록 없음</div>' : lockH)) + '</div>';
   $('drawer').innerHTML = h;
+  $('mvGo').onclick = async () => {
+    const to = $('mvCls').value; if (!to) return toast('옮길 반을 골라 주세요.');
+    if (!confirm(`${s.name} 학생을 '${clsOf(to).name}' 반으로 옮길까요?`)) return;
+    const { error } = await SB.rpc('vt_move_student', { p_student: sid, p_class: to });
+    if (error) return toast(/DUPLICATE_IN_CLASS/.test(error.message) ? '그 반에 이름·뒷번호가 같은 학생이 이미 있어요.' : /FORBIDDEN/.test(error.message) ? '담당하지 않는 반으로는 옮길 수 없어요.' : errMsg(error));
+    s.class_code = to; D.devices.forEach(d => { if (d.student_id === sid) d.class_code = to; });
+    toast(`${s.name} → ${clsOf(to).name}`); render(); openStudent(sid);
+  };
+  const saveCourses = async (list) => {
+    const { error } = await SB.rpc('vt_set_student_courses', { p_student: sid, p_courses: list });
+    if (error) return toast(errMsg(error));
+    s.courses = list; toast(list ? `${s.name}: 수강 코스를 따로 정했어요` : `${s.name}: 반 설정으로 되돌렸어요`); render(); openStudent(sid);
+  };
+  $('ovMode').querySelectorAll('button').forEach(b => b.onclick = () => {
+    if (b.dataset.m === 'class') { if (s.courses) saveCourses(null); }
+    else if (!s.courses) saveCourses(cls.courses.slice());
+  });
+  $('ovChips').querySelectorAll('[data-course]').forEach(b => b.onclick = () => {
+    if (!s.courses) return;
+    const k = b.dataset.course, next = s.courses.includes(k) ? s.courses.filter(x => x !== k) : s.courses.concat(k);
+    saveCourses(COURSES.map(x => x.id).filter(x => next.includes(x)));
+  });
   $('drawer').querySelectorAll('.sgrid button').forEach(b => b.onclick = () => {
     $('drawer').querySelectorAll('.sgrid button').forEach(x => x.classList.toggle('on', x === b));
     sessionDetail(M[Number(b.dataset.s)], Number(b.dataset.s));
