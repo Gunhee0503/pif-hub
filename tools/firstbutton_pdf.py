@@ -172,6 +172,7 @@ def blanks(pg):
         if tuple(round(v, 2) for v in f) != (0.78, 0.21, 0.23): continue
         r = x['rect']
         if r.width < 17 or r.height < 10: continue
+        if r.width < 19 and r.height < 15: continue      # '관계사가 가져간 빈자리' 표시 (쓰는 칸 아님)
         out[(round(r.x0, 1), round(r.y0, 1))] = r
     rs = sorted(out.values(), key=lambda r: (round(r.y0 / 4), r.x0))
     return rs
@@ -411,6 +412,22 @@ def row_text(p, F, i):
 def page_inst(p):
     L = [l.strip() for l in d[p - 1].get_text().split('\n') if l.strip()]
     return ' '.join(L[1:4])[:200]
+GROUPS = [['자동사', '타동사'], ['주격', '목적격', '소유격'], ['문장', '명사'], ['명사', '동사', '형용사', '부사'], ['형용사', '부사'],
+          ['능동', '수동'], ['완전', '불완전'], ['단수', '복수'], ['○', '✕'], ['있음', '없음'],
+          ['현재', '과거', '미래', '현재진행', '과거진행', '현재완료', '과거완료']]
+def group_of(a, page_keys):
+    """정답이 정해진 낱말 중 하나면 고르기 칸으로 (몇 번째 GROUPS)"""
+    if not a: return None
+    t = re.sub(r'[→←\s]', '', a)
+    t = {'O': '○', 'o': '○', 'X': '✕', 'x': '✕'}.get(t, t)
+    hits = [g for g, G in enumerate(GROUPS) if t in G]
+    if not hits: return None
+    if len(hits) == 1: return hits[0]
+    pk = {re.sub(r'[→←\s]', '', k) for k in page_keys if k}
+    if t == '명사' and '문장' in pk: return 2
+    if '동사' in pk or '명사' in pk and t != '명사': return 3
+    if t in ('형용사', '부사'): return 4
+    return 2 if t == '명사' else 3
 def answer_keys(units):
     """Review→Summary Note, 워크북 B→워크북 A(+정답 쪽)에서 칸마다 정답과 문맥"""
     K, I = {}, {}
@@ -433,6 +450,24 @@ def answer_keys(units):
                     elif f[0] == 'k': e = {'k': a['k'] if a else None}
                     else: e = {'a': a['a'] if a else None, 'r': row_text(p, F, i)}
                     out.append(e)
+                # 고르기 칸: 정답이 정해진 낱말이면 보기로, 같은 열의 정답 없는 칸도 같은 보기로
+                pk = [e.get('a') for e in out]
+                for i, (f, e) in enumerate(zip(F, out)):
+                    if f[0] in 'bl' and e.get('a'):
+                        g = group_of(e['a'], pk)
+                        if g is not None:
+                            e['g'] = g; t = re.sub(r'[→←\s]', '', e['a']); e['a'] = {'O': '○', 'X': '✕'}.get(t, t)
+                same_col = lambda i, j: abs(F[j][1] - F[i][1]) < 0.01 and abs(F[j][3] - F[i][3]) < 0.01
+                drop = []
+                for i, (f, e) in enumerate(zip(F, out)):
+                    if 'g' not in e: continue
+                    col = [j for j in range(len(F)) if F[j][0] in 'bl' and same_col(i, j) and out[j].get('a')]
+                    if sum('g' not in out[j] for j in col) > sum('g' in out[j] for j in col): drop.append(i)
+                for i in drop: del out[i]['g']    # 같은 열이 주로 직접 쓰는 정답(the dog 등)이면 고르기로 바꾸지 않음
+                for i, (f, e) in enumerate(zip(F, out)):
+                    if f[0] in 'bl' and 'g' not in e:
+                        col = [out[j]['g'] for j, h in enumerate(F) if j != i and h[0] in 'bl' and 'g' in out[j] and abs(h[1] - f[1]) < 0.01 and abs(h[3] - f[3]) < 0.01]
+                        if col and not e.get('a'): e['g'] = max(set(col), key=col.count)
                 K[str(p)] = out; I[str(p)] = page_inst(p)
     return K, I
 
@@ -477,6 +512,7 @@ def main(path):
     print('overlay pages', len(ovl), 'fields', sum(len(v) for v in ovl.values()))
     global d; d = doc; OVL.clear(); OVL.update(ovl)
     data['key'], data['inst'] = answer_keys(units)
+    data['groups'] = GROUPS
     nk = sum(1 for v in data['key'].values() for e in v if e.get('a') or e.get('c') or e.get('k') is not None)
     print('answer keys', nk)
     os.makedirs(ROOT, exist_ok=True)

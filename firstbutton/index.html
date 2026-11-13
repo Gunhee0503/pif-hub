@@ -190,7 +190,7 @@ body:has(#sheet) #vt-chip,body:has(#ans) #vt-chip{display:none!important}
 .fd.cur.empty em::after{content:"";display:inline-block;width:2px;height:1.1em;background:#1f6feb;vertical-align:middle;animation:caret 1s steps(1) infinite}
 @keyframes caret{50%{opacity:0}}
 .sq{max-width:820px;margin:0 auto 6px;font-size:14px;font-weight:700;color:var(--ink)}
-.sh2.opt .op{flex:1;width:auto;font-size:16px;font-weight:700;color:var(--ink);border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px}
+.sh2.opt{align-items:stretch}.sh2 .ops{flex:1;min-width:0;display:flex;flex-wrap:wrap;gap:6px}.sh2.opt .op{flex:1 1 auto;min-width:64px;width:auto;font-size:16px;font-weight:700;color:var(--ink);border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px}
 .sh2.opt .op.on{border-color:#1f4fbf;background:#eef3ff;color:#1f4fbf}
 .sh2 .txt{width:auto;padding:0 12px;font-size:13px}
 .sheet.grading{border-top:3px solid var(--acc)}
@@ -548,8 +548,9 @@ function openSheet(pn, i){
     const ka = keyAns();
     body = `<div class="cmp"><div><span>내 답</span><b>${esc(myAns() || '(비어 있음)')}</b></div><div class="k"><span>정답</span><b>${ka ? esc(ka) : '정답 페이지에서 확인해요'}</b>${ka ? '' : '<button id="shAns" class="txt">정답 페이지 열기</button>'}</div></div>
       <div class="sh2 gr"><button id="shP" aria-label="이전 칸">‹</button><button class="okb ${g === 'o' ? 'on' : ''}" data-g="o">○ 맞음</button><button class="nob ${g === 'x' ? 'on' : ''}" data-g="x">✕ 틀림</button><button id="shN" aria-label="다음 칸">›</button></div>`;
-  } else if (f[0] === 'c') body = `<p class="sq">알맞은 것을 고르세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button>${(FLD(pn)[i][1]).map((_, j) => `<button class="op ${(k.v[i] || []).includes(j) ? 'on' : ''}" data-j="${j}">${esc(optText(j))}</button>`).join('')}<button id="shN" aria-label="다음 칸">›</button></div>`;
-  else if (f[0] === 'k') body = `<p class="sq">해당하면 체크하세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button><button class="op ${k.v[i] ? 'on' : ''}" id="shK">${k.v[i] ? '✓ 체크함' : '체크하기'}</button><button id="shN" aria-label="다음 칸">›</button></div>`;
+  } else if (f[0] === 'c') body = `<p class="sq">알맞은 것을 고르세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button><div class="ops">${(FLD(pn)[i][1]).map((_, j) => `<button class="op ${(k.v[i] || []).includes(j) ? 'on' : ''}" data-j="${j}">${esc(optText(j))}</button>`).join('')}</div><button id="shN" aria-label="다음 칸">›</button></div>`;
+  else if (e.g != null && (FB.groups || [])[e.g]) body = `<p class="sq">알맞은 말을 고르세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button><div class="ops">${FB.groups[e.g].map(w => `<button class="op ${k.v[i] === w ? 'on' : ''}" data-w="${esc(w)}">${esc(w)}</button>`).join('')}</div><button id="shN" aria-label="다음 칸">›</button></div>`;
+  else if (f[0] === 'k') body = `<p class="sq">해당하면 체크하세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button><div class="ops"><button class="op ${k.v[i] ? 'on' : ''}" id="shK">${k.v[i] ? '✓ 체크함' : '체크하기'}</button></div><button id="shN" aria-label="다음 칸">›</button></div>`;
   else body = `<p class="sq">${f[0] === 'l' ? '밑줄에 쓸 답을 입력하세요' : '빈칸에 들어갈 말을 쓰세요'}</p><div class="sh2"><button id="shP" aria-label="이전 칸">‹</button><input id="shI" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(k.v[i] || '')}" placeholder="여기에 쓰고 Enter"><button id="shN" aria-label="다음 칸">›</button></div>`;
   const ctx = !isT && e.r ? `<div class="ctxl">${esc(e.r).replace('【?】', '<mark>　?　</mark>')}</div>` : '';
   const sh = document.createElement('div'); sh.className = 'sheet' + (V.grading ? ' grading' : ''); sh.id = 'sheet';
@@ -573,6 +574,7 @@ function openSheet(pn, i){
   on('shAns', () => openAnswers(V.o.ans));
   sh.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { k.g[i] = b.dataset.g; saveInk(); paintFields(pn); setTimeout(() => go(1), 150); });
   sh.querySelectorAll('.op[data-j]').forEach(b => b.onclick = () => { pickChoice(pn, i, +b.dataset.j); setTimeout(() => go(1), 180); });
+  sh.querySelectorAll('.op[data-w]').forEach(b => b.onclick = () => { const w = b.dataset.w; if (k.v[i] === w) delete k.v[i]; else k.v[i] = w; delete k.g[i]; saveInk(); paintFields(pn); setTimeout(() => go(1), 180); });
   on('shK', () => { if (k.v[i]) delete k.v[i]; else k.v[i] = 1; delete k.g[i]; saveInk(); paintFields(pn); setTimeout(() => go(1), 180); });
   const inp = document.getElementById('shI');
   if (inp) {

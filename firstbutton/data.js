@@ -2145,13 +2145,6 @@ window.FB = {
    ],
    [
     "b",
-    0.604,
-    0.3185,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.3498,
     0.3443,
     0.116,
@@ -2473,13 +2466,6 @@ window.FB = {
     0.7643,
     0.0607,
     0.026
-   ],
-   [
-    "b",
-    0.4605,
-    0.8159,
-    0.0292,
-    0.0153
    ]
   ],
   "25": [
@@ -2692,13 +2678,6 @@ window.FB = {
     0.7803,
     0.2432,
     0.026
-   ],
-   [
-    "b",
-    0.4605,
-    0.8159,
-    0.0292,
-    0.0153
    ]
   ],
   "32": [
@@ -4980,13 +4959,6 @@ window.FB = {
   ],
   "76": [
    [
-    "b",
-    0.3334,
-    0.5783,
-    0.0292,
-    0.0162
-   ],
-   [
     "k",
     0.5393,
     0.1597,
@@ -6098,13 +6070,6 @@ window.FB = {
    ],
    [
     "b",
-    0.4781,
-    0.2233,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5171,
     0.2508,
     0.403,
@@ -6119,13 +6084,6 @@ window.FB = {
    ],
    [
     "b",
-    0.4781,
-    0.2855,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5171,
     0.3131,
     0.403,
@@ -6137,13 +6095,6 @@ window.FB = {
     0.3452,
     0.1072,
     0.0215
-   ],
-   [
-    "b",
-    0.3925,
-    0.3469,
-    0.0292,
-    0.0162
    ],
    [
     "b",
@@ -7605,13 +7556,6 @@ window.FB = {
    ],
    [
     "b",
-    0.3825,
-    0.4804,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5448,
     0.5783,
     0.0783,
@@ -7684,13 +7628,6 @@ window.FB = {
    ],
    [
     "b",
-    0.419,
-    0.1797,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5738,
     0.2286,
     0.1928,
@@ -7775,13 +7712,6 @@ window.FB = {
    ],
    [
     "b",
-    0.4706,
-    0.4155,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5738,
     0.4644,
     0.1928,
@@ -7800,13 +7730,6 @@ window.FB = {
     0.4644,
     0.0607,
     0.0206
-   ],
-   [
-    "b",
-    0.5146,
-    0.4768,
-    0.0292,
-    0.0153
    ],
    [
     "b",
@@ -7831,13 +7754,6 @@ window.FB = {
    ],
    [
     "b",
-    0.3762,
-    0.5285,
-    0.0292,
-    0.0153
-   ],
-   [
-    "b",
     0.5738,
     0.5676,
     0.1928,
@@ -7856,13 +7772,6 @@ window.FB = {
     0.5676,
     0.0607,
     0.0206
-   ],
-   [
-    "b",
-    0.497,
-    0.5801,
-    0.0292,
-    0.0153
    ],
    [
     "b",
@@ -7905,13 +7814,6 @@ window.FB = {
     0.6806,
     0.0607,
     0.0206
-   ],
-   [
-    "b",
-    0.3762,
-    0.6833,
-    0.0292,
-    0.0153
    ]
   ],
   "135": [
@@ -8007,13 +7909,6 @@ window.FB = {
     0.4155,
     0.0695,
     0.0215
-   ],
-   [
-    "b",
-    0.4404,
-    0.468,
-    0.0292,
-    0.0153
    ],
    [
     "b",
@@ -8805,15 +8700,6 @@ window.FB = {
       0.0192
      ]
     ]
-   ]
-  ],
-  "141": [
-   [
-    "b",
-    0.3548,
-    0.7518,
-    0.0292,
-    0.0153
    ]
   ],
   "151": [
@@ -9877,7 +9763,8 @@ window.FB = {
    },
    {
     "a": "단수",
-    "r": "to부정사 · 동명사 주어는 단수! / '~하는 것' 한 가지 일이라서 취급 → To study English Watching movies는 【?】 takes, affects"
+    "r": "to부정사 · 동명사 주어는 단수! / '~하는 것' 한 가지 일이라서 취급 → To study English Watching movies는 【?】 takes, affects",
+    "g": 7
    }
   ],
   "16": [
@@ -10147,11 +10034,7 @@ window.FB = {
   "23": [
    {
     "a": "which",
-    "r": "명사 덩어리 the pencil 【?】 ( I gave you ___ yesterday ) (영어) 그 연필 내가 너에게 어제 주었다 ___"
-   },
-   {
-    "a": null,
-    "r": "명사 덩어리 the pencil ___ ( I gave you 【?】 yesterday ) (영어)"
+    "r": "명사 덩어리 the pencil 【?】 ( I gave you yesterday ) (영어) 그 연필 내가 너에게 어제 주었다 ___"
    },
    {
     "a": "근데 그것을",
@@ -10179,43 +10062,53 @@ window.FB = {
    },
    {
     "a": "문장",
-    "r": "학생들이 늦게 도착했다 【?】 명사 They built the house. ___ 명사"
+    "r": "학생들이 늦게 도착했다 【?】 명사 They built the house. ___ 명사",
+    "g": 2
    },
    {
     "a": "문장",
-    "r": "학생들이 늦게 도착했다 ___ 명사 They built the house. 【?】 명사"
+    "r": "학생들이 늦게 도착했다 ___ 명사 They built the house. 【?】 명사",
+    "g": 2
    },
    {
     "a": "명사",
-    "r": "내가 자주 마시는 커피 【?】 명사 I often drink the coffee. ___ 명사"
+    "r": "내가 자주 마시는 커피 【?】 명사 I often drink the coffee. ___ 명사",
+    "g": 2
    },
    {
     "a": "문장",
-    "r": "내가 자주 마시는 커피 ___ 명사 I often drink the coffee. 【?】 명사"
+    "r": "내가 자주 마시는 커피 ___ 명사 I often drink the coffee. 【?】 명사",
+    "g": 2
    },
    {
     "a": "명사",
-    "r": "The person who helped me 나를 도와준 사람 【?】 명사 ___ 명사"
+    "r": "The person who helped me 나를 도와준 사람 【?】 명사 ___ 명사",
+    "g": 2
    },
    {
     "a": "명사",
-    "r": "The person who helped me 나를 도와준 사람 ___ 명사 【?】 명사"
+    "r": "The person who helped me 나를 도와준 사람 ___ 명사 【?】 명사",
+    "g": 2
    },
    {
     "a": "문장",
-    "r": "그녀는 그 집을 샀다 The house that she bought 【?】 명사 ___ 명사"
+    "r": "그녀는 그 집을 샀다 The house that she bought 【?】 명사 ___ 명사",
+    "g": 2
    },
    {
     "a": "명사",
-    "r": "그녀는 그 집을 샀다 The house that she bought ___ 명사 【?】 명사"
+    "r": "그녀는 그 집을 샀다 The house that she bought ___ 명사 【?】 명사",
+    "g": 2
    },
    {
     "a": "문장",
-    "r": "그들은 새로운 사업을 시작했다 【?】 The business which they started ___ 명사 명사"
+    "r": "그들은 새로운 사업을 시작했다 【?】 The business which they started ___ 명사 명사",
+    "g": 2
    },
    {
     "a": "명사",
-    "r": "그들은 새로운 사업을 시작했다 ___ The business which they started 【?】 명사 명사"
+    "r": "그들은 새로운 사업을 시작했다 ___ The business which they started 【?】 명사 명사",
+    "g": 2
    }
   ],
   "24": [
@@ -10229,7 +10122,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which I read yesterday = that"
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which I read yesterday = that",
+    "g": 1
    },
    {
     "a": "네가 나에게 추천한",
@@ -10241,7 +10135,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "영화 근데 그것을 네가 나에게 추천했다 2 ___ ___ 【?】 The movie which you recommended to me = that"
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 ___ ___ 【?】 The movie which you recommended to me = that",
+    "g": 1
    },
    {
     "a": "네가 작년에 말했던",
@@ -10253,7 +10148,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 which The story you told me last year = that"
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 which The story you told me last year = that",
+    "g": 1
    },
    {
     "a": "그녀를 좋아하는",
@@ -10265,7 +10161,8 @@ window.FB = {
    },
    {
     "a": "주격",
-    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 who The person likes her = that"
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 who The person likes her = that",
+    "g": 1
    },
    {
     "a": "그녀가 좋아하는",
@@ -10277,7 +10174,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 ___ ___ 【?】 who(m) The person she likes = that"
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 ___ ___ 【?】 who(m) The person she likes = that",
+    "g": 1
    },
    {
     "a": "그가 개발하고 싶은",
@@ -10289,7 +10187,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which he wants to develop = that"
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which he wants to develop = that",
+    "g": 1
    },
    {
     "a": "우리를 웃게 만든",
@@ -10301,7 +10200,8 @@ window.FB = {
    },
    {
     "a": "주격",
-    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 which The scene made us laugh = that"
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 which The scene made us laugh = that",
+    "g": 1
    },
    {
     "a": "내가 찾고 있는",
@@ -10313,7 +10213,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 which The key I am looking for = that"
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 which The key I am looking for = that",
+    "g": 1
    },
    {
     "a": "서울에서 태어난",
@@ -10325,7 +10226,8 @@ window.FB = {
    },
    {
     "a": "주격",
-    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 who The singer was born in Seoul = that"
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 who The singer was born in Seoul = that",
+    "g": 1
    },
    {
     "a": "우리가 어제 발견한 책을 가진",
@@ -10337,11 +10239,8 @@ window.FB = {
    },
    {
     "a": "소유격",
-    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ ___ 【?】 The man whose book we found yesterday"
-   },
-   {
-    "a": null,
-    "r": "선행사(명사) 관계사(근데 다리) 수식어(꼬리) 【?】 관계사가 가져간 빈자리"
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ ___ 【?】 The man whose book we found yesterday",
+    "g": 1
    }
   ],
   "25": [
@@ -10464,10 +10363,6 @@ window.FB = {
    {
     "a": "book we found yesterday",
     "r": "10 ___ ___ 【?】"
-   },
-   {
-    "a": null,
-    "r": "선행사(명사) 관계사(근데 다리) 수식어(꼬리) 【?】 관계사가 가져간 빈자리"
    }
   ],
   "32": [
@@ -10477,7 +10372,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "1. 구조상 차이 ___ 【?】 ___ ___"
+    "r": "1. 구조상 차이 ___ 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "부가정보",
@@ -10496,8 +10392,9 @@ window.FB = {
     "r": "동작을 하는지, 【?】 ___ ___ ___ 동사의 영향력이"
    },
    {
-    "a": "타동사 →",
-    "r": "동작을 하는지, ___ 【?】 ___ ___ 동사의 영향력이"
+    "a": "타동사",
+    "r": "동작을 하는지, ___ 【?】 ___ ___ 동사의 영향력이",
+    "g": 0
    },
    {
     "a": "목적어",
@@ -10513,51 +10410,63 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "She stopped. 【?】 자동사 The glass broke. ___ 자동사 Things changed ___ 자동사 over time."
+    "r": "She stopped. 【?】 자동사 The glass broke. ___ 자동사 Things changed ___ 자동사 over time.",
+    "g": 0
    },
    {
     "a": "자동사",
-    "r": "She stopped. ___ 자동사 The glass broke. 【?】 자동사 Things changed ___ 자동사 over time."
+    "r": "She stopped. ___ 자동사 The glass broke. 【?】 자동사 Things changed ___ 자동사 over time.",
+    "g": 0
    },
    {
     "a": "자동사",
-    "r": "She stopped. ___ 자동사 The glass broke. ___ 자동사 Things changed 【?】 자동사 over time. She stopped him . ___ 자동사 He broke"
+    "r": "She stopped. ___ 자동사 The glass broke. ___ 자동사 Things changed 【?】 자동사 over time. She stopped him . ___ 자동사 He broke",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "___ 자동사 over time. She stopped him . 【?】 자동사 He broke ___ 자동사 the glass . I changed him . ___ 자동사"
+    "a": "타동사",
+    "r": "___ 자동사 over time. She stopped him . 【?】 자동사 He broke ___ 자동사 the glass . I changed him . ___ 자동사",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "over time. She stopped him . ___ 자동사 He broke 【?】 자동사 the glass . I changed him . ___ 자동사"
+    "a": "타동사",
+    "r": "over time. She stopped him . ___ 자동사 He broke 【?】 자동사 the glass . I changed him . ___ 자동사",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "She stopped him . ___ 자동사 He broke ___ 자동사 the glass . I changed him . 【?】 자동사"
-   },
-   {
-    "a": "자동사",
-    "r": "죽다 / 죽이다 일어나다 / 일으키다 남다 / ~을 떠나다 He died. 【?】 자동사 Something Only a few people ___ 자동사 happened. remained after the ___ 자동사"
-   },
-   {
-    "a": "자동사",
-    "r": "He died. ___ 자동사 Something Only a few people 【?】 자동사 happened. remained after the ___ 자동사 He killed him . ___ 자동사"
+    "a": "타동사",
+    "r": "She stopped him . ___ 자동사 He broke ___ 자동사 the glass . I changed him . 【?】 자동사",
+    "g": 0
    },
    {
     "a": "자동사",
-    "r": "He died. ___ 자동사 Something Only a few people ___ 자동사 happened. remained after the 【?】 자동사 He killed him . ___ 자동사 show. They caused"
+    "r": "죽다 / 죽이다 일어나다 / 일으키다 남다 / ~을 떠나다 He died. 【?】 자동사 Something Only a few people ___ 자동사 happened. remained after the ___ 자동사",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "___ 자동사 happened. remained after the ___ 자동사 He killed him . 【?】 자동사 show. They caused"
+    "a": "자동사",
+    "r": "He died. ___ 자동사 Something Only a few people 【?】 자동사 happened. remained after the ___ 자동사 He killed him . ___ 자동사",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "show. They caused 【?】 자동사 something . She left the room ___ 자동사"
+    "a": "자동사",
+    "r": "He died. ___ 자동사 Something Only a few people ___ 자동사 happened. remained after the 【?】 자동사 He killed him . ___ 자동사 show. They caused",
+    "g": 0
    },
    {
-    "a": "→ 타동사",
-    "r": "___ 자동사 something . She left the room 【?】 자동사 quietly."
+    "a": "타동사",
+    "r": "___ 자동사 happened. remained after the ___ 자동사 He killed him . 【?】 자동사 show. They caused",
+    "g": 0
+   },
+   {
+    "a": "타동사",
+    "r": "show. They caused 【?】 자동사 something . She left the room ___ 자동사",
+    "g": 0
+   },
+   {
+    "a": "타동사",
+    "r": "___ 자동사 something . She left the room 【?】 자동사 quietly.",
+    "g": 0
    }
   ],
   "33": [
@@ -10567,7 +10476,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "그는 (스스로) 죽었다 1 He died. ___ 【?】 그가 (목적어를) 죽였다"
+    "r": "그는 (스스로) 죽었다 1 He died. ___ 【?】 그가 (목적어를) 죽였다",
+    "g": 0
    },
    {
     "a": "the dog",
@@ -10575,7 +10485,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "그는 (스스로) 죽었다 2 He killed the dog. ___ 【?】 그가 (목적어를) 죽였다"
+    "r": "그는 (스스로) 죽었다 2 He killed the dog. ___ 【?】 그가 (목적어를) 죽였다",
+    "g": 0
    },
    {
     "a": "없음",
@@ -10583,7 +10494,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "The ghost disappeared (스스로) 사라지다 3 ___ 【?】 suddenly. (목적어를) 사라지게 하다"
+    "r": "The ghost disappeared (스스로) 사라지다 3 ___ 【?】 suddenly. (목적어를) 사라지게 하다",
+    "g": 0
    },
    {
     "a": "at me는 없음 부가정보",
@@ -10591,7 +10503,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(스스로) 보다 4 She looked angrily at me. ___ 【?】 (목적어를) 보게 하다"
+    "r": "(스스로) 보다 4 She looked angrily at me. ___ 【?】 (목적어를) 보게 하다",
+    "g": 0
    },
    {
     "a": "his face",
@@ -10599,7 +10512,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "(스스로) 돌다 5 He turned his face. ___ 【?】 (목적어를) 돌리다"
+    "r": "(스스로) 돌다 5 He turned his face. ___ 【?】 (목적어를) 돌리다",
+    "g": 0
    },
    {
     "a": "없음",
@@ -10607,7 +10521,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(스스로) 발생하다 6 The war happened in 1950. ___ 【?】 (목적어를) 발생시키다"
+    "r": "(스스로) 발생하다 6 The war happened in 1950. ___ 【?】 (목적어를) 발생시키다",
+    "g": 0
    },
    {
     "a": "the war",
@@ -10615,7 +10530,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "(스스로) 일어나다 7 North Korea caused the war. ___ 【?】 (목적어를) 일어나게 하다"
+    "r": "(스스로) 일어나다 7 North Korea caused the war. ___ 【?】 (목적어를) 일어나게 하다",
+    "g": 0
    },
    {
     "a": "for the 부가정보 없음 airport는",
@@ -10623,7 +10539,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(스스로) 남기다 / 떠나다 8 They left for the airport. ___ 【?】 (목적어를) 남기고 떠나다"
+    "r": "(스스로) 남기다 / 떠나다 8 They left for the airport. ___ 【?】 (목적어를) 남기고 떠나다",
+    "g": 0
    },
    {
     "a": "the airport",
@@ -10631,7 +10548,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "(스스로) 남기다 / 떠나다 9 They left the airport. ___ 【?】 (목적어를) 남기고 떠나다"
+    "r": "(스스로) 남기다 / 떠나다 9 They left the airport. ___ 【?】 (목적어를) 남기고 떠나다",
+    "g": 0
    },
    {
     "a": "없음",
@@ -10639,7 +10557,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(스스로) 열리다 10 The door opened slowly. ___ 【?】 (목적어를) 열다"
+    "r": "(스스로) 열리다 10 The door opened slowly. ___ 【?】 (목적어를) 열다",
+    "g": 0
    },
    {
     "a": "the door",
@@ -10647,7 +10566,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "(스스로) 열리다 11 She opened the door. ___ 【?】 (목적어를) 열다"
+    "r": "(스스로) 열리다 11 She opened the door. ___ 【?】 (목적어를) 열다",
+    "g": 0
    },
    {
     "a": "없음",
@@ -10655,7 +10575,8 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(스스로) 녹다 12 The ice melted in the sun. ___ 【?】 (목적어를) 녹이다"
+    "r": "(스스로) 녹다 12 The ice melted in the sun. ___ 【?】 (목적어를) 녹이다",
+    "g": 0
    },
    {
     "a": "the ice",
@@ -10663,7 +10584,8 @@ window.FB = {
    },
    {
     "a": "타동사",
-    "r": "(스스로) 녹다 13 The sun melted the ice. ___ 【?】 (목적어를) 녹이다"
+    "r": "(스스로) 녹다 13 The sun melted the ice. ___ 【?】 (목적어를) 녹이다",
+    "g": 0
    },
    {
     "k": 1
@@ -10775,11 +10697,13 @@ window.FB = {
    },
    {
     "a": "명사",
-    "r": "【?】 ___ I need some water. Don't forget to water the plants. ___ ___"
+    "r": "【?】 ___ I need some water. Don't forget to water the plants. ___ ___",
+    "g": 3
    },
    {
     "a": "동사",
-    "r": "___ 【?】 I need some water. Don't forget to water the plants. ___ ___"
+    "r": "___ 【?】 I need some water. Don't forget to water the plants. ___ ___",
+    "g": 3
    },
    {
     "a": "물",
@@ -10791,11 +10715,13 @@ window.FB = {
    },
    {
     "a": "명사",
-    "r": "【?】 ___ She bought a new bag. I'm going to bag these snacks. ___ ___"
+    "r": "【?】 ___ She bought a new bag. I'm going to bag these snacks. ___ ___",
+    "g": 3
    },
    {
     "a": "동사",
-    "r": "___ 【?】 She bought a new bag. I'm going to bag these snacks. ___ ___"
+    "r": "___ 【?】 She bought a new bag. I'm going to bag these snacks. ___ ___",
+    "g": 3
    },
    {
     "a": "가방",
@@ -10833,11 +10759,13 @@ window.FB = {
    },
    {
     "a": "능동",
-    "r": "동사에 -ing를 붙이면 【?】 의미(~하게 하는), p.p.로 쓰면 ___ 의미(~하게 된)의 형용사가 돼요."
+    "r": "동사에 -ing를 붙이면 【?】 의미(~하게 하는), p.p.로 쓰면 ___ 의미(~하게 된)의 형용사가 돼요.",
+    "g": 5
    },
    {
     "a": "수동",
-    "r": "동사에 -ing를 붙이면 ___ 의미(~하게 하는), p.p.로 쓰면 【?】 의미(~하게 된)의 형용사가 돼요."
+    "r": "동사에 -ing를 붙이면 ___ 의미(~하게 하는), p.p.로 쓰면 【?】 의미(~하게 된)의 형용사가 돼요.",
+    "g": 5
    },
    {
     "a": "목적어",
@@ -10845,15 +10773,18 @@ window.FB = {
    },
    {
     "a": "형용사",
-    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ 【?】 ③④ 형용사라면-ing ___ ④ / p.p. ___ ③"
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ 【?】 ③④ 형용사라면-ing ___ ④ / p.p. ___ ③",
+    "g": 4
    },
    {
     "a": "능동",
-    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing 【?】 ④ / p.p. ___ ③"
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing 【?】 ④ / p.p. ___ ③",
+    "g": 5
    },
    {
     "a": "수동",
-    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing ___ ④ / p.p. 【?】 ③"
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing ___ ④ / p.p. 【?】 ③",
+    "g": 5
    }
   ],
   "44": [
@@ -11077,7 +11008,8 @@ window.FB = {
    },
    {
     "a": "부사",
-    "r": "S 주어 V 동사 ___ S 주어 V 동사 【?】 부가정보 그녀는 보였다 + (그녀가) 상태로 → 그녀는 화나 보였다. 그녀는 화난 듯이 나를 보았다. (angrily → looked를 꾸밈)"
+    "r": "S 주어 V 동사 ___ S 주어 V 동사 【?】 부가정보 그녀는 보였다 + (그녀가) 상태로 → 그녀는 화나 보였다. 그녀는 화난 듯이 나를 보았다. (angrily → looked를 꾸밈)",
+    "g": 4
    },
    {
     "a": "화난",
@@ -11099,31 +11031,38 @@ window.FB = {
    },
    {
     "a": "형용사",
-    "r": "4 시험 출제 포인트 · 감각동사 뒤엔 【?】 4"
+    "r": "4 시험 출제 포인트 · 감각동사 뒤엔 【?】 4",
+    "g": 4
    },
    {
     "a": "○",
-    "r": "맛있어 보인다 【?】 The food looks delicious. ___ The food looks deliciously."
+    "r": "맛있어 보인다 【?】 The food looks delicious. ___ The food looks deliciously.",
+    "g": 8
    },
    {
     "a": "✕",
-    "r": "맛있어 보인다 ___ The food looks delicious. 【?】 The food looks deliciously."
+    "r": "맛있어 보인다 ___ The food looks delicious. 【?】 The food looks deliciously.",
+    "g": 8
    },
    {
     "a": "○",
-    "r": "【?】 You look happy today. ___ You look happily today. 행복해 보인다"
+    "r": "【?】 You look happy today. ___ You look happily today. 행복해 보인다",
+    "g": 8
    },
    {
     "a": "✕",
-    "r": "___ You look happy today. 【?】 You look happily today. 행복해 보인다"
+    "r": "___ You look happy today. 【?】 You look happily today. 행복해 보인다",
+    "g": 8
    },
    {
     "a": "○",
-    "r": "【?】 That sounds strange. ___ That sounds strangely. 이상하게 들린다"
+    "r": "【?】 That sounds strange. ___ That sounds strangely. 이상하게 들린다",
+    "g": 8
    },
    {
     "a": "✕",
-    "r": "___ That sounds strange. 【?】 That sounds strangely. 이상하게 들린다"
+    "r": "___ That sounds strange. 【?】 That sounds strangely. 이상하게 들린다",
+    "g": 8
    }
   ],
   "54": [
@@ -11132,16 +11071,19 @@ window.FB = {
     "r": "angry (주어가) 【?】 상태로 1 She looked angry. ___ ___ ___"
    },
    {
-    "a": "O",
-    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ 【?】 ___"
+    "a": "○",
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "자동사",
-    "r": "angry (주어가) ___ 상태로 1 She looked angry. 【?】 ___ ___"
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "형용사",
-    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ ___ 【?】"
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": null,
@@ -11149,43 +11091,51 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 【?】 ___ at me. ___"
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 【?】 ___ at me. ___",
+    "g": 0
    },
    {
-    "a": "X",
-    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ 【?】 at me. ___"
+    "a": "✕",
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ 【?】 at me. ___",
+    "g": 8
    },
    {
     "a": "부사",
-    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ ___ at me. 【?】"
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ ___ at me. 【?】",
+    "g": 3
    },
    {
     "a": "화난 상태로",
     "r": "mad (주어가) 【?】 상태로 3 He turned mad. ___ ___ ___"
    },
    {
-    "a": "O",
-    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ 【?】 ___"
+    "a": "○",
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "자동사",
-    "r": "mad (주어가) ___ 상태로 3 He turned mad. 【?】 ___ ___"
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "형용사",
-    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ ___ 【?】"
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": null,
     "r": "his face (주어가) 【?】 상태로 4 He turned his face. ___ ___ ___"
    },
    {
-    "a": "→ 타동사",
-    "r": "his face (주어가) ___ 상태로 4 He turned his face. 【?】 ___ ___"
+    "a": "타동사",
+    "r": "his face (주어가) ___ 상태로 4 He turned his face. 【?】 ___ ___",
+    "g": 0
    },
    {
-    "a": "X",
-    "r": "his face (주어가) ___ 상태로 4 He turned his face. ___ 【?】 ___"
+    "a": "✕",
+    "r": "his face (주어가) ___ 상태로 4 He turned his face. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "목적어",
@@ -11196,16 +11146,19 @@ window.FB = {
     "r": "(주어가) 【?】 상태로 smart 5 He is smart. ___ ___ ___"
    },
    {
-    "a": "O",
-    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ 【?】 ___"
+    "a": "○",
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "자동사",
-    "r": "(주어가) ___ 상태로 smart 5 He is smart. 【?】 ___ ___"
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "형용사",
-    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ ___ 【?】"
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": "변호사인 상태로",
@@ -11213,31 +11166,37 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. 【?】 ___ ___"
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. 【?】 ___ ___",
+    "g": 0
    },
    {
-    "a": "O",
-    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ 【?】 ___"
+    "a": "○",
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "명사",
-    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ ___ 【?】"
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ ___ 【?】",
+    "g": 2
    },
    {
     "a": "차분한 상태로",
     "r": "calm (주어가) 【?】 상태로 7 He remained calm. ___ ___ ___"
    },
    {
-    "a": "O",
-    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ 【?】 ___"
+    "a": "○",
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "자동사",
-    "r": "calm (주어가) ___ 상태로 7 He remained calm. 【?】 ___ ___"
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "형용사",
-    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ ___ 【?】"
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": "조용한 상태로",
@@ -11245,31 +11204,37 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. 【?】 ___ ___"
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. 【?】 ___ ___",
+    "g": 0
    },
    {
-    "a": "O",
-    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ 【?】 ___"
+    "a": "○",
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "형용사",
-    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ ___ 【?】"
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": "건강한 상태로",
     "r": "(주어가) 상태로 healthy 【?】 9 He stayed healthy. ___ ___ ___"
    },
    {
-    "a": "O",
-    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ 【?】 ___"
+    "a": "○",
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "자동사",
-    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. 【?】 ___ ___"
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. 【?】 ___ ___",
+    "g": 0
    },
    {
     "a": "형용사",
-    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ ___ 【?】"
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ ___ 【?】",
+    "g": 3
    },
    {
     "a": "맛있는 상태로",
@@ -11277,15 +11242,18 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "The food looks delicious (주어가) ___ 상태로 10 【?】 ___ delicious. ___"
+    "r": "The food looks delicious (주어가) ___ 상태로 10 【?】 ___ delicious. ___",
+    "g": 0
    },
    {
-    "a": "O",
-    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ 【?】 delicious. ___"
+    "a": "○",
+    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ 【?】 delicious. ___",
+    "g": 8
    },
    {
     "a": "형용사",
-    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ ___ delicious. 【?】"
+    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ ___ delicious. 【?】",
+    "g": 3
    },
    {
     "a": "늙은 상태로",
@@ -11293,15 +11261,18 @@ window.FB = {
    },
    {
     "a": "자동사",
-    "r": "old (주어가) ___ 상태로 11 They are growing old. 【?】 ___ ___"
+    "r": "old (주어가) ___ 상태로 11 They are growing old. 【?】 ___ ___",
+    "g": 0
    },
    {
-    "a": "O",
-    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ 【?】 ___"
+    "a": "○",
+    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ 【?】 ___",
+    "g": 8
    },
    {
     "a": "형용사",
-    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ ___ 【?】"
+    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ ___ 【?】",
+    "g": 3
    }
   ],
   "62": [
@@ -11417,19 +11388,23 @@ window.FB = {
    },
    {
     "a": "○",
-    "r": "【?】 He participated in the competition. ___ He was participated in the competition. 그는 대회에 참가되었다? ← 함정!"
+    "r": "【?】 He participated in the competition. ___ He was participated in the competition. 그는 대회에 참가되었다? ← 함정!",
+    "g": 8
    },
    {
     "a": "✕",
-    "r": "___ He participated in the competition. 【?】 He was participated in the competition. 그는 대회에 참가되었다? ← 함정!"
+    "r": "___ He participated in the competition. 【?】 He was participated in the competition. 그는 대회에 참가되었다? ← 함정!",
+    "g": 8
    },
    {
     "a": "○",
-    "r": "【?】 The accident happened last night. ___ The accident was happened last night. 사고가 일어나졌다?"
+    "r": "【?】 The accident happened last night. ___ The accident was happened last night. 사고가 일어나졌다?",
+    "g": 8
    },
    {
     "a": "✕",
-    "r": "___ The accident happened last night. 【?】 The accident was happened last night. 사고가 일어나졌다?"
+    "r": "___ The accident happened last night. 【?】 The accident was happened last night. 사고가 일어나졌다?",
+    "g": 8
    }
   ],
   "64": [
@@ -11657,7 +11632,8 @@ window.FB = {
    },
    {
     "a": "문장",
-    "r": "해석이 '~다'로 끝나면 【?】 , 명사로 끝나면 ___ 예요. 2단원 관계사"
+    "r": "해석이 '~다'로 끝나면 【?】 , 명사로 끝나면 ___ 예요. 2단원 관계사",
+    "g": 2
    },
    {
     "a": "명사 덩어리",
@@ -11699,10 +11675,6 @@ window.FB = {
    }
   ],
   "76": [
-   {
-    "a": null,
-    "r": "문장 8 The man [ ] she loved 【?】 명사"
-   },
    {
     "k": 1
    },
@@ -11955,7 +11927,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "Surprised by the news, he couldn't speak. 능동 because although ___ 【?】 ___ , 그는 말을 할 수 없었다. 수동 when if while 1"
+    "r": "Surprised by the news, he couldn't speak. 능동 because although ___ 【?】 ___ , 그는 말을 할 수 없었다. 수동 when if while 1",
+    "g": 10
    },
    {
     "a": "그 뉴스에 의해 놀라지면서,",
@@ -11979,7 +11952,8 @@ window.FB = {
    },
    {
     "a": "과거진행",
-    "r": "Smiling brightly, she entered the room. 능동 because although ___ 【?】 ___ , 그녀는 방에 들어갔다. 수동 when if while 3"
+    "r": "Smiling brightly, she entered the room. 능동 because although ___ 【?】 ___ , 그녀는 방에 들어갔다. 수동 when if while 3",
+    "g": 10
    },
    {
     "a": "3 환하게 웃으면서,",
@@ -11991,7 +11965,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "Shocked by the result, they left the room silently. 능동 because although ___ 【?】 ___ , 그들은 조용히 방을 나갔다. 수동 when if while 4"
+    "r": "Shocked by the result, they left the room silently. 능동 because although ___ 【?】 ___ , 그들은 조용히 방을 나갔다. 수동 when if while 4",
+    "g": 10
    },
    {
     "a": "그 결과에 충격을 받으면서,",
@@ -12003,7 +11978,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "Seeing the accident, we called an ambulance. 능동 because although ___ 【?】 when if while 5 ___ , 우리는 구급차를 불렀다. 수동"
+    "r": "Seeing the accident, we called an ambulance. 능동 because although ___ 【?】 when if while 5 ___ , 우리는 구급차를 불렀다. 수동",
+    "g": 10
    },
    {
     "a": "5 사고를 보면서,",
@@ -12015,7 +11991,8 @@ window.FB = {
    },
    {
     "a": "현재",
-    "r": "Built near the river, the restaurant attracts many 능동 because although visitors. ___ 【?】 6 수동 when if while ___ , 그 식당은 많은 방문객을 끌어모은다."
+    "r": "Built near the river, the restaurant attracts many 능동 because although visitors. ___ 【?】 6 수동 when if while ___ , 그 식당은 많은 방문객을 끌어모은다.",
+    "g": 10
    },
    {
     "a": "6 강 근처에 지어지면서,",
@@ -12027,7 +12004,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "Left alone, the child started crying. 능동 because although ___ 【?】 ___ , 그 아이는 울기 시작했다. 수동 when if while 7"
+    "r": "Left alone, the child started crying. 능동 because although ___ 【?】 ___ , 그 아이는 울기 시작했다. 수동 when if while 7",
+    "g": 10
    },
    {
     "a": "혼자 남겨지면서, 7",
@@ -12039,7 +12017,8 @@ window.FB = {
    },
    {
     "a": "과거진행",
-    "r": "Reading a book, she fell asleep. 능동 because although ___ 【?】 ___ , 그녀는 잠들었다. 수동 when if while 8"
+    "r": "Reading a book, she fell asleep. 능동 because although ___ 【?】 ___ , 그녀는 잠들었다. 수동 when if while 8",
+    "g": 10
    },
    {
     "a": "책을 읽으면서, 그녀는 잠들었다.",
@@ -12051,7 +12030,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "Feeling tired, he kept working. 능동 because although ___ 【?】 ___ , 그는 계속 일했다. 수동 when if while 9"
+    "r": "Feeling tired, he kept working. 능동 because although ___ 【?】 ___ , 그는 계속 일했다. 수동 when if while 9",
+    "g": 10
    },
    {
     "a": "9 피곤함을 느끼면서,",
@@ -12299,11 +12279,8 @@ window.FB = {
    },
    {
     "a": "✕",
-    "r": "7 I know 【?】 what 아이유 has ___ [ 문장 / 명사 ]"
-   },
-   {
-    "a": null,
-    "r": "7 I know ___ what 아이유 has 【?】 [ 문장 / 명사 ]"
+    "r": "7 I know 【?】 what 아이유 has [ 문장 / 명사 ]",
+    "g": 8
    },
    {
     "a": "나는 [아이유가 가지고 있는] 것(무언가)을 안다.",
@@ -12311,11 +12288,7 @@ window.FB = {
    },
    {
     "a": "the thing",
-    "r": "8 I know 【?】 which 아이유 has ___ [ 문장 / 명사 ]"
-   },
-   {
-    "a": null,
-    "r": "8 I know ___ which 아이유 has 【?】 [ 문장 / 명사 ]"
+    "r": "8 I know 【?】 which 아이유 has [ 문장 / 명사 ]"
    },
    {
     "a": "나는 [아이유가 가지고 있는] 그것을 안다.",
@@ -12323,11 +12296,7 @@ window.FB = {
    },
    {
     "a": "the person",
-    "r": "9 I know 【?】 who ___ has something [ 문장 / 명사 ]"
-   },
-   {
-    "a": null,
-    "r": "9 I know ___ who 【?】 has something [ 문장 / 명사 ]"
+    "r": "9 I know 【?】 who has something [ 문장 / 명사 ]"
    },
    {
     "a": "[아이유가 가지고 있는] 그것",
@@ -12335,7 +12304,8 @@ window.FB = {
    },
    {
     "a": "없음",
-    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사"
+    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사",
+    "g": 9
    },
    {
     "a": "없음 완전",
@@ -12343,7 +12313,8 @@ window.FB = {
    },
    {
     "a": "있음",
-    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사",
+    "g": 9
    },
    {
     "a": "있음 불완전",
@@ -12351,7 +12322,8 @@ window.FB = {
    },
    {
     "a": "없음",
-    "r": "what [~한] 것 (= the thing which) 【?】 ___ 관계대명사"
+    "r": "what [~한] 것 (= the thing which) 【?】 ___ 관계대명사",
+    "g": 9
    },
    {
     "a": "없음 불완전",
@@ -12383,7 +12355,7 @@ window.FB = {
      "문장",
      "명사"
     ],
-    "r": "7 I know ___ what 아이유 has ___ [ 문장 / 명사 ]"
+    "r": "7 I know ___ what 아이유 has [ 문장 / 명사 ]"
    },
    {
     "c": [
@@ -12393,7 +12365,7 @@ window.FB = {
      "문장",
      "명사"
     ],
-    "r": "8 I know ___ which 아이유 has ___ [ 문장 / 명사 ]"
+    "r": "8 I know ___ which 아이유 has [ 문장 / 명사 ]"
    },
    {
     "c": [
@@ -12403,7 +12375,7 @@ window.FB = {
      "문장",
      "명사"
     ],
-    "r": "9 I know ___ who ___ has something [ 문장 / 명사 ]"
+    "r": "9 I know ___ who has something [ 문장 / 명사 ]"
    }
   ],
   "108": [
@@ -12746,7 +12718,8 @@ window.FB = {
   "117": [
    {
     "a": "✕",
-    "r": "【?】 Black bears are beautiful, they have shiny coats. ___ S₁ V₁ S₂ V₂"
+    "r": "【?】 Black bears are beautiful, they have shiny coats. ___ S₁ V₁ S₂ V₂",
+    "g": 8
    },
    {
     "a": "…, and they have shiny coats.",
@@ -12754,7 +12727,8 @@ window.FB = {
    },
    {
     "a": "✕",
-    "r": "I love watching movies, I hate watching TV. 【?】 ___ S₁ V₁ S₂ V₂"
+    "r": "I love watching movies, I hate watching TV. 【?】 ___ S₁ V₁ S₂ V₂",
+    "g": 8
    },
    {
     "a": "…, but I hate watching TV.",
@@ -12762,7 +12736,8 @@ window.FB = {
    },
    {
     "a": "○",
-    "r": "【?】 My friend , a student at Harvard, lives on the campus. ___ S₁ V₁"
+    "r": "【?】 My friend , a student at Harvard, lives on the campus. ___ S₁ V₁",
+    "g": 8
    },
    {
     "a": "문장 1개 · 콤마 안은 my friend 보충 설명",
@@ -12770,7 +12745,8 @@ window.FB = {
    },
    {
     "a": "✕",
-    "r": "【?】 I watched soccer yesterday, it was boring. ___ S₁ V₁ S₂ V₂"
+    "r": "【?】 I watched soccer yesterday, it was boring. ___ S₁ V₁ S₂ V₂",
+    "g": 8
    },
    {
     "a": "…, and it was boring.",
@@ -13054,7 +13030,8 @@ window.FB = {
   "133": [
    {
     "a": "없음",
-    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사"
+    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사",
+    "g": 9
    },
    {
     "a": "없음 완전",
@@ -13062,7 +13039,8 @@ window.FB = {
    },
    {
     "a": "있음",
-    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사",
+    "g": 9
    },
    {
     "a": "있음 불완전",
@@ -13070,15 +13048,12 @@ window.FB = {
    },
    {
     "a": "없음",
-    "r": "what 【?】 ___ [~한] 것 (= the thing which) 관계대명사"
+    "r": "what 【?】 ___ [~한] 것 (= the thing which) 관계대명사",
+    "g": 9
    },
    {
     "a": "없음 불완전",
     "r": "what ___ 【?】 [~한] 것 (= the thing which) 관계대명사"
-   },
-   {
-    "a": null,
-    "r": "The computer ( which I bought 【?】 two weeks ago) does not work well. 선행사 수식하는 내용"
    },
    {
     "a": "who",
@@ -13112,19 +13087,16 @@ window.FB = {
   "134": [
    {
     "a": "내가 어제 읽었던",
-    "r": "책 근데 그것을 내가 읽었다 어제 1 【?】 ___ ___ The book which (=that) I read ___ yesterday"
+    "r": "책 근데 그것을 내가 읽었다 어제 1 【?】 ___ ___ The book which (=that) I read yesterday"
    },
    {
     "a": "책",
-    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ 【?】 ___ The book which (=that) I read ___ yesterday"
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ 【?】 ___ The book which (=that) I read yesterday"
    },
    {
     "a": "목적격",
-    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which (=that) I read ___ yesterday"
-   },
-   {
-    "a": null,
-    "r": "1 ___ ___ ___ The book which (=that) I read 【?】 yesterday"
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which (=that) I read yesterday",
+    "g": 1
    },
    {
     "a": "네가 나에게 추천한",
@@ -13136,7 +13108,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "영화 근데 그것을 네가 나에게 추천했다 2 you recommended to ___ ___ 【?】 The movie which (=that) me"
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 you recommended to ___ ___ 【?】 The movie which (=that) me",
+    "g": 1
    },
    {
     "a": "네가 작년에 말했던",
@@ -13148,7 +13121,8 @@ window.FB = {
    },
    {
     "a": "목적격",
-    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 The story which (=that) you told me last year"
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 The story which (=that) you told me last year",
+    "g": 1
    },
    {
     "a": "그녀를 좋아하는",
@@ -13160,71 +13134,60 @@ window.FB = {
    },
    {
     "a": "주격",
-    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 The person who (=that) likes her"
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 The person who (=that) likes her",
+    "g": 1
    },
    {
     "a": "그녀가 좋아하는",
-    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) 【?】 ___ ___ The person she likes ___ (=that)"
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) 【?】 ___ ___ The person she likes (=that)"
    },
    {
     "a": "사람",
-    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ 【?】 ___ The person she likes ___ (=that)"
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ 【?】 ___ The person she likes (=that)"
    },
    {
     "a": "목적격",
-    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ ___ 【?】 The person she likes ___ (=that)"
-   },
-   {
-    "a": null,
-    "r": "5 who(m) ___ ___ ___ The person she likes 【?】 (=that)"
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ ___ 【?】 The person she likes (=that)",
+    "g": 1
    },
    {
     "a": "그가 개발하고 싶은",
-    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 【?】 ___ ___ The app which (=that) he wants to develop ___"
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 【?】 ___ ___ The app which (=that) he wants to develop"
    },
    {
     "a": "앱",
-    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ 【?】 ___ The app which (=that) he wants to develop ___"
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ 【?】 ___ The app which (=that) he wants to develop"
    },
    {
     "a": "목적격",
-    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which (=that) he wants to develop ___"
-   },
-   {
-    "a": "그가 개발하고 싶은 앱 목적격",
-    "r": "6 ___ ___ ___ The app which (=that) he wants to develop 【?】"
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which (=that) he wants to develop",
+    "g": 1
    },
    {
     "a": "우리를 웃게 만든",
-    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 【?】 ___ ___ The scene which (=that) ___ made us laugh"
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 【?】 ___ ___ The scene which (=that) made us laugh"
    },
    {
     "a": "장면",
-    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ 【?】 ___ The scene which (=that) ___ made us laugh"
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ 【?】 ___ The scene which (=that) made us laugh"
    },
    {
     "a": "주격",
-    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 The scene which (=that) ___ made us laugh"
-   },
-   {
-    "a": null,
-    "r": "7 ___ ___ ___ The scene which (=that) 【?】 made us laugh"
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 The scene which (=that) made us laugh",
+    "g": 1
    },
    {
     "a": "내가 찾고 있는",
-    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 【?】 ___ ___ The key which (=that) I am looking for ___"
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 【?】 ___ ___ The key which (=that) I am looking for"
    },
    {
     "a": "열쇠",
-    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ 【?】 ___ The key which (=that) I am looking for ___"
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ 【?】 ___ The key which (=that) I am looking for"
    },
    {
     "a": "목적격",
-    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 The key which (=that) I am looking for ___"
-   },
-   {
-    "a": "내가 찾고 있는 열쇠 목적격",
-    "r": "8 ___ ___ ___ The key which (=that) I am looking for 【?】"
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 The key which (=that) I am looking for",
+    "g": 1
    },
    {
     "a": "서울에서 태어난",
@@ -13236,23 +13199,21 @@ window.FB = {
    },
    {
     "a": "주격",
-    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 The singer who (=that) was born in Seoul"
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 The singer who (=that) was born in Seoul",
+    "g": 1
    },
    {
     "a": "우리가 어제 발견한 책의 주인인",
-    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found 【?】 ___ ___ the man whose yesterday"
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 book we found 【?】 ___ ___ the man whose yesterday"
    },
    {
     "a": "그 남자",
-    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found ___ 【?】 ___ the man whose yesterday"
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 book we found ___ 【?】 ___ the man whose yesterday"
    },
    {
     "a": "소유격",
-    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found ___ ___ 【?】 the man whose yesterday"
-   },
-   {
-    "a": "the man whose",
-    "r": "10 【?】 book we found ___ ___ ___ the man whose yesterday"
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 book we found ___ ___ 【?】 the man whose yesterday",
+    "g": 1
    }
   ],
   "135": [
@@ -13282,11 +13243,13 @@ window.FB = {
    },
    {
     "a": "불완전",
-    "r": "1. 이후 수식어구 【?】 1. 이후 수식어구 ___ 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을"
+    "r": "1. 이후 수식어구 【?】 1. 이후 수식어구 ___ 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을",
+    "g": 6
    },
    {
     "a": "완전",
-    "r": "1. 이후 수식어구 ___ 1. 이후 수식어구 【?】 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을"
+    "r": "1. 이후 수식어구 ___ 1. 이후 수식어구 【?】 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을",
+    "g": 6
    }
   ],
   "136": [
@@ -13311,12 +13274,9 @@ window.FB = {
     "r": "3. 선행사 속 시공간으로 이해 도서관 '시공간'에서 <그녀가 공부하고> 있는 이미지 → 【?】"
    },
    {
-    "a": null,
-    "r": "The library [ which / where ] he built 【?】"
-   },
-   {
     "a": "불완전",
-    "r": "2. 직독직해 비교 풀이법 도서관 [근데 그것을 / 근데 거기에서] 그가 지었다 3. 선행사 속 시공간으로 이해 목적격 관계대명사 → 이후 문장 【?】 (built의 목적어 없음) · '시공간' 발생 ✕"
+    "r": "2. 직독직해 비교 풀이법 도서관 [근데 그것을 / 근데 거기에서] 그가 지었다 3. 선행사 속 시공간으로 이해 목적격 관계대명사 → 이후 문장 【?】 (built의 목적어 없음) · '시공간' 발생 ✕",
+    "g": 6
    },
    {
     "a": null,
@@ -13348,7 +13308,7 @@ window.FB = {
      "which",
      "where"
     ],
-    "r": "The library [ which / where ] he built ___ 선행사 속 '시공간' · where"
+    "r": "The library [ which / where ] he built 선행사 속 '시공간' · where"
    },
    {
     "c": null,
@@ -13746,12 +13706,6 @@ window.FB = {
     "r": "10 This is the way [ that / which / how ] he runs his company."
    }
   ],
-  "141": [
-   {
-    "a": null,
-    "r": "1. 관계대명사 — 불완전한 문장 2. 동격 that — 완전한 문장 【?】 I heard the news that he told me yesterday. I heard the news that { he stole the money }. 그 뉴스 [근데 그것을] 그가 말했다 나에게 ▢ 어제 → 그가 어제 그 뉴스 = {그가 돈을 훔쳤다} → 그가 돈을 훔쳤다는 그 뉴스"
-   }
-  ],
   "151": [
    {
     "a": "짧고 간단하게",
@@ -13789,7 +13743,8 @@ window.FB = {
    },
    {
     "a": "과거완료",
-    "r": "(1) 과거시제보다 앞선 시제 → 【?】 5단원 과거완료 과거시제 현재시제 능동 had p.p. 현재완료 (2) 능동 vs 수동 형태 (2) 현재시제보다 앞선 시제 →"
+    "r": "(1) 과거시제보다 앞선 시제 → 【?】 5단원 과거완료 과거시제 현재시제 능동 had p.p. 현재완료 (2) 능동 vs 수동 형태 (2) 현재시제보다 앞선 시제 →",
+    "g": 10
    },
    {
     "a": "현재완료, 과거",
@@ -13911,11 +13866,13 @@ window.FB = {
    },
    {
     "a": "소유격",
-    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 【?】 또는 ___ 형태로 나타내요."
+    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 【?】 또는 ___ 형태로 나타내요.",
+    "g": 1
    },
    {
     "a": "목적격",
-    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 ___ 또는 【?】 형태로 나타내요."
+    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 ___ 또는 【?】 형태로 나타내요.",
+    "g": 1
    },
    {
     "a": "his",
@@ -14035,11 +13992,13 @@ window.FB = {
    },
    {
     "a": "현재",
-    "r": "① 생각이 < 【?】 > 또는 < ___ >를 향할 때 · 능동 : ___"
+    "r": "① 생각이 < 【?】 > 또는 < ___ >를 향할 때 · 능동 : ___",
+    "g": 10
    },
    {
     "a": "미래",
-    "r": "① 생각이 < ___ > 또는 < 【?】 >를 향할 때 · 능동 : ___"
+    "r": "① 생각이 < ___ > 또는 < 【?】 >를 향할 때 · 능동 : ___",
+    "g": 10
    },
    {
     "a": "조동사 + 동사원형",
@@ -14051,7 +14010,8 @@ window.FB = {
    },
    {
     "a": "과거",
-    "r": "② 생각이 < 【?】 >로 향할 때 (또는 현재의 완료 상태일 때)"
+    "r": "② 생각이 < 【?】 >로 향할 때 (또는 현재의 완료 상태일 때)",
+    "g": 10
    },
    {
     "a": "조동사 + have p.p.",
@@ -14169,7 +14129,8 @@ window.FB = {
    },
    {
     "a": "과거완료",
-    "r": "· 과거완료 능동 : ___ 가정법 과거완료는 If S 【?】 · 과거완료 수동 : ___ 단순 상상 또는 가정"
+    "r": "· 과거완료 능동 : ___ 가정법 과거완료는 If S 【?】 · 과거완료 수동 : ___ 단순 상상 또는 가정",
+    "g": 10
    },
    {
     "a": "had been p.p.",
@@ -14362,7 +14323,6 @@ window.FB = {
   "138": "3층 · 전치사의 활용 · 빈칸 채우기 메모 · 영상 보며 필기 6 전치사 + 관계대명사 · 전치사의 활용(⑥의 계속)",
   "139": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ① 1층 · 다음 문장에서 적절한 관계사를 고르세요. (중복 선택 가능)",
   "140": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ② 2층 · 알맞은 관계사를 고르거나 쓰고, 우리말 연결도 고르세요.",
-  "141": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ⑤ 종합 리뷰 · 우리말로 연결하는 관계사",
   "151": "X2. 분사구문(심화) ✓ 표시된 곳을 완성하세요. Date ________",
   "152": "핵심 3가지 · ② 주어 ③ 시제 · 빈칸 채우기 메모 · 영상 보며 필기 2 ② 주어가 다를 때 · ③ 시제가 앞설 때",
   "153": "심화 4가지 · ④ with ⑤ There ⑥ 보어 · 빈칸 채우기 4 분사구문 심화 4가지 · ④ with 분사구문 ⑤ There + be ⑥ be + 보어 ④ with 분사구문 · 능동",
@@ -14373,6 +14333,60 @@ window.FB = {
   "165": "가정법 · 현재를 가정할 때 · 과거를 가정할 때 · 빈칸 채우기 3 가정법If 가정법 해석 : ~라면 · ※ 조동사 '~일 텐데' 해석과 반드시 구분 가정법의 시제",
   "166": "조동사의 시제에 유의해 해석하고, 알맞은 형태를 고르세요. STEP 1 생각이 어느 시간을 향하나? → STEP 2 현실성이 있나(조건) 없나(가정)? ① 밑줄 친 부분을 <조동사의 시제>에 유의하여 해석해 보세요. (생각이 향하는 시간에 표시)"
  },
+ "groups": [
+  [
+   "자동사",
+   "타동사"
+  ],
+  [
+   "주격",
+   "목적격",
+   "소유격"
+  ],
+  [
+   "문장",
+   "명사"
+  ],
+  [
+   "명사",
+   "동사",
+   "형용사",
+   "부사"
+  ],
+  [
+   "형용사",
+   "부사"
+  ],
+  [
+   "능동",
+   "수동"
+  ],
+  [
+   "완전",
+   "불완전"
+  ],
+  [
+   "단수",
+   "복수"
+  ],
+  [
+   "○",
+   "✕"
+  ],
+  [
+   "있음",
+   "없음"
+  ],
+  [
+   "현재",
+   "과거",
+   "미래",
+   "현재진행",
+   "과거진행",
+   "현재완료",
+   "과거완료"
+  ]
+ ],
  "sizes": {
   "ch01": 483023,
   "ch02": 492411,
