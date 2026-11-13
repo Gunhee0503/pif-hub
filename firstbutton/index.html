@@ -165,8 +165,8 @@ body[data-mode=text] .pg .ly .fd:not(.ft),body[data-mode=text] .pg .ly .ch,body[
 .gradeb{border:0;background:var(--acc);color:#fff;border-radius:11px;padding:8px 14px;font-size:13px;font-weight:700;white-space:nowrap}
 .gradeb:disabled{opacity:.6}
 .vsc .sc{font-size:15px;color:var(--acc)}
-.vfoot .btn{width:auto;min-width:180px;margin:0 4px}
-.vfoot{display:flex;justify-content:center;margin:18px 0 10px}
+.vfoot .btn{width:auto;min-width:150px;margin:0}
+.vfoot{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin:18px 0 10px}.vfoot #vNext:empty{display:none}.btn.done{background:#1f7a4a;color:#fff}
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -14px rgba(0,0,0,.35);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
 .sh1{display:flex;align-items:center;gap:8px;max-width:820px;margin:0 auto 8px;font-size:12.5px;color:var(--ink2)}
 .sh1 span{flex:1}
@@ -473,7 +473,7 @@ function openViewer(o){
   ${o.write ? `<div class="vbar"><button class="gradeb" id="solveGo">✎ 풀기 시작</button><button class="ansb" id="gradeGo">정답 확인·채점</button><button class="memo" id="memo">＋ 메모</button><span class="vsc" id="vsc"></span></div>`
     : o.uid ? `<div class="vbar end"><div class="pent" id="pent"><button id="penT">✏️ 펜 쓰기</button></div></div>` : ''}
   <div id="pages">${o.pages.map(pn => `<div class="pg" data-pn="${pn}"><div class="ld">페이지 ${pn} 불러오는 중…</div></div>`).join('')}</div>
-  ${o.step ? `<div class="vfoot">${o.write ? '<button class="btn acc" id="gradeGo2">정답 확인·채점</button>' : ''}<button class="btn ${done ? 'sec' : o.write ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 이 단계 완료' : '이 단계 다 했어요'}</button></div>` : ''}
+  ${o.step ? `<div class="vfoot">${o.write ? '<button class="btn acc" id="gradeGo2">정답 확인·채점</button>' : ''}<button class="btn ${done ? 'done' : o.write ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 학습완료' : '학습완료'}</button><span id="vNext"></span>${o.write ? '<button class="btn sec" id="vRedo">↺ 다시 풀어보기</button>' : ''}</div>` : ''}
   ${o.write ? '<button class="resume" id="resume" hidden>▶ 이어서 풀기</button>' : ''}`;
   $app.innerHTML = h; scrollTo(0, 0);
   document.getElementById('vbk').onclick = () => { closeSheet(); saveInk(); V = null; document.body.dataset.mode = ''; const a = document.getElementById('ans'); if (a) { a.remove(); document.body.style.overflow = ''; } o.back(); };
@@ -483,7 +483,18 @@ function openViewer(o){
   on('gradeGo', () => startGrade()); on('gradeGo2', () => startGrade());
   on('penT', () => setMode(V.mode === 'pen' || V.mode === 'erase' ? 'view' : 'pen'));
   const vd = document.getElementById('vDone'); if (vd) vd.onclick = () => { x.steps = x.steps || {}; x.steps[o.step] = !x.steps[o.step]; saveInk();
-    vd.className = 'btn ' + (x.steps[o.step] ? 'sec' : 'acc'); vd.textContent = x.steps[o.step] ? '✓ 이 단계 완료' : '이 단계 다 했어요'; if (x.steps[o.step]) toast('잘했어요! 다음 단계로 가요.'); };
+    vd.className = 'btn ' + (x.steps[o.step] ? 'done' : o.write ? 'sec' : 'acc'); vd.textContent = x.steps[o.step] ? '✓ 학습완료' : '학습완료'; nextBtn(); if (x.steps[o.step]) toast('잘했어요! 다음 파트로 넘어가요.'); };
+  on('vRedo', () => { if (!confirm('이 파트에 쓴 답과 채점을 모두 지우고 처음부터 다시 풀까요?')) return;
+    closeSheet(); V.grading = false; o.pages.forEach(pn => { if (x.ink) delete x.ink[pn]; paintFields(pn); }); saveInk(); toast('처음부터 다시 풀어요.'); startSolve(); });
+  const nextBtn = () => { const sp = document.getElementById('vNext'); if (!sp || !o.uid) return;
+    if (!(x.steps || {})[o.step]) { sp.innerHTML = ''; return; }
+    const u = UB[o.uid], st = stepsOf(u), n = st[st.findIndex(v => v.k === o.step) + 1];
+    sp.innerHTML = `<button class="btn acc" id="vNx">${n ? '다음 파트 · ' + esc(n.t.split(' · ')[0]) : nextUnit(u) ? '다음 단원 · ' + esc(nextUnit(u).title) : '단원 목록으로'} →</button>`;
+    document.getElementById('vNx').onclick = () => { closeSheet(); saveInk(); V = null; document.body.dataset.mode = '';
+      if (n && n.pages) return openStep(u, n.k);
+      if (n) { openUnit(u.id); const el = $app.querySelector(`.st[data-k="${n.k}"]`); if (el) setTimeout(() => el.scrollIntoView({ block:'start', behavior:'smooth' }), 50); return; }
+      if (nextUnit(u)) openUnit(nextUnit(u).id); else renderHome(); }; };
+  nextBtn();
   tally(); setMode(o.write ? 'type' : 'view');
   loadView(o.view).then(() => { if (!V || V.o !== o) return; o.pages.forEach(pn => drawPage(pn));
     if (o.write) { const t = tally(); if (!t.done) startSolve(); else if (t.done < t.n) showResume(true); } })
