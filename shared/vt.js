@@ -13,7 +13,8 @@
     essential:   { name: 'Essential',   ko: '보카트리 에센셜',   path: '/essential/',   prefixes: ['vte_'] },
     spectrum:    { name: 'Spectrum',    ko: '보카트리 스펙트럼', path: '/spectrum/',    prefixes: ['vts_'] },
     matching:    { name: 'Word Matching', ko: '어휘 매칭 훈련',  path: '/matching/',    prefixes: ['vtm_'], native: true },
-    grammar:     { name: 'Grammar STEP',  ko: '문법 · 출제자의 시선', path: '/grammar/', prefixes: ['vtg_'], native: true }
+    grammar:     { name: 'Grammar STEP',  ko: '문법 · 출제자의 시선', path: '/grammar/', prefixes: ['vtg_'], native: true },
+    gfirst:      { name: 'Grammar 첫단추', ko: '문법 · 그래머 첫단추', path: '/firstbutton/', prefixes: ['vtf_'], native: true }
   };
   var LS = (function () { try { var k = '__vt'; localStorage.setItem(k, 1); localStorage.removeItem(k); return localStorage; } catch (e) { return null; } })();
   var rawSet = LS ? Storage.prototype.setItem : null;

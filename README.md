@@ -31,3 +31,10 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 학습지 PDF (로그인한 사람만): `grammar/files/<b01>-student.bin`(정답 제외), `-full.bin`(정답 포함)은 AES-GCM 암호화본.
   Edge Function `hub-file`이 승인 학생(문법 수강)·선생님만 확인하고 풀어서 내려줌. 키는 함수 안에만 있음(저장소에 넣지 말 것).
   새 회차: `GRAM_PDF_KEY=<함수의 키> python3 tools/grammar_pdf.py 학습지.pdf`
+
+## 그래머 첫단추 (`/firstbutton/`, 코스 `gfirst`)
+- 데이터·PDF: `GRAM_PDF_KEY=<hub-file 함수의 키> python3 tools/firstbutton_pdf.py 그래머첫단추.pdf`
+  → `firstbutton/data.js`(단원·파트 쪽수, 목표, 마무리 실전 문항, 종합 진단 30문항) + `firstbutton/files/*.bin`(단원 전체·파트별·교재 전체 암호화 PDF)
+- PDF는 Edge Function `hub-file`이 승인 학생(gfirst 수강)·선생님만 확인하고 내려줌. 내려받을 때마다 `hub_downloads`에 기록 → 관리자 '영상·자료' 탭, 학생 상세
+- 수업 영상: 관리자 '영상·자료' 탭에서 단원별 유튜브 링크와 장면별 시작 시간을 입력 (`hub_videos`). 비어 있으면 '영상 준비 중'
+- 진도: `vt_progress` course `gfirst`, unit `u01`…`ux3`, 종합 진단 `diag`

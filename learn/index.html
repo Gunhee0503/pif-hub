@@ -149,7 +149,8 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
   <div class="grp"><b>구문 · 구문의 지도</b><span>청크(Chunk) 덩어리가 보이면, 긴 문장도 한눈에 읽힙니다</span></div>
   <div class="grid" id="syntax"></div>
 
-  <div class="grp" style="margin-top:42px"><b>문법 · 출제자의 시선</b><span>틀린 것을 찾는 데서 멈추지 않고, 틀리게 만들어 보기</span></div>
+  <div class="grp" style="margin-top:42px"><b>문법 · 그래머 첫단추 → 출제자의 시선</b><span>개념의 첫 단추부터 끼우고, 출제자의 눈으로 적용하기</span></div>
+  <div class="grid" id="gfirstBox" style="margin-bottom:18px"></div>
   <div class="ytcard" id="gramCard">
     <div class="ytbox" id="ytGram"></div>
     <div class="ytside"><div class="lv" style="color:#2c5f8a;font-size:11.5px;font-weight:700;letter-spacing:.1em">GRAMMAR STEP · 과제</div>
@@ -166,7 +167,7 @@ const $ = id => document.getElementById(id);
 const VIEWS = ['boot','login','pending','home'];
 function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0); }
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
-const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching|grammar)\/$/.test(n) ? n : null; })();
+const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching|grammar|firstbutton)\/$/.test(n) ? n : null; })();
 const BEACON_URL = 'https://syntax-beacon.vercel.app/';
 let EDITION = 'beacon', OPEN = null;
 const LOCKED_Q = new URLSearchParams(location.search).get('locked');
@@ -183,7 +184,7 @@ async function enter(st){
   if (prev && prev.sid !== st.student_id) VT.clearPrefixes();
   VT.setMe(st); EDITION = st.edition || 'beacon';
   try { const a = await VT.access(); if (a) { OPEN = a.courses; EDITION = a.edition || EDITION; } } catch(e){}
-  const nextCourse = NEXT && NEXT.replace(/\//g,'');
+  const nextCourse = NEXT && (Object.keys(VT.COURSES).find(k => VT.COURSES[k].path === NEXT) || NEXT.replace(/\//g,''));
   if (NEXT && (!OPEN || OPEN.includes(nextCourse))) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
   if (NEXT || LOCKED_Q) showLockNote(nextCourse || LOCKED_Q);
   $('hName').textContent = st.name; $('hClass').textContent = st.class_name;
@@ -211,6 +212,12 @@ function render(rows){
       <div class="foot"><div class="bar"><i style="width:${pct}%"></i></div>
       <div class="stat"><span><b>${done}</b> / ${max} ${c.unit}</span><span>${extra}</span></div></div></a>`;
   }).join('');
+  const fbr = rows.filter(r => r.course === 'gfirst' && r.unit_id !== 'diag'), fbDone = fbr.filter(r => r.completed).length, fbd = rows.find(r => r.course === 'gfirst' && r.unit_id === 'diag');
+  $('gfirstBox').innerHTML = (OPEN && !OPEN.includes('gfirst'))
+    ? `<div class="course off wide" style="--c:#c8323c"><div><div class="lv">🔒 미수강</div><h3>Grammar 첫단추</h3><div class="ko">문법 노베이스를 위한 첫 단추</div><p>우리 반에서는 아직 열리지 않은 코스예요. 담당 선생님이 열어 주면 이용할 수 있어요.</p></div></div>`
+    : `<a class="course wide" href="/firstbutton/" style="--c:#c8323c"><span class="tag">NEW</span><div><div class="lv">BASIC 1~10 · BEYOND X1~X3</div><h3>Grammar 첫단추</h3><div class="ko">문법 노베이스를 위한 첫 단추 · 세상에서 가장 쉬운 영문법</div>
+      <p>Summary Note → 워크북 A → Review Note → 워크북 B → 실전 문항. 영상이 없어도 혼자 공부할 수 있고, 단원별 PDF로 인쇄해서 써요. 처음이라면 종합 진단부터!</p></div>
+      <div class="foot"><div class="bar"><i style="width:${Math.round(fbDone/14*100)}%"></i></div><div class="stat"><span><b>${fbDone}</b> / 14 단원 완료</span><span>${fbd ? '진단 <b>' + fbd.score + '</b>/30' : ''}</span></div></div></a>`;
   const gfin = rows.filter(r => r.course === 'grammar' && r.completed);
   $('gramGo').innerHTML = (OPEN && !OPEN.includes('grammar'))
     ? '<div class="gstat">🔒 우리 반에서는 아직 열리지 않은 과제예요. 담당 선생님이 열어 주면 이용할 수 있어요.</div>'
@@ -224,7 +231,7 @@ function render(rows){
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
 }
-function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP' }[c]; if (!n) return;
+function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP', gfirst:'그래머 첫단추' }[c]; if (!n) return;
   $('lockNote').textContent = `🔒 ${n}은(는) 우리 반에서 아직 열리지 않은 코스예요. 담당 선생님께 문의해 주세요.`; $('lockNote').hidden = false; }
 function showPending(st){
   only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Grammar 첫단추 | PIF Learning Hub</title>
+<meta name="theme-color" content="#c8323c">
+<link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/img/icons/icon-192.png">
+<link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Gowun+Batang:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/shared/vt.css">
+<script src="/shared/supabase.js"></script>
+<script src="/shared/vt.js"></script>
+<script>VT.gate('gfirst');</script>
+<script src="data.js"></script>
+<style>
+:root{--acc:#c8323c;--acc-soft:#fdeef0;--rev:#2f8a5b;--rev-soft:#e9f6ef}
+.wrap{max-width:820px;margin:0 auto;padding:22px 16px 90px}
+.hd .e{font:700 11px/1 var(--mono);letter-spacing:.28em;color:var(--acc)}
+.hd h1{font:700 32px/1.15 var(--serif);margin:8px 0 4px;letter-spacing:-.02em}
+.hd .k{font:700 15px/1.5 var(--serif);color:var(--ink2)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:18px;margin-bottom:16px}
+.card h2{font:700 18px/1.45 var(--serif);margin:0 0 8px}
+.card p{font-size:14px;line-height:1.7;color:var(--ink2);margin:0}
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0 10px}
+.flow div{background:var(--paper);border-radius:12px;padding:9px 8px;font-size:12px;line-height:1.45;color:var(--ink2)}
+.flow b{display:block;font-size:12.5px;color:var(--ink);margin-bottom:3px}
+.flow .s{background:var(--acc-soft)} .flow .r{background:var(--rev-soft)}
+@media(max-width:640px){.flow{grid-template-columns:repeat(3,1fr)}}
+.note{font-size:13px;line-height:1.6;color:var(--ink2);background:#fffaf0;border:1px solid #efe1c2;border-radius:12px;padding:10px 12px}
+.lvl{font:700 11.5px/1 var(--mono);letter-spacing:.14em;color:var(--acc);margin:22px 0 10px}
+.ugrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.uc{position:relative;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px 12px;color:var(--ink)}
+.uc:hover{border-color:var(--acc)}
+.uc .n{font:700 11px/1 var(--mono);letter-spacing:.1em;color:var(--acc)}
+.uc .t{font:700 16px/1.35 var(--serif);margin:7px 0 4px}
+.uc .s{font-size:12.5px;line-height:1.45;color:var(--ink2);min-height:36px}
+.uc .bar{height:5px;border-radius:9px;background:var(--paper2);margin-top:10px;overflow:hidden}
+.uc .bar i{display:block;height:100%;background:var(--acc)}
+.uc .pill{position:absolute;top:11px;right:11px;font:700 10px/1 var(--mono);padding:4px 7px;border-radius:99px;background:var(--paper2);color:var(--ink2)}
+.uc.done{background:linear-gradient(180deg,#fff,var(--acc-soft))}.uc.done .pill{background:var(--acc);color:#fff}
+.uc.rec{box-shadow:0 0 0 2px #f2b04a inset}
+.uc .rt{position:absolute;bottom:12px;right:12px;font-size:10.5px;font-weight:700;color:#a66a05}
+.dlrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.dl{white-space:nowrap;display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);background:#fff;border-radius:10px;padding:7px 11px;font-size:12.5px;font-weight:600;color:var(--ink)}
+.dl:hover{border-color:var(--acc);color:var(--acc)} .dl:disabled{opacity:.55}
+.dl.main{background:var(--acc);border-color:var(--acc);color:#fff}
+.dl .sz{font-weight:500;opacity:.7;font-size:11px}
+.bar2{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.bar2 button{background:none;border:1px solid var(--line);border-radius:99px;padding:6px 11px;font-size:12.5px;color:var(--ink2)}
+.bar2 .t{flex:1;font:700 12px/1 var(--mono);letter-spacing:.14em;color:var(--acc)}
+.uh{background:var(--acc);color:#fff;border-radius:18px;padding:20px 20px 18px;margin-bottom:14px}
+.uh .n{font:700 12px/1 var(--mono);letter-spacing:.14em;opacity:.85}
+.uh h1{font:700 28px/1.2 var(--serif);margin:8px 0 6px}
+.uh .s{font-size:14.5px;opacity:.92}
+.goals{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.goals li{font-size:13.5px;line-height:1.55;background:rgba(255,255,255,.14);border-radius:10px;padding:7px 10px}
+.vid{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#111}
+.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.chs{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chs button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:5px 11px;font-size:12.5px}
+.chs button b{font-family:var(--mono);color:var(--acc);margin-right:4px}
+.novid{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px dashed #d9cdb8;border-radius:14px;padding:14px}
+.novid .ic{flex:none;width:44px;height:44px;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;color:var(--acc)}
+.novid b{display:block;font-size:14.5px;margin-bottom:2px}
+.novid span{font-size:13px;color:var(--ink2);line-height:1.5}
+.steps{display:flex;flex-direction:column;gap:10px}
+.st{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 15px}
+.st .top{display:flex;align-items:flex-start;gap:12px}
+.st .no{flex:none;width:32px;height:32px;border-radius:10px;background:var(--paper2);display:flex;align-items:center;justify-content:center;font:700 14px/1 var(--mono);color:var(--ink2)}
+.st.s .no{background:var(--acc-soft);color:var(--acc)} .st.r .no{background:var(--rev-soft);color:var(--rev)}
+.st.ok .no{background:var(--acc);color:#fff}
+.st .tx{flex:1;min-width:0}
+.st .tx b{display:block;font-size:15.5px;margin-bottom:3px}
+.st .tx span{font-size:13px;line-height:1.55;color:var(--ink2)}
+.ck{flex:none;display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;font-size:12.5px;font-weight:600;color:var(--ink2)}
+.ck.on{background:var(--acc);border-color:var(--acc);color:#fff}
+.st .sub{margin-top:10px;padding-left:44px}
+@media(max-width:560px){.st .sub{padding-left:0}.st .top{flex-wrap:wrap}.ck{margin-left:44px}}
+.wbsc{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px}
+.wbsc input{width:64px;border:1px solid var(--line);border-radius:9px;padding:7px 8px;font-size:15px;text-align:center}
+.q{border-top:1px dashed var(--paper2);padding:12px 0}
+.q:first-child{border-top:0;padding-top:4px}
+.q .qq{font-size:14.5px;font-weight:650;line-height:1.55;margin-bottom:6px}
+.q .ctx{font:400 15px/1.7 var(--disp);background:#fffaf0;border:1px solid #efe1c2;border-radius:10px;padding:8px 11px;margin-bottom:8px}
+.opts{display:flex;flex-direction:column;gap:5px}
+.opt{text-align:left;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 11px;font-size:14px;line-height:1.45;display:flex;gap:8px}
+.opt .c{font-weight:700;color:var(--acc)}
+.opt.on{border-color:var(--acc);background:var(--acc-soft)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)} .opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default;color:var(--ink);opacity:1}
+.pk{display:flex;gap:8px;flex-wrap:wrap}
+.pk .opt{flex:0 0 auto}
+.ta{width:100%;min-height:64px;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font:inherit;font-size:14px;line-height:1.55;resize:vertical}
+.ex{margin-top:8px;font-size:13.5px;line-height:1.6;border-radius:10px;padding:9px 11px}
+.ex.y{background:var(--ok-soft)} .ex.n{background:var(--bad-soft)} .ex.i{background:#eef2f8}
+.selfj{display:inline-flex;gap:5px;margin-left:6px}
+.selfj button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:3px 10px;font-size:12.5px}
+.selfj button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chk{display:flex;gap:9px;align-items:flex-start;font-size:14px;line-height:1.55;padding:6px 0;cursor:pointer}
+.chk input{margin-top:4px;width:18px;height:18px;accent-color:var(--acc)}
+.go{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn.acc{background:var(--acc)}
+.big{font:600 50px/1 var(--disp);color:var(--acc);text-align:center;margin:6px 0 2px}
+.big small{font-size:20px;color:var(--ink2)}
+table.dt{width:100%;border-collapse:collapse;font-size:13.5px}
+table.dt th,table.dt td{padding:8px 6px;border-bottom:1px solid var(--paper2);text-align:left;vertical-align:top}
+table.dt th{font:700 11px/1 var(--mono);color:var(--ink2);white-space:nowrap}
+table.dt a{color:var(--acc);font-weight:700}
+.dq{border:1px solid var(--line);border-radius:12px;padding:11px 12px;margin-bottom:8px;background:#fff}
+.dq .h{display:flex;gap:8px;align-items:baseline;margin-bottom:7px}
+.dq .h b{font:700 13px/1 var(--mono);color:var(--acc)}
+.dq .h span{font-size:14.5px;line-height:1.5}
+.toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none}
+.toast.on{opacity:.92}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<div class="toast" id="toast"></div>
+<script>
+'use strict';
+const FB = window.FB, U = FB.units, UB = {}; U.forEach(u => UB[u.id] = u);
+const CIRC = '①②③④⑤';
+const PART = { all:'단원 전체', summary:'Summary Note', wa:'워크북 A', review:'Review Note', wb:'워크북 B', finale:'마무리' };
+const $app = document.getElementById('app');
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const kb = n => n ? (n > 1048576 ? (n/1048576).toFixed(1) + 'MB' : Math.round(n/1024) + 'KB') : '';
+const pagesOf = arr => arr ? arr.length : 0;
+let S = {}, VIDEO = {}, cur = null;
+function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(()=>el.classList.remove('on'), 2600); }
+const DLI = '<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>';
+
+/* ---------- 단계 정의 (단원마다 있는 파트만) ---------- */
+function stepsOf(u){
+  const s = [];
+  s.push({ k:'summary', cls:'s', t:'Summary Note', d:'개념을 장면 ①②③으로 정리해요. 영상이 있으면 함께 보며 메모 칸에 필기하세요.' });
+  if (u.parts.wa) s.push({ k:'wa', t:'워크북 A · 따라 하기', d:'답이 적혀 있어요. 답을 보며 판단 순서를 손에 익혀요.' });
+  s.push({ k:'review', cls:'r', t:'Review Note · 빈칸 채우기', d:'Summary의 핵심 칸이 빈칸이에요. 먼저 채운 뒤 Summary Note를 펴서 스스로 맞춰 보세요.' });
+  if (u.parts.wb) s.push({ k:'wb', t:'워크북 B · 혼자 풀기', d:'같은 유형을 혼자 풀어요. 다 풀었으면 워크북 A가 정답지예요. 맞은 개수를 적어 두세요.' });
+  s.push({ k:'quiz', t:'마무리 · 실전 문항', d:'내신·모의고사 스타일 문항을 여기서 바로 풀고 채점해요.' });
+  s.push({ k:'checks', t:'자가체크', d:'할 수 있게 된 것에 체크해요.' });
+  return s;
+}
+function ust(id){ return S[id] || (S[id] = { steps:{}, wb:{}, quiz:{ ans:{}, self:{} }, checks:[], savedAt:0 }); }
+function stepDone(u, x, k){
+  if (k === 'quiz') return !!(x.quiz && x.quiz.graded);
+  if (k === 'checks') return (x.checks || []).length > 0 && x.checksSaved;
+  return !!(x.steps && x.steps[k]);
+}
+function progress(u){ const x = S[u.id]; const st = stepsOf(u); if (!x) return { n:0, total:st.length }; return { n: st.filter(s => stepDone(u, x, s.k)).length, total: st.length }; }
+
+/* ---------- 저장 ---------- */
+const pend = {};
+function persist(id){
+  const x = id === 'diag' ? S.diag : ust(id); x.savedAt = Date.now();
+  try { localStorage.setItem('vtf_' + id, JSON.stringify(x)); } catch(e){}
+  clearTimeout(pend[id]); pend[id] = setTimeout(() => push(id), 700);
+}
+async function push(id){
+  pend[id] = null;
+  const x = S[id]; if (!x) return;
+  let o;
+  if (id === 'diag') { const a = (x.attempts || []).slice(-1)[0]; o = { score: a ? a.score : null, max: 30, completed: !!a }; }
+  else { const u = UB[id], p = progress(u); o = { score: x.quiz && x.quiz.graded ? x.quiz.score : null, max: x.quiz && x.quiz.graded ? x.quiz.max : null, completed: p.n === p.total }; x.prog = p.n + '/' + p.total; }
+  try { await VT.save('gfirst', id, x, o); } catch(e){ pend[id] = setTimeout(() => push(id), 15000); }
+}
+function flushAll(){ Object.keys(pend).forEach(id => { if (pend[id]) { clearTimeout(pend[id]); push(id); } }); }
+addEventListener('pagehide', flushAll);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') flushAll(); });
+async function loadAll(){
+  U.map(u => u.id).concat(['diag']).forEach(id => { try { const v = JSON.parse(localStorage.getItem('vtf_' + id) || 'null'); if (v) S[id] = v; } catch(e){} });
+  try {
+    const rows = await VT.load('gfirst');
+    rows.forEach(r => { if (!r.data) return; const id = r.unit_id;
+      if (!S[id] || (r.data.savedAt || 0) > (S[id].savedAt || 0)) { S[id] = r.data; try { localStorage.setItem('vtf_' + id, JSON.stringify(r.data)); } catch(e){} }
+      else if ((S[id].savedAt || 0) > (r.data.savedAt || 0)) push(id); });
+  } catch(e){}
+  try { const r = await VT.sb.from('hub_videos').select('unit,video_id,chapters').eq('course', 'gfirst'); (r.data || []).forEach(v => { if (v.video_id) VIDEO[v.unit] = v; }); } catch(e){}
+}
+
+/* ---------- PDF ---------- */
+async function getPdf(name, label, btn){
+  const t = btn.innerHTML; btn.disabled = true; btn.textContent = '내려받는 중…';
+  try { await VT.download('fb-' + name, 'student', `그래머첫단추_${label}.pdf`); }
+  catch(e){ toast(e.code === 'COURSE_LOCKED' ? '우리 반에서 열리지 않은 과정이에요.' : e.code === 'NOT_APPROVED' || e.code === 'NOT_LOGGED_IN' ? '로그인 정보를 확인할 수 없어요. 내 학습에서 다시 들어와 주세요.' : e.code === 'NO_FILE' ? '아직 준비 중인 파일이에요.' : 'PDF를 내려받지 못했어요. 잠시 후 다시 시도해 주세요.'); }
+  btn.disabled = false; btn.innerHTML = t;
+}
+function dlBtn(name, label, text, main){ const sz = (FB.sizes || {})[name]; return `<button class="dl${main ? ' main' : ''}" data-pdf="${name}" data-label="${esc(label)}">${DLI}${esc(text)}${sz ? ` <span class="sz">${kb(sz)}</span>` : ''}</button>`; }
+function bindDl(){ $app.querySelectorAll('[data-pdf]').forEach(b => b.onclick = () => getPdf(b.dataset.pdf, b.dataset.label, b)); }
+
+/* ---------- 홈 ---------- */
+function lastDiag(){ const d = S.diag; return d && d.attempts && d.attempts.length ? d.attempts[d.attempts.length - 1] : null; }
+function recUnits(){ const a = lastDiag(); if (!a) return new Set(); return new Set(a.wrong.map(w => w.unit)); }
+function renderHome(){
+  cur = null;
+  const a = lastDiag(), rec = recUnits();
+  const card = u => { const p = progress(u), done = p.n === p.total, r = !done && rec.has(u.no);
+    return `<button class="uc ${done ? 'done' : ''} ${r ? 'rec' : ''}" data-u="${u.id}"><span class="pill">${done ? '완료' : p.n ? p.n + '/' + p.total : 'START'}</span>
+      <div class="n">${u.level === 'Beyond' ? 'BEYOND ' : 'UNIT '}${esc(u.no)}</div><div class="t">${esc(u.title)}</div><div class="s">${esc(u.sub)}</div>
+      <div class="bar"><i style="width:${Math.round(p.n / p.total * 100)}%"></i></div>${r ? '<span class="rt">진단 추천</span>' : ''}</button>`; };
+  let h = `<div class="hd"><div class="e">GRAMMAR 첫단추 · BASIC &amp; BEYOND</div><h1>Grammar 첫단추</h1><div class="k">영어학습의 첫 시작! 세상에서 가장 쉬운 영문법</div></div>
+  <div class="card" style="margin-top:16px"><h2>한 단원은 이렇게 공부해요</h2>
+    <div class="flow"><div><b>① 오프닝</b>목표 확인</div><div class="s"><b>② Summary</b>개념 정리</div><div><b>③ 워크북 A</b>답 보며 따라 하기</div><div class="r"><b>④ Review</b>빈칸 채우기</div><div><b>⑤ 워크북 B</b>혼자 풀기</div><div><b>⑥ 마무리</b>실전·자가체크</div></div>
+    <div class="note">수업 영상은 <b>보충 설명</b>이에요. 영상이 없어도 Summary Note부터 차례대로 하면 혼자 공부할 수 있어요. 교재는 인쇄해서 손으로 쓰며 공부하는 걸 추천해요.</div>
+    <div class="dlrow">${dlBtn('intro', '교재소개_목차', '교재 소개·목차')}${dlBtn('book', '교재전체', '교재 전체 (178쪽)')}</div></div>
+  <div class="card"><h2>종합 진단 30문항</h2>
+    <p>BASIC 20문항 + Beyond 10문항 · 권장 25분. 처음에 풀면 어디부터 공부할지 알려 주고, 다 공부한 뒤 다시 풀면 얼마나 늘었는지 보여 줘요.</p>
+    ${a ? `<p style="margin-top:8px"><b style="color:var(--ink)">최근 결과 ${a.score} / 30</b> · BASIC ${a.basic}/20 · Beyond ${a.beyond}/10 · ${new Date(a.at).toLocaleDateString('ko-KR')}${rec.size ? ` · <span style="color:#a66a05">추천 단원 ${[...rec].join(', ')}</span>` : ''}</p>` : ''}
+    <div class="go"><button class="btn acc" id="diagGo" style="margin-top:0">${a ? '다시 풀기' : '진단 시작하기'}</button>${a ? '<button class="btn sec" id="diagRes" style="margin-top:0">지난 결과 보기</button>' : ''}</div></div>
+  <div class="lvl">BASIC · 문장의 뼈대 세우기</div><div class="ugrid">${U.filter(u => u.level === 'BASIC').map(card).join('')}</div>
+  <div class="lvl">BEYOND · 한 층 더 올라가기</div><div class="ugrid">${U.filter(u => u.level === 'Beyond').map(card).join('')}</div>
+  <div class="lvl">마무리 · 한 권을 한 장으로</div>
+  <div class="card"><p>시험 직전에는 한 장 총정리만! 종합 진단 문제지와 정답·진단표는 따로 나눠 두었어요. 문제를 다 푼 뒤에 정답을 보세요.</p>
+    <div class="dlrow">${dlBtn('onepage', '한장총정리', '한 장 총정리')}${dlBtn('diag', '종합진단_문제', '종합 진단 문제지')}${dlBtn('diagans', '종합진단_정답', '정답·진단표')}</div></div>`;
+  $app.innerHTML = h; scrollTo(0,0); bindDl();
+  $app.querySelectorAll('.uc[data-u]').forEach(b => b.onclick = () => openUnit(b.dataset.u));
+  document.getElementById('diagGo').onclick = () => renderDiag();
+  const dr = document.getElementById('diagRes'); if (dr) dr.onclick = () => renderDiagResult(lastDiag());
+}
+
+/* ---------- 영상 ---------- */
+function ytId(v){ if (!v) return ''; const m = /(?:youtu\.be\/|v=|embed\/|shorts\/|live\/)([\w-]{11})/.exec(v); return m ? m[1] : (/^[\w-]{11}$/.test(v.trim()) ? v.trim() : ''); }
+function chaptersOf(t){ return String(t || '').split(/\n|,/).map(l => l.trim()).filter(Boolean).map(l => { const m = /(\d{1,2}):(\d{2})(?::(\d{2}))?/.exec(l); if (!m) return null;
+  const sec = m[3] ? (+m[1]) * 3600 + (+m[2]) * 60 + (+m[3]) : (+m[1]) * 60 + (+m[2]); return { sec, label: l.replace(m[0], '').replace(/^[\s\-–·:]+|[\s\-–·:]+$/g, '') || m[0], time: m[0] }; }).filter(Boolean); }
+function videoHtml(u){
+  const v = VIDEO[u.id], id = v && ytId(v.video_id);
+  if (!id) return `<div class="novid"><div class="ic"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg></div>
+    <div><b>수업 영상 준비 중이에요</b><span>영상 없이도 아래 순서대로 혼자 공부할 수 있어요. 영상이 올라오면 이 자리에 바로 보여요.</span></div></div>`;
+  const ch = chaptersOf(v.chapters);
+  return `<div class="vid" id="vbox"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1" title="${esc(u.title)} 수업 영상" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+    ${ch.length ? `<div class="chs">${ch.map(c => `<button data-sec="${c.sec}"><b>${c.time}</b>${esc(c.label)}</button>`).join('')}</div>` : ''}`;
+}
+
+/* ---------- 단원 ---------- */
+function openUnit(id){ cur = { id }; renderUnit(); scrollTo(0,0); }
+function renderUnit(){
+  const u = UB[cur.id], x = ust(u.id), steps = stepsOf(u), p = progress(u);
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">${u.level === 'Beyond' ? 'BEYOND' : 'BASIC'} · ${p.n}/${p.total} 단계</div></div>
+  <div class="uh"><div class="n">${u.level === 'Beyond' ? 'BEYOND ' : 'UNIT '}${esc(u.no)}</div><h1>${esc(u.title)}</h1><div class="s">${esc(u.sub)}</div>
+    <div style="margin-top:12px;font-size:12.5px;font-weight:700;opacity:.85">이 단원이 끝나면 할 수 있어요</div>
+    <ul class="goals">${(u.checks.length ? u.checks : u.goals).map(g => `<li>${esc(g)}</li>`).join('')}</ul></div>
+  <div class="card">${videoHtml(u)}
+    <div class="dlrow" style="margin-top:12px">${dlBtn(u.id + '-all', `${u.no}_${u.title}_전체`, `단원 전체 PDF · ${u.pages[1] - u.pages[0] + 1}쪽`, true)}</div></div>
+  <div class="steps">`;
+  steps.forEach((s, i) => {
+    const ok = stepDone(u, x, s.k);
+    h += `<div class="st ${s.cls || ''} ${ok ? 'ok' : ''}" data-k="${s.k}"><div class="top"><div class="no">${ok ? '✓' : i + 1}</div><div class="tx"><b>${s.t}</b><span>${s.d}</span>
+      ${u.parts[s.k] ? `<div class="dlrow" style="margin-top:8px">${dlBtn(u.id + '-' + s.k, `${u.no}_${PART[s.k]}`, `${PART[s.k]} PDF · ${pagesOf(u.parts[s.k])}쪽`)}</div>` : ''}
+      ${s.k === 'quiz' && u.parts.finale ? `<div class="dlrow" style="margin-top:8px">${dlBtn(u.id + '-finale', `${u.no}_마무리`, `마무리 PDF · ${pagesOf(u.parts.finale)}쪽`)}</div>` : ''}</div>
+      ${['summary','wa','review','wb'].includes(s.k) ? `<button class="ck ${ok ? 'on' : ''}" data-ck="${s.k}">${ok ? '✓ 했어요' : '다 했어요'}</button>` : ''}</div>`;
+    if (s.k === 'wb') h += `<div class="sub"><div class="wbsc">워크북 A로 채점한 결과 · <input type="number" min="0" inputmode="numeric" id="wbOk" value="${x.wb.ok ?? ''}" placeholder="맞은"> / <input type="number" min="1" inputmode="numeric" id="wbTot" value="${x.wb.total ?? ''}" placeholder="전체"> 문항</div></div>`;
+    if (s.k === 'quiz') h += `<div class="sub" id="quizBox">${quizHtml(u, x)}</div>`;
+    if (s.k === 'checks') h += `<div class="sub">${checksHtml(u, x)}</div>`;
+    h += `</div>`;
+  });
+  h += `</div><div class="go"><button class="btn sec" id="bk2" style="margin-top:6px">목록으로</button>${nextUnit(u) ? `<button class="btn acc" id="nx" style="margin-top:6px">다음 단원 · ${esc(nextUnit(u).title)} →</button>` : ''}</div>`;
+  $app.innerHTML = h; bindDl(); bindUnit(u, x);
+}
+function refreshHead(u){ const p = progress(u), t = $app.querySelector('.bar2 .t'); if (t) t.textContent = `${u.level === 'Beyond' ? 'BEYOND' : 'BASIC'} · ${p.n}/${p.total} 단계`; }
+function nextUnit(u){ const i = U.indexOf(u); return U[i + 1] || null; }
+function bindUnit(u, x){
+  const keep = () => { const y = scrollY; renderUnit(); scrollTo(0, y); };
+  document.getElementById('bk').onclick = renderHome; document.getElementById('bk2').onclick = renderHome;
+  const nx = document.getElementById('nx'); if (nx) nx.onclick = () => openUnit(nextUnit(u).id);
+  $app.querySelectorAll('[data-ck]').forEach(b => b.onclick = () => { x.steps[b.dataset.ck] = !x.steps[b.dataset.ck]; persist(u.id); keep(); });
+  const wo = document.getElementById('wbOk'), wt = document.getElementById('wbTot');
+  if (wo) [wo, wt].forEach(el => el.oninput = () => { x.wb = { ok: wo.value === '' ? null : +wo.value, total: wt.value === '' ? null : +wt.value };
+    const was = !!x.steps.wb; if (x.wb.ok != null && x.wb.total) x.steps.wb = true; persist(u.id);
+    if (!was && x.steps.wb) { const st = $app.querySelector('.st[data-k="wb"]'); st.classList.add('ok'); st.querySelector('.no').textContent = '✓';
+      const b = st.querySelector('[data-ck]'); b.classList.add('on'); b.textContent = '✓ 했어요'; refreshHead(u); } });
+  $app.querySelectorAll('.chs [data-sec]').forEach(b => b.onclick = () => { const f = document.querySelector('#vbox iframe'); const id = ytId(VIDEO[u.id].video_id);
+    f.src = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1&autoplay=1&start=${b.dataset.sec}`; document.getElementById('vbox').scrollIntoView({ block:'center' }); });
+  bindQuiz(u, x, keep); bindChecks(u, x, keep);
+}
+
+/* ---------- 마무리 실전 문항 ---------- */
+function quizHtml(u, x){
+  const q = x.quiz, g = !!q.graded;
+  let h = '';
+  u.quiz.forEach((it, i) => {
+    const a = q.ans[i];
+    h += `<div class="q" data-i="${i}"><div class="qq">${u.quiz.length > 2 ? (i + 1) + '. ' : 'Q' + (i + 1) + '. '}${esc(it.q)}</div>${it.ctx && it.ctx.length ? `<div class="ctx">${it.ctx.map(esc).join('<br>')}</div>` : ''}`;
+    if (it.type === 'mcq' || it.type === 'pick') {
+      h += `<div class="${it.type === 'pick' ? 'pk' : 'opts'}">${it.options.map((o, j) => { const n = j + 1; let c = a === n ? 'on' : '';
+        if (g) c = n === it.answer ? 'ok' : (a === n ? 'bad' : '');
+        return `<button class="opt ${c}" data-o="${n}" ${g ? 'disabled' : ''}>${it.type === 'mcq' ? `<span class="c">${CIRC[j]}</span>` : ''}<span>${esc(o)}</span></button>`; }).join('')}</div>`;
+      if (g) h += `<div class="ex ${a === it.answer ? 'y' : 'n'}"><b>${a === it.answer ? '맞았어요' : (a ? '틀렸어요' : '비웠어요')}</b> · 정답 ${it.type === 'mcq' ? CIRC[it.answer - 1] : esc(it.options[it.answer - 1])}${it.expl ? ' — ' + esc(it.expl) : ''}</div>`;
+    } else {
+      h += `<textarea class="ta" data-w="${i}" ${g ? 'readonly' : ''} placeholder="여기에 답을 써 보세요">${esc(a || '')}</textarea>`;
+      if (g) { const sj = q.self[i];
+        h += `<div class="ex i"><b>모범 답안</b> ${esc(it.answer_text)}<div style="margin-top:6px">내 답과 비교해 스스로 채점: <span class="selfj" data-i="${i}"><button data-v="1" class="${sj === true ? 'on' : ''}">맞음</button><button data-v="0" class="${sj === false ? 'on' : ''}">틀림</button></span></div></div>`; }
+    }
+    h += `</div>`;
+  });
+  if (!g) h += `<div class="go"><button class="btn acc" id="qGo" style="margin-top:0">채점하고 해설 보기</button></div>`;
+  else h += `<div class="go" style="align-items:center"><b style="font-size:15px">${q.score} / ${q.max}</b>${u.quiz.some(t => t.type === 'write') && u.quiz.some((t, i) => t.type === 'write' && q.self[i] == null) ? '<span style="font-size:12.5px;color:var(--ink2)">쓰기 문항은 스스로 채점하면 점수에 들어가요</span>' : ''}<button class="btn sec" id="qRe" style="margin-top:0">다시 풀기</button></div>`;
+  return h;
+}
+function quizScore(u, q){ let s = 0; u.quiz.forEach((it, i) => { if (it.type === 'write') { if (q.self[i] === true) s++; } else if (q.ans[i] === it.answer) s++; }); return s; }
+function bindQuiz(u, x, keep){
+  const box = document.getElementById('quizBox'); if (!box) return; const q = x.quiz;
+  box.querySelectorAll('.q').forEach(el => { const i = +el.dataset.i;
+    el.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { q.ans[i] = +b.dataset.o; persist(u.id); keep(); });
+    const ta = el.querySelector('[data-w]'); if (ta && !q.graded) ta.oninput = () => { q.ans[i] = ta.value; persist(u.id); };
+    el.querySelectorAll('.selfj button').forEach(b => b.onclick = () => { q.self[i] = b.dataset.v === '1'; q.score = quizScore(u, q); persist(u.id); keep(); }); });
+  const go = document.getElementById('qGo'); if (go) go.onclick = () => {
+    const miss = u.quiz.filter((it, i) => it.type !== 'write' && !q.ans[i]).length;
+    if (miss && !confirm(`아직 고르지 않은 문항이 ${miss}개 있어요. 채점할까요?`)) return;
+    q.graded = true; q.max = u.quiz.length; q.score = quizScore(u, q); q.at = Date.now(); persist(u.id); keep(); };
+  const re = document.getElementById('qRe'); if (re) re.onclick = () => { x.quiz = { ans:{}, self:{}, history: (q.history || []).concat([{ score: q.score, max: q.max, at: q.at }]) }; persist(u.id); keep(); };
+}
+
+/* ---------- 자가체크 ---------- */
+function checksHtml(u, x){
+  const c = x.checks || [];
+  let h = u.checks.map((t, i) => `<label class="chk"><input type="checkbox" data-c="${i}" ${c[i] ? 'checked' : ''}><span>${esc(t)}</span></label>`).join('');
+  if (x.checksSaved) { const n = c.filter(Boolean).length;
+    h += n === u.checks.length ? `<div class="ex y">모두 할 수 있어요! 다음 단원으로 넘어가요.</div>`
+      : n <= u.checks.length - 1 && n <= 2 ? `<div class="ex n">✓가 ${n}개예요. Summary Note${VIDEO[u.id] ? '와 영상' : ''}을 한 번 더 보고 워크북 B를 다시 풀어 보세요.</div>` : `<div class="ex i">조금만 더! 체크하지 못한 부분만 Summary Note에서 다시 확인해요.</div>`; }
+  h += `<div class="go"><button class="btn ${x.checksSaved ? 'sec' : 'acc'}" id="cGo" style="margin-top:0">${x.checksSaved ? '다시 저장' : '자가체크 저장'}</button></div>`;
+  return h;
+}
+function bindChecks(u, x, keep){
+  $app.querySelectorAll('[data-c]').forEach(c => c.onchange = () => { x.checks = u.checks.map((_, i) => !!(x.checks || [])[i]); x.checks[+c.dataset.c] = c.checked; persist(u.id); });
+  const b = document.getElementById('cGo'); if (b) b.onclick = () => { x.checks = u.checks.map((_, i) => !!(x.checks || [])[i]); x.checksSaved = true; persist(u.id); keep(); };
+}
+
+/* ---------- 종합 진단 ---------- */
+let DA = {};
+function renderDiag(){
+  cur = { diag: true }; DA = {};
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">종합 진단 · 30문항</div></div>
+  <div class="card"><h2>[ ] 안에서 어법에 맞는 것을 고르고, 객관식은 번호를 고르세요.</h2><p>시간을 재고 풀어 보세요 · 권장 시간 BASIC 15분 · Beyond 10분. 모르는 문제는 찍지 말고 비워 두면 진단이 더 정확해요.</p></div>`;
+  FB.diag.forEach((d, i) => {
+    if (i === 0) h += `<div class="lvl" style="margin-top:6px">BASIC · 1~20</div>`;
+    if (d.no === 21) h += `<div class="lvl">BEYOND · 21~30</div>`;
+    h += `<div class="dq" data-i="${i}"><div class="h"><b>${d.no}</b><span>${esc(d.q)}</span></div><div class="${d.type === 'pick' ? 'pk' : 'opts'}">${d.options.map((o, j) =>
+      `<button class="opt" data-o="${j + 1}">${d.type === 'mcq' ? `<span class="c">${CIRC[j]}</span>` : ''}<span>${esc(o)}</span></button>`).join('')}</div></div>`;
+  });
+  h += `<div class="go"><button class="btn acc" id="dGo">채점하기</button></div>`;
+  $app.innerHTML = h; scrollTo(0,0);
+  document.getElementById('bk').onclick = () => { if (Object.keys(DA).length && !confirm('푼 답이 저장되지 않아요. 나갈까요?')) return; renderHome(); };
+  $app.querySelectorAll('.dq').forEach(el => { const i = +el.dataset.i; el.querySelectorAll('[data-o]').forEach(b => b.onclick = () => {
+    DA[i] = +b.dataset.o; el.querySelectorAll('[data-o]').forEach(x => x.classList.toggle('on', x === b)); }); });
+  document.getElementById('dGo').onclick = () => {
+    const blank = FB.diag.length - Object.keys(DA).length;
+    if (blank && !confirm(`비운 문항이 ${blank}개예요. 비운 문항은 틀린 것으로 처리해요. 채점할까요?`)) return;
+    const wrong = [], ans = {}; let basic = 0, beyond = 0;
+    FB.diag.forEach((d, i) => { ans[d.no] = DA[i] || 0; if (DA[i] === d.answer) { if (d.no <= 20) basic++; else beyond++; } else wrong.push({ no: d.no, unit: d.unit, back: d.back }); });
+    const at = { at: Date.now(), score: basic + beyond, basic, beyond, ans, wrong };
+    S.diag = S.diag || { attempts: [] }; S.diag.attempts = (S.diag.attempts || []).concat([at]).slice(-10);
+    persist('diag'); push('diag'); renderDiagResult(at);
+  };
+}
+function renderDiagResult(a){
+  cur = { diag: true };
+  const prev = (S.diag.attempts || []).length > 1 ? S.diag.attempts[S.diag.attempts.length - 2] : null;
+  const byUnit = {}; a.wrong.forEach(w => (byUnit[w.unit] = byUnit[w.unit] || []).push(w));
+  const unitOf = no => U.find(u => u.no === no);
+  let h = `<div class="bar2"><button id="bk">← 목록</button><div class="t">종합 진단 결과</div></div>
+  <div class="card"><div class="big">${a.score}<small> / 30</small></div>
+    <p style="text-align:center">BASIC ${a.basic}/20 · Beyond ${a.beyond}/10 · ${new Date(a.at).toLocaleString('ko-KR')}${prev && prev !== a ? ` · 지난번 ${prev.score}점 → <b style="color:var(--ink)">${a.score - prev.score >= 0 ? '+' : ''}${a.score - prev.score}</b>` : ''}</p></div>`;
+  if (!a.wrong.length) h += `<div class="card"><h2>모두 맞았어요!</h2><p>BASIC과 Beyond 모두 탄탄해요. 한 장 총정리로 마무리하세요.</p></div>`;
+  else {
+    h += `<div class="card"><h2>다시 볼 단원</h2><p style="margin-bottom:10px">틀린 문항의 단원·장면으로 돌아가 Summary Note와 워크북 B를 다시 보세요. 단원 목록에도 <b style="color:#a66a05">진단 추천</b>으로 표시돼요.</p>
+      <table class="dt"><tr><th>단원</th><th>틀린 문항</th><th>돌아갈 곳</th></tr>${Object.keys(byUnit).map(no => { const u = unitOf(no);
+        return `<tr><td>${u ? `<a href="#" data-u="${u.id}">${esc(no)} ${esc(u.title)}</a>` : esc(no)}</td><td>${byUnit[no].map(w => w.no).join(', ')}</td><td>${[...new Set(byUnit[no].map(w => w.back))].map(esc).join('<br>')}</td></tr>`; }).join('')}</table></div>`;
+  }
+  h += `<div class="card"><h2>문항별 정답</h2>${FB.diag.map(d => { const my = a.ans[d.no], ok = my === d.answer;
+    return `<div class="dq"><div class="h"><b>${d.no}</b><span>${esc(d.q)}</span></div><div style="font-size:13.5px">${ok ? '<span style="color:var(--ok);font-weight:700">○ 정답</span>' : '<span style="color:var(--bad);font-weight:700">✕ 오답</span>'}
+      · 내 답 ${my ? esc(d.type === 'mcq' ? CIRC[my - 1] + ' ' + d.options[my - 1] : d.options[my - 1]) : '비움'} · 정답 <b>${esc(d.type === 'mcq' ? CIRC[d.answer - 1] + ' ' + d.options[d.answer - 1] : d.options[d.answer - 1])}</b> <span style="color:var(--ink2)">(${esc(d.unit)} · ${esc(d.back)})</span></div></div>`; }).join('')}</div>
+  <div class="go"><button class="btn sec" id="bk2">목록으로</button></div>`;
+  $app.innerHTML = h; scrollTo(0,0);
+  document.getElementById('bk').onclick = renderHome; document.getElementById('bk2').onclick = renderHome;
+  $app.querySelectorAll('a[data-u]').forEach(l => l.onclick = e => { e.preventDefault(); openUnit(l.dataset.u); });
+}
+
+/* ---------- 시작 ---------- */
+(async function(){
+  $app.innerHTML = '<div class="hd"><div class="e">GRAMMAR 첫단추</div><h1>Grammar 첫단추</h1><div class="k">불러오는 중…</div></div>';
+  await loadAll();
+  const q = new URLSearchParams(location.search).get('u');
+  if (q && UB[q]) openUnit(q); else renderHome();
+})();
+</script>
+</body>
+</html>
