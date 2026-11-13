@@ -276,6 +276,16 @@
   }
 
   /* ---------- 로그인한 사람만 받는 파일 (Edge Function hub-file) ---------- */
+  /* 로그인한 사람만 받는 파일 → Blob (hub-file) */
+  async function fetchFile(file, kind) {
+    var s = (await sb.auth.getSession()).data.session;
+    if (!s) { var e0 = new Error('NOT_LOGGED_IN'); e0.code = 'NOT_LOGGED_IN'; throw e0; }
+    var r = await fetch(SB_URL + '/functions/v1/hub-file', { method: 'POST',
+      headers: { Authorization: 'Bearer ' + s.access_token, apikey: SB_KEY, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ file: file, kind: kind || 'student' }) });
+    if (!r.ok) { var code = null; try { code = (await r.json()).error; } catch (x) {} var e = new Error(code || ('HTTP ' + r.status)); e.code = code; throw e; }
+    return r.blob();
+  }
   async function download(file, kind, filename) {
     var s = (await sb.auth.getSession()).data.session;
     if (!s) { var e0 = new Error('NOT_LOGGED_IN'); e0.code = 'NOT_LOGGED_IN'; throw e0; }
@@ -291,7 +301,7 @@
   var VT = window.VT = {
     sb: sb, COURSES: COURSES, me: me, setMe: setMe, status: status, requestAccess: requestAccess, errText: errText,
     access: access, allowed: allowed, applyImport: applyImport, save: save, load: load, appendAttempt: appendAttempt, pull: pull, pushState: pushState, clearPrefixes: clearPrefixes,
-    gate: gate, logout: logout, ai: ai, download: download, summarize: {}
+    gate: gate, logout: logout, ai: ai, download: download, fetchFile: fetchFile, summarize: {}
   };
 
   /* 코스별 요약 점수 (관리자 목록용): {score, max, completed} */

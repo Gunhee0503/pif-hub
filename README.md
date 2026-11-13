@@ -34,7 +34,10 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 
 ## 그래머 첫단추 (`/firstbutton/`, 코스 `gfirst`)
 - 데이터·PDF: `GRAM_PDF_KEY=<hub-file 함수의 키> python3 tools/firstbutton_pdf.py 그래머첫단추.pdf`
-  → `firstbutton/data.js`(단원·파트 쪽수, 목표, 마무리 실전 문항, 종합 진단 30문항) + `firstbutton/files/*.bin`(단원 전체·파트별·교재 전체 암호화 PDF)
-- PDF는 Edge Function `hub-file`이 승인 학생(gfirst 수강)·선생님만 확인하고 내려줌. 내려받을 때마다 `hub_downloads`에 기록 → 관리자 '영상·자료' 탭, 학생 상세
+  → `firstbutton/data.js`(단원·파트 쪽수, 목표, 마무리 실전 문항, 종합 진단 30문항, Review·워크북 B 페이지의 쓰기 칸 좌표 `ov`)
+  + `firstbutton/files/*.bin`(암호화: 챕터 PDF `ch01`~`ch10`·`chx1`~`chx3`(04는 4-2 포함), 교재 전체 `book`, 앱에서 보는 페이지 이미지 묶음 `v-<단원>`·`v-intro`·`v-onepage`)
+- 학습은 앱 안에서: 페이지 이미지 위에 빈칸·밑줄 입력, 선택지 동그라미, 체크박스, 글상자, 펜. 정답 보기(Review→Summary Note, 워크북 B→워크북 A) 후 ○✕ 채점 → `rv`/`wb` 점수
+  (펜 자국은 그 기기에만 저장, 글자·선택·채점은 `vt_progress`에 동기화)
+- 파일은 Edge Function `hub-file`이 승인 학생(gfirst 수강)·선생님만 확인하고 내려줌. PDF를 내려받을 때만 `hub_downloads`에 기록 → 관리자 '영상·자료' 탭, 학생 상세
 - 수업 영상: 관리자 '영상·자료' 탭에서 단원별 유튜브 링크와 장면별 시작 시간을 입력 (`hub_videos`). 비어 있으면 '영상 준비 중'
 - 진도: `vt_progress` course `gfirst`, unit `u01`…`ux3`, 종합 진단 `diag`

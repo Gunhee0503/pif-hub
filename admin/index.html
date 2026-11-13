@@ -530,7 +530,7 @@ async function openStudent(sid){
     h += dg.length ? `<div class="note" style="margin:0 0 8px">종합 진단 ${dg.map(a => `<b>${a.score}</b>/30 <span class="muted">(${new Date(a.at).toLocaleDateString('ko-KR')})</span>`).join(' → ')}${dg[dg.length-1].wrong.length ? ` · 다시 볼 단원: ${[...new Set(dg[dg.length-1].wrong.map(w => w.unit))].join(', ')}` : ''}</div>` : '<div class="muted" style="margin-bottom:8px">종합 진단 기록 없음</div>';
     h += `<div class="ugrid">${FBU.map(u => { const r = FP[u.id], d = r && r.data; if (!d) return `<div><b>${esc(u.no)}</b> ${esc(u.title)}<br><span class="muted">미시작</span></div>`;
       const q = d.quiz || {}, wb = d.wb || {}, ck = (d.checks || []).filter(Boolean).length;
-      return `<div class="${r.completed ? 'done' : 'go'}"><b>${esc(u.no)}</b> ${esc(u.title)}<br>${r.completed ? '<span class="ok">완료</span>' : `${esc(d.prog || '')} 단계`}${q.graded ? ` · 실전 ${q.score}/${q.max}` : ''}${wb.total ? ` · B ${wb.ok}/${wb.total}` : ''}${d.checksSaved ? ` · 자가체크 ${ck}/${u.checks.length}` : ''} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`;
+      return `<div class="${r.completed ? 'done' : 'go'}"><b>${esc(u.no)}</b> ${esc(u.title)}<br>${r.completed ? '<span class="ok">완료</span>' : `${esc(d.prog || '')} 단계`}${q.graded ? ` · 실전 ${q.score}/${q.max}` : ''}${d.rv && d.rv.total ? ` · Review ${d.rv.ok}/${d.rv.total}` : ''}${wb.total ? ` · B ${wb.ok}/${wb.total}` : ''}${d.checksSaved ? ` · 자가체크 ${ck}/${u.checks.length}` : ''} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`;
   } else h += lockH;
   h += `<div id="dlLog" class="muted" style="margin-top:10px">자료 내려받기 기록 불러오는 중…</div></div>`;
   // Fundamental
@@ -635,6 +635,7 @@ const FB_PART = { all:'단원 전체', summary:'Summary Note', wa:'워크북 A',
 function fileLabel(f){
   let m = /^fb-(u[0-9a-z]+)-(\w+)$/.exec(f);
   if (m) { const u = FBU.find(x => x.id === m[1]); return `첫단추 ${u ? u.no + ' ' + u.title : m[1]} · ${FB_PART[m[2]] || m[2]}`; }
+  m = /^fb-ch(\w\d)$/.exec(f); if (m) { const c = (window.FB && FB.chapters || []).find(x => x.id === 'ch' + m[1]); return `첫단추 챕터 ${m[1].toUpperCase()}${c ? ' · ' + c.units.map(id => (FBU.find(u => u.id === id) || {}).title).join(' + ') : ''} PDF`; }
   m = /^fb-(\w+)$/.exec(f); if (m) return '첫단추 ' + ({ intro:'교재 소개·목차', book:'교재 전체', onepage:'한 장 총정리', diag:'종합 진단 문제지', diagans:'종합 진단 정답·진단표' }[m[1]] || m[1]);
   m = /^gram-([a-z])(\d\d)-(\w+)$/.exec(f); if (m) return `문법 STEP ${({b:'기본',a:'심화',p:'실전'})[m[1]] || ''} ${m[2]}회 · ${m[3] === 'full' ? '정답 포함' : '학습지'}`;
   return f;
