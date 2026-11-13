@@ -274,6 +274,168 @@ def overlays(pg):
     F += [['c', [q(fitz.Rect(r.x0 - 2, r.y0 - 1, r.x1 + 2, r.y1 + 1)) for r, t in g]] for g in choices(pg)]
     return F
 
+# ---------- 정답 키 (자동 채점용) ----------
+from collections import Counter
+from functools import lru_cache
+d = None
+OVL = {}
+@lru_cache(None)
+def words(p): return d[p - 1].get_text('words')
+@lru_cache(None)
+def marks(p):
+    """정답 페이지의 동그라미(곡선 테두리)와 칠한 체크 칸"""
+    E, K = [], []
+    for x in d[p - 1].get_drawings():
+        r = x['rect']; it = [i[0] for i in x['items']]
+        if x['type'] == 's' and it.count('c') >= 4 and it.count('c') > 2 * it.count('l') and 're' not in it and r.width > 8: E.append(r)
+        f = x.get('fill')
+        if x['type'] in ('f', 'fs') and f and tuple(round(v, 2) for v in f) == (0.45, 0.14, 0.24) and 5 < r.width < 14: K.append(r)
+    return E, K
+def R(a): W, H = d[0].rect.width, d[0].rect.height; return fitz.Rect(a[0] * W, a[1] * H, (a[0] + a[2]) * W, (a[1] + a[3]) * H)
+def cy(w): return (w[1] + w[3]) / 2
+def offset(p, r, cands):
+    cntp = Counter(w[4] for w in words(p))
+    near = [w for w in words(p) if abs(cy(w) - (r.y0 + r.y1) / 2) < 70 and len(w[4]) > 1]
+    best = None
+    for q in cands:
+        idx = {}
+        for w in words(q): idx.setdefault(w[4], []).append(w)
+        uniq = [w for w in near if cntp[w[4]] == 1 and len(idx.get(w[4], [])) == 1]
+        use = uniq if len(uniq) >= 2 else near
+        votes = Counter()
+        for w in use:
+            for v in idx.get(w[4], []):
+                dx, dy = v[0] - w[0], v[1] - w[1]
+                if abs(dy) < 60 and abs(dx) < 80:
+                    votes[(round(dx / 2) * 2, round(dy / 2) * 2)] += 1 / (1 + abs(cy(w) - (r.y0 + r.y1) / 2) / 12)
+        if votes:
+            (dx, dy), sc = votes.most_common(1)[0]
+            if not best or sc > best[0]: best = (sc, q, dx, dy)
+    return best
+def band(ws, y0, y1):
+    return sorted([w for w in ws if y0 <= cy(w) <= y1], key=lambda w: w[0])
+def norm(t): return re.sub(r'\s+', ' ', t).strip()
+def row_answer(p, fields, i, q, dx, dy):
+    """같은 줄의 고정 글자로 정규식을 만들어 정답 페이지 줄에서 빈칸 자리를 찾는다"""
+    r = fields[i]
+    y0, y1 = r.y0 - 2, r.y1 + 2
+    toks = [('w', w[0], w[4]) for w in band(words(p), y0, y1)]
+    blanks = [(j, f) for j, f in fields.items() if f is not None and abs((f.y0 + f.y1) / 2 - (r.y0 + r.y1) / 2) < 6]
+    toks += [('b', f.x0, j) for j, f in blanks]
+    toks.sort(key=lambda t: t[1])
+    # 빈칸 바로 앞뒤의 고정 글자만 사용 (먼 글자는 줄바꿈이 달라질 수 있어 제외)
+    pat, groups = '', []
+    for k, t in enumerate(toks):
+        if t[0] == 'w': pat += re.escape(t[2]) + r'\s*'
+        else: pat += r'(.*?)\s*' if k < len(toks) - 1 else r'(.*)'; groups.append(t[2])
+    ws = band(words(q), y0 + dy - 3, y1 + dy + 3)
+    line = ' '.join(w[4] for w in ws)
+    m = re.search(pat, line)
+    if m:
+        a = norm(m.group(groups.index(i) + 1))
+        if a: return a, 'row'
+    return None, 'none'
+def geo_answer(p, r, q, dx, dy):
+    rr = r + (dx, dy, dx, dy)
+    ws = [w for w in words(q) if rr.x0 - 3 <= (w[0] + w[2]) / 2 <= rr.x1 + 3 and rr.y0 - 3 <= cy(w) <= rr.y1 + 3]
+    ws.sort(key=lambda w: (round(w[1] / 5), w[0]))
+    return norm(' '.join(w[4] for w in ws)) or None
+def clean(a):
+    if not a: return a
+    if re.search('[가-힣]', a): a = re.sub(r'(?:(?<=\s)|^)[SVOC](?=\s|$)', '', a)
+    a = a.replace('↶', ' ').replace('↺', ' ').replace('✓', ' ')
+    return norm(a) or None
+def norm_opt(t): return re.sub(r'[^0-9a-zA-Z가-힣]', '', t).lower()
+def choice_key(cands):
+    """정답 페이지들의 선택지 묶음 (순서대로) + 동그라미 친 보기"""
+    G = []
+    for q in cands:
+        E, _ = marks(q)
+        for g in choices(d[q - 1]):
+            sig = tuple(norm_opt(t) for r, t in g)
+            pick = [j for j, (r, t) in enumerate(g) if any(e.contains(fitz.Point((r.x0 + r.x1) / 2, (r.y0 + r.y1) / 2)) or (e.intersects(r) and e.width < r.width + 30) for e in E)]
+            G.append((sig, pick))
+    return G
+def map_choices(pages, cands):
+    """B의 선택지 묶음을 A의 같은 보기 묶음에 순서대로 대응"""
+    G = choice_key(cands); out = {}; k = 0
+    for p in pages:
+        for g in choices(d[p - 1]):
+            sig = tuple(norm_opt(t) for r, t in g)
+            for m in range(k, len(G)):
+                if G[m][0] == sig:
+                    out[(p, round(g[0][0].x0, 1), round(g[0][0].y0, 1))] = G[m][1]; k = m + 1; break
+    return out
+CH = {}
+def page_answers(p, cands):
+    F = OVL.get(str(p), [])
+    rects = {i: (R(f[1:]) if f[0] in 'blk' else None) for i, f in enumerate(F)}
+    tx = {i: r for i, r in rects.items() if r is not None and F[i][0] in 'bl'}
+    out = []
+    for i, f in enumerate(F):
+        if f[0] == 'c':
+            r0 = R(f[1][0]); key = (p, round(r0.x0 + 2, 1), round(r0.y0 + 1, 1))
+            hit = next((v for kk, v in CH.items() if kk[0] == p and abs(kk[1] - key[1]) < 1 and abs(kk[2] - key[2]) < 1), None)
+            out.append({'c': hit} if hit else None)
+        elif f[0] == 'k':
+            r = rects[i]; b = offset(p, r, cands)
+            if not b: out.append(None); continue
+            sc, q, dx, dy = b; _, K = marks(q); rr = r + (dx - 3, dy - 3, dx + 3, dy + 3)
+            on = any(rr.intersects(k) for k in K) or any(w[4].startswith('✓') and rr.intersects(fitz.Rect(w[:4])) for w in words(q))
+            out.append({'k': 1 if on else 0})
+        else:
+            r = rects[i]; b = offset(p, r, cands)
+            if not b: out.append(None); continue
+            sc, q, dx, dy = b
+            ra, _ = row_answer(p, tx, i, q, dx, dy); ga = geo_answer(p, r, q, dx, dy)
+            ra, ga = clean(ra), clean(ga)
+            if ra and (not ga or len(ra) <= max(len(ga) * 1.6, len(ga) + 8)): out.append({'a': ra, 'h': 'row'})
+            elif ga: out.append({'a': ga, 'h': 'geo'})
+            else: out.append(None)
+    return out
+
+def row_text(p, F, i):
+    """채점용 문맥: 그 칸이 있는 줄 (이 칸은 【?】, 다른 칸은 ___)"""
+    f = F[i]
+    r = R(f[1][0]) if f[0] == 'c' else R(f[1:])
+    if f[0] == 'c':
+        r = fitz.Rect(R(f[1][0]).x0, R(f[1][0]).y0, R(f[1][-1]).x1, R(f[1][-1]).y1)
+    y0, y1 = r.y0 - 12, r.y1 + 12
+    toks = [(round(cy(w) / 7), w[0], w[4]) for w in words(p) if y0 <= cy(w) <= y1]
+    for j, g in enumerate(F):
+        if g[0] in 'bl':
+            q = R(g[1:])
+            if y0 <= (q.y0 + q.y1) / 2 <= y1: toks.append((round((q.y0 + q.y1) / 14), q.x0, '【?】' if j == i else '___'))
+    toks.sort()
+    return norm(' '.join(t for _, _, t in toks))[:220]
+def page_inst(p):
+    L = [l.strip() for l in d[p - 1].get_text().split('\n') if l.strip()]
+    return ' '.join(L[1:4])[:200]
+def answer_keys(units):
+    """Review→Summary Note, 워크북 B→워크북 A(+정답 쪽)에서 칸마다 정답과 문맥"""
+    K, I = {}, {}
+    for u in units:
+        for k in ('review', 'wb'):
+            cands = u['parts']['summary'] if k == 'review' else u['parts'].get('wa', []) + u['parts'].get('wbans', [])
+            CH.clear()
+            if cands: CH.update(map_choices(u['parts'].get(k, []), cands))
+            for p in u['parts'].get(k, []):
+                F = OVL.get(str(p))
+                if not F: continue
+                A = page_answers(p, cands) if cands else [None] * len(F)
+                out = []
+                for i, (f, a) in enumerate(zip(F, A)):
+                    if f[0] == 'c':
+                        e = {'c': a['c'] if a else None, 'o': []}
+                        for g in choices(d[p - 1]):
+                            if abs(g[0][0].x0 - R(f[1][0]).x0 - 2) < 1.5 and abs(g[0][0].y0 - R(f[1][0]).y0 - 1) < 1.5: e['o'] = [t for _, t in g]; break
+                        e['r'] = row_text(p, F, i)
+                    elif f[0] == 'k': e = {'k': a['k'] if a else None}
+                    else: e = {'a': a['a'] if a else None, 'r': row_text(p, F, i)}
+                    out.append(e)
+                K[str(p)] = out; I[str(p)] = page_inst(p)
+    return K, I
+
 def main(path):
     doc = fitz.open(path)
     K = [kind(p) for p in doc]
@@ -313,6 +475,10 @@ def main(path):
                 if f: ovl[str(p)] = f
     data['ov'] = ovl
     print('overlay pages', len(ovl), 'fields', sum(len(v) for v in ovl.values()))
+    global d; d = doc; OVL.clear(); OVL.update(ovl)
+    data['key'], data['inst'] = answer_keys(units)
+    nk = sum(1 for v in data['key'].values() for e in v if e.get('a') or e.get('c') or e.get('k') is not None)
+    print('answer keys', nk)
     os.makedirs(ROOT, exist_ok=True)
     open(os.path.join(ROOT, 'data.js'), 'w', encoding='utf-8').write(
         '/* generated by tools/firstbutton_pdf.py */\nwindow.FB = ' + json.dumps(data, ensure_ascii=False, indent=1) + ';\n')

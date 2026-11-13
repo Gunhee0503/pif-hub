@@ -132,12 +132,9 @@ table.dt a{color:var(--acc);font-weight:700}
 .hint{font-size:12.5px;line-height:1.55;color:var(--ink2);background:#fffaf0;border:1px solid #efe1c2;border-radius:10px;padding:8px 11px;margin:2px 0 10px}
 .pg{position:relative;margin:0 auto 14px;background:#fff;border-radius:6px;box-shadow:0 10px 26px -16px rgba(0,0,0,.4);overflow:hidden;--pw:780px;aspect-ratio:1242/1756;user-select:none;-webkit-user-select:none}
 .pg img{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
-.pg canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .pg .ly{position:absolute;inset:0}
 .pg .ld{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--ink2)}
 .pg .pn{position:absolute;right:8px;bottom:6px;font:700 10px/1 var(--mono);color:#b9ad9c}
-body[data-mode=pen] .pg canvas,body[data-mode=erase] .pg canvas{pointer-events:auto;touch-action:none;cursor:crosshair}
-body[data-mode=pen] .pg .ly,body[data-mode=erase] .pg .ly{pointer-events:none}
 body[data-mode=text] .pg .ly{cursor:text}
 .fd{position:absolute;display:flex;align-items:center;padding:0 .3em;border-radius:3px;cursor:pointer;font:600 calc(var(--pw) * .0168)/1.1 var(--sans);color:#1f4fbf;white-space:nowrap}
 .fd em{font-style:normal;overflow:hidden;text-overflow:ellipsis}
@@ -151,7 +148,19 @@ body[data-mode=text] .pg .ly{cursor:text}
 .mk{position:absolute;right:-.2em;top:-.6em;font:800 calc(var(--pw) * .032)/1 var(--sans);font-style:normal;pointer-events:none;text-shadow:0 0 3px #fff}
 .mk.o{color:#d22f2f}.mk.x{color:#d22f2f}
 .ch .mk{right:-1.1em;top:-.35em}
-body[data-mode=mark] .fd,body[data-mode=mark] .ch,body[data-mode=mark] .kb{box-shadow:0 0 0 1px rgba(210,47,47,.35) inset}
+body[data-mode=text] .pg .ly .fd:not(.ft),body[data-mode=text] .pg .ly .ch,body[data-mode=text] .pg .ly .kb{pointer-events:none;opacity:.6}
+.fd.gx{background:rgba(210,47,47,.07)}
+.fd.gx em{text-decoration:line-through;text-decoration-color:rgba(210,47,47,.7)}
+.fx{position:absolute;left:0;top:100%;z-index:3;max-width:calc(var(--pw) * .6);font:700 calc(var(--pw) * .0155)/1.2 var(--sans);color:#d22f2f;background:#fff;border:1px solid rgba(210,47,47,.45);border-radius:4px;padding:.12em .35em;white-space:normal;pointer-events:none;box-shadow:0 2px 6px rgba(0,0,0,.12)}
+.ch.ckey{border:calc(var(--pw) * .0024) dashed #d22f2f}
+.kb.gx{background:rgba(210,47,47,.12)}
+.mk.q{color:#b26a00}
+.memo{border:1px solid var(--line);background:#fff;border-radius:11px;padding:8px 11px;font-size:12.5px;font-weight:650;color:var(--ink2);white-space:nowrap}
+.memo.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gradeb{border:0;background:var(--acc);color:#fff;border-radius:11px;padding:8px 14px;font-size:13px;font-weight:700;white-space:nowrap}
+.gradeb:disabled{opacity:.6}
+.vsc .sc{font-size:15px;color:var(--acc)}
+.vfoot .btn{width:auto;min-width:180px;margin:0 4px}
 .vfoot{display:flex;justify-content:center;margin:18px 0 10px}
 .sheet{position:fixed;left:0;right:0;bottom:0;z-index:200;background:#fff;border-top:1px solid var(--line);box-shadow:0 -10px 30px -14px rgba(0,0,0,.35);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}
 .sh1{display:flex;align-items:center;gap:8px;max-width:820px;margin:0 auto 8px;font-size:12.5px;color:var(--ink2)}
@@ -222,7 +231,7 @@ async function loadAll(){
   try { const r = await VT.sb.from('hub_videos').select('unit,video_id,chapters').eq('course', 'gfirst'); (r.data || []).forEach(v => { if (v.video_id) VIDEO[v.unit] = v; }); } catch(e){}
 }
 
-/* ---------- PDF (챕터 13개 + 교재 전체, 참고용) ---------- */
+/* ---------- 학습자료 다운로드 (챕터 13개 + 교재 전체) ---------- */
 async function getPdf(name, label, btn){
   const t = btn.innerHTML; btn.disabled = true; btn.textContent = '내려받는 중…';
   try { await VT.download('fb-' + name, 'student', `그래머첫단추_${label}.pdf`); }
@@ -261,10 +270,10 @@ async function loadView(name){
 function ansPagesOf(u, k){ return k === 'review' ? u.parts.summary : (u.parts.wa || []).concat(u.parts.wbans || []); }
 function stepsOf(u){
   const s = [];
-  s.push({ k:'summary', cls:'s', t:'Summary Note · 개념 정리', d:'오프닝과 개념 정리 페이지를 읽어요. 영상이 있으면 함께 보며 펜으로 필기해도 좋아요.', pages:(u.parts.open || []).concat(u.parts.summary) });
+  s.push({ k:'summary', cls:'s', t:'Summary Note · 개념 정리', d:'오프닝과 개념 정리 페이지를 읽어요. 영상이 있으면 함께 보세요.', pages:(u.parts.open || []).concat(u.parts.summary) });
   if (u.parts.wa) s.push({ k:'wa', t:'워크북 A · 따라 하기', d:'답이 적혀 있는 예제예요. 답을 보며 판단 순서를 손에 익혀요.', pages:u.parts.wa });
-  s.push({ k:'review', cls:'r', t:'Review Note · 빈칸 채우기', d:'빈칸을 눌러 채우고, 정답(Summary Note)을 보며 ○✕로 채점해요.', pages:u.parts.review, write:true, ans:'Summary Note' });
-  if (u.parts.wb) s.push({ k:'wb', t:'워크북 B · 혼자 풀기', d:'빈칸·밑줄을 눌러 쓰고 선택지는 눌러서 동그라미! 다 풀면 워크북 A가 정답지예요.', pages:u.parts.wb, write:true, ans:'워크북 A' + (u.parts.wbans ? ' · 정답' : '') });
+  s.push({ k:'review', cls:'r', t:'Review Note · 빈칸 채우기', d:'빈칸을 눌러 채우고 채점하기를 누르면 바로 채점해 줘요.', pages:u.parts.review, write:true, ans:'Summary Note' });
+  if (u.parts.wb) s.push({ k:'wb', t:'워크북 B · 혼자 풀기', d:'빈칸·밑줄을 눌러 쓰고 선택지는 눌러서 동그라미! 다 풀면 채점하기를 눌러요.', pages:u.parts.wb, write:true, ans:'워크북 A' + (u.parts.wbans ? ' · 정답' : '') });
   s.push({ k:'quiz', t:'마무리 · 실전 문항', d:'내신·모의고사 스타일 문항을 여기서 바로 풀고 채점해요.' });
   s.push({ k:'checks', t:'자가체크', d:'할 수 있게 된 것에 체크해요.' });
   return s;
@@ -282,8 +291,8 @@ function renderHome(){
       <div class="bar"><i style="width:${Math.round(p.n / p.total * 100)}%"></i></div>${r ? '<span class="rt">진단 추천</span>' : ''}</button>`; };
   let h = `<div class="hd"><div class="e">GRAMMAR 첫단추 · BASIC &amp; BEYOND</div><h1>Grammar 첫단추</h1><div class="k">영어학습의 첫 시작! 세상에서 가장 쉬운 영문법</div></div>
   <div class="card" style="margin-top:16px"><h2>한 단원은 이렇게 공부해요</h2>
-    <div class="flow"><div class="s"><b>① Summary</b>개념 정리 읽기</div><div><b>② 워크북 A</b>답 보며 따라 하기</div><div class="r"><b>③ Review</b>빈칸 채우고 채점</div><div><b>④ 워크북 B</b>혼자 풀고 채점</div><div><b>⑤ 실전 문항</b>바로 채점</div><div><b>⑥ 자가체크</b>할 수 있는 것 ✓</div></div>
-    <div class="note">모든 학습은 <b>이 화면 안에서</b> 할 수 있어요. 빈칸을 누르면 글자를 쓰고, 선택지는 눌러서 고르고, 펜으로 표시도 할 수 있어요. 수업 영상은 <b>보충 설명</b>이라 없어도 순서대로 하면 혼자 공부할 수 있어요.</div>
+    <div class="flow"><div class="s"><b>① Summary</b>개념 정리 읽기</div><div><b>② 워크북 A</b>답 보며 따라 하기</div><div class="r"><b>③ Review</b>빈칸 채우고 자동 채점</div><div><b>④ 워크북 B</b>혼자 풀고 자동 채점</div><div><b>⑤ 실전 문항</b>바로 채점</div><div><b>⑥ 자가체크</b>할 수 있는 것 ✓</div></div>
+    <div class="note">모든 학습은 <b>이 화면 안에서</b> 할 수 있어요. 빈칸을 누르면 글자를 쓰고, 선택지는 눌러서 고르고, <b>채점하기</b>를 누르면 바로 채점해 줘요. 수업 영상은 <b>보충 설명</b>이라 없어도 순서대로 하면 혼자 공부할 수 있어요.</div>
     <div class="dlrow"><button class="dl" data-view="intro">교재 소개·목차 보기</button></div></div>
   <div class="card"><h2>종합 진단 30문항</h2>
     <p>BASIC 20문항 + Beyond 10문항 · 권장 25분. 처음에 풀면 어디부터 공부할지 알려 주고, 다 공부한 뒤 다시 풀면 얼마나 늘었는지 보여 줘요.</p>
@@ -293,7 +302,7 @@ function renderHome(){
   <div class="lvl">BEYOND · 한 층 더 올라가기</div><div class="ugrid">${U.filter(u => u.level === 'Beyond').map(card).join('')}</div>
   <div class="lvl">마무리 · 한 권을 한 장으로</div>
   <div class="card"><p>시험 직전에는 한 장 총정리만! 단원마다 배운 판단 순서만 모았어요.</p><div class="dlrow"><button class="dl" data-view="onepage">한 장 총정리 보기</button></div></div>
-  <div class="card pdfc"><h2>교재 PDF <span class="tagx">참고용</span></h2><p>교재는 학원에서 나눠 줘요. 잃어버렸거나 집에서 출력할 때만 내려받으세요.</p>
+  <div class="card pdfc"><h2>학습자료 다운로드</h2>
     <div class="dlrow">${dlBtn('book', '교재전체', `교재 전체 · ${FB.extra.book || 178}쪽`, true)}</div>
     <div class="dlrow">${(FB.chapters || []).map(c => { const us = c.units.map(id => UB[id]); const nm = us.map(v => v.no).join('+'); return dlBtn(c.id, `${nm}_${us.map(v => v.title).join('_')}`, nm); }).join('')}</div></div>`;
   $app.innerHTML = h; scrollTo(0,0); bindDl();
@@ -340,7 +349,7 @@ function renderUnit(){
     if (s.k === 'checks') h += `<div class="sub">${checksHtml(u, x)}</div>`;
     h += `</div>`;
   });
-  h += `</div><div class="card" style="margin-top:14px"><p style="font-size:13px">교재를 잃어버렸거나 출력이 필요할 때만 (참고용)</p><div class="dlrow">${chapterBtn(u)}</div></div>
+  h += `</div><div class="card" style="margin-top:14px"><h2 style="font-size:15px;margin:0">학습자료 다운로드</h2><div class="dlrow">${chapterBtn(u)}</div></div>
   <div class="go"><button class="btn sec" id="bk2" style="margin-top:6px">목록으로</button>${nextUnit(u) ? `<button class="btn acc" id="nx" style="margin-top:6px">다음 단원 · ${esc(nextUnit(u).title)} →</button>` : ''}</div>`;
   $app.innerHTML = h; bindDl(); bindUnit(u, x);
 }
@@ -363,59 +372,59 @@ function openStep(u, k){
     ans: s.write ? { title:s.ans, pages:ansPagesOf(u, k) } : null, back:() => { openUnit(u.id); const el = $app.querySelector(`.st[data-k="${k}"]`); if (el) el.scrollIntoView({ block:'center' }); } });
 }
 
-/* ---------- 페이지 뷰어 · 쓰기 ---------- */
-let V = null;   // { o, mode, cur:{pn,i,free}, ink }
-function inkOf(pn){ const x = V.o.uid ? ust(V.o.uid) : null; if (!x) return null; x.ink = x.ink || {}; return x.ink[pn] || (x.ink[pn] = { v:{}, m:{}, t:[] }); }
-function saveInk(){ if (V && V.o.uid) { const x = ust(V.o.uid); Object.keys(x.ink || {}).forEach(pn => { const k = x.ink[pn]; if (!Object.keys(k.v).length && !Object.keys(k.m).length && !k.t.length) delete x.ink[pn]; }); tally(); persist(V.o.uid); } }
-function strokes(pn){ try { return JSON.parse(localStorage.getItem(`vtf_pen_${V.o.uid || V.o.view}_${pn}`) || '[]'); } catch(e){ return []; } }
-function saveStrokes(pn, a){ try { localStorage.setItem(`vtf_pen_${V.o.uid || V.o.view}_${pn}`, JSON.stringify(a)); } catch(e){ toast('기기 저장 공간이 부족해 펜 기록을 저장하지 못했어요.'); } }
+/* ---------- 페이지 뷰어 · 쓰기 · 자동 채점 ---------- */
+let V = null;   // { o, mode:'type'|'text', cur:{pn,i}, busy }
+function inkOf(pn){ const x = V && V.o.uid ? ust(V.o.uid) : null; if (!x) return null; x.ink = x.ink || {}; const k = x.ink[pn] || (x.ink[pn] = { v:{}, t:[] }); k.g = k.g || {}; k.fx = k.fx || {}; k.ai = k.ai || {}; return k; }
+function saveInk(){ if (V && V.o.uid) { const x = ust(V.o.uid); Object.keys(x.ink || {}).forEach(pn => { const k = x.ink[pn]; if (!Object.keys(k.v).length && !(k.t || []).length && !Object.keys(k.g || {}).length) delete x.ink[pn]; }); tally(); persist(V.o.uid); } }
+const KEY = (pn, i) => ((FB.key || {})[pn] || [])[i] || {};
 function tally(){
   if (!V || !V.o.write) return null;
-  let ok = 0, bad = 0, total = 0;
-  V.o.pages.forEach(pn => { const k = inkOf(pn); total += ((FB.ov || {})[pn] || []).length + k.t.length;
-    Object.values(k.m).forEach(m => { if (m === 'o') ok++; else if (m === 'x') bad++; }); k.t.forEach(t => { if (t.m === 'o') ok++; else if (t.m === 'x') bad++; }); });
+  let ok = 0, bad = 0, q = 0, n = 0, left = 0;
+  V.o.pages.forEach(pn => { const k = inkOf(pn), F = (FB.ov || {})[pn] || []; n += F.length;
+    F.forEach((f, i) => { const e = KEY(pn, i); if (k.v[i] == null && (e.a || (e.c && e.c.length) || e.k === 1)) left++; });
+    Object.values(k.g).forEach(g => { if (g === 'o') ok++; else if (g === 'x') bad++; else if (g === 'q') q++; }); });
   const x = ust(V.o.uid), r = { ok, total: ok + bad };
   if (V.o.step === 'wb') x.wb = r; else x.rv = r;
-  const el = document.getElementById('vsc'); if (el) el.innerHTML = ok + bad ? `○ <b>${ok}</b> · ✕ <b>${bad}</b>` : `쓰기 칸 ${total}개`;
-  return { ok, bad, total };
+  const el = document.getElementById('vsc');
+  if (el) el.innerHTML = ok + bad ? `<b class="sc">${ok} / ${ok + bad}</b>${q ? ` · 확인 필요 ${q}` : ''}${left ? ` · 안 푼 칸 ${left}` : ''}` : `쓰기 칸 ${n}개`;
+  return { ok, bad, q };
 }
 function openViewer(o){
   closeSheet();
-  V = { o, mode: o.write ? 'type' : 'view' }; cur = { viewer:true };
+  V = { o, mode:'type' }; cur = { viewer:true };
   const x = o.uid ? ust(o.uid) : null, done = x && o.step ? !!(x.steps || {})[o.step] : false;
   let h = `<div class="vtop"><button id="vbk">← ${o.uid ? '단원으로' : '목록'}</button><div class="vt">${esc(o.title)}</div></div>
-  <div class="vbar">${o.write ? `<div class="tools" id="tools">
-      <button data-m="type" class="on">✎ 칸 채우기</button><button data-m="text">T 글자 넣기</button><button data-m="pen">펜</button><button data-m="erase">지우개</button><button data-m="mark">○✕ 채점</button></div>
-    <button class="ansb" id="ansGo">정답 보기 · ${esc(o.ans.title)}</button><span class="vsc" id="vsc"></span>`
-    : o.uid ? `<div class="tools" id="tools"><button data-m="view" class="on">읽기</button><button data-m="pen">펜</button><button data-m="erase">지우개</button></div>` : ''}</div>
-  ${o.write ? `<div class="hint" id="hint">빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓. 다 풀면 <b>정답 보기</b> → <b>○✕ 채점</b>으로 하나씩 채점해요.</div>` : ''}
+  ${o.write ? `<div class="vbar"><button class="memo" id="memo">＋ 메모 글상자</button><button class="gradeb" id="gradeGo">채점하기</button><button class="ansb" id="ansGo">정답 페이지</button><span class="vsc" id="vsc"></span></div>
+  <div class="hint" id="hint">빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓. 다 풀면 <b>채점하기</b>!</div>` : ''}
   <div id="pages">${o.pages.map(pn => `<div class="pg" data-pn="${pn}"><div class="ld">페이지 ${pn} 불러오는 중…</div></div>`).join('')}</div>
-  ${o.step ? `<div class="vfoot"><button class="btn ${done ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 이 단계 완료 (취소하려면 누르기)' : '이 단계 다 했어요'}</button></div>` : ''}`;
+  ${o.step ? `<div class="vfoot">${o.write ? '<button class="btn acc" id="gradeGo2">채점하기</button>' : ''}<button class="btn ${done ? 'sec' : o.write ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 이 단계 완료' : '이 단계 다 했어요'}</button></div>` : ''}`;
   $app.innerHTML = h; scrollTo(0, 0);
   document.getElementById('vbk').onclick = () => { closeSheet(); saveInk(); V = null; document.body.dataset.mode = ''; const a = document.getElementById('ans'); if (a) { a.remove(); document.body.style.overflow = ''; } o.back(); };
-  const tl = document.getElementById('tools'); if (tl) tl.querySelectorAll('[data-m]').forEach(b => b.onclick = () => setMode(b.dataset.m));
+  const mm = document.getElementById('memo'); if (mm) mm.onclick = () => setMode(V.mode === 'text' ? 'type' : 'text');
+  ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) b.onclick = () => grade(); });
   const ag = document.getElementById('ansGo'); if (ag) ag.onclick = () => openAnswers(o.ans);
   const vd = document.getElementById('vDone'); if (vd) vd.onclick = () => { x.steps = x.steps || {}; x.steps[o.step] = !x.steps[o.step]; saveInk();
-    vd.className = 'btn ' + (x.steps[o.step] ? 'sec' : 'acc'); vd.textContent = x.steps[o.step] ? '✓ 이 단계 완료 (취소하려면 누르기)' : '이 단계 다 했어요'; if (x.steps[o.step]) toast('잘했어요! 다음 단계로 가요.'); };
-  tally(); setMode(V.mode);
+    vd.className = 'btn ' + (x.steps[o.step] ? 'sec' : 'acc'); vd.textContent = x.steps[o.step] ? '✓ 이 단계 완료' : '이 단계 다 했어요'; if (x.steps[o.step]) toast('잘했어요! 다음 단계로 가요.'); };
+  tally(); setMode('type'); gradeLabel();
   loadView(o.view).then(() => { if (V && V.o === o) o.pages.forEach(pn => drawPage(pn)); })
     .catch(e => { document.getElementById('pages').innerHTML = `<div class="card"><p>${esc(errText(e, '페이지를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 열어 주세요.'))}</p></div>`; });
 }
+function gradeLabel(){ if (!V || !V.o.write) return; const any = V.o.pages.some(pn => Object.keys(inkOf(pn).g).length);
+  ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b && !V.busy) b.textContent = any ? '다시 채점하기' : '채점하기'; }); }
 function setMode(m){
   if (!V) return; V.mode = m; closeSheet();
   document.body.dataset.mode = m;
-  document.querySelectorAll('#tools [data-m]').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  const mm = document.getElementById('memo'); if (mm) { mm.classList.toggle('on', m === 'text'); mm.textContent = m === 'text' ? '✓ 메모 넣는 중 (끝내기)' : '＋ 메모 글상자'; }
   const ht = document.getElementById('hint');
-  if (ht && V.o.write) ht.innerHTML = { type:'빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓.', text:'칸이 없는 곳에 쓰고 싶으면 원하는 자리를 누르세요. 글상자가 생겨요.',
-    pen:'손가락이나 펜슬로 표시해요. 이 모드에서는 화면이 스크롤되지 않아요. 다 쓰면 <b>칸 채우기</b>로 돌아가세요.', erase:'지울 펜 자국을 문지르세요.', mark:'정답을 보고 내가 쓴 칸을 누를 때마다 ○ → ✕ → 지움 순서로 바뀌어요.' }[m] || '';
+  if (ht && V.o.write) ht.innerHTML = m === 'text' ? '메모를 넣을 자리를 누르세요. 메모는 채점하지 않아요.' : '빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓. 다 풀면 <b>채점하기</b>!';
 }
 function drawPage(pn){
   const box = document.querySelector(`.pg[data-pn="${pn}"]`), P = PG[pn]; if (!box) return;
   if (!P) { box.innerHTML = '<div class="ld">이 페이지는 아직 준비 중이에요.</div>'; return; }
   box.style.aspectRatio = `${P.w} / ${P.h}`;
-  box.innerHTML = `<img src="${P.url}" alt="${pn}쪽" draggable="false"><canvas></canvas><div class="ly"></div><div class="pn">${pn}</div>`;
-  const ro = new ResizeObserver(() => { box.style.setProperty('--pw', box.clientWidth + 'px'); paintStrokes(pn); }); ro.observe(box);
-  paintFields(pn); bindPen(pn, box);
+  box.innerHTML = `<img src="${P.url}" alt="${pn}쪽" draggable="false"><div class="ly"></div><div class="pn">${pn}</div>`;
+  new ResizeObserver(() => box.style.setProperty('--pw', box.clientWidth + 'px')).observe(box);
+  paintFields(pn);
   box.querySelector('.ly').onclick = e => { if (V.mode !== 'text' || e.target !== e.currentTarget) return;
     closeSheet(); const r = e.currentTarget.getBoundingClientRect(), k = inkOf(pn);
     k.t.push({ x: +((e.clientX - r.left) / r.width).toFixed(4), y: +((e.clientY - r.top) / r.height - 0.009).toFixed(4), v:'' });
@@ -425,28 +434,80 @@ const pct = v => (v * 100).toFixed(3) + '%';
 function paintFields(pn){
   const box = document.querySelector(`.pg[data-pn="${pn}"] .ly`); if (!box) return;
   const F = (FB.ov || {})[pn] || [], k = V.o.write ? inkOf(pn) : null; if (!k) { box.innerHTML = ''; return; }
-  const mk = m => m ? `<i class="mk ${m}">${m === 'o' ? '○' : '✕'}</i>` : '';
+  const mk = g => g ? `<i class="mk ${g}">${g === 'o' ? '○' : g === 'x' ? '✕' : '?'}</i>` : '';
   let h = '';
-  F.forEach((f, i) => { const v = k.v[i], m = k.m[i];
-    if (f[0] === 'c') h += f[1].map((r, j) => `<span class="ch ${(v || []).includes(j) ? 'on' : ''}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${j === f[1].length - 1 ? mk(m) : ''}</span>`).join('');
-    else if (f[0] === 'k') h += `<span class="kb" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(m)}</span>`;
-    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(m)}</span>`; });
-  k.t.forEach((t, j) => { h += `<span class="fd ft ${t.v ? '' : 'empty'}" data-t="${j}" style="left:${pct(t.x)};top:${pct(t.y)}"><em>${esc(t.v || ' ')}</em>${mk(t.m)}</span>`; });
+  F.forEach((f, i) => { const v = k.v[i], g = k.g[i], fx = k.fx[i];
+    if (f[0] === 'c') h += f[1].map((r, j) => `<span class="ch ${(v || []).includes(j) ? 'on' : ''} ${g === 'x' && (KEY(pn, i).c || []).includes(j) ? 'ckey' : ''}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${j === f[1].length - 1 ? mk(g) : ''}</span>`).join('');
+    else if (f[0] === 'k') h += `<span class="kb ${g ? 'g' + g : ''}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(g)}</span>`;
+    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'} ${g ? 'g' + g : ''}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(g)}${g === 'x' && fx ? `<b class="fx">${esc(fx)}</b>` : ''}</span>`; });
+  (k.t || []).forEach((t, j) => { h += `<span class="fd ft ${t.v ? '' : 'empty'}" data-t="${j}" style="left:${pct(t.x)};top:${pct(t.y)}"><em>${esc(t.v || ' ')}</em></span>`; });
   box.innerHTML = h;
   box.querySelectorAll('[data-i],[data-t]').forEach(el => el.onclick = e => { e.stopPropagation(); fieldTap(pn, el); });
 }
-function cycle(m){ return m === 'o' ? 'x' : m === 'x' ? undefined : 'o'; }
+function ungrade(k, i){ delete k.g[i]; delete k.fx[i]; }
 function fieldTap(pn, el){
   const k = inkOf(pn), F = (FB.ov || {})[pn] || [];
-  if (V.mode === 'pen' || V.mode === 'erase') return;
-  if (el.dataset.t != null) { const t = k.t[+el.dataset.t];
-    if (V.mode === 'mark') { t.m = cycle(t.m); if (!t.m) delete t.m; saveInk(); paintFields(pn); }
-    else openSheet(pn, 't' + el.dataset.t); return; }
+  if (el.dataset.t != null) { openSheet(pn, 't' + el.dataset.t); return; }
   const i = +el.dataset.i, f = F[i];
-  if (V.mode === 'mark') { const m = cycle(k.m[i]); if (m) k.m[i] = m; else delete k.m[i]; saveInk(); paintFields(pn); return; }
-  if (f[0] === 'c') { const j = +el.dataset.j, a = (k.v[i] || []).slice(), p = a.indexOf(j); if (p >= 0) a.splice(p, 1); else a.push(j); if (a.length) k.v[i] = a; else delete k.v[i]; saveInk(); paintFields(pn); return; }
-  if (f[0] === 'k') { if (k.v[i]) delete k.v[i]; else k.v[i] = 1; saveInk(); paintFields(pn); return; }
+  if (k.g[i] === 'q') { k.g[i] = 'o'; saveInk(); paintFields(pn); toast('맞았으면 ○, 한 번 더 누르면 ✕'); return; }
+  if (k.g[i] === 'o' && k.ai[i] && k.ai[i].self) { k.g[i] = 'x'; saveInk(); paintFields(pn); return; }
+  if (f[0] === 'c') { const j = +el.dataset.j, a = (k.v[i] || []).slice(), p = a.indexOf(j); if (p >= 0) a.splice(p, 1); else a.push(j); if (a.length) k.v[i] = a; else delete k.v[i]; ungrade(k, i); saveInk(); paintFields(pn); return; }
+  if (f[0] === 'k') { if (k.v[i]) delete k.v[i]; else k.v[i] = 1; ungrade(k, i); saveInk(); paintFields(pn); return; }
   openSheet(pn, i);
+}
+/* ---------- 채점 ---------- */
+const nrm = s => String(s || '').toLowerCase().replace(/[\s.,!?·~'"“”‘’()\[\]{}<>/=\-–—…:;↶↺✓→+*_|]/g, '');
+const OX = s => String(s || '').trim().replace(/^[oO○◯0]$/, '○').replace(/^[xX✕×✗]$/, '✕');
+function sameAns(a, key){
+  if (!key) return false;
+  if (/^[○✕]$/.test(key.trim())) return OX(a) === key.trim();
+  const A = nrm(a); if (!A) return false;
+  if (A === nrm(key)) return true;
+  return String(key).split(/\s*(?:\/|·|=|,|\bor\b)\s*/).some(p => p && nrm(p) === A);
+}
+async function grade(){
+  if (!V || V.busy) return; closeSheet();
+  const o = V.o, jobs = [];
+  V.busy = true; ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) { b.disabled = true; b.textContent = '채점하는 중…'; } });
+  o.pages.forEach(pn => {
+    const k = inkOf(pn), F = (FB.ov || {})[pn] || [], ask = [];
+    F.forEach((f, i) => {
+      const e = KEY(pn, i), v = k.v[i];
+      delete k.g[i]; delete k.fx[i];
+      if (f[0] === 'c') {
+        const pick = (v || []).slice().sort();
+        if (e.c && e.c.length) { if (pick.length) { const ok = JSON.stringify(pick) === JSON.stringify(e.c.slice().sort()); k.g[i] = ok ? 'o' : 'x'; if (!ok) k.fx[i] = e.c.map(j => (e.o || [])[j]).join(', '); } }
+        else if (pick.length) ask.push({ i, n: ask.length + 1, row: e.r || '', key: '', ans: `선택지 [${(e.o || []).join(' / ')}] 중 학생이 고른 것: ${pick.map(j => (e.o || [])[j]).join(', ')}` });
+      } else if (f[0] === 'k') {
+        if (v) k.g[i] = e.k === 1 ? 'o' : e.k === 0 ? 'x' : undefined; if (!k.g[i]) delete k.g[i];
+      } else {
+        const a = String(v || '').trim();
+        if (!a) return;
+        if (sameAns(a, e.a)) { k.g[i] = 'o'; return; }
+        const c = k.ai[i]; if (c && c.a === a && !c.self) { k.g[i] = c.ok ? 'o' : 'x'; if (!c.ok) k.fx[i] = c.fix || e.a || ''; return; }
+        ask.push({ i, n: ask.length + 1, row: e.r || '', key: e.a || '', ans: a });
+      }
+    });
+    if (ask.length) jobs.push({ pn, k, ask });
+  });
+  let failed = 0;
+  await Promise.all(jobs.map(async j => {
+    try {
+      const r = await VT.ai({ kind:'fbcheck', page: j.pn, inst: (FB.inst || {})[j.pn] || '', items: j.ask.map(a => ({ n: a.n, row: a.row, key: a.key, ans: a.ans })) });
+      const by = {}; (r.items || []).forEach(it => by[it.n] = it);
+      j.ask.forEach(a => { const it = by[a.n]; if (!it) { j.k.g[a.i] = 'q'; failed++; return; }
+        j.k.g[a.i] = it.correct ? 'o' : 'x'; if (!it.correct) j.k.fx[a.i] = it.fix || a.key || '';
+        if (!String(a.ans).startsWith('선택지 [')) j.k.ai[a.i] = { a: a.ans, ok: !!it.correct, fix: it.fix || '' }; });
+    } catch(e) { j.ask.forEach(a => { j.k.g[a.i] = 'q'; j.k.ai[a.i] = { a: a.ans, self: true }; }); failed += j.ask.length;
+      if (e.code === 'DAILY_LIMIT') toast('오늘 AI 채점 한도를 다 썼어요. 내일 다시 채점할 수 있어요.'); }
+  }));
+  V.busy = false; ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) b.disabled = false; });
+  o.pages.forEach(pn => paintFields(pn)); saveInk(); gradeLabel();
+  const t = tally();
+  if (!t.ok && !t.bad && !t.q) { toast('아직 채점할 답이 없어요. 칸을 먼저 채워 주세요.'); return; }
+  if (failed) toast(`${failed}칸은 자동 채점을 못 했어요(?). 정답 페이지를 보고 눌러서 ○✕를 정해 주세요.`);
+  else toast(`채점 완료! ${t.ok} / ${t.ok + t.bad}${t.bad ? ' · 빨간 글씨가 정답이에요' : ' · 모두 맞았어요!'}`);
+  const first = document.querySelector('.fd.gx, .kb.gx, .ch .mk.x'); if (first && t.bad) first.scrollIntoView({ block:'center', behavior:'smooth' });
 }
 /* 아래쪽 입력창 (휴대폰에서도 크게) */
 function textSlots(){ const out = []; V.o.pages.forEach(pn => { ((FB.ov || {})[pn] || []).forEach((f, i) => { if (f[0] === 'b' || f[0] === 'l') out.push([pn, i]); }); (inkOf(pn).t || []).forEach((_, j) => out.push([pn, 't' + j])); }); return out; }
@@ -454,61 +515,39 @@ function openSheet(pn, i){
   closeSheet('switch');
   const k = inkOf(pn), isT = typeof i === 'string', val = isT ? k.t[+i.slice(1)].v : (k.v[i] || '');
   const slots = textSlots(), at = slots.findIndex(s => s[0] === pn && s[1] === i);
+  const g = isT ? null : k.g[i], fx = isT ? '' : k.fx[i];
   V.cur = { pn, i };
-  document.querySelectorAll('.fd.cur').forEach(e => e.classList.remove('cur'));
   const el = document.querySelector(`.pg[data-pn="${pn}"] ${isT ? `[data-t="${i.slice(1)}"]` : `.fd[data-i="${i}"]`}`); if (el) { el.classList.add('cur'); el.scrollIntoView({ block:'center', behavior:'smooth' }); }
   const sh = document.createElement('div'); sh.className = 'sheet'; sh.id = 'sheet';
-  sh.innerHTML = `<div class="sh1"><span>${isT ? '글상자' : `칸 ${at + 1} / ${slots.length}`} · ${pn}쪽</span>${isT ? '<button id="shDel">글상자 지우기</button>' : ''}<button id="shX">닫기</button></div>
-    <div class="sh2"><button id="shP" aria-label="이전 칸">‹</button><input id="shI" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(val)}" placeholder="여기에 쓰세요"><button id="shN" aria-label="다음 칸">›</button></div>`;
+  sh.innerHTML = `<div class="sh1"><span>${isT ? '메모' : `칸 ${at + 1} / ${slots.length}`} · ${pn}쪽${g === 'o' ? ' · <b style="color:#d22f2f">○ 맞았어요</b>' : g === 'x' ? ` · <b style="color:#d22f2f">✕ 정답: ${esc(fx || '정답 페이지 확인')}</b>` : ''}</span>${isT ? '<button id="shDel">메모 지우기</button>' : ''}<button id="shX">닫기</button></div>
+    <div class="sh2"><button id="shP" aria-label="이전 칸">‹</button><input id="shI" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(val)}" placeholder="${isT ? '메모를 쓰세요' : '여기에 쓰세요'}"><button id="shN" aria-label="다음 칸">›</button></div>`;
   document.body.appendChild(sh);
   const inp = document.getElementById('shI'); inp.focus({ preventScroll:true }); inp.setSelectionRange(inp.value.length, inp.value.length);
-  inp.oninput = () => { const v = inp.value; if (isT) k.t[+i.slice(1)].v = v; else if (v) k.v[i] = v; else delete k.v[i];
+  inp.oninput = () => { const v = inp.value; if (isT) k.t[+i.slice(1)].v = v; else { if (v) k.v[i] = v; else delete k.v[i]; if (k.g[i]) { ungrade(k, i); const m = el && el.querySelector('.mk, .fx'); el && el.querySelectorAll('.mk, .fx').forEach(n => n.remove()); el && el.classList.remove('go', 'gx', 'gq'); } }
     if (el) { el.querySelector('em').textContent = v || (isT ? ' ' : ''); el.classList.toggle('empty', !v); } clearTimeout(V.sv); V.sv = setTimeout(saveInk, 500); };
   const go = d => { const s = slots[at + d]; if (s) openSheet(s[0], s[1]); else closeSheet(); };
   inp.onkeydown = e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); go(1); } };
   document.getElementById('shN').onclick = () => go(1); document.getElementById('shP').onclick = () => go(-1);
   document.getElementById('shX').onclick = () => closeSheet();
-  const del = document.getElementById('shDel'); if (del) del.onclick = () => { k.t[+i.slice(1)].v = ''; delete k.t[+i.slice(1)].m; closeSheet(); };
+  const del = document.getElementById('shDel'); if (del) del.onclick = () => { k.t[+i.slice(1)].v = ''; closeSheet(); };
 }
 function closeSheet(how){
   const sh = document.getElementById('sheet'); if (sh) sh.remove();
   document.querySelectorAll('.fd.cur').forEach(e => e.classList.remove('cur'));
   if (!V || !V.cur) return;
-  const pn = V.cur.pn; V.cur = null;
+  V.cur = null;
   if (how === 'switch') { saveInk(); return; }
-  V.o.pages.forEach(p => { const k = inkOf(p); if (k) { const n = k.t.length; k.t = k.t.filter(t => t.v || t.m); if (k.t.length !== n) paintFields(p); } });
+  V.o.pages.forEach(p => { const k = inkOf(p); if (k) { const n = k.t.length; k.t = k.t.filter(t => t.v); if (k.t.length !== n) paintFields(p); } });
   saveInk();
-}
-/* 펜 */
-function bindPen(pn, box){
-  const cv = box.querySelector('canvas'); let cur = null, A = strokes(pn);
-  const pt = e => { const r = cv.getBoundingClientRect(); return [+((e.clientX - r.left) / r.width).toFixed(4), +((e.clientY - r.top) / r.height).toFixed(4)]; };
-  cv.onpointerdown = e => { if (V.mode !== 'pen' && V.mode !== 'erase') return; e.preventDefault(); cv.setPointerCapture(e.pointerId); A = strokes(pn);
-    if (V.mode === 'pen') { cur = pt(e); A.push(cur); } else { cur = 'erase'; eraseAt(pt(e)); } };
-  cv.onpointermove = e => { if (!cur) return; e.preventDefault(); const p = pt(e);
-    if (cur === 'erase') return eraseAt(p);
-    const n = cur.length; if (Math.hypot(p[0] - cur[n - 2], p[1] - cur[n - 1]) < 0.002) return; cur.push(p[0], p[1]); paintStrokes(pn, A); };
-  cv.onpointerup = cv.onpointercancel = () => { if (!cur) return; cur = null; saveStrokes(pn, A); };
-  const eraseAt = p => { const before = A.length; A = A.filter(s => { for (let i = 0; i < s.length; i += 2) if (Math.hypot(s[i] - p[0], (s[i + 1] - p[1]) * 1.41) < 0.018) return false; return true; });
-    if (A.length !== before) { paintStrokes(pn, A); saveStrokes(pn, A); } };
-  paintStrokes(pn, A);
-}
-function paintStrokes(pn, A){
-  const box = document.querySelector(`.pg[data-pn="${pn}"]`); if (!box) return; const cv = box.querySelector('canvas'); if (!cv) return;
-  A = A || strokes(pn); const dpr = Math.min(devicePixelRatio || 1, 2), w = box.clientWidth, h = box.clientHeight;
-  if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
-  const c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, w, h);
-  c.strokeStyle = 'rgba(31,79,191,.85)'; c.lineWidth = Math.max(1.4, w * 0.0026); c.lineCap = c.lineJoin = 'round';
-  A.forEach(s => { c.beginPath(); c.moveTo(s[0] * w, s[1] * h); if (s.length === 2) c.lineTo(s[0] * w + .1, s[1] * h); for (let i = 2; i < s.length; i += 2) c.lineTo(s[i] * w, s[i + 1] * h); c.stroke(); });
 }
 /* 정답 페이지 */
 function openAnswers(a){
   closeSheet();
   const d = document.createElement('div'); d.className = 'ans'; d.id = 'ans';
-  d.innerHTML = `<div class="ah"><b>정답 · ${esc(a.title)}</b><span>내 답과 비교한 뒤 <b>○✕ 채점</b>으로 표시하세요</span><button id="ansX">닫고 채점하기</button></div>
+  d.innerHTML = `<div class="ah"><b>정답 페이지 · ${esc(a.title)}</b><span>틀린 칸과 비교해 보세요</span><button id="ansX">닫기</button></div>
     <div class="ab">${a.pages.map(pn => PG[pn] ? `<img src="${PG[pn].url}" alt="${pn}쪽" style="aspect-ratio:${PG[pn].w}/${PG[pn].h}">` : `<div class="ld">${pn}쪽 준비 중</div>`).join('')}</div>`;
   document.body.appendChild(d); document.body.style.overflow = 'hidden';
-  document.getElementById('ansX').onclick = () => { d.remove(); document.body.style.overflow = ''; setMode('mark'); };
+  document.getElementById('ansX').onclick = () => { d.remove(); document.body.style.overflow = ''; };
 }
 
 /* ---------- 마무리 실전 문항 ---------- */

@@ -9791,6 +9791,4588 @@ window.FB = {
    ]
   ]
  },
+ "key": {
+  "14": [
+   {
+    "a": "파도들의",
+    "r": "전치사 해석 The sound ↶(of the waves) 【?】 → ___"
+   },
+   {
+    "a": "소리",
+    "r": "전치사 해석 The sound ↶(of the waves) ___ → 【?】"
+   },
+   {
+    "a": "사과들(이 담긴)",
+    "r": "전치사 해석 A basket ↶(of apples) 【?】 → ___"
+   },
+   {
+    "a": "바구니",
+    "r": "전치사 해석 A basket ↶(of apples) ___ → 【?】"
+   },
+   {
+    "a": "그녀의 형제들과 함께한,",
+    "r": "My friend, ↶(along with her 부가정보 【?】 → ___ brothers,)"
+   },
+   {
+    "a": "내 친구",
+    "r": "My friend, ↶(along with her 부가정보 ___ → 【?】 brothers,)"
+   },
+   {
+    "a": "그 선반 위에 있는",
+    "r": "전치사 해석 The books ↶(on the shelf) 【?】 → ___"
+   },
+   {
+    "a": "책들",
+    "r": "전치사 해석 The books ↶(on the shelf) ___ → 【?】"
+   },
+   {
+    "a": "내일 할",
+    "r": "to부정사 형용사 용법 The work ↶(to do tomorrow) 【?】 → ___"
+   },
+   {
+    "a": "일",
+    "r": "to부정사 형용사 용법 The work ↶(to do tomorrow) ___ → 【?】"
+   },
+   {
+    "a": "그 나라의 상품들의",
+    "r": "The price ↶(of the products in the 전치사 해석 【?】 → ___ country)"
+   },
+   {
+    "a": "가격",
+    "r": "The price ↶(of the products in the 전치사 해석 ___ → 【?】 country)"
+   },
+   {
+    "a": "영어를 매일 공부하는",
+    "r": "to부정사 To study ↶(English every day) 【?】 → ___ 명사 용법"
+   },
+   {
+    "a": "것",
+    "r": "to부정사 To study ↶(English every day) ___ → 【?】 명사 용법"
+   },
+   {
+    "a": "저녁 늦게 영화들을 보는",
+    "r": "동명사 Watching ↶(movies late at night) 【?】 → ___"
+   },
+   {
+    "a": "것",
+    "r": "동명사 Watching ↶(movies late at night) ___ → 【?】"
+   }
+  ],
+  "15": [
+   {
+    "a": "뒤",
+    "r": "영어는 꾸미는 말이 명사 【?】 에 붙어서 주어가 길어져요. 꾸미는 말에 괄호를 치고 건너뛰면 주인공 명사와 동사가 바로 보여요."
+   },
+   {
+    "a": "is",
+    "r": "단수 복수 명사 동사 be동사 현재 【?】 ___ water 물 물을 주다 was were bag 가방 가방에 담다"
+   },
+   {
+    "a": "is are",
+    "r": "단수 복수 명사 동사 be동사 현재 ___ 【?】 water 물 물을 주다 was were bag 가방 가방에 담다"
+   },
+   {
+    "a": "wants",
+    "r": "일반동사 【?】 want walk 산책 산책을 하다, 걷다 needs need dust 먼지 먼지를 치우다"
+   },
+   {
+    "a": "단수",
+    "r": "to부정사 · 동명사 주어는 단수! / '~하는 것' 한 가지 일이라서 취급 → To study English Watching movies는 【?】 takes, affects"
+   }
+  ],
+  "16": [
+   {
+    "a": "그녀가 좋아하는 일",
+    "r": "관계사 해석 The work which she likes ( is / are ) very meaningful to her. 1 (관계대명사) 밑줄 해석 【?】"
+   },
+   {
+    "a": "도서관에서 공부하는 학생들",
+    "r": "The students who study in the library ( is / are ) my classmates. 2 관계사 해석 (관계대명사) 밑줄 해석 【?】"
+   },
+   {
+    "a": "위에 있던 책들",
+    "r": "The books that were on the desk ( has / have ) disappeared mysteriously. 3 관계사 해석 (관계대명사) 밑줄 해석 【?】"
+   },
+   {
+    "a": "50개국이 넘는 나라를 여행해 본 남자",
+    "r": "4 confident. (관계대명사) 밑줄 해석 【?】"
+   },
+   {
+    "a": "내가 그녀를 만났던 카페",
+    "r": "The cafe where I met her ( was / were ) located near the station. 5 관계사 해석 (관계부사) 밑줄 해석 【?】"
+   },
+   {
+    "a": "파도 소리가 많은 사람들을 차분하게 만들고 있다.",
+    "r": "The sound of the waves ( is / are ) calming to many people. 1 ( 단수 / 복수 ) S주어 【?】"
+   },
+   {
+    "a": "사과 바구니가 식탁 위에 놓여 있었다.",
+    "r": "( 단수 / 복수 ) A basket of apples ( was / were ) placed on the kitchen table. 2 S주어 【?】"
+   },
+   {
+    "a": "내 친구는 그녀의 형제들과 함께 하이킹 가기를 원한다.",
+    "r": "My friend, along with her brothers, ( wants / want ) to go hiking. 3 ( 단수 / 복수 ) S주어 【?】"
+   },
+   {
+    "a": "선반 위의 책들은 먼지를 털어야 한다.",
+    "r": "( 단수 / 복수 ) The books on the shelf ( needs / need ) to be dusted. 4 S주어 【?】"
+   },
+   {
+    "a": "내일 해야 할 일은 꽤 버겁다.",
+    "r": "( 단수 / 복수 ) The work to do tomorrow ( is / are ) quite overwhelming. 5 S주어 【?】"
+   },
+   {
+    "a": "그 나라 상품들의 가격이 올해 올랐다.",
+    "r": "( 단수 / 복수 ) The price of the products in the country ( has / have ) increased this year. 6 S주어 【?】"
+   },
+   {
+    "a": "영어를 매일 공부하는 것은 많은 시간과 노력이 든다.",
+    "r": "( 단수 / 복수 ) To study English every day ( take / takes ) a lot of time and effort. 7 S주어 【?】"
+   },
+   {
+    "a": "밤늦게 영화를 보는 것은 내 수면 습관에 영향을 준다.",
+    "r": "Watching movies late at night ( affect / affects ) my sleep schedule. 8 ( 단수 / 복수 ) S주어 【?】"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "is",
+     "are"
+    ],
+    "r": "관계사 해석 The work which she likes ( is / are ) very meaningful to her. 1 (관계대명사) 밑줄 해석 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "is",
+     "are"
+    ],
+    "r": "The students who study in the library ( is / are ) my classmates. 2 관계사 해석 (관계대명사) 밑줄 해석 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "has",
+     "have"
+    ],
+    "r": "The books that were on the desk ( has / have ) disappeared mysteriously. 3 관계사 해석 (관계대명사) 밑줄 해석 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "seem",
+     "seems"
+    ],
+    "r": "The man who has traveled to over 50 countries ( seem / seems ) very 관계사 해석 4 confident."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "was",
+     "were"
+    ],
+    "r": "The cafe where I met her ( was / were ) located near the station. 5 관계사 해석 (관계부사) 밑줄 해석 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "is",
+     "are"
+    ],
+    "r": "The sound of the waves ( is / are ) calming to many people. 1 ( 단수 / 복수 ) S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "The sound of the waves ( is / are ) calming to many people. 1 ( 단수 / 복수 ) S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "was",
+     "were"
+    ],
+    "r": "( 단수 / 복수 ) A basket of apples ( was / were ) placed on the kitchen table. 2 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "( 단수 / 복수 ) A basket of apples ( was / were ) placed on the kitchen table. 2 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "wants",
+     "want"
+    ],
+    "r": "My friend, along with her brothers, ( wants / want ) to go hiking. 3 ( 단수 / 복수 ) S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "My friend, along with her brothers, ( wants / want ) to go hiking. 3 ( 단수 / 복수 ) S주어 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "needs",
+     "need"
+    ],
+    "r": "( 단수 / 복수 ) The books on the shelf ( needs / need ) to be dusted. 4 S주어 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "( 단수 / 복수 ) The books on the shelf ( needs / need ) to be dusted. 4 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "is",
+     "are"
+    ],
+    "r": "( 단수 / 복수 ) The work to do tomorrow ( is / are ) quite overwhelming. 5 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "( 단수 / 복수 ) The work to do tomorrow ( is / are ) quite overwhelming. 5 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "has",
+     "have"
+    ],
+    "r": "( 단수 / 복수 ) The price of the products in the country ( has / have ) increased this year. 6 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "( 단수 / 복수 ) The price of the products in the country ( has / have ) increased this year. 6 S주어 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "take",
+     "takes"
+    ],
+    "r": "( 단수 / 복수 ) To study English every day ( take / takes ) a lot of time and effort. 7 S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "( 단수 / 복수 ) To study English every day ( take / takes ) a lot of time and effort. 7 S주어 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "affect",
+     "affects"
+    ],
+    "r": "Watching movies late at night ( affect / affects ) my sleep schedule. 8 ( 단수 / 복수 ) S주어 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "단수",
+     "복수"
+    ],
+    "r": "Watching movies late at night ( affect / affects ) my sleep schedule. 8 ( 단수 / 복수 ) S주어 ___"
+   }
+  ],
+  "23": [
+   {
+    "a": "which",
+    "r": "명사 덩어리 the pencil 【?】 ( I gave you ___ yesterday ) (영어) 그 연필 내가 너에게 어제 주었다 ___"
+   },
+   {
+    "a": null,
+    "r": "명사 덩어리 the pencil ___ ( I gave you 【?】 yesterday ) (영어)"
+   },
+   {
+    "a": "근데 그것을",
+    "r": "(영어) 그 연필 내가 너에게 어제 주었다 【?】"
+   },
+   {
+    "a": "꾸며요 (후치수식).",
+    "r": "우리말에서는 맨 끝에 있던 주인공 '연필'이 영어에서는 맨 앞으로 나와요. 그리고 꾸미는 말은 주인공을 꾸며요 (후치수식). 【?】 ✓ 주인공과 꼬리 사이를 근데 다리가 이어서 하나의 명사 덩어리를 만들어요."
+   },
+   {
+    "a": "who",
+    "r": "사람 사물 · 동물 둘 다 OK 소유 【?】 ___ ___ ___ 근데 그 사람은(을) 근데 그것은(을) 사람 · 사물 모두 근데 그 ~의"
+   },
+   {
+    "a": "which",
+    "r": "사람 사물 · 동물 둘 다 OK 소유 ___ 【?】 ___ ___ 근데 그 사람은(을) 근데 그것은(을) 사람 · 사물 모두 근데 그 ~의"
+   },
+   {
+    "a": "that",
+    "r": "사람 사물 · 동물 둘 다 OK 소유 ___ ___ 【?】 ___ 근데 그 사람은(을) 근데 그것은(을) 사람 · 사물 모두 근데 그 ~의"
+   },
+   {
+    "a": "whose",
+    "r": "사람 사물 · 동물 둘 다 OK 소유 ___ ___ ___ 【?】 근데 그 사람은(을) 근데 그것은(을) 사람 · 사물 모두 근데 그 ~의"
+   },
+   {
+    "a": "문장",
+    "r": "학생들이 늦게 도착했다 【?】 명사 They built the house. ___ 명사"
+   },
+   {
+    "a": "문장",
+    "r": "학생들이 늦게 도착했다 ___ 명사 They built the house. 【?】 명사"
+   },
+   {
+    "a": "명사",
+    "r": "내가 자주 마시는 커피 【?】 명사 I often drink the coffee. ___ 명사"
+   },
+   {
+    "a": "문장",
+    "r": "내가 자주 마시는 커피 ___ 명사 I often drink the coffee. 【?】 명사"
+   },
+   {
+    "a": "명사",
+    "r": "The person who helped me 나를 도와준 사람 【?】 명사 ___ 명사"
+   },
+   {
+    "a": "명사",
+    "r": "The person who helped me 나를 도와준 사람 ___ 명사 【?】 명사"
+   },
+   {
+    "a": "문장",
+    "r": "그녀는 그 집을 샀다 The house that she bought 【?】 명사 ___ 명사"
+   },
+   {
+    "a": "명사",
+    "r": "그녀는 그 집을 샀다 The house that she bought ___ 명사 【?】 명사"
+   },
+   {
+    "a": "문장",
+    "r": "그들은 새로운 사업을 시작했다 【?】 The business which they started ___ 명사 명사"
+   },
+   {
+    "a": "명사",
+    "r": "그들은 새로운 사업을 시작했다 ___ The business which they started 【?】 명사 명사"
+   }
+  ],
+  "24": [
+   {
+    "a": "내가 어제 읽었던",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 【?】 ___ ___ The book which I read yesterday = that"
+   },
+   {
+    "a": "책",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ 【?】 ___ The book which I read yesterday = that"
+   },
+   {
+    "a": "목적격",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which I read yesterday = that"
+   },
+   {
+    "a": "네가 나에게 추천한",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 【?】 ___ ___ The movie which you recommended to me = that"
+   },
+   {
+    "a": "영화",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 ___ 【?】 ___ The movie which you recommended to me = that"
+   },
+   {
+    "a": "목적격",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 ___ ___ 【?】 The movie which you recommended to me = that"
+   },
+   {
+    "a": "네가 작년에 말했던",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 【?】 ___ ___ which The story you told me last year = that"
+   },
+   {
+    "a": "이야기",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ 【?】 ___ which The story you told me last year = that"
+   },
+   {
+    "a": "목적격",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 which The story you told me last year = that"
+   },
+   {
+    "a": "그녀를 좋아하는",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 【?】 ___ ___ who The person likes her = that"
+   },
+   {
+    "a": "사람",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ 【?】 ___ who The person likes her = that"
+   },
+   {
+    "a": "주격",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 who The person likes her = that"
+   },
+   {
+    "a": "그녀가 좋아하는",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 【?】 ___ ___ who(m) The person she likes = that"
+   },
+   {
+    "a": "사람",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 ___ 【?】 ___ who(m) The person she likes = that"
+   },
+   {
+    "a": "목적격",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 ___ ___ 【?】 who(m) The person she likes = that"
+   },
+   {
+    "a": "그가 개발하고 싶은",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 【?】 ___ ___ The app which he wants to develop = that"
+   },
+   {
+    "a": "앱",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ 【?】 ___ The app which he wants to develop = that"
+   },
+   {
+    "a": "목적격",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which he wants to develop = that"
+   },
+   {
+    "a": "우리를 웃게 만든",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 【?】 ___ ___ which The scene made us laugh = that"
+   },
+   {
+    "a": "장면",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ 【?】 ___ which The scene made us laugh = that"
+   },
+   {
+    "a": "주격",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 which The scene made us laugh = that"
+   },
+   {
+    "a": "내가 찾고 있는",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 【?】 ___ ___ which The key I am looking for = that"
+   },
+   {
+    "a": "열쇠",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ 【?】 ___ which The key I am looking for = that"
+   },
+   {
+    "a": "목적격",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 which The key I am looking for = that"
+   },
+   {
+    "a": "서울에서 태어난",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 【?】 ___ ___ who The singer was born in Seoul = that"
+   },
+   {
+    "a": "가수",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ 【?】 ___ who The singer was born in Seoul = that"
+   },
+   {
+    "a": "주격",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 who The singer was born in Seoul = that"
+   },
+   {
+    "a": "우리가 어제 발견한 책을 가진",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 【?】 ___ ___ The man whose book we found yesterday"
+   },
+   {
+    "a": "그 남자",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ 【?】 ___ The man whose book we found yesterday"
+   },
+   {
+    "a": "소유격",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ ___ 【?】 The man whose book we found yesterday"
+   },
+   {
+    "a": null,
+    "r": "선행사(명사) 관계사(근데 다리) 수식어(꼬리) 【?】 관계사가 가져간 빈자리"
+   }
+  ],
+  "25": [
+   {
+    "a": "The book",
+    "r": "1 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "1 ___ 【?】 ___"
+   },
+   {
+    "a": "I read yesterday",
+    "r": "1 ___ ___ 【?】"
+   },
+   {
+    "a": "The movie",
+    "r": "2 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "2 ___ 【?】 ___"
+   },
+   {
+    "a": "you recommended to me",
+    "r": "2 ___ ___ 【?】"
+   },
+   {
+    "a": "The story",
+    "r": "3 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "3 ___ 【?】 ___"
+   },
+   {
+    "a": "you told me last year",
+    "r": "3 ___ ___ 【?】"
+   },
+   {
+    "a": "The person",
+    "r": "4 【?】 ___ ___"
+   },
+   {
+    "a": "who = that",
+    "r": "4 ___ 【?】 ___"
+   },
+   {
+    "a": "likes her",
+    "r": "4 ___ ___ 【?】"
+   },
+   {
+    "a": "The person",
+    "r": "5 【?】 ___ ___"
+   },
+   {
+    "a": "who(m) = that",
+    "r": "5 ___ 【?】 ___"
+   },
+   {
+    "a": "she likes",
+    "r": "5 ___ ___ 【?】"
+   },
+   {
+    "a": "The app",
+    "r": "6 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "6 ___ 【?】 ___"
+   },
+   {
+    "a": "he wants to develop",
+    "r": "6 ___ ___ 【?】"
+   },
+   {
+    "a": "The scene",
+    "r": "7 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "7 ___ 【?】 ___"
+   },
+   {
+    "a": "made us laugh",
+    "r": "7 ___ ___ 【?】"
+   },
+   {
+    "a": "The key",
+    "r": "8 【?】 ___ ___"
+   },
+   {
+    "a": "which = that",
+    "r": "8 ___ 【?】 ___"
+   },
+   {
+    "a": "I am looking for",
+    "r": "8 ___ ___ 【?】"
+   },
+   {
+    "a": "The singer",
+    "r": "9 【?】 ___ ___"
+   },
+   {
+    "a": "who = that",
+    "r": "9 ___ 【?】 ___"
+   },
+   {
+    "a": "was born in Seoul",
+    "r": "9 ___ ___ 【?】"
+   },
+   {
+    "a": "The man",
+    "r": "10 【?】 ___ ___"
+   },
+   {
+    "a": "whose",
+    "r": "10 ___ 【?】 ___"
+   },
+   {
+    "a": "book we found yesterday",
+    "r": "10 ___ ___ 【?】"
+   },
+   {
+    "a": null,
+    "r": "선행사(명사) 관계사(근데 다리) 수식어(꼬리) 【?】 관계사가 가져간 빈자리"
+   }
+  ],
+  "32": [
+   {
+    "a": "주어 Vi",
+    "r": "1. 구조상 차이 【?】 ___ ___ ___"
+   },
+   {
+    "a": "자동사",
+    "r": "1. 구조상 차이 ___ 【?】 ___ ___"
+   },
+   {
+    "a": "부가정보",
+    "r": "1. 구조상 차이 ___ ___ 【?】 ___"
+   },
+   {
+    "a": "목적어의 유무",
+    "r": "1. 구조상 차이 ___ ___ ___ 【?】 그가 '스스로' 거리 위를 걸었다. → 걷는 동작을 하는 건 주어"
+   },
+   {
+    "a": "스스로 동작을 하는지,",
+    "r": "2. 해석상 차이 walked He his dog on the street. 주어가 【?】 동작을 하는지,"
+   },
+   {
+    "a": "주어",
+    "r": "동작을 하는지, 【?】 ___ ___ ___ 동사의 영향력이"
+   },
+   {
+    "a": "타동사 →",
+    "r": "동작을 하는지, ___ 【?】 ___ ___ 동사의 영향력이"
+   },
+   {
+    "a": "목적어",
+    "r": "동작을 하는지, ___ ___ 【?】 ___ 동사의 영향력이"
+   },
+   {
+    "a": "부가정보",
+    "r": "동작을 하는지, ___ ___ ___ 【?】 동사의 영향력이"
+   },
+   {
+    "a": null,
+    "r": "동사의 영향력이 그가 그의 개를 거리 위에서 걷게 만들었다. → 걷는 동작의 영향이 에게 【?】 목적어에게 전달 전달되는지"
+   },
+   {
+    "a": "자동사",
+    "r": "She stopped. 【?】 자동사 The glass broke. ___ 자동사 Things changed ___ 자동사 over time."
+   },
+   {
+    "a": "자동사",
+    "r": "She stopped. ___ 자동사 The glass broke. 【?】 자동사 Things changed ___ 자동사 over time."
+   },
+   {
+    "a": "자동사",
+    "r": "She stopped. ___ 자동사 The glass broke. ___ 자동사 Things changed 【?】 자동사 over time. She stopped him . ___ 자동사 He broke"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "___ 자동사 over time. She stopped him . 【?】 자동사 He broke ___ 자동사 the glass . I changed him . ___ 자동사"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "over time. She stopped him . ___ 자동사 He broke 【?】 자동사 the glass . I changed him . ___ 자동사"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "She stopped him . ___ 자동사 He broke ___ 자동사 the glass . I changed him . 【?】 자동사"
+   },
+   {
+    "a": "자동사",
+    "r": "죽다 / 죽이다 일어나다 / 일으키다 남다 / ~을 떠나다 He died. 【?】 자동사 Something Only a few people ___ 자동사 happened. remained after the ___ 자동사"
+   },
+   {
+    "a": "자동사",
+    "r": "He died. ___ 자동사 Something Only a few people 【?】 자동사 happened. remained after the ___ 자동사 He killed him . ___ 자동사"
+   },
+   {
+    "a": "자동사",
+    "r": "He died. ___ 자동사 Something Only a few people ___ 자동사 happened. remained after the 【?】 자동사 He killed him . ___ 자동사 show. They caused"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "___ 자동사 happened. remained after the ___ 자동사 He killed him . 【?】 자동사 show. They caused"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "show. They caused 【?】 자동사 something . She left the room ___ 자동사"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "___ 자동사 something . She left the room 【?】 자동사 quietly."
+   }
+  ],
+  "33": [
+   {
+    "a": "없음",
+    "r": "그는 (스스로) 죽었다 1 He died. 【?】 ___ 그가 (목적어를) 죽였다"
+   },
+   {
+    "a": "자동사",
+    "r": "그는 (스스로) 죽었다 1 He died. ___ 【?】 그가 (목적어를) 죽였다"
+   },
+   {
+    "a": "the dog",
+    "r": "그는 (스스로) 죽었다 2 He killed the dog. 【?】 ___ 그가 (목적어를) 죽였다"
+   },
+   {
+    "a": "타동사",
+    "r": "그는 (스스로) 죽었다 2 He killed the dog. ___ 【?】 그가 (목적어를) 죽였다"
+   },
+   {
+    "a": "없음",
+    "r": "The ghost disappeared (스스로) 사라지다 3 【?】 ___ suddenly. (목적어를) 사라지게 하다"
+   },
+   {
+    "a": "자동사",
+    "r": "The ghost disappeared (스스로) 사라지다 3 ___ 【?】 suddenly. (목적어를) 사라지게 하다"
+   },
+   {
+    "a": "at me는 없음 부가정보",
+    "r": "(스스로) 보다 4 She looked angrily at me. 【?】 ___ (목적어를) 보게 하다"
+   },
+   {
+    "a": "자동사",
+    "r": "(스스로) 보다 4 She looked angrily at me. ___ 【?】 (목적어를) 보게 하다"
+   },
+   {
+    "a": "his face",
+    "r": "(스스로) 돌다 5 He turned his face. 【?】 ___ (목적어를) 돌리다"
+   },
+   {
+    "a": "타동사",
+    "r": "(스스로) 돌다 5 He turned his face. ___ 【?】 (목적어를) 돌리다"
+   },
+   {
+    "a": "없음",
+    "r": "(스스로) 발생하다 6 The war happened in 1950. 【?】 ___ (목적어를) 발생시키다"
+   },
+   {
+    "a": "자동사",
+    "r": "(스스로) 발생하다 6 The war happened in 1950. ___ 【?】 (목적어를) 발생시키다"
+   },
+   {
+    "a": "the war",
+    "r": "(스스로) 일어나다 7 North Korea caused the war. 【?】 ___ (목적어를) 일어나게 하다"
+   },
+   {
+    "a": "타동사",
+    "r": "(스스로) 일어나다 7 North Korea caused the war. ___ 【?】 (목적어를) 일어나게 하다"
+   },
+   {
+    "a": "for the 부가정보 없음 airport는",
+    "r": "(스스로) 남기다 / 떠나다 8 They left for the airport. 【?】 ___ (목적어를) 남기고 떠나다"
+   },
+   {
+    "a": "자동사",
+    "r": "(스스로) 남기다 / 떠나다 8 They left for the airport. ___ 【?】 (목적어를) 남기고 떠나다"
+   },
+   {
+    "a": "the airport",
+    "r": "(스스로) 남기다 / 떠나다 9 They left the airport. 【?】 ___ (목적어를) 남기고 떠나다"
+   },
+   {
+    "a": "타동사",
+    "r": "(스스로) 남기다 / 떠나다 9 They left the airport. ___ 【?】 (목적어를) 남기고 떠나다"
+   },
+   {
+    "a": "없음",
+    "r": "(스스로) 열리다 10 The door opened slowly. 【?】 ___ (목적어를) 열다"
+   },
+   {
+    "a": "자동사",
+    "r": "(스스로) 열리다 10 The door opened slowly. ___ 【?】 (목적어를) 열다"
+   },
+   {
+    "a": "the door",
+    "r": "(스스로) 열리다 11 She opened the door. 【?】 ___ (목적어를) 열다"
+   },
+   {
+    "a": "타동사",
+    "r": "(스스로) 열리다 11 She opened the door. ___ 【?】 (목적어를) 열다"
+   },
+   {
+    "a": "없음",
+    "r": "(스스로) 녹다 12 The ice melted in the sun. 【?】 ___ (목적어를) 녹이다"
+   },
+   {
+    "a": "자동사",
+    "r": "(스스로) 녹다 12 The ice melted in the sun. ___ 【?】 (목적어를) 녹이다"
+   },
+   {
+    "a": "the ice",
+    "r": "(스스로) 녹다 13 The sun melted the ice. 【?】 ___ (목적어를) 녹이다"
+   },
+   {
+    "a": "타동사",
+    "r": "(스스로) 녹다 13 The sun melted the ice. ___ 【?】 (목적어를) 녹이다"
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   }
+  ],
+  "42": [
+   {
+    "a": "-ㅁ, 다름 -것",
+    "r": "【?】 명사 difference 밥, 공부, 영어, 맛있음, 남자, 먹는 것 등 꾸미지 않아요 -ㅁ, -것"
+   },
+   {
+    "a": "다르게 다르다, 하다",
+    "r": "【?】 동사 differentiate 공부하다, 먹는다, 잘생기다, 놀라게 하다 등 꾸미지 않아요 -다"
+   },
+   {
+    "a": "다른",
+    "r": "잘생긴, 공부하는, 형용사 【?】 different 명사 ___ -ㄴ (-는, -은) 놀라게 하는, 놀라게 된 등"
+   },
+   {
+    "a": "남자, 뉴스, 사람",
+    "r": "잘생긴, 공부하는, 형용사 ___ different 명사 【?】 -ㄴ (-는, -은) 놀라게 하는, 놀라게 된 등"
+   },
+   {
+    "a": "다르게",
+    "r": "【?】 동사 ___ 부사 differently 잘생기게, 맛있게, 놀랍게, 귀엽게 등 -게 형용사 ___"
+   },
+   {
+    "a": "먹다, 상승하다, 웃다",
+    "r": "___ 동사 【?】 부사 differently 잘생기게, 맛있게, 놀랍게, 귀엽게 등 -게 형용사 ___"
+   },
+   {
+    "a": "먹는, 상승하는, 웃는",
+    "r": "___ 동사 ___ 부사 differently 잘생기게, 맛있게, 놀랍게, 귀엽게 등 -게 형용사 【?】"
+   },
+   {
+    "a": "명사",
+    "r": "【?】 ___ I need some water. Don't forget to water the plants. ___ ___"
+   },
+   {
+    "a": "동사",
+    "r": "___ 【?】 I need some water. Don't forget to water the plants. ___ ___"
+   },
+   {
+    "a": "물",
+    "r": "___ ___ I need some water. Don't forget to water the plants. 【?】 ___"
+   },
+   {
+    "a": "물을 주다",
+    "r": "___ ___ I need some water. Don't forget to water the plants. ___ 【?】"
+   },
+   {
+    "a": "명사",
+    "r": "【?】 ___ She bought a new bag. I'm going to bag these snacks. ___ ___"
+   },
+   {
+    "a": "동사",
+    "r": "___ 【?】 She bought a new bag. I'm going to bag these snacks. ___ ___"
+   },
+   {
+    "a": "가방",
+    "r": "___ ___ She bought a new bag. I'm going to bag these snacks. 【?】 ___"
+   },
+   {
+    "a": "봉지에 담다",
+    "r": "___ ___ She bought a new bag. I'm going to bag these snacks. ___ 【?】"
+   },
+   {
+    "a": "Vt 놀라게 한다",
+    "r": "우리말 감정 표현은 '놀라다, 흥분하다, S 그 뉴스가 O 그녀를 【?】 만족하다'처럼 (스스로) ~하다가 기본이에요."
+   },
+   {
+    "a": "놀라게 한다. 놀란",
+    "r": "만족하다'처럼 (스스로) ~하다가 기본이에요. → 그 뉴스가 그녀를 【?】 . 놀란 건 뉴스가 아니라 그녀예요. 영어 감정동사는 (목적어를) ~하게 하다가"
+   }
+  ],
+  "43": [
+   {
+    "a": "놀라게 하는, 만드는",
+    "r": "↗ surprising 능동 형용사 【?】 surprise"
+   },
+   {
+    "a": "놀라게 된, 만들어진",
+    "r": "surprise V 놀라게 하다 ↘ surprised 수동 형용사 【?】 (= 놀란)"
+   },
+   {
+    "a": "그 뉴스는 놀라웠다.",
+    "r": "【?】 ___"
+   },
+   {
+    "a": "그녀는 놀랐다(놀라움을 느꼈다).",
+    "r": "___ 【?】"
+   },
+   {
+    "a": "능동",
+    "r": "동사에 -ing를 붙이면 【?】 의미(~하게 하는), p.p.로 쓰면 ___ 의미(~하게 된)의 형용사가 돼요."
+   },
+   {
+    "a": "수동",
+    "r": "동사에 -ing를 붙이면 ___ 의미(~하게 하는), p.p.로 쓰면 【?】 의미(~하게 된)의 형용사가 돼요."
+   },
+   {
+    "a": "목적어",
+    "r": "STEP 1 자리 보기 STEP 2 모양 보기 뒤에 【?】 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing ___ ④ / p.p. ___ ③"
+   },
+   {
+    "a": "형용사",
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ 【?】 ③④ 형용사라면-ing ___ ④ / p.p. ___ ③"
+   },
+   {
+    "a": "능동",
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing 【?】 ④ / p.p. ___ ③"
+   },
+   {
+    "a": "수동",
+    "r": "뒤에 ___ 가 있다 → 동사 ①② 동사라면 원형·현재형 ① / 과거형 ② be·look 뒤에서 주어 설명→ ___ ③④ 형용사라면-ing ___ ④ / p.p. 【?】 ③"
+   }
+  ],
+  "44": [
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   }
+  ],
+  "52": [
+   {
+    "a": "~한",
+    "r": "형용사 ' 【?】 '으로 해석 · 명사를 꾸며요 부사 ' ___ '로 해석 · 주로동사를 꾸며요"
+   },
+   {
+    "a": "~하게",
+    "r": "형용사 ' ___ '으로 해석 · 명사를 꾸며요 부사 ' 【?】 '로 해석 · 주로동사를 꾸며요"
+   },
+   {
+    "a": "아름다운",
+    "r": "She has a beautiful voice. He ran quickly . ( 【?】 ) 목소리 ( ___ ) 달렸다"
+   },
+   {
+    "a": "빠르게",
+    "r": "She has a beautiful voice. He ran quickly . ( ___ ) 목소리 ( 【?】 ) 달렸다"
+   },
+   {
+    "a": "어려운",
+    "r": "It was a difficult question. She speaks English fluently . ( ) 질문 ( ) (영어를) 말한다 【?】 ___"
+   },
+   {
+    "a": "유창하게",
+    "r": "It was a difficult question. She speaks English fluently . ( ) 질문 ( ) (영어를) 말한다 ___ 【?】"
+   },
+   {
+    "a": "흥미로운",
+    "r": "I heard an interesting story. I drive a car carefully . ( 【?】 ) 이야기 ( ___ ) (차를) 운전한다"
+   },
+   {
+    "a": "조심스럽게",
+    "r": "I heard an interesting story. I drive a car carefully . ( ___ ) 이야기 ( 【?】 ) (차를) 운전한다"
+   },
+   {
+    "a": "보어",
+    "r": "S 주어 V 동사 【?】 S 주어 V 동사 ___ 부가정보"
+   },
+   {
+    "a": "부사",
+    "r": "S 주어 V 동사 ___ S 주어 V 동사 【?】 부가정보 그녀는 보였다 + (그녀가) 상태로 → 그녀는 화나 보였다. 그녀는 화난 듯이 나를 보았다. (angrily → looked를 꾸밈)"
+   },
+   {
+    "a": "화난",
+    "r": "___ ___ 그녀는 보였다 + (그녀가) 【?】 상태로 → 그녀는 화나 보였다. 그녀는 화난 듯이 나를 보았다. (angrily → looked를 꾸밈)"
+   },
+   {
+    "a": "~한 상태로",
+    "r": "보어(형용사·명사)는 '(주어가) 【?】 '라고 해석해요. 보어 자리에 부사는 올 수 없어요."
+   }
+  ],
+  "53": [
+   {
+    "a": "(그가) 안전한 상태로",
+    "r": "형용사 = 보어 He arrived safe . 그는 도착했다 + 【?】"
+   },
+   {
+    "a": "안전하게",
+    "r": "He arrived safely . 부사 그는 【?】 도착했다 (도착 과정이 순조롭게)"
+   },
+   {
+    "a": "형용사",
+    "r": "4 시험 출제 포인트 · 감각동사 뒤엔 【?】 4"
+   },
+   {
+    "a": "○",
+    "r": "맛있어 보인다 【?】 The food looks delicious. ___ The food looks deliciously."
+   },
+   {
+    "a": "✕",
+    "r": "맛있어 보인다 ___ The food looks delicious. 【?】 The food looks deliciously."
+   },
+   {
+    "a": "○",
+    "r": "【?】 You look happy today. ___ You look happily today. 행복해 보인다"
+   },
+   {
+    "a": "✕",
+    "r": "___ You look happy today. 【?】 You look happily today. 행복해 보인다"
+   },
+   {
+    "a": "○",
+    "r": "【?】 That sounds strange. ___ That sounds strangely. 이상하게 들린다"
+   },
+   {
+    "a": "✕",
+    "r": "___ That sounds strange. 【?】 That sounds strangely. 이상하게 들린다"
+   }
+  ],
+  "54": [
+   {
+    "a": "화난 상태로",
+    "r": "angry (주어가) 【?】 상태로 1 She looked angry. ___ ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ 【?】 ___"
+   },
+   {
+    "a": "자동사",
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. 【?】 ___ ___"
+   },
+   {
+    "a": "형용사",
+    "r": "angry (주어가) ___ 상태로 1 She looked angry. ___ ___ 【?】"
+   },
+   {
+    "a": null,
+    "r": "(주어가) 상태로 She looked angrily angrily 【?】 2 ___ ___ at me. ___"
+   },
+   {
+    "a": "자동사",
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 【?】 ___ at me. ___"
+   },
+   {
+    "a": "X",
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ 【?】 at me. ___"
+   },
+   {
+    "a": "부사",
+    "r": "(주어가) 상태로 She looked angrily angrily ___ 2 ___ ___ at me. 【?】"
+   },
+   {
+    "a": "화난 상태로",
+    "r": "mad (주어가) 【?】 상태로 3 He turned mad. ___ ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ 【?】 ___"
+   },
+   {
+    "a": "자동사",
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. 【?】 ___ ___"
+   },
+   {
+    "a": "형용사",
+    "r": "mad (주어가) ___ 상태로 3 He turned mad. ___ ___ 【?】"
+   },
+   {
+    "a": null,
+    "r": "his face (주어가) 【?】 상태로 4 He turned his face. ___ ___ ___"
+   },
+   {
+    "a": "→ 타동사",
+    "r": "his face (주어가) ___ 상태로 4 He turned his face. 【?】 ___ ___"
+   },
+   {
+    "a": "X",
+    "r": "his face (주어가) ___ 상태로 4 He turned his face. ___ 【?】 ___"
+   },
+   {
+    "a": "목적어",
+    "r": "his face (주어가) ___ 상태로 4 He turned his face. ___ ___ 【?】"
+   },
+   {
+    "a": "똑똑한 상태로",
+    "r": "(주어가) 【?】 상태로 smart 5 He is smart. ___ ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ 【?】 ___"
+   },
+   {
+    "a": "자동사",
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. 【?】 ___ ___"
+   },
+   {
+    "a": "형용사",
+    "r": "(주어가) ___ 상태로 smart 5 He is smart. ___ ___ 【?】"
+   },
+   {
+    "a": "변호사인 상태로",
+    "r": "a lawyer (주어가) 【?】 상태로 6 She is a lawyer. ___ ___ ___"
+   },
+   {
+    "a": "자동사",
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. 【?】 ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ 【?】 ___"
+   },
+   {
+    "a": "명사",
+    "r": "a lawyer (주어가) ___ 상태로 6 She is a lawyer. ___ ___ 【?】"
+   },
+   {
+    "a": "차분한 상태로",
+    "r": "calm (주어가) 【?】 상태로 7 He remained calm. ___ ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ 【?】 ___"
+   },
+   {
+    "a": "자동사",
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. 【?】 ___ ___"
+   },
+   {
+    "a": "형용사",
+    "r": "calm (주어가) ___ 상태로 7 He remained calm. ___ ___ 【?】"
+   },
+   {
+    "a": "조용한 상태로",
+    "r": "quiet (주어가) 【?】 상태로 8 He kept quiet. ___ ___ ___"
+   },
+   {
+    "a": "자동사",
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. 【?】 ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ 【?】 ___"
+   },
+   {
+    "a": "형용사",
+    "r": "quiet (주어가) ___ 상태로 8 He kept quiet. ___ ___ 【?】"
+   },
+   {
+    "a": "건강한 상태로",
+    "r": "(주어가) 상태로 healthy 【?】 9 He stayed healthy. ___ ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ 【?】 ___"
+   },
+   {
+    "a": "자동사",
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. 【?】 ___ ___"
+   },
+   {
+    "a": "형용사",
+    "r": "(주어가) 상태로 healthy ___ 9 He stayed healthy. ___ ___ 【?】"
+   },
+   {
+    "a": "맛있는 상태로",
+    "r": "The food looks delicious (주어가) 【?】 상태로 10 ___ ___ delicious. ___"
+   },
+   {
+    "a": "자동사",
+    "r": "The food looks delicious (주어가) ___ 상태로 10 【?】 ___ delicious. ___"
+   },
+   {
+    "a": "O",
+    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ 【?】 delicious. ___"
+   },
+   {
+    "a": "형용사",
+    "r": "The food looks delicious (주어가) ___ 상태로 10 ___ ___ delicious. 【?】"
+   },
+   {
+    "a": "늙은 상태로",
+    "r": "old (주어가) 【?】 상태로 11 They are growing old. ___ ___ ___"
+   },
+   {
+    "a": "자동사",
+    "r": "old (주어가) ___ 상태로 11 They are growing old. 【?】 ___ ___"
+   },
+   {
+    "a": "O",
+    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ 【?】 ___"
+   },
+   {
+    "a": "형용사",
+    "r": "old (주어가) ___ 상태로 11 They are growing old. ___ ___ 【?】"
+   }
+  ],
+  "62": [
+   {
+    "a": "be + p.p.",
+    "r": "⇒ S 주어 V 동사 O 목적어 S 주어 【?】 ___"
+   },
+   {
+    "a": "by + 행위자",
+    "r": "⇒ S 주어 V 동사 O 목적어 S 주어 ___ 【?】"
+   },
+   {
+    "a": "목적어를 주어",
+    "r": "1 능동의 【?】 를 주어 2 동사를 be + p.p.로 (시제는 3 원래 주어는 ___ + 행위자 자리로 be가 맡아요) (생략 가능)"
+   },
+   {
+    "a": "by +",
+    "r": "1 능동의 ___ 를 주어 2 동사를 be + p.p.로 (시제는 3 원래 주어는 【?】 + 행위자 자리로 be가 맡아요) (생략 가능)"
+   },
+   {
+    "a": "I had lunch,",
+    "r": "과거에 한 일 · 단순 정보 요즘·평소에 하는 일 미래 특정 시점에 할 의지 I 【?】 lunch, but I'm I ___ math, but I'm not I ___ you tomorrow. hungry now. studying it now. 내일 전화할 거예요"
+   },
+   {
+    "a": "study math,",
+    "r": "과거에 한 일 · 단순 정보 요즘·평소에 하는 일 미래 특정 시점에 할 의지 I ___ lunch, but I'm I 【?】 math, but I'm not I ___ you tomorrow. hungry now. studying it now. 내일 전화할 거예요"
+   },
+   {
+    "a": "will call you",
+    "r": "과거에 한 일 · 단순 정보 요즘·평소에 하는 일 미래 특정 시점에 할 의지 I ___ lunch, but I'm I ___ math, but I'm not I 【?】 you tomorrow. hungry now. studying it now. 내일 전화할 거예요"
+   },
+   {
+    "a": "have eaten the",
+    "r": "과거 특정 시점의 상태 지금 시점의 상태 미래 특정 시점의 상태 When he called me last night, I 【?】 the pizza, By the time you graduate next I ___ my homework. year, I ___ my house. so I'm not hungry now."
+   },
+   {
+    "a": "I had finished my",
+    "r": "When he called me last night, I ___ the pizza, By the time you graduate next I 【?】 my homework. year, I ___ my house. so I'm not hungry now. 그가 전화했을 때 숙제가 이미 끝나 있던 피자를 이미 먹은 상태 → 지금 배가 안 네가 졸업할 때쯤 집을 다 지어 놓은 상태"
+   },
+   {
+    "a": "will have built",
+    "r": "When he called me last night, I ___ the pizza, By the time you graduate next I ___ my homework. year, I 【?】 my house. so I'm not hungry now. 그가 전화했을 때 숙제가 이미 끝나 있던 피자를 이미 먹은 상태 → 지금 배가 안 네가 졸업할 때쯤 집을 다 지어 놓은 상태"
+   },
+   {
+    "a": "I will have built my house.",
+    "r": "그가 전화했을 때 숙제가 이미 끝나 있던 피자를 이미 먹은 상태 → 지금 배가 안 네가 졸업할 때쯤 집을 다 지어 놓은 상태 상태 고파요 능동 【?】 능동 ___ 능동 ___ 수동 ___"
+   },
+   {
+    "a": "I homework. had finished my",
+    "r": "상태 고파요 능동 ___ 능동 【?】 능동 ___ 수동 ___ 수동 ___ 수동 ___"
+   },
+   {
+    "a": "I have eaten the pizza.",
+    "r": "상태 고파요 능동 ___ 능동 ___ 능동 【?】 수동 ___ 수동 ___ 수동 ___"
+   },
+   {
+    "a": "My house will have been built.",
+    "r": "능동 ___ 능동 ___ 능동 ___ 수동 【?】 수동 ___ 수동 ___"
+   },
+   {
+    "a": "The pizza has been eaten.",
+    "r": "능동 ___ 능동 ___ 수동 ___ 수동 【?】 수동 ___"
+   },
+   {
+    "a": "built.",
+    "r": "능동 ___ 능동 ___ 수동 ___ 수동 ___ 수동 【?】"
+   }
+  ],
+  "63": [
+   {
+    "a": "My room is cleaned by me.",
+    "r": "1 현재 I clean my room. 【?】 am/is/are + p.p."
+   },
+   {
+    "a": "My room was cleaned by me.",
+    "r": "과거 I cleaned my room. was/were + p.p. 2 【?】"
+   },
+   {
+    "a": "My room will be cleaned by me.",
+    "r": "3 미래 I will clean my room. 【?】 will be + p.p."
+   },
+   {
+    "a": "My room has been cleaned by me.",
+    "r": "현재완료 I have cleaned my room. 【?】 have/has been + p.p. 4"
+   },
+   {
+    "a": "My room had been cleaned by me.",
+    "r": "5 과거완료 I had cleaned my room. 【?】 had been + p.p."
+   },
+   {
+    "a": "My room will have been cleaned by me.",
+    "r": "I will have cleaned my 미래완료 will have been + p.p. 6 【?】 room."
+   },
+   {
+    "a": "My room is being cleaned by me.",
+    "r": "7 현재진행 I am cleaning my room. 【?】 am/is/are being + p.p."
+   },
+   {
+    "a": "My room was being cleaned by me.",
+    "r": "과거진행 I was cleaning my room. was/were being + p.p. 8 【?】"
+   },
+   {
+    "a": "been",
+    "r": "시제는 be가, 수동은 p.p.가 맡아요. 완료형이면 be → 【?】 , 진행형이면 be → ___ . 수동태로 바꾼 뒤 원래 문장과 시제가 같은지 꼭 확인해요."
+   },
+   {
+    "a": "being",
+    "r": "시제는 be가, 수동은 p.p.가 맡아요. 완료형이면 be → ___ , 진행형이면 be → 【?】 . 수동태로 바꾼 뒤 원래 문장과 시제가 같은지 꼭 확인해요."
+   },
+   {
+    "a": "수동태",
+    "r": "⚠ 출제 빈출 자동사는 【?】 가절대불가능해요"
+   },
+   {
+    "a": "○",
+    "r": "【?】 He participated in the competition. ___ He was participated in the competition. 그는 대회에 참가되었다? ← 함정!"
+   },
+   {
+    "a": "✕",
+    "r": "___ He participated in the competition. 【?】 He was participated in the competition. 그는 대회에 참가되었다? ← 함정!"
+   },
+   {
+    "a": "○",
+    "r": "【?】 The accident happened last night. ___ The accident was happened last night. 사고가 일어나졌다?"
+   },
+   {
+    "a": "✕",
+    "r": "___ The accident happened last night. 【?】 The accident was happened last night. 사고가 일어나졌다?"
+   }
+  ],
+  "64": [
+   {
+    "a": null,
+    "r": "1 Sarah bakes the cake. → ___ 【?】"
+   },
+   {
+    "a": null,
+    "r": "2 → ___ She invented the machine. 【?】"
+   },
+   {
+    "a": null,
+    "r": "___ 3 They will attend the event. 【?】 →"
+   },
+   {
+    "a": "workers.",
+    "r": "Many people have watched the ___ 4 【?】 → movie."
+   },
+   {
+    "a": null,
+    "r": "5 Alice had written the letter. 【?】 → ___"
+   },
+   {
+    "a": null,
+    "r": "6 I am closing the door. 【?】 → ___"
+   },
+   {
+    "a": null,
+    "r": "7 He was building the house. 【?】 → ___"
+   },
+   {
+    "a": "last night.",
+    "r": "The accident happened last 8 【?】 → ___ night."
+   },
+   {
+    "a": "while we",
+    "r": "9 The kids broke the window. 【?】 → ___"
+   },
+   {
+    "a": "굽고 있던",
+    "r": "10 They arrived at the station. → ___ 【?】"
+   },
+   {
+    "a": null,
+    "r": "1 Sarah bakes the cake. → 【?】 ___"
+   },
+   {
+    "a": null,
+    "r": "2 → 【?】 She invented the machine. ___"
+   },
+   {
+    "a": null,
+    "r": "【?】 3 They will attend the event. ___ →"
+   },
+   {
+    "a": null,
+    "r": "Many people have watched the 【?】 4 ___ → movie."
+   },
+   {
+    "a": null,
+    "r": "5 Alice had written the letter. ___ → 【?】"
+   },
+   {
+    "a": null,
+    "r": "6 I am closing the door. ___ → 【?】"
+   },
+   {
+    "a": null,
+    "r": "7 He was building the house. ___ → 【?】"
+   },
+   {
+    "a": null,
+    "r": "The accident happened last 8 ___ → 【?】 night."
+   },
+   {
+    "a": "chatting.",
+    "r": "9 The kids broke the window. ___ → 【?】"
+   },
+   {
+    "a": "능동 과거진행 (bake)",
+    "r": "10 They arrived at the station. → 【?】 ___"
+   }
+  ],
+  "65": [
+   {
+    "a": "is opened",
+    "r": "1 그 문은 John에 의해 매일 아침 열린다. 수동 현재 (open) The door 【?】 by John every morning."
+   },
+   {
+    "a": "opens",
+    "r": "2 John은 매일 아침 그 문을 연다. 능동 현재 (open) John 【?】 the door every morning."
+   },
+   {
+    "a": "is being painted",
+    "r": "(paint) 3 그 방은 그 노동자들에 의해 페인트칠 되고 있는 중이다. 수동 현재진행 The room 【?】 by the workers."
+   },
+   {
+    "a": "are painting",
+    "r": "(paint) 4 그 노동자들은 그 방을 페인트칠 하고 있는 중이다. 능동 현재진행 The workers 【?】 the room."
+   },
+   {
+    "a": "has been completed",
+    "r": "5 그 과제는 학생들에 의해 완수된 상태다. 수동 현재완료 (complete) The assignment 【?】 by the students."
+   },
+   {
+    "a": "have completed",
+    "r": "6 그 학생들은 그 과제를 완수한 상태다. 능동 현재완료 (complete) The students 【?】 the assignment."
+   },
+   {
+    "a": "was won",
+    "r": "7 그 게임은 어젯밤 우리 팀에 의해 이겨졌다. 수동 과거 (win) The game 【?】 by our team last night."
+   },
+   {
+    "a": "won",
+    "r": "8 우리 팀은 어젯밤 그 게임을 이겼다. 능동 과거 (win) Our team 【?】 the game last night."
+   },
+   {
+    "a": "was being baked",
+    "r": "9 우리가 채팅하는 동안 [그 케이크는 Mary에 의해 구워지고 있던 중이었다]. 수동 과거진행 (bake) The cake 【?】 by Mary while we were chatting."
+   },
+   {
+    "a": "was baking",
+    "r": "10 우리가 채팅하는 동안 [Mary는 그 케이크를 굽고 있던 중이었다]. 능동 과거진행 (bake) Mary 【?】 the cake while we were chatting."
+   },
+   {
+    "a": "had been watched",
+    "r": "11 내가 도착하기 전에 [그 영화는 모든 사람에 의해 시청된 상태였다]. 수동 과거완료 (watch) The movie 【?】 by everyone before I arrived."
+   },
+   {
+    "a": "had watched",
+    "r": "12 내가 도착하기 전에 [모든 사람들은 그 영화를 시청한 상태였다]. 능동 과거완료 (watch) Everyone 【?】 the movie before I arrived."
+   },
+   {
+    "a": "will be bought",
+    "r": "13 그 티켓들은 내일 나에 의해 구매될 것이다. 수동 미래 (buy) The tickets 【?】 by me tomorrow."
+   },
+   {
+    "a": "will buy",
+    "r": "14 나는 내일 그 티켓들을 구매할 것이다. 능동 미래 (buy) I 【?】 the tickets tomorrow."
+   },
+   {
+    "a": "will have been completed",
+    "r": "15 그날이 끝날 때까지 모든 업무들은 완료되어 있을 것이다. (complete) 수동 미래완료 All the tasks 【?】 by the end of the day."
+   },
+   {
+    "a": "will have completed",
+    "r": "(complete) 16 우리는 그날이 끝날 때까지 모든 업무들을 완료해 놓을 것이다. 능동 미래완료 We 【?】 all the tasks by the end of the day. BASIC UNIT 05 · 여러가지 시제와 수동태"
+   }
+  ],
+  "66": [
+   {
+    "a": "The door is opened by John every morning.",
+    "r": "1 그 문은 John에 의해 매일 아침 열린다. 수동 현재 【?】"
+   },
+   {
+    "a": "John opens the door every morning.",
+    "r": "2 John은 매일 아침 그 문을 연다. 능동 현재 【?】"
+   },
+   {
+    "a": "The room is being painted by the workers.",
+    "r": "3 그 방은 그 노동자들에 의해 페인트칠 되고 있는 중이다. 수동 현재진행 【?】"
+   },
+   {
+    "a": "The workers are painting the room.",
+    "r": "4 그 노동자들은 그 방을 페인트칠 하고 있는 중이다. 능동 현재진행 【?】"
+   },
+   {
+    "a": "The assignment has been completed by the students.",
+    "r": "5 그 과제는 학생들에 의해 완수된 상태다. 수동 현재완료 【?】"
+   },
+   {
+    "a": "The students have completed the assignment.",
+    "r": "6 그 학생들은 그 과제를 완수한 상태다. 능동 현재완료 【?】"
+   },
+   {
+    "a": "The game was won by our team last night.",
+    "r": "7 그 게임은 어젯밤 우리 팀에 의해 이겨졌다. 수동 과거 【?】"
+   },
+   {
+    "a": "Our team won the game last night.",
+    "r": "8 우리 팀은 어젯밤 그 게임을 이겼다. 능동 과거 【?】"
+   },
+   {
+    "a": "The cake was being baked by Mary",
+    "r": "9 우리가 채팅하는 동안 [그 케이크는 Mary에 의해 구워지고 있던 중이었다]. 수동 과거진행 【?】 while we were chatting."
+   },
+   {
+    "a": "Mary was baking the cake",
+    "r": "10 우리가 채팅하는 동안 [Mary는 그 케이크를 굽고 있던 중이었다]. 능동 과거진행 【?】 while we were chatting."
+   },
+   {
+    "a": "The movie had been watched by everyone",
+    "r": "11 내가 도착하기 전에 [그 영화는 모든 사람에 의해 시청된 상태였다]. 수동 과거완료 【?】 before I arrived."
+   },
+   {
+    "a": "Everyone had watched the movie",
+    "r": "12 내가 도착하기 전에 [모든 사람들은 그 영화를 시청한 상태였다]. 능동 과거완료 【?】 before I arrived."
+   },
+   {
+    "a": "The tickets will be bought by me tomorrow.",
+    "r": "그 티켓들은 내일 나에 의해 구매될 것이다. 수동 미래 13 【?】"
+   },
+   {
+    "a": "I will buy the tickets tomorrow.",
+    "r": "나는 내일 그 티켓들을 구매할 것이다. 능동 미래 14 【?】"
+   },
+   {
+    "a": "All the tasks will have been completed by the end of the day.",
+    "r": "15 그날이 끝날 때까지 모든 업무들은 완료되어 있을 것이다. 수동 미래완료 【?】"
+   },
+   {
+    "a": "We will have completed all the tasks by the end of the day.",
+    "r": "16 우리는 그날이 끝날 때까지 모든 업무들을 완료해 놓을 것이다. 능동 미래완료 【?】"
+   }
+  ],
+  "74": [
+   {
+    "a": "것이다",
+    "r": "S 주어 V 동사 머리 명사 근데 그것은 그 책은 우주에 대한 【?】 . → '~다'로 끝나요 그 책 [근데 그것은] 우주에 대한 것이다 → 우주에 대한 ___ → '명사'로 끝나요"
+   },
+   {
+    "a": "책",
+    "r": "그 책은 우주에 대한 ___ . → '~다'로 끝나요 그 책 [근데 그것은] 우주에 대한 것이다 → 우주에 대한 【?】 → '명사'로 끝나요"
+   },
+   {
+    "a": "문장",
+    "r": "해석이 '~다'로 끝나면 【?】 , 명사로 끝나면 ___ 예요. 2단원 관계사"
+   },
+   {
+    "a": "명사 덩어리",
+    "r": "해석이 '~다'로 끝나면 ___ , 명사로 끝나면 【?】 예요. 2단원 관계사"
+   },
+   {
+    "a": "learning",
+    "r": "= A student ↶( 【?】 English) 영어를 ___ 한 학생"
+   },
+   {
+    "a": "배우는",
+    "r": "= A student ↶( ___ English) 영어를 【?】 한 학생"
+   }
+  ],
+  "75": [
+   {
+    "a": "broken",
+    "r": "= The window ↶( 【?】 by the kid) 그 아이에 의해 ___ 창문"
+   },
+   {
+    "a": "부서진",
+    "r": "= The window ↶( ___ by the kid) 그 아이에 의해 【?】 창문"
+   },
+   {
+    "a": "is / are ]",
+    "r": "동명사 = 명사 취급 현재분사 = 형용사 취급 (능동) Painting pictures [ 【?】 / are ] not Sleeping lions [ is / ___ ] dangerous. easy."
+   },
+   {
+    "a": "are ]",
+    "r": "Painting pictures [ ___ / are ] not Sleeping lions [ is / 【?】 ] dangerous. easy."
+   },
+   {
+    "a": "자고 있는 사자들은",
+    "r": "easy. 【?】 사자들은 위험하다. 그림을 그리는 ___ 쉽지 않다. '~하는' · lions를 꾸밈 → 주어는 lions(복수) → are"
+   },
+   {
+    "a": "주어는",
+    "r": "___ 사자들은 위험하다. 그림을 그리는 【?】 쉽지 않다. '~하는' · lions를 꾸밈 → 주어는 lions(복수) → are '~하는 것' · 주어는 Painting(하나의 일) → 단수 is"
+   }
+  ],
+  "76": [
+   {
+    "a": null,
+    "r": "문장 8 The man [ ] she loved 【?】 명사"
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   },
+   {
+    "k": null
+   }
+  ],
+  "84": [
+   {
+    "a": "다르게 생각하는 사람이 세상을 바꿀 수 있다.",
+    "r": "S V → 【?】"
+   },
+   {
+    "a": "(다르게 생각하는) 사람",
+    "r": "주어(명사) 덩어리 → 【?】"
+   },
+   {
+    "a": "세상을 바꿀 수 있다고 생각할 만큼 충분히 미친 사람들이 (실제로) 그렇게 하는 사람들이다.",
+    "r": "→ 【?】"
+   },
+   {
+    "a": "(그들이 세상을 바꿀 수 있다고 생각할 만큼 충분히 미친) 사람들",
+    "r": "주어(명사) 덩어리 → 【?】"
+   },
+   {
+    "a": "빨간 모자와 파란색 재킷을 입은 남자가 천천히 걷고 있었다.",
+    "r": "S V → 【?】"
+   },
+   {
+    "a": "(빨간 모자와 파란색 재킷을 입은) 남자",
+    "r": "주어(명사) 덩어리 → 【?】"
+   }
+  ],
+  "85": [
+   {
+    "a": "repaired",
+    "r": "The car ↶( 【?】 by the mechanic) runs smoothly now. 정비사에 의해 수리된 차는 지금 잘 달린다."
+   },
+   {
+    "a": "studying",
+    "r": "The students ↶( 【?】 in the library) are preparing for exams. 도서관에서 공부하는 학생들은 시험을 준비하고 있다."
+   },
+   {
+    "a": "-ing",
+    "r": "관계사 + be를 빼면 분사만 남아요 · 능동이면 【?】 , 수동이면 ___"
+   },
+   {
+    "a": "p.p.",
+    "r": "관계사 + be를 빼면 분사만 남아요 · 능동이면 ___ , 수동이면 【?】"
+   },
+   {
+    "a": "students",
+    "r": "⚠ 시험 포인트 · 수일치 수식어구가 아무리 길어도 동사는 머리 명사에 맞춰요. The students (studying in the library) are ~ → 주어는 【?】 (복수)라서 are"
+   }
+  ],
+  "86": [
+   {
+    "a": "which was baked",
+    "r": "1 The cake baked by the chef was delicious. = The cake 【?】 by the chef was delicious."
+   },
+   {
+    "a": "completed",
+    "r": "2 The report which was completed by the team was impressive. = The report 【?】 by the team was impressive."
+   },
+   {
+    "a": "jogging",
+    "r": "3 The man who is jogging in the park looks very fit. = The man 【?】 in the park looks very fit."
+   },
+   {
+    "a": "which was written",
+    "r": "4 The book written by the author became a bestseller. = The book 【?】 by the author became a bestseller."
+   },
+   {
+    "a": "which were barking",
+    "r": "5 The dogs barking in the yard kept us awake. = The dogs 【?】 in the yard kept us awake."
+   },
+   {
+    "a": "which were blooming",
+    "r": "6 The flowers blooming in the garden added color to the yard. = The flowers 【?】 (과거진행) in the garden added color to the yard. = The flowers ___ (과거시제) in the garden added color to the yard."
+   },
+   {
+    "a": "which bloomed",
+    "r": "___ (과거진행) = The flowers 【?】 (과거시제) in the garden added color to the yard."
+   },
+   {
+    "a": "which is displayed",
+    "r": "7 The painting displayed in the gallery is fascinating. = The painting 【?】 in the gallery is fascinating."
+   },
+   {
+    "a": "received",
+    "r": "8 The letter which was received yesterday contained good news. = The letter 【?】 yesterday contained good news."
+   },
+   {
+    "a": "which was speeding",
+    "r": "9 The car speeding on the highway was pulled over by the police. = The car 【?】 (과거진행) on the highway was pulled over by the police."
+   },
+   {
+    "a": "wanted to test / V",
+    "r": "10 The child crying in the store wanted a toy. = The child 【?】 (과거진행) in the store wanted a toy. = The child ___ (과거형) in the store wanted a toy."
+   },
+   {
+    "a": "who cried",
+    "r": "___ (과거진행) = The child 【?】 (과거형) in the store wanted a toy."
+   }
+  ],
+  "96": [
+   {
+    "a": "짧고 간단하게",
+    "r": "접속사로 연결된 2개 이상의 문장을 1문장으로 【?】 바꾸는 것 접속사 + 문장 1 , 문장 2"
+   },
+   {
+    "a": "같은 주어",
+    "r": "( 접속사 ) STEP 2 문장 2와 【?】 생략 + 분사구문 , 문장 2 생략 가능"
+   },
+   {
+    "a": "-ing",
+    "r": "STEP 3 동사를 분사로 · 능동 【?】 / 수동 ___"
+   },
+   {
+    "a": "(being) p.p.",
+    "r": "STEP 3 동사를 분사로 · 능동 ___ / 수동 【?】"
+   },
+   {
+    "a": "동사원형 + -ing",
+    "r": "문장 1의 동사가능동이면 【?】 로 바꾸고, 해석은 ___ (능동 의미)"
+   },
+   {
+    "a": "~하면서",
+    "r": "문장 1의 동사가능동이면 ___ 로 바꾸고, 해석은 【?】 (능동 의미)"
+   },
+   {
+    "a": "eating",
+    "r": "↓ 그들이 리포트를 마무리했을 때, 그들은 그것을 사장에게 (While) 【?】 dinner, she watched TV. 보냈다. , 그녀는 TV를 보았다. ↓ ___"
+   },
+   {
+    "a": "저녁을 먹으면서,",
+    "r": "(While) ___ dinner, she watched TV. 보냈다. , 그녀는 TV를 보았다. ↓ 【?】 (When) ___ the report, they sent it"
+   },
+   {
+    "a": "finishing",
+    "r": ", 그녀는 TV를 보았다. ↓ ___ (When) 【?】 the report, they sent it to the boss."
+   },
+   {
+    "a": "리포트를 마무리하면서",
+    "r": "to the boss. 【?】 , 그들은 그것을 사장에게 보냈다."
+   }
+  ],
+  "97": [
+   {
+    "a": "(being) + p.p.",
+    "r": "문장 1의 동사가수동(be + p.p.)이면 【?】 로 바꾸고, 해석은 ___ (수동 의미)"
+   },
+   {
+    "a": "~되어지면서",
+    "r": "문장 1의 동사가수동(be + p.p.)이면 ___ 로 바꾸고, 해석은 【?】 (수동 의미)"
+   },
+   {
+    "a": "(being) tired , he",
+    "r": "↓ Surprised by the news, he couldn't speak. (Because) 【?】 , he went to bed = Because he was surprised by the news, early. …"
+   },
+   {
+    "a": null,
+    "r": "early. … 【?】 , 그는 일찍 잠자리에 들었다. 4단원 연결: surprised = 놀람을 느낀 (수동)"
+   },
+   {
+    "a": "간결하게 전달하기",
+    "r": "분사구문은 두 문장 사이의 인과관계나 여러 논리적 관계에서, 중복되는 의미를 최대한 줄이고 문장을 더 【?】 전달하기 위해 써요."
+   },
+   {
+    "a": "문맥",
+    "r": "그래서 원래 문장의 접속사와 주어를 생략하는 것이 기본이고, 해석은 보통 '~하면서'(능동) · '~되어지면서'(수동)처럼 대략적인 의미만 남겨요. 구체적인 관계(이유·시간·양보)는 【?】 으로 파악해요. 다만 두 문장의 논리 관계를 더 분명하게 나타내고 싶을 때는 분사구문 앞에 접속사를 남겨 두기도 해요."
+   }
+  ],
+  "98": [
+   {
+    "a": "he",
+    "r": "Surprised by the news, he couldn't speak. 능동 because although 【?】 ___ ___ , 그는 말을 할 수 없었다. 수동 when if while 1"
+   },
+   {
+    "a": "과거",
+    "r": "Surprised by the news, he couldn't speak. 능동 because although ___ 【?】 ___ , 그는 말을 할 수 없었다. 수동 when if while 1"
+   },
+   {
+    "a": "그 뉴스에 의해 놀라지면서,",
+    "r": "Surprised by the news, he couldn't speak. 능동 because although ___ ___ 【?】 , 그는 말을 할 수 없었다. 수동 when if while 1"
+   },
+   {
+    "a": "수동",
+    "r": "Walking down the street, I saw a cat. 능동 because although 【?】 ___ ___ , 나는 고양이를 봤다. 수동 when if while 2"
+   },
+   {
+    "a": "과거 과거진행",
+    "r": "Walking down the street, I saw a cat. 능동 because although ___ 【?】 ___ , 나는 고양이를 봤다. 수동 when if while 2"
+   },
+   {
+    "a": "길을 따라 걸어가면서, 2",
+    "r": "Walking down the street, I saw a cat. 능동 because although ___ ___ 【?】 , 나는 고양이를 봤다. 수동 when if while 2"
+   },
+   {
+    "a": "she",
+    "r": "Smiling brightly, she entered the room. 능동 because although 【?】 ___ ___ , 그녀는 방에 들어갔다. 수동 when if while 3"
+   },
+   {
+    "a": "과거진행",
+    "r": "Smiling brightly, she entered the room. 능동 because although ___ 【?】 ___ , 그녀는 방에 들어갔다. 수동 when if while 3"
+   },
+   {
+    "a": "3 환하게 웃으면서,",
+    "r": "Smiling brightly, she entered the room. 능동 because although ___ ___ 【?】 , 그녀는 방에 들어갔다. 수동 when if while 3"
+   },
+   {
+    "a": "they",
+    "r": "Shocked by the result, they left the room silently. 능동 because although 【?】 ___ ___ , 그들은 조용히 방을 나갔다. 수동 when if while 4"
+   },
+   {
+    "a": "과거",
+    "r": "Shocked by the result, they left the room silently. 능동 because although ___ 【?】 ___ , 그들은 조용히 방을 나갔다. 수동 when if while 4"
+   },
+   {
+    "a": "그 결과에 충격을 받으면서,",
+    "r": "Shocked by the result, they left the room silently. 능동 because although ___ ___ 【?】 , 그들은 조용히 방을 나갔다. 수동 when if while 4"
+   },
+   {
+    "a": "we",
+    "r": "Seeing the accident, we called an ambulance. 능동 because although 【?】 ___ when if while 5 ___ , 우리는 구급차를 불렀다. 수동"
+   },
+   {
+    "a": "과거",
+    "r": "Seeing the accident, we called an ambulance. 능동 because although ___ 【?】 when if while 5 ___ , 우리는 구급차를 불렀다. 수동"
+   },
+   {
+    "a": "5 사고를 보면서,",
+    "r": "Seeing the accident, we called an ambulance. 능동 because although ___ ___ when if while 5 【?】 , 우리는 구급차를 불렀다. 수동"
+   },
+   {
+    "a": "the restaurant",
+    "r": "Built near the river, the restaurant attracts many 능동 because although visitors. 【?】 ___ 6 수동 when if while ___ , 그 식당은 많은 방문객을 끌어모은다."
+   },
+   {
+    "a": "현재",
+    "r": "Built near the river, the restaurant attracts many 능동 because although visitors. ___ 【?】 6 수동 when if while ___ , 그 식당은 많은 방문객을 끌어모은다."
+   },
+   {
+    "a": "6 강 근처에 지어지면서,",
+    "r": "visitors. ___ ___ 6 수동 when if while 【?】 , 그 식당은 많은 방문객을 끌어모은다."
+   },
+   {
+    "a": "the child",
+    "r": "Left alone, the child started crying. 능동 because although 【?】 ___ ___ , 그 아이는 울기 시작했다. 수동 when if while 7"
+   },
+   {
+    "a": "과거",
+    "r": "Left alone, the child started crying. 능동 because although ___ 【?】 ___ , 그 아이는 울기 시작했다. 수동 when if while 7"
+   },
+   {
+    "a": "혼자 남겨지면서, 7",
+    "r": "Left alone, the child started crying. 능동 because although ___ ___ 【?】 , 그 아이는 울기 시작했다. 수동 when if while 7"
+   },
+   {
+    "a": "she",
+    "r": "Reading a book, she fell asleep. 능동 because although 【?】 ___ ___ , 그녀는 잠들었다. 수동 when if while 8"
+   },
+   {
+    "a": "과거진행",
+    "r": "Reading a book, she fell asleep. 능동 because although ___ 【?】 ___ , 그녀는 잠들었다. 수동 when if while 8"
+   },
+   {
+    "a": "책을 읽으면서, 그녀는 잠들었다.",
+    "r": "Reading a book, she fell asleep. 능동 because although ___ ___ 【?】 , 그녀는 잠들었다. 수동 when if while 8"
+   },
+   {
+    "a": "he",
+    "r": "Feeling tired, he kept working. 능동 because although 【?】 ___ ___ , 그는 계속 일했다. 수동 when if while 9"
+   },
+   {
+    "a": "과거",
+    "r": "Feeling tired, he kept working. 능동 because although ___ 【?】 ___ , 그는 계속 일했다. 수동 when if while 9"
+   },
+   {
+    "a": "9 피곤함을 느끼면서,",
+    "r": "Feeling tired, he kept working. 능동 because although ___ ___ 【?】 , 그는 계속 일했다. 수동 when if while 9"
+   },
+   {
+    "a": "능동 수동",
+    "r": "Invited to the party, she didn't go. 능동 because although 【?】 ___ ___ , 그녀는 가지 않았다. 수동 when if while 10"
+   },
+   {
+    "a": "she",
+    "r": "Invited to the party, she didn't go. 능동 because although ___ 【?】 ___ , 그녀는 가지 않았다. 수동 when if while 10"
+   },
+   {
+    "a": "파티에 초대받으면서, 10",
+    "r": "Invited to the party, she didn't go. 능동 because although ___ ___ 【?】 , 그녀는 가지 않았다. 수동 when if while 10"
+   },
+   {
+    "a": "Because he was surprised by the news",
+    "r": "1 【?】 [접속사 원문]"
+   },
+   {
+    "a": "When I walked down the street (= When I was walking down the street)",
+    "r": "2 【?】 [접속사 원문]"
+   },
+   {
+    "a": "As (= While) she was smiling brightly (smile은 동작이라기보다 표정·상태 묘사라서 while + 진행형이 자연스러워요)",
+    "r": "3 [접속사 원문] 【?】"
+   },
+   {
+    "a": "Because they were shocked by the result",
+    "r": "4 [접속사 원문] 【?】"
+   },
+   {
+    "a": "When we saw the accident",
+    "r": "5 [접속사 원문] 【?】"
+   },
+   {
+    "a": "Because the restaurant is built near the river",
+    "r": "【?】 [접속사 원문]"
+   },
+   {
+    "a": "Because he (= the child) was left alone",
+    "r": "7 【?】 [접속사 원문]"
+   },
+   {
+    "a": "While (= As) she was reading a book",
+    "r": "8 【?】 [접속사 원문]"
+   },
+   {
+    "a": "Although he felt tired",
+    "r": "9 【?】 [접속사 원문]"
+   },
+   {
+    "a": null,
+    "r": "10 【?】 [접속사 원문]"
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   }
+  ],
+  "106": [
+   {
+    "a": "아이유가 무언가를 가지고 있다",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "[아이유가 무언가를 가지고 있다]라는 것(사실)",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "[아이유가 가지고 있는] 그것",
+    "r": "해석 the thing which 아이유 has something ← the thing과 중복 【?】"
+   },
+   {
+    "a": "[무언가를 가지고 있는] 사람",
+    "r": "해석 the person who he has something ← the person과 중복 【?】"
+   },
+   {
+    "a": "[아이유가 가지고 있는] 것(무언가)",
+    "r": "해석 what = the thing which · 선행사를 품고 있어요 【?】"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "1 아이유 has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "1 아이유 has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "2 that 아이유 has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "2 that 아이유 has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "3 the thing which 아이유 has [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "3 the thing which 아이유 has [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "4 the person who has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "4 the person who has something [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "5 what 아이유 has [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "5 what 아이유 has [ 문장 / 명사 ] [ 완전 / 불완전 ]"
+   }
+  ],
+  "107": [
+   {
+    "a": "나는 [아이유가 무언가를 가지고 있다]라는 것(사실)을 안다.",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "✕",
+    "r": "7 I know 【?】 what 아이유 has ___ [ 문장 / 명사 ]"
+   },
+   {
+    "a": null,
+    "r": "7 I know ___ what 아이유 has 【?】 [ 문장 / 명사 ]"
+   },
+   {
+    "a": "나는 [아이유가 가지고 있는] 것(무언가)을 안다.",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "the thing",
+    "r": "8 I know 【?】 which 아이유 has ___ [ 문장 / 명사 ]"
+   },
+   {
+    "a": null,
+    "r": "8 I know ___ which 아이유 has 【?】 [ 문장 / 명사 ]"
+   },
+   {
+    "a": "나는 [아이유가 가지고 있는] 그것을 안다.",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "the person",
+    "r": "9 I know 【?】 who ___ has something [ 문장 / 명사 ]"
+   },
+   {
+    "a": null,
+    "r": "9 I know ___ who 【?】 has something [ 문장 / 명사 ]"
+   },
+   {
+    "a": "[아이유가 가지고 있는] 그것",
+    "r": "해석 【?】"
+   },
+   {
+    "a": "없음",
+    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사"
+   },
+   {
+    "a": "없음 완전",
+    "r": "that ___ 【?】 [문장]라는 것(사실) 접속사"
+   },
+   {
+    "a": "있음",
+    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+   },
+   {
+    "a": "있음 불완전",
+    "r": "which · who · that ___ 【?】 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+   },
+   {
+    "a": "없음",
+    "r": "what [~한] 것 (= the thing which) 【?】 ___ 관계대명사"
+   },
+   {
+    "a": "없음 불완전",
+    "r": "what [~한] 것 (= the thing which) ___ 【?】 관계대명사"
+   },
+   {
+    "a": "that",
+    "r": "STEP 2 없다면 빈칸뒤문장이 완전한가? → 완전하면 【?】 , 불완전하면 ___"
+   },
+   {
+    "a": "what",
+    "r": "STEP 2 없다면 빈칸뒤문장이 완전한가? → 완전하면 ___ , 불완전하면 【?】"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "6 I know that 아이유 has something [ 문장 / 명사 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "7 I know ___ what 아이유 has ___ [ 문장 / 명사 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "8 I know ___ which 아이유 has ___ [ 문장 / 명사 ]"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "문장",
+     "명사"
+    ],
+    "r": "9 I know ___ who ___ has something [ 문장 / 명사 ]"
+   }
+  ],
+  "108": [
+   {
+    "a": "that / which",
+    "r": "【?】 I like the book you recommended . [ that / what / which ] [ 완전 / 불완전 ] 1"
+   },
+   {
+    "a": "what",
+    "r": "She didn't hear 【?】 he said . [ that / what / which ] [ 완전 / 불완전 ] 2"
+   },
+   {
+    "a": "that / which",
+    "r": "【?】 The car was parked outside is gone. [ that / what / which ] [ 완전 / 불완전 ] 3"
+   },
+   {
+    "a": "that / which",
+    "r": "This is the movie 【?】 made me cry. [ that / what / which ] [ 완전 / 불완전 ] 4"
+   },
+   {
+    "a": "what",
+    "r": "【?】 [ that / what / which ] [ 완전 / 불완전 ] Nobody knows happened yesterday. 5"
+   },
+   {
+    "a": "that",
+    "r": "[해석] ___ 【?】 She couldn't remember she left her [ that / what / which ] [ 완전 / 불완전 ]"
+   },
+   {
+    "a": "what",
+    "r": "【?】 I don't understand you're talking about . [ that / what / which ] [ 완전 / 불완전 ] 7"
+   },
+   {
+    "a": "that / which",
+    "r": "The house 【?】 they bought is near the river. [ that / what / which ] [ 완전 / 불완전 ] 8"
+   },
+   {
+    "a": "what",
+    "r": "【?】 [ 완전 / 불완전 ] He finally understood she meant . [ that / what / which ] 9"
+   },
+   {
+    "a": "that / which",
+    "r": "【?】 The news shocked us was true. [ that / what / which ] [ 완전 / 불완전 ] 10"
+   },
+   {
+    "a": "나는 네가 추천해 준 책이 좋다.",
+    "r": "1 [해석] 【?】"
+   },
+   {
+    "a": "그녀는 그가 말한 것을 듣지 못했다.",
+    "r": "2 [해석] 【?】"
+   },
+   {
+    "a": "밖에 주차되어 있던 차가 사라졌다.",
+    "r": "3 [해석] 【?】"
+   },
+   {
+    "a": "이것이 나를 울게 만든 영화다.",
+    "r": "4 [해석] 【?】"
+   },
+   {
+    "a": "아무도 어제 일어난 일을 모른다.",
+    "r": "5 [해석] 【?】 ___"
+   },
+   {
+    "a": "그녀는 열쇠를 두고 왔다는 것을 기억하지 못했다.",
+    "r": "6 [해석] 【?】"
+   },
+   {
+    "a": "나는 네가 말하고 있는 것을 이해하지 못하겠다.",
+    "r": "7 [해석] 【?】"
+   },
+   {
+    "a": "그들이 산 집은 강 근처에 있다.",
+    "r": "8 [해석] 【?】"
+   },
+   {
+    "a": "그는 마침내 그녀가 의미한 것을 이해했다.",
+    "r": "9 [해석] 【?】"
+   },
+   {
+    "a": "우리를 충격에 빠뜨린 소식은 사실이었다.",
+    "r": "10 [해석] 【?】"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ I like the book you recommended . [ that / what / which ] [ 완전 / 불완전 ] 1"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ I like the book you recommended . [ that / what / which ] [ 완전 / 불완전 ] 1"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "She didn't hear ___ he said . [ that / what / which ] [ 완전 / 불완전 ] 2"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "She didn't hear ___ he said . [ that / what / which ] [ 완전 / 불완전 ] 2"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ The car was parked outside is gone. [ that / what / which ] [ 완전 / 불완전 ] 3"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ The car was parked outside is gone. [ that / what / which ] [ 완전 / 불완전 ] 3"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "This is the movie ___ made me cry. [ that / what / which ] [ 완전 / 불완전 ] 4"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "This is the movie ___ made me cry. [ that / what / which ] [ 완전 / 불완전 ] 4"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ [ that / what / which ] [ 완전 / 불완전 ] Nobody knows happened yesterday. 5"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ [ that / what / which ] [ 완전 / 불완전 ] Nobody knows happened yesterday. 5"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ She couldn't remember she left her [ that / what / which ] [ 완전 / 불완전 ] keys. 6"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ She couldn't remember she left her [ that / what / which ] [ 완전 / 불완전 ] keys. 6"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ I don't understand you're talking about . [ that / what / which ] [ 완전 / 불완전 ] 7"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ I don't understand you're talking about . [ that / what / which ] [ 완전 / 불완전 ] 7"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "The house ___ they bought is near the river. [ that / what / which ] [ 완전 / 불완전 ] 8"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "The house ___ they bought is near the river. [ that / what / which ] [ 완전 / 불완전 ] 8"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ [ 완전 / 불완전 ] He finally understood she meant . [ that / what / which ] 9"
+   },
+   {
+    "c": null,
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ [ 완전 / 불완전 ] He finally understood she meant . [ that / what / which ] 9"
+   },
+   {
+    "c": null,
+    "o": [
+     "that",
+     "what",
+     "which"
+    ],
+    "r": "___ The news shocked us was true. [ that / what / which ] [ 완전 / 불완전 ] 10"
+   },
+   {
+    "c": null,
+    "o": [
+     "완전",
+     "불완전"
+    ],
+    "r": "___ The news shocked us was true. [ that / what / which ] [ 완전 / 불완전 ] 10"
+   }
+  ],
+  "116": [
+   {
+    "a": "콤마(,) 하나로는",
+    "r": "하지만 두 개(이상)의 문장을 연결할 수 없어요. 【?】"
+   },
+   {
+    "a": "접속사",
+    "r": "(주어·동사가 있는) 완전한 두 문장을 이으려면 문두(문장 맨 앞) 또는 두 문장 사이에 【?】 를 써야 해요."
+   },
+   {
+    "a": "왜냐하면 (이유)",
+    "r": "because 【?】 although ___ and ___"
+   },
+   {
+    "a": "비록 ~일지라도 (양보)",
+    "r": "because ___ although 【?】 and ___"
+   },
+   {
+    "a": "그리고",
+    "r": "because ___ although ___ and 【?】"
+   },
+   {
+    "a": "그래서",
+    "r": "so 【?】 but ___ since ___"
+   },
+   {
+    "a": "그러나 (역접)",
+    "r": "so ___ but 【?】 since ___"
+   },
+   {
+    "a": "~한 이유로 (이유)",
+    "r": "so ___ but ___ since 【?】"
+   },
+   {
+    "a": "~하는 동안 (반면에)",
+    "r": "while 【?】 as ___ or (nor) ___"
+   },
+   {
+    "a": "~하면서",
+    "r": "while ___ as 【?】 or (nor) ___"
+   },
+   {
+    "a": "또는 (또한 ~아닌)",
+    "r": "while ___ as ___ or (nor) 【?】"
+   }
+  ],
+  "117": [
+   {
+    "a": "✕",
+    "r": "【?】 Black bears are beautiful, they have shiny coats. ___ S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "…, and they have shiny coats.",
+    "r": "___ Black bears are beautiful, they have shiny coats. 【?】 S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "✕",
+    "r": "I love watching movies, I hate watching TV. 【?】 ___ S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "…, but I hate watching TV.",
+    "r": "I love watching movies, I hate watching TV. ___ 【?】 S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "○",
+    "r": "【?】 My friend , a student at Harvard, lives on the campus. ___ S₁ V₁"
+   },
+   {
+    "a": "문장 1개 · 콤마 안은 my friend 보충 설명",
+    "r": "___ My friend , a student at Harvard, lives on the campus. 【?】 S₁ V₁"
+   },
+   {
+    "a": "✕",
+    "r": "【?】 I watched soccer yesterday, it was boring. ___ S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "…, and it was boring.",
+    "r": "___ I watched soccer yesterday, it was boring. 【?】 S₁ V₁ S₂ V₂"
+   },
+   {
+    "a": "접속사로 잇기",
+    "r": "and · but · so · because … 2 【?】 I met a guy, and he is a lawyer. 10단원"
+   },
+   {
+    "a": "관계사로 잇기",
+    "r": "3 【?】 I met a guy, who is a lawyer. he → who (근데 그는) 2단원"
+   },
+   {
+    "a": "분사구문으로 줄이기",
+    "r": "He walked on the street, listening to 4 【?】 문장 1개 + 분사구문 8단원 music."
+   },
+   {
+    "a": "연결어",
+    "r": "문장이 2개면 【?】 가 1개 필요해요. 문장 개수 − 1 = 연결어 개수!"
+   }
+  ],
+  "118": [
+   {
+    "a": "and most of",
+    "r": "문장 1개 2개 I have twelve wine bottles, 【?】 are empty. 9 접속사 유 무"
+   },
+   {
+    "a": "listening to music.",
+    "r": "문장 1개 2개 【?】 He walked on the street, to music. 12 접속사 유 무"
+   },
+   {
+    "a": "해석나는 한 남자를 만났다. 그는 변호사다.",
+    "r": "I met a guy. He is a lawyer. 1 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "한 남자를 만났는데, 그는 변호사다.",
+    "r": "I met a guy, who is a lawyer. 3 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "대명사 · 연결어 아님",
+    "r": "I have twelve co-workers, and most of them are British. 5 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "= 관계사 (them → whom) 해석나는 동료가 12명 있는데, 그들 중 대부분은 영국인이다.",
+    "r": "I have twelve co-workers, most of whom are British. 6 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "접속사 대명사 · 연결어 아님",
+    "r": "I have twelve wine bottles, most of them are empty. 7 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "= 관계사 해석나는 와인 병이 12개 있는데, 그중 대부분은 비어 있다.",
+    "r": "I have twelve wine bottles, are empty. 9 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "접속사 거리를 걸었고, 음악을 들었다.",
+    "r": "He walked on the street, and (he) listened to music. 10 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "a": "listening = 분사구문 · 문장은 1개 해석그는 음악을 들으면서 거리를 걸었다.",
+    "r": "He walked on the street, to music. 12 접속사 유 무 해석 【?】 옳음 틀림"
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 0
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 1
+   },
+   {
+    "k": 0
+   }
+  ],
+  "133": [
+   {
+    "a": "없음",
+    "r": "that 【?】 ___ [문장]라는 것(사실) 접속사"
+   },
+   {
+    "a": "없음 완전",
+    "r": "that ___ 【?】 [문장]라는 것(사실) 접속사"
+   },
+   {
+    "a": "있음",
+    "r": "which · who · that 【?】 ___ 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+   },
+   {
+    "a": "있음 불완전",
+    "r": "which · who · that ___ 【?】 근데 그것(그 사람)은 → [~한] 명사 관계대명사"
+   },
+   {
+    "a": "없음",
+    "r": "what 【?】 ___ [~한] 것 (= the thing which) 관계대명사"
+   },
+   {
+    "a": "없음 불완전",
+    "r": "what ___ 【?】 [~한] 것 (= the thing which) 관계대명사"
+   },
+   {
+    "a": null,
+    "r": "The computer ( which I bought 【?】 two weeks ago) does not work well. 선행사 수식하는 내용"
+   },
+   {
+    "a": "who",
+    "r": "사람 【?】 ___"
+   },
+   {
+    "a": "whom / who",
+    "r": "사람 ___ 【?】"
+   },
+   {
+    "a": "which",
+    "r": "사물 【?】 ___ ___"
+   },
+   {
+    "a": "which",
+    "r": "사물 ___ 【?】 ___"
+   },
+   {
+    "a": "whose",
+    "r": "사물 ___ ___ 【?】"
+   },
+   {
+    "a": "that (구어체)",
+    "r": "사람/사물 【?】 ___"
+   },
+   {
+    "a": "that (구어체)",
+    "r": "사람/사물 ___ 【?】"
+   }
+  ],
+  "134": [
+   {
+    "a": "내가 어제 읽었던",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 【?】 ___ ___ The book which (=that) I read ___ yesterday"
+   },
+   {
+    "a": "책",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ 【?】 ___ The book which (=that) I read ___ yesterday"
+   },
+   {
+    "a": "목적격",
+    "r": "책 근데 그것을 내가 읽었다 어제 1 ___ ___ 【?】 The book which (=that) I read ___ yesterday"
+   },
+   {
+    "a": null,
+    "r": "1 ___ ___ ___ The book which (=that) I read 【?】 yesterday"
+   },
+   {
+    "a": "네가 나에게 추천한",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 you recommended to 【?】 ___ ___ The movie which (=that) me"
+   },
+   {
+    "a": "영화",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 you recommended to ___ 【?】 ___ The movie which (=that) me"
+   },
+   {
+    "a": "목적격",
+    "r": "영화 근데 그것을 네가 나에게 추천했다 2 you recommended to ___ ___ 【?】 The movie which (=that) me"
+   },
+   {
+    "a": "네가 작년에 말했던",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 【?】 ___ ___ The story which (=that) you told me last year"
+   },
+   {
+    "a": "이야기",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ 【?】 ___ The story which (=that) you told me last year"
+   },
+   {
+    "a": "목적격",
+    "r": "이야기 근데 그것을 네가 작년에 말했다 3 ___ ___ 【?】 The story which (=that) you told me last year"
+   },
+   {
+    "a": "그녀를 좋아하는",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 【?】 ___ ___ The person who (=that) likes her"
+   },
+   {
+    "a": "사람",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ 【?】 ___ The person who (=that) likes her"
+   },
+   {
+    "a": "주격",
+    "r": "그 사람 근데 그 사람은 좋아한다 그녀를 4 ___ ___ 【?】 The person who (=that) likes her"
+   },
+   {
+    "a": "그녀가 좋아하는",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) 【?】 ___ ___ The person she likes ___ (=that)"
+   },
+   {
+    "a": "사람",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ 【?】 ___ The person she likes ___ (=that)"
+   },
+   {
+    "a": "목적격",
+    "r": "그 사람 근데 그 사람을 그녀가 좋아한다 5 who(m) ___ ___ 【?】 The person she likes ___ (=that)"
+   },
+   {
+    "a": null,
+    "r": "5 who(m) ___ ___ ___ The person she likes 【?】 (=that)"
+   },
+   {
+    "a": "그가 개발하고 싶은",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 【?】 ___ ___ The app which (=that) he wants to develop ___"
+   },
+   {
+    "a": "앱",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ 【?】 ___ The app which (=that) he wants to develop ___"
+   },
+   {
+    "a": "목적격",
+    "r": "앱 근데 그것을 그가 개발하고 싶어 한다 6 ___ ___ 【?】 The app which (=that) he wants to develop ___"
+   },
+   {
+    "a": "그가 개발하고 싶은 앱 목적격",
+    "r": "6 ___ ___ ___ The app which (=that) he wants to develop 【?】"
+   },
+   {
+    "a": "우리를 웃게 만든",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 【?】 ___ ___ The scene which (=that) ___ made us laugh"
+   },
+   {
+    "a": "장면",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ 【?】 ___ The scene which (=that) ___ made us laugh"
+   },
+   {
+    "a": "주격",
+    "r": "장면 근데 그것은 만들었다 우리를 웃도록 7 ___ ___ 【?】 The scene which (=that) ___ made us laugh"
+   },
+   {
+    "a": null,
+    "r": "7 ___ ___ ___ The scene which (=that) 【?】 made us laugh"
+   },
+   {
+    "a": "내가 찾고 있는",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 【?】 ___ ___ The key which (=that) I am looking for ___"
+   },
+   {
+    "a": "열쇠",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ 【?】 ___ The key which (=that) I am looking for ___"
+   },
+   {
+    "a": "목적격",
+    "r": "열쇠 근데 그것을 내가 찾고 있는 중이다 8 ___ ___ 【?】 The key which (=that) I am looking for ___"
+   },
+   {
+    "a": "내가 찾고 있는 열쇠 목적격",
+    "r": "8 ___ ___ ___ The key which (=that) I am looking for 【?】"
+   },
+   {
+    "a": "서울에서 태어난",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 【?】 ___ ___ The singer who (=that) was born in Seoul"
+   },
+   {
+    "a": "가수",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ 【?】 ___ The singer who (=that) was born in Seoul"
+   },
+   {
+    "a": "주격",
+    "r": "가수 근데 그 사람은 태어났다 서울에서 9 ___ ___ 【?】 The singer who (=that) was born in Seoul"
+   },
+   {
+    "a": "우리가 어제 발견한 책의 주인인",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found 【?】 ___ ___ the man whose yesterday"
+   },
+   {
+    "a": "그 남자",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found ___ 【?】 ___ the man whose yesterday"
+   },
+   {
+    "a": "소유격",
+    "r": "그 남자 근데 그 남자의 책을 우리가 발견했다 어제 10 ___ book we found ___ ___ 【?】 the man whose yesterday"
+   },
+   {
+    "a": "the man whose",
+    "r": "10 【?】 book we found ___ ___ ___ the man whose yesterday"
+   }
+  ],
+  "135": [
+   {
+    "a": "주격 역할",
+    "r": "The man who 【?】 주격 역할 worked hard The restaurant where I first met her ___"
+   },
+   {
+    "a": "근데 그 사람은(을)",
+    "r": "The man who ___ 주격 역할 worked hard The restaurant where I first met her 【?】 ___"
+   },
+   {
+    "a": "근데 거기에서",
+    "r": "The man ___ 주격 역할 worked hard The restaurant I first met her ___ 【?】"
+   },
+   {
+    "a": "목적격 역할",
+    "r": "The restaurant which she likes 【?】 목적격 역할 I first met her 그 시공간 안에서 발생한 일 ___"
+   },
+   {
+    "a": "근데 그것은(을)",
+    "r": "The restaurant which she likes ___ 목적격 역할 그 시공간 안에서 발생한 일 【?】"
+   },
+   {
+    "a": "근데 그 시간에",
+    "r": "【?】"
+   },
+   {
+    "a": "불완전",
+    "r": "1. 이후 수식어구 【?】 1. 이후 수식어구 ___ 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을"
+   },
+   {
+    "a": "완전",
+    "r": "1. 이후 수식어구 ___ 1. 이후 수식어구 【?】 2. '근데 그것은(을)'으로 해석 · 수식어구 안에서 주격 또는 2. '근데 거기에서 / 근데 그 시간에' → 선행사 속 '시공간'을"
+   }
+  ],
+  "136": [
+   {
+    "a": "근데 거기에서",
+    "r": "(1) the place where I live 【?】 → 내가 사는 [장소]"
+   },
+   {
+    "a": "근데 그때",
+    "r": "(2) the time when life felt so simple 【?】 → 인생이 너무 단순하다고 느껴진 [시절]"
+   },
+   {
+    "a": "근데 그 이유로",
+    "r": "(3) the reason why I like her 【?】 → 내가 그녀를 좋아하는 [이유]"
+   },
+   {
+    "a": "근데 그 방식으로",
+    "r": "the way how she smiles (4) 【?】 → 그녀가 웃는 [방식]"
+   },
+   {
+    "a": null,
+    "r": "3. 선행사 속 시공간으로 이해 도서관 '시공간'에서 <그녀가 공부하고> 있는 이미지 → 【?】"
+   },
+   {
+    "a": null,
+    "r": "The library [ which / where ] he built 【?】"
+   },
+   {
+    "a": "불완전",
+    "r": "2. 직독직해 비교 풀이법 도서관 [근데 그것을 / 근데 거기에서] 그가 지었다 3. 선행사 속 시공간으로 이해 목적격 관계대명사 → 이후 문장 【?】 (built의 목적어 없음) · '시공간' 발생 ✕"
+   },
+   {
+    "a": null,
+    "r": "4 관계부사 종류와 해석 【?】"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "The library [ which / where ] she studies"
+   },
+   {
+    "c": null,
+    "o": [
+     "근데 그것을",
+     "근데 거기에서"
+    ],
+    "r": "1. 후치수식 우리말 해석 도서관 [관계사] (그녀가 공부한다) → 그녀가 공부하는 도서관 2. 직독직해 비교 풀이법 도서관 [근데 그것을 / 근데 거기에서] 그녀가 공부한다 3. 선행사 속 시공간으로 이해 도서관 '시공간'에서 <그녀가 공부하고> 있는 이미지 →"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "The library [ which / where ] he built ___ 선행사 속 '시공간' · where"
+   },
+   {
+    "c": null,
+    "o": [
+     "근데 그것을",
+     "근데 거기에서"
+    ],
+    "r": "1. 후치수식 우리말 해석 도서관 [관계사] (그가 지었다) → 그가 지었던 도서관 선행사 속 '시공간' · where 근데 거기(그 도서관)에서 2. 직독직해 비교 풀이법 도서관 [근데 그것을 / 근데 거기에서] 그가 지었다 3. 선행사 속 시공간으로 이해 목적격 관계대명사 → 이후 문장 ___ (built의"
+   }
+  ],
+  "137": [
+   {
+    "a": "근데 그와 함께",
+    "r": "박명수 with whom I had a dinner last night C 40 박명수 [ 【?】 ] 나는 저녁을 먹었다 / 어제 저녁에 의역 내가 그녀를 좋아하는 [정도] → 내가 어젯밤 저녁을 함께 먹었던 [박명수] 직역 [정도] [근데 그 만큼] 나는 그녀를 좋아한다"
+   },
+   {
+    "a": "to which",
+    "r": "→ 내가 어젯밤 저녁을 함께 먹었던 [박명수] 직역 [정도] [근데 그 만큼] 나는 그녀를 좋아한다 → the extent [ 【?】 ] [ ___ ] [직독직해 비교] 관계대명사 who(m) … with ▢ = 전치사 + 관대"
+   },
+   {
+    "a": "I like her",
+    "r": "→ 내가 어젯밤 저녁을 함께 먹었던 [박명수] 직역 [정도] [근데 그 만큼] 나는 그녀를 좋아한다 → the extent [ ___ ] [ 【?】 ] [직독직해 비교] 관계대명사 who(m) … with ▢ = 전치사 + 관대"
+   }
+  ],
+  "138": [
+   {
+    "a": "to which",
+    "r": "[문장] The goods were delivered to 부산. 그 물건들은 부산으로 배달되었다. [명사] 부산 / 【?】 / the goods were delivered. 도달대상 to which 부산 / 근데 거기로 / 그 물건들이 배달되었다"
+   },
+   {
+    "a": "from which",
+    "r": "[문장] The rumor originated from the source. 그 루머는 그 출처로부터 유래되었다. 출처/기원 [명사] the source / 【?】 / the rumor originated. from which 출처 / 근데 거기로부터 / 그 루머가 유래되었다"
+   },
+   {
+    "a": "by which",
+    "r": "[문장] Data is collected by the method. 데이터는 그 방식에 의해서 수집된다. 수단/방법 [명사] the method / 【?】 / data is collected. by which 방식 / 근데 그것에 의해서 / 데이터는 수집된다"
+   },
+   {
+    "a": "on which",
+    "r": "만들어진다. 기반/토대 [명사] the foundation / 【?】 / strong relationships are built. on which 그러한 토대 / 근데 그것 위에 / 튼튼한 관계가 만들어진다"
+   },
+   {
+    "a": "for which",
+    "r": "[문장] The policy was criticized for the reason. 그 정책은 그 이유 때문에 비판받았다. [명사] the reason / 【?】 / the policy was criticized. 이유/목적 for which 그 이유 / 근데 그것 때문에 / 그 정책은 비판받았다"
+   }
+  ],
+  "139": [
+   {
+    "c": [
+     1,
+     2,
+     3
+    ],
+    "o": [
+     "which",
+     "who",
+     "whom",
+     "that",
+     "whose"
+    ],
+    "r": "1 Could you tell me a person [ which / who / whom / that / whose ] you would like to invite ?"
+   },
+   {
+    "c": [
+     0,
+     2
+    ],
+    "o": [
+     "that",
+     "which",
+     "who",
+     "whom"
+    ],
+    "r": "The short boy is the only one of the students [ that / which / who / whom ] is able to solve the 2 problem."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "that",
+     "which",
+     "what"
+    ],
+    "r": "3 We know [ that / which / what ] his play is always fair and just."
+   },
+   {
+    "c": [
+     0,
+     1
+    ],
+    "o": [
+     "that",
+     "which",
+     "what"
+    ],
+    "r": "4 She believes the story [ that / which / what ] I heard ."
+   },
+   {
+    "c": [
+     0,
+     1
+    ],
+    "o": [
+     "that",
+     "which",
+     "what"
+    ],
+    "r": "5 I found a chair [ that / which / what ] is made of wood."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "that",
+     "what"
+    ],
+    "r": "6 The car is [ that / what ] my brother is considering buying next month."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "That",
+     "What",
+     "Which"
+    ],
+    "r": "7 [ That / What / Which ] I am trying to say will be helping you make a better decision."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "That",
+     "What",
+     "Which"
+    ],
+    "r": "8 [ That / What / Which ] he went to Harvard is very hard to believe."
+   },
+   {
+    "c": [
+     1,
+     3
+    ],
+    "o": [
+     "which",
+     "who",
+     "whom",
+     "that"
+    ],
+    "r": "9 I met a Japanese guy [ which / who / whom / that ] was eager to learn Spanish."
+   },
+   {
+    "c": [
+     2
+    ],
+    "o": [
+     "what",
+     "which",
+     "whose",
+     "that"
+    ],
+    "r": "10 The company [ what / which / whose / that ] products you love just released a new model."
+   }
+  ],
+  "140": [
+   {
+    "a": "when",
+    "r": "대학을 위해 [ 근데 그것을 / 근데 거기에서 ] 그는 공부하기를 원한다 【?】 I remember the winter [ ] I first met her. 3"
+   },
+   {
+    "a": "which (= that)",
+    "r": "그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 나는 그녀를 처음 만났다 【?】 I remember the winter [ ] I spent with my ex-girlfriend. 4"
+   },
+   {
+    "a": "which (= that)",
+    "r": "그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 나는 보냈다 / 나의 전 여자친구와 함께 【?】 I remember the winter [ ] she liked . 5"
+   },
+   {
+    "a": "when",
+    "r": "그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 그녀는 좋아했다 【?】 I remember the winter [ ] she started to like him. 6"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "where",
+     "which"
+    ],
+    "r": "This is the restaurant [ where / which ] she threw up last night. 1 여기는 레스토랑이다 [ 근데 거기에서 / 근데 그것을 ] 그녀가 토했다 어젯밤에"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "근데 거기에서",
+     "근데 그것을"
+    ],
+    "r": "This is the restaurant [ where / which ] she threw up last night. 1 여기는 레스토랑이다 [ 근데 거기에서 / 근데 그것을 ] 그녀가 토했다 어젯밤에"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "미미미누 will take the entrance exam for the college [ which / where ] he wants to study. 2 대학을 위해 [ 근데 그것을 / 근데 거기에서 ] 그는 공부하기를 원한다"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "근데 그것을",
+     "근데 거기에서"
+    ],
+    "r": "미미미누 will take the entrance exam for the college [ which / where ] he wants to study. 2 대학을 위해 [ 근데 그것을 / 근데 거기에서 ] 그는 공부하기를 원한다 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "근데 그것을",
+     "근데 그 시간에"
+    ],
+    "r": "I remember the winter [ ] I first met her. 3 그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 나는 그녀를 처음 만났다 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "근데 그것을",
+     "근데 그 시간에"
+    ],
+    "r": "I remember the winter [ ] I spent with my ex-girlfriend. 4 그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 나는 보냈다 / 나의 전 여자친구와 함께 ___"
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "근데 그것을",
+     "근데 그 시간에"
+    ],
+    "r": "I remember the winter [ ] she liked . 5 그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 그녀는 좋아했다 ___"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "근데 그것을",
+     "근데 그 시간에"
+    ],
+    "r": "I remember the winter [ ] she started to like him. 6 그 겨울을 [ 근데 그것을 / 근데 그 시간에 ] 그녀가 그를 좋아하기 시작했다"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "when",
+     "which"
+    ],
+    "r": "Practice This program is designed to help parents restrict the time [ when / which ] their kids spend on a the Internet."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "where",
+     "which"
+    ],
+    "r": "b We will have to find a Starbucks [ where / which ] is open at this time."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "where",
+     "which"
+    ],
+    "r": "c I tried to find an Internet cafe [ where / which ] a Korean runs ."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "1 The library [ which / where ] she studies is quiet."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "2 The library [ which / where ] he built is very convenient."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "which",
+     "when"
+    ],
+    "r": "Winter is the season [ which / when ] many photographers love for its quiet, peaceful 3 landscapes."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "when"
+    ],
+    "r": "4 Winter is the season [ which / when ] people gather with family and celebrate the holidays."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "5 Seoul is the place [ which / where ] he meets people every day."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "6 Seoul is the place [ which / where ] he always misses ."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "which",
+     "when"
+    ],
+    "r": "7 This is the moment [ which / when ] I will always remember ."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "where"
+    ],
+    "r": "8 This drawer is the place [ which / where ] I hide my keys."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "which",
+     "why"
+    ],
+    "r": "9 The reason [ which / why ] he left early is that he wasn't feeling well."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "that",
+     "which",
+     "how"
+    ],
+    "r": "10 This is the way [ that / which / how ] he runs his company."
+   }
+  ],
+  "141": [
+   {
+    "a": null,
+    "r": "1. 관계대명사 — 불완전한 문장 2. 동격 that — 완전한 문장 【?】 I heard the news that he told me yesterday. I heard the news that { he stole the money }. 그 뉴스 [근데 그것을] 그가 말했다 나에게 ▢ 어제 → 그가 어제 그 뉴스 = {그가 돈을 훔쳤다} → 그가 돈을 훔쳤다는 그 뉴스"
+   }
+  ],
+  "151": [
+   {
+    "a": "짧고 간단하게",
+    "r": "접속사로 연결된 2개 이상의 문장을 ↓ 1문장으로 【?】 바꾸는 것 ( 접속사 ) + 분사구문 , 문장 2"
+   },
+   {
+    "a": "was no bus",
+    "r": "↓ + , ( 접속사 ) 능동 분사구문 문장 2 (When) 【?】 TV, I had a beer. V + ing TV를 , 나는 맥주 하나를 마셨다. ___"
+   },
+   {
+    "a": "없었기 때문에,",
+    "r": "(When) ___ TV, I had a beer. V + ing TV를 , 나는 맥주 하나를 마셨다. 【?】"
+   },
+   {
+    "a": "there being no bus",
+    "r": "↓ ( 접속사 ) + 수동 분사구문 , 문장 2 (When) 【?】 by him, I had a beer. (being) p.p. 그에 의해 ___ , 나는 맥주 하나를 마셨다."
+   },
+   {
+    "a": "서비스가 없으면서,",
+    "r": "(When) ___ by him, I had a beer. (being) p.p. 그에 의해 【?】 , 나는 맥주 하나를 마셨다."
+   }
+  ],
+  "152": [
+   {
+    "a": "his / him",
+    "r": "↓ 소유격·목적격 ( 접속사 ) + 분사구문 , 문장 2 (When) 【?】 watching TV, I had a beer. 주어가 다르면 주어를 남겨요 그가 TV를 보면서, 나는 맥주 하나를 마셨다."
+   },
+   {
+    "a": "When I watched",
+    "r": "↓ ( 접속사 ) + 완료형 분사구문 , 문장 2 (When) 【?】 TV, I had a beer. 능동 Having p.p. · 수동 Having been p.p. TV를 ___ , 나는 맥주 하나를 마셨다."
+   },
+   {
+    "a": "내가 TV를 보았을 때,",
+    "r": "(When) ___ TV, I had a beer. 능동 Having p.p. · 수동 Having been p.p. TV를 【?】 , 나는 맥주 하나를 마셨다."
+   },
+   {
+    "a": "과거완료",
+    "r": "(1) 과거시제보다 앞선 시제 → 【?】 5단원 과거완료 과거시제 현재시제 능동 had p.p. 현재완료 (2) 능동 vs 수동 형태 (2) 현재시제보다 앞선 시제 →"
+   },
+   {
+    "a": "현재완료, 과거",
+    "r": "(2) 현재시제보다 앞선 시제 → 수동 had been p.p. 4 · 5단원 , 과거 능동 have p.p. 【?】 수동 have been p.p."
+   }
+  ],
+  "153": [
+   {
+    "a": "with",
+    "r": "↓ 문장 1 , with A B The night was silent, 【?】 the wind ___ hard. B = V + ing 그 저녁 밤은 고요했다. 바람이 세게 ___"
+   },
+   {
+    "a": "blowing",
+    "r": "↓ 문장 1 , with A B The night was silent, ___ the wind 【?】 hard. B = V + ing 그 저녁 밤은 고요했다. 바람이 세게 ___"
+   },
+   {
+    "a": "부는 상황에서",
+    "r": "The night was silent, ___ the wind ___ hard. B = V + ing 그 저녁 밤은 고요했다. 바람이 세게 【?】"
+   },
+   {
+    "a": "with her",
+    "r": "↓ ↓ 문장 1 , with A B The woman was smoking there, 【?】 her legs ___ . B = (being) p.p."
+   },
+   {
+    "a": "crossed",
+    "r": "문장 1 , with A B The woman was smoking there, ___ her legs 【?】 . B = (being) p.p. 그 여자는 거기서 담배를 피고 있었다. 그녀의 다리가 ___"
+   },
+   {
+    "a": "꼬여진 상황에서",
+    "r": "___ . B = (being) p.p. 그 여자는 거기서 담배를 피고 있었다. 그녀의 다리가 【?】"
+   },
+   {
+    "a": "being no",
+    "r": "↓ be동사만 being (Because) there 【?】 no bus service, I had to walk home …"
+   },
+   {
+    "a": "관찰 당했을 때,",
+    "r": "… 버스 서비스가 【?】 , 나는 그때 집까지 걸어가야 했다."
+   },
+   {
+    "a": "(being) pretty",
+    "r": "→ 보어(형용사·명사)로 ↓ 바로 시작 4-2단원 (Because) 【?】 , she was popular. ___ , 그녀는 인기가 많았다."
+   },
+   {
+    "a": "예쁘면서",
+    "r": "(Because) ___ , she was popular. 【?】 , 그녀는 인기가 많았다."
+   }
+  ],
+  "154": [
+   {
+    "a": "엄격하게 말해서",
+    "r": "The sign says \"No Pets Allowed,\" so strictly speaking , (1) Strictly speaking 【?】 we can't bring our dog inside the building."
+   },
+   {
+    "a": "솔직하게 말하자면",
+    "r": "Frankly speaking , I think you should tell him you are (2) Frankly speaking 【?】 sorry."
+   },
+   {
+    "a": "일반적으로 말해서",
+    "r": "Generally speaking , it's a good idea to wear sunscreen (3) Generally speaking 【?】 when you're outside."
+   },
+   {
+    "a": "A로부터 판단해 보자면",
+    "r": "Judging from the way she spoke, she must be well (4) Judging from A 【?】 educated."
+   },
+   {
+    "a": "A 이야기가 나와서 말인데",
+    "r": "(5) Speaking of A 【?】 Speaking of travel, I really want to visit Hawaii."
+   },
+   {
+    "a": "~라는 사실을 고려해 볼 때",
+    "r": "Given that she has a lot of experience in marketing, she (6) Given that ~ 【?】 should be able to help us."
+   },
+   {
+    "a": "A를 기반으로 하여",
+    "r": "Based on experience and qualifications, your salary will (7) Based on A 【?】 be determined."
+   },
+   {
+    "a": "(양보) 하더라도 ~라는 사실이라고",
+    "r": "Granted that it's a long journey, I'm still excited about (8) Granted that ~ 【?】 our road trip."
+   },
+   {
+    "a": "(양보) 하더라도 ~를 인정한다고",
+    "r": "Admitting that I probably won't win, I'd still like to join (9) Admitting that ~ 【?】 the competition."
+   }
+  ],
+  "155": [
+   {
+    "a": "접속사로 연결된 2개 이상의 문장을 1문장으로 짧고 간단하게 바꾸는 것",
+    "r": "분사구문이란? ✔ 【?】"
+   },
+   {
+    "a": "Having finished",
+    "r": "그가 피아노를 어떻게 연주하는지 알았기 때문에, 그는 모임에서 음악으로 손님들을 즐겁게 해 줄 수 있었다. (접속사 생략) 【?】 how to play the piano, he could entertain … (이하 생략) 피아노를 어떻게 연주하는지 알면서, 그는 모임에서 음악으로 손님들을 즐겁게 해 줄 수 있었다."
+   },
+   {
+    "a": "일어난) 경우,",
+    "r": "피아노를 어떻게 연주하는지 알면서, 그는 모임에서 음악으로 손님들을 즐겁게 해 줄 수 있었다. ✔ 접속사 문장의 동사가 능동태인 경우, 분사구문으로 전환 시 【?】 형태로 나타내요. 능동 분사구문의 해석은 ___ 라고 처리해요."
+   },
+   {
+    "a": "처리해요.",
+    "r": "✔ 접속사 문장의 동사가 능동태인 경우, 분사구문으로 전환 시 ___ 형태로 나타내요. 능동 분사구문의 해석은 【?】 라고 처리해요."
+   },
+   {
+    "a": "(Being) known for his",
+    "r": "그는 훌륭한 요리 실력으로 잘 알려졌기 때문에, 그는 종종 특별한 상황에서 요리를 준비해 달라고 요청받았다. (접속사 생략) 【?】 for his great cooking skills, he was often asked to … (이하 생략) 훌륭한 요리 실력으로 잘 알려지면서, 그는 종종 특별한 상황에서 요리를 준비해 달라고 요청받았다."
+   },
+   {
+    "a": "(being) p.p.",
+    "r": "훌륭한 요리 실력으로 잘 알려지면서, 그는 종종 특별한 상황에서 요리를 준비해 달라고 요청받았다. 접속사 문장의 동사가 수동태인 경우, 분사구문으로 전환 시 형태로 나타내요. 수동 분사구문의 해석은 ✔ 【?】 ___ 라고 처리해요."
+   },
+   {
+    "a": "되어지면서",
+    "r": "접속사 문장의 동사가 수동태인 경우, 분사구문으로 전환 시 형태로 나타내요. 수동 분사구문의 해석은 ✔ ___ 【?】 라고 처리해요."
+   },
+   {
+    "a": "His / Him",
+    "r": "이종석이 차 사고가 났기 때문에, 아이유는 콘서트에 제시간에 도착할 수 없었다. (접속사 생략) having a car accident, 아이유 couldn't make it to her concert on time. 【?】 그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다."
+   },
+   {
+    "a": "소유격",
+    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 【?】 또는 ___ 형태로 나타내요."
+   },
+   {
+    "a": "목적격",
+    "r": "그가 차 사고가 나면서, 아이유는 콘서트에 제시간에 도착할 수 없었다. ✔ 접속사 문장과 주절의 주어가 다른 경우, 분사구문의 의미상 주어는 ___ 또는 【?】 형태로 나타내요."
+   },
+   {
+    "a": "his",
+    "r": "소유격 【?】 ___ ___ ___ ___ ___"
+   },
+   {
+    "a": "her",
+    "r": "소유격 ___ 【?】 ___ ___ ___ ___"
+   },
+   {
+    "a": "my",
+    "r": "소유격 ___ ___ 【?】 ___ ___ ___"
+   },
+   {
+    "a": "their",
+    "r": "소유격 ___ ___ ___ 【?】 ___ ___"
+   },
+   {
+    "a": "our",
+    "r": "소유격 ___ ___ ___ ___ 【?】 ___"
+   },
+   {
+    "a": "박명수's",
+    "r": "소유격 ___ ___ ___ ___ ___ 【?】"
+   },
+   {
+    "a": "him",
+    "r": "목적격 【?】 ___ ___ ___ ___ ___"
+   },
+   {
+    "a": "her",
+    "r": "목적격 ___ 【?】 ___ ___ ___ ___"
+   },
+   {
+    "a": "me",
+    "r": "목적격 ___ ___ 【?】 ___ ___ ___"
+   },
+   {
+    "a": "them",
+    "r": "목적격 ___ ___ ___ 【?】 ___ ___"
+   },
+   {
+    "a": "us",
+    "r": "목적격 ___ ___ ___ ___ 【?】 ___"
+   },
+   {
+    "a": "박명수",
+    "r": "목적격 ___ ___ ___ ___ ___ 【?】"
+   }
+  ],
+  "156": [
+   {
+    "a": "Knowing how to play",
+    "r": "그가 발표를 마치고 난 후에, 그는 안도감을 느꼈다. (접속사 생략) 【?】 his presentation, he felt a sense of relief. 발표를 마치고 난 상태에서, 그는 안도감을 느꼈다."
+   },
+   {
+    "a": "Having p.p.",
+    "r": "발표를 마치고 난 상태에서, 그는 안도감을 느꼈다. 접속사 문장의 동사의 시제가 본동사의 시제보다 앞서는(먼저 일어난) 경우, 분사구문으로 전환 시 형태로 ✔ 【?】 나타내요. 해석은 ___ 라고 처리해요."
+   },
+   {
+    "a": "~하고 난 상태에서",
+    "r": "접속사 문장의 동사의 시제가 본동사의 시제보다 앞서는(먼저 일어난) 경우, 분사구문으로 전환 시 형태로 ✔ ___ 나타내요. 해석은 【?】 라고 처리해요."
+   },
+   {
+    "a": "(Having been) promoted to manager,",
+    "r": "그녀가 매니저로 진급되고 난 후에, 그녀는 그 회사 안에서 핵심 리더가 되었다. (접속사 생략) 【?】 to manager, she became a key leader within the company."
+   },
+   {
+    "a": "(Having been) p.p.",
+    "r": "매니저로 진급되고 난 상태에서, 그녀는 그 회사 안에서 핵심 리더가 되었다. ✔ 접속사 문장의 동사의 시제가 본동사의 시제보다 앞서는 수동인 경우, 【?】 형태로 나타내요. 해석은 ___ 라고 처리해요."
+   },
+   {
+    "a": "되어지고 난 상태에서",
+    "r": "✔ 접속사 문장의 동사의 시제가 본동사의 시제보다 앞서는 수동인 경우, ___ 형태로 나타내요. 해석은 【?】 라고 처리해요."
+   },
+   {
+    "a": "with",
+    "r": "You can make a profit when the stocks soar. 당신은 수익을 낼 수 있다. 주식이 급등할 때. You can make a profit 【?】 the stocks ___ . 주식이 급등하는 상황에서 ✔ 접속사 문장의 동사가 능동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은"
+   },
+   {
+    "a": "soaring",
+    "r": "You can make a profit when the stocks soar. 당신은 수익을 낼 수 있다. 주식이 급등할 때. You can make a profit ___ the stocks 【?】 . 주식이 급등하는 상황에서 ✔ 접속사 문장의 동사가 능동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은"
+   },
+   {
+    "a": "with A B (V+ing)",
+    "r": "___ ___ 주식이 급등하는 상황에서 ✔ 접속사 문장의 동사가 능동태인 경우, with 분사구문으로 전환 시 【?】 형태로 나타내요. 해석은 ___ 라고 처리해요."
+   },
+   {
+    "a": "상황에서",
+    "r": "✔ 접속사 문장의 동사가 능동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은 【?】 라고 처리해요."
+   },
+   {
+    "a": "with",
+    "r": "He fixed the car and tools were scattered on the floor. 그는 그 차를 고쳤다. 그리고 도구들은 바닥에 흩어져 있었다. He fixed the car 【?】 tools ___ on the floor. 도구들이 바닥에 흩어져진 상황에서 ✔ 접속사 문장의 동사가 수동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은"
+   },
+   {
+    "a": "scattered",
+    "r": "He fixed the car and tools were scattered on the floor. 그는 그 차를 고쳤다. 그리고 도구들은 바닥에 흩어져 있었다. He fixed the car ___ tools 【?】 on the floor. 도구들이 바닥에 흩어져진 상황에서 ✔ 접속사 문장의 동사가 수동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은"
+   },
+   {
+    "a": "with A B (p.p.)",
+    "r": "___ ___ 도구들이 바닥에 흩어져진 상황에서 ✔ 접속사 문장의 동사가 수동태인 경우, with 분사구문으로 전환 시 【?】 형태로 나타내요. 해석은 ___ 라고 처리해요."
+   },
+   {
+    "a": "B되어지는 상황에서",
+    "r": "✔ 접속사 문장의 동사가 수동태인 경우, with 분사구문으로 전환 시 ___ 형태로 나타내요. 해석은 【?】 라고 처리해요."
+   }
+  ],
+  "164": [
+   {
+    "a": "생각이나 상상",
+    "r": "실제 발생한 사건을 표현할 때 '여러가지 시제(5단원)'를 사용했다면, 은 조동사(Modal Verbs)를 【?】 사용해요."
+   },
+   {
+    "a": "2가지",
+    "r": "조동사의 시제 【?】"
+   },
+   {
+    "a": "현재",
+    "r": "① 생각이 < 【?】 > 또는 < ___ >를 향할 때 · 능동 : ___"
+   },
+   {
+    "a": "미래",
+    "r": "① 생각이 < ___ > 또는 < 【?】 >를 향할 때 · 능동 : ___"
+   },
+   {
+    "a": "조동사 + 동사원형",
+    "r": "① 생각이 < ___ > 또는 < ___ >를 향할 때 · 능동 : 【?】 · 수동 : ___"
+   },
+   {
+    "a": "조동사 + be p.p.",
+    "r": "· 능동 : ___ · 수동 : 【?】 ①"
+   },
+   {
+    "a": "과거",
+    "r": "② 생각이 < 【?】 >로 향할 때 (또는 현재의 완료 상태일 때)"
+   },
+   {
+    "a": "조동사 + have p.p.",
+    "r": "(또는 현재의 완료 상태일 때) · 능동 : 【?】 · 수동 : ___"
+   },
+   {
+    "a": "조동사 + have been p.p.",
+    "r": "· 능동 : ___ · 수동 : 【?】"
+   },
+   {
+    "a": "현재 또는 앞으로 공부를",
+    "r": "너는 【?】 조동사의 의미 구분 You should study hard. 공부를 열심히 해야 한다. 시제 개념 현재 과거"
+   },
+   {
+    "a": "과거에",
+    "r": "시제 개념 현재 과거 너는 공부를 열심히 You should have studied hard. 【?】 현실성 O 가정 또는 가정법 개념 했었어야 했다. 조건절 상상"
+   },
+   {
+    "a": "현재 피곤함이",
+    "r": "그녀는 피곤함이 【?】 추측 ___ ___ She must be tired. 틀림없다."
+   },
+   {
+    "a": "may",
+    "r": "그녀는 피곤함이 ___ 추측 【?】 ___ She must be tired. 틀림없다."
+   },
+   {
+    "a": "might",
+    "r": "그녀는 피곤함이 ___ 추측 ___ 【?】 She must be tired. 틀림없다."
+   },
+   {
+    "a": "can",
+    "r": "She must be tired. 틀림없다. 능력 【?】 ___ 그녀는 ___ 피곤했었음이 She must have been tired."
+   },
+   {
+    "a": "could",
+    "r": "She must be tired. 틀림없다. 능력 ___ 【?】 그녀는 ___ 피곤했었음이 She must have been tired."
+   },
+   {
+    "a": "과거에",
+    "r": "능력 ___ ___ 그녀는 【?】 피곤했었음이 She must have been tired. 틀림없다. 의지 ___ ___"
+   },
+   {
+    "a": "will",
+    "r": "그녀는 ___ 피곤했었음이 She must have been tired. 틀림없다. 의지 【?】 ___ 나는 너를 도울 것이다. ("
+   },
+   {
+    "a": "would",
+    "r": "그녀는 ___ 피곤했었음이 She must have been tired. 틀림없다. 의지 ___ 【?】 나는 너를 도울 것이다. ("
+   },
+   {
+    "a": "shall",
+    "r": "나는 너를 도울 것이다. ( 규범 I will help you. 【?】 ___ ___ ) 현실성 O"
+   },
+   {
+    "a": "should",
+    "r": "나는 너를 도울 것이다. ( 규범 I will help you. ___ 【?】 ___ ) 현실성 O"
+   },
+   {
+    "a": "나는 너를 도울",
+    "r": "나는 너를 도울 것이다. ( 규범 I will help you. ___ ___ 【?】 ) 현실성 O 확신 ___"
+   },
+   {
+    "a": "must",
+    "r": "___ ) 현실성 O 확신 【?】 나는 너를 도울 것이다. ( I would help you. ___ ) 가정 상황"
+   },
+   {
+    "a": "나는 너를 도왔을",
+    "r": "확신 ___ 나는 너를 도울 것이다. ( I would help you. 【?】 ) 가정 상황 ※ must는 '반드시 ~해야 한다'라는 의미와 구분해요."
+   },
+   {
+    "a": null,
+    "r": "구분해요. 의미 나는 너를 도왔을 것이다. ( I would have helped you. 비교 【?】 ) 가정 상황"
+   }
+  ],
+  "165": [
+   {
+    "a": "3가지",
+    "r": "가정법의 시제 【?】 ※ 가정법에서 미래는 따로 구분하지 않고, 현재와 미래 모두 현실성 여부(조건인지, 단순한 상상인지)로만 구분해요."
+   },
+   {
+    "a": "현재형 동사",
+    "r": "현실성이 있는 경우(조건절) If S 【?】 If She ___ me 1천원, 그녀가 나에게 1천 원을 준다면 (현재 또는 앞으로) 현실성 O"
+   },
+   {
+    "a": "gives",
+    "r": "If S ___ If She 【?】 me 1천원, 그녀가 나에게 1천 원을 준다면 (현재 또는 앞으로) 현실성 O 조동사 문장 I ___ ___ an ice cream. 나는 (현재에) 아이스크림 한 개를 살 것이다."
+   },
+   {
+    "a": "will buy",
+    "r": "If She ___ me 1천원, 그녀가 나에게 1천 원을 준다면 (현재 또는 앞으로) 현실성 O 조동사 문장 I 【?】 ___ an ice cream. 나는 (현재에) 아이스크림 한 개를 살 것이다."
+   },
+   {
+    "a": "will buy",
+    "r": "If She ___ me 1천원, 그녀가 나에게 1천 원을 준다면 (현재 또는 앞으로) 현실성 O 조동사 문장 I ___ 【?】 an ice cream. 나는 (현재에) 아이스크림 한 개를 살 것이다."
+   },
+   {
+    "a": "과거형 동사",
+    "r": "단순 상상, 가정 · 현재 사실의 반대(가정법 If S 【?】 If She ___ me 1천억, 그녀가 나에게 1천억 원을 준다면 (현재 또는 앞으로) 단순 상상 또는 가정"
+   },
+   {
+    "a": "gave",
+    "r": "If S ___ If She 【?】 me 1천억, 그녀가 나에게 1천억 원을 준다면 (현재 또는 앞으로) 단순 상상 또는 가정 조동사 문장 I ___ ___ an airplane. 나는 (현재에) 비행기 한 대를 살 것이다."
+   },
+   {
+    "a": "would",
+    "r": "If She ___ me 1천억, 그녀가 나에게 1천억 원을 준다면 (현재 또는 앞으로) 단순 상상 또는 가정 조동사 문장 I 【?】 ___ an airplane. 나는 (현재에) 비행기 한 대를 살 것이다."
+   },
+   {
+    "a": "would buy",
+    "r": "If She ___ me 1천억, 그녀가 나에게 1천억 원을 준다면 (현재 또는 앞으로) 단순 상상 또는 가정 조동사 문장 I ___ 【?】 an airplane. 나는 (현재에) 비행기 한 대를 살 것이다."
+   },
+   {
+    "a": "had p.p.",
+    "r": "· 과거완료 능동 : 【?】 가정법 과거완료는 If S ___ · 과거완료 수동 : ___ 단순 상상 또는 가정"
+   },
+   {
+    "a": "과거완료",
+    "r": "· 과거완료 능동 : ___ 가정법 과거완료는 If S 【?】 · 과거완료 수동 : ___ 단순 상상 또는 가정"
+   },
+   {
+    "a": "had been p.p.",
+    "r": "· 과거완료 능동 : ___ 가정법 과거완료는 If S ___ · 과거완료 수동 : 【?】 단순 상상 또는 가정"
+   },
+   {
+    "a": "had studied",
+    "r": "학생들이 가장 혼동하는 a. If he 【?】 harder, 가정법 시제 표현 (과거에) 만약 그가 공부를 더 열심히 했었다면,"
+   },
+   {
+    "a": "could",
+    "r": "(과거에) 만약 그가 공부를 더 열심히 했었다면, (1) be동사의 p.p. 조동사 문장he 【?】 ___ the exam. he is a strong man. 그는 (과거에) 시험에 통과할 수 있었을 텐데."
+   },
+   {
+    "a": "have passed the",
+    "r": "(과거에) 만약 그가 공부를 더 열심히 했었다면, (1) be동사의 p.p. 조동사 문장he ___ 【?】 the exam. he is a strong man. 그는 (과거에) 시험에 통과할 수 있었을 텐데."
+   },
+   {
+    "a": "strong man. had been a",
+    "r": "he is a strong man. 그는 (과거에) 시험에 통과할 수 있었을 텐데. → If he 【?】 a strong man, If the machine properly, b. ___"
+   },
+   {
+    "a": "had been used",
+    "r": "→ If he ___ a strong man, If the machine properly, b. 【?】 (2) have동사의 p.p. (과거에) 만약 기계가 적절하게 작동되었었다면,"
+   },
+   {
+    "a": "would",
+    "r": "(2) have동사의 p.p. (과거에) 만약 기계가 적절하게 작동되었었다면, he has to leave early 조동사 문장we 【?】 ___ buy another one. → If he ___ leave 우리는 (과거에) 또 다른 것을 사지 않아도 되었을 텐데."
+   },
+   {
+    "a": "not have had to buy",
+    "r": "(2) have동사의 p.p. (과거에) 만약 기계가 적절하게 작동되었었다면, he has to leave early 조동사 문장we ___ 【?】 buy another one. → If he ___ leave 우리는 (과거에) 또 다른 것을 사지 않아도 되었을 텐데."
+   },
+   {
+    "a": "to leave early had had to",
+    "r": "he has to leave early 조동사 문장we ___ ___ buy another one. → If he 【?】 leave 우리는 (과거에) 또 다른 것을 사지 않아도 되었을 텐데. early,"
+   },
+   {
+    "a": "had been",
+    "r": "early, c. If I 【?】 a bit taller, (과거에) 만약 내가 키가 조금 더 컸었다면,"
+   },
+   {
+    "a": "could",
+    "r": "(과거에) 만약 내가 키가 조금 더 컸었다면, 조동사 문장our team 【?】 ___ the game at that time. 우리 팀은 (그 당시) 그 게임에서 이길 수 있었을 텐데."
+   },
+   {
+    "a": "could have won",
+    "r": "(과거에) 만약 내가 키가 조금 더 컸었다면, 조동사 문장our team ___ 【?】 the game at that time. 우리 팀은 (그 당시) 그 게임에서 이길 수 있었을 텐데."
+   },
+   {
+    "a": "had not broken up",
+    "r": "d. If I 【?】 with her, (과거에) 만약 내가 그녀와 헤어지지 않았었다면,"
+   },
+   {
+    "a": "would",
+    "r": "(과거에) 만약 내가 그녀와 헤어지지 않았었다면, 조동사 문장I 【?】 ___ single now. 나는 (현재에) 솔로가 아닐 텐데. 혼합 가정법"
+   },
+   {
+    "a": "would not be",
+    "r": "(과거에) 만약 내가 그녀와 헤어지지 않았었다면, 조동사 문장I ___ 【?】 single now. 나는 (현재에) 솔로가 아닐 텐데. 혼합 가정법"
+   }
+  ],
+  "166": [
+   {
+    "a": "당신은 다음 달(미래)에 나의 파티에 와야 한다.",
+    "r": "You should come to my party next month. 1 【?】"
+   },
+   {
+    "a": "당신은 지난달(과거)에 나의 파티에 왔었어야 했다.",
+    "r": "You should have come to my party last month. 2 【?】"
+   },
+   {
+    "a": "메시가 (현재) 나의 팀이라면, 나의 팀이 다음 달(미래)에 이길 수 있을 것이다.",
+    "r": "If Messi were in my team, my team could win the game next month. 3 【?】"
+   },
+   {
+    "a": "메시가 (과거에) 나의 팀이었다면, 나의 팀이 지난달(과거)에 이길 수 있었을 것이다.",
+    "r": "If Messi had been in my team, my team could have won the game last month. 4 【?】"
+   },
+   {
+    "a": "내가 생각하기에 내가 에어컨을 (과거에) 켜 둔 채로 온 것 같다. (추측)",
+    "r": "I think I might have left the air conditioning on. Can you check? 5 【?】"
+   },
+   {
+    "a": "이번 주에, 나는 회의를 (미래에) 일찍 떠나야 할지도 모른다 / 콘서트에 도착하기 위해서.",
+    "r": "This week, I might leave the meeting early to make it to the concert. 6 【?】"
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "am",
+     "were"
+    ],
+    "r": "1 If I [ am / were ] a bird, I could fly to you."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "rains",
+     "rained"
+    ],
+    "r": "2 If it [ rains / rained ] tomorrow, we will stay home."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "would tell",
+     "would have told"
+    ],
+    "r": "3 If I had known the answer, I [ would tell / would have told ] you."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "must be",
+     "must have been"
+    ],
+    "r": "4 You [ must be / must have been ] hungry. You skipped lunch."
+   },
+   {
+    "c": [
+     1
+    ],
+    "o": [
+     "should study",
+     "should have studied"
+    ],
+    "r": "5 I [ should study / should have studied ] harder last year."
+   },
+   {
+    "c": [
+     0
+    ],
+    "o": [
+     "had saved",
+     "saved"
+    ],
+    "r": "6 If I [ had saved / saved ] money then, I could buy a car now."
+   }
+  ]
+ },
+ "inst": {
+  "14": "1. 영어의 후치수식 구조 ✓ 표시된 곳을 완성하세요. Date ________",
+  "15": "빈칸을 채우며 ②를 다시 정리해요. 메모 · 영상 보며 필기 2 주인공(주어) 명사를 찾아라!",
+  "16": "꾸미는 말에 괄호 ( )와 화살표 ↶를 그리고, 주인공 명사에 S 표시를 한 뒤 동사를 고르세요. 괄호 안의 명사(shelf, products …)에 속지 마세요! ✓관계사 부분에 박스를 치고, 뒤에서 앞으로 수식하여 밑줄 친 부분을 우리말로 해석하세요. 알맞은 동사도 고르세요.",
+  "23": "2. 관계사 (관계대명사 기본) ✓ 표시된 곳을 완성하세요. Date ________",
+  "24": "영어 어순을 우리말 어순으로 바꾸세요. 빨간 점선 칸을 채우세요 · 빈자리(▢)가 어디인지 보고 격도 쓰세요. No.",
+  "25": "우리말을 보고 영어 어순 칸을 채우세요. 선행사 → 근데 다리 → 꼬리 순서로 써요 · 빈자리에는 아무것도 쓰지 않아요. No.",
+  "32": "3. 자동사 vs 타동사 ✓ 표시된 곳을 완성하세요. Date ________",
+  "33": "밑줄 친 동사 뒤의 목적어를 찾고, 알맞은 해석에 ✓ 한 뒤 자동사·타동사를 쓰세요. 전치사 뒤 명사(at me, for the airport)는 목적어가 아니에요. No.",
+  "42": "4. 품사비교 능동형용사 vs 수동형용사 ✓ 표시된 곳을 완성하세요. Date ________",
+  "43": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 현재분사(-ing), 과거분사(p.p.)는 형용사로 써요",
+  "44": "밑줄 친 단어의 자리에 ✓ 하고, 형태를 고른 뒤 문장을 해석하세요. ② 과거형 동사와 ③ 수동 형용사는 모양이 같아요. 자리로 구분하세요. No.",
+  "52": "4-2. 형용사 vs 부사 보어 ✓ 표시된 곳을 완성하세요. Date ________",
+  "53": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 둘 다 맞는 문장, 뜻이 달라요 · safe vs safely",
+  "54": "동사 뒤의 말의 품사·역할과 자동사·타동사를 쓰고, 보어 O/X를 표시한 뒤 해석하세요. 보어라면 '(주어가) ~한 상태로'를 먼저 채우고 문장 전체를 해석해요. No.",
+  "62": "5. 여러가지 시제와 수동태 ✓ 표시된 곳을 완성하세요. Date ________",
+  "63": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 8가지 시제, 능동 → 수동",
+  "64": "밑줄 친 동사의 시제를 쓰고, 수동태로 바꿔 쓰세요. 목적어가 없는 자동사 문장은 '✕ 수동태 불가'라고 쓰세요. (8~10번은 3단원 복습) No.",
+  "65": "우리말을 시제와 태에 맞게 영작하세요. (기본) 앞뒤는 주어져 있어요. 괄호 속 동사를 시제에 맞게 바꿔 빈칸을 채우세요. 1",
+  "66": "우리말을 시제와 태에 맞게 영작하세요. (심화) 문장 전체를 써요. 수동태는 be 부분(been · being)이 시제를 맡는다는 것을 기억하세요. 1",
+  "74": "6. 문장 vs 명사(구) ✓ 표시된 곳을 완성하세요. Date ________",
+  "75": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 관계대명사 + 수동 동사 → p.p. (수동형용사)",
+  "76": "예문을 읽고 ① 빨간 펜으로 구조 표시 ② 문장 vs 명사 구분 ③ 우리말 해석을 쓰세요. 문장이면 S·V에 표시, 명사 덩어리면 머리 명사에 상자 + 꾸밈에 괄호 ( ) · 8번 [ ]에 알맞은 관계사도 써 보세요. No.",
+  "84": "7. 명사 수식어구 관계사 생략 · 분사 직접 수식 ✓ 표시된 곳을 완성하세요. Date ________",
+  "85": "빈칸을 채우며 ②를 다시 정리해요. 메모 · 영상 보며 필기 2 명사를 수식하는 2가지 방법",
+  "86": "두 문장이 같은 의미가 되도록 <분사> 또는 <관계사>를 이용하여 빈칸을 완성하세요. 분사 수식은 관계사 수식으로, 관계사 수식은 분사 수식으로 바꿔요. 시제에 유의하세요. 1",
+  "96": "8. 분사구문(기본) 능동형용사 vs 수동형용사 ✓ 표시된 곳을 완성하세요. Date ________",
+  "97": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 수동 · (being) + p.p. (과거분사)",
+  "98": "분사구문 부분을 해석하고, 능동/수동 · 주어 · 시제 · 생략된 접속사를 쓴 뒤 접속사 원문을 완성하세요. 접속사는 보기 중 하나에 ○ 하세요. 시제는 문장 2의 동사를 보고 정해요.",
+  "106": "9. 관계사와 접속사 that / what / which 용법 비교 ✓ 표시된 곳을 완성하세요. Date ________",
+  "107": "빈칸을 채우며 ①②를 다시 정리해요. 1 문장 속에 넣어 보기 · I know + ___ (①의 계속) No.",
+  "108": "① 빈칸에 들어갈 말을 고르고 ② 빈칸 이후 문장이 완전한지 표시한 뒤 ③ 우리말로 해석하세요. STEP 1 빈칸 앞에 명사가 있나? → STEP 2 빈칸 뒤 문장에 빠진 자리가 있나?",
+  "116": "10. 접속사 문장의 시작과 끝 ✓ 표시된 곳을 완성하세요. Date ________",
+  "117": "빈칸을 채우며 ③④를 다시 정리해요. 메모 · 영상 보며 필기 3 다음 중 올바른 것은? (Comma Splice)",
+  "118": "다음을 읽고 ① 문장 개수 ② 접속사(연결어) 유무 ③ 올바른 문장인지 체크하고, 해석하세요. 9번·12번은 빈칸에 알맞은 말을 넣어 올바른 문장으로 만드세요. 관계사",
+  "133": "1층 · 관계사와 접속사 · 관계대명사의 종류 · 빈칸 채우기 메모 · 영상 보며 필기 관계대명사",
+  "134": "1층 · 어순 전환 연습 · 빈칸 채우기 3 영어 어순 ↔ 우리말 어순 전환 연습명사 vs 문장 구분 · 주격인지 목적격인지 구분 선행사",
+  "135": "2층 · 관계대명사 vs 관계부사 · 빈칸 채우기 메모 · 영상 보며 필기 관계부사",
+  "136": "2층 · 관계부사 종류 · 단계별 체크업 · 빈칸 채우기 메모 · 영상 보며 필기 4 관계부사 종류와 해석",
+  "137": "3층 · 전치사 + 관계대명사 · 빈칸 채우기 메모 · 영상 보며 필기 전치사 + 관계대명사",
+  "138": "3층 · 전치사의 활용 · 빈칸 채우기 메모 · 영상 보며 필기 6 전치사 + 관계대명사 · 전치사의 활용(⑥의 계속)",
+  "139": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ① 1층 · 다음 문장에서 적절한 관계사를 고르세요. (중복 선택 가능)",
+  "140": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ② 2층 · 알맞은 관계사를 고르거나 쓰고, 우리말 연결도 고르세요.",
+  "141": "관계사를 고르고, '근데 ~'로 연결해 해석해 보세요. STEP 1 선행사가 있나? → STEP 2 뒤 문장이 완전한가? → 2층은 '시공간'이 생기는지 확인! ⑤ 종합 리뷰 · 우리말로 연결하는 관계사",
+  "151": "X2. 분사구문(심화) ✓ 표시된 곳을 완성하세요. Date ________",
+  "152": "핵심 3가지 · ② 주어 ③ 시제 · 빈칸 채우기 메모 · 영상 보며 필기 2 ② 주어가 다를 때 · ③ 시제가 앞설 때",
+  "153": "심화 4가지 · ④ with ⑤ There ⑥ 보어 · 빈칸 채우기 4 분사구문 심화 4가지 · ④ with 분사구문 ⑤ There + be ⑥ be + 보어 ④ with 분사구문 · 능동",
+  "154": "심화 4가지 · ⑦ 관용적 분사구문 · 빈칸 채우기 메모 · 영상 보며 필기 7 ⑦ 관용적 분사구문덩어리째 뜻을 외워요 · 의미상 주어가 '일반 사람'이라 생략",
+  "155": "분사구문 리뷰체크업 분사구문이란? ✔ 1. 시제와 주어가 같을 때",
+  "156": "분사구문 리뷰체크업 3. 시제가 다를 때 능동",
+  "164": "X3. 조동사 & 가정법(심화) ✓ 표시된 곳을 완성하세요. Date ________",
+  "165": "가정법 · 현재를 가정할 때 · 과거를 가정할 때 · 빈칸 채우기 3 가정법If 가정법 해석 : ~라면 · ※ 조동사 '~일 텐데' 해석과 반드시 구분 가정법의 시제",
+  "166": "조동사의 시제에 유의해 해석하고, 알맞은 형태를 고르세요. STEP 1 생각이 어느 시간을 향하나? → STEP 2 현실성이 있나(조건) 없나(가정)? ① 밑줄 친 부분을 <조동사의 시제>에 유의하여 해석해 보세요. (생각이 향하는 시간에 표시)"
+ },
  "sizes": {
   "ch01": 483023,
   "ch02": 492411,
