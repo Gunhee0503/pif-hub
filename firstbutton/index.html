@@ -176,6 +176,41 @@ body[data-mode=text] .pg .ly .fd:not(.ft),body[data-mode=text] .pg .ly .ch,body[
 .ab{flex:1;overflow:auto;-webkit-overflow-scrolling:touch;padding:14px}
 .ab img{display:block;width:100%;max-width:820px;height:auto;margin:0 auto 12px;border-radius:6px;background:#fff}
 .ab .ld{color:#fff;text-align:center;padding:30px}
+.pg canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+body[data-mode=pen] .pg canvas,body[data-mode=erase] .pg canvas{pointer-events:auto;touch-action:none;cursor:crosshair}
+.vbar.end{justify-content:flex-end;background:none;-webkit-backdrop-filter:none;backdrop-filter:none;pointer-events:none}
+.pent{display:flex;gap:2px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:3px;pointer-events:auto;box-shadow:0 4px 14px -8px rgba(0,0,0,.3)}
+.pent button{border:0;background:none;border-radius:9px;padding:7px 10px;font-size:12.5px;font-weight:650;color:var(--ink2);white-space:nowrap}
+.pent button.on{background:var(--ink);color:#fff}
+.fd.cur,.kb.cur{outline:3px solid #1f6feb;outline-offset:1px;background:rgba(31,111,235,.12);animation:blink 1.1s ease-in-out infinite;z-index:2}
+.ch.cur{outline:2px dashed #1f6feb;outline-offset:2px}
+@keyframes blink{50%{outline-color:rgba(31,111,235,.25)}}
+.fd.cur.empty em::after{content:"";display:inline-block;width:2px;height:1.1em;background:#1f6feb;vertical-align:middle;animation:caret 1s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.sq{max-width:820px;margin:0 auto 6px;font-size:14px;font-weight:700;color:var(--ink)}
+.sh2.opt .op{flex:1;width:auto;font-size:16px;font-weight:700;color:var(--ink);border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px}
+.sh2.opt .op.on{border-color:#1f4fbf;background:#eef3ff;color:#1f4fbf}
+.sh2 .txt{width:auto;padding:0 12px;font-size:13px}
+.sheet.grading{border-top:3px solid var(--acc)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:820px;margin:0 auto 8px}
+.cmp div{background:var(--paper);border-radius:12px;padding:9px 11px;min-width:0}
+.cmp div.k{background:#fdeef0}
+.cmp span{display:block;font-size:11.5px;color:var(--ink2);margin-bottom:3px}
+.cmp b{font-size:15.5px;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere}
+.cmp .k b{color:#c8323c}
+.cmp .txt{display:inline-block;margin-top:6px;border:1px solid var(--line);background:#fff;border-radius:99px;padding:4px 10px;font-size:12px}
+.sh2.gr .okb,.sh2.gr .nob{flex:1;width:auto;font-size:17px;font-weight:800;border-radius:12px;border:1.5px solid var(--line);background:#fff}
+.sh2.gr .okb{color:#1f7a4a}.sh2.gr .nob{color:#c8323c}
+.sh2.gr .okb.on{background:#e7f6ee;border-color:#1f7a4a}.sh2.gr .nob.on{background:#fdeef0;border-color:#c8323c}
+.resume{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:150;border:0;background:#1f6feb;color:#fff;border-radius:99px;padding:12px 22px;font-size:15px;font-weight:800;box-shadow:0 10px 24px -10px rgba(31,111,235,.8)}
+.gradeb.pulse,.ansb.pulse{animation:pls 1s ease-in-out 4}
+@keyframes pls{50%{transform:scale(1.07)}}
+.q.qcur{background:#f3f7ff;border-radius:12px;padding:10px 10px 12px;margin:0 -10px;box-shadow:0 0 0 2px #1f6feb inset}
+.qtag{font-size:12px;font-weight:800;color:#1f6feb;margin-bottom:6px}
+.btn.pulse{animation:pls 1s ease-in-out 4}
+.ctxl{max-width:820px;margin:0 auto 8px;font-size:13px;line-height:1.5;color:var(--ink2);background:var(--paper);border-radius:10px;padding:7px 10px;max-height:3.2em;overflow:hidden}
+.ctxl mark{background:#1f6feb;color:#fff;border-radius:4px;padding:0 2px;font-weight:800}
+body:has(.sheet) .toast{bottom:230px}
 .toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.on{opacity:.92}
 </style>
@@ -270,10 +305,10 @@ async function loadView(name){
 function ansPagesOf(u, k){ return k === 'review' ? u.parts.summary : (u.parts.wa || []).concat(u.parts.wbans || []); }
 function stepsOf(u){
   const s = [];
-  s.push({ k:'summary', cls:'s', t:'Summary Note · 개념 정리', d:'오프닝과 개념 정리 페이지를 읽어요. 영상이 있으면 함께 보세요.', pages:(u.parts.open || []).concat(u.parts.summary) });
+  s.push({ k:'summary', cls:'s', t:'Summary Note · 개념 정리', d:'오프닝과 개념 정리 페이지를 읽어요. 태블릿이면 펜으로 필기할 수 있어요.', pages:(u.parts.open || []).concat(u.parts.summary) });
   if (u.parts.wa) s.push({ k:'wa', t:'워크북 A · 따라 하기', d:'답이 적혀 있는 예제예요. 답을 보며 판단 순서를 손에 익혀요.', pages:u.parts.wa });
-  s.push({ k:'review', cls:'r', t:'Review Note · 빈칸 채우기', d:'빈칸을 눌러 채우고 채점하기를 누르면 바로 채점해 줘요.', pages:u.parts.review, write:true, ans:'Summary Note' });
-  if (u.parts.wb) s.push({ k:'wb', t:'워크북 B · 혼자 풀기', d:'빈칸·밑줄을 눌러 쓰고 선택지는 눌러서 동그라미! 다 풀면 채점하기를 눌러요.', pages:u.parts.wb, write:true, ans:'워크북 A' + (u.parts.wbans ? ' · 정답' : '') });
+  s.push({ k:'review', cls:'r', t:'Review Note · 빈칸 채우기', d:'풀 칸을 하나씩 안내해 줘요. 다 풀면 정답과 비교해 ○✕로 채점해요.', pages:u.parts.review, write:true, ans:'Summary Note' });
+  if (u.parts.wb) s.push({ k:'wb', t:'워크북 B · 혼자 풀기', d:'풀 칸을 하나씩 안내해 줘요. 다 풀면 워크북 A 정답과 비교해 ○✕로 채점해요.', pages:u.parts.wb, write:true, ans:'워크북 A' + (u.parts.wbans ? ' · 정답' : '') });
   s.push({ k:'quiz', t:'마무리 · 실전 문항', d:'내신·모의고사 스타일 문항을 여기서 바로 풀고 채점해요.' });
   s.push({ k:'checks', t:'자가체크', d:'할 수 있게 된 것에 체크해요.' });
   return s;
@@ -291,8 +326,8 @@ function renderHome(){
       <div class="bar"><i style="width:${Math.round(p.n / p.total * 100)}%"></i></div>${r ? '<span class="rt">진단 추천</span>' : ''}</button>`; };
   let h = `<div class="hd"><div class="e">GRAMMAR 첫단추 · BASIC &amp; BEYOND</div><h1>Grammar 첫단추</h1><div class="k">영어학습의 첫 시작! 세상에서 가장 쉬운 영문법</div></div>
   <div class="card" style="margin-top:16px"><h2>한 단원은 이렇게 공부해요</h2>
-    <div class="flow"><div class="s"><b>① Summary</b>개념 정리 읽기</div><div><b>② 워크북 A</b>답 보며 따라 하기</div><div class="r"><b>③ Review</b>빈칸 채우고 자동 채점</div><div><b>④ 워크북 B</b>혼자 풀고 자동 채점</div><div><b>⑤ 실전 문항</b>바로 채점</div><div><b>⑥ 자가체크</b>할 수 있는 것 ✓</div></div>
-    <div class="note">모든 학습은 <b>이 화면 안에서</b> 할 수 있어요. 빈칸을 누르면 글자를 쓰고, 선택지는 눌러서 고르고, <b>채점하기</b>를 누르면 바로 채점해 줘요. 수업 영상은 <b>보충 설명</b>이라 없어도 순서대로 하면 혼자 공부할 수 있어요.</div>
+    <div class="flow"><div class="s"><b>① Summary</b>개념 정리 읽기</div><div><b>② 워크북 A</b>답 보며 따라 하기</div><div class="r"><b>③ Review</b>빈칸 채우고 채점</div><div><b>④ 워크북 B</b>혼자 풀고 채점</div><div><b>⑤ 실전 문항</b>바로 채점</div><div><b>⑥ 자가체크</b>할 수 있는 것 ✓</div></div>
+    <div class="note">모든 학습은 <b>이 화면 안에서</b> 할 수 있어요. 풀 칸을 하나씩 짚어 주니 차례대로 쓰고, 다 풀면 정답과 비교해 스스로 ○✕로 채점해요. 수업 영상은 <b>보충 설명</b>이라 없어도 순서대로 하면 혼자 공부할 수 있어요.</div>
     <div class="dlrow"><button class="dl" data-view="intro">교재 소개·목차 보기</button></div></div>
   <div class="card"><h2>종합 진단 30문항</h2>
     <p>BASIC 20문항 + Beyond 10문항 · 권장 25분. 처음에 풀면 어디부터 공부할지 알려 주고, 다 공부한 뒤 다시 풀면 얼마나 늘었는지 보여 줘요.</p>
@@ -372,59 +407,75 @@ function openStep(u, k){
     ans: s.write ? { title:s.ans, pages:ansPagesOf(u, k) } : null, back:() => { openUnit(u.id); const el = $app.querySelector(`.st[data-k="${k}"]`); if (el) el.scrollIntoView({ block:'center' }); } });
 }
 
-/* ---------- 페이지 뷰어 · 쓰기 · 자동 채점 ---------- */
-let V = null;   // { o, mode:'type'|'text', cur:{pn,i}, busy }
-function inkOf(pn){ const x = V && V.o.uid ? ust(V.o.uid) : null; if (!x) return null; x.ink = x.ink || {}; const k = x.ink[pn] || (x.ink[pn] = { v:{}, t:[] }); k.g = k.g || {}; k.fx = k.fx || {}; k.ai = k.ai || {}; return k; }
+/* ---------- 페이지 뷰어 · 칸마다 안내하며 풀기 · 스스로 채점 ---------- */
+let V = null;   // { o, mode:'type'|'text'|'pen'|'erase', cur:{pn,i}, grading }
+function inkOf(pn){ const x = V && V.o.uid ? ust(V.o.uid) : null; if (!x) return null; x.ink = x.ink || {}; const k = x.ink[pn] || (x.ink[pn] = { v:{}, t:[] }); k.g = k.g || {}; delete k.fx; delete k.ai; return k; }
 function saveInk(){ if (V && V.o.uid) { const x = ust(V.o.uid); Object.keys(x.ink || {}).forEach(pn => { const k = x.ink[pn]; if (!Object.keys(k.v).length && !(k.t || []).length && !Object.keys(k.g || {}).length) delete x.ink[pn]; }); tally(); persist(V.o.uid); } }
 const KEY = (pn, i) => ((FB.key || {})[pn] || [])[i] || {};
+const FLD = pn => (FB.ov || {})[pn] || [];
+const filled = (k, i) => { const v = k.v[i]; return Array.isArray(v) ? v.length > 0 : !!v; };
+/* 칸 순서: 페이지 → 위에서 아래 → 왼쪽에서 오른쪽 */
+function slots(){ const out = [];
+  V.o.pages.forEach(pn => { const F = FLD(pn);
+    F.map((f, i) => ({ i, y: f[0] === 'c' ? f[1][0][1] : f[2], x: f[0] === 'c' ? f[1][0][0] : f[1] }))
+     .sort((a, b) => (Math.round(a.y * 120) - Math.round(b.y * 120)) || (a.x - b.x)).forEach(s => out.push([pn, s.i])); });
+  return out; }
 function tally(){
   if (!V || !V.o.write) return null;
-  let ok = 0, bad = 0, q = 0, n = 0, left = 0;
-  V.o.pages.forEach(pn => { const k = inkOf(pn), F = (FB.ov || {})[pn] || []; n += F.length;
-    F.forEach((f, i) => { const e = KEY(pn, i); if (k.v[i] == null && (e.a || (e.c && e.c.length) || e.k === 1)) left++; });
-    Object.values(k.g).forEach(g => { if (g === 'o') ok++; else if (g === 'x') bad++; else if (g === 'q') q++; }); });
-  const x = ust(V.o.uid), r = { ok, total: ok + bad };
-  if (V.o.step === 'wb') x.wb = r; else x.rv = r;
+  let ok = 0, bad = 0, done = 0, n = 0, wait = 0;
+  V.o.pages.forEach(pn => { const k = inkOf(pn); FLD(pn).forEach((f, i) => { n++; if (filled(k, i)) { done++; if (k.g[i] === 'o') ok++; else if (k.g[i] === 'x') bad++; else wait++; } }); });
+  const x = ust(V.o.uid);
+  if (ok + bad) { const r = { ok, total: ok + bad }; if (V.o.step === 'wb') x.wb = r; else x.rv = r; }
   const el = document.getElementById('vsc');
-  if (el) el.innerHTML = ok + bad ? `<b class="sc">${ok} / ${ok + bad}</b>${q ? ` · 확인 필요 ${q}` : ''}${left ? ` · 안 푼 칸 ${left}` : ''}` : `쓰기 칸 ${n}개`;
-  return { ok, bad, q };
+  if (el) el.innerHTML = ok + bad ? `<b class="sc">○ ${ok} · ✕ ${bad}</b>${wait ? ` · 채점 안 한 칸 ${wait}` : ''}` : `<b>${done}</b> / ${n}칸 풀었어요`;
+  return { ok, bad, done, n, wait };
 }
 function openViewer(o){
   closeSheet();
   V = { o, mode:'type' }; cur = { viewer:true };
   const x = o.uid ? ust(o.uid) : null, done = x && o.step ? !!(x.steps || {})[o.step] : false;
   let h = `<div class="vtop"><button id="vbk">← ${o.uid ? '단원으로' : '목록'}</button><div class="vt">${esc(o.title)}</div></div>
-  ${o.write ? `<div class="vbar"><button class="memo" id="memo">＋ 메모 글상자</button><button class="gradeb" id="gradeGo">채점하기</button><button class="ansb" id="ansGo">정답 페이지</button><span class="vsc" id="vsc"></span></div>
-  <div class="hint" id="hint">빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓. 다 풀면 <b>채점하기</b>!</div>` : ''}
+  ${o.write ? `<div class="vbar"><button class="gradeb" id="solveGo">✎ 풀기 시작</button><button class="ansb" id="gradeGo">정답 확인·채점</button><button class="memo" id="memo">＋ 메모</button><span class="vsc" id="vsc"></span></div>`
+    : o.uid ? `<div class="vbar end"><div class="pent" id="pent"><button id="penT">✏️ 펜 쓰기</button></div></div>` : ''}
   <div id="pages">${o.pages.map(pn => `<div class="pg" data-pn="${pn}"><div class="ld">페이지 ${pn} 불러오는 중…</div></div>`).join('')}</div>
-  ${o.step ? `<div class="vfoot">${o.write ? '<button class="btn acc" id="gradeGo2">채점하기</button>' : ''}<button class="btn ${done ? 'sec' : o.write ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 이 단계 완료' : '이 단계 다 했어요'}</button></div>` : ''}`;
+  ${o.step ? `<div class="vfoot">${o.write ? '<button class="btn acc" id="gradeGo2">정답 확인·채점</button>' : ''}<button class="btn ${done ? 'sec' : o.write ? 'sec' : 'acc'}" id="vDone">${done ? '✓ 이 단계 완료' : '이 단계 다 했어요'}</button></div>` : ''}
+  ${o.write ? '<button class="resume" id="resume" hidden>▶ 이어서 풀기</button>' : ''}`;
   $app.innerHTML = h; scrollTo(0, 0);
   document.getElementById('vbk').onclick = () => { closeSheet(); saveInk(); V = null; document.body.dataset.mode = ''; const a = document.getElementById('ans'); if (a) { a.remove(); document.body.style.overflow = ''; } o.back(); };
-  const mm = document.getElementById('memo'); if (mm) mm.onclick = () => setMode(V.mode === 'text' ? 'type' : 'text');
-  ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) b.onclick = () => grade(); });
-  const ag = document.getElementById('ansGo'); if (ag) ag.onclick = () => openAnswers(o.ans);
+  const on = (id, f) => { const b = document.getElementById(id); if (b) b.onclick = f; };
+  on('memo', () => setMode(V.mode === 'text' ? 'type' : 'text'));
+  on('solveGo', () => startSolve()); on('resume', () => startSolve());
+  on('gradeGo', () => startGrade()); on('gradeGo2', () => startGrade());
+  on('penT', () => setMode(V.mode === 'pen' || V.mode === 'erase' ? 'view' : 'pen'));
   const vd = document.getElementById('vDone'); if (vd) vd.onclick = () => { x.steps = x.steps || {}; x.steps[o.step] = !x.steps[o.step]; saveInk();
     vd.className = 'btn ' + (x.steps[o.step] ? 'sec' : 'acc'); vd.textContent = x.steps[o.step] ? '✓ 이 단계 완료' : '이 단계 다 했어요'; if (x.steps[o.step]) toast('잘했어요! 다음 단계로 가요.'); };
-  tally(); setMode('type'); gradeLabel();
-  loadView(o.view).then(() => { if (V && V.o === o) o.pages.forEach(pn => drawPage(pn)); })
+  tally(); setMode(o.write ? 'type' : 'view');
+  loadView(o.view).then(() => { if (!V || V.o !== o) return; o.pages.forEach(pn => drawPage(pn));
+    if (o.write) { const t = tally(); if (!t.done) startSolve(); else if (t.done < t.n) showResume(true); } })
     .catch(e => { document.getElementById('pages').innerHTML = `<div class="card"><p>${esc(errText(e, '페이지를 불러오지 못했어요. 인터넷 연결을 확인하고 다시 열어 주세요.'))}</p></div>`; });
 }
-function gradeLabel(){ if (!V || !V.o.write) return; const any = V.o.pages.some(pn => Object.keys(inkOf(pn).g).length);
-  ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b && !V.busy) b.textContent = any ? '다시 채점하기' : '채점하기'; }); }
+function showResume(v){ const r = document.getElementById('resume'); if (r) r.hidden = !v; }
 function setMode(m){
-  if (!V) return; V.mode = m; closeSheet();
+  if (!V) return; V.mode = m; if (m !== 'type') closeSheet();
   document.body.dataset.mode = m;
-  const mm = document.getElementById('memo'); if (mm) { mm.classList.toggle('on', m === 'text'); mm.textContent = m === 'text' ? '✓ 메모 넣는 중 (끝내기)' : '＋ 메모 글상자'; }
-  const ht = document.getElementById('hint');
-  if (ht && V.o.write) ht.innerHTML = m === 'text' ? '메모를 넣을 자리를 누르세요. 메모는 채점하지 않아요.' : '빈칸·밑줄을 누르면 글자를 쓸 수 있어요. 선택지는 눌러서 동그라미, 네모 칸은 눌러서 ✓. 다 풀면 <b>채점하기</b>!';
+  const mm = document.getElementById('memo'); if (mm) { mm.classList.toggle('on', m === 'text'); mm.textContent = m === 'text' ? '✓ 메모 끝' : '＋ 메모'; }
+  const pt = document.getElementById('pent');
+  if (pt) pt.innerHTML = m === 'pen' || m === 'erase'
+    ? `<button data-pm="pen" class="${m === 'pen' ? 'on' : ''}">펜</button><button data-pm="erase" class="${m === 'erase' ? 'on' : ''}">지우개</button><button data-pm="clear">전체 지우기</button><button data-pm="view">끄기</button>`
+    : '<button id="penT">✏️ 펜 쓰기</button>';
+  if (pt) { pt.querySelectorAll('[data-pm]').forEach(b => b.onclick = () => { const v = b.dataset.pm;
+      if (v === 'clear') { if (!confirm('이 화면의 펜 자국을 모두 지울까요?')) return; V.o.pages.forEach(pn => { saveStrokes(pn, []); paintStrokes(pn, []); }); return; }
+      setMode(v); });
+    const pb = document.getElementById('penT'); if (pb) pb.onclick = () => setMode('pen'); }
+  if (m === 'text') toast('메모를 넣을 자리를 누르세요.');
 }
 function drawPage(pn){
   const box = document.querySelector(`.pg[data-pn="${pn}"]`), P = PG[pn]; if (!box) return;
   if (!P) { box.innerHTML = '<div class="ld">이 페이지는 아직 준비 중이에요.</div>'; return; }
   box.style.aspectRatio = `${P.w} / ${P.h}`;
-  box.innerHTML = `<img src="${P.url}" alt="${pn}쪽" draggable="false"><div class="ly"></div><div class="pn">${pn}</div>`;
-  new ResizeObserver(() => box.style.setProperty('--pw', box.clientWidth + 'px')).observe(box);
-  paintFields(pn);
+  box.innerHTML = `<img src="${P.url}" alt="${pn}쪽" draggable="false">${V.o.write ? '' : '<canvas></canvas>'}<div class="ly"></div><div class="pn">${pn}</div>`;
+  new ResizeObserver(() => { box.style.setProperty('--pw', box.clientWidth + 'px'); if (V && !V.o.write) paintStrokes(pn); }).observe(box);
+  if (V.o.write) paintFields(pn); else if (V.o.uid) bindPen(pn, box);
   box.querySelector('.ly').onclick = e => { if (V.mode !== 'text' || e.target !== e.currentTarget) return;
     closeSheet(); const r = e.currentTarget.getBoundingClientRect(), k = inkOf(pn);
     k.t.push({ x: +((e.clientX - r.left) / r.width).toFixed(4), y: +((e.clientY - r.top) / r.height - 0.009).toFixed(4), v:'' });
@@ -432,119 +483,142 @@ function drawPage(pn){
 }
 const pct = v => (v * 100).toFixed(3) + '%';
 function paintFields(pn){
-  const box = document.querySelector(`.pg[data-pn="${pn}"] .ly`); if (!box) return;
-  const F = (FB.ov || {})[pn] || [], k = V.o.write ? inkOf(pn) : null; if (!k) { box.innerHTML = ''; return; }
-  const mk = g => g ? `<i class="mk ${g}">${g === 'o' ? '○' : g === 'x' ? '✕' : '?'}</i>` : '';
+  const box = document.querySelector(`.pg[data-pn="${pn}"] .ly`); if (!box || !V || !V.o.write) return;
+  const F = FLD(pn), k = inkOf(pn), C = V.cur && V.cur.pn === pn ? V.cur.i : null;
+  const mk = g => g ? `<i class="mk ${g}">${g === 'o' ? '○' : '✕'}</i>` : '';
   let h = '';
-  F.forEach((f, i) => { const v = k.v[i], g = k.g[i], fx = k.fx[i];
-    if (f[0] === 'c') h += f[1].map((r, j) => `<span class="ch ${(v || []).includes(j) ? 'on' : ''} ${g === 'x' && (KEY(pn, i).c || []).includes(j) ? 'ckey' : ''}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${j === f[1].length - 1 ? mk(g) : ''}</span>`).join('');
-    else if (f[0] === 'k') h += `<span class="kb ${g ? 'g' + g : ''}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(g)}</span>`;
-    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'} ${g ? 'g' + g : ''}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(g)}${g === 'x' && fx ? `<b class="fx">${esc(fx)}</b>` : ''}</span>`; });
+  F.forEach((f, i) => { const v = k.v[i], g = k.g[i], e = KEY(pn, i), cc = C === i ? 'cur' : '';
+    if (f[0] === 'c') h += f[1].map((r, j) => `<span class="ch ${(v || []).includes(j) ? 'on' : ''} ${g === 'x' && (e.c || []).includes(j) ? 'ckey' : ''} ${cc}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${j === f[1].length - 1 ? mk(g) : ''}</span>`).join('');
+    else if (f[0] === 'k') h += `<span class="kb ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(g)}</span>`;
+    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'} ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(g)}${g === 'x' && e.a ? `<b class="fx">${esc(e.a)}</b>` : ''}</span>`; });
   (k.t || []).forEach((t, j) => { h += `<span class="fd ft ${t.v ? '' : 'empty'}" data-t="${j}" style="left:${pct(t.x)};top:${pct(t.y)}"><em>${esc(t.v || ' ')}</em></span>`; });
   box.innerHTML = h;
-  box.querySelectorAll('[data-i],[data-t]').forEach(el => el.onclick = e => { e.stopPropagation(); fieldTap(pn, el); });
+  box.querySelectorAll('[data-i],[data-t]').forEach(el => el.onclick = e => { e.stopPropagation();
+    if (el.dataset.t != null) return openSheet(pn, 't' + el.dataset.t);
+    const i = +el.dataset.i;
+    if (FLD(pn)[i][0] === 'c' && !V.grading) { pickChoice(pn, i, +el.dataset.j); return openSheet(pn, i); }
+    openSheet(pn, i); });
 }
-function ungrade(k, i){ delete k.g[i]; delete k.fx[i]; }
-function fieldTap(pn, el){
-  const k = inkOf(pn), F = (FB.ov || {})[pn] || [];
-  if (el.dataset.t != null) { openSheet(pn, 't' + el.dataset.t); return; }
-  const i = +el.dataset.i, f = F[i];
-  if (k.g[i] === 'q') { k.g[i] = 'o'; saveInk(); paintFields(pn); toast('맞았으면 ○, 한 번 더 누르면 ✕'); return; }
-  if (k.g[i] === 'o' && k.ai[i] && k.ai[i].self) { k.g[i] = 'x'; saveInk(); paintFields(pn); return; }
-  if (f[0] === 'c') { const j = +el.dataset.j, a = (k.v[i] || []).slice(), p = a.indexOf(j); if (p >= 0) a.splice(p, 1); else a.push(j); if (a.length) k.v[i] = a; else delete k.v[i]; ungrade(k, i); saveInk(); paintFields(pn); return; }
-  if (f[0] === 'k') { if (k.v[i]) delete k.v[i]; else k.v[i] = 1; ungrade(k, i); saveInk(); paintFields(pn); return; }
-  openSheet(pn, i);
-}
-/* ---------- 채점 ---------- */
+function pickChoice(pn, i, j){ const k = inkOf(pn), a = (k.v[i] || []).slice(), p = a.indexOf(j);
+  if (p >= 0) a.splice(p, 1); else a.push(j); if (a.length) k.v[i] = a; else delete k.v[i]; delete k.g[i]; saveInk(); paintFields(pn); }
+/* 풀기: 빈 칸을 차례로 안내 */
+function startSolve(){ if (!V) return; V.grading = false; setMode('type');
+  const S = slots(), first = S.find(([pn, i]) => !filled(inkOf(pn), i)) || S[0]; if (first) openSheet(first[0], first[1]); }
+/* 채점: 정답과 같은 칸은 바로 ○, 나머지는 학생이 정답과 비교해 ○✕ */
 const nrm = s => String(s || '').toLowerCase().replace(/[\s.,!?·~'"“”‘’()\[\]{}<>/=\-–—…:;↶↺✓→+*_|]/g, '');
 const OX = s => String(s || '').trim().replace(/^[oO○◯0]$/, '○').replace(/^[xX✕×✗]$/, '✕');
 function sameAns(a, key){
   if (!key) return false;
   if (/^[○✕]$/.test(key.trim())) return OX(a) === key.trim();
   const A = nrm(a); if (!A) return false;
-  if (A === nrm(key)) return true;
-  return String(key).split(/\s*(?:\/|·|=|,|\bor\b)\s*/).some(p => p && nrm(p) === A);
+  return A === nrm(key) || String(key).split(/\s*(?:\/|·|=|,)\s*/).some(p => p && nrm(p) === A);
 }
-async function grade(){
-  if (!V || V.busy) return; closeSheet();
-  const o = V.o, jobs = [];
-  V.busy = true; ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) { b.disabled = true; b.textContent = '채점하는 중…'; } });
-  o.pages.forEach(pn => {
-    const k = inkOf(pn), F = (FB.ov || {})[pn] || [], ask = [];
-    F.forEach((f, i) => {
-      const e = KEY(pn, i), v = k.v[i];
-      delete k.g[i]; delete k.fx[i];
-      if (f[0] === 'c') {
-        const pick = (v || []).slice().sort();
-        if (e.c && e.c.length) { if (pick.length) { const ok = JSON.stringify(pick) === JSON.stringify(e.c.slice().sort()); k.g[i] = ok ? 'o' : 'x'; if (!ok) k.fx[i] = e.c.map(j => (e.o || [])[j]).join(', '); } }
-        else if (pick.length) ask.push({ i, n: ask.length + 1, row: e.r || '', key: '', ans: `선택지 [${(e.o || []).join(' / ')}] 중 학생이 고른 것: ${pick.map(j => (e.o || [])[j]).join(', ')}` });
-      } else if (f[0] === 'k') {
-        if (v) k.g[i] = e.k === 1 ? 'o' : e.k === 0 ? 'x' : undefined; if (!k.g[i]) delete k.g[i];
-      } else {
-        const a = String(v || '').trim();
-        if (!a) return;
-        if (sameAns(a, e.a)) { k.g[i] = 'o'; return; }
-        const c = k.ai[i]; if (c && c.a === a && !c.self) { k.g[i] = c.ok ? 'o' : 'x'; if (!c.ok) k.fx[i] = c.fix || e.a || ''; return; }
-        ask.push({ i, n: ask.length + 1, row: e.r || '', key: e.a || '', ans: a });
-      }
-    });
-    if (ask.length) jobs.push({ pn, k, ask });
-  });
-  let failed = 0;
-  await Promise.all(jobs.map(async j => {
-    try {
-      const r = await VT.ai({ kind:'fbcheck', page: j.pn, inst: (FB.inst || {})[j.pn] || '', items: j.ask.map(a => ({ n: a.n, row: a.row, key: a.key, ans: a.ans })) });
-      const by = {}; (r.items || []).forEach(it => by[it.n] = it);
-      j.ask.forEach(a => { const it = by[a.n]; if (!it) { j.k.g[a.i] = 'q'; failed++; return; }
-        j.k.g[a.i] = it.correct ? 'o' : 'x'; if (!it.correct) j.k.fx[a.i] = it.fix || a.key || '';
-        if (!String(a.ans).startsWith('선택지 [')) j.k.ai[a.i] = { a: a.ans, ok: !!it.correct, fix: it.fix || '' }; });
-    } catch(e) { j.ask.forEach(a => { j.k.g[a.i] = 'q'; j.k.ai[a.i] = { a: a.ans, self: true }; }); failed += j.ask.length;
-      if (e.code === 'DAILY_LIMIT') toast('오늘 AI 채점 한도를 다 썼어요. 내일 다시 채점할 수 있어요.'); }
-  }));
-  V.busy = false; ['gradeGo', 'gradeGo2'].forEach(id => { const b = document.getElementById(id); if (b) b.disabled = false; });
-  o.pages.forEach(pn => paintFields(pn)); saveInk(); gradeLabel();
-  const t = tally();
-  if (!t.ok && !t.bad && !t.q) { toast('아직 채점할 답이 없어요. 칸을 먼저 채워 주세요.'); return; }
-  if (failed) toast(`${failed}칸은 자동 채점을 못 했어요(?). 정답 페이지를 보고 눌러서 ○✕를 정해 주세요.`);
-  else toast(`채점 완료! ${t.ok} / ${t.ok + t.bad}${t.bad ? ' · 빨간 글씨가 정답이에요' : ' · 모두 맞았어요!'}`);
-  const first = document.querySelector('.fd.gx, .kb.gx, .ch .mk.x'); if (first && t.bad) first.scrollIntoView({ block:'center', behavior:'smooth' });
+function autoMark(){ V.o.pages.forEach(pn => { const k = inkOf(pn);
+  FLD(pn).forEach((f, i) => { if (!filled(k, i) || k.g[i]) return; const e = KEY(pn, i), v = k.v[i];
+    if (f[0] === 'c' && e.c && e.c.length) k.g[i] = JSON.stringify(v.slice().sort()) === JSON.stringify(e.c.slice().sort()) ? 'o' : 'x';
+    else if (f[0] === 'k' && e.k != null) k.g[i] = e.k === 1 ? 'o' : 'x';
+    else if ((f[0] === 'b' || f[0] === 'l') && sameAns(v, e.a)) k.g[i] = 'o'; }); }); }
+function startGrade(){
+  if (!V) return; closeSheet(); setMode('type');
+  const t0 = tally(); if (!t0.done) { toast('먼저 칸을 채워요. 풀기부터 시작할게요.'); return startSolve(); }
+  autoMark(); V.grading = true; V.o.pages.forEach(pn => paintFields(pn)); saveInk();
+  const next = slots().find(([pn, i]) => filled(inkOf(pn), i) && !inkOf(pn).g[i]);
+  if (next) { toast('정답과 같은 칸은 ○로 표시했어요. 나머지는 하나씩 비교해 봐요.'); openSheet(next[0], next[1]); }
+  else finishGrade();
 }
-/* 아래쪽 입력창 (휴대폰에서도 크게) */
-function textSlots(){ const out = []; V.o.pages.forEach(pn => { ((FB.ov || {})[pn] || []).forEach((f, i) => { if (f[0] === 'b' || f[0] === 'l') out.push([pn, i]); }); (inkOf(pn).t || []).forEach((_, j) => out.push([pn, 't' + j])); }); return out; }
+function finishGrade(){ V.grading = false; closeSheet(); const t = tally(); showResume(t.done < t.n);
+  toast(t.ok + t.bad ? `채점 끝! ○ ${t.ok} · ✕ ${t.bad}${t.bad ? ' — 빨간 글씨가 정답이에요' : ' — 모두 맞았어요!'}` : '채점할 칸이 없어요.'); }
+/* 아래쪽 안내 창 */
 function openSheet(pn, i){
-  closeSheet('switch');
-  const k = inkOf(pn), isT = typeof i === 'string', val = isT ? k.t[+i.slice(1)].v : (k.v[i] || '');
-  const slots = textSlots(), at = slots.findIndex(s => s[0] === pn && s[1] === i);
-  const g = isT ? null : k.g[i], fx = isT ? '' : k.fx[i];
-  V.cur = { pn, i };
-  const el = document.querySelector(`.pg[data-pn="${pn}"] ${isT ? `[data-t="${i.slice(1)}"]` : `.fd[data-i="${i}"]`}`); if (el) { el.classList.add('cur'); el.scrollIntoView({ block:'center', behavior:'smooth' }); }
-  const sh = document.createElement('div'); sh.className = 'sheet'; sh.id = 'sheet';
-  sh.innerHTML = `<div class="sh1"><span>${isT ? '메모' : `칸 ${at + 1} / ${slots.length}`} · ${pn}쪽${g === 'o' ? ' · <b style="color:#d22f2f">○ 맞았어요</b>' : g === 'x' ? ` · <b style="color:#d22f2f">✕ 정답: ${esc(fx || '정답 페이지 확인')}</b>` : ''}</span>${isT ? '<button id="shDel">메모 지우기</button>' : ''}<button id="shX">닫기</button></div>
-    <div class="sh2"><button id="shP" aria-label="이전 칸">‹</button><input id="shI" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(val)}" placeholder="${isT ? '메모를 쓰세요' : '여기에 쓰세요'}"><button id="shN" aria-label="다음 칸">›</button></div>`;
+  closeSheet('switch'); showResume(false);
+  const k = inkOf(pn), isT = typeof i === 'string', S = slots(), at = isT ? -1 : S.findIndex(s => s[0] === pn && s[1] === i);
+  const f = isT ? null : FLD(pn)[i], e = isT ? {} : KEY(pn, i), g = isT ? null : k.g[i];
+  V.cur = { pn, i }; paintFields(pn);
+  const el = document.querySelector(`.pg[data-pn="${pn}"] ${isT ? `[data-t="${i.slice(1)}"]` : `[data-i="${i}"]`}`);
+  if (el) el.scrollIntoView({ block:'center', behavior:'smooth' });
+  const head = isT ? `메모 · ${pn}쪽` : `${V.grading ? '채점' : '풀기'} · ${at + 1} / ${S.length}칸 · ${pn}쪽`;
+  const optText = j => (e.o || [])[j] || `보기 ${j + 1}`;
+  const myAns = () => { const v = k.v[i]; return f[0] === 'c' ? (v || []).map(optText).join(', ') : f[0] === 'k' ? (v ? '✓ 체크함' : '체크 안 함') : (v || ''); };
+  const keyAns = () => f[0] === 'c' ? ((e.c || []).length ? e.c.map(optText).join(', ') : '') : f[0] === 'k' ? (e.k === 1 ? '✓ 체크' : e.k === 0 ? '체크 안 함' : '') : (e.a || '');
+  let body;
+  if (isT) body = `<div class="sh2"><input id="shI" type="text" autocomplete="off" value="${esc(k.t[+i.slice(1)].v)}" placeholder="메모를 쓰세요"><button id="shDel" class="txt">지우기</button></div>`;
+  else if (V.grading) {
+    const ka = keyAns();
+    body = `<div class="cmp"><div><span>내 답</span><b>${esc(myAns() || '(비어 있음)')}</b></div><div class="k"><span>정답</span><b>${ka ? esc(ka) : '정답 페이지에서 확인해요'}</b>${ka ? '' : '<button id="shAns" class="txt">정답 페이지 열기</button>'}</div></div>
+      <div class="sh2 gr"><button id="shP" aria-label="이전 칸">‹</button><button class="okb ${g === 'o' ? 'on' : ''}" data-g="o">○ 맞음</button><button class="nob ${g === 'x' ? 'on' : ''}" data-g="x">✕ 틀림</button><button id="shN" aria-label="다음 칸">›</button></div>`;
+  } else if (f[0] === 'c') body = `<p class="sq">알맞은 것을 고르세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button>${(FLD(pn)[i][1]).map((_, j) => `<button class="op ${(k.v[i] || []).includes(j) ? 'on' : ''}" data-j="${j}">${esc(optText(j))}</button>`).join('')}<button id="shN" aria-label="다음 칸">›</button></div>`;
+  else if (f[0] === 'k') body = `<p class="sq">해당하면 체크하세요</p><div class="sh2 opt"><button id="shP" aria-label="이전 칸">‹</button><button class="op ${k.v[i] ? 'on' : ''}" id="shK">${k.v[i] ? '✓ 체크함' : '체크하기'}</button><button id="shN" aria-label="다음 칸">›</button></div>`;
+  else body = `<p class="sq">${f[0] === 'l' ? '밑줄에 쓸 답을 입력하세요' : '빈칸에 들어갈 말을 쓰세요'}</p><div class="sh2"><button id="shP" aria-label="이전 칸">‹</button><input id="shI" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" value="${esc(k.v[i] || '')}" placeholder="여기에 쓰고 Enter"><button id="shN" aria-label="다음 칸">›</button></div>`;
+  const ctx = !isT && e.r ? `<div class="ctxl">${esc(e.r).replace('【?】', '<mark>　?　</mark>')}</div>` : '';
+  const sh = document.createElement('div'); sh.className = 'sheet' + (V.grading ? ' grading' : ''); sh.id = 'sheet';
+  sh.innerHTML = `<div class="sh1"><span>${head}</span><button id="shX">${V.grading ? '채점 그만' : '닫기'}</button></div>${ctx}${body}`;
   document.body.appendChild(sh);
-  const inp = document.getElementById('shI'); inp.focus({ preventScroll:true }); inp.setSelectionRange(inp.value.length, inp.value.length);
-  inp.oninput = () => { const v = inp.value; if (isT) k.t[+i.slice(1)].v = v; else { if (v) k.v[i] = v; else delete k.v[i]; if (k.g[i]) { ungrade(k, i); const m = el && el.querySelector('.mk, .fx'); el && el.querySelectorAll('.mk, .fx').forEach(n => n.remove()); el && el.classList.remove('go', 'gx', 'gq'); } }
-    if (el) { el.querySelector('em').textContent = v || (isT ? ' ' : ''); el.classList.toggle('empty', !v); } clearTimeout(V.sv); V.sv = setTimeout(saveInk, 500); };
-  const go = d => { const s = slots[at + d]; if (s) openSheet(s[0], s[1]); else closeSheet(); };
-  inp.onkeydown = e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); go(1); } };
-  document.getElementById('shN').onclick = () => go(1); document.getElementById('shP').onclick = () => go(-1);
-  document.getElementById('shX').onclick = () => closeSheet();
-  const del = document.getElementById('shDel'); if (del) del.onclick = () => { k.t[+i.slice(1)].v = ''; closeSheet(); };
+  const go = d => {
+    if (isT) return closeSheet();
+    const list = V.grading ? S.filter(([p, j]) => filled(inkOf(p), j)) : S;
+    const pos = list.findIndex(s => s[0] === pn && s[1] === i);
+    let nx = null;
+    if (d > 0) nx = V.grading ? list.slice(pos + 1).find(([p, j]) => !inkOf(p).g[j]) || list[pos + 1] : list.slice(pos + 1).find(([p, j]) => !filled(inkOf(p), j)) || list[pos + 1];
+    else nx = list[pos - 1];
+    if (nx) return openSheet(nx[0], nx[1]);
+    if (V.grading) return finishGrade();
+    closeSheet(); const t = tally();
+    if (t.done >= t.n) { toast('다 풀었어요! 이제 정답 확인·채점을 눌러요.'); const b = document.getElementById('gradeGo'); if (b) { b.classList.add('pulse'); b.scrollIntoView({ block:'center' }); } }
+    else { toast(`아직 빈 칸이 ${t.n - t.done}개 있어요.`); showResume(true); }
+  };
+  const on = (id, fn) => { const b = document.getElementById(id); if (b) b.onclick = fn; };
+  on('shN', () => go(1)); on('shP', () => go(-1)); on('shX', () => V.grading ? finishGrade() : closeSheet());
+  on('shAns', () => openAnswers(V.o.ans));
+  sh.querySelectorAll('[data-g]').forEach(b => b.onclick = () => { k.g[i] = b.dataset.g; saveInk(); paintFields(pn); setTimeout(() => go(1), 150); });
+  sh.querySelectorAll('.op[data-j]').forEach(b => b.onclick = () => { pickChoice(pn, i, +b.dataset.j); setTimeout(() => go(1), 180); });
+  on('shK', () => { if (k.v[i]) delete k.v[i]; else k.v[i] = 1; delete k.g[i]; saveInk(); paintFields(pn); setTimeout(() => go(1), 180); });
+  const inp = document.getElementById('shI');
+  if (inp) {
+    inp.focus({ preventScroll:true }); inp.setSelectionRange(inp.value.length, inp.value.length);
+    inp.oninput = () => { const v = inp.value;
+      if (isT) k.t[+i.slice(1)].v = v; else { if (v) k.v[i] = v; else delete k.v[i]; delete k.g[i]; }
+      const em = el && el.querySelector('em'); if (em) { em.textContent = v || (isT ? ' ' : ''); el.classList.toggle('empty', !v); el.classList.remove('go', 'gx'); el.querySelectorAll('.mk, .fx').forEach(n => n.remove()); }
+      clearTimeout(V.sv); V.sv = setTimeout(saveInk, 500); };
+    inp.onkeydown = ev => { if (ev.key === 'Enter' && !ev.isComposing) { ev.preventDefault(); go(1); } };
+    on('shDel', () => { k.t[+i.slice(1)].v = ''; closeSheet(); });
+  }
 }
 function closeSheet(how){
   const sh = document.getElementById('sheet'); if (sh) sh.remove();
-  document.querySelectorAll('.fd.cur').forEach(e => e.classList.remove('cur'));
   if (!V || !V.cur) return;
-  V.cur = null;
+  const pn = V.cur.pn; V.cur = null;
   if (how === 'switch') { saveInk(); return; }
-  V.o.pages.forEach(p => { const k = inkOf(p); if (k) { const n = k.t.length; k.t = k.t.filter(t => t.v); if (k.t.length !== n) paintFields(p); } });
+  if (V.o.write) { V.o.pages.forEach(p => { const k = inkOf(p); if (k) k.t = k.t.filter(t => t.v); }); paintFields(pn); const t = tally(); showResume(t && t.done < t.n); }
   saveInk();
+}
+/* 펜 (Summary Note·워크북 A 읽기 화면에서만, 태블릿용) */
+function strokes(pn){ try { return JSON.parse(localStorage.getItem(`vtf_pen_${V.o.uid}_${pn}`) || '[]'); } catch(e){ return []; } }
+function saveStrokes(pn, a){ try { localStorage.setItem(`vtf_pen_${V.o.uid}_${pn}`, JSON.stringify(a)); } catch(e){ toast('기기 저장 공간이 부족해 펜 기록을 저장하지 못했어요.'); } }
+function bindPen(pn, box){
+  const cv = box.querySelector('canvas'); if (!cv) return; let cur = null, A = strokes(pn);
+  const pt = e => { const r = cv.getBoundingClientRect(); return [+((e.clientX - r.left) / r.width).toFixed(4), +((e.clientY - r.top) / r.height).toFixed(4)]; };
+  cv.onpointerdown = e => { if (V.mode !== 'pen' && V.mode !== 'erase') return; e.preventDefault(); cv.setPointerCapture(e.pointerId); A = strokes(pn);
+    if (V.mode === 'pen') { cur = pt(e); A.push(cur); } else { cur = 'erase'; eraseAt(pt(e)); } };
+  cv.onpointermove = e => { if (!cur) return; e.preventDefault(); const p = pt(e);
+    if (cur === 'erase') return eraseAt(p);
+    const n = cur.length; if (Math.hypot(p[0] - cur[n - 2], p[1] - cur[n - 1]) < 0.002) return; cur.push(p[0], p[1]); paintStrokes(pn, A); };
+  cv.onpointerup = cv.onpointercancel = () => { if (!cur) return; cur = null; saveStrokes(pn, A); };
+  const eraseAt = p => { const before = A.length; A = A.filter(s => { for (let i = 0; i < s.length; i += 2) if (Math.hypot(s[i] - p[0], (s[i + 1] - p[1]) * 1.41) < 0.018) return false; return true; });
+    if (A.length !== before) { paintStrokes(pn, A); saveStrokes(pn, A); } };
+  paintStrokes(pn, A);
+}
+function paintStrokes(pn, A){
+  const box = document.querySelector(`.pg[data-pn="${pn}"]`); if (!box) return; const cv = box.querySelector('canvas'); if (!cv) return;
+  A = A || strokes(pn); const dpr = Math.min(devicePixelRatio || 1, 2), w = box.clientWidth, h = box.clientHeight;
+  if (cv.width !== Math.round(w * dpr)) { cv.width = Math.round(w * dpr); cv.height = Math.round(h * dpr); }
+  const c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, w, h);
+  c.strokeStyle = 'rgba(31,79,191,.85)'; c.lineWidth = Math.max(1.4, w * 0.0026); c.lineCap = c.lineJoin = 'round';
+  A.forEach(s => { c.beginPath(); c.moveTo(s[0] * w, s[1] * h); if (s.length === 2) c.lineTo(s[0] * w + .1, s[1] * h); for (let i = 2; i < s.length; i += 2) c.lineTo(s[i] * w, s[i + 1] * h); c.stroke(); });
 }
 /* 정답 페이지 */
 function openAnswers(a){
-  closeSheet();
   const d = document.createElement('div'); d.className = 'ans'; d.id = 'ans';
-  d.innerHTML = `<div class="ah"><b>정답 페이지 · ${esc(a.title)}</b><span>틀린 칸과 비교해 보세요</span><button id="ansX">닫기</button></div>
+  d.innerHTML = `<div class="ah"><b>정답 페이지 · ${esc(a.title)}</b><span>내 답과 비교해 보세요</span><button id="ansX">닫기</button></div>
     <div class="ab">${a.pages.map(pn => PG[pn] ? `<img src="${PG[pn].url}" alt="${pn}쪽" style="aspect-ratio:${PG[pn].w}/${PG[pn].h}">` : `<div class="ld">${pn}쪽 준비 중</div>`).join('')}</div>`;
   document.body.appendChild(d); document.body.style.overflow = 'hidden';
   document.getElementById('ansX').onclick = () => { d.remove(); document.body.style.overflow = ''; };
@@ -553,10 +627,11 @@ function openAnswers(a){
 /* ---------- 마무리 실전 문항 ---------- */
 function quizHtml(u, x){
   const q = x.quiz, g = !!q.graded;
+  const nx = g ? -1 : u.quiz.findIndex((it, i) => it.type === 'write' ? !String(q.ans[i] || '').trim() : !q.ans[i]);
   let h = '';
   u.quiz.forEach((it, i) => {
     const a = q.ans[i];
-    h += `<div class="q" data-i="${i}"><div class="qq">${u.quiz.length > 2 ? (i + 1) + '. ' : 'Q' + (i + 1) + '. '}${esc(it.q)}</div>${it.ctx && it.ctx.length ? `<div class="ctx">${it.ctx.map(esc).join('<br>')}</div>` : ''}`;
+    h += `<div class="q ${i === nx ? 'qcur' : ''}" data-i="${i}">${i === nx ? `<div class="qtag">${Object.keys(q.ans).length ? '다음 문제예요' : '여기부터 풀어요'} ↓</div>` : ''}<div class="qq">${u.quiz.length > 2 ? (i + 1) + '. ' : 'Q' + (i + 1) + '. '}${esc(it.q)}</div>${it.ctx && it.ctx.length ? `<div class="ctx">${it.ctx.map(esc).join('<br>')}</div>` : ''}`;
     if (it.type === 'mcq' || it.type === 'pick') {
       h += `<div class="${it.type === 'pick' ? 'pk' : 'opts'}">${it.options.map((o, j) => { const n = j + 1; let c = a === n ? 'on' : '';
         if (g) c = n === it.answer ? 'ok' : (a === n ? 'bad' : '');
@@ -577,8 +652,8 @@ function quizScore(u, q){ let s = 0; u.quiz.forEach((it, i) => { if (it.type ===
 function bindQuiz(u, x, keep){
   const box = document.getElementById('quizBox'); if (!box) return; const q = x.quiz;
   box.querySelectorAll('.q').forEach(el => { const i = +el.dataset.i;
-    el.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { q.ans[i] = +b.dataset.o; persist(u.id); keep(); });
-    const ta = el.querySelector('[data-w]'); if (ta && !q.graded) ta.oninput = () => { q.ans[i] = ta.value; persist(u.id); };
+    el.querySelectorAll('[data-o]').forEach(b => b.onclick = () => { q.ans[i] = +b.dataset.o; persist(u.id); keep(); setTimeout(() => { const n = document.querySelector('.q.qcur'); if (n) n.scrollIntoView({ block:'center', behavior:'smooth' }); else { const go = document.getElementById('qGo'); if (go) { go.classList.add('pulse'); go.scrollIntoView({ block:'center', behavior:'smooth' }); } } }, 60); });
+    const ta = el.querySelector('[data-w]'); if (ta && !q.graded) { ta.oninput = () => { q.ans[i] = ta.value; persist(u.id); }; if (el.classList.contains('qcur') && cur && cur.quizFocus) ta.focus({ preventScroll:true }); }
     el.querySelectorAll('.selfj button').forEach(b => b.onclick = () => { q.self[i] = b.dataset.v === '1'; q.score = quizScore(u, q); persist(u.id); keep(); }); });
   const go = document.getElementById('qGo'); if (go) go.onclick = () => {
     const miss = u.quiz.filter((it, i) => it.type !== 'write' && !q.ans[i]).length;

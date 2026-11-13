@@ -36,9 +36,10 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 데이터·PDF: `GRAM_PDF_KEY=<hub-file 함수의 키> python3 tools/firstbutton_pdf.py 그래머첫단추.pdf`
   → `firstbutton/data.js`(단원·파트 쪽수, 목표, 마무리 실전 문항, 종합 진단 30문항, Review·워크북 B 페이지의 쓰기 칸 좌표 `ov`·정답 `key`·지시문 `inst`)
   + `firstbutton/files/*.bin`(암호화: 챕터 PDF `ch01`~`ch10`·`chx1`~`chx3`(04는 4-2 포함), 교재 전체 `book`, 앱에서 보는 페이지 이미지 묶음 `v-<단원>`·`v-intro`·`v-onepage`)
-- 학습은 앱 안에서: 페이지 이미지 위에 빈칸·밑줄 입력, 선택지 동그라미, 체크박스, 메모 글상자 → `vt_progress`에 동기화
-- 자동 채점: `data.js`의 `key`(Review→Summary Note, 워크북 B→워크북 A에서 칸마다 자동 추출한 정답과 줄 문맥).
-  정답과 같으면 앱에서 바로 ○, 다르면 Edge Function `vt-ai`(kind `fbcheck`)가 뜻·문맥으로 판단. 결과 → `rv`/`wb` 점수 (푼 칸 기준)
+- 학습은 앱 안에서: Review·워크북 B는 풀 칸을 차례로 짚어 주는 입력창(빈칸·밑줄 쓰기, 선택지 고르기, 체크), 메모 글상자 → `vt_progress`에 동기화
+- 채점은 스스로: `data.js`의 `key`(Review→Summary Note, 워크북 B→워크북 A에서 칸마다 자동 추출한 정답)와 같은 칸·선택지·체크는 바로 ○,
+  나머지는 '내 답 / 정답'을 나란히 보여 주고 학생이 ○ 맞음 / ✕ 틀림을 고름 → `rv`/`wb` 점수 (채점한 칸 기준)
+- Summary Note·워크북 A 읽기 화면에는 태블릿용 펜·지우개(구석 옵션, 그 기기에만 저장)
 - 파일은 Edge Function `hub-file`이 승인 학생(gfirst 수강)·선생님만 확인하고 내려줌. PDF를 내려받을 때만 `hub_downloads`에 기록 → 관리자 '영상·자료' 탭, 학생 상세
 - 수업 영상: 관리자 '영상·자료' 탭에서 단원별 유튜브 링크와 장면별 시작 시간을 입력 (`hub_videos`). 비어 있으면 '영상 준비 중'
 - 진도: `vt_progress` course `gfirst`, unit `u01`…`ux3`, 종합 진단 `diag`
