@@ -246,6 +246,18 @@ body:has(.sheet) .toast{bottom:230px}
 .prow .okb{color:#1f7a4a}.prow .nob{color:#c8323c}
 .prow .okb.on{background:#e7f6ee;border-color:#1f7a4a}.prow .nob.on{background:#fdeef0;border-color:#c8323c}
 body:has(#sheet) #vt-chip{display:none!important}
+/* 색연필 ○ / 빗금 */
+.pm{position:absolute;pointer-events:none;overflow:visible;filter:url(#pencil);z-index:3}
+.pm path{fill:none;stroke:#e23a3f;stroke-width:calc(var(--pw) * .0042);vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;opacity:.82}
+.pm path.p2{stroke-width:calc(var(--pw) * .0022);opacity:.5;transform:translate(1.2px,.8px)}
+.pm{animation:pin .28s ease-out both}
+@keyframes pin{from{opacity:0;scale:.85}to{opacity:1;scale:1}}
+.pm.o{left:-8%;top:-50%;width:116%;height:200%;transform:rotate(var(--rot))}
+.ch .pm.o,.kb .pm.o{left:-35%;top:-35%;width:170%;height:170%}
+.pm.x{width:calc(var(--pw) * .052);height:calc(var(--pw) * .052);left:50%;top:50%;transform:translate(-50%,-50%) rotate(var(--rot))}
+.fd.l .pm.x,.fd.b .pm.x{left:auto;right:calc(var(--pw) * -.01);transform:translateY(-50%) rotate(var(--rot))}
+@keyframes pdraw{to{stroke-dashoffset:0}}
+.fd.gx em{text-decoration:none}
 .toast{position:fixed;left:50%;bottom:64px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:999;opacity:0;transition:opacity .25s;pointer-events:none}
 .toast.on{opacity:.92}
 </style>
@@ -444,8 +456,8 @@ function openStep(u, k){
 
 /* ---------- 페이지 뷰어 · 칸마다 안내하며 풀기 · 스스로 채점 ---------- */
 let V = null;   // { o, mode:'type'|'text'|'pen'|'erase', cur:{pn,i}, grading }
-function inkOf(pn){ const x = V && V.o.uid ? ust(V.o.uid) : null; if (!x) return null; x.ink = x.ink || {}; const k = x.ink[pn] || (x.ink[pn] = { v:{}, t:[] }); k.g = k.g || {}; delete k.fx; delete k.ai; return k; }
-function saveInk(){ if (V && V.o.uid) { const x = ust(V.o.uid); Object.keys(x.ink || {}).forEach(pn => { const k = x.ink[pn]; if (!Object.keys(k.v).length && !(k.t || []).length && !Object.keys(k.g || {}).length) delete x.ink[pn]; }); tally(); persist(V.o.uid); } }
+function inkOf(pn){ const x = V && V.o.uid ? ust(V.o.uid) : null; if (!x || pn == null) return null; x.ink = x.ink || {}; const k = x.ink[pn] || (x.ink[pn] = { v:{}, t:[] }); k.g = k.g || {}; delete k.fx; delete k.ai; return k; }
+function saveInk(){ if (V && V.o.uid) { tally(); persist(V.o.uid); } }
 const KEY = (pn, i) => ((FB.key || {})[pn] || [])[i] || {};
 const FLD = pn => (FB.ov || {})[pn] || [];
 const filled = (k, i) => { const v = k.v[i]; return Array.isArray(v) ? v.length > 0 : !!v; };
@@ -528,15 +540,25 @@ function drawPage(pn){
     paintFields(pn); openSheet(pn, 't' + (k.t.length - 1)); };
 }
 const pct = v => (v * 100).toFixed(3) + '%';
+/* 색연필 채점 표시: ○ 맞음 · 빗금 틀림 */
+const PO = ['M44 5 C76 3 97 22 97 50 C97 79 76 96 49 96 C21 96 3 78 3 50 C3 23 22 6 50 5 C60 5 67 8 72 13',
+  'M56 6 C82 7 98 26 96 52 C94 80 72 97 46 95 C19 93 2 75 4 47 C6 21 28 4 54 4 C64 5 71 9 75 14',
+  'M40 7 C70 1 97 20 98 49 C99 78 78 95 51 97 C23 98 4 80 2 52 C1 25 20 7 48 6 C58 6 66 9 71 15'];
+const PX = ['M18 88 C38 64 60 38 84 10', 'M14 84 C36 62 58 40 88 14', 'M20 90 C42 62 62 36 82 8'];
+function pencil(g, seed){ const n = Math.abs(seed || 0) % 3, rot = (((seed || 0) * 37 % 5) - 2) * (g === 'o' ? .6 : 1.5);
+  const d = g === 'o' ? PO[n] : PX[n];
+  return `<svg class="pm ${g}" viewBox="0 0 100 100" preserveAspectRatio="none" style="--rot:${rot}deg" aria-label="${g === 'o' ? '맞음' : '틀림'}"><path d="${d}" pathLength="1"/><path class="p2" d="${d}" pathLength="1"/></svg>`; }
+if (!document.getElementById('pencilDefs')) document.body.insertAdjacentHTML('beforeend', '<svg id="pencilDefs" width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="pencil" x="-20%" y="-20%" width="140%" height="140%"><feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G" result="d"/><feComposite in="d" in2="n" operator="arithmetic" k1="0" k2="1" k3="-0.18" k4="0"/></filter></svg>');
 function paintFields(pn){
   const box = document.querySelector(`.pg[data-pn="${pn}"] .ly`); if (!box || !V || !V.o.write) return;
   const F = FLD(pn), k = inkOf(pn), C = V.cur && V.cur.pn === pn ? V.cur.i : null;
-  const mk = g => g ? `<i class="mk ${g}">${g === 'o' ? '○' : '✕'}</i>` : '';
+  const mk = (g, seed) => g ? pencil(g, seed) : '';
   let h = '';
   F.forEach((f, i) => { const v = k.v[i], g = k.g[i], e = KEY(pn, i), cc = C === i ? 'cur' : '';
-    if (f[0] === 'c') h += f[1].map((r, j) => `<span class="ch ${(v || []).includes(j) ? 'on' : ''} ${g === 'x' && (e.c || []).includes(j) ? 'ckey' : ''} ${cc}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${j === f[1].length - 1 ? mk(g) : ''}</span>`).join('');
-    else if (f[0] === 'k') h += `<span class="kb ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(g)}</span>`;
-    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'} ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(g)}${g === 'x' && e.a ? `<b class="fx">${esc(e.a)}</b>` : ''}</span>`; });
+    if (f[0] === 'c') h += f[1].map((r, j) => { const sel = (v || []).includes(j);
+      return `<span class="ch ${sel ? 'on' : ''} ${g ? 'g' + g : ''} ${g === 'x' && (e.c || []).includes(j) ? 'ckey' : ''} ${cc}" data-i="${i}" data-j="${j}" style="left:${pct(r[0])};top:${pct(r[1])};width:${pct(r[2])};height:${pct(r[3])}">${sel ? mk(g, i * 7 + j) : ''}</span>`; }).join('');
+    else if (f[0] === 'k') h += `<span class="kb ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}">${v ? '✓' : ''}${mk(g, i)}</span>`;
+    else h += `<span class="fd ${f[0]} ${v ? '' : 'empty'} ${g ? 'g' + g : ''} ${cc}" data-i="${i}" style="left:${pct(f[1])};top:${pct(f[2])};width:${pct(f[3])};height:${pct(f[4])}"><em>${esc(v || '')}</em>${mk(g, i)}${g === 'x' && e.a ? `<b class="fx">${esc(e.a)}</b>` : ''}</span>`; });
   (k.t || []).forEach((t, j) => { h += `<span class="fd ft ${t.v ? '' : 'empty'}" data-t="${j}" style="left:${pct(t.x)};top:${pct(t.y)}"><em>${esc(t.v || ' ')}</em></span>`; });
   box.innerHTML = h;
   box.querySelectorAll('[data-i],[data-t]').forEach(el => el.onclick = e => { e.stopPropagation();
@@ -655,7 +677,7 @@ function openSheet(pn, i){
       if (isT) k.t[+i.slice(1)].v = v; else { if (v) k.v[i] = v; else delete k.v[i]; delete k.g[i]; }
       const em = el && el.querySelector('em'); if (em) { em.textContent = v || (isT ? ' ' : ''); el.classList.toggle('empty', !v); el.classList.remove('go', 'gx'); el.querySelectorAll('.mk, .fx').forEach(n => n.remove()); }
       clearTimeout(V.sv); V.sv = setTimeout(saveInk, 500); };
-    inp.onkeydown = ev => { if (ev.isComposing) return; if (ev.key === 'Enter') { ev.preventDefault(); go(1); } else if (ev.key === 'Tab') { ev.preventDefault(); go(ev.shiftKey ? -1 : 1); } };
+    inp.onkeydown = ev => { if (ev.isComposing) return; if (ev.key === 'Enter') { ev.preventDefault(); go(1); } else if (ev.key === 'Tab') { ev.preventDefault(); go(ev.shiftKey ? -1 : 1); } else if (ev.key === 'Escape') { ev.preventDefault(); closeSheet(); } };
     on('shDel', () => { k.t[+i.slice(1)].v = ''; closeSheet(); });
   } else setTimeout(() => { const b = pop.querySelector('.op.on, .op, .okb'); if (b && matchMedia('(hover:hover)').matches) b.focus({ preventScroll:true }); }, 30);
 }
