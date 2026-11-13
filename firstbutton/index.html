@@ -582,19 +582,30 @@ function sameAns(a, key){
   if (!key) return false;
   if (/^[○✕]$/.test(key.trim())) return OX(a) === key.trim();
   const A = nrm(a); if (!A) return false;
-  return A === nrm(key) || String(key).split(/\s*(?:\/|·|=|,)\s*/).some(p => p && nrm(p) === A);
+  // 'which / that', 'who = that', 'who(m)'처럼 여러 답이 되는 정답은 하나만 맞아도 정답
+  const alts = [key].concat(String(key).split(/\s*(?:\/|·|=|,|\bor\b)\s*/));
+  return alts.some(p => p && (nrm(p) === A || nrm(String(p).replace(/\([^)]*\)/g, '')) === A));
+}
+const HAN = /[가-힣]/;
+/* 단답형(영어 낱말·고르기·체크·○✕)은 프로그램이 ○✕까지, 우리말 해석·설명이나 긴 영어 문장은 정답과 다를 때만 학생이 판단 */
+function shortAnswer(f, e){
+  if (f[0] === 'c' || f[0] === 'k' || e.g != null) return true;
+  if (!e.a) return false;
+  if (/^[○✕]$/.test(e.a.trim())) return true;
+  return !HAN.test(e.a) && e.a.trim().split(/\s+/).length <= 3;
 }
 function autoMark(){ V.o.pages.forEach(pn => { const k = inkOf(pn);
   FLD(pn).forEach((f, i) => { if (!filled(k, i) || k.g[i]) return; const e = KEY(pn, i), v = k.v[i];
-    if (f[0] === 'c' && e.c && e.c.length) k.g[i] = JSON.stringify(v.slice().sort()) === JSON.stringify(e.c.slice().sort()) ? 'o' : 'x';
-    else if (f[0] === 'k' && e.k != null) k.g[i] = e.k === 1 ? 'o' : 'x';
-    else if ((f[0] === 'b' || f[0] === 'l') && sameAns(v, e.a)) k.g[i] = 'o'; }); }); }
+    if (f[0] === 'c') { if (e.c && e.c.length) k.g[i] = JSON.stringify(v.slice().sort()) === JSON.stringify(e.c.slice().sort()) ? 'o' : 'x'; }
+    else if (f[0] === 'k') { if (e.k != null) k.g[i] = e.k === 1 ? 'o' : 'x'; }
+    else if (sameAns(v, e.a)) k.g[i] = 'o';
+    else if (e.a && shortAnswer(f, e)) k.g[i] = 'x'; }); }); }
 function startGrade(){
   if (!V) return; closeSheet(); setMode('type');
   const t0 = tally(); if (!t0.done) { toast('먼저 칸을 채워요. 풀기부터 시작할게요.'); return startSolve(); }
   autoMark(); V.grading = true; V.o.pages.forEach(pn => paintFields(pn)); saveInk();
   const next = slots().find(([pn, i]) => filled(inkOf(pn), i) && !inkOf(pn).g[i]);
-  if (next) { toast('정답과 같은 칸은 ○로 표시했어요. 나머지는 하나씩 비교해 봐요.'); openSheet(next[0], next[1]); }
+  if (next) { toast('단답형은 자동으로 채점했어요. 우리말 해석처럼 표현이 다른 답만 정답과 비교해 직접 골라요.'); openSheet(next[0], next[1]); }
   else finishGrade();
 }
 function finishGrade(){ V.grading = false; closeSheet(); const t = tally(); showResume(t.done < t.n);
