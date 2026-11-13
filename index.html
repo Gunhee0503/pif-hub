@@ -202,8 +202,40 @@ br.mb{display:none}
 .edc.b .art img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(#000 78%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent),linear-gradient(#000 78%,transparent);mask-composite:intersect}
 .edc.c .art img{-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(#000 80%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent),linear-gradient(#000 80%,transparent);mask-composite:intersect}
 .edc.b p,.edc.b .lvl,.edc.b .meta span{color:#c3d0d4}
+/* 문법 · 그래머 첫단추 */
+.fband{display:grid;grid-template-columns:1.1fr 1fr;gap:34px;align-items:center;background:linear-gradient(135deg,#f4ede4 0,#efe5d8 100%);border-radius:var(--r);padding:46px 46px 46px 50px;margin-top:56px;color:#1d1d1f;position:relative;overflow:hidden}
+.fband::before{content:"";position:absolute;right:-40px;top:0;bottom:0;width:58%;background:repeating-linear-gradient(90deg,rgba(200,50,60,.10) 0 2px,transparent 2px 9px);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40%);mask-image:linear-gradient(90deg,transparent,#000 40%)}
+.finfo{position:relative}
+.finfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em;color:#c8323c}
+.finfo h3{font-size:34px;font-weight:780;letter-spacing:-.045em;line-height:1.2;margin:10px 0 14px}
+.finfo h3 em{font-style:normal;color:#c8323c}
+.finfo p{font-size:16px;line-height:1.65;color:#5a5048;margin-bottom:20px;max-width:470px}
+.fmeta{display:flex;gap:30px;margin-bottom:22px}
+.fmeta b{display:block;font-size:30px;font-weight:760;letter-spacing:-.03em;color:#c8323c;line-height:1.1}
+.fmeta span{font-size:13px;color:#7a6e64}
+.fflow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:24px}
+.fflow span{background:#fff;border:1px solid #e3d6c6;border-radius:12px;padding:7px 11px;font-size:13.5px;color:#3a332d}
+.fflow b{color:#c8323c;margin-right:5px;font-weight:700}
+.fflow em{font-style:normal;color:#b3a594}
+.fgo{display:inline-flex;align-items:center;gap:8px;background:#c8323c;color:#fff;border-radius:99px;padding:12px 22px;font-size:15px;font-weight:650}
+.fgo::after{content:"›";font-size:18px;line-height:1}
+.fgo:hover{background:#a8262f}
+.fsub{display:block;margin-top:12px;font-size:13px;color:#8a7d70}
+.fart{position:relative;height:440px}
+.fart img{position:absolute;width:290px;height:auto;border-radius:6px;box-shadow:0 30px 50px -22px rgba(80,40,20,.45),0 2px 6px rgba(80,40,20,.12)}
+.fart .cv{left:6%;top:18px;transform:rotate(-5deg);z-index:2}
+.fart .nt{right:2%;top:46px;transform:rotate(6deg)}
+.fart .stamp{position:absolute;z-index:3;right:-6px;bottom:4px;background:#1d1d1f;color:#fff;border-radius:16px;padding:12px 16px;font-size:13px;line-height:1.45;box-shadow:0 16px 30px -16px rgba(0,0,0,.5)}
+.fart .stamp b{display:block;color:#ff8a8f;font-size:12px;letter-spacing:.06em}
+.funits{display:flex;flex-wrap:wrap;gap:6px;margin-top:22px;position:relative}
+.funits span{font-size:12.5px;color:#6b5f55;background:rgba(255,255,255,.6);border-radius:99px;padding:4px 10px}
+.funits span b{color:#c8323c;margin-right:4px}
+.funits span.x{background:#1d1d1f;color:#eee}.funits span.x b{color:#ff8a8f}
+.gpath{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;margin-top:22px;font-size:15px;color:#a1a1a6}
+.gpath i{width:4px;height:4px;border-radius:50%;background:#48484a}
+.gpath b{color:#f5f5f7;font-weight:600}
 /* 문법 · 출제자의 시선 */
-.gband{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center;background:#161617;border:1px solid #2c2c2e;border-radius:var(--r);padding:40px;margin-top:56px}
+.gband{display:grid;grid-template-columns:1fr 1.25fr;gap:40px;align-items:center;background:#161617;border:1px solid #2c2c2e;border-radius:var(--r);padding:40px;margin-top:20px}
 .ginfo .lv{font-size:12px;font-weight:700;letter-spacing:.08em;color:#6cb4ff}
 .ginfo h3{font-size:30px;font-weight:740;letter-spacing:-.04em;line-height:1.22;margin:10px 0 14px;color:#f5f5f7}
 .ginfo p{font-size:16px;line-height:1.65;color:#a1a1a6;margin-bottom:18px}
@@ -298,7 +330,9 @@ footer a{color:#424245}
   .ytband{grid-template-columns:1fr;padding:30px 26px;gap:22px}.ytband .ytbox{order:-1}
   .vthero{grid-template-columns:1fr;padding:22px 22px 30px;gap:6px}.vtart img{max-width:300px}.vthero .vtsh{text-align:center}.vtsh p{margin:0 auto}
   .edc .art{margin:-36px -26px 16px;height:240px}
-  .gband{grid-template-columns:1fr;padding:28px 22px;gap:22px;margin-top:40px}.ginfo h3{font-size:24px}.gcap{display:none}
+  .fband{grid-template-columns:1fr;padding:30px 22px 26px;gap:8px;margin-top:40px}.fband::before{width:100%;top:0;bottom:auto;height:360px;right:0;-webkit-mask-image:linear-gradient(#000 60%,transparent);mask-image:linear-gradient(#000 60%,transparent)}.finfo h3{font-size:26px}.fart{height:330px;order:-1}.fart img{width:200px}.fart .cv{left:4%}.fart .nt{right:4%;top:34px}.fart .stamp{bottom:0;right:0;font-size:12px;padding:10px 13px}.fmeta{gap:22px}.fmeta b{font-size:26px}
+  .gpath{flex-direction:column;gap:6px;font-size:14px}.gpath i{display:none}
+  .gband{grid-template-columns:1fr;padding:28px 22px;gap:22px;margin-top:16px}.ginfo h3{font-size:24px}.gcap{display:none}
   .feat{grid-template-columns:1fr 1fr}
   .flow{grid-template-columns:repeat(3,1fr);row-gap:34px}.flow::before{display:none}
 }
@@ -333,7 +367,7 @@ footer a{color:#424245}
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="/"><img src="img/pif_logo.png" alt="PIF"><span>Learning Hub</span></a>
-  <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#method">학습 방법</a></li><li><a href="/admin/">선생님</a></li></ul>
+  <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#grammar">문법</a></li><li><a href="#method">학습 방법</a></li><li><a href="/admin/">선생님</a></li></ul>
   <a class="cta" href="/learn/">로그인</a>
   <a class="burger" href="/learn/" aria-label="로그인"></a>
 </div></nav>
@@ -414,7 +448,24 @@ footer a{color:#424245}
       <span class="more">BEACON 시작하기</span></a>
   </div>
   <div class="edcap"><span>같은 14장 · 42유닛 구문</span><i></i><span>예문 어휘 난이도만 다르게</span><i></i><span>COMPASS로 시작해 BEACON으로</span></div>
-  <div class="gband" id="grammar">
+  <div class="fband" id="grammar">
+    <div class="finfo">
+      <div class="lv">문법 · 그래머 첫단추 GRAMMAR START</div>
+      <h3>문법이 처음이라면,<br><em>첫 단추</em>부터 바르게.</h3>
+      <p>어법 노베이스 학생을 위한 PIF 문법 입문 과정입니다. 진단평가로 내 자리를 찾고, 단원마다 개념 정리 → 워크시트 → 복습 → 마무리 퀴즈 순서로 영상 없이도 혼자 끝까지 학습합니다.</p>
+      <div class="fmeta"><div><b>14</b><span>단원 · BASIC + Beyond</span></div><div><b>30</b><span>문항 진단평가</span></div><div><b>PDF</b><span>파트별 출력</span></div></div>
+      <div class="fflow"><span><b>진단</b>30문항</span><em>→</em><span><b>추천</b>다시 볼 단원</span><em>→</em><span><b>학습</b>정리 · 워크시트 · 퀴즈</span></div>
+      <a class="fgo" href="/firstbutton/">그래머 첫단추 시작하기</a><span class="fsub">수업 영상은 단원별로 순차 공개됩니다.</span>
+    </div>
+    <div class="fart">
+      <img class="nt" src="/img/brand/firstbutton-note.jpg" alt="그래머 첫단추 Summary Note 페이지" width="637" height="900" loading="lazy">
+      <img class="cv" src="/img/brand/firstbutton-cover.jpg" alt="Grammar 첫단추 교재 표지" width="637" height="900" loading="lazy">
+      <div class="stamp"><b>SELF-STUDY</b>답지 보며 스스로 채점하고<br>단원별 PDF로 바로 출력</div>
+    </div>
+    <div class="funits" style="grid-column:1/-1"><span><b>01</b>후치수식</span><span><b>02</b>관계사</span><span><b>03</b>자동사·타동사</span><span><b>04</b>품사비교</span><span><b>4-2</b>형용사·부사</span><span><b>05</b>시제·수동태</span><span><b>06</b>문장 vs 명사구</span><span><b>07</b>명사 수식어구</span><span><b>08</b>분사구문</span><span><b>09</b>관계사·접속사</span><span><b>10</b>접속사</span><span class="x"><b>X1</b>관계사 심화</span><span class="x"><b>X2</b>분사구문 심화</span><span class="x"><b>X3</b>조동사·가정법</span></div>
+  </div>
+  <div class="gpath"><span><b>그래머 첫단추</b>로 기초를 세우고</span><i></i><span><b>출제자의 시선</b>으로 내신 어법 실전까지</span></div>
+  <div class="gband" id="grammar-step">
     <div class="ginfo">
       <div class="lv">문법 · 출제자의 시선 GRAMMAR STEP</div>
       <h3>틀린 것을 찾는 데서 멈추지 않고,<br>옳은 것을 틀리게 만들어 봅니다.</h3>
