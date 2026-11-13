@@ -368,6 +368,22 @@ def map_choices(pages, cands):
                     out[(p, round(g[0][0].x0, 1), round(g[0][0].y0, 1))] = G[m][1]; k = m + 1; break
     return out
 CH = {}
+def stream_answer(p, r, cands):
+    """빈칸 앞뒤 낱말(문맥)로 정답 페이지의 글 흐름에서 빈칸 자리를 찾는다 (줄바꿈이 달라도 됨)"""
+    def ordered(q): return sorted(words(q), key=lambda w: (round(cy(w) / 4), w[0]))
+    Q = [w for w in ordered(p) if w[4] not in ('✓',)]
+    mid = (r.y0 + r.y1) / 2
+    before = [w for w in Q if (round(cy(w) / 4) < round(mid / 4) and cy(w) < r.y0) or (abs(cy(w) - mid) < 6 and w[2] <= r.x0 + 2)]
+    after = [w for w in Q if (abs(cy(w) - mid) < 6 and w[0] >= r.x1 - 2) or (cy(w) > r.y1 and round(cy(w) / 4) > round(mid / 4))]
+    before = [w for w in before if mid - cy(w) < 40][-3:]
+    after = after[:2]
+    if not before and not after: return None, None
+    L = r'\s+'.join(re.escape(w[4]) for w in before); Rt = r'\s+'.join(re.escape(w[4]) for w in after)
+    for q in cands:
+        txt = ' '.join(w[4] for w in ordered(q))
+        m = re.search((L + r'\s+' if L else '') + r'(.{1,60}?)' + (r'\s+' + Rt if Rt else r'(?:\s|$)'), txt)
+        if m and m.group(1).strip(): return norm(m.group(1)), ' '.join(w[4] for w in after)
+    return None, ' '.join(w[4] for w in after)
 def page_answers(p, cands):
     F = OVL.get(str(p), [])
     rects = {i: (R(f[1:]) if f[0] in 'blk' else None) for i, f in enumerate(F)}
@@ -390,9 +406,12 @@ def page_answers(p, cands):
             sc, q, dx, dy = b
             ra, _ = row_answer(p, tx, i, q, dx, dy); ga = geo_answer(p, r, q, dx, dy)
             ra, ga = clean(ra), clean(ga)
-            if ra and (not ga or len(ra) <= max(len(ga) * 1.6, len(ga) + 8)): out.append({'a': ra, 'h': 'row'})
-            elif ga: out.append({'a': ga, 'h': 'geo'})
-            else: out.append(None)
+            a = ra if ra and (not ga or len(ra) <= max(len(ga) * 1.6, len(ga) + 8)) else ga
+            sa, right = stream_answer(p, r, cands)
+            # 빈칸 바로 뒤에 인쇄된 글자가 정답처럼 잡혔으면(= 문제에 이미 있는 글자) 글 흐름으로 다시 찾기
+            if right and a and norm(a).replace(' ', '').startswith(norm(right).replace(' ', '')[:4]): a = clean(sa)
+            elif not a and sa: a = clean(sa)
+            out.append({'a': a, 'h': 'row'} if a else None)
     return out
 
 def row_text(p, F, i):
