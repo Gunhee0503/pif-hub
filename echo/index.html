@@ -373,8 +373,22 @@ function markHeard(){
   }
 }
 function shuffled(){ const a = S.list.map((_, i) => i).filter((i) => i !== S.idx); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+// 시작 안내는 조금 크게(약 1.8배) — 브라우저 오디오 처리로 키우고, 안 되면 보통 크기로
+const INTRO_GAIN = 1.8; let AC = null, introEl = null;
+async function playIntro(tok){
+  if (!introEl) {
+    introEl = new Audio(); introEl.crossOrigin = 'anonymous'; introEl.preload = 'auto';
+    try {
+      const C = window.AudioContext || window.webkitAudioContext;
+      if (C) { AC = new C(); const src = AC.createMediaElementSource(introEl), comp = AC.createDynamicsCompressor(), g = AC.createGain();
+        comp.threshold.value = -12; comp.ratio.value = 4; g.gain.value = INTRO_GAIN; src.connect(g); g.connect(comp); comp.connect(AC.destination); }
+    } catch (e) { AC = null; }
+  }
+  if (AC && AC.state === 'suspended') { try { await AC.resume(); } catch (e) {} }
+  return seg(introEl, S.intro, 0, null, 1, tok);
+}
 async function run(){
-  if (S.playing) { S.paused = !S.paused; if (S.paused) [P.en, P.ko, P.num].forEach((a) => a.pause()); setPlaying(true); return; }
+  if (S.playing) { S.paused = !S.paused; if (S.paused) [P.en, P.ko, P.num, introEl].forEach((a) => a && a.pause()); setPlaying(true); return; }
   if (!S.list.length) return;
   const tok = ++P.tok; setPlaying(true);
   if (S.lesson) call('log', { lesson_id: S.lesson.id, event: 'play' }).catch(() => {});
@@ -382,7 +396,9 @@ async function run(){
   try {
     if (S.mode === 'drill' && S.intro && !S.introDone) {
       S.introDone = true;
-      if (!await seg(P.ko, S.intro, 0, null, 1, tok) || !await wait(600, tok)) throw 0;
+      let ok = true;
+      try { ok = await playIntro(tok); } catch (e) { ok = tok === P.tok; }   // 안내 음성이 안 나와도 드릴은 계속
+      if (!ok || !await wait(500, tok)) throw 0;
     }
     for (;;) {
       if (!await playOne(S.list[S.idx], tok) || tok !== P.tok) break;
