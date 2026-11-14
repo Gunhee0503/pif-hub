@@ -207,7 +207,7 @@ $('lessons').onclick = (e) => { const b = e.target.closest('[data-id]'); if (b) 
 $('sets').onclick = (e) => { const b = e.target.closest('[data-set]'); if (!b) return; if (b.dataset.set === 'star' && !HOME.stars) return toast('재생 화면에서 ☆를 눌러 어려운 문장을 모아 보세요.'); location.hash = 'l=' + b.dataset.set; };
 
 /* ---------------- 재생 ---------------- */
-const S = { key: null, lesson: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'next', autoFull: true, sel: 0, playing: false, paused: false, completedSent: false, heard: new Set() };
+const S = { key: null, lesson: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'once', autoFull: true, sel: 0, playing: false, paused: false, completedSent: false, heard: new Set() };
 try { const o = JSON.parse(localStorage.getItem('echo:opts') || '{}'); if (o.mode) S.mode = o.mode; if (o.speed) S.speed = o.speed; if (o.order) S.order = o.order; if (o.autoFull === false) S.autoFull = false; } catch (e) {}
 const saveOpts = () => { try { localStorage.setItem('echo:opts', JSON.stringify({ mode: S.mode, speed: S.speed, order: S.order, autoFull: S.autoFull })); } catch (e) {} };
 const V = { cur: -1, hideFrom: null, cue: -1, peek: -1 };
@@ -265,7 +265,7 @@ function draw(){
   }).join('');
   renderOpts();
 }
-const ORDERS = [['next', '이어서 듣기'], ['one', '한 문장 반복'], ['shuffle', '랜덤 재생']];
+const ORDERS = [['once', '한 번만 듣기'], ['next', '이어서 듣기'], ['one', '한 문장 반복'], ['shuffle', '랜덤 재생']];
 const IC_EYE = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
 const IC_SPK = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9.5a4 4 0 0 1 0 5"/></svg>';
 function renderOpts(){
@@ -382,6 +382,7 @@ async function run(){
       markHeard();
       const order = S.mode === 'full' ? S.order : 'next';
       let nx;
+      if (order === 'once') break;
       if (order === 'one') nx = S.idx;
       else if (order === 'shuffle') { if (!queue) queue = shuffled(); nx = queue.shift(); if (nx == null) break; }
       else { if (S.idx >= S.list.length - 1) break; nx = S.idx + 1; }
