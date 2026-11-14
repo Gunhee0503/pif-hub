@@ -67,8 +67,9 @@ a{color:inherit}
 .opt2 button.on{border-color:var(--ink);background:var(--ink);color:#fff}
 .opt2 .hint{font-size:12px;color:var(--ink3);align-self:center;margin-left:2px}
 .ck{position:relative}
-.ck.pick{padding-right:58px}
-.pk{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:20px;border:0;background:rgba(255,255,255,.85);color:var(--ink);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 8px -4px rgba(0,0,0,.3)}
+.chunks.tap .ck{cursor:pointer}
+.chunks.tap .ck:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.opt2 button svg{flex-shrink:0}
 .ck .ko1{font-size:15px;font-weight:700;line-height:1.5}
 .ck .en2{font-size:14px;font-weight:500;line-height:1.5;color:#3E3B47}
 .ck.cur .ko1{font-size:18px;font-weight:800}
@@ -206,16 +207,16 @@ $('lessons').onclick = (e) => { const b = e.target.closest('[data-id]'); if (b) 
 $('sets').onclick = (e) => { const b = e.target.closest('[data-set]'); if (!b) return; if (b.dataset.set === 'star' && !HOME.stars) return toast('재생 화면에서 ☆를 눌러 어려운 문장을 모아 보세요.'); location.hash = 'l=' + b.dataset.set; };
 
 /* ---------------- 재생 ---------------- */
-const S = { key: null, lesson: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'next', showEn: false, pick: false, playing: false, paused: false, completedSent: false, heard: new Set() };
-try { const o = JSON.parse(localStorage.getItem('echo:opts') || '{}'); if (o.mode) S.mode = o.mode; if (o.speed) S.speed = o.speed; if (o.order) S.order = o.order; S.showEn = !!o.showEn; S.pick = !!o.pick; } catch (e) {}
-const saveOpts = () => { try { localStorage.setItem('echo:opts', JSON.stringify({ mode: S.mode, speed: S.speed, order: S.order, showEn: S.showEn, pick: S.pick })); } catch (e) {} };
+const S = { key: null, lesson: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'next', autoFull: true, sel: 0, playing: false, paused: false, completedSent: false, heard: new Set() };
+try { const o = JSON.parse(localStorage.getItem('echo:opts') || '{}'); if (o.mode) S.mode = o.mode; if (o.speed) S.speed = o.speed; if (o.order) S.order = o.order; if (o.autoFull === false) S.autoFull = false; } catch (e) {}
+const saveOpts = () => { try { localStorage.setItem('echo:opts', JSON.stringify({ mode: S.mode, speed: S.speed, order: S.order, autoFull: S.autoFull })); } catch (e) {} };
 const V = { cur: -1, hideFrom: null, cue: -1, peek: -1 };
 const resetV = () => Object.assign(V, { cur: -1, hideFrom: null, cue: -1, peek: -1 });
 const P = { tok: 0, en: new Audio(), ko: new Audio(), num: new Audio() };
 [P.en, P.ko, P.num].forEach((a) => { a.preload = 'auto'; });
 
 async function openSet(key){
-  stop(); S.key = key; S.idx = 0; S.list = []; S.completedSent = false; S.heard = new Set();
+  stop(); S.key = key; S.idx = 0; S.list = []; S.completedSent = false; S.heard = new Set(); S.sel = 0;
   $('vHome').hidden = true; $('vPlay').hidden = false; scrollTo(0, 0);
   $('chunks').innerHTML = '<div class="empty">불러오는 중…</div>';
   const isSet = key === 'all' || key === 'star';
@@ -235,20 +236,21 @@ function maskHtml(text, k, strong){
   const c = strong ? 'rgba(0,0,0,.22)' : tint(k, '55');
   return `<div class="mask" aria-label="영어 가려짐">${words(text).map((w) => `<span style="width:${Math.max(18, w.replace(/[^A-Za-z0-9]/g, '').length * 8)}px;background:${c}"></span>`).join('')}</div>`;
 }
+function curK(){ if (V.cur >= 0) return V.cur; return (!S.playing && S.mode !== 'full') ? S.sel : -1; }
 function draw(){
   const s = S.list[S.idx]; if (!s) return;
   $('pNo').innerHTML = `${S.idx + 1}<i> / ${S.list.length}</i>`;
   $('pSrc').textContent = s.source || (S.lesson ? S.lesson.title : '');
   const st = $('star'); st.classList.toggle('on', !!s.star); st.setAttribute('aria-pressed', s.star ? 'true' : 'false');
-  const drill = S.mode === 'drill', te = s.times_en || [];
+  if (V.cur >= 0) S.sel = V.cur;
+  const drill = S.mode === 'drill', tap = S.mode !== 'full', ck = curK();
+  $('chunks').classList.toggle('tap', tap);
   $('chunks').innerHTML = s.chunks.map((c, k) => {
-    const cur = k === V.cur, pick = drill && S.pick && te[k];
-    const pk = pick ? `<button type="button" class="pk" data-k="${k}" aria-label="${k + 1}번째 의미구만 듣기"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button>` : '';
-    const cls = `ck${cur ? ' cur' : ''}${pick ? ' pick' : ''}`;
+    const cur = k === ck;
     const bg = cur ? `background:${col(k)};box-shadow:0 14px 30px -18px ${col(k)}` : `background:${tint(k, '24')}`;
     let body;
     if (drill) {
-      const shown = S.showEn || k === V.peek || (V.hideFrom != null && k < V.hideFrom);
+      const shown = k === V.peek || (V.hideFrom != null && k < V.hideFrom);
       const kc = cur ? ink(k) : sink(k);
       const ko = c.ko ? `<div class="ko1" style="color:${kc}">${esc(c.ko)}</div>` : `<div class="ko1" style="color:${kc};opacity:.5">(우리말 없음)</div>`;
       const en = shown ? `<div class="en2"${cur ? ` style="color:${ink(k)}"` : ''}>${esc(c.en)}</div>` : maskHtml(c.en, k, cur);
@@ -258,18 +260,25 @@ function draw(){
     } else {
       body = `<div class="e"><i style="background:${col(k)}"></i><span>${esc(c.en)}</span></div>${c.ko ? `<div class="k" style="color:${sink(k)}">${esc(c.ko)}</div>` : ''}`;
     }
-    return `<div class="${cls}" style="${bg}">${body}${pk}</div>`;
+    const a = tap ? ` data-k="${k}" role="button" tabindex="0" aria-label="${k + 1}번째 의미구${drill ? ' 고르기' : ' 듣기'}"` : '';
+    return `<div class="ck${cur ? ' cur' : ''}" style="${bg}"${a}>${body}</div>`;
   }).join('');
+  renderOpts();
 }
 const ORDERS = [['next', '이어서 듣기'], ['one', '한 문장 반복'], ['shuffle', '랜덤 재생']];
-function syncModes(){
-  document.querySelectorAll('#modes button').forEach((b) => b.classList.toggle('on', b.dataset.m === S.mode));
-  const o = $('opt2');
+const IC_EYE = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
+const IC_SPK = '<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M17 9.5a4 4 0 0 1 0 5"/></svg>';
+function renderOpts(){
+  const o = $('opt2'), k = curK();
   if (S.mode === 'full') o.innerHTML = ORDERS.map(([v, t]) => `<button type="button" data-o="${v}" class="${S.order === v ? 'on' : ''}" aria-pressed="${S.order === v}">${t}</button>`).join('');
-  else if (S.mode === 'drill') o.innerHTML = `<button type="button" data-t="showEn" class="${S.showEn ? 'on' : ''}" aria-pressed="${S.showEn}">영어 보기</button><button type="button" data-t="pick" class="${S.pick ? 'on' : ''}" aria-pressed="${S.pick}">의미구 골라 듣기</button>${S.pick ? '<span class="hint">▶를 누르면 그 부분만 들려줘요</span>' : ''}`;
-  else o.innerHTML = '';
+  else if (S.mode === 'chunk') o.innerHTML = `<button type="button" data-t="autoFull" class="${S.autoFull ? 'on' : ''}" aria-pressed="${S.autoFull}">끝나면 전체 듣기</button><span class="hint">의미구를 누르면 그 부분만 들려줘요</span>`;
+  else {
+    const open = k >= 0 && V.peek === k;
+    o.innerHTML = `<button type="button" data-a="peek" class="${open ? 'on' : ''}" aria-pressed="${open}">${IC_EYE}${open ? '영어 가리기' : '영어 보기'}</button><button type="button" data-a="say">${IC_SPK}음성 듣기</button><span class="hint">${k >= 0 ? `${k + 1}번째 의미구 · 다른 의미구는 눌러서 고르기` : '의미구를 눌러 고르세요'}</span>`;
+  }
   o.hidden = !o.innerHTML;
 }
+function syncModes(){ document.querySelectorAll('#modes button').forEach((b) => b.classList.toggle('on', b.dataset.m === S.mode)); renderOpts(); }
 function syncSpeed(){ document.querySelectorAll('#speeds .sp').forEach((b) => b.classList.toggle('on', Number(b.dataset.v) === S.speed)); }
 function setPlaying(v){
   S.playing = v; if (!v) S.paused = false;
@@ -335,13 +344,14 @@ async function playOne(s, tok){
       if (!await seg(P.en, s.en, te[k][0], te[k][1], S.speed, tok)) return false;
       if (!await wait(450, tok)) return false;
     }
+    if (!S.autoFull) return true;
     if (!await wait(350, tok)) return false;
     return full();
   }
   V.hideFrom = 0;
   for (let k = 0; k < ch.length; k++) {
     if (!ch[k].ko || !tk[k]) { V.hideFrom = k + 1; continue; }
-    V.cur = k; V.cue = k; draw();
+    V.cur = k; V.cue = k; V.peek = -1; draw();
     if (!await seg(P.ko, s.ko, tk[k][0], tk[k][1], 1, tok)) return false;
     if (!await wait(think(ch[k]), tok, '영어로 말해 보세요')) return false;
     V.cue = -1; V.hideFrom = k + 1; draw();
@@ -376,27 +386,36 @@ async function run(){
       else if (order === 'shuffle') { if (!queue) queue = shuffled(); nx = queue.shift(); if (nx == null) break; }
       else { if (S.idx >= S.list.length - 1) break; nx = S.idx + 1; }
       if (!await wait(1200, tok)) break;
-      S.idx = nx; resetV(); draw();
+      S.idx = nx; S.sel = 0; resetV(); draw();
     }
   } catch (e) { if (tok === P.tok) toast('음성을 재생하지 못했어요. 다시 눌러 주세요.'); }
   if (tok === P.tok) { setPlaying(false); resetV(); draw(); }
 }
 async function playPart(k){
-  const s = S.list[S.idx], t = (s.times_en || [])[k]; if (!t) return;
-  stop(); const tok = ++P.tok;
-  V.cur = k; V.peek = k; draw();
+  const s = S.list[S.idx], t = (s.times_en || [])[k]; if (!t) return toast('이 부분은 음성이 없어요.');
+  const pk = V.peek; stop(); V.peek = pk; S.sel = k;
+  const tok = ++P.tok; V.cur = k; draw();
   try { await seg(P.en, s.en, t[0], t[1], S.speed, tok); } catch (e) { if (tok === P.tok) toast('음성을 재생하지 못했어요.'); }
   if (tok === P.tok) { V.cur = -1; draw(); }
 }
 $('play').onclick = run;
-$('chunks').onclick = (e) => { const b = e.target.closest('.pk'); if (b) playPart(Number(b.dataset.k)); };
+function pickChunk(k){
+  if (S.mode === 'chunk') return playPart(k);
+  if (S.mode !== 'drill') return;
+  if (S.playing || V.cur >= 0) stop();
+  if (S.sel !== k) V.peek = -1;
+  S.sel = k; draw();
+}
+$('chunks').onclick = (e) => { const c = e.target.closest('[data-k]'); if (c) pickChunk(Number(c.dataset.k)); };
+$('chunks').onkeydown = (e) => { const c = e.target.closest('[data-k]'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); e.stopPropagation(); pickChunk(Number(c.dataset.k)); } };
 $('opt2').onclick = (e) => {
-  const o = e.target.closest('[data-o]'), t = e.target.closest('[data-t]');
-  if (o) { S.order = o.dataset.o; saveOpts(); syncModes(); if (S.order === 'shuffle' && S.playing) toast('다음 문장부터 랜덤으로 들려줘요.'); }
-  if (t) { S[t.dataset.t] = !S[t.dataset.t]; saveOpts(); syncModes(); draw(); }
+  const o = e.target.closest('[data-o]'), t = e.target.closest('[data-t]'), a = e.target.closest('[data-a]');
+  if (o) { S.order = o.dataset.o; saveOpts(); renderOpts(); if (S.order === 'shuffle' && S.playing) toast('다음 문장부터 랜덤으로 들려줘요.'); }
+  if (t) { S[t.dataset.t] = !S[t.dataset.t]; saveOpts(); renderOpts(); }
+  if (a) { const k = curK() >= 0 ? curK() : S.sel; if (a.dataset.a === 'peek') { V.peek = V.peek === k ? -1 : k; draw(); } else playPart(k); }
 };
-$('prev').onclick = () => { if (S.idx > 0) { stop(); S.idx--; draw(); } };
-$('next').onclick = () => { if (S.idx < S.list.length - 1) { stop(); S.idx++; draw(); } };
+$('prev').onclick = () => { if (S.idx > 0) { stop(); S.idx--; S.sel = 0; draw(); } };
+$('next').onclick = () => { if (S.idx < S.list.length - 1) { stop(); S.idx++; S.sel = 0; draw(); } };
 $('modes').onclick = (e) => { const b = e.target.closest('[data-m]'); if (!b) return; stop(); S.mode = b.dataset.m; saveOpts(); syncModes(); draw(); };
 $('speeds').onclick = (e) => { const b = e.target.closest('.sp'); if (!b) return; S.speed = Number(b.dataset.v); saveOpts(); syncSpeed(); };
 $('star').onclick = async () => {
