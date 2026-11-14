@@ -294,21 +294,49 @@ function setPlaying(v){
 }
 function stop(){ P.tok++; [P.en, P.ko, P.num].forEach((a) => { try { a.pause(); } catch (e) {} }); hideCount(); setPlaying(false); resetV(); if (S.list.length) draw(); }
 
+// 휴대폰(특히 아이폰)은 미리 불러오기를 잘 안 해서 'canplay'가 늦거나 안 옴 → 메타데이터만 있어도 진행, 5초 넘으면 일단 재생 시도
 function loadEl(el, url){
-  if (el._u === url && el.readyState >= 2) return Promise.resolve();
+  if (el._u === url && el.readyState >= 1) return Promise.resolve();
   return new Promise((res, rej) => {
+    let t = 0;
     const ok = () => { off(); res(); }, bad = () => { off(); rej(new Error('AUDIO')); };
-    const off = () => { el.removeEventListener('canplay', ok); el.removeEventListener('error', bad); };
-    el.addEventListener('canplay', ok); el.addEventListener('error', bad);
-    el._u = url; el.src = url; el.load();
+    const off = () => { clearTimeout(t); ['loadedmetadata', 'canplay'].forEach((ev) => el.removeEventListener(ev, ok)); el.removeEventListener('error', bad); };
+    ['loadedmetadata', 'canplay'].forEach((ev) => el.addEventListener(ev, ok)); el.addEventListener('error', bad);
+    t = setTimeout(ok, 5000);
+    if (el._u !== url) { el._u = url; el.src = url; el.load(); } else if (el.readyState >= 1) ok();
   });
+}
+// 원하는 위치로 옮기고, 실제로 옮겨질 때까지(최대 1초) 기다림 — 휴대폰에서 끊어듣기 앞부분이 새는 것 방지
+function seekTo(el, t){
+  if (Math.abs(el.currentTime - t) < 0.03) return Promise.resolve();
+  return new Promise((res) => {
+    let to = 0; const done = () => { clearTimeout(to); el.removeEventListener('seeked', done); res(); };
+    el.addEventListener('seeked', done); to = setTimeout(done, 1000);
+    try { el.currentTime = t; } catch (e) { done(); }
+  });
+}
+// 휴대폰은 '누른 순간'에 한 번 재생된 오디오만 나중에 마음대로 재생 가능 → 누를 때 모든 소리 칸을 소리 없이 한 번 깨워 둠
+function unlockAudio(){
+  const s = S.list[S.idx] || {};
+  if (S.mode === 'drill' && S.intro) ensureIntroEl();
+  [[P.en, s.en], [P.ko, s.ko], [P.num, S.nums[S.idx]], [introEl, S.intro]].forEach(([el, url]) => {
+    if (!el || el._ok || !url) return;
+    if (el._u !== url) { el._u = url; el.src = url; }
+    el.muted = true; el._unlocking = true;
+    const pr = el.play();
+    const fin = () => { if (el._unlocking) { el.pause(); el._unlocking = false; } el.muted = false; };
+    if (pr && pr.then) pr.then(() => { el._ok = true; fin(); }).catch(fin); else fin();
+  });
+  if (AC && AC.state === 'suspended') AC.resume().catch(() => {});
 }
 async function seg(el, url, s, e, rate, tok){
   if (!url) return true;
   await loadEl(el, url); if (tok !== P.tok) return false;
+  el._unlocking = false; el.muted = false;
   el.playbackRate = rate; el.preservesPitch = true; el.webkitPreservesPitch = true;
-  el.currentTime = s || 0;
-  try { await el.play(); } catch (err) { if (tok !== P.tok) return false; throw err; }
+  if (!el.paused) el.pause();
+  await seekTo(el, s || 0); if (tok !== P.tok) return false;
+  try { await el.play(); el._ok = true; } catch (err) { if (tok !== P.tok) return false; throw err; }
   return new Promise((res) => {
     const iv = setInterval(() => {
       if (tok !== P.tok) { clearInterval(iv); el.pause(); return res(false); }
@@ -375,7 +403,7 @@ function markHeard(){
 function shuffled(){ const a = S.list.map((_, i) => i).filter((i) => i !== S.idx); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 // 시작 안내는 조금 크게(약 1.2배) — 브라우저 오디오 처리로 키우고, 안 되면 보통 크기로
 const INTRO_GAIN = 1.2; let AC = null, introEl = null;
-async function playIntro(tok){
+function ensureIntroEl(){
   if (!introEl) {
     introEl = new Audio(); introEl.crossOrigin = 'anonymous'; introEl.preload = 'auto';
     try {
@@ -384,12 +412,16 @@ async function playIntro(tok){
         comp.threshold.value = -12; comp.ratio.value = 4; g.gain.value = INTRO_GAIN; src.connect(g); g.connect(comp); comp.connect(AC.destination); }
     } catch (e) { AC = null; }
   }
+}
+async function playIntro(tok){
+  ensureIntroEl();
   if (AC && AC.state === 'suspended') { try { await AC.resume(); } catch (e) {} }
   return seg(introEl, S.intro, 0, null, 1, tok);
 }
 async function run(){
   if (S.playing) { S.paused = !S.paused; if (S.paused) [P.en, P.ko, P.num, introEl].forEach((a) => a && a.pause()); setPlaying(true); return; }
   if (!S.list.length) return;
+  unlockAudio();
   const tok = ++P.tok; setPlaying(true);
   if (S.lesson) call('log', { lesson_id: S.lesson.id, event: 'play' }).catch(() => {});
   let queue = null;
@@ -418,7 +450,7 @@ async function run(){
 async function playPart(k, lang){
   const s = S.list[S.idx], ko = lang === 'ko', t = ((ko ? s.times_ko : s.times_en) || [])[k];
   if (!t || (ko && !s.ko)) return toast(ko ? '이 부분은 우리말 음성이 없어요.' : '이 부분은 음성이 없어요.');
-  stop(); S.sel = k;
+  unlockAudio(); stop(); S.sel = k;
   const tok = ++P.tok; V.cur = k; draw();
   try { await seg(ko ? P.ko : P.en, ko ? s.ko : s.en, t[0], t[1], ko ? 1 : S.speed, tok); } catch (e) { if (tok === P.tok) toast('음성을 재생하지 못했어요.'); }
   if (tok === P.tok) { V.cur = -1; draw(); }
