@@ -121,6 +121,15 @@ td.num{font-variant-numeric:tabular-nums}
 .wd .row>div:first-child{color:var(--ink2);font-weight:600}
 .ok{color:var(--ok);font-weight:700}.bad{color:var(--bad);font-weight:700}
 .ai{background:#f4f0fb;border-radius:9px;padding:6px 9px;margin-top:4px;color:#3d2a5c}
+.echo{margin-top:30px;border-top:1px dashed var(--line);padding-top:14px}
+.echo>summary{font-size:13px;font-weight:700;color:var(--ink3);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;min-height:28px}
+.echo>summary::-webkit-details-marker{display:none}
+.echo>summary::before{content:'▸';font-size:11px}.echo[open]>summary::before{content:'▾'}
+.echo .eh{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0 8px;font-size:13px}
+.echo .eh b.w{font-weight:800;letter-spacing:.04em}
+.echo .st{font-size:11px;font-weight:700;padding:3px 8px;border-radius:99px;background:#f2f1f5;color:#4a4656}
+.echo .st.done{background:#e3f1ef;color:#1f5f66}
+.echo details{margin-top:10px}.echo details summary{font-size:12.5px;font-weight:700;color:var(--ink2);cursor:pointer;min-height:24px}
 .mini{width:100%;border-collapse:collapse}.mini th,.mini td{padding:6px 8px;font-size:12.5px;border-bottom:1px solid var(--line);position:static}
 .note{font-size:12.5px;color:var(--ink2);margin-top:10px;line-height:1.6;white-space:normal}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
@@ -166,6 +175,7 @@ td.num{font-variant-numeric:tabular-nums}
 
 <script src="/shared/supabase.js"></script>
 <script src="/shared/vt.js"></script>
+<script src="/shared/echo.js"></script>
 <script src="/matching/data.js"></script>
 <script src="/grammar/data.js"></script>
 <script src="/firstbutton/data.js"></script>
@@ -550,7 +560,10 @@ async function openStudent(sid){
   h += `<div class="sec" style="--c:var(--spec)"><h3><i></i>Spectrum</h3>` + (sl.length ? `<table class="mini"><tr><th>강</th><th>의미 분류</th><th>Part 1</th><th>Part 2</th><th>Part 3</th></tr>${sl.map(n => {
       const v = k => sp[k] == null ? '<span class="muted">—</span>' : `${esc(sp[k])}${/score/.test(k)?'%':''}`;
       return `<tr><td>Lesson ${n}</td><td>${sp['vts_cls_done_lesson'+n] ? '<span class="ok">완료</span>' : '<span class="muted">—</span>'}</td><td>${v('vts_p01_score_lesson'+n)}</td><td>${v('vts_p02_score_lesson'+n)}</td><td>${v('vts_p03_score_lesson'+n)}</td></tr>`; }).join('')}</table>` : (has('spectrum') ? '<div class="muted">기록 없음</div>' : lockH)) + '</div>';
+  // 부가 기능 · ECHO 수업 구문 다시듣기 (선택 기능 — 미완료 표시는 하지 않음)
+  h += `<details class="echo" id="echoSec"><summary>부가 기능 · ECHO 수업 구문 다시듣기</summary><div id="echoBox" class="muted" style="margin-top:8px">불러오는 중…</div></details>`;
   $('drawer').innerHTML = h;
+  $('echoSec').addEventListener('toggle', () => { if ($('echoSec').open && !$('echoSec').dataset.loaded) { $('echoSec').dataset.loaded = 1; echoStudent(s); } });
   studentReport(s, rows);
   SB.from('hub_downloads').select('file,course,created_at').eq('student_id', s.id).order('created_at', { ascending:false }).limit(40).then(r => {
     const el = $('dlLog'); if (!el) return; const L = r.data || [];
@@ -805,6 +818,36 @@ function bindRepCard(box, r, onDel){
   box.querySelector('[data-a=save]').onclick = async () => { if (!r.id) return toast('저장할 수 없는 초안이에요.');
     try { await saveReport(r.id, tx.value, 'done'); r.status = 'done'; r.body = tx.value; box.querySelector('.rh').lastElementChild.outerHTML = '<span class="ok">검토 완료</span>'; toast('저장했어요.'); } catch(e) { toast(errMsg(e)); } };
 }
+/* ECHO 다시듣기 기록 (syntax-drill의 echo 함수가 허브 로그인을 확인하고 돌려줌) */
+async function echoStudent(s){
+  const box = $('echoBox'); if (!box) return;
+  const md = d => { const x = new Date(d + 'T00:00:00'); return `${x.getMonth()+1}/${x.getDate()}`; };
+  try {
+    const r = await ECHO.call(SB, 'admin_student', { student_id: s.id, class_code: s.class_code });
+    const L = r.lessons || [], by = {}; (r.listens || []).forEach(x => by[x.lesson_id] = x);
+    if (!L.length) { box.innerHTML = '이 반에 ECHO로 공개된 수업이 아직 없어요.'; return; }
+    const done = L.filter(l => by[l.id] && by[l.id].completed).length;
+    const last = (r.listens || []).map(x => x.last_at).sort().pop();
+    box.className = '';
+    box.innerHTML = `<div class="eh"><b class="w">ECHO</b><span class="muted">수업 구문 다시듣기</span><span style="margin-left:auto">${last ? '최근 ' + new Date(last).toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'}) + ' · ' : ''}끝까지 들은 수업 <b>${done} / ${L.length}</b></span></div>
+      <table class="mini"><tr><th>수업 날짜</th><th>수업</th><th>기록</th><th>들은 횟수</th><th>마지막</th></tr>${L.map(l => { const x = by[l.id];
+        return `<tr><td>${md(l.lesson_date)}</td><td>${esc(l.title)} · ${l.count}문장</td><td>${x ? `<span class="st ${x.completed ? 'done' : ''}">${x.completed ? '끝까지 들음' : '열어 봄'}</span>` : '<span class="muted">—</span>'}</td><td>${x ? x.plays : 0}</td><td class="muted">${x ? ago(x.last_at) : '—'}</td></tr>`; }).join('')}</table>
+      <details id="echoCls"><summary>${esc(clsOf(s.class_code).name)} 반 전체 보기</summary><div id="echoClsBox" class="muted" style="margin-top:6px">불러오는 중…</div></details>`;
+    $('echoCls').addEventListener('toggle', async () => {
+      if (!$('echoCls').open || $('echoCls').dataset.loaded) return; $('echoCls').dataset.loaded = 1;
+      try {
+        const c = await ECHO.call(SB, 'admin_class', { class_code: s.class_code });
+        const kids = D.students.filter(x => x.class_code === s.class_code), n = kids.length;
+        $('echoClsBox').className = '';
+        $('echoClsBox').innerHTML = `<table class="mini"><tr><th>수업</th><th>끝까지 들음</th><th>열어 봄</th><th>반 인원</th></tr>${(c.lessons || []).map(l => {
+          const ls = (c.listens || []).filter(x => x.lesson_id === l.id), d = ls.filter(x => x.completed);
+          const names = d.map(x => (kids.find(k => k.id === x.student_id) || {}).name).filter(Boolean);
+          return `<tr><td>${md(l.lesson_date)} ${esc(l.title)}</td><td><b>${d.length}</b>명 <span class="muted">${esc(names.slice(0,8).join(', '))}${names.length > 8 ? ' 외' : ''}</span></td><td>${ls.length - d.length}명</td><td>${n}명</td></tr>`; }).join('')}</table>`;
+      } catch(e) { $('echoClsBox').textContent = '불러오지 못했어요.'; }
+    });
+  } catch(e) { box.textContent = /NOT_ALLOWED/.test(String(e.message)) ? '담당 반이 아니라 볼 수 없어요.' : 'ECHO 기록을 불러오지 못했어요.'; }
+}
+
 /* 학생 상세 안의 리포트 */
 async function studentReport(s, rows){
   const el = $('rpBox'); if (!el) return;
