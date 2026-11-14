@@ -25,11 +25,11 @@ a{color:inherit}
 
 /* 홈 */
 .hero{position:relative;height:300px}
-.hero svg{position:absolute;right:-10px;top:0;width:330px;height:300px}
-.hero .eb{position:absolute;left:24px;top:calc(20px + env(safe-area-inset-top));display:flex;gap:10px;align-items:center}
+.hero img{position:absolute;right:0;top:0;width:68%;height:100%;object-fit:cover;object-position:50% 35%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 35%),linear-gradient(#000 70%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 35%),linear-gradient(#000 70%,transparent);mask-composite:intersect}
+.hero .eb{position:absolute;z-index:1;left:24px;top:calc(20px + env(safe-area-inset-top));display:flex;gap:10px;align-items:center}
 .hero .eb a{font-size:13px;text-decoration:none;color:var(--ink2);background:rgba(255,255,255,.7);border-radius:99px;padding:8px 12px;min-height:36px;display:inline-flex;align-items:center}
 .hero .eb span{font:700 11px/1 var(--disp);letter-spacing:.24em;color:#5B5866}
-.hero .tt{position:absolute;left:24px;bottom:22px}
+.hero .tt{position:absolute;left:24px;bottom:22px;z-index:1}
 .hero h1{margin:0;font:800 54px/.95 var(--disp);letter-spacing:-.02em}
 .hero p{margin:6px 0 0;font-size:15px;font-weight:500;color:#3E3B47}
 .list{padding:4px 20px 40px;display:flex;flex-direction:column;gap:12px}
@@ -108,12 +108,7 @@ a{color:inherit}
   <!-- 홈 -->
   <section class="view" id="vHome">
     <div class="hero">
-      <svg aria-hidden="true" viewBox="0 0 330 300"><g style="mix-blend-mode:multiply" opacity=".62">
-        <path d="M100 70 C150 20,260 20,310 70 C260 120,150 120,100 70Z" fill="#F27BA6"/>
-        <path d="M90 110 C145 58,265 58,320 110 C265 162,145 162,90 110Z" fill="#F7922F"/>
-        <path d="M98 150 C150 100,262 100,314 150 C262 200,150 200,98 150Z" fill="#EFD134"/>
-        <path d="M90 190 C145 140,265 140,320 190 C265 240,145 240,90 190Z" fill="#8DBB5E"/>
-        <path d="M104 228 C152 182,258 182,306 228 C258 274,152 274,104 228Z" fill="#3A8C96"/></g></svg>
+      <img src="/img/brand/echo.jpg" alt="" width="800" height="1132">
       <div class="eb"><a href="/learn/">‹ 내 학습</a><span>PIF · CLASS ECHO</span></div>
       <div class="tt"><h1>ECHO</h1><p>수업 구문 다시듣기</p></div>
     </div>

@@ -290,9 +290,7 @@ br.mb{display:none}
 .emodes small{font-weight:500;color:#6b6577}
 .ego{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:99px;background:#1c1b22;color:#fff;font-weight:700;font-size:15px;text-decoration:none}
 .esub{display:inline-block;margin-left:12px;font-size:13px;color:#6b6577}
-.eart{position:relative;height:220px}.eart svg{position:absolute;inset:0;width:100%;height:100%}
-.echk{position:absolute;left:50%;bottom:-6px;transform:translateX(-50%);display:flex;gap:6px;white-space:nowrap}
-.echk span{font-size:13px;font-weight:700;padding:7px 11px;border-radius:10px;background:#fff;box-shadow:0 6px 18px -10px rgba(40,20,60,.45);border-left:4px solid var(--k)}
+.eart{position:relative;align-self:stretch;margin:-36px -40px -36px 0;min-height:340px}.eart img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%);mask-image:linear-gradient(90deg,transparent,#000 30%)}
 .syn{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 0;margin:0 auto 64px;font-size:clamp(17px,2.1vw,26px);font-weight:600;letter-spacing:-.02em;color:#f5f5f7}
 .syn span{padding:6px 10px;border-radius:10px}
 .syn .s{background:rgba(79,143,214,.22);color:#9cc6f5}
@@ -363,7 +361,7 @@ footer a{color:#424245}
   .t2 h3{font-size:30px}.t2 .new{top:32px;right:26px}
   .vis{width:380px;max-width:none;zoom:.8;height:220px}
   .edcap{flex-direction:column;gap:6px;font-size:14px}.edcap i{display:none}
-  .echoband{grid-template-columns:1fr;padding:26px 22px 28px;gap:6px;margin-top:40px}.eart{height:170px;order:-1}.echk{display:none}.echoband h3{font-size:21px}.echoband h3 b{font-size:38px}.esub{display:block;margin:10px 0 0}
+  .echoband{grid-template-columns:1fr;padding:26px 22px 28px;gap:6px;margin-top:40px}.eart{min-height:220px;order:-1;margin:-26px -22px 8px}.eart img{-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}.echoband h3{font-size:21px}.echoband h3 b{font-size:38px}.esub{display:block;margin:10px 0 0}
   .syn{flex-direction:column;align-items:center;gap:8px;font-size:16px;margin-bottom:44px}.syn .x{display:none}
   .fc{display:grid;grid-template-columns:44px 1fr;column-gap:16px;padding:24px 22px}.fc .ic{margin:0;grid-row:span 2}.fc h4{margin:9px 0 6px}
   .edc{padding:36px 26px 30px;min-height:0}.edc h3{font-size:42px}
@@ -470,13 +468,7 @@ footer a{color:#424245}
       <div class="emodes"><span>전체듣기</span><span>끊어듣기</span><span>직독직해 <small>우리말→영어</small></span><span>0.8 · 1.0 · 1.2배속</span><span>☆ 별표 문장</span></div>
       <a class="ego" href="/echo/">ECHO 열기</a><span class="esub">로그인 후 우리 반 수업만 보입니다.</span>
     </div>
-    <div class="eart" aria-hidden="true">
-      <svg viewBox="0 0 320 220"><g style="mix-blend-mode:multiply" opacity=".72">
-        <path d="M30 40C90 2,230 2,290 40C230 78,90 78,30 40Z" fill="#F27BA6"/><path d="M18 76C82 36,238 36,302 76C238 116,82 116,18 76Z" fill="#F7922F"/>
-        <path d="M28 112C88 74,232 74,292 112C232 150,88 150,28 112Z" fill="#EFD134"/><path d="M18 148C82 108,238 108,302 148C238 188,82 188,18 148Z" fill="#8DBB5E"/>
-        <path d="M34 182C92 146,228 146,286 182C228 218,92 218,34 182Z" fill="#3A8C96"/></g></svg>
-      <div class="echk"><span style="--k:#F27BA6">Now, it was possible</span><span style="--k:#F7922F">to prepare food</span><span style="--k:#EFD134">very rapidly,</span></div>
-    </div>
+    <div class="eart" aria-hidden="true"><img src="/img/brand/echo.jpg" alt="" width="800" height="1132" loading="lazy"></div>
   </div>
   <div class="fband" id="grammar">
     <div class="finfo">
