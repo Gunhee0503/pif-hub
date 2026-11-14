@@ -373,8 +373,8 @@ function markHeard(){
   }
 }
 function shuffled(){ const a = S.list.map((_, i) => i).filter((i) => i !== S.idx); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
-// 시작 안내는 조금 크게(약 1.8배) — 브라우저 오디오 처리로 키우고, 안 되면 보통 크기로
-const INTRO_GAIN = 1.8; let AC = null, introEl = null;
+// 시작 안내는 조금 크게(약 2.4배) — 브라우저 오디오 처리로 키우고, 안 되면 보통 크기로
+const INTRO_GAIN = 2.4; let AC = null, introEl = null;
 async function playIntro(tok){
   if (!introEl) {
     introEl = new Audio(); introEl.crossOrigin = 'anonymous'; introEl.preload = 'auto';
