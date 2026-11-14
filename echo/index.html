@@ -359,11 +359,10 @@ async function playOne(s, tok){
     V.cur = k; V.cue = k; draw();
     if (!await seg(P.ko, s.ko, tk[k][0], tk[k][1], 1, tok)) return false;
     if (!await wait(think(ch[k]), tok, '영어로 말해 보세요')) return false;
-    V.cue = -1; V.hideFrom = k + 1; draw();
-    if (te[k] && !await seg(P.en, s.en, te[k][0], te[k][1], S.speed, tok)) return false;
-    if (!await wait(think(ch[k]), tok, '정답을 따라 말해 보세요')) return false;
+    // 정답 영어는 자동으로 틀지 않음 — 칸 오른쪽 👁·🔊로 필요할 때 확인
+    V.cue = -1; draw();
   }
-  V.cur = -1; V.cue = -1; V.hideFrom = ch.length; draw();
+  V.cur = -1; V.cue = -1; draw();
   return true;
 }
 function markHeard(){
