@@ -260,7 +260,7 @@ function draw(){
     } else {
       body = `<div class="e"><i style="background:${col(k)}"></i><span>${esc(c.en)}</span></div>${c.ko ? `<div class="k" style="color:${sink(k)}">${esc(c.ko)}</div>` : ''}`;
     }
-    const a = tap ? ` data-k="${k}" role="button" tabindex="0" aria-label="${k + 1}번째 의미구${drill ? ' 고르기' : ' 듣기'}"` : '';
+    const a = tap ? ` data-k="${k}" role="button" tabindex="0" aria-label="${k + 1}번째 의미구 듣기"` : '';
     return `<div class="ck${cur ? ' cur' : ''}" style="${bg}"${a}>${body}</div>`;
   }).join('');
   renderOpts();
@@ -274,7 +274,7 @@ function renderOpts(){
   else if (S.mode === 'chunk') o.innerHTML = `<button type="button" data-t="autoFull" class="${S.autoFull ? 'on' : ''}" aria-pressed="${S.autoFull}">끝나면 전체 듣기</button><span class="hint">의미구를 누르면 그 부분만 들려줘요</span>`;
   else {
     const open = k >= 0 && V.peek === k;
-    o.innerHTML = `<button type="button" data-a="peek" class="${open ? 'on' : ''}" aria-pressed="${open}">${IC_EYE}${open ? '영어 가리기' : '영어 보기'}</button><button type="button" data-a="say">${IC_SPK}음성 듣기</button><span class="hint">${k >= 0 ? `${k + 1}번째 의미구 · 다른 의미구는 눌러서 고르기` : '의미구를 눌러 고르세요'}</span>`;
+    o.innerHTML = `<button type="button" data-a="peek" class="${open ? 'on' : ''}" aria-pressed="${open}">${IC_EYE}${open ? '영어 가리기' : '영어 보기'}</button><button type="button" data-a="say">${IC_SPK}음성 듣기</button><span class="hint">${k >= 0 ? `${k + 1}번째 의미구 · 의미구를 누르면 영어로 들려줘요` : '의미구를 누르면 영어로 들려줘요'}</span>`;
   }
   o.hidden = !o.innerHTML;
 }
@@ -403,9 +403,8 @@ $('play').onclick = run;
 function pickChunk(k){
   if (S.mode === 'chunk') return playPart(k);
   if (S.mode !== 'drill') return;
-  if (S.playing || V.cur >= 0) stop();
   if (S.sel !== k) V.peek = -1;
-  S.sel = k; draw();
+  S.sel = k; playPart(k);
 }
 $('chunks').onclick = (e) => { const c = e.target.closest('[data-k]'); if (c) pickChunk(Number(c.dataset.k)); };
 $('chunks').onkeydown = (e) => { const c = e.target.closest('[data-k]'); if (c && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); e.stopPropagation(); pickChunk(Number(c.dataset.k)); } };
