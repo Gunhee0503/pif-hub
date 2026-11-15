@@ -36,6 +36,8 @@ header .logo{font-weight:700;font-size:15px;white-space:nowrap;text-decoration:n
 .tabs{display:flex;gap:2px;overflow-x:auto}
 .tabs button{border:0;background:transparent;padding:7px 12px;border-radius:99px;font-weight:600;color:var(--ink2);white-space:nowrap;font-size:13.5px}
 .tabs button.on{background:var(--ink);color:#fff}
+.tabs a.ext{display:inline-flex;align-items:center;padding:7px 12px;border-radius:99px;font-weight:700;font-size:13.5px;white-space:nowrap;text-decoration:none;color:#7a2fa3;background:#f4ecfa;margin-left:4px}
+.tabs a.ext:hover{background:#ead9f6}
 .badge{display:inline-block;min-width:18px;padding:1px 6px;border-radius:99px;background:var(--bad);color:#fff;font-size:11px;margin-left:4px}
 header .me{margin-left:auto;font-size:12.5px;color:var(--ink2);text-align:right;white-space:nowrap}
 main{max-width:1280px;margin:0 auto;padding:22px 20px 60px}
@@ -163,6 +165,7 @@ td.num{font-variant-numeric:tabular-nums}
       <button data-t="media">영상·자료</button>
       <button data-t="words">단어·문법 분석</button>
       <button data-t="staff" id="tabStaff" hidden>선생님</button>
+      <a class="ext" href="https://pif-consultcard.vercel.app/" target="_blank" rel="noopener" title="PIF 상담카드 (새 창)">PIF 상담카드 ↗</a>
     </nav>
     <div class="me"><b id="meName"></b><br><span id="meRole"></span></div>
     <button class="btn sm sec" id="out">로그아웃</button>
