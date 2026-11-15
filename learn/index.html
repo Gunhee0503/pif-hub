@@ -329,9 +329,9 @@ $('logout').onclick = async () => { if (!confirm('로그아웃할까요? 학습 
   var box = document.getElementById('ytHome'), eps = document.getElementById('ytEps');
   document.getElementById('ytAll').href = Y.url;
   var yc = document.getElementById('ytCnt'); if (yc) yc.textContent = Y.EPS.length;
-  // 최신 편이 위로. 5편까지만 보이고 나머지는 '더보기'
-  var L = Y.EPS.slice().reverse(), SHOW = 5;
-  eps.innerHTML = L.map(function(e, i){ return '<button type="button" data-i="' + i + '"' + (i >= SHOW ? ' class="x"' : '') + '><img src="' + Y.thumb(e.id) + '" alt="" loading="lazy"><span><small>' + e.no + '</small>' + e.word + (i === 0 ? '<em>NEW</em>' : '') + '</span></button>'; }).join('');
+  // 001편부터 순서대로. 5편까지만 보이고 나머지는 '더보기' (가장 최근 편에 NEW)
+  var L = Y.EPS.slice(), SHOW = 5;
+  eps.innerHTML = L.map(function(e, i){ return '<button type="button" data-i="' + i + '"' + (i >= SHOW ? ' class="x"' : '') + '><img src="' + Y.thumb(e.id) + '" alt="" loading="lazy"><span><small>' + e.no + '</small>' + e.word + (i === L.length - 1 ? '<em>NEW</em>' : '') + '</span></button>'; }).join('');
   var items = eps.querySelectorAll('button[data-i]');
   function pick(i){ Y.mount(box, L[i]); [].forEach.call(items, function(b, k){ b.classList.toggle('on', k === i); }); }
   [].forEach.call(items, function(b){ b.onclick = function(){ pick(+b.dataset.i); }; });
