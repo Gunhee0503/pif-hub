@@ -204,6 +204,8 @@ async function loadAll(){
 /* ---------- 채점 도구 ---------- */
 const norm = t => String(t||'').toLowerCase().replace(/[’‘]/g,"'").replace(/[\s.,!?·~"“”…]/g,'');
 const origOf = (set, n) => (set.passage.find(p => p.n === n) || {}).t || '';
+// 대소문자만 다른 답은 같은 답: 밑줄이 대문자로 시작하면(문장 맨 앞) 학생 답의 첫 글자도 대문자로 맞춰서 AI에 보냄
+const caseLike = (a, orig) => /^[A-Z]/.test(orig) && /^[a-z]/.test(a) ? a[0].toUpperCase() + a.slice(1) : a;
 function fixVariants(k){ const out = new Set([norm(k.fix)]); const m = /→\s*([^.]+)\.?$/.exec(k.expl || ''); if (m) out.add(norm(m[1])); out.delete(''); return [...out]; }
 async function askAI(payload){
   if (AI_OFF) throw Object.assign(new Error('NO_KEY'), { code:'NO_KEY' });
@@ -380,11 +382,11 @@ async function grade(set, st){
         if (!a) row.comment = '고친 형태를 쓰지 않았어요.';
         else if (fixVariants(k).includes(norm(a))) { row.w = true; }
         else if (norm(a) === norm(origOf(set, k.n))) row.comment = '원래 밑줄과 같아요. 어디가 틀렸는지 다시 보세요.';
-        else { row.w = null; ask.push({ no: k.n, type: 'fix', answer: a }); }
+        else { row.w = null; ask.push({ no: k.n, type: 'fix', answer: caseLike(a, origOf(set, k.n)) }); }
       } else {
         if (!a) row.comment = '오답을 만들지 않았어요.';
         else if (norm(a) === norm(origOf(set, k.n))) row.comment = '원래 밑줄과 같아서 오답이 아니에요.';
-        else { row.w = null; ask.push({ no: k.n, type: 'wrong', answer: a }); }
+        else { row.w = null; ask.push({ no: k.n, type: 'wrong', answer: caseLike(a, origOf(set, k.n)) }); }
       }
     }
     res.rows.push(row);
