@@ -57,6 +57,13 @@ tr.cl{cursor:pointer}tr.cl:hover td{background:#f9f9fb}
 td.num{font-variant-numeric:tabular-nums}
 .pb{display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums}.pb i{display:block;width:56px;height:6px;background:#eee;border-radius:9px;overflow:hidden}.pb i u{display:block;height:100%;background:var(--c)}
 .lock{color:#c7c7cc;font-size:12px}
+.seg{display:inline-flex;background:#fff;border:1px solid #d2d2d7;border-radius:10px;padding:3px;gap:2px}.seg button{border:0;background:none;padding:6px 11px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--ink2);cursor:pointer}.seg button.on{background:#1d1d1f;color:#fff}
+.rk{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:7px;background:#f0f0f3;color:var(--ink2);font-size:11.5px;font-weight:700;margin-right:8px;font-variant-numeric:tabular-nums}
+tr.top td{background:#f1faf3}tr.top .rk{background:#1f9d55;color:#fff}
+tr.low td{background:#fdf1f1}tr.low .rk{background:#d64545;color:#fff}
+tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
+.warn{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 7px;border-radius:99px;color:#c62828;background:#fde3e3;margin-left:4px}
+.dg{display:flex;align-items:center;gap:7px;font-variant-numeric:tabular-nums}.dg i{display:block;width:44px;height:6px;background:#eee;border-radius:9px;overflow:hidden}.dg i u{display:block;height:100%;background:var(--c)}
 .muted{color:var(--ink3)}
 .empty{background:#fff;border-radius:16px;padding:40px;text-align:center;color:var(--ink2)}
 .ed{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:99px;color:#fff;background:var(--c)}
@@ -207,7 +214,7 @@ const gSetPts = (set, t) => { const r = t && t.res; if (!r || r.rows.some(x => x
 const SYN_READY = 8;   // 구문의 지도 현재 공개 유닛 수 (편별)
 let STAFF = null, STAFFS = [], IS_OWNER = false, TAB = 'report';
 const D = { classes:[], students:[], devices:[], prog:[], syn:[], ct:[], wmp:null, gram:null };
-const F = { cls: localStorage.getItem('pifhub_admin_cls') || 'all', q: '' };
+const F = { cls: localStorage.getItem('pifhub_admin_cls') || 'all', q: '', sort: localStorage.getItem('pifhub_admin_sort') || 'dil' };
 
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
 function toast(t){ const el=$('toast'); el.textContent=t; el.classList.add('on'); clearTimeout(toast._t); toast._t=setTimeout(()=>el.classList.remove('on'),2200); }
@@ -301,6 +308,7 @@ function summary(s){
   const gfin = rows.filter(r => r.course === 'grammar' && r.completed);
   const fbr = rows.filter(r => r.course === 'gfirst' && r.unit_id !== 'diag'), fbd = rows.find(r => r.course === 'gfirst' && r.unit_id === 'diag');
   const synDone = sy.filter(r => synUnit(r.data).done).length;
+  const pct = fin.concat(gfin).filter(r => r.score != null).map(r => Number(r.score) / Number(r.max_score || 100) * 100);
   const times = rows.map(r => r.updated_at).concat(sy.map(r => r.updated_at)).filter(Boolean).sort();
   return { s, cls: clsOf(s.class_code), fund: st('fundamental'), ess: st('essential'), spec: st('spectrum'),
     mDone: fin.length, mGo: rows.filter(r => r.course === 'matching' && !r.completed).length,
@@ -308,7 +316,28 @@ function summary(s){
     synDone, synGo: sy.length - synDone, last: times[times.length-1] || null,
     gDone: gfin.length, gGo: rows.filter(r => r.course === 'grammar' && !r.completed).length,
     gAvg: gfin.length ? Math.round(gfin.reduce((a,r)=>a+Number(r.score||0),0)/gfin.length) : null,
-    fbDone: fbr.filter(r => r.completed).length, fbGo: fbr.filter(r => !r.completed).length, fbDiag: fbd ? fbd.score : null };
+    fbDone: fbr.filter(r => r.completed).length, fbGo: fbr.filter(r => !r.completed).length, fbDiag: fbd ? fbd.score : null,
+    accN: pct.length, acc: pct.length ? Math.round(pct.reduce((a,v)=>a+v,0)/pct.length) : null };
+}
+/* 성실도 = 진도율 70% + 최근성 30%
+   진도율: 수강 코스별 (완료 + 진행 중×0.3) ÷ 공개 분량의 평균 → 듣는 코스 수가 달라도 공정
+   최근성: 오늘 학습 100% → 14일 지나면 0% (예전에 몰아서 하고 지금 쉬는 학생을 걸러냄) */
+const DIL_P = 0.7, DIL_R = 0.3, IDLE_DAYS = 7, ACC_MIN = 3;
+function diligence(x){
+  const cs = coursesOf(x.s), r = [], cap = v => Math.max(0, Math.min(1, v));
+  const lec = (st, m) => { const v = st ? Number(st.score||0) : 0, mx = st && st.max_score ? Number(st.max_score) : m; return mx ? v / mx : 0; };
+  const glv = x.cls.edition === 'compass' ? '기본' : '실력', gN = GR.filter(g => g.level === glv).length || GR.length;
+  if (cs.includes('fundamental')) r.push(lec(x.fund, 4));
+  if (cs.includes('essential'))   r.push(lec(x.ess, 5));
+  if (cs.includes('spectrum'))    r.push(lec(x.spec, 4));
+  if (cs.includes('matching'))    r.push((x.mDone + x.mGo*0.3) / 20);
+  if (cs.includes('syntax'))      r.push((x.synDone + x.synGo*0.3) / SYN_READY);
+  if (cs.includes('grammar') && gN) r.push((x.gDone + x.gGo*0.3) / gN);
+  if (cs.includes('gfirst') && FBU.length) r.push((x.fbDone + x.fbGo*0.3) / FBU.length);
+  const prog = r.length ? r.map(cap).reduce((a,v)=>a+v,0) / r.length : 0;
+  const days = x.last ? (Date.now() - new Date(x.last)) / 86400000 : Infinity;
+  const rec = cap(1 - days / 14);
+  return { dil: Math.round((DIL_P*prog + DIL_R*rec) * 100), prog: Math.round(prog*100), days };
 }
 function filtered(){
   const q = F.q.trim();
@@ -341,12 +370,25 @@ function renderReport(){
       <div class="kpi"><small>문법 STEP 완료</small><b>${S.reduce((a,x) => a + x.gDone, 0)}<i> 회</i></b></div>
       <div class="kpi"><small>그래머 첫단추 완료</small><b>${S.reduce((a,x) => a + x.fbDone, 0)}<i> 단원</i></b></div></div>`;
   if (!S.length) { $('body').innerHTML = h + '<div class="empty">조건에 맞는 학생이 없어요.</div>'; bindFilter(renderReport); bindReportBtns([]); return; }
-  S.sort((a,b) => (a.cls.code + a.s.name).localeCompare(b.cls.code + b.s.name));
-  h += `<div class="tw"><table><tr><th>이름</th><th>반</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
+  S.forEach(x => Object.assign(x, diligence(x)));
+  const byName = (a,b) => (a.cls.code + a.s.name).localeCompare(b.cls.code + b.s.name);
+  const one = F.cls !== 'all', mode = one ? F.sort : 'name';
+  const byDil = (a,b) => b.dil - a.dil || (b.last ? +new Date(b.last) : 0) - (a.last ? +new Date(a.last) : 0) || byName(a,b);
+  if (mode === 'dil') S.sort(byDil);
+  else if (mode === 'acc') S.sort((a,b) => { const ea = a.accN >= ACC_MIN, eb = b.accN >= ACC_MIN; return eb - ea || (ea ? b.acc - a.acc : 0) || byDil(a,b); });
+  else S.sort(byName);
+  const ranked = mode !== 'name', nR = mode === 'acc' ? S.filter(x => x.accN >= ACC_MIN).length : S.length;
+  S.forEach((x,i) => { x.rk = ranked && i < nR ? i + 1 : null; x.tone = !ranked ? '' : (x.rk && x.rk <= 3 && nR >= 4) ? 'top' : ((x.rk && nR >= 4 && x.rk > Math.max(3, nR - 3)) || (mode === 'dil' && x.days > IDLE_DAYS)) ? 'low' : ''; });
+  if (one) h = h.replace('<span class="sp"></span>', `<span class="seg" id="fSort">${[['dil','성실도순'],['acc','점수순'],['name','이름순']].map(([k,t]) => `<button data-k="${k}" class="${mode===k?'on':''}">${t}</button>`).join('')}</span><span class="sp"></span>`);
+  const dgc = v => v >= 70 ? '#1f9d55' : v >= 40 ? '#e0a100' : '#d64545';
+  h += `<div class="tw"><table><tr><th>이름</th><th>반</th><th title="진도율 70% + 최근 학습 30%">성실도</th><th title="Word Matching·문법 STEP 완료 회차의 평균 정답률">점수</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
   S.forEach(x => {
     const has = c => coursesOf(x.s).includes(c);
     const comp = x.cls.edition === 'compass';
-    h += `<tr class="cl" data-id="${x.s.id}"><td><b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span>${x.s.courses ? ' <span class="ed" style="--c:#86868b" title="이 학생만 따로 정한 수강 코스">개별</span>' : ''}</td><td class="muted">${esc(x.cls.name)}</td>
+    const idle = !x.last ? '<span class="warn">학습 기록 없음</span>' : x.days > IDLE_DAYS ? `<span class="warn">${Math.floor(x.days)}일째 미학습</span>` : '';
+    h += `<tr class="cl ${x.tone}" data-id="${x.s.id}"><td>${ranked ? `<span class="rk">${x.rk || '–'}</span>` : ''}<b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span>${x.s.courses ? ' <span class="ed" style="--c:#86868b" title="이 학생만 따로 정한 수강 코스">개별</span>' : ''}${idle}</td><td class="muted">${esc(x.cls.name)}</td>
+      <td><div class="dg" style="--c:${dgc(x.dil)}" title="진도율 ${x.prog}%"><i><u style="width:${x.dil}%"></u></i><b>${x.dil}</b></div></td>
+      <td class="num">${x.accN >= ACC_MIN ? `<b>${x.acc}</b><span class="muted">%</span>` : x.accN ? `<span class="muted" title="${ACC_MIN}회차 이상 완료하면 순위에 들어가요">${x.acc}% · 기록 부족</span>` : '<span class="muted">—</span>'}</td>
       <td>${has('fundamental') ? pbar(x.fund,4,'var(--fund)') : locked}</td>
       <td>${has('essential') ? pbar(x.ess,5,'var(--ess)') : locked}</td>
       <td>${has('spectrum') ? pbar(x.spec,4,'var(--spec)') : locked}</td>
@@ -356,16 +398,17 @@ function renderReport(){
       <td class="num">${has('gfirst') ? `<b>${x.fbDone}</b>/${FBU.length}${x.fbGo ? ` <span class="muted">· 진행 ${x.fbGo}</span>` : ''}${x.fbDiag != null ? ` <span class="muted">· 진단 ${x.fbDiag}</span>` : ''}` : locked}</td>
       <td class="muted">${ago(x.last)}</td></tr>`;
   });
-  $('body').innerHTML = h + `</table></div><div class="note">구문의 지도 B = BEACON(심화), C = COMPASS(기본). 숫자는 완료 유닛 / 현재 공개 유닛(${SYN_READY}). 학생을 누르면 코스별 상세 기록을 볼 수 있어요.</div>`;
+  $('body').innerHTML = h + `</table></div><div class="note">구문의 지도 B = BEACON(심화), C = COMPASS(기본). 숫자는 완료 유닛 / 현재 공개 유닛(${SYN_READY}). 학생을 누르면 코스별 상세 기록을 볼 수 있어요.<br>성실도 = 수강 코스 진도율 70% + 최근 학습 30%(오늘 100% → 14일 뒤 0%). 점수 = Word Matching·문법 STEP 완료 회차의 평균 정답률(${ACC_MIN}회차 이상부터 순위). 순위는 반을 하나 고르면 보이며, 관리자 화면에만 표시돼요.</div>`;
   bindFilter(renderReport); bindReportBtns(S);
+  document.querySelectorAll('#fSort button').forEach(b => b.onclick = () => { F.sort = b.dataset.k; localStorage.setItem('pifhub_admin_sort', F.sort); renderReport(); });
   document.querySelectorAll('tr.cl').forEach(r => r.onclick = () => openStudent(r.dataset.id));
 }
 function bindReportBtns(S){
   $('reload').onclick = load;
   $('csv').onclick = () => {
-    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','최근학습'];
+    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','성실도','진도율(%)','평균정답률(%)','최근학습'];
     const v = r => r ? Number(r.score||0) : 0;
-    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
+    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.dil ?? '', x.prog ?? '', x.acc ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
     const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv' }));
     a.download = `PIF_학습리포트_${new Date().toISOString().slice(0,10)}.csv`; a.click();
