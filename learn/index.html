@@ -75,10 +75,17 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .tag{position:absolute;top:20px;right:20px;font-size:11px;font-weight:700;color:var(--c);border:1px solid var(--c);border-radius:99px;padding:3px 9px}
 .ytcard{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;background:#fff;border-radius:22px;padding:18px;margin-bottom:42px;align-items:start}
 .ytbox{position:relative;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
-.ytside h3{font-size:20px;font-weight:730;letter-spacing:-.03em;line-height:1.25;margin:6px 0 12px}
-.eplist{display:flex;flex-direction:column;gap:4px;margin-bottom:12px}
-.eplist button{display:flex;align-items:center;gap:10px;border:0;background:transparent;border-radius:10px;padding:6px 8px;text-align:left;font:600 14px var(--sans);color:var(--ink);cursor:pointer}
-.eplist button img{width:64px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
+.ytside h3{font-size:20px;font-weight:730;letter-spacing:-.03em;line-height:1.25;margin:6px 0 8px}
+.eplist{display:flex;flex-direction:column;gap:1px;margin-bottom:8px}
+#ytEps button small{display:inline;font-size:11.5px;margin-right:7px}
+#ytEps button em{font-style:normal;font-size:10px;font-weight:800;color:#fff;background:#ff0033;border-radius:99px;padding:2px 6px;margin-left:7px;vertical-align:1px}
+.ytfoot{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ytfoot button{border:0;background:#f5f5f7;border-radius:99px;padding:7px 13px;font:600 13px var(--sans);color:#1d1d1f;cursor:pointer}
+.ytfoot button:hover{background:#ececf0}
+@media(min-width:701px){.ytside h3 br.m{display:none}}
+.eplist button.x{display:none}.eplist.open button.x{display:flex}
+.eplist button{display:flex;align-items:center;gap:10px;border:0;background:transparent;border-radius:10px;padding:5px 8px;text-align:left;font:600 14px var(--sans);color:var(--ink);cursor:pointer}
+.eplist button img{width:58px;aspect-ratio:16/9;object-fit:cover;border-radius:6px;flex:none}
 .eplist button small{display:block;font-size:11px;color:var(--ink2);font-weight:600}
 .eplist button.on{background:#f5f5f7}
 .gdesc{font-size:13.5px;line-height:1.6;color:#424245;margin:0 0 14px}
@@ -167,9 +174,9 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
   <div class="ytcard">
     <div class="ytbox" id="ytHome"></div>
     <div class="ytside"><div class="lv" style="color:#ff0033;font-size:11.5px;font-weight:700;letter-spacing:.1em">YOUTUBE · <span id="ytCnt">6</span>편</div>
-      <h3>한 단어, 여러 뜻을<br>하나의 그림으로</h3>
+      <h3>한 단어, 여러 뜻을<br class="m"> 하나의 그림으로</h3>
       <div class="eplist" id="ytEps"></div>
-      <a class="go" id="ytAll" target="_blank" rel="noopener">유튜브에서 전체 보기 ↗</a></div>
+      <div class="ytfoot"><button type="button" id="ytMore" hidden></button><a class="go" id="ytAll" target="_blank" rel="noopener">유튜브에서 전체 보기 ↗</a></div></div>
   </div>
 
   <div class="grp"><b>구문 · 구문의 지도</b><span>청크(Chunk) 덩어리가 보이면, 긴 문장도 한눈에 읽힙니다</span></div>
@@ -322,9 +329,15 @@ $('logout').onclick = async () => { if (!confirm('로그아웃할까요? 학습 
   var box = document.getElementById('ytHome'), eps = document.getElementById('ytEps');
   document.getElementById('ytAll').href = Y.url;
   var yc = document.getElementById('ytCnt'); if (yc) yc.textContent = Y.EPS.length;
-  eps.innerHTML = Y.EPS.map(function(e){ return '<button type="button"><img src="' + Y.thumb(e.id) + '" alt="" loading="lazy"><span><small>' + e.no + '</small>' + e.word + '</span></button>'; }).join('');
-  function pick(i){ Y.mount(box, Y.EPS[i]); [].forEach.call(eps.children, function(b, k){ b.classList.toggle('on', k === i); }); }
-  [].forEach.call(eps.children, function(b, i){ b.onclick = function(){ pick(i); }; });
+  // 최신 편이 위로. 5편까지만 보이고 나머지는 '더보기'
+  var L = Y.EPS.slice().reverse(), SHOW = 5;
+  eps.innerHTML = L.map(function(e, i){ return '<button type="button" data-i="' + i + '"' + (i >= SHOW ? ' class="x"' : '') + '><img src="' + Y.thumb(e.id) + '" alt="" loading="lazy"><span><small>' + e.no + '</small>' + e.word + (i === 0 ? '<em>NEW</em>' : '') + '</span></button>'; }).join('');
+  var items = eps.querySelectorAll('button[data-i]');
+  function pick(i){ Y.mount(box, L[i]); [].forEach.call(items, function(b, k){ b.classList.toggle('on', k === i); }); }
+  [].forEach.call(items, function(b){ b.onclick = function(){ pick(+b.dataset.i); }; });
+  var more = document.getElementById('ytMore');
+  if (L.length > SHOW) { more.hidden = false; more.textContent = '더보기 +' + (L.length - SHOW); }
+  more.onclick = function(){ var o = eps.classList.toggle('open'); more.textContent = o ? '접기' : '더보기 +' + (L.length - SHOW); };
   pick(0);
   var g = document.getElementById('ytGram'); if (g && Y.GRAMMAR) Y.mount(g, Y.GRAMMAR);
 })();
