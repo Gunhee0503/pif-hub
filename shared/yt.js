@@ -8,7 +8,8 @@
     { id: 'E848zLKzh-M', no: '002', word: 'Tribute' },
     { id: 'DdzGbd5pnzQ', no: '003', word: 'Subject' },
     { id: 'SK3z98TaDbQ', no: '004', word: 'Account' },
-    { id: 'nLFUQmmprpI', no: '005', word: 'Attend' }
+    { id: 'nLFUQmmprpI', no: '005', word: 'Attend' },
+    { id: 'N_XHwS1higU', no: '006', word: 'Term' }
   ];
   function thumb(id) { return 'https://i.ytimg.com/vi/' + id + '/hqdefault.jpg'; }
   function src(id, auto, list) { return 'https://www.youtube-nocookie.com/embed/' + id + '?rel=0&modestbranding=1&playsinline=1' + (auto ? '&autoplay=1' : '') + (list ? '&list=' + list : ''); }
