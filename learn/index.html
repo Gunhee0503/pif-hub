@@ -45,6 +45,14 @@ body{background:var(--paper);letter-spacing:-.01em;word-break:keep-all}
 h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-height:1.12;margin-bottom:8px}
 .sub{color:var(--ink2);font-size:16px;margin-bottom:38px}
 .echostrip{display:flex;align-items:center;gap:12px;min-height:56px;padding:8px 14px 8px 10px;margin:-22px 0 30px;border-radius:16px;background:#fff;text-decoration:none;color:var(--ink);box-shadow:var(--shadow);max-width:460px}
+.gcard{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border-radius:18px;padding:14px 16px;margin:0 0 30px;box-shadow:var(--shadow);border-left:5px solid #d2416b}
+.gcard .gt{flex:1;min-width:220px;display:flex;flex-direction:column;gap:3px}
+.gcard .gt b{font-size:16px;letter-spacing:-.02em}
+.gcard .gt small{font-size:12.5px;color:var(--ink2)}
+.gcard .gt u{text-decoration:none;color:#d2416b;font-weight:700}
+.gcard .gb{display:flex;gap:6px;flex-wrap:wrap}
+.gcard .gb button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:8px 12px;font:600 13px var(--sans);color:var(--ink);cursor:pointer}
+.gcard .gb button:first-child{background:#1d1d1f;color:#fff;border-color:#1d1d1f}
 .echostrip .et{flex:1;min-width:0;display:flex;flex-direction:column}
 .echostrip .et b{font:800 14px/1.2 'Bricolage Grotesque',var(--sans);letter-spacing:.04em}
 .echostrip .et small{font-size:12px;color:var(--ink2)}
@@ -147,6 +155,11 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
     <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
   </a>
 
+  <div class="gcard" id="ssGuide">
+    <div class="gt"><b>독해 과제 가이드</b><small>정답률이 아니라 <u>학습 과정</u>으로 검사해요 · A+ 받는 법</small></div>
+    <div class="gb"><button data-t="g">과제 검사 기준</button><button data-t="n">어휘 정리 노트 작성법</button><button data-t="r">교재 로드맵</button></div>
+  </div>
+
   <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
   <div class="grid" id="vocab"></div>
 
@@ -176,8 +189,10 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 <script src="/shared/supabase.js"></script>
 <script src="/shared/vt.js"></script>
 <script src="/shared/echo.js"></script>
+<script src="/shared/selfstudy.js"></script>
 <script>
 const $ = id => document.getElementById(id);
+document.querySelectorAll('#ssGuide [data-t]').forEach(b => b.onclick = () => PIFSS.modal(b.dataset.t));
 const VIEWS = ['boot','login','pending','home'];
 function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0); }
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }

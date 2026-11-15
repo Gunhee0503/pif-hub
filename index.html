@@ -315,6 +315,22 @@ br.mb{display:none}
 .fc h4{font-size:20px;font-weight:700;letter-spacing:-.03em;margin-bottom:8px}
 .fc p{font-size:15px;line-height:1.55;color:var(--ink2)}
 
+
+/* 자기주도 학습 */
+.ssblk{margin-top:96px}
+.ssh{text-align:center;margin-bottom:34px}
+.ssh .tag{font-size:15px;font-weight:600;color:var(--ink2)}
+.ssh h3{font-size:clamp(28px,3.4vw,42px);line-height:1.12;font-weight:730;letter-spacing:-.04em;margin:10px 0 14px}
+.ssh p{font-size:clamp(15px,1.3vw,18px);color:var(--ink2);line-height:1.55;max-width:620px;margin:0 auto}
+#ssGrades .ss-g{background:var(--bg2);box-shadow:none}
+#ssGrades .lead{display:none}
+.ssnote{margin-top:22px;background:var(--bg2);border-radius:24px;padding:0 22px}
+.ssnote summary{cursor:pointer;list-style:none;padding:20px 0;font-size:16px;font-weight:650;color:var(--link);text-align:center}
+.ssnote summary::-webkit-details-marker{display:none}
+.ssnote summary::after{content:" ›";display:inline-block;transition:transform .2s}
+.ssnote[open] summary::after{transform:rotate(90deg)}
+.ssnote>div{padding-bottom:24px}
+
 /* cta / footer */
 .final{text-align:center;padding:130px 0}
 .final h2{font-size:clamp(36px,5vw,64px);font-weight:750;letter-spacing:-.045em;line-height:1.06}
@@ -379,7 +395,7 @@ footer a{color:#424245}
 
 <nav class="nav"><div class="wrap">
   <a class="logo" href="/"><img src="img/pif_logo.png" alt="PIF"><span>Learning Hub</span></a>
-  <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#grammar">문법</a></li><li><a href="#method">학습 방법</a></li><li><a href="/admin/">선생님</a></li></ul>
+  <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#grammar">문법</a></li><li><a href="#selfstudy">자기주도 학습</a></li><li><a href="/admin/">선생님</a></li></ul>
   <a class="cta" href="/learn/">로그인</a>
   <a class="burger" href="/learn/" aria-label="로그인"></a>
 </div></nav>
@@ -499,8 +515,14 @@ footer a{color:#424245}
   </div>
 </div></section>
 
+<section class="gray" id="selfstudy"><div class="wrap">
+  <div class="sh"><div class="tag">자기주도 학습 · 교재 로드맵</div><h2>무엇으로 공부할지,<br class="mb"> 단계마다<br>정해져 있습니다.</h2>
+    <p>어휘는 Word Master, 독해는 리딩스마트 → Reading Path → 모의고사. 서점에서 구입하는 교재를 실력 단계에 맞춰 짝지었습니다.</p></div>
+  <div id="ssRoadmap"></div>
+</div></section>
+
 <section id="method"><div class="wrap">
-  <div class="sh"><div class="tag">학습 방법</div><h2>무작정 외우지 않습니다.<br>어휘 추리력으로<br class="mb"> 확장합니다.</h2><div class="mark">VOCATREE</div>
+  <div class="sh"><div class="tag">자기주도 학습 · 학습 방법</div><h2>무작정 외우지 않습니다.<br>어휘 추리력으로<br class="mb"> 확장합니다.</h2><div class="mark">VOCATREE</div>
     <p>모르는 단어를 만나는 순간, 그 단어는 이미 나에게 의미 있는 정보가 됩니다.</p></div>
   <div class="flow">
     <div class="fs"><div class="n">01</div><b>READ</b><span>독해 속에서<br>단어를 만납니다</span></div>
@@ -509,6 +531,13 @@ footer a{color:#424245}
     <div class="fs"><div class="n">04</div><b>MATCH</b><span>문맥과 문형에 맞는<br>정의를 고릅니다</span></div>
     <div class="fs"><div class="n">05</div><b>CONNECT</b><span>다양한 의미를<br>연결합니다</span></div>
     <div class="fs"><div class="n">06</div><b>UNDERSTAND</b><span>하나의 공통<br>이미지로 정리합니다</span></div>
+  </div>
+
+  <div class="ssblk">
+    <div class="ssh"><div class="tag">자기주도 학습 · 과제 검사</div><h3>정답률이 아니라,<br class="mb"> 공부한 과정을 봅니다.</h3>
+      <p>해설지와 비교했는지, 모르는 문장을 분석했는지, 단어를 지문의 뜻으로 정리했는지. 독해 과제는 이 기준으로 검사합니다.</p></div>
+    <div id="ssGrades"></div>
+    <details class="ssnote"><summary>어휘 정리 노트 작성법 · 실전 연습 보기</summary><div id="ssNote"></div></details>
   </div>
 </div></section>
 
@@ -583,6 +612,8 @@ footer a{color:#424245}
 })();
 </script>
 <script src="/shared/yt.js"></script>
+<script src="/shared/selfstudy.js"></script>
+<script>PIFSS.roadmap(document.getElementById('ssRoadmap'));PIFSS.grades(document.getElementById('ssGrades'));PIFSS.note(document.getElementById('ssNote'));</script>
 <script>
 (function(){
   var Y = window.PIFYT; if (!Y) return;
