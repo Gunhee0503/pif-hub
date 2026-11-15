@@ -95,7 +95,9 @@ details.tr .nt{font-size:11.5px;color:var(--ink2);padding:0 14px 10px}
 .row .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px}
 .row .u{font:600 16px/1.3 var(--disp)}
 .row .u .cn{font:700 15px/1 var(--sans);color:var(--acc);margin-right:4px}
+.row .ptx{margin-top:7px} .row .ptx .inp{width:100%}
 .row select{margin-left:auto;border:1px solid var(--line);border-radius:9px;padding:6px 8px;font-size:13px;background:#fff;max-width:52%}
+@media(max-width:560px){.row select{max-width:100%}}
 .ox{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
 .ox button{border:0;background:#fff;padding:7px 16px;font:700 15px/1 var(--sans);color:var(--ink2)}
 .ox button+button{border-left:1px solid var(--line)}
@@ -154,7 +156,10 @@ const POINTS = ['문장의 구조','주어의 이해','목적어와 보어','주
 const PTS = { s1: 5, ox: 2, w: 2 };                 // SET당 STEP1 5 + 밑줄 5개 × (O/X 2 + 고치기·오답 2) = 25점
 const LV = { '기본':'b', '실력':'s', '심화':'a', '실전':'p' };
 const LVINFO = { '기본': 'CEFR A2 · 기초 어법', '실력': 'CEFR B2 · 고등 내신·수능 어법' };
-let LVSEL = (() => { try { return localStorage.getItem('vtg_lv'); } catch(e){ return null; } })();
+// 구문 COMPASS(기본편) 반 → 기본, BEACON(심화편) 반 → 실력이 처음부터 열림. 반 정보가 없을 때(선생님)만 마지막 탭 기억
+const EDLV = { compass: '기본', beacon: '실력' };
+let LVSEL = null;
+function pickLevel(){ const m = VT.me && VT.me(), e = m && EDLV[m.edition]; if (e) return e; try { return localStorage.getItem('vtg_lv'); } catch(e){ return null; } }
 const $app = document.getElementById('app');
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pad = n => String(n).padStart(2,'0');
@@ -170,7 +175,7 @@ function toast(t){ const el = document.getElementById('toast'); el.textContent =
 function blank(){ return { sets:{}, si:0, startedAt:Date.now(), finishedAt:null, total:null, history:[], savedAt:0 }; }
 function rs(id){ return S[id] || (S[id] = blank()); }
 function ss(id, setno){ const x = rs(id); const set = RB[id].sets.find(s => s.set === setno);
-  return x.sets[setno] || (x.sets[setno] = { s1:null, rows: set.items.map(() => ({ pt:'', ox:'', a:'', why:'' })), graded:false }); }
+  return x.sets[setno] || (x.sets[setno] = { s1:null, rows: set.items.map(() => ({ pt:'', ptx:'', ox:'', a:'' })), graded:false }); }
 const pending = {};
 function persist(id){
   const x = rs(id); x.savedAt = Date.now();
@@ -229,8 +234,8 @@ function renderList(){
     <div class="intro"><h2>틀린 것을 찾는 데서 멈추지 않고,<br>옳은 것을 어떻게 틀리게<br class="mb"> 만들 수 있는지까지.</h2>
     ${videoBlock()}
     <div class="steps"><div><b>STEP 1 · 5점</b>지문의 밑줄 다섯 개 중 어법상 틀린 것 하나 고르기</div>
-    <div><b>STEP 2 · O/X 판단</b>밑줄마다 O/X 판단 (각 2점). 문법 포인트는 보기에서 고르되 점수 없음</div>
-    <div><b>X → 고치기 · O → 오답 만들기</b>X는 바르게 고쳐 쓰고, O는 출제자가 되어 그럴듯한 오답과 이유 한 줄 (각 2점)</div></div>
+    <div><b>STEP 2 · O/X 판단</b>밑줄마다 O/X 판단 (각 2점). 문법 포인트는 고르고 싶을 때만 (점수 없음)</div>
+    <div><b>X → 고치기 · O → 오답 만들기</b>X는 바르게 고쳐 쓰고, O는 출제자가 되어 그럴듯한 오답 만들기 (각 2점)</div></div>
     <p style="margin:12px 0 0;font-size:12.5px">SET 하나 25점 × 4 = 100점. 먼저 영어로 풀어 보고, 내용이 막힐 때만 해석을 펼쳐 보세요. 오답 만들기는 정해진 답이 없어서 AI 코치가 채점합니다.</p></div>`;
   const levels = [...new Set(ROUNDS.map(r => r.level))];
   if (!levels.includes(LVSEL)) LVSEL = levels[0];
@@ -297,7 +302,7 @@ function renderSet(){
   else if (st.judging) h += `<div class="fb ai"><span class="ld"></span>AI 코치가 고친 형태와 내가 만든 오답을 확인하고 있어요…</div>`;
   else {
     const pend = st.res.rows.filter(x => x.w == null).length;
-    if (pend) h += `<div class="fb info">${st.aiErr ? esc(st.aiErr) + '<br>' : ''}해설과 예시를 보고 <b>스스로 채점</b>해 주세요. (${pend}개 남음) 오답 만들기는 어법상 확실히 틀리고 이유가 맞으면 '맞음'이에요.</div>`;
+    if (pend) h += `<div class="fb info">${st.aiErr ? esc(st.aiErr) + '<br>' : ''}해설과 예시를 보고 <b>스스로 채점</b>해 주세요. (${pend}개 남음) 오답 만들기는 그 자리에 넣었을 때 어법상 확실히 틀린 문장이 되면 '맞음'이에요.</div>`;
     else {
       const p = setPts(set, st), r2 = st.res;
       const ox = r2.rows.filter(x => x.ox).length, w = r2.rows.filter(x => x.w).length;
@@ -313,11 +318,11 @@ function rowHtml(set, st, k, i, lock){
   const v = st.rows[i], orig = origOf(set, k.n);
   let h = `<div class="row" data-i="${i}"><div class="top"><span class="u"><span class="cn">${CIRC[k.n-1]}</span>${esc(orig)}</span>
     <span class="ox">${['O','X'].map(o => `<button data-ox="${o}" class="${v.ox === o ? 'on' : ''}" ${lock?'disabled':''}>${o}</button>`).join('')}</span>
-    <select data-pt ${lock?'disabled':''} aria-label="문법 포인트"><option value="">문법 포인트 (채점 제외)</option>${POINTS.map((p, j) => `<option value="${p}" ${v.pt === p ? 'selected' : ''}>${pad(j+1)} ${p}</option>`).join('')}</select></div>`;
+    <select data-pt ${lock?'disabled':''} aria-label="문법 포인트"><option value="">문법 포인트 (채점 제외, 선택)</option>${POINTS.map((p, j) => `<option value="${p}" ${v.pt === p ? 'selected' : ''}>${pad(j+1)} ${p}</option>`).join('')}<option value="기타" ${v.pt === '기타' ? 'selected' : ''}>기타 (직접 쓰기)</option></select></div>`;
+  if (v.pt === '기타') h += `<div class="ptx"><input class="inp" data-f="ptx" value="${esc(v.ptx || '')}" ${lock?'readonly':''} placeholder="문법 포인트를 짧게 써 보세요 (예: 분사의 수식)" maxlength="40" autocomplete="off"></div>`;
   if (v.ox === 'X') h += `<div class="fld2"><label>X → 바르게 고치기</label><input class="inp" data-f="a" value="${esc(v.a)}" ${lock?'readonly':''} placeholder="밑줄 부분을 고친 형태로 쓰세요" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`;
   else if (v.ox === 'O') h += `<div class="fld2"><label>O → 내가 만드는 오답</label>
-    <input class="inp" data-f="a" value="${esc(v.a)}" ${lock?'readonly':''} placeholder="출제자라면 이 자리를 어떻게 틀리게 만들까?" autocomplete="off" autocapitalize="off" spellcheck="false">
-    <input class="inp" data-f="why" value="${esc(v.why)}" ${lock?'readonly':''} placeholder="왜 틀린지 한 줄" autocomplete="off"></div>`;
+    <input class="inp" data-f="a" value="${esc(v.a)}" ${lock?'readonly':''} placeholder="출제자라면 이 자리를 어떻게 틀리게 만들까?" autocomplete="off" autocapitalize="off" spellcheck="false"></div>`;
   else if (!lock) h += `<div class="hint2">O 또는 X를 먼저 골라 주세요.</div>`;
   if (lock) {
     const r = st.res.rows[i];
@@ -327,7 +332,7 @@ function rowHtml(set, st, k, i, lock){
       if (r.w == null) h += `<div style="margin-top:5px"><span class="mk p">${wLabel}</span>스스로 채점 <span class="selfj" data-i="${i}"><button data-v="1">맞음</button><button data-v="0">틀림</button></span></div>`;
       else h += `<div style="margin-top:5px"><span class="mk ${r.w ? 'y' : 'n'}">${wLabel} ${r.w ? '○' : '✕'}</span>${r.by === 'ai' ? '<span style="color:#4b5f86;font-size:12px">AI 판정</span>' : r.by === 'self' ? '<span style="color:var(--ink2);font-size:12px">자기 채점</span>' : ''}${r.comment ? `<div class="ai">${esc(r.comment)}</div>` : ''}</div>`;
     }
-    h += `<div class="k" style="margin-top:7px"><b>문법 포인트</b> ${esc(k.point)}${v.pt ? ` <span style="font-size:12px">(내가 고른 것: ${esc(v.pt)})</span>` : ''}<br>${esc(k.expl)}<br>
+    h += `<div class="k" style="margin-top:7px"><b>문법 포인트</b> ${esc(k.point)}${v.pt ? ` <span style="font-size:12px">(내가 고른 것: ${esc(v.pt === '기타' ? '기타' + (v.ptx ? ' · ' + v.ptx : '') : v.pt)})</span>` : ''}<br>${esc(k.expl)}<br>
       ${k.ox === 'X' ? `<b>고친 형태</b> ${esc(k.fix)}` : `<b>오답 예시</b> ${esc(k.wrong_ex)}`}</div></div>`;
   }
   return h + '</div>';
@@ -339,9 +344,10 @@ function bindSet(set, st){
   $app.querySelectorAll('.ch button').forEach(b => b.onclick = () => { st.s1 = Number(b.dataset.n); persist(id); keep(); });
   $app.querySelectorAll('.row').forEach(row => {
     const i = Number(row.dataset.i), v = st.rows[i];
-    row.querySelectorAll('[data-ox]').forEach(b => b.onclick = () => { if (v.ox !== b.dataset.ox) { v.ox = b.dataset.ox; v.a = ''; v.why = ''; } persist(id); keep();
-      const f = $app.querySelector(`.row[data-i="${i}"] .inp`); if (f) f.focus({ preventScroll:true }); });
-    const sel = row.querySelector('select'); if (sel) sel.onchange = () => { v.pt = sel.value; persist(id); };
+    row.querySelectorAll('[data-ox]').forEach(b => b.onclick = () => { if (v.ox !== b.dataset.ox) { v.ox = b.dataset.ox; v.a = ''; } persist(id); keep();
+      const f = $app.querySelector(`.row[data-i="${i}"] .inp[data-f="a"]`); if (f) f.focus({ preventScroll:true }); });
+    const sel = row.querySelector('select'); if (sel) sel.onchange = () => { const was = v.pt; v.pt = sel.value; persist(id);
+      if ((was === '기타') !== (v.pt === '기타')) { keep(); if (v.pt === '기타') { const f = $app.querySelector(`.row[data-i="${i}"] [data-f="ptx"]`); if (f) f.focus({ preventScroll:true }); } } };
     row.querySelectorAll('.inp').forEach(inp => inp.oninput = () => { v[inp.dataset.f] = inp.value; persist(id); });
   });
   $app.querySelectorAll('.selfj').forEach(g => g.querySelectorAll('button').forEach(b => b.onclick = () => {
@@ -363,7 +369,7 @@ async function grade(set, st){
       : xs.indexOf(st.s1) < 0 ? `STEP 1에서 고른 ${CIRC[st.s1-1]}를 STEP 2에서는 O로 표시했어요.` : `STEP 2에서 X가 ${xs.length}개예요. 틀린 것은 하나뿐이에요.`;
     if (!confirm(msg + '\n그대로 채점할까요?')) return;
   }
-  const empty = st.rows.filter(v => !v.a.trim() || (v.ox === 'O' && !v.why.trim())).length;
+  const empty = st.rows.filter(v => !v.a.trim()).length;
   if (empty && !confirm(`비어 있는 칸이 ${empty}곳 있어요. 빈칸은 0점이에요. 채점할까요?`)) return;
   const res = { s1: st.s1 === set.answer, rows: [] }, ask = [];
   set.items.forEach((k, i) => {
@@ -378,8 +384,7 @@ async function grade(set, st){
       } else {
         if (!a) row.comment = '오답을 만들지 않았어요.';
         else if (norm(a) === norm(origOf(set, k.n))) row.comment = '원래 밑줄과 같아서 오답이 아니에요.';
-        else if (!v.why.trim()) row.comment = '왜 틀린지 한 줄을 써야 정답이에요.';
-        else { row.w = null; ask.push({ no: k.n, type: 'wrong', answer: a, why: v.why.trim() }); }
+        else { row.w = null; ask.push({ no: k.n, type: 'wrong', answer: a }); }
       }
     }
     res.rows.push(row);
@@ -431,6 +436,8 @@ function renderResult(id){
 /* ---------- 시작 ---------- */
 (async function(){
   $app.innerHTML = '<div class="hd"><div class="e">GRAMMAR STEP · 출제자의 시선</div><h1>문법 STEP 학습지</h1><div class="k">불러오는 중…</div></div>';
+  try { const m = VT.me(); if (m && !m.edition && VT.access) await Promise.race([VT.access(), new Promise(r => setTimeout(r, 2500))]); } catch(e){}
+  LVSEL = pickLevel();
   await loadAll();
   Object.values(S).forEach(x => x && Object.values(x.sets || {}).forEach(t => { t.judging = false; }));
   renderList();

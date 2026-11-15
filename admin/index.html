@@ -613,9 +613,9 @@ function gramDetail(r, g){
     set.items.forEach((k, i) => {
       const v = t.rows[i] || {}, rr = t.res.rows[i] || {}, orig = (set.passage.find(x => x.n === k.n) || {}).t || '';
       const mk = b => b ? '<span class="ok">○</span>' : b === false ? '<span class="bad">✕</span>' : '?';
-      h += `<div class="row"><div>${CIRC[k.n-1]} ${esc(orig)}</div><div>O/X ${mk(rr.ox)} ${esc(v.ox || '—')} <span class="muted">(정답 ${k.ox}${v.pt ? ' · 포인트: ' + esc(v.pt) : ''})</span>`;
+      h += `<div class="row"><div>${CIRC[k.n-1]} ${esc(orig)}</div><div>O/X ${mk(rr.ox)} ${esc(v.ox || '—')} <span class="muted">(정답 ${k.ox}${v.pt ? ' · 포인트: ' + esc(v.pt === '기타' && v.ptx ? '기타 · ' + v.ptx : v.pt) : ''})</span>`;
       if (v.ox === 'X') h += `<br>고치기 ${rr.ox ? mk(rr.w) : ''} ${esc(v.a || '빈칸')} <span class="muted">${k.ox === 'X' ? '(정답 ' + esc(k.fix) + ')' : ''}</span>`;
-      if (v.ox === 'O') h += `<br>오답 ${rr.ox ? mk(rr.w) : ''} <b>${esc(v.a || '빈칸')}</b> — ${esc(v.why || '이유 없음')}`;
+      if (v.ox === 'O') h += `<br>오답 ${rr.ox ? mk(rr.w) : ''} <b>${esc(v.a || '빈칸')}</b>${v.why ? ' — ' + esc(v.why) : ''}`;
       if (rr.by === 'ai' && rr.comment) h += `<div class="ai">AI: ${esc(rr.comment)}</div>`;
       else if (rr.by === 'self') h += ` <span class="muted">· 자기채점</span>`;
       h += `</div></div>`;
@@ -746,7 +746,7 @@ function buildFacts(s, rows, syn, ai, p){
       g.sets.forEach(set => { const t = (d.sets || {})[set.set]; if (!t || !t.res) return;
         set.items.forEach((k, i) => { const rr = t.res.rows[i] || {}, v = t.rows[i] || {};
           if (!rr.ox || rr.w === false) miss[k.point] = (miss[k.point] || 0) + 1;
-          if (v.ox === 'O' && rr.ox && v.a && made.length < 4) made.push({ 원래: (set.passage.find(x => x.n === k.n) || {}).t, 학생이만든오답: v.a, 이유: v.why, 판정: rr.w ? '정답' : rr.w === false ? '오답' : '미판정' }); }); }); });
+          if (v.ox === 'O' && rr.ox && v.a && made.length < 4) made.push({ 원래: (set.passage.find(x => x.n === k.n) || {}).t, 학생이만든오답: v.a, 판정: rr.w ? '정답' : rr.w === false ? '오답' : '미판정' }); }); }); });
     F.문법STEP = { 기간내_회차: out, 틀린_문법포인트: Object.entries(miss).sort((a,b) => b[1]-a[1]).map(([k,v]) => `${k}(${v})`), 학생이_만든_오답_예: made };
   }
   // 그래머 첫단추
