@@ -368,6 +368,19947 @@ window.GRAM = {
    ],
    "id": "기본-01",
    "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 2,
+   "sets": [
+    {
+     "set": 5,
+     "title": "녹음된 내 목소리가 낯선 이유",
+     "passage": [
+      {
+       "t": "When people hear their own voice on a phone, most of them find "
+      },
+      {
+       "t": "it",
+       "n": 1
+      },
+      {
+       "t": " strange. The reason is quite "
+      },
+      {
+       "t": "simple",
+       "n": 2
+      },
+      {
+       "t": ". When you speak, the sound goes to your ears through the air and also through the bones in your head. That is why your voice sounds lower to you. A recording does not have this second path, so you finally learn "
+      },
+      {
+       "t": "how do other people hear",
+       "n": 3
+      },
+      {
+       "t": " you. If you recorded your voice every day, you "
+      },
+      {
+       "t": "would stop",
+       "n": 4
+      },
+      {
+       "t": " hearing the difference. Actors hear their own voice "
+      },
+      {
+       "t": "played back",
+       "n": 5
+      },
+      {
+       "t": " many times, so they do not feel shy."
+      }
+     ],
+     "tr": [
+      "사람들이 전화기로 자기 목소리를 들으면, 대부분은 그것을 낯설다고 느낀다.",
+      "그 이유는 꽤 간단하다.",
+      "말을 할 때 소리는 공기를 통해서도, 머리뼈를 통해서도 귀에 전달된다.",
+      "그래서 자기에게는 목소리가 더 낮게 들린다.",
+      "녹음에는 이 두 번째 경로가 없어서, 비로소 다른 사람들이 나를 어떻게 듣는지 알게 된다.",
+      "만약 매일 목소리를 녹음한다면, 그 차이가 더 이상 들리지 않게 될 것이다.",
+      "배우들은 자기 목소리가 여러 번 재생되는 것을 듣기 때문에 부끄러워하지 않는다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "앞에 나온 their own voice를 받으므로 단수 대명사 it.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 2,
+       "point": "보어 자리 형용사",
+       "ox": "O",
+       "expl": "be동사의 보어 자리이므로 형용사 simple. surprisingly는 이를 수식하는 부사.",
+       "wrong_ex": "simply"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 어순",
+       "ox": "X",
+       "expl": "learn의 목적어인 명사절이므로 「의문사+주어+동사」 어순이어야한다.",
+       "fix": "how other people hear"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + 완료시제",
+       "ox": "O",
+       "expl": "If절이 recorded(과거)인 가정법 과거. 밑줄은 주절의 조동사 자리이므로 would+동사원형이 맞다.",
+       "wrong_ex": "would have stopped"
+      },
+      {
+       "n": 5,
+       "point": "목적격보어 (지각동사)",
+       "ox": "O",
+       "expl": "hear의 목적어 voice가 재생되는 대상이므로 과거분사 played back.",
+       "wrong_ex": "playing back"
+      }
+     ]
+    },
+    {
+     "set": 6,
+     "title": "습관은 우스울 만큼 작게 시작한다",
+     "passage": [
+      {
+       "t": "That",
+       "n": 1
+      },
+      {
+       "t": " is not easy to change a habit in one week. Doctors suggest "
+      },
+      {
+       "t": "starting",
+       "n": 2
+      },
+      {
+       "t": " with a step so small that it feels silly. If the new action "
+      },
+      {
+       "t": "takes",
+       "n": 3
+      },
+      {
+       "t": " less than two minutes, your brain does not fight it. The best way is to start small, to repeat often, and "
+      },
+      {
+       "t": "to forget",
+       "n": 4
+      },
+      {
+       "t": " about speed. A change that feels slow is usually "
+      },
+      {
+       "t": "stronger",
+       "n": 5
+      },
+      {
+       "t": " than a change that feels fast."
+      }
+     ],
+     "tr": [
+      "한 주 만에 습관을 바꾸기란 쉽지 않다.",
+      "의사들은 우스울 만큼 작은 단계에서 시작하라고 권한다.",
+      "새로운 행동이 2분도 걸리지 않으면, 뇌는 그것에 저항하지 않는다.",
+      "가장 좋은 방법은 작게 시작하고, 자주 반복하고, 속도는 잊는 것이다.",
+      "느리게 느껴지는 변화가 대개 빠르게 느껴지는 변화보다 더 강하다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "가주어 it",
+       "ox": "X",
+       "expl": "뒤의 to부정사구를 대신하는 가주어 자리이므로 That이 아니라 It을 쓴다.",
+       "fix": "It"
+      },
+      {
+       "n": 2,
+       "point": "동명사 (suggest)",
+       "ox": "O",
+       "expl": "suggest는 목적어로 동명사를 취하는 동사이다.",
+       "wrong_ex": "to start"
+      },
+      {
+       "n": 3,
+       "point": "시제 (조건 부사절)",
+       "ox": "O",
+       "expl": "조건을 나타내는 부사절에서는 미래 대신 현재시제를 쓴다.",
+       "wrong_ex": "will take"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "to start, to repeat, to forget이 and로 연결된 병렬.",
+       "wrong_ex": "forgetting"
+      },
+      {
+       "n": 5,
+       "point": "비교급",
+       "ox": "O",
+       "expl": "뒤의 than과 호응하는 비교급 stronger.",
+       "wrong_ex": "strongest"
+      }
+     ]
+    },
+    {
+     "set": 7,
+     "title": "재활용되지 않는 재활용 플라스틱",
+     "passage": [
+      {
+       "t": "Machines sort plastic "
+      },
+      {
+       "t": "surprisingly",
+       "n": 1
+      },
+      {
+       "t": " well when the bottles are clear. But colored plastic is much "
+      },
+      {
+       "t": "harder",
+       "n": 2
+      },
+      {
+       "t": " to clean, and mixed plastic is even worse. When many types are put together, the whole box "
+      },
+      {
+       "t": "must be burned",
+       "n": 3
+      },
+      {
+       "t": " or buried. Cities with high recycling numbers often "
+      },
+      {
+       "t": "sending",
+       "n": 4
+      },
+      {
+       "t": " their waste to other countries, where nobody counts "
+      },
+      {
+       "t": "it",
+       "n": 5
+      },
+      {
+       "t": ". The real lesson is that using less is better than sorting better."
+      }
+     ],
+     "tr": [
+      "기계는 병이 투명할 때는 놀라울 만큼 플라스틱을 잘 분류한다.",
+      "그러나 색이 있는 플라스틱은 씻기가 훨씬 더 어렵고, 섞인 플라스틱은 그보다 더 나쁘다.",
+      "여러 종류가 함께 담기면, 그 상자 전체를 태우거나 묻어야 한다.",
+      "재활용 수치가 높은 도시들은 흔히 쓰레기를 다른 나라로 보내는데, 그곳에서는 아무도 그것을 세지 않는다.",
+      "진짜 교훈은, 더 잘 분류하는 것보다 덜 쓰는 것이 낫다는 것이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사",
+       "ox": "O",
+       "expl": "부사 well을 앞에서 수식하므로 부사 surprisingly.",
+       "wrong_ex": "surprising"
+      },
+      {
+       "n": 2,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "much가 비교급 harder를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "hardest"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "box가 태워지는 대상이므로 조동사 뒤에 be p.p.",
+       "wrong_ex": "must burn"
+      },
+      {
+       "n": 4,
+       "point": "본동사",
+       "ox": "X",
+       "expl": "주어는 Cities이고 with 이하는 수식어. 문장의 본동사가 필요하므로 send.",
+       "fix": "send"
+      },
+      {
+       "n": 5,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "앞에 나온 their waste를 받으므로 단수 대명사 it.",
+       "wrong_ex": "them"
+      }
+     ]
+    },
+    {
+     "set": 8,
+     "title": "사라진 밤하늘",
+     "passage": [
+      {
+       "t": "A hundred years ago, the Milky Way "
+      },
+      {
+       "t": "could be seen",
+       "n": 1
+      },
+      {
+       "t": " from almost every village in Europe. Today, in big cities, "
+      },
+      {
+       "t": "rarely people see",
+       "n": 2
+      },
+      {
+       "t": " more than a few stars. In some towns, street lights are made "
+      },
+      {
+       "t": "to point",
+       "n": 3
+      },
+      {
+       "t": " down, and the sky gets darker at once. "
+      },
+      {
+       "t": "Although",
+       "n": 4
+      },
+      {
+       "t": " the lights are cheap, most cities have not changed them. Scientists keep "
+      },
+      {
+       "t": "saying",
+       "n": 5
+      },
+      {
+       "t": " that dark skies are worth saving."
+      }
+     ],
+     "tr": [
+      "백 년 전에는 유럽의 거의 모든 마을에서 은하수를 볼 수 있었다.",
+      "오늘날 큰 도시에서는 사람들이 별을 몇 개 넘게 보는 일이 드물다.",
+      "몇몇 마을에서는 가로등이 아래를 향하도록 만들어져 있고, 하늘이 곧바로 더 어두워진다.",
+      "그 조명이 저렴한데도 대부분의 도시는 그것을 바꾸지 않았다.",
+      "과학자들은 어두운 하늘도 지킬 가치가 있다고 계속 말한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "the Milky Way가 보이는 대상이므로 could be seen.",
+       "wrong_ex": "could see"
+      },
+      {
+       "n": 2,
+       "point": "부정어 도치",
+       "ox": "X",
+       "expl": "부정의 부사 rarely가 문두에 오면 주어와 동사를 도치한다.",
+       "fix": "rarely do people see"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (be made to)",
+       "ox": "O",
+       "expl": "be made to + 동사원형 구조.",
+       "wrong_ex": "pointing"
+      },
+      {
+       "n": 4,
+       "point": "접속사",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 Although. 전치사 Despite는 쓸 수 없다.",
+       "wrong_ex": "Despite"
+      },
+      {
+       "n": 5,
+       "point": "동명사 (keep)",
+       "ox": "O",
+       "expl": "keep은 목적어로 동명사를 취한다.",
+       "wrong_ex": "to say"
+      }
+     ]
+    }
+   ],
+   "id": "기본-02",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 3,
+   "sets": [
+    {
+     "set": 9,
+     "title": "사진을 찍으면 왜 덜 기억할까",
+     "passage": [
+      {
+       "t": "There is a reason "
+      },
+      {
+       "t": "why",
+       "n": 1
+      },
+      {
+       "t": " people who take many photos often remember the least. Taking a photo lets the brain "
+      },
+      {
+       "t": "treat",
+       "n": 2
+      },
+      {
+       "t": " the camera as a memory box. In one study, museum visitors took photos of half of the objects and only looked at the other half. The next day, the objects in the photos "
+      },
+      {
+       "t": "remembered",
+       "n": 3
+      },
+      {
+       "t": " much less well. The museum "
+      },
+      {
+       "t": "has since taken down",
+       "n": 4
+      },
+      {
+       "t": " its “no camera” signs, because it thinks visitors should choose. Still, the study shows that attention, not the camera, "
+      },
+      {
+       "t": "is",
+       "n": 5
+      },
+      {
+       "t": " what turns an event into a memory."
+      }
+     ],
+     "tr": [
+      "사진을 많이 찍는 사람이 오히려 가장 적게 기억하는 데에는 이유가 있다.",
+      "사진을 찍는 행위는 뇌가 카메라를 기억 상자로 취급하게 만든다.",
+      "한 연구에서 박물관 방문객들은 전시물의 절반은 사진으로 찍고 나머지 절반은 보기만 했다.",
+      "다음 날, 사진으로 찍은 전시물은 훨씬 덜 기억되었다.",
+      "그 박물관은 이후 '촬영 금지' 표지를 내렸는데, 관람객이 선택해야 한다고 보기 때문이다.",
+      "그럼에도 이 연구는 사건을 기억으로 바꾸는 것이 카메라가 아니라 주의력임을 보여 준다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 why",
+       "ox": "O",
+       "expl": "선행사가 a reason이고 뒤에 완전한 절이 오므로 관계부사 why.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "목적격보어 (사역동사 let)",
+       "ox": "O",
+       "expl": "let은 목적격보어로 원형부정사를 취한다.",
+       "wrong_ex": "to treat"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "objects가 기억되는 대상이므로 수동태여야 한다. remembered → were remembered.",
+       "fix": "were remembered"
+      },
+      {
+       "n": 4,
+       "point": "시제 (현재완료)",
+       "ox": "O",
+       "expl": "since와 함께 과거의 일이 현재까지 이어진 결과를 나타내므로 현재완료.",
+       "wrong_ex": "took down"
+      },
+      {
+       "n": 5,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "「A, not B」 구조에서는 A(attention)에 동사를 일치시키므로 is.",
+       "wrong_ex": "are"
+      }
+     ]
+    },
+    {
+     "set": 10,
+     "title": "손으로 쓰면 왜 더 남을까",
+     "passage": [
+      {
+       "t": "Writing by hand makes students "
+      },
+      {
+       "t": "to slow",
+       "n": 1
+      },
+      {
+       "t": " down, and that is the point. A keyboard lets them type almost every word, "
+      },
+      {
+       "t": "while",
+       "n": 2
+      },
+      {
+       "t": " a pen makes them choose. That choice is "
+      },
+      {
+       "t": "where",
+       "n": 3
+      },
+      {
+       "t": " the learning starts. Researchers found that typists wrote longer notes but "
+      },
+      {
+       "t": "remembered",
+       "n": 4
+      },
+      {
+       "t": " fewer ideas. If you want to remember a class, it may help "
+      },
+      {
+       "t": "to write",
+       "n": 5
+      },
+      {
+       "t": " less."
+      }
+     ],
+     "tr": [
+      "손으로 쓰는 것은 학생을 느려지게 만드는데, 바로 그 점이 핵심이다.",
+      "키보드는 거의 모든 말을 타자로 치게 해 주지만, 펜은 쓰는 사람이 선택하게 만든다.",
+      "바로 그 선택이 학습이 시작되는 지점이다.",
+      "연구자들은 타자를 친 사람들이 더 긴 필기를 했지만 더 적은 내용을 기억했다는 것을 발견했다.",
+      "수업을 기억하고 싶다면, 더 적게 쓰는 편이 도움이 될 수 있다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "목적격보어 (사역동사 make)",
+       "ox": "X",
+       "expl": "make는 목적격보어로 원형부정사를 취한다. to slow → slow.",
+       "fix": "slow"
+      },
+      {
+       "n": 2,
+       "point": "접속사",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 while. 전치사 during은 쓸 수 없다.",
+       "wrong_ex": "during"
+      },
+      {
+       "n": 3,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "「~하는 지점」을 뜻하며 뒤에 완전한 절이 오므로 관계부사 where.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "wrote와 remembered가 but으로 연결된 병렬.",
+       "wrong_ex": "remembering"
+      },
+      {
+       "n": 5,
+       "point": "부정사 (진주어)",
+       "ox": "O",
+       "expl": "it이 가주어이고 to write 이하가 진주어이다.",
+       "wrong_ex": "writing"
+      }
+     ]
+    },
+    {
+     "set": 11,
+     "title": "도시의 새가 더 크게 우는 이유",
+     "passage": [
+      {
+       "t": "City birds sing louder than country birds, and some even sing at night. Traffic noise covers the low sounds, "
+      },
+      {
+       "t": "forcing",
+       "n": 1
+      },
+      {
+       "t": " males to sing higher. Females in noisy places seem to like higher songs, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " shows that the change is not an accident. Scientists have spent years "
+      },
+      {
+       "t": "recording",
+       "n": 3
+      },
+      {
+       "t": " bird songs in more than twenty kinds of birds. In general, the busier a street is, "
+      },
+      {
+       "t": "the loudest",
+       "n": 4
+      },
+      {
+       "t": " its birds sound. Only when the traffic stops "
+      },
+      {
+       "t": "do the old songs come",
+       "n": 5
+      },
+      {
+       "t": " back."
+      }
+     ],
+     "tr": [
+      "도시의 새들은 시골 새들보다 더 크게 울고, 일부는 밤에도 운다.",
+      "교통 소음이 낮은 소리를 덮어 버려서, 수컷들이 더 높게 울게 만든다.",
+      "시끄러운 곳의 암컷들은 더 높은 노래를 좋아하는 것으로 보이는데, 이는 이 변화가 우연이 아님을 보여 준다.",
+      "과학자들은 스무 종이 넘는 새의 울음소리를 녹음하는 데 수년을 썼다.",
+      "대체로 거리가 붐빌수록 그곳의 새들은 더 크게 운다.",
+      "교통이 멈출 때에야 비로소 예전의 노래가 돌아온다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 males에게 영향을 주는 주체이므로 능동의 forcing.",
+       "wrong_ex": "forced"
+      },
+      {
+       "n": 2,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "동명사 (spend + 시간)",
+       "ox": "O",
+       "expl": "spend + 시간 + -ing 구조.",
+       "wrong_ex": "to record"
+      },
+      {
+       "n": 4,
+       "point": "the 비교급, the 비교급",
+       "ox": "X",
+       "expl": "「the 비교급 ~, the 비교급 ~」 구문이므로 최상급을 쓸 수 없다.",
+       "fix": "the louder"
+      },
+      {
+       "n": 5,
+       "point": "도치 (Only + 부사절)",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어·동사가 도치된다.",
+       "wrong_ex": "the old songs come"
+      }
+     ]
+    },
+    {
+     "set": 12,
+     "title": "공짜가 판단을 지우는 방식",
+     "passage": [
+      {
+       "t": "People act strangely when a price falls to zero. In one study, customers "
+      },
+      {
+       "t": "were offered",
+       "n": 1
+      },
+      {
+       "t": " two chocolates: a good one for fifteen cents and a simple one for one cent. Most people chose the good one. When both prices fell by one cent, "
+      },
+      {
+       "t": "making",
+       "n": 2
+      },
+      {
+       "t": " the simple chocolate free, the result changed completely. The word “free” seems to take away the moment "
+      },
+      {
+       "t": "when",
+       "n": 3
+      },
+      {
+       "t": " we compare value. Economists call this the zero-price effect, and it explains "
+      },
+      {
+       "t": "why so many people take",
+       "n": 4
+      },
+      {
+       "t": " things they do not need. In the end, shoppers often find "
+      },
+      {
+       "t": "them",
+       "n": 5
+      },
+      {
+       "t": " holding a free thing they never wanted."
+      }
+     ],
+     "tr": [
+      "가격이 0원이 되면 사람들은 이상하게 행동한다.",
+      "한 연구에서 고객들에게 두 종류의 초콜릿이 제시되었다. 좋은 것은 15센트, 평범한 것은 1센트였다.",
+      "대부분의 사람들은 좋은 것을 골랐다.",
+      "두 가격을 모두 1센트씩 내려 평범한 초콜릿을 공짜로 만들자, 결과가 완전히 달라졌다.",
+      "'공짜'라는 말은 우리가 가치를 비교하는 순간 자체를 없애 버리는 듯하다.",
+      "경제학자들은 이를 '0원 효과'라 부르며, 이것이 왜 그토록 많은 사람들이 필요 없는 물건을 가져가는지를 설명해 준다.",
+      "결국 소비자들은 원한 적도 없는 공짜 물건을 손에 든 자신을 발견하곤 한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "customers가 제안을 받는 대상이므로 were offered.",
+       "wrong_ex": "offered"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "가격 인하가 초콜릿을 공짜로 만드는 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      },
+      {
+       "n": 3,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 the moment이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "explains의 목적어인 명사절이므로 「의문사+주어+동사」 어순.",
+       "wrong_ex": "why do so many people take"
+      },
+      {
+       "n": 5,
+       "point": "재귀대명사",
+       "ox": "X",
+       "expl": "find의 목적어가 주어 shoppers와 같으므로 재귀대명사 themselves.",
+       "fix": "themselves"
+      }
+     ]
+    }
+   ],
+   "id": "기본-03",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 4,
+   "sets": [
+    {
+     "set": 13,
+     "title": "우연을 발견으로 바꾼 사람",
+     "passage": [
+      {
+       "t": "It was not skill but luck "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " brought Alexander Fleming to penicillin in 1928. When he came back from holiday, he noticed "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " a mould had killed the bacteria in one of his dishes. Most scientists then would have thrown the dish away, but he chose "
+      },
+      {
+       "t": "to look",
+       "n": 3
+      },
+      {
+       "t": " more closely. Not every accident "
+      },
+      {
+       "t": "becomes",
+       "n": 4
+      },
+      {
+       "t": " a discovery; the difference is who is watching. Fleming spent ten more years growing the mould, testing it, and "
+      },
+      {
+       "t": "telling",
+       "n": 5
+      },
+      {
+       "t": " others that it mattered."
+      }
+     ],
+     "tr": [
+      "1928년 알렉산더 플레밍을 페니실린으로 이끈 것은 실력이 아니라 운이었다.",
+      "휴가에서 돌아왔을 때 그는 곰팡이가 접시 하나에 있던 세균을 죽였다는 것을 알아차렸다.",
+      "당시 대부분의 과학자라면 그 접시를 버렸겠지만, 그는 더 자세히 들여다보기를 택했다.",
+      "모든 우연이 발견이 되는 것은 아니다. 차이는 누가 지켜보고 있느냐이다.",
+      "플레밍은 이후 10년을 곰팡이를 기르고, 시험하고, 그것이 중요하다고 다른 사람들에게 알리는 데 썼다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "not skill but luck을 강조하는 It ~ that 구문. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 that",
+       "ox": "X",
+       "expl": "noticed의 목적어로 완전한 절이 오므로 what이 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (choose)",
+       "ox": "O",
+       "expl": "choose는 목적어로 to부정사를 취한다.",
+       "wrong_ex": "looking"
+      },
+      {
+       "n": 4,
+       "point": "부분부정 · 수일치",
+       "ox": "O",
+       "expl": "Not every ~는 부분부정. every+단수명사는 단수 취급하므로 becomes.",
+       "wrong_ex": "become"
+      },
+      {
+       "n": 5,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "spend+시간+-ing 구조에서 growing, testing, telling이 병렬.",
+       "wrong_ex": "told"
+      }
+     ]
+    },
+    {
+     "set": 14,
+     "title": "산속의 종자 저장고",
+     "passage": [
+      {
+       "t": "Deep inside a mountain in Norway there is a room "
+      },
+      {
+       "t": "in which",
+       "n": 1
+      },
+      {
+       "t": " more than a million seed samples are kept. "
+      },
+      {
+       "t": "Built",
+       "n": 2
+      },
+      {
+       "t": " into frozen ground, the room stays cold even if the power stops. Whoever chose this place "
+      },
+      {
+       "t": "must think",
+       "n": 3
+      },
+      {
+       "t": " about ice ages, not just bad harvests. Countries may send "
+      },
+      {
+       "t": "whatever",
+       "n": 4
+      },
+      {
+       "t": " crops they want, and they still own them. On the shelves "
+      },
+      {
+       "t": "sit",
+       "n": 5
+      },
+      {
+       "t": " small black boxes from more than eighty countries."
+      }
+     ],
+     "tr": [
+      "노르웨이의 한 산 깊은 곳에 백만 점이 넘는 종자 표본이 보관된 방이 있다.",
+      "언 땅 속에 지어져 있어서, 전력이 끊겨도 그 방은 차갑게 유지된다.",
+      "이 장소를 고른 사람이 누구든, 그는 흉작만이 아니라 빙하기까지 생각했음이 틀림없다.",
+      "각국은 원하는 작물이면 무엇이든 보낼 수 있고, 소유권은 그대로 유지한다.",
+      "선반 위에는 여든 개가 넘는 나라에서 온 작고 검은 상자들이 놓여 있다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "are kept 뒤에 장소를 나타내는 전치사가 필요하므로 in which.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(수동)",
+       "ox": "O",
+       "expl": "the room이 지어지는 대상이므로 과거분사 Built. Being이 생략된형태.",
+       "wrong_ex": "Building"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + have p.p.",
+       "ox": "X",
+       "expl": "과거의 일에 대한 강한 추측이므로 must have thought로 써야 한다.",
+       "fix": "must have thought"
+      },
+      {
+       "n": 4,
+       "point": "복합관계사",
+       "ox": "O",
+       "expl": "send의 목적어 명사절을 이끌며 crops를 수식하므로 whatever.",
+       "wrong_ex": "whoever"
+      },
+      {
+       "n": 5,
+       "point": "수일치 (장소부사구도치)",
+       "ox": "O",
+       "expl": "On the shelves가 문두에 와 도치된 문장. 주어가 boxes(복수)이므로 sit.",
+       "wrong_ex": "sits"
+      }
+     ]
+    },
+    {
+     "set": 15,
+     "title": "가짜 약이 듣는 이유",
+     "passage": [
+      {
+       "t": "Patients often say they feel better "
+      },
+      {
+       "t": "as if they take",
+       "n": 1
+      },
+      {
+       "t": " a real drug, even when the pill has only sugar in it. Brain scans show that hope alone "
+      },
+      {
+       "t": "releases",
+       "n": 2
+      },
+      {
+       "t": " natural painkillers. Even a pill "
+      },
+      {
+       "t": "known",
+       "n": 3
+      },
+      {
+       "t": " to be fake can work, if the doctor explains why. Doctors "
+      },
+      {
+       "t": "whom",
+       "n": 4
+      },
+      {
+       "t": " patients trust get the best results, which shows that the relationship matters as much as the medicine. Rarely "
+      },
+      {
+       "t": "has a topic divided",
+       "n": 5
+      },
+      {
+       "t": " scientists so sharply."
+      }
+     ],
+     "tr": [
+      "환자들은 알약에 설탕밖에 들어 있지 않은데도, 마치 진짜 약을 먹은 것처럼 나아졌다고 말하곤 한다.",
+      "뇌 영상은 기대만으로도 천연 진통 물질이 분비된다는 것을 보여 준다.",
+      "가짜라고 알려진 알약조차 의사가 그 이유를 설명해 주면 효과를 낼 수 있다.",
+      "환자들이 신뢰하는 의사가 가장 좋은 결과를 얻는데, 이는 관계가 약만큼이나 중요함을 보여 준다.",
+      "이토록 과학자들을 첨예하게 갈라놓은 주제는 좀처럼 없었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "가정법 시제 (as if)",
+       "ox": "X",
+       "expl": "밑줄은 as if절의 동사 자리. 실제로는 먹지 않았으므로 가정법 과거완료 had taken.",
+       "fix": "as if they had taken"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 hope(단수)이고 alone은 강조어이므로 releases.",
+       "wrong_ex": "release"
+      },
+      {
+       "n": 3,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "a pill이 알려지는 대상이므로 과거분사 known.",
+       "wrong_ex": "knowing"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "trust의 목적어가 빠져 있으므로 목적격 whom.",
+       "wrong_ex": "whose"
+      },
+      {
+       "n": 5,
+       "point": "부정어 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Rarely가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a topic has divided"
+      }
+     ]
+    },
+    {
+     "set": 16,
+     "title": "수직 농장의 셈법",
+     "passage": [
+      {
+       "t": "A vertical farm can grow ten times "
+      },
+      {
+       "t": "as much",
+       "n": 1
+      },
+      {
+       "t": " lettuce in one square metre as an open field. Farmers put trays under LED lights "
+      },
+      {
+       "t": "so that",
+       "n": 2
+      },
+      {
+       "t": " every leaf gets the same amount of energy. The buildings "
+      },
+      {
+       "t": "are usually built",
+       "n": 3
+      },
+      {
+       "t": " near cities, where transport costs and waste both fall. Critics say that the method saves water, uses fewer pesticides, but "
+      },
+      {
+       "t": "needing",
+       "n": 4
+      },
+      {
+       "t": " a lot of electricity. For crops like wheat, the numbers are still "
+      },
+      {
+       "t": "too poor to be",
+       "n": 5
+      },
+      {
+       "t": " worth the money."
+      }
+     ],
+     "tr": [
+      "수직 농장은 1제곱미터에서 노지 밭보다 열 배 많은 상추를 기를 수 있다.",
+      "농부들은 모든 잎이 같은 양의 에너지를 받도록 LED 조명 아래에 트레이를 놓는다.",
+      "건물은 대개 도시 가까이에 지어지는데, 그곳에서는 운송비와 폐기물이 모두 줄어든다.",
+      "비판자들은 이 방식이 물을 아끼고 농약을 덜 쓰지만 전기를 많이 쓴다고 말한다.",
+      "밀 같은 작물에는 그 수치가 아직 그 비용만큼의 값어치를 하기에 너무 나쁘다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "배수 비교",
+       "ox": "O",
+       "expl": "「배수사 + as + 원급 + as」 구문. lettuce는 셀 수 없으므로 as much.",
+       "wrong_ex": "as many"
+      },
+      {
+       "n": 2,
+       "point": "접속사 so that",
+       "ox": "O",
+       "expl": "목적을 나타내는 절을 이끄는 so that. 뒤에 「주어+동사」가 온다.",
+       "wrong_ex": "so as"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "The buildings가 지어지는 대상이므로 are built.",
+       "wrong_ex": "build"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "X",
+       "expl": "saves, uses와 but으로 연결되는 자리이므로 needing → needs.",
+       "fix": "needs"
+      },
+      {
+       "n": 5,
+       "point": "부정사 (too ~ to)",
+       "ox": "O",
+       "expl": "「too + 형용사 + to부정사」로 '너무 ~해서 …할 수 없다'를 나타낸다.",
+       "wrong_ex": "so poor to be"
+      }
+     ]
+    }
+   ],
+   "id": "기본-04",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 5,
+   "sets": [
+    {
+     "set": 17,
+     "title": "빨리 말하는 언어는 정말 빠를까",
+     "passage": [
+      {
+       "t": "Some languages sound much faster than others, and listeners often find them "
+      },
+      {
+       "t": "confusing",
+       "n": 1
+      },
+      {
+       "t": ". Scientists counted the sounds "
+      },
+      {
+       "t": "spoken",
+       "n": 2
+      },
+      {
+       "t": " in one second in seven languages. Spanish and Japanese use many sounds, "
+      },
+      {
+       "t": "each carrying",
+       "n": 3
+      },
+      {
+       "t": " little meaning, while English puts more meaning into fewer sounds. The team found "
+      },
+      {
+       "t": "it",
+       "n": 4
+      },
+      {
+       "t": " surprising that all seven gave information at almost the same speed. In the end, speed is "
+      },
+      {
+       "t": "far less important as",
+       "n": 5
+      },
+      {
+       "t": " efficiency."
+      }
+     ],
+     "tr": [
+      "어떤 언어들은 다른 언어보다 훨씬 빠르게 들리고, 듣는 사람은 종종 그것을 혼란스럽다고 느낀다.",
+      "과학자들은 일곱 개 언어에서 1초 동안 발음되는 소리의 수를 세었다.",
+      "스페인어와 일본어는 많은 소리를 쓰는데, 각 소리가 담는 의미는 적다. 반면 영어는 더 적은 소리에 더 많은 의미를 담는다.",
+      "연구진이 놀랍다고 여긴 것은, 일곱 언어 모두가 거의 같은 속도로 정보를 전달했다는 점이었다.",
+      "결국 속도는 효율성보다 훨씬 덜 중요하다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "감정분사",
+       "ox": "O",
+       "expl": "them(languages)이 혼란을 주는 주체이므로 현재분사 confusing.",
+       "wrong_ex": "confused"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "the sounds가 말해지는 대상이므로 과거분사 spoken.",
+       "wrong_ex": "speaking"
+      },
+      {
+       "n": 3,
+       "point": "독립분사구문",
+       "ox": "O",
+       "expl": "분사의 의미상 주어 each를 앞에 밝힌 독립분사구문. 능동이므로 carrying.",
+       "wrong_ex": "each carried"
+      },
+      {
+       "n": 4,
+       "point": "가목적어 it",
+       "ox": "O",
+       "expl": "found의 진목적어는 that절이고 it은 가목적어이다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "비교급 + than",
+       "ox": "X",
+       "expl": "less important는 비교급이므로 as가 아니라 than과 호응한다.",
+       "fix": "far less important than"
+      }
+     ]
+    },
+    {
+     "set": 18,
+     "title": "이천 년을 버틴 로마 콘크리트",
+     "passage": [
+      {
+       "t": "Roman concrete has lasted two thousand years, "
+      },
+      {
+       "t": "while",
+       "n": 1
+      },
+      {
+       "t": " new concrete often breaks in fifty. Engineers "
+      },
+      {
+       "t": "used to think",
+       "n": 2
+      },
+      {
+       "t": " the secret was only volcanic ash. New studies show that sea water is also important. When small cracks open, minerals grow inside them, so the material is capable of "
+      },
+      {
+       "t": "repair",
+       "n": 3
+      },
+      {
+       "t": " itself. Not only "
+      },
+      {
+       "t": "did the Romans mix",
+       "n": 4
+      },
+      {
+       "t": " well, but they also chose their places with care. Scientists are now trying to copy it, "
+      },
+      {
+       "t": "hoping",
+       "n": 5
+      },
+      {
+       "t": " to cut the carbon cost of new buildings."
+      }
+     ],
+     "tr": [
+      "로마 콘크리트는 이천 년을 버텨 왔지만, 새 콘크리트는 흔히 오십 년이면 부서진다.",
+      "기술자들은 그 비결이 화산재뿐이라고 생각하곤 했다.",
+      "새로운 연구는 바닷물도 중요하다는 것을 보여 준다. 작은 균열이 생기면 그 안에서 광물이 자라기 때문에, 그 재료는 스스로를 고칠 수 있다.",
+      "로마인들은 배합만 잘한 것이 아니라, 터도 신중하게 골랐다.",
+      "과학자들은 이제 그것을 따라 하려 하고 있는데, 새 건물의 탄소 비용을 줄이기를 바라기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "접속사 while (대조)",
+       "ox": "O",
+       "expl": "두 절을 대조하는 접속사 while. 뒤에 「주어+동사」가 온다.",
+       "wrong_ex": "during"
+      },
+      {
+       "n": 2,
+       "point": "used to + 동사원형",
+       "ox": "O",
+       "expl": "과거의 습관이나 상태를 나타내는 used to. 뒤에는 동사원형이 온다.",
+       "wrong_ex": "were used to thinking"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "X",
+       "expl": "capable of의 of는 전치사이므로 뒤에 동명사가 와야 한다.",
+       "fix": "repairing"
+      },
+      {
+       "n": 4,
+       "point": "Not only 도치",
+       "ox": "O",
+       "expl": "Not only가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "the Romans mixed"
+      },
+      {
+       "n": 5,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "주어가 hope하는 주체이므로 능동의 현재분사 hoping.",
+       "wrong_ex": "hoped"
+      }
+     ]
+    },
+    {
+     "set": 19,
+     "title": "하품은 왜 옮을까",
+     "passage": [
+      {
+       "t": "Yawning is contagious, and "
+      },
+      {
+       "t": "so is",
+       "n": 1
+      },
+      {
+       "t": " laughing. Dogs catch yawns from their owners, and even fish appear "
+      },
+      {
+       "t": "to affect",
+       "n": 2
+      },
+      {
+       "t": ". The idea "
+      },
+      {
+       "t": "that",
+       "n": 3
+      },
+      {
+       "t": " this shows how much we care is now widely accepted, because it depends on how close you feel to the person. Children under four rarely yawn back, and neither "
+      },
+      {
+       "t": "do  children",
+       "n": 4
+      },
+      {
+       "t": " with certain conditions. Scientists still argue about "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the behaviour is for."
+      }
+     ],
+     "tr": [
+      "하품은 전염되며, 웃음도 그렇다.",
+      "개는 주인에게서 하품이 옮고, 물고기조차 영향을 받는 것으로 보인다.",
+      "이것이 우리가 얼마나 마음을 쓰는지를 보여 준다는 생각은 이제 널리 받아들여지는데, 그것이 상대와 얼마나 가깝게 느끼는지에 달려 있기 때",
+      "네 살 미만 아이들은 따라 하품하는 일이 드물고, 특정 질환이 있는 아이들도 마찬가지다.",
+      "과학자들은 이 행동이 무엇을 위한 것인지를 두고 아직도 논쟁한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "so 도치",
+       "ox": "O",
+       "expl": "앞 내용에 대해 '~도 그렇다'를 뜻하는 so + 동사 + 주어 도치.",
+       "wrong_ex": "so laughter is"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 수동태",
+       "ox": "X",
+       "expl": "fish는 영향을 받는 대상이므로 to be affected로 써야 한다.",
+       "fix": "to be affected"
+      },
+      {
+       "n": 3,
+       "point": "동격의 that",
+       "ox": "O",
+       "expl": "The idea의 내용을 설명하는 동격절을 이끄는 that.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "neither 도치",
+       "ox": "O",
+       "expl": "neither가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "neither children"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "전치사 about의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 20,
+     "title": "매장 음악이 지갑을 여는 법",
+     "passage": [
+      {
+       "t": "Play",
+       "n": 1
+      },
+      {
+       "t": " loud music in a shop changes what people buy. Shoppers walk faster, spend less time comparing, and "
+      },
+      {
+       "t": "end up choosing",
+       "n": 2
+      },
+      {
+       "t": " brands they know. Slow music has "
+      },
+      {
+       "t": "a far stronger",
+       "n": 3
+      },
+      {
+       "t": " effect on the total price, because people walk around and pick up more things. Managers who know this "
+      },
+      {
+       "t": "adjust",
+       "n": 4
+      },
+      {
+       "t": " the sound every hour. If the music gets faster in the evening, it is probably "
+      },
+      {
+       "t": "because",
+       "n": 5
+      },
+      {
+       "t": " the shop wants the room empty before it closes."
+      }
+     ],
+     "tr": [
+      "가게에서 시끄러운 음악을 트는 것은 사람들이 무엇을 사는지를 바꾼다.",
+      "쇼핑객은 더 빨리 걷고, 비교하는 데 시간을 덜 쓰며, 결국 아는 브랜드를 고르게 된다.",
+      "느린 음악은 총 금액에 훨씬 더 큰 영향을 미치는데, 사람들이 돌아다니며 물건을 더 집기 때문이다.",
+      "이를 아는 관리자들은 한 시간마다 음량을 조절한다.",
+      "저녁에 음악이 빨라진다면, 그것은 아마 가게가 문 닫기 전에 매장을 비우고 싶어서일 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어 자리 (동명사)",
+       "ox": "X",
+       "expl": "문장의 주어 자리이므로 동사원형이 아니라 동명사 Playing을 쓴다.",
+       "fix": "Playing"
+      },
+      {
+       "n": 2,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "move, spend, end up이 and로 연결된 병렬.",
+       "wrong_ex": "ending up"
+      },
+      {
+       "n": 3,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "far가 비교급 stronger를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "a very stronger"
+      },
+      {
+       "n": 4,
+       "point": "수일치 (관계사절 뒤본동사)",
+       "ox": "O",
+       "expl": "주어는 Managers(복수)이고 who절은 수식어이므로 adjust.",
+       "wrong_ex": "adjusts"
+      },
+      {
+       "n": 5,
+       "point": "because vs because of",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 because.",
+       "wrong_ex": "because of"
+      }
+     ]
+    }
+   ],
+   "id": "기본-05",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 6,
+   "sets": [
+    {
+     "set": 21,
+     "title": "냉장고가 바꾼 식탁",
+     "passage": [
+      {
+       "t": "Before fridges, most families ate "
+      },
+      {
+       "t": "what",
+       "n": 1
+      },
+      {
+       "t": " grew in each season. Salt, smoke, and sugar were the only ways "
+      },
+      {
+       "t": "to keep",
+       "n": 2
+      },
+      {
+       "t": " food safe in winter. The fridge changed not only what people ate "
+      },
+      {
+       "t": "but also",
+       "n": 3
+      },
+      {
+       "t": " cities, because fresh milk could finally travel far. Had electricity not spread so fast, the change "
+      },
+      {
+       "t": "would be",
+       "n": 4
+      },
+      {
+       "t": " much slower. Today, cooling uses a large part of home energy, "
+      },
+      {
+       "t": "which",
+       "n": 5
+      },
+      {
+       "t": " is why efficiency standards matter."
+      }
+     ],
+     "tr": [
+      "냉장고가 나오기 전에 대부분의 가정은 계절마다 나는 것을 먹었다.",
+      "소금, 훈연, 설탕이 겨울에 음식을 상하지 않게 지키는 유일한 방법이었다.",
+      "냉장고는 사람들이 먹는 것만이 아니라 도시까지 바꾸어 놓았는데, 신선한 우유가 비로소 멀리 갈 수 있었기 때문이다.",
+      "전기가 그렇게 빠르게 보급되지 않았더라면, 그 변화는 훨씬 더 느렸을 것이다.",
+      "오늘날 냉각은 가정 에너지의 큰 부분을 쓰는데, 이것이 바로 효율 기준이 중요한 이유다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "ate의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 2,
+       "point": "부정사 (형용사적 용법)",
+       "ox": "O",
+       "expl": "the only ways를 뒤에서 수식하는 to부정사.",
+       "wrong_ex": "keeping"
+      },
+      {
+       "n": 3,
+       "point": "not only A but also B",
+       "ox": "O",
+       "expl": "not only와 짝을 이루는 상관접속사 but also.",
+       "wrong_ex": "and also"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + 완료시제",
+       "ox": "X",
+       "expl": "If가 생략되어 도치된 가정법 과거완료. 밑줄은 주절의 조동사 자리이므로 would have been.",
+       "fix": "would have been"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 22,
+     "title": "에스컬레이터 한 줄 서기의 함정",
+     "passage": [
+      {
+       "t": "Standing on both sides of an escalator carries more people than "
+      },
+      {
+       "t": "to let",
+       "n": 1
+      },
+      {
+       "t": " one side walk. Tests in London showed a rise of almost thirty percent. But people did not like it, "
+      },
+      {
+       "t": "insisting",
+       "n": 2
+      },
+      {
+       "t": " that walking felt faster. What they counted was their own time, "
+      },
+      {
+       "t": "not the crowd's",
+       "n": 3
+      },
+      {
+       "t": ". The staff finally gave up, "
+      },
+      {
+       "t": "having failed",
+       "n": 4
+      },
+      {
+       "t": " to change the habit. Only after a second test "
+      },
+      {
+       "t": "did the numbers convince",
+       "n": 5
+      },
+      {
+       "t": " them."
+      }
+     ],
+     "tr": [
+      "에스컬레이터 양쪽에 모두 서는 것이 한쪽을 걷게 두는 것보다 더 많은 사람을 실어 나른다.",
+      "런던에서의 실험은 거의 30퍼센트의 증가를 보여 주었다.",
+      "그러나 사람들은 걷는 편이 더 빠르게 느껴진다고 주장하며 그것을 좋아하지 않았다.",
+      "그들이 센 것은 자기 자신의 시간이었지, 전체 인파의 시간이 아니었다.",
+      "직원들은 그 습관을 바꾸는 데 실패하고 결국 포기했다.",
+      "두 번째 실험을 하고 나서야 비로소 그 수치가 그들을 설득했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "병렬 구조 (비교 대상)",
+       "ox": "X",
+       "expl": "than 앞의 Standing과 형태를 맞추어야 하므로 동명사 letting.",
+       "fix": "letting"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "passengers가 주장하는 주체이므로 능동의 현재분사 insisting.",
+       "wrong_ex": "insisted"
+      },
+      {
+       "n": 3,
+       "point": "소유대명사",
+       "ox": "O",
+       "expl": "the crowd's time을 뜻하므로 소유격 뒤 명사를 생략한 the crowd's.",
+       "wrong_ex": "not the crowd"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "실패한 시점이 포기한 시점보다 앞서므로 having p.p.",
+       "wrong_ex": "failing"
+      },
+      {
+       "n": 5,
+       "point": "도치 (Only + 부사구)",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 주어·동사를 도치한다.",
+       "wrong_ex": "the numbers convinced"
+      }
+     ]
+    },
+    {
+     "set": 23,
+     "title": "고양이는 왜 상자에 들어갈까",
+     "passage": [
+      {
+       "t": "Cats push into boxes that look far "
+      },
+      {
+       "t": "too small",
+       "n": 1
+      },
+      {
+       "t": " for them. Animal shelter studies found that cats "
+      },
+      {
+       "t": "given",
+       "n": 2
+      },
+      {
+       "t": " a box got used to a new place faster than cats without one. A box lowers stress "
+      },
+      {
+       "t": "by removing",
+       "n": 3
+      },
+      {
+       "t": " choices: there is only one way in and one way out. Some scientists say that the walls are more important than the top, "
+      },
+      {
+       "t": "though",
+       "n": 4
+      },
+      {
+       "t": " there is little proof. Whatever the reason, a paper box costs almost nothing and "
+      },
+      {
+       "t": "making",
+       "n": 5
+      },
+      {
+       "t": " a nervous animal feel safe."
+      }
+     ],
+     "tr": [
+      "고양이는 자기에게 너무 작아 보이는 상자에도 몸을 밀어 넣는다.",
+      "동물 보호소 연구는 상자를 받은 고양이가 그렇지 않은 고양이보다 새 장소에 더 빨리 익숙해졌다는 것을 발견했다.",
+      "상자는 선택지를 없앰으로써 스트레스를 낮춘다. 들어가는 길도 나오는 길도 하나뿐이다.",
+      "일부 과학자는 증거가 거의 없기는 하지만 천장보다 벽이 더 중요하다고 말한다.",
+      "이유가 무엇이든, 종이 상자는 거의 돈이 들지 않으면서 불안한 동물을 안전하다고 느끼게 해 준다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사 far (강조)",
+       "ox": "O",
+       "expl": "far가 too small을 강조한다. very too는 쓸 수 없다.",
+       "wrong_ex": "very too small"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "cats가 상자를 받는 대상이므로 과거분사 given.",
+       "wrong_ex": "giving"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "by는 전치사이므로 뒤에 동명사 removing이 온다.",
+       "wrong_ex": "by remove"
+      },
+      {
+       "n": 4,
+       "point": "접속사 though",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 though. 전치사 despite는 쓸 수 없다.",
+       "wrong_ex": "despite"
+      },
+      {
+       "n": 5,
+       "point": "병렬 구조 (본동사)",
+       "ox": "X",
+       "expl": "costs와 and로 연결되는 본동사 자리이므로 makes.",
+       "fix": "makes"
+      }
+     ]
+    },
+    {
+     "set": 24,
+     "title": "벼락치기가 남지 않는 이유",
+     "passage": [
+      {
+       "t": "Students who study everything the night before remember "
+      },
+      {
+       "t": "less than those",
+       "n": 1
+      },
+      {
+       "t": " who study a little each day. The result is so clear "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " teachers now put it into their plans. Sleep seems to do the sorting, "
+      },
+      {
+       "t": "moving",
+       "n": 3
+      },
+      {
+       "t": " facts from short memory to long memory. It is not the total hours "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " count, but the breaks between them. Anyone "
+      },
+      {
+       "t": "who has studied",
+       "n": 5
+      },
+      {
+       "t": " all night for a test knows how fast it disappears."
+      }
+     ],
+     "tr": [
+      "전날 밤에 몰아서 공부하는 학생은 매일 조금씩 공부한 학생보다 더 적게 기억한다.",
+      "그 결과가 아주 분명해서 교사들은 이제 그것을 수업 계획에 넣는다.",
+      "잠이 그 정리 작업을 하는 것으로 보이는데, 사실들을 짧은 기억에서 긴 기억으로 옮긴다.",
+      "중요한 것은 총 시간이 아니라 그 사이의 휴식이다.",
+      "시험을 앞두고 밤새 공부해 본 사람이라면 그것이 얼마나 빨리 사라지는지 안다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "비교 대상인 students를 대신하는 those. 뒤에 who절의 수식을 받는다.",
+       "wrong_ex": "less than they"
+      },
+      {
+       "n": 2,
+       "point": "so ~ that 구문",
+       "ox": "X",
+       "expl": "「so + 형용사 + that + 절」 구문이므로 what이 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 3,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "Sleep이 옮기는 주체이므로 능동의 현재분사 moving.",
+       "wrong_ex": "moved"
+      },
+      {
+       "n": 4,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "not the total hours를 강조하는 It ~ that 구문.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 5,
+       "point": "주격 관계대명사 + 현재완료",
+       "ox": "O",
+       "expl": "선행사 Anyone이 study의 주체이므로 주격 who. 경험을 나타내는 현재완료.",
+       "wrong_ex": "whom has studied"
+      }
+     ]
+    }
+   ],
+   "id": "기본-06",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 7,
+   "sets": [
+    {
+     "set": 25,
+     "title": "웃음은 농담에 대한 반응이 아니다",
+     "passage": [
+      {
+       "t": "Most of the laughter we hear "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " not an answer to a joke. Listen to any group and you will hear people "
+      },
+      {
+       "t": "laughing",
+       "n": 2
+      },
+      {
+       "t": " while they talk, not after a funny line. One team recommends that fake laughter "
+      },
+      {
+       "t": "is removed",
+       "n": 3
+      },
+      {
+       "t": " from TV shows, because it adds nothing. Real laughter "
+      },
+      {
+       "t": "does spread",
+       "n": 4
+      },
+      {
+       "t": " through a room faster than words. "
+      },
+      {
+       "t": "However hard",
+       "n": 5
+      },
+      {
+       "t": " a comedian works, nothing brings laughs like other people."
+      }
+     ],
+     "tr": [
+      "우리가 듣는 웃음의 대부분은 농담에 대한 대답이 아니다.",
+      "어떤 무리든 귀 기울여 보면, 사람들이 웃긴 대사 뒤가 아니라 말하는 도중에 웃는 것을 듣게 된다.",
+      "한 연구팀은 TV 프로그램에서 가짜 웃음소리를 빼야 한다고 권고하는데, 보태는 바가 없기 때문이다.",
+      "진짜 웃음은 말보다 더 빠르게 방 안으로 번진다.",
+      "코미디언이 아무리 애를 써도, 다른 사람들만큼 웃음을 불러오는 것은 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "O",
+       "expl": "「Most of + 명사」는 뒤의 명사에 동사를 맞춘다. laughter는 불가산이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "지각동사 + 현재분사",
+       "ox": "O",
+       "expl": "hear의 목적어 people이 웃는 주체이고 진행 중이므로 현재분사 laughing.",
+       "wrong_ex": "laughed"
+      },
+      {
+       "n": 3,
+       "point": "제안 동사 + (should) 동사원형",
+       "ox": "X",
+       "expl": "recommend가 이끄는 that절은 「(should) + 동사원형」이므로 be removed.",
+       "fix": "be removed"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do",
+       "ox": "O",
+       "expl": "동사 spread를 강조하는 조동사 does. 주어가 laughter(단수)이므로 does.",
+       "wrong_ex": "do spread"
+      },
+      {
+       "n": 5,
+       "point": "복합관계부사 however",
+       "ox": "O",
+       "expl": "「However + 형용사/부사 + 주어 + 동사」로 양보를 나타낸다.",
+       "wrong_ex": "How hard"
+      }
+     ]
+    },
+    {
+     "set": 26,
+     "title": "주차장을 없앤 거리가 더 잘 팔린다",
+     "passage": [
+      {
+       "t": "When a city takes away parking spaces, shop owners get angry, "
+      },
+      {
+       "t": "with sales numbers often telling",
+       "n": 1
+      },
+      {
+       "t": " a different story later. It is hard "
+      },
+      {
+       "t": "for",
+       "n": 2
+      },
+      {
+       "t": " a small shop to imagine customers coming without a car. But after bike lanes open, the streets get "
+      },
+      {
+       "t": "busier and busier",
+       "n": 3
+      },
+      {
+       "t": ", and people spend more. The pattern is almost "
+      },
+      {
+       "t": "the same as",
+       "n": 4
+      },
+      {
+       "t": " the one seen in walking-only streets long ago. Either the shop owners or the city office "
+      },
+      {
+       "t": "are",
+       "n": 5
+      },
+      {
+       "t": " expected to pay for the change."
+      }
+     ],
+     "tr": [
+      "도시가 주차 공간을 없애면 상인들은 화를 내지만, 나중에 매출 수치는 다른 이야기를 들려주곤 한다.",
+      "작은 가게가 차 없이 오는 손님을 상상하기란 어렵다.",
+      "그러나 자전거 도로가 생긴 뒤 거리는 점점 더 붐비게 되고, 사람들은 돈을 더 쓴다.",
+      "이 양상은 오래전 보행자 전용 거리에서 나타난 것과 거의 같다.",
+      "상인들이든 시청이든 둘 중 한쪽이 그 변화의 비용을 부담하게 되어 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "with + 목적어 + 분사",
+       "ox": "O",
+       "expl": "「with + 목적어 + 분사」 부대상황. numbers가 말해 주는 주체이므로 telling.",
+       "wrong_ex": "with sales numbers often told"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 의미상 주어",
+       "ox": "O",
+       "expl": "「It is 형용사 for 목적격 to부정사」. hard는 사람의 성질을 나타내지 않으므로 for.",
+       "wrong_ex": "of"
+      },
+      {
+       "n": 3,
+       "point": "비교급 and 비교급",
+       "ox": "O",
+       "expl": "「비교급 + and + 비교급」으로 '점점 더 ~한'을 나타낸다.",
+       "wrong_ex": "busy and busier"
+      },
+      {
+       "n": 4,
+       "point": "the same as",
+       "ox": "O",
+       "expl": "「the same as ~」로 비교 대상을 이끈다.",
+       "wrong_ex": "the same with"
+      },
+      {
+       "n": 5,
+       "point": "상관접속사 수일치",
+       "ox": "X",
+       "expl": "「Either A or B」는 B에 동사를 맞춘다. the city office가 단수이므로 is expected.",
+       "fix": "is"
+      }
+     ]
+    },
+    {
+     "set": 27,
+     "title": "냄새가 기억을 여는 방식",
+     "passage": [
+      {
+       "t": "The way how",
+       "n": 1
+      },
+      {
+       "t": " a smell brings back a memory is not like other senses. Signals from the nose go straight to the memory area, "
+      },
+      {
+       "t": "without passing",
+       "n": 2
+      },
+      {
+       "t": " through the parts that handle language. Two people may smell the same flower and think of different places: one a hospital, "
+      },
+      {
+       "t": "the other",
+       "n": 3
+      },
+      {
+       "t": " a garden. Writers have used this for a hundred years, "
+      },
+      {
+       "t": "Proust being",
+       "n": 4
+      },
+      {
+       "t": " the most famous example. Hardly "
+      },
+      {
+       "t": "had he tasted",
+       "n": 5
+      },
+      {
+       "t": " the cake when his whole childhood came back."
+      }
+     ],
+     "tr": [
+      "냄새가 기억을 되살리는 방식은 다른 감각들과 같지 않다.",
+      "코에서 온 신호는 언어를 담당하는 부분을 거치지 않고 기억 영역으로 곧장 간다.",
+      "두 사람이 같은 꽃 냄새를 맡고도 서로 다른 장소를 떠올릴 수 있다. 한 사람은 병원을, 다른 한 사람은 정원을 떠올린다.",
+      "작가들은 백 년 동안 이것을 활용해 왔는데, 프루스트가 가장 유명한 예다.",
+      "그가 과자를 맛보자마자 어린 시절 전체가 되돌아왔다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 the way / how",
+       "ox": "X",
+       "expl": "the way와 how는 함께 쓰지 않는다. 둘 중 하나만 남긴다.",
+       "fix": "The way"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "전치사 without의 목적어 자리이므로 동명사 passing.",
+       "wrong_ex": "without pass"
+      },
+      {
+       "n": 3,
+       "point": "부정대명사 the other",
+       "ox": "O",
+       "expl": "둘 중 하나는 one, 나머지 하나는 the other.",
+       "wrong_ex": "another"
+      },
+      {
+       "n": 4,
+       "point": "독립분사구문",
+       "ox": "O",
+       "expl": "분사구문의 주어(Proust)가 주절 주어와 달라 앞에 남긴 형태.",
+       "wrong_ex": "Proust been"
+      },
+      {
+       "n": 5,
+       "point": "Hardly 도치",
+       "ox": "O",
+       "expl": "준부정어 Hardly가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "he had tasted"
+      }
+     ]
+    },
+    {
+     "set": 28,
+     "title": "시계를 버리기로 한 마을",
+     "passage": [
+      {
+       "t": "In one Norwegian island village, people once voted to help each other "
+      },
+      {
+       "t": "forget",
+       "n": 1
+      },
+      {
+       "t": " the clock. Sommarøy, "
+      },
+      {
+       "t": "whose",
+       "n": 2
+      },
+      {
+       "t": " sun never sets from May to July, said that fixed hours made little sense there. The story "
+      },
+      {
+       "t": "has spread",
+       "n": 3
+      },
+      {
+       "t": " around the world since the campaign started in 2019. The number of villagers who still like the idea "
+      },
+      {
+       "t": "have fallen",
+       "n": 4
+      },
+      {
+       "t": ", but the debate goes on. "
+      },
+      {
+       "t": "So strong was",
+       "n": 5
+      },
+      {
+       "t": " the habit of making plans that even the campaigners kept their watches."
+      }
+     ],
+     "tr": [
+      "노르웨이의 한 섬마을에서 사람들은 서로가 시계를 잊도록 돕자고 투표한 적이 있다.",
+      "5월부터 7월까지 해가 지지 않는 솜마뢰위는 그곳에서 정해진 시간이 별 의미가 없다고 말했다.",
+      "이 이야기는 2019년 캠페인이 시작된 이래 전 세계로 퍼졌다.",
+      "그 생각을 여전히 좋아하는 주민의 수는 줄었지만, 논쟁은 계속되고 있다.",
+      "계획을 세우는 습관이 워낙 강해서 캠페인을 벌인 사람들조차 손목시계를 계속 찼다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "help + 원형부정사",
+       "ox": "O",
+       "expl": "help는 목적격보어로 원형부정사 또는 to부정사를 취한다.",
+       "wrong_ex": "forgetting"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "Sommarøy와 sun이 소유 관계이므로 소유격 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 (since)",
+       "ox": "O",
+       "expl": "since가 이끄는 과거 시점부터 현재까지 이어지므로 현재완료.",
+       "wrong_ex": "spread"
+      },
+      {
+       "n": 4,
+       "point": "the number of + 복수명사",
+       "ox": "X",
+       "expl": "「The number of ~」는 '~의 수'로 단수 취급하므로 has fallen.",
+       "fix": "has fallen"
+      },
+      {
+       "n": 5,
+       "point": "보어 도치",
+       "ox": "O",
+       "expl": "보어 So strong이 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "The habit was so strong"
+      }
+     ]
+    }
+   ],
+   "id": "기본-07",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 8,
+   "sets": [
+    {
+     "set": 29,
+     "title": "문어는 몸으로 생각한다",
+     "passage": [
+      {
+       "t": "Each of the eight arms "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " its own group of nerves, so an octopus thinks with its whole body. In tanks, octopuses avoid "
+      },
+      {
+       "t": "to touch",
+       "n": 2
+      },
+      {
+       "t": " things that once gave them a small shock. They open a closed jar "
+      },
+      {
+       "t": "by pushing",
+       "n": 3
+      },
+      {
+       "t": " the lid with two arms and pulling with a third. What surprises scientists most "
+      },
+      {
+       "t": "is",
+       "n": 4
+      },
+      {
+       "t": " the speed of the learning. An octopus "
+      },
+      {
+       "t": "deprived",
+       "n": 5
+      },
+      {
+       "t": " of a favourite toy will make a new game in minutes."
+      }
+     ],
+     "tr": [
+      "여덟 개의 팔은 저마다 자기만의 신경 다발을 가지고 있어서, 문어는 온몸으로 생각한다.",
+      "수조 안에서 문어는 예전에 작은 충격을 준 적이 있는 물건을 만지기를 피한다.",
+      "문어는 두 팔로 뚜껑을 밀고 세 번째 팔로 당겨서 닫힌 병을 연다.",
+      "과학자들을 가장 놀라게 하는 것은 학습의 속도다.",
+      "가장 좋아하는 장난감을 빼앗긴 문어는 몇 분 안에 새로운 놀이를 만들어 낸다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "Each of + 단수동사",
+       "ox": "O",
+       "expl": "「Each of + 복수명사」는 단수 취급하므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "동명사를 목적어로 취하는 동사",
+       "ox": "X",
+       "expl": "avoid는 목적어로 동명사를 취하므로 touching.",
+       "fix": "touching"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "전치사 by의 목적어 자리이므로 동명사 pushing.",
+       "wrong_ex": "by push"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What surprises scientists most이므로 단수 취급.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 5,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "An octopus가 빼앗기는 대상이므로 과거분사 deprived.",
+       "wrong_ex": "depriving"
+      }
+     ]
+    },
+    {
+     "set": 30,
+     "title": "도시는 왜 더 더울까",
+     "passage": [
+      {
+       "t": "City centres can be "
+      },
+      {
+       "t": "as much as",
+       "n": 1
+      },
+      {
+       "t": " seven degrees warmer than the fields around them. Concrete and roads keep heat all day and let it out at night, "
+      },
+      {
+       "t": "when",
+       "n": 2
+      },
+      {
+       "t": " country soil has already cooled. By the time one team finished its study in Seoul, the gap "
+      },
+      {
+       "t": "widened",
+       "n": 3
+      },
+      {
+       "t": " to a record level. Trees help, but only if they "
+      },
+      {
+       "t": "are planted",
+       "n": 4
+      },
+      {
+       "t": " in wide bands, not in single lines. "
+      },
+      {
+       "t": "What",
+       "n": 5
+      },
+      {
+       "t": " matters most is not the number of parks but their shape."
+      }
+     ],
+     "tr": [
+      "도심은 주변 들판보다 최대 7도까지 더 따뜻할 수 있다.",
+      "콘크리트와 도로는 하루 종일 열을 품었다가 밤에 내보내는데, 그때 시골의 흙은 이미 식어 있다.",
+      "한 연구팀이 서울에서 조사를 마쳤을 무렵, 그 격차는 이미 최고 수준까지 벌어져 있었다.",
+      "나무가 도움이 되지만, 한 줄로가 아니라 넓은 띠 모양으로 심길 때에만 그렇다.",
+      "가장 중요한 것은 공원의 수가 아니라 그 형태다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "as much as",
+       "ox": "O",
+       "expl": "seven degrees는 정도를 나타내므로 as much as. 수를 셀 때만 as many as를 쓴다.",
+       "wrong_ex": "as many as"
+      },
+      {
+       "n": 2,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 at night이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "대과거",
+       "ox": "X",
+       "expl": "조사가 끝난 시점보다 격차가 벌어진 것이 앞서므로 과거완료 had widened.",
+       "fix": "had widened"
+      },
+      {
+       "n": 4,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "they(trees)가 심어지는 대상이므로 are planted.",
+       "wrong_ex": "plant"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "선행사를 포함하며 문장의 주어 자리에 오는 관계대명사 what.",
+       "wrong_ex": "That"
+      }
+     ]
+    },
+    {
+     "set": 31,
+     "title": "필사가 남긴 실수의 계보",
+     "passage": [
+      {
+       "t": "A writer "
+      },
+      {
+       "t": "made",
+       "n": 1
+      },
+      {
+       "t": " one small error passed it on to every later copy of the book. Because each copy "
+      },
+      {
+       "t": "was made",
+       "n": 2
+      },
+      {
+       "t": " by hand, scholars can now follow family trees of mistakes. Some errors are "
+      },
+      {
+       "t": "such special marks",
+       "n": 3
+      },
+      {
+       "t": " that they work like fingerprints. "
+      },
+      {
+       "t": "Having compared",
+       "n": 4
+      },
+      {
+       "t": " thousands of copies, editors can often name a lost original. It is this slow work "
+      },
+      {
+       "t": "that",
+       "n": 5
+      },
+      {
+       "t": " lies behind the clean books we read today."
+      }
+     ],
+     "tr": [
+      "작은 실수 하나를 저지른 필경사가 그 실수를 이후의 모든 사본에 넘겼다.",
+      "사본이 저마다 손으로 만들어졌기 때문에, 학자들은 이제 실수의 계보를 따라갈 수 있다.",
+      "어떤 오류는 워낙 특별한 표시여서 지문처럼 기능한다.",
+      "수천 권의 사본을 비교한 끝에, 편집자들은 사라진 원본을 짚어낼 수 있는 경우가 많다.",
+      "오늘날 우리가 읽는 깔끔한 책 뒤에 있는 것은 바로 이 더딘 작업이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "주격 관계대명사",
+       "ox": "X",
+       "expl": "A writer를 수식하는 절이 필요하므로 who made로 써야 한다. 그대로 두면 동사가 둘이 된다.",
+       "fix": "who made"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "each copy가 만들어지는 대상이므로 was made.",
+       "wrong_ex": "made"
+      },
+      {
+       "n": 3,
+       "point": "such + 명사 + that",
+       "ox": "O",
+       "expl": "뒤에 「형용사+명사」가 오므로 so가 아니라 such.",
+       "wrong_ex": "so special marks"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "비교한 것이 주절보다 앞서므로 「Having + p.p.」.",
+       "wrong_ex": "Compared"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "this slow work를 강조하는 It ~ that 구문.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 32,
+     "title": "소음 속에서도 이름은 들린다",
+     "passage": [
+      {
+       "t": "At a noisy party you can "
+      },
+      {
+       "t": "hardly",
+       "n": 1
+      },
+      {
+       "t": " hear yourself think, but your own name still cuts through the noise. The brain filters sound "
+      },
+      {
+       "t": "in a way that",
+       "n": 2
+      },
+      {
+       "t": " no machine has matched yet. Deep in the brain "
+      },
+      {
+       "t": "lies",
+       "n": 3
+      },
+      {
+       "t": " a system that follows several voices at once. Even half asleep, you can have your name "
+      },
+      {
+       "t": "hear",
+       "n": 4
+      },
+      {
+       "t": " across a room. This is "
+      },
+      {
+       "t": "why",
+       "n": 5
+      },
+      {
+       "t": " hospital workers use first names when a patient stops answering."
+      }
+     ],
+     "tr": [
+      "시끄러운 파티에서는 자기 생각조차 거의 들리지 않지만, 자기 이름만은 소음을 뚫고 들어온다.",
+      "뇌는 어떤 기계도 아직 따라잡지 못한 방식으로 소리를 걸러 낸다.",
+      "뇌 깊은 곳에는 여러 목소리를 동시에 따라가는 체계가 있다.",
+      "반쯤 잠든 상태에서도 방 건너편에서 자기 이름이 불리는 것을 들을 수 있다.",
+      "환자가 대답을 멈췄을 때 병원 직원들이 이름을 부르는 것은 이 때문이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "준부정어 hardly",
+       "ox": "O",
+       "expl": "'거의 ~않다'는 hardly. hard는 '열심히'라는 뜻이라 문맥에 맞지 않는다.",
+       "wrong_ex": "hard"
+      },
+      {
+       "n": 2,
+       "point": "the way + that",
+       "ox": "O",
+       "expl": "「in a way that ~」 구조. the way와 how는 함께 쓰지 않는다.",
+       "wrong_ex": "in a way how"
+      },
+      {
+       "n": 3,
+       "point": "장소부사구 도치",
+       "ox": "O",
+       "expl": "장소를 나타내는 부사구가 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "a system lies"
+      },
+      {
+       "n": 4,
+       "point": "사역동사 have + p.p.",
+       "ox": "X",
+       "expl": "목적어 your name이 들리는 대상이므로 과거분사 heard.",
+       "fix": "heard"
+      },
+      {
+       "n": 5,
+       "point": "관계부사 why",
+       "ox": "O",
+       "expl": "이유를 나타내는 선행사가 생략된 관계부사 why.",
+       "wrong_ex": "because"
+      }
+     ]
+    }
+   ],
+   "id": "기본-08",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 9,
+   "sets": [
+    {
+     "set": 33,
+     "title": "종이로 읽을 때 더 잘 남는 이유",
+     "passage": [
+      {
+       "t": "Readers often find paper "
+      },
+      {
+       "t": "easier",
+       "n": 1
+      },
+      {
+       "t": " than a screen, and the reason is not just habit. "
+      },
+      {
+       "t": "There are",
+       "n": 2
+      },
+      {
+       "t": " several studies showing that the hand remembers where the words sat on the page. On a screen the text keeps moving, so the brain forgets "
+      },
+      {
+       "t": "where to look",
+       "n": 3
+      },
+      {
+       "t": ". Students "
+      },
+      {
+       "t": "are used to scrolling",
+       "n": 4
+      },
+      {
+       "t": ", but they still get lower scores on detail questions. If you compare a paper book with a digital "
+      },
+      {
+       "t": "it",
+       "n": 5
+      },
+      {
+       "t": ", the gap shows up only in long texts."
+      }
+     ],
+     "tr": [
+      "독자들은 종이가 화면보다 더 쉽다고 느끼는 경우가 많은데, 그 이유는 단지 습관 때문이 아니다.",
+      "단어들이 페이지의 어디에 있었는지를 손이 기억한다는 것을 보여 주는 연구가 여럿 있다.",
+      "화면에서는 글이 계속 움직이기 때문에, 뇌는 어디를 봐야 할지 잊어버린다.",
+      "학생들은 스크롤에 익숙하지만, 세부 내용을 묻는 문제에서는 여전히 더 낮은 점수를 받는다.",
+      "종이책과 디지털 책을 비교해 보면, 그 차이는 긴 글에서만 드러난다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "목적격보어 (find + 형용사)",
+       "ox": "O",
+       "expl": "find의 목적격보어 자리이므로 형용사 easier. 부사는 올 수 없다.",
+       "wrong_ex": "more easily"
+      },
+      {
+       "n": 2,
+       "point": "There + be 수일치",
+       "ox": "O",
+       "expl": "뒤의 주어가 several studies(복수)이므로 There are.",
+       "wrong_ex": "There is"
+      },
+      {
+       "n": 3,
+       "point": "의문사 + to부정사",
+       "ox": "O",
+       "expl": "전치사 of의 목적어로 쓰인 「의문사 + to부정사」.",
+       "wrong_ex": "where to looking"
+      },
+      {
+       "n": 4,
+       "point": "be used to + 동명사",
+       "ox": "O",
+       "expl": "'~에 익숙하다'는 be used to + 동명사. used to + 동사원형과 구별한다.",
+       "wrong_ex": "are used to scroll"
+      },
+      {
+       "n": 5,
+       "point": "부정대명사 one",
+       "ox": "X",
+       "expl": "앞에 나온 book과 같은 종류의 다른 것을 가리키므로 it이 아니라 one.",
+       "fix": "one"
+      }
+     ]
+    },
+    {
+     "set": 34,
+     "title": "꿀벌은 어둠 속에서 방향을 말한다",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "Strange as it sounds",
+       "n": 1
+      },
+      {
+       "t": ", a bee can tell the hive where flowers are by dancing in the dark. Scientists argued "
+      },
+      {
+       "t": "that",
+       "n": 2
+      },
+      {
+       "t": " the dance really carried information for almost forty years. "
+      },
+      {
+       "t": "Whoever",
+       "n": 3
+      },
+      {
+       "t": " watches a hive closely will see that the angle of the dance matches the angle of the sun. The dance gets "
+      },
+      {
+       "t": "even",
+       "n": 4
+      },
+      {
+       "t": " shorter when the food is near. Karl von Frisch, "
+      },
+      {
+       "t": "who",
+       "n": 5
+      },
+      {
+       "t": " won a Nobel Prize for this, spent many years marking single bees."
+      }
+     ],
+     "tr": [
+      "이상하게 들리겠지만, 꿀벌은 완전한 어둠 속에서 춤을 추어 벌집에 꽃이 어디 있는지 알려 줄 수 있다.",
+      "과학자들은 그 춤이 정말로 정보를 담고 있는지를 거의 40년 동안 다투었다.",
+      "벌집을 자세히 지켜보는 사람이라면 누구나 춤의 각도가 태양의 각도와 일치하는 것을 보게 될 것이다.",
+      "먹이가 가까이 있을 때 춤은 더욱 짧아진다.",
+      "이 일로 노벨상을 받은 카를 폰 프리슈는 벌 한 마리 한 마리에 표시를 하며 여러 해를 보냈다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "양보 도치 (형용사 + as)",
+       "ox": "O",
+       "expl": "「형용사 + as + 주어 + 동사」로 '비록 ~이지만'을 나타낸다.",
+       "wrong_ex": "Strange as it sounds it"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 whether",
+       "ox": "X",
+       "expl": "'~인지 아닌지'의 뜻으로 논쟁의 대상을 나타내므로 whether.",
+       "fix": "whether"
+      },
+      {
+       "n": 3,
+       "point": "복합관계대명사 whoever",
+       "ox": "O",
+       "expl": "'~하는 사람은 누구나'의 뜻으로 명사절을 이끄는 whoever.",
+       "wrong_ex": "Whomever"
+      },
+      {
+       "n": 4,
+       "point": "비교급 강조 even",
+       "ox": "O",
+       "expl": "even이 비교급 shorter를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "very"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "사람 선행사를 콤마 뒤에서 받는 who. that은 계속적 용법에 쓸 수없다.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 35,
+     "title": "안개에서 물을 걷어 올리는 마을",
+     "passage": [
+      {
+       "t": "Villages with "
+      },
+      {
+       "t": "little",
+       "n": 1
+      },
+      {
+       "t": " rain have few choices once the wells go dry. In Morocco and Chile, large nets "
+      },
+      {
+       "t": "are being tested",
+       "n": 2
+      },
+      {
+       "t": " on hills where fog comes in from the sea. The results were "
+      },
+      {
+       "t": "surprised",
+       "n": 3
+      },
+      {
+       "t": " even to the engineers who built them. One net can collect hundreds of litres a day. The system needs only "
+      },
+      {
+       "t": "such simple tools as",
+       "n": 4
+      },
+      {
+       "t": " nets, pipes, and gravity. "
+      },
+      {
+       "t": "No sooner had",
+       "n": 5
+      },
+      {
+       "t": " the sun risen than the water stopped."
+      }
+     ],
+     "tr": [
+      "비가 거의 오지 않는 마을은 우물이 마르고 나면 선택할 것이 거의 없다.",
+      "모로코와 칠레에서는 바다에서 안개가 밀려오는 언덕에 커다란 그물이 시험 설치되고 있다.",
+      "그 결과는 그물을 만든 기술자들에게조차 놀라웠다. 그물 하나가 하루에 수백 리터를 모을 수 있었다.",
+      "이 방식에 필요한 것은 그물, 관, 중력 같은 단순한 도구뿐이다.",
+      "해가 뜨자마자 물은 멈추었다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "수량형용사 little",
+       "ox": "O",
+       "expl": "rainfall은 불가산명사이므로 little. few는 가산명사에 쓴다.",
+       "wrong_ex": "few"
+      },
+      {
+       "n": 2,
+       "point": "진행형 수동태",
+       "ox": "O",
+       "expl": "nets가 시험받는 대상이고 진행 중이므로 are being tested.",
+       "wrong_ex": "are testing"
+      },
+      {
+       "n": 3,
+       "point": "감정분사",
+       "ox": "X",
+       "expl": "결과가 놀라움을 주는 주체이므로 현재분사 surprising.",
+       "fix": "surprising"
+      },
+      {
+       "n": 4,
+       "point": "as 관계대명사 (such ~ as)",
+       "ox": "O",
+       "expl": "「such + 명사 + as」로 예시를 이끈다.",
+       "wrong_ex": "such simple tools that"
+      },
+      {
+       "n": 5,
+       "point": "No sooner 도치",
+       "ox": "O",
+       "expl": "No sooner가 문두에 오면 조동사와 주어를 도치하고 than과 짝을 이룬다.",
+       "wrong_ex": "The sun had no sooner"
+      }
+     ]
+    },
+    {
+     "set": 36,
+     "title": "이름이 없으면 지킬 수 없다",
+     "passage": [
+      {
+       "t": "The kakapo, "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " lives only in New Zealand, was called extinct twice before anyone counted well. An animal must be given a name before it "
+      },
+      {
+       "t": "can be protected",
+       "n": 2
+      },
+      {
+       "t": " by law. So scientists hurry to describe new animals, "
+      },
+      {
+       "t": "knowing",
+       "n": 3
+      },
+      {
+       "t": " that an animal without a name has no legal rights. Some scientists spend a whole life on one group, only "
+      },
+      {
+       "t": "to find",
+       "n": 4
+      },
+      {
+       "t": " that half of it has already gone. "
+      },
+      {
+       "t": "It is high time",
+       "n": 5
+      },
+      {
+       "t": " governments paid for this quiet work."
+      }
+     ],
+     "tr": [
+      "뉴질랜드에만 사는 카카포는 누군가 제대로 세어 보기 전에 두 번이나 멸종되었다고 불렸다.",
+      "한 동물은 이름이 붙어야 비로소 법으로 보호받을 수 있다.",
+      "그래서 과학자들은 이름 없는 동물에게는 법적 권리가 없다는 것을 알기에 새 동물을 기록하려 서두른다.",
+      "어떤 과학자들은 한 무리에 평생을 바치지만, 결국 그 절반이 이미 사라졌다는 사실을 알게 될 뿐이다.",
+      "이제는 정부가 이 조용한 작업에 돈을 낼 때가 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "계속적 용법 관계대명사",
+       "ox": "X",
+       "expl": "콤마 뒤 계속적 용법에는 that을 쓸 수 없으므로 which.",
+       "fix": "which"
+      },
+      {
+       "n": 2,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "a species가 보호받는 대상이므로 조동사 뒤에 be p.p.",
+       "wrong_ex": "can protect"
+      },
+      {
+       "n": 3,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "주어가 아는 주체이므로 능동의 현재분사 knowing.",
+       "wrong_ex": "known"
+      },
+      {
+       "n": 4,
+       "point": "부정사 (결과의 only to)",
+       "ox": "O",
+       "expl": "「only + to부정사」로 예상과 다른 결과를 나타낸다.",
+       "wrong_ex": "only finding"
+      },
+      {
+       "n": 5,
+       "point": "It is time + 과거동사",
+       "ox": "O",
+       "expl": "「It is (high) time + 주어 + 과거동사」로 '~할 때가 되었다'를 나타낸다.",
+       "wrong_ex": "fund"
+      }
+     ]
+    }
+   ],
+   "id": "기본-09",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 10,
+   "sets": [
+    {
+     "set": 37,
+     "title": "소리 내지 않고 읽기까지",
+     "passage": [
+      {
+       "t": "Reading silently was once rare, and the monks "
+      },
+      {
+       "t": "among whom",
+       "n": 1
+      },
+      {
+       "t": " the habit spread found it very strange. Long ago, readers "
+      },
+      {
+       "t": "would move",
+       "n": 2
+      },
+      {
+       "t": " their lips even when they were alone. A number of scholars "
+      },
+      {
+       "t": "believes",
+       "n": 3
+      },
+      {
+       "t": " that Augustine was shocked to see Ambrose read without a sound, and they call this the turning point. "
+      },
+      {
+       "t": "Once",
+       "n": 4
+      },
+      {
+       "t": " the new way spread, libraries could finally become quiet. Silent reading "
+      },
+      {
+       "t": "seems to have changed",
+       "n": 5
+      },
+      {
+       "t": " not only our speed but our idea of privacy."
+      }
+     ],
+     "tr": [
+      "소리 내지 않고 읽는 일은 한때 드물었고, 그 습관이 퍼져 나간 수도사들조차 그것을 매우 이상하게 여겼다.",
+      "아주 오래전 독자들은 혼자 있을 때조차 입술을 움직이곤 했다.",
+      "많은 학자들은 아우구스티누스가 암브로시우스의 묵독을 보고 충격받은 일을 전환점이라고 부른다.",
+      "일단 그 새로운 방식이 퍼지자, 도서관은 마침내 조용해질 수 있었다.",
+      "묵독은 읽는 속도뿐 아니라 사생활에 대한 생각까지 바꾸어 놓은 것으로 보인다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "spread among the monks의 관계를 살린 among whom. 사람이므로 whom.",
+       "wrong_ex": "among which"
+      },
+      {
+       "n": 2,
+       "point": "과거의 습관 would",
+       "ox": "O",
+       "expl": "'~하곤 했다'는 과거의 반복적 습관을 나타내는 would.",
+       "wrong_ex": "would moving"
+      },
+      {
+       "n": 3,
+       "point": "a number of + 복수동사",
+       "ox": "X",
+       "expl": "「a number of + 복수명사」는 복수 취급하므로 believe.",
+       "fix": "believe"
+      },
+      {
+       "n": 4,
+       "point": "접속사 once",
+       "ox": "O",
+       "expl": "'일단 ~하자'의 뜻으로 시간·조건의 부사절을 이끄는 접속사 once.",
+       "wrong_ex": "Once of"
+      },
+      {
+       "n": 5,
+       "point": "부정사의 완료형",
+       "ox": "O",
+       "expl": "본동사 seems보다 앞선 일을 나타내므로 to have p.p.",
+       "wrong_ex": "seems to change"
+      }
+     ]
+    },
+    {
+     "set": 38,
+     "title": "신호등은 색으로만 말하지 않는다",
+     "passage": [
+      {
+       "t": "About one in twelve men "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " some form of colour blindness. Traffic lights solve the problem by position: the red lamp sits on top, "
+      },
+      {
+       "t": "the others",
+       "n": 2
+      },
+      {
+       "t": " below it in a set order. "
+      },
+      {
+       "t": "Not all",
+       "n": 3
+      },
+      {
+       "t": " countries follow the same rule, but almost every one keeps the top-to-bottom order. "
+      },
+      {
+       "t": "Despite",
+       "n": 4
+      },
+      {
+       "t": " the simple idea, it took many years to make it a rule. For some eyes red is not as "
+      },
+      {
+       "t": "brighter",
+       "n": 5
+      },
+      {
+       "t": " as green, so shape and place carry the message instead."
+      }
+     ],
+     "tr": [
+      "남성 열두 명 중 약 한 명은 어떤 형태로든 색각 이상을 가지고 있다.",
+      "신호등은 위치로 이 문제를 해결한다. 빨간 등이 맨 위에 있고, 나머지는 정해진 순서로 그 아래에 놓인다.",
+      "모든 나라가 같은 규칙을 따르는 것은 아니지만, 거의 모든 나라가 위아래 순서만은 지킨다.",
+      "생각은 단순했지만 그것이 규칙이 되기까지는 여러 해가 걸렸다.",
+      "어떤 눈에는 빨강이 초록만큼 밝지 않기 때문에, 대신 모양과 위치가 메시지를 전달한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "비율 표현 수일치",
+       "ox": "O",
+       "expl": "「one in + 복수명사」는 one에 동사를 맞추므로 단수 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "부정대명사 the others",
+       "ox": "O",
+       "expl": "정해진 무리에서 하나를 뺀 나머지 전부이므로 the others.",
+       "wrong_ex": "others"
+      },
+      {
+       "n": 3,
+       "point": "부분부정 not all",
+       "ox": "O",
+       "expl": "「Not all ~」은 '모두 ~인 것은 아니다'라는 부분부정.",
+       "wrong_ex": "All not"
+      },
+      {
+       "n": 4,
+       "point": "전치사 despite",
+       "ox": "O",
+       "expl": "뒤에 명사구가 오므로 전치사 Despite. 접속사 Although는 쓸 수없다.",
+       "wrong_ex": "Although"
+      },
+      {
+       "n": 5,
+       "point": "원급 비교",
+       "ox": "X",
+       "expl": "「as ~ as」 사이에는 원급이 오므로 brighter가 아니라 bright.",
+       "fix": "bright"
+      }
+     ]
+    },
+    {
+     "set": 39,
+     "title": "지구 궤도를 도는 쓰레기",
+     "passage": [
+      {
+       "t": "More than thirty thousand pieces "
+      },
+      {
+       "t": "of",
+       "n": 1
+      },
+      {
+       "t": " waste bigger than a tennis ball now go around the Earth. Space agencies discussed "
+      },
+      {
+       "t": "about",
+       "n": 2
+      },
+      {
+       "t": " the danger for years without doing anything. "
+      },
+      {
+       "t": "Not until",
+       "n": 3
+      },
+      {
+       "t": " a satellite crash in 2009 did real money appear. Today the sky is more crowded "
+      },
+      {
+       "t": "than ever",
+       "n": 4
+      },
+      {
+       "t": ", and one crash could double the number in a night. Several nets and hooks "
+      },
+      {
+       "t": "have been tested",
+       "n": 5
+      },
+      {
+       "t": ", but none has removed more than a few pieces."
+      }
+     ],
+     "tr": [
+      "테니스공보다 큰 쓰레기가 3만 개 넘게 지금도 지구 주위를 돌고 있다.",
+      "우주 기관들은 아무것도 하지 않은 채 여러 해 동안 그 위험을 논의만 했다.",
+      "2009년 위성 충돌이 일어나고 나서야 비로소 실제 예산이 나왔다.",
+      "오늘날 하늘은 그 어느 때보다 붐비고, 한 번의 충돌로 그 수가 하룻밤 사이에 두 배가 될 수도 있다.",
+      "여러 그물과 갈고리가 시험되었지만, 어느 것도 몇 개 이상을 치워 내지는 못했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "수량 표현 + of",
+       "ox": "O",
+       "expl": "「pieces of + 불가산명사」 구조. debris는 셀 수 없는 명사이다.",
+       "wrong_ex": "for"
+      },
+      {
+       "n": 2,
+       "point": "타동사의 목적어",
+       "ox": "X",
+       "expl": "discuss는 타동사이므로 전치사 about 없이 목적어를 바로 취한다.",
+       "fix": "discussed the danger"
+      },
+      {
+       "n": 3,
+       "point": "Not until 도치",
+       "ox": "O",
+       "expl": "「Not until ~」이 문두에 오면 주절의 조동사와 주어를 도치한다.",
+       "wrong_ex": "serious funding appeared"
+      },
+      {
+       "n": 4,
+       "point": "비교급 + than ever",
+       "ox": "O",
+       "expl": "'그 어느 때보다 더 ~한'을 나타내는 비교급 관용 표현.",
+       "wrong_ex": "than never"
+      },
+      {
+       "n": 5,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "nets and harpoons가 시험받는 대상이고 현재까지의 경험이므로 have been tested.",
+       "wrong_ex": "have tested"
+      }
+     ]
+    },
+    {
+     "set": 40,
+     "title": "손을 씻자고 말한 죄",
+     "passage": [
+      {
+       "t": "In the 1840s "
+      },
+      {
+       "t": "the poor",
+       "n": 1
+      },
+      {
+       "t": " often walked into a Vienna hospital in good health and left in a coffin. Semmelweis saw that doctors went straight from the dead room to the birth room, and he "
+      },
+      {
+       "t": "may well have been",
+       "n": 2
+      },
+      {
+       "t": " the first to link the two. Fever kept spreading "
+      },
+      {
+       "t": "unless",
+       "n": 3
+      },
+      {
+       "t": " the staff washed their hands with chlorine. The death rate in his room soon fell far below "
+      },
+      {
+       "t": "those",
+       "n": 4
+      },
+      {
+       "t": " in the room next door. "
+      },
+      {
+       "t": "Not knowing",
+       "n": 5
+      },
+      {
+       "t": " what really caused the illness, his colleagues said no for thirty years."
+      }
+     ],
+     "tr": [
+      "1840년대에 가난한 사람들은 건강한 몸으로 빈의 병원에 들어갔다가 관에 실려 나오는 일이 잦았다.",
+      "제멜바이스는 의사들이 시신을 다루는 방에서 곧장 분만실로 간다는 것을 보았고, 그 둘을 연결지은 최초의 인물이었을 법하다.",
+      "직원들이 염소로 손을 씻지 않는 한 열병은 계속 퍼졌다.",
+      "그의 병실 사망률은 곧 옆 병실의 사망률보다 훨씬 아래로 떨어졌다.",
+      "무엇이 실제로 병을 일으키는지 알지 못했기에, 그의 동료들은 30년 동안 거절했다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "the + 형용사 (복수취급)",
+       "ox": "O",
+       "expl": "「the + 형용사」는 '~한 사람들'로 복수 취급하므로 뒤의 동사도 복수형.",
+       "wrong_ex": "the poors"
+      },
+      {
+       "n": 2,
+       "point": "조동사 관용 (may well)",
+       "ox": "O",
+       "expl": "'~했을 법하다'는 may well + have p.p. 과거의 추측을 나타낸다.",
+       "wrong_ex": "may well be"
+      },
+      {
+       "n": 3,
+       "point": "접속사 unless",
+       "ox": "O",
+       "expl": "'~하지 않는 한'의 뜻으로 조건의 부사절을 이끈다.",
+       "wrong_ex": "unless not"
+      },
+      {
+       "n": 4,
+       "point": "지시대명사 that",
+       "ox": "X",
+       "expl": "앞의 단수명사 The death rate를 대신하므로 those가 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 5,
+       "point": "분사구문의 부정",
+       "ox": "O",
+       "expl": "분사구문을 부정할 때는 분사 앞에 Not을 둔다.",
+       "wrong_ex": "Knowing not"
+      }
+     ]
+    }
+   ],
+   "id": "기본-10",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 11,
+   "sets": [
+    {
+     "set": 41,
+     "title": "비둘기는 어떻게 집을 찾는가",
+     "passage": [
+      {
+       "t": "Homing pigeons are "
+      },
+      {
+       "t": "one of the oldest messengers",
+       "n": 1
+      },
+      {
+       "t": " in history, used by armies long before radio. A bird "
+      },
+      {
+       "t": "whom",
+       "n": 2
+      },
+      {
+       "t": " scientists believe finds its way by smell can come back from six hundred kilometres away. Other birds seem to read the magnetic field of the Earth, and young ones learn to "
+      },
+      {
+       "t": "do so",
+       "n": 3
+      },
+      {
+       "t": " in a few weeks. Scientists put small trackers on a group of birds, "
+      },
+      {
+       "t": "some of which",
+       "n": 4
+      },
+      {
+       "t": " flew straight home while the rest went in circles for hours. The birds were let go at dawn "
+      },
+      {
+       "t": "so as to",
+       "n": 5
+      },
+      {
+       "t": " give them a whole day of light."
+      }
+     ],
+     "tr": [
+      "전서구는 역사상 가장 오래된 전령 가운데 하나로, 무전기가 나오기 훨씬 전부터 군대가 썼다.",
+      "과학자들이 냄새로 길을 찾는다고 보는 이 새는 600킬로미터 떨어진 곳에서도 돌아올 수 있다.",
+      "다른 새들은 지구의 자기장을 읽는 듯한데, 어린 새들은 몇 주 안에 그렇게 하는 법을 배운다.",
+      "과학자들이 한 무리에 작은 추적기를 달았더니, 그중 일부는 곧장 집으로 날아갔고 나머지는 몇 시간을 맴돌았다.",
+      "새들에게 온종일의 빛을 주기 위해 새벽에 풀어 주었다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "one of the + 최상급 + 복수명사",
+       "ox": "O",
+       "expl": "「one of the + 최상급 + 복수명사」 구조이므로 messengers.",
+       "wrong_ex": "one of the oldest messenger"
+      },
+      {
+       "n": 2,
+       "point": "삽입절이 있는 관계대명사",
+       "ox": "X",
+       "expl": "scientists believe는 삽입절이고 finds의 주어가 필요하므로 주격 who.",
+       "fix": "who"
+      },
+      {
+       "n": 3,
+       "point": "대동사 do so",
+       "ox": "O",
+       "expl": "앞에 나온 read the magnetic field를 대신 받는 do so.",
+       "wrong_ex": "make so"
+      },
+      {
+       "n": 4,
+       "point": "부분을 나타내는 관계사",
+       "ox": "O",
+       "expl": "「부분 표현 + of + 관계대명사」 구조이므로 some of which.",
+       "wrong_ex": "some of them"
+      },
+      {
+       "n": 5,
+       "point": "so as to + 동사원형",
+       "ox": "O",
+       "expl": "목적을 나타내는 so as to 뒤에는 동사원형이 온다.",
+       "wrong_ex": "so as giving"
+      }
+     ]
+    },
+    {
+     "set": 42,
+     "title": "그늘에서 자란 커피",
+     "passage": [
+      {
+       "t": "About two thirds of the world's coffee "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " now grown in full sun, not under trees. Plants in the shade give "
+      },
+      {
+       "t": "less fruit than",
+       "n": 2
+      },
+      {
+       "t": " those in open fields, so many farms cut their tall trees down. "
+      },
+      {
+       "t": "Now that",
+       "n": 3
+      },
+      {
+       "t": " the birds have gone, insect damage has grown fast. Some farmers are planting the trees again after cutting "
+      },
+      {
+       "t": "down them",
+       "n": 4
+      },
+      {
+       "t": " fifty years ago. "
+      },
+      {
+       "t": "There is no denying",
+       "n": 5
+      },
+      {
+       "t": " that shade costs a farm something, but chemicals cost much more."
+      }
+     ],
+     "tr": [
+      "전 세계 커피의 약 3분의 2는 이제 나무 아래가 아니라 뙤약볕에서 자란다.",
+      "그늘의 나무는 노지의 나무보다 열매를 적게 맺어서, 많은 농장이 큰 나무를 베어 냈다.",
+      "이제 새들이 사라지고 나니 해충 피해가 빠르게 늘었다.",
+      "일부 농부들은 50년 전에 베어 낸 나무를 다시 심고 있다.",
+      "그늘이 농장에 비용을 치르게 한다는 점은 부인할 수 없지만, 약품은 그보다 훨씬 비싸다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분수 표현 수일치",
+       "ox": "O",
+       "expl": "「분수 + of + 명사」는 뒤의 명사에 동사를 맞춘다. coffee는 불가 산이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "비교급 less ~ than",
+       "ox": "O",
+       "expl": "fruit은 불가산명사이므로 fewer가 아니라 less.",
+       "wrong_ex": "fewer fruit than"
+      },
+      {
+       "n": 3,
+       "point": "접속사 now that",
+       "ox": "O",
+       "expl": "'이제 ~이므로'의 뜻으로 이유의 부사절을 이끈다.",
+       "wrong_ex": "Now than"
+      },
+      {
+       "n": 4,
+       "point": "타동사 + 부사 어순",
+       "ox": "X",
+       "expl": "목적어가 대명사이면 「동사 + 대명사 + 부사」 어순이므로 cutting them down.",
+       "fix": "them down"
+      },
+      {
+       "n": 5,
+       "point": "There is no + 동명사",
+       "ox": "O",
+       "expl": "「There is no + 동명사」로 '~할 수 없다'를 나타낸다.",
+       "wrong_ex": "There is no deny"
+      }
+     ]
+    },
+    {
+     "set": 43,
+     "title": "기차가 만든 표준시",
+     "passage": [
+      {
+       "t": "It took cities "
+      },
+      {
+       "t": "adopting",
+       "n": 1
+      },
+      {
+       "t": " one time standard almost forty years. Before trains, each town set its clocks "
+      },
+      {
+       "t": "whether",
+       "n": 2
+      },
+      {
+       "t": " by the sun or by the church bell. People who travelled across the country had to guess the difference "
+      },
+      {
+       "t": "between",
+       "n": 3
+      },
+      {
+       "t": " one station and the next. The time zone system "
+      },
+      {
+       "t": "we use",
+       "n": 4
+      },
+      {
+       "t": " today was decided at a meeting in Washington in 1884. Trains then ran on a printed timetable, "
+      },
+      {
+       "t": "so that",
+       "n": 5
+      },
+      {
+       "t": " a minute finally meant the same thing everywhere."
+      }
+     ],
+     "tr": [
+      "도시들이 하나의 표준시를 받아들이는 데는 거의 40년이 걸렸다.",
+      "기차가 다니기 전에는 마을마다 해를 보거나 교회 종소리를 듣고 시계를 맞췄다.",
+      "전국을 가로질러 다니는 사람들은 한 역과 다음 역 사이의 시차를 어림짐작해야 했다.",
+      "오늘날 우리가 쓰는 시간대 체계는 1884년 워싱턴 회의에서 정해졌다.",
+      "그 후 기차는 인쇄된 시간표대로 달렸고, 그래서 1분은 마침내 어디서나 같은 것을 뜻하게 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "It takes + 목적어 + to부정사",
+       "ox": "X",
+       "expl": "「It takes + 사람 + 시간 + to부정사」 구조이므로 to adopt.",
+       "fix": "to adopt"
+      },
+      {
+       "n": 2,
+       "point": "접속사 whether A or B",
+       "ox": "O",
+       "expl": "'A든 B든'의 뜻으로 두 선택지를 나란히 잇는 whether ~ or.",
+       "wrong_ex": "either"
+      },
+      {
+       "n": 3,
+       "point": "전치사 between",
+       "ox": "O",
+       "expl": "둘 사이를 나타내므로 between. 셋 이상은 among을 쓴다.",
+       "wrong_ex": "among"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사 생략",
+       "ox": "O",
+       "expl": "The zone system을 수식하며 목적격 관계대명사가 생략된 형태.",
+       "wrong_ex": "which we use it"
+      },
+      {
+       "n": 5,
+       "point": "접속사 so that (결과)",
+       "ox": "O",
+       "expl": "'그래서 ~하다'라는 결과를 나타내는 so that.",
+       "wrong_ex": "so as"
+      }
+     ]
+    },
+    {
+     "set": 44,
+     "title": "점자는 어떻게 만들어졌나",
+     "passage": [
+      {
+       "t": "Louis Braille was told "
+      },
+      {
+       "t": "not to waste",
+       "n": 1
+      },
+      {
+       "t": " his time on a soldier's code for reading in the dark. He kept working "
+      },
+      {
+       "t": "as long as",
+       "n": 2
+      },
+      {
+       "t": " the candles lasted, and at fifteen he had cut twelve dots down to six. The result is "
+      },
+      {
+       "t": "what is now called",
+       "n": 3
+      },
+      {
+       "t": " Braille, read by touch in almost every language. "
+      },
+      {
+       "t": "His being blind",
+       "n": 4
+      },
+      {
+       "t": " from the age of three was not the reason he succeeded. His patience was. Teachers who watch a child read a whole page in silence cannot help "
+      },
+      {
+       "t": "to admire",
+       "n": 5
+      },
+      {
+       "t": " the design."
+      }
+     ],
+     "tr": [
+      "루이 브라유는 어둠 속에서 읽기 위한 군인용 암호에 시간을 낭비하지 말라는 말을 들었다.",
+      "그는 촛불이 남아 있는 한 계속 작업했고, 열다섯 살에 열두 개의 점을 여섯 개로 줄였다.",
+      "그 결과가 오늘날 점자라고 불리는 것으로, 거의 모든 언어에서 손끝으로 읽힌다.",
+      "그가 세 살부터 앞을 보지 못했다는 사실이 성공의 이유는 아니었다. 이유는 그의 끈기였다.",
+      "아이가 한 쪽을 소리 없이 읽어 내는 것을 지켜보는 교사라면 이 설계에 감탄하지 않을 수 없다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "부정사의 부정",
+       "ox": "O",
+       "expl": "to부정사를 부정할 때는 to 앞에 not을 둔다.",
+       "wrong_ex": "to not waste"
+      },
+      {
+       "n": 2,
+       "point": "접속사 as long as",
+       "ox": "O",
+       "expl": "'~하는 한'의 뜻으로 조건·기간의 부사절을 이끈다.",
+       "wrong_ex": "as long"
+      },
+      {
+       "n": 3,
+       "point": "what is called",
+       "ox": "O",
+       "expl": "'이른바 ~'을 뜻하는 관용 표현. 선행사를 포함한 what을 쓴다.",
+       "wrong_ex": "that is now called"
+      },
+      {
+       "n": 4,
+       "point": "동명사의 의미상 주어",
+       "ox": "O",
+       "expl": "동명사의 행위 주체를 소유격으로 앞에 밝힌 형태.",
+       "wrong_ex": "He being blind"
+      },
+      {
+       "n": 5,
+       "point": "cannot help + 동명사",
+       "ox": "X",
+       "expl": "「cannot help + 동명사」로 '~하지 않을 수 없다'를 나타내므로 admiring.",
+       "fix": "admiring"
+      }
+     ]
+    }
+   ],
+   "id": "기본-11",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 12,
+   "sets": [
+    {
+     "set": 45,
+     "title": "고래의 노래에도 유행이 있다",
+     "passage": [
+      {
+       "t": "Humpback songs change "
+      },
+      {
+       "t": "every few years",
+       "n": 1
+      },
+      {
+       "t": ", and the new song spreads across a whole ocean in one season. Scientists keep their microphones on "
+      },
+      {
+       "t": "in case",
+       "n": 2
+      },
+      {
+       "t": " a rare song appears in the middle of the night. They wish they "
+      },
+      {
+       "t": "can record",
+       "n": 3
+      },
+      {
+       "t": " every group at once, but the money is enough for only three. The songs seem to have no clear purpose "
+      },
+      {
+       "t": "to serve",
+       "n": 4
+      },
+      {
+       "t": " except calling a mate. "
+      },
+      {
+       "t": "Never has",
+       "n": 5
+      },
+      {
+       "t": " a human language travelled so fast over such a distance."
+      }
+     ],
+     "tr": [
+      "혹등고래의 노래는 몇 년마다 바뀌는데, 새 노래는 한 계절 안에 바다 전체로 퍼진다.",
+      "과학자들은 한밤중에 드문 노래가 나올 경우에 대비해 마이크를 계속 켜 둔다.",
+      "그들은 모든 무리를 한꺼번에 녹음할 수 있으면 좋겠다고 바라지만, 돈은 세 무리분밖에 되지 않는다.",
+      "이 노래들은 짝을 부르는 것 말고는 뚜렷이 수행할 목적이 없어 보인다.",
+      "인간의 어떤 언어도 그토록 먼 거리를 그렇게 빠르게 건너간 적은 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "every + 기수 + 복수명사",
+       "ox": "O",
+       "expl": "「every + 기수 + 복수명사」로 '~마다'를 나타낸다.",
+       "wrong_ex": "every few year"
+      },
+      {
+       "n": 2,
+       "point": "접속사 in case",
+       "ox": "O",
+       "expl": "'~할 경우에 대비하여'의 뜻으로 부사절을 이끈다.",
+       "wrong_ex": "in case of"
+      },
+      {
+       "n": 3,
+       "point": "I wish 가정법",
+       "ox": "X",
+       "expl": "현재 이룰 수 없는 소망이므로 wish 뒤에는 과거형 could record.",
+       "fix": "could record"
+      },
+      {
+       "n": 4,
+       "point": "부정사의 형용사적 용법",
+       "ox": "O",
+       "expl": "앞의 명사 purpose를 수식하는 to부정사.",
+       "wrong_ex": "serving"
+      },
+      {
+       "n": 5,
+       "point": "Never 도치",
+       "ox": "O",
+       "expl": "부정어 Never가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a human language has never"
+      }
+     ]
+    },
+    {
+     "set": 46,
+     "title": "세계지도는 왜 틀렸을까",
+     "passage": [
+      {
+       "t": "A flat map is "
+      },
+      {
+       "t": "not so honest as",
+       "n": 1
+      },
+      {
+       "t": " a globe, and every flat map must change something. On the Mercator map Greenland looks larger than "
+      },
+      {
+       "t": "any other countries",
+       "n": 2
+      },
+      {
+       "t": ", but it is really smaller than the Congo. Sailors found it "
+      },
+      {
+       "t": "so useful a tool",
+       "n": 3
+      },
+      {
+       "t": " that they lived with the problem for four hundred years. Areas near the poles stretch far more than "
+      },
+      {
+       "t": "those",
+       "n": 4
+      },
+      {
+       "t": " near the equator. A map that looks familiar is "
+      },
+      {
+       "t": "not necessarily",
+       "n": 5
+      },
+      {
+       "t": " the one that tells the truth."
+      }
+     ],
+     "tr": [
+      "평면 지도는 지구본만큼 정직하지 않으며, 모든 평면 지도는 무언가를 바꿀 수밖에 없다.",
+      "메르카토르 지도에서 그린란드는 다른 어떤 나라보다 커 보이지만, 실제로는 콩고보다 작다.",
+      "뱃사람들에게는 그것이 워낙 쓸모 있는 도구여서 400년 동안 그 문제를 안고 살았다.",
+      "극지방 가까운 지역은 적도 가까운 지역보다 훨씬 많이 늘어난다.",
+      "익숙해 보이는 지도가 반드시 진실을 말해 주는 지도인 것은 아니다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "원급 비교의 부정",
+       "ox": "O",
+       "expl": "「not so + 원급 + as」로 '~만큼 …하지 않다'를 나타낸다.",
+       "wrong_ex": "not so honest than"
+      },
+      {
+       "n": 2,
+       "point": "비교급 + than any other + 단수명사",
+       "ox": "X",
+       "expl": "「than any other」 뒤에는 단수명사가 오므로 country.",
+       "fix": "any other country"
+      },
+      {
+       "n": 3,
+       "point": "so + 형용사 + a + 명사",
+       "ox": "O",
+       "expl": "so가 형용사를 수식할 때는 「so + 형용사 + a(n) + 명사」 어순.",
+       "wrong_ex": "a so useful tool"
+      },
+      {
+       "n": 4,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 Areas를 대신하므로 those.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "부분부정 not necessarily",
+       "ox": "O",
+       "expl": "'반드시 ~인 것은 아니다'라는 부분부정.",
+       "wrong_ex": "necessarily not"
+      }
+     ]
+    },
+    {
+     "set": 47,
+     "title": "반죽 속에 사는 것들",
+     "passage": [
+      {
+       "t": "On opening",
+       "n": 1
+      },
+      {
+       "t": " a jar of sourdough starter, you meet a group of living things older than most buildings in the city. "
+      },
+      {
+       "t": "Neither",
+       "n": 2
+      },
+      {
+       "t": " of the two main organisms works alone. Wild yeast makes the gas, and bacteria make the sour taste. Bakers are "
+      },
+      {
+       "t": "busy feeding",
+       "n": 3
+      },
+      {
+       "t": " the mixture flour and water at the same time every day. They had better "
+      },
+      {
+       "t": "to keep",
+       "n": 4
+      },
+      {
+       "t": " the jar cool, or the bacteria will win. "
+      },
+      {
+       "t": "No matter how",
+       "n": 5
+      },
+      {
+       "t": " carefully you follow a recipe, the starter in your kitchen will taste of your kitchen."
+      }
+     ],
+     "tr": [
+      "사워도우 스타터가 담긴 병을 열자마자, 당신은 도시의 웬만한 건물보다 오래된 생물 무리와 마주하게 된다.",
+      "두 주요 생물 중 어느 쪽도 혼자 일하지 않는다. 야생 효모는 가스를 만들고, 세균은 신맛을 만든다.",
+      "제빵사들은 매일 같은 시간에 이 혼합물에 밀가루와 물을 먹이느라 바쁘다.",
+      "병을 서늘하게 두는 편이 좋다. 그러지 않으면 세균이 이긴다.",
+      "당신이 아무리 조심스럽게 조리법을 따라도, 당신 부엌의 스타터는 당신 부엌의 맛이 난다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "On + 동명사",
+       "ox": "O",
+       "expl": "「On + 동명사」로 '~하자마자'를 나타낸다.",
+       "wrong_ex": "On open"
+      },
+      {
+       "n": 2,
+       "point": "Neither of + 단수동사",
+       "ox": "O",
+       "expl": "「Neither of + 복수명사」는 단수 취급하므로 works.",
+       "wrong_ex": "Both"
+      },
+      {
+       "n": 3,
+       "point": "be busy + 동명사",
+       "ox": "O",
+       "expl": "'~하느라 바쁘다'는 be busy + 동명사.",
+       "wrong_ex": "busy to feed"
+      },
+      {
+       "n": 4,
+       "point": "had better + 동사원형",
+       "ox": "X",
+       "expl": "had better 뒤에는 동사원형이 오므로 keep.",
+       "fix": "keep"
+      },
+      {
+       "n": 5,
+       "point": "no matter how",
+       "ox": "O",
+       "expl": "「no matter how + 부사 + 주어 + 동사」로 양보를 나타낸다. however로 바꿔 쓸 수 있다.",
+       "wrong_ex": "No matter what"
+      }
+     ]
+    },
+    {
+     "set": 48,
+     "title": "발밑의 점자블록",
+     "passage": [
+      {
+       "t": "When the yellow blocks first appeared in Okayama in 1967, blind travellers "
+      },
+      {
+       "t": "were made follow",
+       "n": 1
+      },
+      {
+       "t": " a line they could not see. Dots and bars, "
+      },
+      {
+       "t": "laid",
+       "n": 2
+      },
+      {
+       "t": " in two clearly different shapes, tell the foot to stop or to keep walking. The system spread "
+      },
+      {
+       "t": "a lot",
+       "n": 3
+      },
+      {
+       "t": " faster than anyone had expected, reaching stations across Asia in ten years. Designers still argue about corners, "
+      },
+      {
+       "t": "where",
+       "n": 4
+      },
+      {
+       "t": " the two shapes meet at strange angles. By 2030 the network "
+      },
+      {
+       "t": "will have covered",
+       "n": 5
+      },
+      {
+       "t": " almost every public building in the country."
+      }
+     ],
+     "tr": [
+      "1967년 오카야마에 노란 블록이 처음 등장했을 때, 시각장애인들은 보이지 않는 선을 따라가야 했다.",
+      "뚜렷이 다른 두 가지 모양으로 놓인 점과 막대는 발에게 멈추라고, 혹은 계속 걸으라고 말해 준다.",
+      "이 체계는 누구의 예상보다도 훨씬 빠르게 퍼져 10년 만에 아시아 전역의 역에 도달했다.",
+      "설계자들은 두 모양이 이상한 각도로 만나는 모퉁이를 두고 여전히 논쟁한다.",
+      "2030년이면 이 망은 전국의 거의 모든 공공건물을 덮게 될 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "사역동사의 수동태",
+       "ox": "X",
+       "expl": "make의 수동태에서는 생략되었던 to가 살아나므로 were made to follow.",
+       "fix": "were made to follow"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "Bumps and bars가 놓이는 대상이므로 과거분사 laid.",
+       "wrong_ex": "laying"
+      },
+      {
+       "n": 3,
+       "point": "비교급 강조 a lot",
+       "ox": "O",
+       "expl": "a lot이 비교급 faster를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "very"
+      },
+      {
+       "n": 4,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "선행사가 장소 corners이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 5,
+       "point": "미래완료",
+       "ox": "O",
+       "expl": "2030년이라는 미래 시점까지 완료될 일을 나타내므로 will have p.p.",
+       "wrong_ex": "will cover"
+      }
+     ]
+    }
+   ],
+   "id": "기본-12",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 13,
+   "sets": [
+    {
+     "set": 49,
+     "title": "나이테가 기록한 기후",
+     "passage": [
+      {
+       "t": "The majority of what we know about ancient climate "
+      },
+      {
+       "t": "comes",
+       "n": 1
+      },
+      {
+       "t": " from tree rings. One old tree is "
+      },
+      {
+       "t": "worth studying",
+       "n": 2
+      },
+      {
+       "t": " for the hundreds of years of rain stored inside it. Scientists "
+      },
+      {
+       "t": "should record",
+       "n": 3
+      },
+      {
+       "t": " the rings of the oldest pines years ago, but the forests burned first. Both the width and the colour of a ring "
+      },
+      {
+       "t": "tell",
+       "n": 4
+      },
+      {
+       "t": " a story about one summer. A tree is "
+      },
+      {
+       "t": "the last witness to exaggerate",
+       "n": 5
+      },
+      {
+       "t": "; it just grows and stops."
+      }
+     ],
+     "tr": [
+      "고대 기후에 대해 우리가 아는 것의 대부분은 나이테에서 나온다.",
+      "오래된 나무 한 그루는 그 안에 쌓인 수백 년치 비의 기록만으로도 연구할 가치가 있다.",
+      "과학자들은 몇 해 전에 가장 오래된 소나무들의 나이테를 기록했어야 했지만, 그전에 숲이 먼저 불탔다.",
+      "나이테의 폭과 색은 둘 다 어느 한 여름에 대한 이야기를 들려준다.",
+      "나무는 결코 과장하는 법이 없는 증인이다. 그저 자라고, 멈출 뿐이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "O",
+       "expl": "「The majority of + 명사절」이므로 단수 취급하여 comes.",
+       "wrong_ex": "come"
+      },
+      {
+       "n": 2,
+       "point": "be worth + 동명사",
+       "ox": "O",
+       "expl": "「be worth + 동명사」로 '~할 가치가 있다'를 나타낸다.",
+       "wrong_ex": "worth to study"
+      },
+      {
+       "n": 3,
+       "point": "should have p.p.",
+       "ox": "X",
+       "expl": "과거에 하지 못한 일에 대한 후회이므로 should have recorded.",
+       "fix": "should have recorded"
+      },
+      {
+       "n": 4,
+       "point": "Both A and B 수일치",
+       "ox": "O",
+       "expl": "「Both A and B」는 복수 취급하므로 tell.",
+       "wrong_ex": "tells"
+      },
+      {
+       "n": 5,
+       "point": "the last + 명사 + to 부정사",
+       "ox": "O",
+       "expl": "'결코 ~할 사람(것)이 아니다'라는 뜻의 the last ~ to부정사.",
+       "wrong_ex": "the last witness exaggerating"
+      }
+     ]
+    },
+    {
+     "set": 50,
+     "title": "천 번을 접어도 펴지는 종이",
+     "passage": [
+      {
+       "t": "Having been folded",
+       "n": 1
+      },
+      {
+       "t": " a thousand times, the paper still opens with one pull. "
+      },
+      {
+       "t": "Fold",
+       "n": 2
+      },
+      {
+       "t": " a page along the Miura lines and it will never fold in the wrong place. Engineers "
+      },
+      {
+       "t": "had no choice but to",
+       "n": 3
+      },
+      {
+       "t": " borrow the idea when solar panels had to fit inside a rocket. A flat sheet and a folded one differ in size but not in strength; "
+      },
+      {
+       "t": "the latter",
+       "n": 4
+      },
+      {
+       "t": " just hides the rest of itself. The first satellite to use it "
+      },
+      {
+       "t": "was to launched",
+       "n": 5
+      },
+      {
+       "t": " in 1995."
+      }
+     ],
+     "tr": [
+      "천 번을 접혔는데도 그 종이는 한 번만 당기면 펼쳐진다.",
+      "미우라 선을 따라 종이를 접어 보라, 그러면 엉뚱한 곳이 접히는 일이 없을 것이다.",
+      "태양전지판을 로켓 안에 넣어야 했을 때 기술자들은 이 아이디어를 빌려 올 수밖에 없었다.",
+      "평평한 종이와 접힌 종이는 크기는 다르지만 강도는 다르지 않다. 후자는 그저 나머지를 숨기고 있을 뿐이다.",
+      "이것을 처음 사용한 위성은 1995년에 발사될 예정이었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "완료 수동 분사구문",
+       "ox": "O",
+       "expl": "접히는 대상이고 주절보다 앞선 일이므로 Having been p.p.",
+       "wrong_ex": "Having folded"
+      },
+      {
+       "n": 2,
+       "point": "명령문 + and",
+       "ox": "O",
+       "expl": "「명령문 + and」로 '~해라, 그러면 …할 것이다'를 나타낸다.",
+       "wrong_ex": "Folding"
+      },
+      {
+       "n": 3,
+       "point": "have no choice but to부정사",
+       "ox": "O",
+       "expl": "'~할 수밖에 없다'는 have no choice but + to부정사.",
+       "wrong_ex": "have no choice but borrowing"
+      },
+      {
+       "n": 4,
+       "point": "부정대명사 the latter",
+       "ox": "O",
+       "expl": "앞에 언급한 둘 중 뒤의 것을 가리키므로 the latter.",
+       "wrong_ex": "the later"
+      },
+      {
+       "n": 5,
+       "point": "be to 용법",
+       "ox": "X",
+       "expl": "「be + to부정사」 구조이고 위성이 발사되는 대상이므로 was to be launched.",
+       "fix": "was to be launched"
+      }
+     ]
+    },
+    {
+     "set": 51,
+     "title": "죽은 산호초에 소리를 돌려주다",
+     "passage": [
+      {
+       "t": "The crackle of shrimp as well as the calls of fish "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " recorded on every healthy reef. Divers now go back to dead coral "
+      },
+      {
+       "t": "with underwater speakers playing",
+       "n": 2
+      },
+      {
+       "t": " those old sounds. Young fish hear "
+      },
+      {
+       "t": "much",
+       "n": 3
+      },
+      {
+       "t": " noise and take the empty reef for a living home. "
+      },
+      {
+       "t": "Little did",
+       "n": 4
+      },
+      {
+       "t": " the first team expect the number of new fish to double in six weeks. "
+      },
+      {
+       "t": "Choose",
+       "n": 5
+      },
+      {
+       "t": " the sound carefully, or the young fish will swim away for good."
+      }
+     ],
+     "tr": [
+      "건강한 산호초에서는 어디서나 새우가 딱딱거리는 소리와 물고기 울음소리가 함께 녹음된다.",
+      "이제 잠수부들은 수중 스피커로 그 옛 소리를 틀어 놓은 채 죽은 산호로 돌아간다.",
+      "어린 물고기들은 그 소란스러운 소리를 듣고 텅 빈 산호초를 살아 있는 집으로 여긴다.",
+      "첫 연구팀은 새로 오는 물고기 수가 6주 만에 두 배가 되리라고는 전혀 예상하지 못했다.",
+      "소리를 신중히 고르라, 그러지 않으면 어린 물고기들은 영영 헤엄쳐 가 버릴 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "as well as 수일치",
+       "ox": "X",
+       "expl": "「A as well as B」는 A에 동사를 맞춘다. The crackle이 단수이므로 is.",
+       "fix": "is"
+      },
+      {
+       "n": 2,
+       "point": "with + 목적어 + 분사",
+       "ox": "O",
+       "expl": "「with + 목적어 + 분사」 부대상황. speakers가 재생하는 주체이므로 playing.",
+       "wrong_ex": "with underwater speakers played"
+      },
+      {
+       "n": 3,
+       "point": "수량형용사 much",
+       "ox": "O",
+       "expl": "noise는 불가산명사이므로 much. many는 가산명사에 쓴다.",
+       "wrong_ex": "many"
+      },
+      {
+       "n": 4,
+       "point": "Little 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Little이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "Little the first team did"
+      },
+      {
+       "n": 5,
+       "point": "명령문 + or",
+       "ox": "O",
+       "expl": "「명령문 + or」로 '~해라, 그러지 않으면 …할 것이다'를 나타낸다.",
+       "wrong_ex": "Choosing"
+      }
+     ]
+    },
+    {
+     "set": 52,
+     "title": "2천 년을 기다린 씨앗",
+     "passage": [
+      {
+       "t": "Considering",
+       "n": 1
+      },
+      {
+       "t": " how long they can wait, seeds are more patient than any animal. "
+      },
+      {
+       "t": "If it was not for",
+       "n": 2
+      },
+      {
+       "t": " the cold and the dark, the palm seed found at Masada would have rotted long ago. The seed is believed "
+      },
+      {
+       "t": "to have been buried",
+       "n": 3
+      },
+      {
+       "t": " for about two thousand years. It is now "
+      },
+      {
+       "t": "the oldest seed that has ever produced",
+       "n": 4
+      },
+      {
+       "t": " a living tree. "
+      },
+      {
+       "t": "It was not until",
+       "n": 5
+      },
+      {
+       "t": " 2005 that anyone really tried to plant it."
+      }
+     ],
+     "tr": [
+      "얼마나 오래 기다릴 수 있는지를 생각하면, 씨앗은 어떤 동물보다도 참을성이 있다.",
+      "추위와 어둠이 없었더라면, 마사다에서 발견된 야자 씨앗은 오래전에 썩었을 것이다.",
+      "그 씨앗은 약 2천 년 동안 묻혀 있었던 것으로 여겨진다.",
+      "그것은 이제 살아 있는 나무를 길러 낸 씨앗 가운데 가장 오래된 것이다.",
+      "2005년이 되어서야 비로소 누군가가 정말로 그것을 심어 보았다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "비인칭 독립분사구문",
+       "ox": "O",
+       "expl": "Considering ~은 '~을 고려하면'의 뜻으로 굳어진 분사구문이다.",
+       "wrong_ex": "Considered"
+      },
+      {
+       "n": 2,
+       "point": "가정법 과거완료 (if 대용)",
+       "ox": "X",
+       "expl": "주절이 would have p.p.이므로 Had it not been for로 써야 한다.",
+       "fix": "Had it not been for"
+      },
+      {
+       "n": 3,
+       "point": "부정사의 완료 수동형",
+       "ox": "O",
+       "expl": "본동사보다 앞선 일이고 묻히는 대상이므로 to have been p.p.",
+       "wrong_ex": "to be buried"
+      },
+      {
+       "n": 4,
+       "point": "최상급 + 관계사",
+       "ox": "O",
+       "expl": "최상급 뒤의 관계사절에서는 흔히 현재완료를 쓴다.",
+       "wrong_ex": "the oldest seed what has ever produced"
+      },
+      {
+       "n": 5,
+       "point": "It is not until ~ that",
+       "ox": "O",
+       "expl": "'~하고 나서야 비로소 …하다'를 나타내는 강조 구문.",
+       "wrong_ex": "It was until"
+      }
+     ]
+    }
+   ],
+   "id": "기본-13",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 14,
+   "sets": [
+    {
+     "set": 53,
+     "title": "옥상에서 벌을 치다",
+     "passage": [
+      {
+       "t": "There is little point in "
+      },
+      {
+       "t": "keeping",
+       "n": 1
+      },
+      {
+       "t": " bees on a roof if no flowers grow nearby. Not only the parks but also the railway edge "
+      },
+      {
+       "t": "feeds",
+       "n": 2
+      },
+      {
+       "t": " a hive all through August. Many keepers would rather "
+      },
+      {
+       "t": "lose",
+       "n": 3
+      },
+      {
+       "t": " a whole season than use chemicals on their bees. City honey is "
+      },
+      {
+       "t": "anything but",
+       "n": 4
+      },
+      {
+       "t": " uniform: each block tastes of its own weeds. Some councils handed out free "
+      },
+      {
+       "t": "equipments",
+       "n": 5
+      },
+      {
+       "t": " to anyone who registered a hive."
+      }
+     ],
+     "tr": [
+      "근처에 꽃이 피지 않는다면 옥상에서 벌을 치는 일은 별 의미가 없다.",
+      "공원뿐 아니라 철길 가장자리도 8월 내내 벌통을 먹여 살린다.",
+      "많은 양봉가들은 벌에게 약품을 쓰느니 차라리 한 철을 통째로 잃는 쪽을 택한다.",
+      "도시의 꿀은 결코 균일하지 않다. 구역마다 그곳의 잡초 맛이 난다.",
+      "일부 지자체는 벌통을 등록한 사람 누구에게나 장비를 무료로 나눠 주었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "There is no[little] point in + 동명사",
+       "ox": "O",
+       "expl": "전치사 in의 목적어 자리이므로 동명사 keeping.",
+       "wrong_ex": "to keep"
+      },
+      {
+       "n": 2,
+       "point": "not only A but also B 수일치",
+       "ox": "O",
+       "expl": "「not only A but also B」는 B에 동사를 맞춘다. edge가 단수이므로 feeds.",
+       "wrong_ex": "feed"
+      },
+      {
+       "n": 3,
+       "point": "would rather A than B",
+       "ox": "O",
+       "expl": "「would rather + 동사원형 + than + 동사원형」 구조.",
+       "wrong_ex": "to lose"
+      },
+      {
+       "n": 4,
+       "point": "anything but",
+       "ox": "O",
+       "expl": "'결코 ~이 아닌'의 뜻. nothing but은 '단지 ~일 뿐'이라 뜻이 반대다.",
+       "wrong_ex": "nothing but"
+      },
+      {
+       "n": 5,
+       "point": "불가산명사",
+       "ox": "X",
+       "expl": "equipment는 불가산명사이므로 복수형으로 쓰지 않는다.",
+       "fix": "equipment"
+      }
+     ]
+    },
+    {
+     "set": 54,
+     "title": "색에 이름을 붙이는 순서",
+     "passage": [
+      {
+       "t": "How many colour words do you think",
+       "n": 1
+      },
+      {
+       "t": " a language really needs? "
+      },
+      {
+       "t": "Whether",
+       "n": 2
+      },
+      {
+       "t": " a culture has a separate word for blue depends on its history, not on its eyes. We can watch a child "
+      },
+      {
+       "t": "to sort",
+       "n": 3
+      },
+      {
+       "t": " colour cards long before she learns the words. Black and white "
+      },
+      {
+       "t": "always come",
+       "n": 4
+      },
+      {
+       "t": " first, then red, then green or yellow. Scientists try to ask questions "
+      },
+      {
+       "t": "as carefully as possible",
+       "n": 5
+      },
+      {
+       "t": ", because a single question can plant a word."
+      }
+     ],
+     "tr": [
+      "한 언어에 정말로 필요한 색 이름은 몇 개라고 생각하는가?",
+      "어떤 문화에 파랑을 가리키는 따로 된 단어가 있는지는 그 문화의 역사에 달려 있지, 눈에 달려 있지 않다.",
+      "아이가 색 이름을 배우기 훨씬 전부터 색 카드를 분류하는 모습을 볼 수 있다.",
+      "검정과 하양이 늘 먼저 오고, 그다음이 빨강, 그다음이 초록이나 노랑이다.",
+      "과학자들은 가능한 한 조심스럽게 질문하려 하는데, 질문 하나가 없던 단어를 심을 수도 있기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "의문사 + do you think 어순",
+       "ox": "O",
+       "expl": "think류 동사가 삽입되면 의문사를 문두에 두고 뒤는 평서문 어순으로 쓴다.",
+       "wrong_ex": "Do you think how many colour words"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 whether",
+       "ox": "O",
+       "expl": "'~인지 아닌지'의 뜻으로 주어 자리에 오는 명사절을 이끈다.",
+       "wrong_ex": "If"
+      },
+      {
+       "n": 3,
+       "point": "지각동사의 목적격보어",
+       "ox": "X",
+       "expl": "watch는 목적격보어로 원형부정사나 현재분사를 취하므로 sort.",
+       "fix": "sort"
+      },
+      {
+       "n": 4,
+       "point": "빈도부사의 위치",
+       "ox": "O",
+       "expl": "빈도부사 always는 일반동사 앞에 온다.",
+       "wrong_ex": "come always"
+      },
+      {
+       "n": 5,
+       "point": "as ~ as possible",
+       "ox": "O",
+       "expl": "'가능한 한 ~하게'를 나타내는 원급 관용 표현.",
+       "wrong_ex": "as careful as possible"
+      }
+     ]
+    },
+    {
+     "set": 55,
+     "title": "횡단보도의 초록불은 몇 초여야 하나",
+     "passage": [
+      {
+       "t": "Pedestrians and drivers rarely see "
+      },
+      {
+       "t": "each other",
+       "n": 1
+      },
+      {
+       "t": " clearly at a wide crossing. Planners "
+      },
+      {
+       "t": "need not have shortened",
+       "n": 2
+      },
+      {
+       "t": " the walk signal. The delay for cars turned out to be less than nine seconds. Of the two choices, the longer green light is "
+      },
+      {
+       "t": "the safer",
+       "n": 3
+      },
+      {
+       "t": ", though it looks like a waste on paper. It took the group three years to get the city "
+      },
+      {
+       "t": "change",
+       "n": 4
+      },
+      {
+       "t": " the timing. "
+      },
+      {
+       "t": "Provided that",
+       "n": 5
+      },
+      {
+       "t": " the count starts at the edge of the road, older walkers finish with time to spare."
+      }
+     ],
+     "tr": [
+      "넓은 횡단보도에서 보행자와 운전자는 서로를 또렷이 보는 일이 드물다.",
+      "설계자들은 보행 신호를 줄일 필요가 없었는데도 줄였다. 차가 늦어지는 시간은 9초도 되지 않는 것으로 드러났다.",
+      "두 선택지 중에서는 초록불이 긴 쪽이 더 안전하다. 서류상으로는 낭비처럼 보이지만 말이다.",
+      "그 단체가 시로 하여금 신호 시간을 바꾸게 하는 데 3년이 걸렸다.",
+      "카운트가 도로 가장자리에서 시작되기만 한다면, 나이 든 보행자도 여유 있게 건널 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "each other",
+       "ox": "O",
+       "expl": "둘 사이의 '서로'를 나타내므로 each other. 셋 이상은 one another를 쓴다.",
+       "wrong_ex": "the other"
+      },
+      {
+       "n": 2,
+       "point": "need not have p.p.",
+       "ox": "O",
+       "expl": "'~할 필요가 없었는데 했다'는 need not have p.p.",
+       "wrong_ex": "need not shorten"
+      },
+      {
+       "n": 3,
+       "point": "the + 비교급 of the two",
+       "ox": "O",
+       "expl": "둘 중 더 ~한 쪽을 가리킬 때는 비교급 앞에 the를 붙인다.",
+       "wrong_ex": "safer"
+      },
+      {
+       "n": 4,
+       "point": "get + 목적어 + to부정사",
+       "ox": "X",
+       "expl": "get은 목적격보어로 to부정사를 취하므로 to change.",
+       "fix": "to change"
+      },
+      {
+       "n": 5,
+       "point": "접속사 provided that",
+       "ox": "O",
+       "expl": "'~라면'의 뜻으로 조건의 부사절을 이끈다.",
+       "wrong_ex": "Providing of"
+      }
+     ]
+    },
+    {
+     "set": 56,
+     "title": "손으로 쓴 편지가 돌아오다",
+     "passage": [
+      {
+       "t": "You "
+      },
+      {
+       "t": "may as well to write",
+       "n": 1
+      },
+      {
+       "t": " a short note by hand as send one more message that nobody reads. Some schools "
+      },
+      {
+       "t": "make it a rule to",
+       "n": 2
+      },
+      {
+       "t": " send one letter every term. "
+      },
+      {
+       "t": "Unable",
+       "n": 3
+      },
+      {
+       "t": " to reach a friend online, one student wrote to an old address and got three pages back. "
+      },
+      {
+       "t": "None",
+       "n": 4
+      },
+      {
+       "t": " of those letters took less than four days to arrive. "
+      },
+      {
+       "t": "Were it not for",
+       "n": 5
+      },
+      {
+       "t": " the waiting, the joy of opening one would be much smaller."
+      }
+     ],
+     "tr": [
+      "아무도 읽지 않는 메시지를 하나 더 보내느니 짧은 쪽지를 손으로 쓰는 편이 낫다.",
+      "어떤 학교는 학기마다 편지 한 통을 보내는 것을 원칙으로 삼는다.",
+      "온라인으로 친구에게 닿을 수 없었던 한 학생은 옛 주소로 편지를 썼고 세 장짜리 답장을 받았다.",
+      "그 편지들 가운데 나흘 안에 도착한 것은 하나도 없었다.",
+      "기다림이 없다면, 편지를 뜯어 보는 기쁨은 훨씬 작을 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "may as well A as B",
+       "ox": "X",
+       "expl": "「may as well + 동사원형 + as + 동사원형」이므로 may as well write.",
+       "fix": "may as well write"
+      },
+      {
+       "n": 2,
+       "point": "make it a rule to부정사",
+       "ox": "O",
+       "expl": "'~하는 것을 원칙으로 삼다'라는 관용 표현. it은 가목적어.",
+       "wrong_ex": "make it a rule posting"
+      },
+      {
+       "n": 3,
+       "point": "Being 생략 분사구문",
+       "ox": "O",
+       "expl": "Being unable to ~에서 Being이 생략된 형태.",
+       "wrong_ex": "Unabling"
+      },
+      {
+       "n": 4,
+       "point": "부정대명사 None of",
+       "ox": "O",
+       "expl": "'~중 아무것도 …않다'를 나타내는 None of.",
+       "wrong_ex": "No one"
+      },
+      {
+       "n": 5,
+       "point": "가정법 도치 (Were it not for)",
+       "ox": "O",
+       "expl": "If it were not for에서 if가 생략되어 도치된 형태.",
+       "wrong_ex": "Was it not for"
+      }
+     ]
+    }
+   ],
+   "id": "기본-14",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 15,
+   "sets": [
+    {
+     "set": 57,
+     "title": "연체료를 없앤 도서관",
+     "passage": [
+      {
+       "t": "As is often the case",
+       "n": 1
+      },
+      {
+       "t": " with old rules, nobody could remember why the fine was there. Library fines "
+      },
+      {
+       "t": "raised",
+       "n": 2
+      },
+      {
+       "t": " slowly over many years until one late book cost more than a meal. Some cities now "
+      },
+      {
+       "t": "provide",
+       "n": 3
+      },
+      {
+       "t": " readers with one extra week instead of a fine. "
+      },
+      {
+       "t": "Few",
+       "n": 4
+      },
+      {
+       "t": " libraries that dropped the fine saw their shelves go empty. Most saw more books come back. The idea "
+      },
+      {
+       "t": "is said to have started",
+       "n": 5
+      },
+      {
+       "t": " in a small town in Ohio."
+      }
+     ],
+     "tr": [
+      "오래된 규칙이 흔히 그렇듯, 그 연체료가 왜 있는지는 아무도 기억하지 못했다.",
+      "도서관 연체료는 여러 해에 걸쳐 조금씩 올라, 책 한 권을 늦게 반납하면 한 끼 밥값보다 비싸졌다.",
+      "이제 어떤 도시들은 벌금 대신 일주일을 더 이용자에게 준다.",
+      "연체료를 없앴다고 해서 서가가 비어 버린 도서관은 거의 없었다. 오히려 책이 더 많이 돌아온 곳이 대부분이었다.",
+      "이 생각은 오하이오의 작은 마을에서 시작되었다고 한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 as (절 전체 선행사)",
+       "ox": "O",
+       "expl": "뒤에 오는 절 전체를 선행사로 받는 as. 「As is often the case with ~」는 굳어진 표현이다.",
+       "wrong_ex": "Which is often the case"
+      },
+      {
+       "n": 2,
+       "point": "자동사 rise / 타동사 raise",
+       "ox": "X",
+       "expl": "목적어가 없고 '오르다'라는 뜻이므로 자동사 rose를 쓴다.",
+       "fix": "rose"
+      },
+      {
+       "n": 3,
+       "point": "provide A with B",
+       "ox": "O",
+       "expl": "「provide + 사람 + with + 사물」 구조.",
+       "wrong_ex": "provide with"
+      },
+      {
+       "n": 4,
+       "point": "수량형용사 few",
+       "ox": "O",
+       "expl": "'거의 없다'는 부정의 의미이므로 few. a few는 '몇몇 있다'로 뜻이반대다.",
+       "wrong_ex": "A few"
+      },
+      {
+       "n": 5,
+       "point": "be said to have p.p.",
+       "ox": "O",
+       "expl": "'~했다고 한다'로 본동사보다 앞선 일을 나타낸다.",
+       "wrong_ex": "is said to start"
+      }
+     ]
+    },
+    {
+     "set": 58,
+     "title": "등대지기가 사라진 뒤",
+     "passage": [
+      {
+       "t": "When a ship struck the rocks, the weather was rarely the only thing "
+      },
+      {
+       "t": "to blame",
+       "n": 1
+      },
+      {
+       "t": ". A lens that turns all night "
+      },
+      {
+       "t": "needs cleaning",
+       "n": 2
+      },
+      {
+       "t": " every morning, because salt eats the metal. No two lighthouses "
+      },
+      {
+       "t": "resemble to",
+       "n": 3
+      },
+      {
+       "t": " each other. The pattern of the light works like a name. "
+      },
+      {
+       "t": "Wherever",
+       "n": 4
+      },
+      {
+       "t": " the last keeper went, a machine now counts the seconds for him. The light "
+      },
+      {
+       "t": "cannot have failed",
+       "n": 5
+      },
+      {
+       "t": " on that night, because three other ships saw it clearly."
+      }
+     ],
+     "tr": [
+      "배가 암초에 부딪혔을 때, 책임이 있는 것이 날씨뿐인 경우는 드물었다.",
+      "밤새 도는 렌즈는 아침마다 닦아 주어야 하는데, 소금이 금속을 파먹기 때문이다.",
+      "서로 닮은 등대는 하나도 없다. 불빛의 패턴이 곧 이름 노릇을 한다.",
+      "마지막 등대지기가 어디로 떠났든, 이제는 기계가 그를 대신해 초를 센다.",
+      "그날 밤 불빛이 꺼졌을 리는 없다. 다른 배 세 척이 그것을 또렷이 보았기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "be to blame",
+       "ox": "O",
+       "expl": "'~에 책임이 있다'는 능동형 to blame으로 쓴다. 수동형으로 바꾸지않는다.",
+       "wrong_ex": "to be blamed"
+      },
+      {
+       "n": 2,
+       "point": "need + 동명사 (수동의미)",
+       "ox": "O",
+       "expl": "「need + 동명사」는 '~될 필요가 있다'는 수동의 뜻을 지닌다.",
+       "wrong_ex": "needs to clean"
+      },
+      {
+       "n": 3,
+       "point": "타동사 resemble",
+       "ox": "X",
+       "expl": "resemble은 타동사이므로 전치사 to 없이 목적어를 바로 취한다.",
+       "fix": "resemble"
+      },
+      {
+       "n": 4,
+       "point": "복합관계부사 wherever",
+       "ox": "O",
+       "expl": "'어디로 ~하든'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "Where"
+      },
+      {
+       "n": 5,
+       "point": "cannot have p.p.",
+       "ox": "O",
+       "expl": "'~했을 리가 없다'는 과거 사실에 대한 강한 부정의 추측.",
+       "wrong_ex": "cannot fail"
+      }
+     ]
+    },
+    {
+     "set": 59,
+     "title": "겨울 바다에서 걷어 올리는 것",
+     "passage": [
+      {
+       "t": "While drying",
+       "n": 1
+      },
+      {
+       "t": " in the winter wind, the sheets turn from red to black. The crop is "
+      },
+      {
+       "t": "not so much farmed as",
+       "n": 2
+      },
+      {
+       "t": " gathered, because the spores land on the nets by themselves. Farmers hang "
+      },
+      {
+       "t": "whatever nets",
+       "n": 3
+      },
+      {
+       "t": " the tide allows, then wait for the water to get cold. Dried sheets smell "
+      },
+      {
+       "t": "sweetly",
+       "n": 4
+      },
+      {
+       "t": " of the sea and break cleanly when you fold them. Four hundred years of careful choosing made the seaweed "
+      },
+      {
+       "t": "what it is",
+       "n": 5
+      },
+      {
+       "t": " today."
+      }
+     ],
+     "tr": [
+      "겨울바람에 마르는 동안 김은 붉은색에서 검은색으로 변한다.",
+      "이 작물은 재배된다기보다 거두어진다고 해야 한다. 포자가 스스로 그물에 내려앉기 때문이다.",
+      "어민들은 물때가 허락하는 그물이면 무엇이든 걸어 두고, 물이 차가워지기를 기다린다.",
+      "마른 김에서는 바다의 향긋한 냄새가 나고, 접으면 깔끔하게 부러진다.",
+      "400년에 걸친 세심한 고르기가 이 해조류를 오늘날의 모습으로 만들었다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사절의 축약",
+       "ox": "O",
+       "expl": "「접속사 + 분사」로 부사절을 줄인 형태. 주어가 같아 생략되었다.",
+       "wrong_ex": "While dried"
+      },
+      {
+       "n": 2,
+       "point": "not so much A as B",
+       "ox": "O",
+       "expl": "'A라기보다는 B인'을 나타내는 비교 관용 표현.",
+       "wrong_ex": "not so much farmed than"
+      },
+      {
+       "n": 3,
+       "point": "복합관계형용사 whatever",
+       "ox": "O",
+       "expl": "뒤의 명사 nets를 수식하며 명사절을 이끄는 복합관계형용사.",
+       "wrong_ex": "what nets"
+      },
+      {
+       "n": 4,
+       "point": "감각동사 + 형용사",
+       "ox": "X",
+       "expl": "smell은 보어로 형용사를 취하므로 sweet으로 써야 한다.",
+       "fix": "sweet"
+      },
+      {
+       "n": 5,
+       "point": "what + 주어 + be",
+       "ox": "O",
+       "expl": "'현재의 모습'을 뜻하는 관용 표현 what it is.",
+       "wrong_ex": "that it is"
+      }
+     ]
+    },
+    {
+     "set": 60,
+     "title": "너무 안전한 놀이터",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "No matter what",
+       "n": 1
+      },
+      {
+       "t": " the ground is made of, children will find a way to fall on it. "
+      },
+      {
+       "t": "It appears that",
+       "n": 2
+      },
+      {
+       "t": " the safest playgrounds cause the most broken arms, because nobody learns to judge height. It was careless "
+      },
+      {
+       "t": "of",
+       "n": 3
+      },
+      {
+       "t": " the designers to take every slope out of the park. The old rule about soft ground has become a rule "
+      },
+      {
+       "t": "hard to defend",
+       "n": 4
+      },
+      {
+       "t": ". On the new playground "
+      },
+      {
+       "t": "stands",
+       "n": 5
+      },
+      {
+       "t": " three tall towers with no steps at all."
+      }
+     ],
+     "tr": [
+      "땅이 무엇으로 만들어졌든, 아이들은 그 위에서 넘어질 방법을 찾아낸다.",
+      "가장 안전한 놀이터에서 팔이 가장 많이 부러지는 것으로 보인다. 아무도 높이를 가늠하는 법을 배우지 못하기 때문이다.",
+      "공원에서 경사를 전부 걷어 낸 것은 설계자들의 부주의였다.",
+      "푹신한 바닥에 관한 옛 규칙은 이제 옹호하기 어려운 규칙이 되었다.",
+      "새 놀이터에는 계단이 전혀 없는 높은 탑 세 개가 서 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "복합관계대명사 no matter what",
+       "ox": "O",
+       "expl": "'무엇이 ~이든'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "No matter how"
+      },
+      {
+       "n": 2,
+       "point": "It appears that",
+       "ox": "O",
+       "expl": "'~인 것으로 보인다'를 나타내는 가주어 구문.",
+       "wrong_ex": "It appears what"
+      },
+      {
+       "n": 3,
+       "point": "부정사의 의미상 주어 of",
+       "ox": "O",
+       "expl": "careless처럼 사람의 성질을 나타내는 형용사 뒤에는 of를 쓴다.",
+       "wrong_ex": "for"
+      },
+      {
+       "n": 4,
+       "point": "형용사 + to부정사",
+       "ox": "O",
+       "expl": "「형용사 + to부정사」로 앞의 명사를 수식한다. defend의 목적어가 rule이다.",
+       "wrong_ex": "hard to be defended"
+      },
+      {
+       "n": 5,
+       "point": "장소부사구 도치의 수일치",
+       "ox": "X",
+       "expl": "도치된 문장의 주어가 three tall towers(복수)이므로 stand.",
+       "fix": "stand"
+      }
+     ]
+    }
+   ],
+   "id": "기본-15",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 16,
+   "sets": [
+    {
+     "set": 61,
+     "title": "세상을 바꾼 쇠상자",
+     "passage": [
+      {
+       "t": "A shipping container is "
+      },
+      {
+       "t": "capable of surviving",
+       "n": 1
+      },
+      {
+       "t": " twenty winters at sea with only paint to protect it. Before 1956 there was nothing "
+      },
+      {
+       "t": "to be done",
+       "n": 2
+      },
+      {
+       "t": " about the days a ship lost waiting in port. "
+      },
+      {
+       "t": "It was in Newark that",
+       "n": 3
+      },
+      {
+       "t": " a truck driver first lifted a whole trailer onto a ship. "
+      },
+      {
+       "t": "Whenever",
+       "n": 4
+      },
+      {
+       "t": " a port said no to the standard size, its ships moved somewhere else in ten years. It was "
+      },
+      {
+       "t": "such simple a box",
+       "n": 5
+      },
+      {
+       "t": " that nobody thought it was worth a patent."
+      }
+     ],
+     "tr": [
+      "컨테이너는 페인트만으로 보호받으면서도 바다에서 스무 번의 겨울을 견뎌 낼 수 있다.",
+      "1956년 이전에는 배가 항구에서 기다리며 잃는 날들에 대해 손쓸 방법이 없었다.",
+      "한 트럭 운전사가 트레일러를 통째로 배에 올린 곳은 바로 뉴어크였다.",
+      "표준 규격을 거부한 항구는 어디든 10년 안에 배들이 다른 곳으로 옮겨 갔다.",
+      "그것은 워낙 단순한 상자여서 아무도 특허를 낼 만하다고 여기지 않았다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "형용사 + 전치사 + 동명사",
+       "ox": "O",
+       "expl": "「be capable of + 동명사」 구조. 전치사 of 뒤에는 동명사가 온다.",
+       "wrong_ex": "capable to survive"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 수동형",
+       "ox": "O",
+       "expl": "nothing이 행해지는 대상이므로 to be p.p.",
+       "wrong_ex": "to do"
+      },
+      {
+       "n": 3,
+       "point": "It ~ that 강조구문 (부사구)",
+       "ox": "O",
+       "expl": "부사구 in Newark를 강조하는 It ~ that 구문.",
+       "wrong_ex": "It was in Newark which"
+      },
+      {
+       "n": 4,
+       "point": "복합관계부사 whenever",
+       "ox": "O",
+       "expl": "'~할 때마다'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "Whatever"
+      },
+      {
+       "n": 5,
+       "point": "so/such 어순",
+       "ox": "X",
+       "expl": "「so + 형용사 + a + 명사」 또는 「such + a + 형용사 + 명사」이므로 so simple a box.",
+       "fix": "so simple a box"
+      }
+     ]
+    },
+    {
+     "set": 62,
+     "title": "개의 코가 하는 일",
+     "passage": [
+      {
+       "t": "A dog's nose "
+      },
+      {
+       "t": "remains useful",
+       "n": 1
+      },
+      {
+       "t": " long after its eyes get weak. The nose is "
+      },
+      {
+       "t": "sensitive enough",
+       "n": 2
+      },
+      {
+       "t": " to find one drop in a swimming pool. Handlers step back and watch the dog decide "
+      },
+      {
+       "t": "which sample holds",
+       "n": 3
+      },
+      {
+       "t": " the illness. Trainers cannot "
+      },
+      {
+       "t": "explain the dog the task",
+       "n": 4
+      },
+      {
+       "t": ", so they reward the moment of stillness instead. "
+      },
+      {
+       "t": "When trained",
+       "n": 5
+      },
+      {
+       "t": " young, a detection dog works for about eight years."
+      }
+     ],
+     "tr": [
+      "개의 코는 눈이 약해진 뒤로도 한참 동안 쓸모를 유지한다.",
+      "그 코는 수영장에서 한 방울을 찾아낼 만큼 예민하다.",
+      "조련사는 뒤로 물러서서 어느 시료에 병이 들어 있는지를 개가 판단하는 것을 지켜본다.",
+      "조련사는 개에게 과제를 설명해 줄 수 없기 때문에, 대신 개가 가만히 멈추는 순간에 보상을 준다.",
+      "어릴 때 훈련받으면 탐지견은 약 8년 동안 일한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "remain + 형용사",
+       "ox": "O",
+       "expl": "remain은 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "remains usefully"
+      },
+      {
+       "n": 2,
+       "point": "enough의 위치",
+       "ox": "O",
+       "expl": "enough가 형용사를 수식할 때는 형용사 뒤에 온다.",
+       "wrong_ex": "enough sensitive"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 (의문사가 주어)",
+       "ox": "O",
+       "expl": "의문사가 주어이면 「의문사 + 동사」 어순을 그대로 쓴다.",
+       "wrong_ex": "which sample does hold"
+      },
+      {
+       "n": 4,
+       "point": "4형식이 불가능한 동사",
+       "ox": "X",
+       "expl": "explain은 간접목적어를 바로 취하지 못하므로 explain the task to the dog.",
+       "fix": "explain the task to the dog"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (접속사 남김)",
+       "ox": "O",
+       "expl": "When (they are) trained에서 주어와 be동사가 생략된 형태.",
+       "wrong_ex": "When training"
+      }
+     ]
+    },
+    {
+     "set": 63,
+     "title": "덮었던 물길을 다시 열다",
+     "passage": [
+      {
+       "t": "It is now accepted that",
+       "n": 1
+      },
+      {
+       "t": " a covered stream costs a city more than an open one. Seoul took away a raised road in 2003, a project "
+      },
+      {
+       "t": "during which",
+       "n": 2
+      },
+      {
+       "t": " traffic went down instead of up. Two smaller streams, both of which "
+      },
+      {
+       "t": "flows",
+       "n": 3
+      },
+      {
+       "t": " into the same river, were opened again last year. "
+      },
+      {
+       "t": "Only after",
+       "n": 4
+      },
+      {
+       "t": " the water returned did the summer temperature drop by three degrees. Planners now keep the banks rough "
+      },
+      {
+       "t": "so as not to",
+       "n": 5
+      },
+      {
+       "t": " lose the insects again."
+      }
+     ],
+     "tr": [
+      "덮어 버린 하천이 열린 하천보다 도시에 더 큰 비용을 치르게 한다는 점은 이제 받아들여진다.",
+      "서울은 2003년에 고가도로를 걷어 냈는데, 그 사업이 진행되는 동안 교통량은 늘지 않고 줄었다.",
+      "같은 강으로 흘러드는 더 작은 하천 두 곳이 지난해 다시 열렸다.",
+      "물이 돌아오고 나서야 비로소 여름 기온이 3도 떨어졌다.",
+      "이제 설계자들은 곤충을 다시 잃지 않기 위해 둔치를 거칠게 둔다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "가주어 it + that절",
+       "ox": "O",
+       "expl": "진주어인 that절을 대신하는 가주어 it 구문.",
+       "wrong_ex": "It is now accepted what"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "during the project의 관계를 살린 during which. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "during that"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사의 수일치",
+       "ox": "X",
+       "expl": "both of which의 선행사가 Two smaller streams(복수)이므로 flow.",
+       "fix": "flow"
+      },
+      {
+       "n": 4,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "the summer temperature dropped"
+      },
+      {
+       "n": 5,
+       "point": "so as not to + 동사원형",
+       "ox": "O",
+       "expl": "목적의 so as to를 부정할 때는 not을 to 앞에 둔다.",
+       "wrong_ex": "so as to not"
+      }
+     ]
+    },
+    {
+     "set": 64,
+     "title": "자막을 켜고 자란 아이들",
+     "passage": [
+      {
+       "t": "Children who watch subtitled cartoons are "
+      },
+      {
+       "t": "likely to read",
+       "n": 1
+      },
+      {
+       "t": " faster by the age of ten. India tried this in the 1990s, a country "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " reading rate then rose among people who watched one song programme. "
+      },
+      {
+       "t": "As",
+       "n": 3
+      },
+      {
+       "t": " the words move with the music, even a weak reader can follow them. Families may choose "
+      },
+      {
+       "t": "whichever",
+       "n": 4
+      },
+      {
+       "t": " channel they like, since the subtitles are in the same language as the speech. "
+      },
+      {
+       "t": "Though small",
+       "n": 5
+      },
+      {
+       "t": ", the gain appears in every study that has measured it."
+      }
+     ],
+     "tr": [
+      "자막이 있는 만화를 보는 아이들은 열 살 무렵이면 더 빠르게 읽을 가능성이 높다.",
+      "인도는 1990년대에 이것을 시도했는데, 노래 프로그램 하나를 본 사람들 사이에서 읽기 능력이 올라간 나라다.",
+      "글자가 음악에 맞춰 움직이기 때문에, 읽기가 서툰 사람도 그것을 따라갈 수 있다.",
+      "자막이 말소리와 같은 언어로 되어 있으므로, 가족들은 어느 채널이든 원하는 것을 고르면 된다.",
+      "그 효과는 작지만, 그것을 측정한 모든 연구에서 나타난다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "be likely to부정사",
+       "ox": "O",
+       "expl": "'~할 가능성이 높다'는 be likely + to부정사.",
+       "wrong_ex": "likely reading"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "X",
+       "expl": "a country와 literacy rate가 소유 관계이므로 whose로 써야 한다.",
+       "fix": "whose"
+      },
+      {
+       "n": 3,
+       "point": "접속사 as (비례)",
+       "ox": "O",
+       "expl": "'~함에 따라'의 뜻으로 비례를 나타내는 접속사 as.",
+       "wrong_ex": "As of"
+      },
+      {
+       "n": 4,
+       "point": "복합관계형용사 whichever",
+       "ox": "O",
+       "expl": "뒤의 명사 channel을 수식하며 '어느 ~이든'을 뜻한다.",
+       "wrong_ex": "whoever"
+      },
+      {
+       "n": 5,
+       "point": "부사절의 축약 (형용사만 남김)",
+       "ox": "O",
+       "expl": "Though it is small에서 주어와 be동사가 생략된 형태.",
+       "wrong_ex": "Though smally"
+      }
+     ]
+    }
+   ],
+   "id": "기본-16",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 17,
+   "sets": [
+    {
+     "set": 65,
+     "title": "지진보다 먼저 도착하는 경보",
+     "passage": [
+      {
+       "t": "In 2011 the alarm "
+      },
+      {
+       "t": "was heard ring",
+       "n": 1
+      },
+      {
+       "t": " across northern Japan a whole minute before the shaking began. "
+      },
+      {
+       "t": "The moment",
+       "n": 2
+      },
+      {
+       "t": " a sensor near the centre feels the first fast wave, it sends a signal ahead of the slow one. A minute is "
+      },
+      {
+       "t": "too short for most people to leave",
+       "n": 3
+      },
+      {
+       "t": " a building, but long enough to stop a train. The warning is "
+      },
+      {
+       "t": "such a simple idea as to",
+       "n": 4
+      },
+      {
+       "t": " look obvious now. The system cannot predict a quake. It only runs faster than the wave "
+      },
+      {
+       "t": "itself",
+       "n": 5
+      },
+      {
+       "t": "."
+      }
+     ],
+     "tr": [
+      "2011년, 흔들림이 시작되기 꼬박 1분 전에 일본 북부 전역에서 경보음이 울리는 것이 들렸다.",
+      "중심 근처의 감지기가 먼저 오는 빠른 파동을 느끼는 순간, 그것은 느린 파동보다 앞서 신호를 보낸다.",
+      "1분은 대부분의 사람이 건물을 빠져나가기에는 너무 짧지만, 열차를 세우기에는 충분히 길다.",
+      "이 경보는 지금 보면 당연해 보일 만큼 단순한 생각이다.",
+      "이 체계는 지진을 예측하지 못한다. 다만 파동 그 자체보다 빨리 달릴 뿐이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "지각동사의 수동태",
+       "ox": "X",
+       "expl": "hear의 수동태에서는 생략되었던 to가 살아나므로 was heard to ring.",
+       "fix": "was heard to ring"
+      },
+      {
+       "n": 2,
+       "point": "접속사 the moment",
+       "ox": "O",
+       "expl": "'~하자마자'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "The moment when"
+      },
+      {
+       "n": 3,
+       "point": "too ~ for A to부정사",
+       "ox": "O",
+       "expl": "「too + 형용사 + for 목적격 + to부정사」로 의미상 주어를 밝힌형태.",
+       "wrong_ex": "too short for most people leaving"
+      },
+      {
+       "n": 4,
+       "point": "such ~ as to부정사",
+       "ox": "O",
+       "expl": "「such + a + 형용사 + 명사 + as to부정사」로 정도와 결과를 나타낸다.",
+       "wrong_ex": "such a simple idea as"
+      },
+      {
+       "n": 5,
+       "point": "강조 재귀대명사",
+       "ox": "O",
+       "expl": "앞의 명사 the wave를 강조하는 재귀대명사. 생략해도 문장이 성립한다.",
+       "wrong_ex": "it"
+      }
+     ]
+    },
+    {
+     "set": 66,
+     "title": "불로 막는 산불",
+     "passage": [
+      {
+       "t": "Neither the rain nor the winter storms "
+      },
+      {
+       "t": "clear",
+       "n": 1
+      },
+      {
+       "t": " the dead wood from a dry forest. A pine wood "
+      },
+      {
+       "t": "the floor of which",
+       "n": 2
+      },
+      {
+       "t": " is covered with years of needles will burn at a heat nothing can survive. Planned burning is "
+      },
+      {
+       "t": "the only tool that",
+       "n": 3
+      },
+      {
+       "t": " really lowers that risk. But one escaped flame can grow into a fire ten times "
+      },
+      {
+       "t": "the size than",
+       "n": 4
+      },
+      {
+       "t": " the town it threatens. "
+      },
+      {
+       "t": "What is worse",
+       "n": 5
+      },
+      {
+       "t": ", people remember the fires that escaped and forget the thousands of quiet ones."
+      }
+     ],
+     "tr": [
+      "비도 겨울 폭풍도 마른 숲에서 죽은 나무를 치워 주지는 않는다.",
+      "바닥이 수년치 솔잎으로 덮인 소나무 숲은 그 무엇도 살아남지 못할 열로 타오른다.",
+      "계획 소각은 그 위험을 정말로 낮추는 유일한 수단이다.",
+      "그러나 새어 나간 불씨 하나가 그것이 위협하는 마을의 열 배 크기 화재로 자랄 수도 있다.",
+      "더 나쁜 것은, 사람들이 새어 나간 불만 기억하고 조용히 끝난 수천 번의 소각은 잊는다는 점이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "neither A nor B 수일치",
+       "ox": "O",
+       "expl": "「Neither A nor B」는 B에 동사를 맞춘다. storms가 복수이므로 clear.",
+       "wrong_ex": "clears"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 관계대명사 + 명사",
+       "ox": "O",
+       "expl": "the floor of the wood의 관계를 살린 the floor of which. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which floor"
+      },
+      {
+       "n": 3,
+       "point": "관계대명사 that (the only 뒤)",
+       "ox": "O",
+       "expl": "선행사에 the only가 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the only tool what"
+      },
+      {
+       "n": 4,
+       "point": "배수 + the size of",
+       "ox": "X",
+       "expl": "「배수사 + the size of + 명사」 구조이므로 the size of.",
+       "fix": "the size of"
+      },
+      {
+       "n": 5,
+       "point": "What is worse",
+       "ox": "O",
+       "expl": "'더 나쁜 것은'을 뜻하는 삽입 관용 표현. 관계대명사 what을 쓴다.",
+       "wrong_ex": "That is worse"
+      }
+     ]
+    },
+    {
+     "set": 67,
+     "title": "사라진 단어를 쫓는 사람들",
+     "passage": [
+      {
+       "t": "The editors "
+      },
+      {
+       "t": "had hoped",
+       "n": 1
+      },
+      {
+       "t": " to finish the dictionary in ten years, but it took them seventy. One editor talks about a lost word as if it "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " an old friend who moved away without leaving an address. Every example "
+      },
+      {
+       "t": "available",
+       "n": 3
+      },
+      {
+       "t": " in print had to be copied by hand onto a small paper. The whole project rested on the idea "
+      },
+      {
+       "t": "of  reading",
+       "n": 4
+      },
+      {
+       "t": " everything ever written in English. "
+      },
+      {
+       "t": "Under no circumstances would",
+       "n": 5
+      },
+      {
+       "t": " a word enter the book without a dated example behind it."
+      }
+     ],
+     "tr": [
+      "편집자들은 10년 안에 사전을 끝내기를 바랐지만, 실제로는 70년이 걸렸다.",
+      "한 편집자는 사라진 단어를 두고 마치 주소도 남기지 않고 떠난 옛 친구인 것처럼 말한다.",
+      "인쇄물에서 구할 수 있는 모든 예문은 손으로 작은 종이에 옮겨 적어야 했다.",
+      "이 사업 전체는 영어로 쓰인 모든 글을 읽는다는 발상 위에 놓여 있었다.",
+      "날짜가 적힌 예문이 뒷받침되지 않는 한, 어떤 단어도 결코 이 책에 실릴 수 없었다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "had hoped (이루지못한 소망)",
+       "ox": "O",
+       "expl": "「had + hoped/expected」로 이루어지지 않은 과거의 기대를 나타낸다.",
+       "wrong_ex": "have hoped"
+      },
+      {
+       "n": 2,
+       "point": "as if + 가정법 과거",
+       "ox": "X",
+       "expl": "현재 사실과 반대되는 가정이므로 as if 뒤에 were를 쓴다.",
+       "fix": "were"
+      },
+      {
+       "n": 3,
+       "point": "형용사의 후치 수식",
+       "ox": "O",
+       "expl": "available처럼 뒤에서 명사를 수식하는 형용사. Every citation (that was) available의 형태이다.",
+       "wrong_ex": "availably"
+      },
+      {
+       "n": 4,
+       "point": "동격의 of",
+       "ox": "O",
+       "expl": "the idea의 내용을 설명하는 동격의 of + 동명사.",
+       "wrong_ex": "of read"
+      },
+      {
+       "n": 5,
+       "point": "부정어 도치",
+       "ox": "O",
+       "expl": "Under no circumstances가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a word would enter"
+      }
+     ]
+    },
+    {
+     "set": 68,
+     "title": "빗물을 붙잡아 두는 정원",
+     "passage": [
+      {
+       "t": "Cities now face "
+      },
+      {
+       "t": "a situation where",
+       "n": 1
+      },
+      {
+       "t": " one storm drops a month of rain in an hour. A rain garden "
+      },
+      {
+       "t": "has the water sit",
+       "n": 2
+      },
+      {
+       "t": " in a shallow dish instead of running straight to the drain. About a third of the water soaks in within a day, and "
+      },
+      {
+       "t": "the rest of it",
+       "n": 3
+      },
+      {
+       "t": " dries up or feeds the plants. The dishes are "
+      },
+      {
+       "t": "so cheap as to",
+       "n": 4
+      },
+      {
+       "t": " look too simple next to a concrete tank. Planners "
+      },
+      {
+       "t": "ought to built",
+       "n": 5
+      },
+      {
+       "t": " them before the flood, not after it."
+      }
+     ],
+     "tr": [
+      "이제 도시들은 폭우 한 번이 한 달치 비를 한 시간 안에 쏟아붓는 상황을 마주한다.",
+      "빗물 정원은 물이 곧장 배수구로 흘러가는 대신 얕은 웅덩이에 머무르게 한다.",
+      "물의 약 3분의 1은 하루 안에 스며들고, 나머지는 마르거나 식물을 먹인다.",
+      "이 웅덩이들은 콘크리트 저류조 옆에 두면 너무 값싸서 너무 단순해 보일 정도다.",
+      "설계자들은 홍수가 난 뒤가 아니라 그전에 이것을 만들었어야 했다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "추상 선행사 + 관계부사 where",
+       "ox": "O",
+       "expl": "situation처럼 추상적인 '상황'을 선행사로 받아 where를 쓸 수 있다.",
+       "wrong_ex": "a situation which"
+      },
+      {
+       "n": 2,
+       "point": "사역동사 have + 원형부정사",
+       "ox": "O",
+       "expl": "have는 목적격보어로 원형부정사를 취한다.",
+       "wrong_ex": "has the water to sit"
+      },
+      {
+       "n": 3,
+       "point": "the rest of 수일치",
+       "ox": "O",
+       "expl": "「the rest of + 명사」는 뒤의 명사에 동사를 맞춘다. it이 단수이므로 evaporates.",
+       "wrong_ex": "the rest of them"
+      },
+      {
+       "n": 4,
+       "point": "so ~ as to부정사",
+       "ox": "O",
+       "expl": "「so + 형용사 + as to부정사」로 정도와 결과를 나타낸다.",
+       "wrong_ex": "so cheap to"
+      },
+      {
+       "n": 5,
+       "point": "ought to have p.p.",
+       "ox": "X",
+       "expl": "과거에 하지 못한 일에 대한 유감이므로 ought to have built.",
+       "fix": "ought to have built"
+      }
+     ]
+    }
+   ],
+   "id": "기본-17",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 18,
+   "sets": [
+    {
+     "set": 69,
+     "title": "전기 없이 차가워지는 항아리",
+     "passage": [
+      {
+       "t": "With the outer pot is wet",
+       "n": 1
+      },
+      {
+       "t": ", the water in the sand begins to evaporate and the inner pot grows cold. "
+      },
+      {
+       "t": "Every time",
+       "n": 2
+      },
+      {
+       "t": " the sun heats the surface, the water dries faster and the temperature falls more. The pot is "
+      },
+      {
+       "t": "supposed to hold",
+       "n": 3
+      },
+      {
+       "t": " vegetables for three weeks instead of three days. "
+      },
+      {
+       "t": "No other cooling method is as cheap as",
+       "n": 4
+      },
+      {
+       "t": " this one in a village without electricity. The pot does the work "
+      },
+      {
+       "t": "by itself",
+       "n": 5
+      },
+      {
+       "t": ", needing only a jug of water each morning."
+      }
+     ],
+     "tr": [
+      "바깥 항아리가 젖어 있으면, 모래 속의 물이 증발하기 시작하고 안쪽 항아리는 차가워진다.",
+      "햇볕이 표면을 데울 때마다 물이 더 빨리 마르고 온도는 더 떨어진다.",
+      "이 항아리는 채소를 사흘이 아니라 3주 동안 보관해 주기로 되어 있다.",
+      "전기가 없는 마을에서 이만큼 값싼 냉각 방법은 없다.",
+      "이 항아리는 아침마다 물 한 주전자만 있으면 저절로 일을 해낸다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "with + 목적어 + 분사",
+       "ox": "X",
+       "expl": "「with + 목적어 + 분사/형용사」 구조이므로 동사를 쓸 수 없다. With the outer pot wet으로 고친다.",
+       "fix": "With the outer pot wet"
+      },
+      {
+       "n": 2,
+       "point": "접속사 every time",
+       "ox": "O",
+       "expl": "'~할 때마다'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "Every time when"
+      },
+      {
+       "n": 3,
+       "point": "be supposed to",
+       "ox": "O",
+       "expl": "'~하기로 되어 있다'를 나타내는 be supposed to + 동사원형.",
+       "wrong_ex": "supposed to holding"
+      },
+      {
+       "n": 4,
+       "point": "최상급 대용 (no other ~ as ~ as)",
+       "ox": "O",
+       "expl": "「No other + 단수명사 + as 원급 as」로 최상급의 뜻을 나타낸다.",
+       "wrong_ex": "No other cooling methods are as cheap as"
+      },
+      {
+       "n": 5,
+       "point": "재귀대명사 관용 by itself",
+       "ox": "O",
+       "expl": "'저절로, 혼자 힘으로'를 뜻하는 by itself.",
+       "wrong_ex": "by it"
+      }
+     ]
+    },
+    {
+     "set": 70,
+     "title": "새끼 거북은 왜 바다를 등질까",
+     "passage": [
+      {
+       "t": "Not the moon but the hotel signs "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " what now pull baby turtles away from the water. Ninety percent of the young turtles "
+      },
+      {
+       "t": "die",
+       "n": 2
+      },
+      {
+       "t": " before they reach deep water, and bright lights make it worse. Scientists wish they "
+      },
+      {
+       "t": "started",
+       "n": 3
+      },
+      {
+       "t": " the lighting rules ten years earlier than they did. "
+      },
+      {
+       "t": "Do switch off",
+       "n": 4
+      },
+      {
+       "t": " the balcony lamp in nesting season, however small it feels. Turtles are unusual "
+      },
+      {
+       "t": "in that",
+       "n": 5
+      },
+      {
+       "t": " they navigate by the brightest line on the horizon."
+      }
+     ],
+     "tr": [
+      "이제 새끼 거북을 물에서 멀어지게 끌어당기는 것은 달이 아니라 호텔 간판이다.",
+      "어린 거북의 90퍼센트는 깊은 바다에 닿기 전에 죽는데, 밝은 불빛이 상황을 더 나쁘게 만든다.",
+      "과학자들은 조명 규제를 실제보다 10년 더 일찍 시작했더라면 하고 아쉬워한다.",
+      "산란철에는 발코니 등을 꼭 꺼 달라. 아무리 사소하게 느껴지더라도 말이다.",
+      "거북이 특이한 것은 수평선에서 가장 밝은 선을 기준으로 방향을 잡는다는 점에서다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "not A but B 수일치",
+       "ox": "O",
+       "expl": "「not A but B」는 B에 동사를 맞춘다. signs가 복수이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 2,
+       "point": "percent of 수일치",
+       "ox": "O",
+       "expl": "「퍼센트 + of + 명사」는 뒤의 명사에 동사를 맞춘다. turtles가 복수이므로 die.",
+       "wrong_ex": "dies"
+      },
+      {
+       "n": 3,
+       "point": "I wish + 가정법 과거완료",
+       "ox": "X",
+       "expl": "과거에 이루지 못한 일에 대한 아쉬움이므로 had started.",
+       "fix": "had started"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do (명령문)",
+       "ox": "O",
+       "expl": "명령문 앞의 do는 '꼭 ~해라'라는 강조를 나타낸다.",
+       "wrong_ex": "Does switch off"
+      },
+      {
+       "n": 5,
+       "point": "접속사 in that",
+       "ox": "O",
+       "expl": "'~라는 점에서'의 뜻으로 이유·근거의 부사절을 이끈다.",
+       "wrong_ex": "in which"
+      }
+     ]
+    },
+    {
+     "set": 71,
+     "title": "소리를 품은 나무",
+     "passage": [
+      {
+       "t": "Spruce from a cold northern slope is "
+      },
+      {
+       "t": "the finest wood that",
+       "n": 1
+      },
+      {
+       "t": " a maker can hope to find. Slow growth makes the grain tight, and the sound is "
+      },
+      {
+       "t": "all the clearer",
+       "n": 2
+      },
+      {
+       "t": " for it. Trees cut during the Little Ice Age "
+      },
+      {
+       "t": "may have grown",
+       "n": 3
+      },
+      {
+       "t": " more slowly than any tree since. The value comes from "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " the rings sit close together, not from the age of the tree. Modern spruce grows fast in warm summers, "
+      },
+      {
+       "t": "whereas",
+       "n": 5
+      },
+      {
+       "t": " the old wood took a century to reach the same width."
+      }
+     ],
+     "tr": [
+      "북쪽 찬 비탈에서 자란 가문비나무는 제작자가 구할 수 있는 가장 좋은 목재다.",
+      "느리게 자라면 나뭇결이 촘촘해지고, 그 덕분에 소리는 그만큼 더 맑아진다.",
+      "소빙기에 베어진 나무들은 그 이후의 어떤 나무보다도 느리게 자랐을지 모른다.",
+      "그 가치는 나무의 나이가 아니라 나이테가 촘촘히 붙어 있다는 사실에서 나온다.",
+      "현대의 가문비나무는 따뜻한 여름에 빠르게 자라는 반면, 옛 목재는 같은 굵기에 이르는 데 백 년이 걸렸다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 that (최상급 뒤)",
+       "ox": "O",
+       "expl": "선행사에 최상급이 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the finest wood what"
+      },
+      {
+       "n": 2,
+       "point": "all the + 비교급",
+       "ox": "O",
+       "expl": "「all the + 비교급 + for ~」로 '~때문에 그만큼 더 …한'을 나타낸다.",
+       "wrong_ex": "all the clear"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 약한 추측이므로 may have p.p.",
+       "wrong_ex": "may grow"
+      },
+      {
+       "n": 4,
+       "point": "전치사의 목적어",
+       "ox": "X",
+       "expl": "전치사 뒤에 that절을 바로 둘 수 없으므로 from the fact that으로 고친다.",
+       "fix": "the fact that"
+      },
+      {
+       "n": 5,
+       "point": "접속사 whereas",
+       "ox": "O",
+       "expl": "'~인 반면에'의 뜻으로 대조를 나타내는 접속사.",
+       "wrong_ex": "whereas of"
+      }
+     ]
+    },
+    {
+     "set": 72,
+     "title": "지문은 얼마나 확실한가",
+     "passage": [
+      {
+       "t": "The police was",
+       "n": 1
+      },
+      {
+       "t": " slow to admit that a fingerprint match can be wrong. A London theft in 1902 was "
+      },
+      {
+       "t": "the first case that",
+       "n": 2
+      },
+      {
+       "t": " a British court took a print as proof. An expert may work from "
+      },
+      {
+       "t": "no more than",
+       "n": 3
+      },
+      {
+       "t": " eight clear points. Two trained experts "
+      },
+      {
+       "t": "hardly ever",
+       "n": 4
+      },
+      {
+       "t": " disagree in public, and this hides how often they disagree in private. A famous mistake in 2004 changed that. "
+      },
+      {
+       "t": "Only then did",
+       "n": 5
+      },
+      {
+       "t": " labs begin testing their own experts blind."
+      }
+     ],
+     "tr": [
+      "경찰은 지문 대조가 틀릴 수 있다는 사실을 인정하는 데 더뎠다.",
+      "1902년 런던의 한 도난 사건은 영국 법정이 지문을 증거로 받아들인 첫 사례였다.",
+      "전문가는 뚜렷한 비교점 여덟 개만 가지고 작업하기도 한다.",
+      "훈련된 전문가 두 사람이 공개적으로 의견을 달리하는 일은 좀처럼 없고, 이 때문에 비공개 석상에서 얼마나 자주 갈리는지가 가려진다.",
+      "2004년의 유명한 실수가 그 상황을 바꾸었다. 그제서야 비로소 연구소들은 전문가를 대상으로 블라인드 검증을 시작했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "police 복수 취급",
+       "ox": "X",
+       "expl": "the police는 복수 취급하는 명사이므로 were.",
+       "fix": "The police were"
+      },
+      {
+       "n": 2,
+       "point": "관계대명사 that (서 수 뒤)",
+       "ox": "O",
+       "expl": "선행사에 the first 같은 서수가 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the first case what"
+      },
+      {
+       "n": 3,
+       "point": "비교 관용 no more than",
+       "ox": "O",
+       "expl": "'겨우 ~밖에'라는 뜻으로 적음을 강조한다.",
+       "wrong_ex": "not more than"
+      },
+      {
+       "n": 4,
+       "point": "준부정어 hardly ever",
+       "ox": "O",
+       "expl": "'좀처럼 ~하지 않다'를 뜻하는 부사구.",
+       "wrong_ex": "hard ever"
+      },
+      {
+       "n": 5,
+       "point": "only + 부사 도치",
+       "ox": "O",
+       "expl": "only then이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "only then laboratories did"
+      }
+     ]
+    }
+   ],
+   "id": "기본-18",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 19,
+   "sets": [
+    {
+     "set": 73,
+     "title": "늦게 여는 교문",
+     "passage": [
+      {
+       "t": "Teenagers are not lazy in the morning; their body clocks just "
+      },
+      {
+       "t": "run",
+       "n": 1
+      },
+      {
+       "t": " about two hours behind adults' clocks. A school district in Seattle "
+      },
+      {
+       "t": "has moved",
+       "n": 2
+      },
+      {
+       "t": " its first bell from 7:50 to 8:45 in 2016, and students began sleeping over thirty minutes longer. Teachers said that "
+      },
+      {
+       "t": "fewer",
+       "n": 3
+      },
+      {
+       "t": " students fell asleep in the first class. Scientists say it is essential that every district "
+      },
+      {
+       "t": "review",
+       "n": 4
+      },
+      {
+       "t": " its school hours with sleep in mind. "
+      },
+      {
+       "t": "Almost",
+       "n": 5
+      },
+      {
+       "t": " every family that tried the later start wanted to keep it."
+      }
+     ],
+     "tr": [
+      "십대들이 아침에 게으른 것이 아니다. 그들의 생체 시계가 어른의 시계보다 두 시간쯤 늦게 돌아갈 뿐이다.",
+      "시애틀의 한 교육구는 2016년에 첫 종을 7시 50분에서 8시 45분으로 옮겼고, 학생들은 30분 넘게 더 자기 시작했다.",
+      "교사들은 첫 수업에서 잠드는 학생이 줄었다고 말했다.",
+      "과학자들은 모든 교육구가 수면을 생각하며 수업 시간을 검토하는 것이 꼭 필요하다고 말한다.",
+      "늦은 등교를 시도해 본 거의 모든 가정이 그것을 유지하기를 원했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 their body clocks(복수)이므로 run.",
+       "wrong_ex": "runs"
+      },
+      {
+       "n": 2,
+       "point": "과거 시점 부사와 현재완료",
+       "ox": "X",
+       "expl": "in 2016처럼 명백한 과거 시점이 있으면 현재완료를 쓸 수 없으므로 moved.",
+       "fix": "moved"
+      },
+      {
+       "n": 3,
+       "point": "수량형용사 fewer",
+       "ox": "O",
+       "expl": "students는 가산 복수명사이므로 fewer. less는 불가산명사에 쓴다.",
+       "wrong_ex": "less"
+      },
+      {
+       "n": 4,
+       "point": "이성적 판단 형용사 + (should) 동사원형",
+       "ox": "O",
+       "expl": "essential 같은 이성적 판단 형용사 뒤 that절에는 (should) + 동사원형을 쓴다.",
+       "wrong_ex": "reviews"
+      },
+      {
+       "n": 5,
+       "point": "부사 almost",
+       "ox": "O",
+       "expl": "almost는 부사로 every를 수식한다. most는 every 앞에 올 수 없다.",
+       "wrong_ex": "Most"
+      }
+     ]
+    },
+    {
+     "set": 74,
+     "title": "비행기 창문은 왜 둥글까",
+     "passage": [
+      {
+       "t": "Early jet planes had square windows, and two of them broke apart in the air in 1954. Engineers found that the stress at a sharp corner is three times greater than "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " along a round edge. After that year, plane makers stopped "
+      },
+      {
+       "t": "using",
+       "n": 2
+      },
+      {
+       "t": " square windows. A round window spreads the force "
+      },
+      {
+       "t": "evenly",
+       "n": 3
+      },
+      {
+       "t": " around its whole edge. The glass is also set "
+      },
+      {
+       "t": "high",
+       "n": 4
+      },
+      {
+       "t": " enough on the wall to match a seated passenger's eyes. The inner glass, which "
+      },
+      {
+       "t": "lays",
+       "n": 5
+      },
+      {
+       "t": " closest to the passenger, has a tiny hole that balances the air pressure."
+      }
+     ],
+     "tr": [
+      "초기 제트기는 창문이 네모났는데, 그중 두 대가 1954년 공중에서 부서졌다.",
+      "기술자들은 날카로운 모서리에 걸리는 힘이 둥근 가장자리를 따라 걸리는 힘보다 세 배 크다는 것을 알아냈다.",
+      "그해 이후 비행기 제작사들은 네모난 창문을 쓰지 않게 되었다.",
+      "둥근 창문은 힘을 가장자리 전체에 고르게 퍼뜨린다.",
+      "유리는 또한 앉은 승객의 눈높이에 맞을 만큼 벽의 높은 곳에 설치된다.",
+      "승객에게 가장 가까이 놓인 안쪽 유리에는 공기 압력을 맞춰 주는 작은 구멍이 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "비교 대상 일치 (that)",
+       "ox": "O",
+       "expl": "비교 대상이 the stress(단수)이므로 이를 받는 지시대명사 that.",
+       "wrong_ex": "those"
+      },
+      {
+       "n": 2,
+       "point": "stop + 동명사",
+       "ox": "O",
+       "expl": "'~하는 것을 그만두다'는 stop + 동명사. stop + to부정사는 '~하기위해 멈추다'로 뜻이 달라진다.",
+       "wrong_ex": "to use"
+      },
+      {
+       "n": 3,
+       "point": "부사 (동사 수식)",
+       "ox": "O",
+       "expl": "동사 spreads를 수식하므로 부사 evenly.",
+       "wrong_ex": "even"
+      },
+      {
+       "n": 4,
+       "point": "형용사·부사 형태가 같은 high",
+       "ox": "O",
+       "expl": "'높은 곳에'라는 위치의 뜻이므로 high. highly는 '매우'라는 뜻이다.",
+       "wrong_ex": "highly"
+      },
+      {
+       "n": 5,
+       "point": "자동사 lie / 타동사 lay",
+       "ox": "X",
+       "expl": "목적어 없이 '놓여 있다'는 뜻이므로 자동사 lies.",
+       "fix": "lies"
+      }
+     ]
+    },
+    {
+     "set": 75,
+     "title": "거미줄을 만드는 염소",
+     "passage": [
+      {
+       "t": "Spider silk is stronger than steel of the same weight, and one protein is "
+      },
+      {
+       "t": "the very",
+       "n": 1
+      },
+      {
+       "t": " thing that makes it so hard to copy. Scientists once tried to keep many spiders, but spiders in the same box end up "
+      },
+      {
+       "t": "eating",
+       "n": 2
+      },
+      {
+       "t": " one another. Scientists "
+      },
+      {
+       "t": "were interested at",
+       "n": 3
+      },
+      {
+       "t": " making the silk without the spider. Some goats "
+      },
+      {
+       "t": "were given",
+       "n": 4
+      },
+      {
+       "t": " one spider gene, and their milk had the protein in it. "
+      },
+      {
+       "t": "Lately",
+       "n": 5
+      },
+      {
+       "t": ", teams have turned to bacteria, which grow faster and cost much less to feed."
+      }
+     ],
+     "tr": [
+      "거미줄은 같은 무게의 강철보다 강하며, 단백질 하나가 바로 그것을 모방하기 어렵게 만드는 요인이다.",
+      "과학자들은 한때 거미를 많이 기르려 했지만, 한 상자 안의 거미들은 결국 서로를 잡아먹게 된다.",
+      "과학자들은 거미 없이 거미줄을 만드는 데 관심이 있었다.",
+      "염소 몇 마리에게 거미 유전자 하나가 주어졌고, 그 젖에는 그 단백질이 들어 있었다.",
+      "최근에 연구팀들은 더 빨리 자라고 먹이 비용도 훨씬 적게 드는 세균으로 눈을 돌렸다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "강조의 the very",
+       "ox": "O",
+       "expl": "「the very + 명사」로 '바로 그 ~'를 강조한다.",
+       "wrong_ex": "the much"
+      },
+      {
+       "n": 2,
+       "point": "end up + 동명사",
+       "ox": "O",
+       "expl": "'결국 ~하게 되다'는 end up + 동명사.",
+       "wrong_ex": "to eat"
+      },
+      {
+       "n": 3,
+       "point": "수동태 뒤 전치사",
+       "ox": "X",
+       "expl": "'~에 관심이 있다'는 be interested in이므로 were interested in.",
+       "fix": "were interested in"
+      },
+      {
+       "n": 4,
+       "point": "4형식 수동태",
+       "ox": "O",
+       "expl": "give A B에서 간접목적어 goats를 주어로 한 수동태. 직접목적어 a gene이 뒤에 남는다.",
+       "wrong_ex": "gave"
+      },
+      {
+       "n": 5,
+       "point": "late / lately",
+       "ox": "O",
+       "expl": "'최근에'는 lately. late는 '늦게'라는 뜻이다. 현재완료와 잘 어울린다.",
+       "wrong_ex": "Late"
+      }
+     ]
+    },
+    {
+     "set": 76,
+     "title": "우유는 왜 맨 안쪽에 있을까",
+     "passage": [
+      {
+       "t": "In most supermarkets the milk is at the very back, and the plan of the store "
+      },
+      {
+       "t": "causes shoppers walk",
+       "n": 1
+      },
+      {
+       "t": " past the whole store to reach it. "
+      },
+      {
+       "t": "Should you need",
+       "n": 2
+      },
+      {
+       "t": " only bread, you will still pass the snacks twice. On a normal trip a shopper passes "
+      },
+      {
+       "t": "hundreds of",
+       "n": 3
+      },
+      {
+       "t": " items without looking at them. Music, light, and even the width of the aisles "
+      },
+      {
+       "t": "affect",
+       "n": 4
+      },
+      {
+       "t": " how much we put in the basket. The trick works "
+      },
+      {
+       "t": "even if",
+       "n": 5
+      },
+      {
+       "t": " you know exactly how it works."
+      }
+     ],
+     "tr": [
+      "대부분의 슈퍼마켓에서 우유는 맨 안쪽에 있고, 가게의 배치는 손님이 우유에 닿기 위해 가게 전체를 지나 걷게 만든다.",
+      "혹시 빵만 필요하더라도, 당신은 여전히 과자 코너를 두 번 지나게 된다.",
+      "평범한 장보기 한 번에 손님은 수백 가지 물건을 쳐다보지도 않고 지나친다.",
+      "음악, 조명, 그리고 통로의 폭까지도 우리가 바구니에 얼마나 담는지에 영향을 준다.",
+      "이 수법은 그것이 어떻게 작동하는지 정확히 알고 있더라도 통한다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "cause + 목적어 + to 부정사",
+       "ox": "X",
+       "expl": "cause는 목적격보어로 to부정사를 취하므로 causes shoppers to walk.",
+       "fix": "causes shoppers to walk"
+      },
+      {
+       "n": 2,
+       "point": "가정법 도치 (Should)",
+       "ox": "O",
+       "expl": "If you should need에서 If가 생략되어 Should가 앞으로 나온 형태. 뒤에는 동사원형.",
+       "wrong_ex": "Should you needed"
+      },
+      {
+       "n": 3,
+       "point": "수사 hundreds of",
+       "ox": "O",
+       "expl": "막연히 많은 수는 hundreds of. 구체적인 숫자 뒤에는 two hundred처럼 -s와 of를 붙이지 않는다.",
+       "wrong_ex": "hundred of"
+      },
+      {
+       "n": 4,
+       "point": "수일치 (and로 연결된 주어)",
+       "ox": "O",
+       "expl": "A, B, and C가 and로 연결된 주어이므로 복수 취급하여 affect.",
+       "wrong_ex": "affects"
+      },
+      {
+       "n": 5,
+       "point": "접속사 even if",
+       "ox": "O",
+       "expl": "'비록 ~하더라도'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "even"
+      }
+     ]
+    }
+   ],
+   "id": "기본-19",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 20,
+   "sets": [
+    {
+     "set": 77,
+     "title": "냄새로 고향을 찾는 연어",
+     "passage": [
+      {
+       "t": "A strong sense of smell enables salmon "
+      },
+      {
+       "t": "to find",
+       "n": 1
+      },
+      {
+       "t": " the exact stream where they were born. They come back after "
+      },
+      {
+       "t": "as many as",
+       "n": 2
+      },
+      {
+       "t": " five years at sea, following the smell of one valley. Of the thousands of eggs in each nest, only a few come back "
+      },
+      {
+       "t": "alive",
+       "n": 3
+      },
+      {
+       "t": ". Dams "
+      },
+      {
+       "t": "have been blocked",
+       "n": 4
+      },
+      {
+       "t": " many of these paths for a hundred years. In some towns, workers must remember "
+      },
+      {
+       "t": "to open",
+       "n": 5
+      },
+      {
+       "t": " the gates each spring, or the fish cannot return."
+      }
+     ],
+     "tr": [
+      "강한 후각 덕분에 연어는 자신이 태어난 바로 그 하천을 찾아갈 수 있다.",
+      "연어는 바다에서 많게는 5년을 보낸 뒤, 한 골짜기의 냄새를 따라 돌아온다.",
+      "둥지마다 있는 수천 개의 알 가운데 살아서 돌아오는 것은 몇 마리뿐이다.",
+      "댐은 백 년 동안 이 길의 상당수를 막아 왔다.",
+      "어떤 마을의 일꾼들은 봄마다 수문 여는 일을 잊지 말아야 하는데, 그러지 않으면 물고기가 돌아오지 못한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "enable + 목적어 + to부정사",
+       "ox": "O",
+       "expl": "enable은 목적격보어로 to부정사를 취한다.",
+       "wrong_ex": "find"
+      },
+      {
+       "n": 2,
+       "point": "as many as",
+       "ox": "O",
+       "expl": "five years처럼 셀 수 있는 수를 강조하므로 as many as. as much as는 양에 쓴다.",
+       "wrong_ex": "as much as"
+      },
+      {
+       "n": 3,
+       "point": "서술적 형용사 alive",
+       "ox": "O",
+       "expl": "alive는 명사 앞에 오지 않고 보어 자리에만 쓰는 서술적 형용사이다.",
+       "wrong_ex": "lively"
+      },
+      {
+       "n": 4,
+       "point": "능동태 / 수동태 (현재완료)",
+       "ox": "X",
+       "expl": "Dams가 경로를 막는 주체이고 목적어 routes가 있으므로 능동 have blocked.",
+       "fix": "have blocked"
+      },
+      {
+       "n": 5,
+       "point": "remember + to부정사",
+       "ox": "O",
+       "expl": "'(앞으로) ~할 것을 기억하다'는 remember + to부정사. remember + 동명사는 '(과거에) ~한 것을 기억하다'.",
+       "wrong_ex": "opening"
+      }
+     ]
+    },
+    {
+     "set": 78,
+     "title": "망치로 다리를 듣는 사람들",
+     "passage": [
+      {
+       "t": "Nearly",
+       "n": 1
+      },
+      {
+       "t": " half of the bridges in the country are more than fifty years old. When a very thin crack appeared in one, the chief engineer insisted that it "
+      },
+      {
+       "t": "be",
+       "n": 2
+      },
+      {
+       "t": " only on the surface, and the bridge stayed open. The main cables are made "
+      },
+      {
+       "t": "of",
+       "n": 3
+      },
+      {
+       "t": " steel wire twisted into thick ropes. Drones now reach places "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " no person could climb to. Still, many workers prefer to trust a hammer rather than "
+      },
+      {
+       "t": "rely",
+       "n": 5
+      },
+      {
+       "t": " only on computers."
+      }
+     ],
+     "tr": [
+      "국내 교량의 거의 절반은 지은 지 50년이 넘었다.",
+      "한 다리에 아주 가는 균열이 생기자 수석 기술자는 그것이 표면에만 있다고 주장했고, 다리는 계속 개통되어 있었다.",
+      "주 케이블은 강철선을 꼬아 굵은 밧줄로 만든 것이다.",
+      "이제 드론은 사람이 올라갈 수 없는 곳까지 닿는다.",
+      "그래도 많은 작업자는 컴퓨터에만 의존하기보다 망치를 믿는 쪽을 택한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "near / nearly",
+       "ox": "O",
+       "expl": "'거의'는 부사 nearly. near는 '가까이'라는 뜻이다.",
+       "wrong_ex": "Near"
+      },
+      {
+       "n": 2,
+       "point": "insist (주장 vs 요구)",
+       "ox": "X",
+       "expl": "여기서 insist는 '~라고 주장하다'로 사실을 말하므로 (should) 원형이 아니라 was를 쓴다.",
+       "fix": "was"
+      },
+      {
+       "n": 3,
+       "point": "be made of / from",
+       "ox": "O",
+       "expl": "재료의 형태가 그대로 남아 있으므로 be made of. 형태가 변하면 from을 쓴다.",
+       "wrong_ex": "from"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사 (전치사 뒤에 남김)",
+       "ox": "O",
+       "expl": "climb to의 목적어가 빠진 자리이므로 목적격 관계대명사 that. 전치사 to가 뒤에 남아 있다.",
+       "wrong_ex": "where"
+      },
+      {
+       "n": 5,
+       "point": "병렬 (prefer to A rather than B)",
+       "ox": "O",
+       "expl": "prefer to A rather than B에서 B도 동사원형으로 맞춘다.",
+       "wrong_ex": "relying"
+      }
+     ]
+    },
+    {
+     "set": 79,
+     "title": "함께 부르는 노래",
+     "passage": [
+      {
+       "t": "Singing in a choir "
+      },
+      {
+       "t": "lowers",
+       "n": 1
+      },
+      {
+       "t": " stress faster than most kinds of exercise. The heartbeats of singers "
+      },
+      {
+       "t": "tend to",
+       "n": 2
+      },
+      {
+       "t": " go up and down together in a few minutes. In one study the members, most of "
+      },
+      {
+       "t": "whom",
+       "n": 3
+      },
+      {
+       "t": " had never sung before, said they slept better after eight weeks. Even the shyest members said they "
+      },
+      {
+       "t": "enjoyed themselves",
+       "n": 4
+      },
+      {
+       "t": ". Scientists are now testing "
+      },
+      {
+       "t": "if or not",
+       "n": 5
+      },
+      {
+       "t": " the effect lasts after the choir stops meeting."
+      }
+     ],
+     "tr": [
+      "합창단에서 노래하는 것은 대부분의 운동보다 스트레스를 빨리 낮춘다.",
+      "노래하는 사람들의 심장 박동은 몇 분 안에 함께 오르내리는 경향이 있다.",
+      "한 연구에서 단원들은 대부분 노래를 해 본 적이 없었는데, 8주 뒤 잠을 더 잘 잤다고 말했다.",
+      "가장 수줍은 단원들조차 즐거운 시간을 보냈다고 말했다.",
+      "과학자들은 이제 합창단 모임이 끝난 뒤에도 그 효과가 지속되는지를 시험하고 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "동명사 주어 수일치",
+       "ox": "O",
+       "expl": "주어가 동명사구 Singing in a choir이므로 단수 취급하여 lowers.",
+       "wrong_ex": "lower"
+      },
+      {
+       "n": 2,
+       "point": "tend to + 동사원형",
+       "ox": "O",
+       "expl": "'~하는 경향이 있다'는 tend to + 동사원형.",
+       "wrong_ex": "tend"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사 (most of whom)",
+       "ox": "O",
+       "expl": "사람 선행사를 받는 「부분 표현 + of + whom」. them을 쓰면 접속사가 없어 문장이 성립하지 않는다.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 4,
+       "point": "enjoy + 재귀대명사",
+       "ox": "O",
+       "expl": "enjoy는 목적어가 필요한 타동사이므로 '즐거운 시간을 보내다'는 enjoy oneself.",
+       "wrong_ex": "enjoyed"
+      },
+      {
+       "n": 5,
+       "point": "if / whether (or not)",
+       "ox": "X",
+       "expl": "if는 바로 뒤에 or not을 붙일 수 없으므로 whether or not.",
+       "fix": "whether or not"
+      }
+     ]
+    },
+    {
+     "set": 80,
+     "title": "모래 위에서 시작된 바코드",
+     "passage": [
+      {
+       "t": "The barcode began as some lines "
+      },
+      {
+       "t": "drawn",
+       "n": 1
+      },
+      {
+       "t": " in the sand of a Miami beach in 1949. Norman Woodland "
+      },
+      {
+       "t": "had been thinking",
+       "n": 2
+      },
+      {
+       "t": " about long lines at the checkout for months when he pulled his fingers through the sand. By the time scanners became cheap enough, the first patent "
+      },
+      {
+       "t": "has expired",
+       "n": 3
+      },
+      {
+       "t": ". Today "
+      },
+      {
+       "t": "most",
+       "n": 4
+      },
+      {
+       "t": " items in a supermarket have one, but few shoppers know "
+      },
+      {
+       "t": "how it began",
+       "n": 5
+      },
+      {
+       "t": " on a beach."
+      }
+     ],
+     "tr": [
+      "바코드는 1949년 마이애미 해변의 모래 위에 그려진 선 몇 줄에서 시작되었다.",
+      "노먼 우들랜드는 몇 달 동안 계산대의 긴 줄에 대해 고민하던 중 모래 위로 손가락을 끌어당겼다.",
+      "스캐너가 충분히 저렴해졌을 무렵, 첫 특허는 이미 만료되어 있었다.",
+      "오늘날 슈퍼마켓 물건의 대부분에 바코드가 있지만, 그것이 해변에서 시작되었다는 것을 아는 사람은 거의 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "lines가 그려진 대상이므로 과거분사 drawn.",
+       "wrong_ex": "drawing"
+      },
+      {
+       "n": 2,
+       "point": "과거완료 진행",
+       "ox": "O",
+       "expl": "과거의 한 시점(손가락을 끌어당긴 때) 이전부터 계속되던 동작이므로 had been -ing.",
+       "wrong_ex": "has been thinking"
+      },
+      {
+       "n": 3,
+       "point": "과거완료 (by the time + 과거)",
+       "ox": "X",
+       "expl": "By the time 뒤가 과거(became)이고 그보다 먼저 끝난 일이므로 had expired.",
+       "fix": "had expired"
+      },
+      {
+       "n": 4,
+       "point": "most / almost",
+       "ox": "O",
+       "expl": "most는 형용사로 명사 items를 직접 수식한다. almost는 부사라명사를 바로 꾸밀 수 없다.",
+       "wrong_ex": "almost"
+      },
+      {
+       "n": 5,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "know의 목적어인 명사절이므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "how did it begin"
+      }
+     ]
+    }
+   ],
+   "id": "기본-20",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 21,
+   "sets": [
+    {
+     "set": 81,
+     "title": "50년째 날아가는 탐사선",
+     "passage": [
+      {
+       "t": "Such",
+       "n": 1
+      },
+      {
+       "t": " was the quality of the work that the two Voyager spacecraft still run after almost fifty years. Many a signal "
+      },
+      {
+       "t": "has taken",
+       "n": 2
+      },
+      {
+       "t": " more than twenty hours to reach the Earth. A problem "
+      },
+      {
+       "t": "was occurred",
+       "n": 3
+      },
+      {
+       "t": " in 2023, and for five months one spacecraft pointed its antenna the wrong way. Engineers kept the spacecraft "
+      },
+      {
+       "t": "from freezing",
+       "n": 4
+      },
+      {
+       "t": " by turning on heaters that had not been used since the 1980s. But for the nuclear battery, the mission would "
+      },
+      {
+       "t": "have ended",
+       "n": 5
+      },
+      {
+       "t": " many years ago."
+      }
+     ],
+     "tr": [
+      "작업의 수준이 워낙 뛰어나서 보이저 우주선 두 대는 거의 50년이 지난 지금도 움직인다.",
+      "수많은 신호가 지구에 닿기까지 스무 시간 넘게 걸렸다.",
+      "2023년에 문제가 생겨, 다섯 달 동안 우주선 한 대가 안테나를 엉뚱한 방향으로 향하고 있었다.",
+      "기술자들은 1980년대 이후 쓰지 않던 히터를 켜서 우주선이 얼지 않게 했다.",
+      "원자력 전지가 없었다면 이 임무는 아주 오래전에 끝났을 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "such / so 구별",
+       "ox": "O",
+       "expl": "뒤에 the quality of the engineering이라는 명사구가 오므로 Such. so는 형용사·부사를 받는다.",
+       "wrong_ex": "So"
+      },
+      {
+       "n": 2,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "뒤에 목적어 more than twenty hours가 있으므로 능동. many a signal은 단수 취급하여 has.",
+       "wrong_ex": "has been taken"
+      },
+      {
+       "n": 3,
+       "point": "수동태 불가 자동사",
+       "ox": "X",
+       "expl": "occur는 목적어를 갖지 않는 자동사이므로 수동태로 쓸 수 없다. occurred로 고친다.",
+       "fix": "occurred"
+      },
+      {
+       "n": 4,
+       "point": "keep + 목적어 + from + 동명사",
+       "ox": "O",
+       "expl": "'~가 …하지 못하게 하다'는 keep A from + 동명사.",
+       "wrong_ex": "from freeze"
+      },
+      {
+       "n": 5,
+       "point": "조동사 + 완료시제",
+       "ox": "O",
+       "expl": "But for(~이 없었다면)가 이끄는 가정법 과거완료이므로 주절은 would have p.p.",
+       "wrong_ex": "end"
+      }
+     ]
+    },
+    {
+     "set": 82,
+     "title": "커피 찌꺼기의 두 번째 삶",
+     "passage": [
+      {
+       "t": "Caffeine left in used coffee grounds "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " a real effect on garden soil. The grounds that "
+      },
+      {
+       "t": "throw away",
+       "n": 2
+      },
+      {
+       "t": " by one café each morning can fill a large bag. Gardeners put them around young plants to keep water in the soil. Engineers have found that the grounds, when "
+      },
+      {
+       "t": "mixed",
+       "n": 3
+      },
+      {
+       "t": " into concrete, "
+      },
+      {
+       "t": "make",
+       "n": 4
+      },
+      {
+       "t": " it stronger than sand "
+      },
+      {
+       "t": "does",
+       "n": 5
+      },
+      {
+       "t": ". Of course, none of this helps if the café does not sort its rubbish."
+      }
+     ],
+     "tr": [
+      "쓰고 남은 커피 찌꺼기에 남아 있는 카페인은 정원 흙에 실제로 영향을 준다.",
+      "카페 한 곳이 아침마다 버리는 찌꺼기는 큰 봉지 하나를 채울 수 있다.",
+      "정원사들은 어린 식물 둘레에 그것을 놓아 흙에 물을 잡아 둔다.",
+      "기술자들은 이 찌꺼기를 콘크리트에 섞으면 모래보다 콘크리트를 더 단단하게 만든다는 것을 알아냈다.",
+      "물론 카페가 쓰레기를 분리하지 않으면 이 가운데 어느 것도 도움이 되지 않는다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Caffeine(단수)이고 left 이하는 수식어구이므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "주어 The grounds가 버려지는 대상이므로 that are thrown away로 고친다.",
+       "fix": "are thrown away"
+      },
+      {
+       "n": 3,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "when (they are) mixed에서 주어와 be동사가 생략된 형태. 찌꺼기는 섞이는 대상이다.",
+       "wrong_ex": "mixing"
+      },
+      {
+       "n": 4,
+       "point": "본동사 수 일치",
+       "ox": "O",
+       "expl": "that절의 주어는 the grounds(복수)이고 when 이하는 삽입구이므로 make.",
+       "wrong_ex": "makes"
+      },
+      {
+       "n": 5,
+       "point": "대동사",
+       "ox": "O",
+       "expl": "앞의 일반동사 make를 대신 받으므로 be동사가 아니라 does.",
+       "wrong_ex": "is"
+      }
+     ]
+    },
+    {
+     "set": 83,
+     "title": "돌아오는 유물",
+     "passage": [
+      {
+       "t": "Nigeria "
+      },
+      {
+       "t": "has been asking",
+       "n": 1
+      },
+      {
+       "t": " for the Benin Bronzes since British soldiers took them away in 1897. A German museum returned twenty of them in 2022, and it was not long before other museums did the same. The government has promised to lend the pieces to whomever the national museum "
+      },
+      {
+       "t": "names",
+       "n": 2
+      },
+      {
+       "t": " as a partner. A museum had better not "
+      },
+      {
+       "t": "put off",
+       "n": 3
+      },
+      {
+       "t": " an answer for another hundred years. Nigeria "
+      },
+      {
+       "t": "has built",
+       "n": 4
+      },
+      {
+       "t": " a new gallery in Benin City, "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the bronzes will be shown in."
+      }
+     ],
+     "tr": [
+      "나이지리아는 1897년 영국 군인들이 가져간 이래로 베냉 브론즈의 반환을 요구해 오고 있다.",
+      "2022년 독일의 한 박물관이 그중 스무 점을 돌려주었고, 머지않아 다른 박물관들도 똑같이 했다.",
+      "정부는 국립박물관이 협력 기관으로 지명하는 곳이면 어디에든 이 유물을 빌려주겠다고 약속했다.",
+      "박물관은 또 백 년 동안 답을 미루지 않는 편이 좋다.",
+      "나이지리아는 베냉시티에 새 전시관을 지었고, 브론즈는 그곳에서 전시될 것이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료진행 (능동)",
+       "ox": "O",
+       "expl": "나이지리아가 요구하는 주체이므로 능동. 1897년부터 지금까지 이어지는 동작이라 has been -ing.",
+       "wrong_ex": "has been asked"
+      },
+      {
+       "n": 2,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "names의 주어는 the national museum(지명하는 주체)이고 목적어 whomever가 앞에 빠져 있으므로 능동.",
+       "wrong_ex": "is named"
+      },
+      {
+       "n": 3,
+       "point": "had better + 동사원형 (능동)",
+       "ox": "O",
+       "expl": "had better 뒤에는 동사원형이 온다. 목적어 an answer가 있으므로 수동으로 쓸 수 없다.",
+       "wrong_ex": "been put off"
+      },
+      {
+       "n": 4,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "Nigeria가 짓는 주체이고 목적어 a new gallery가 있으므로 능동 has built.",
+       "wrong_ex": "has been built"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "X",
+       "expl": "앞에 선행사 a new gallery가 있으므로 what을 쓸 수 없다. which 로 고친다.",
+       "fix": "which"
+      }
+     ]
+    },
+    {
+     "set": 84,
+     "title": "비누가 하는 일",
+     "passage": [
+      {
+       "t": "Soap works not because it kills the virus but "
+      },
+      {
+       "t": "because",
+       "n": 1
+      },
+      {
+       "t": " it pulls the virus apart. Twenty seconds of rubbing "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " usually enough to loosen the fat around the virus. The pieces "
+      },
+      {
+       "t": "lifted",
+       "n": 3
+      },
+      {
+       "t": " off the skin are then washed away by the water. Soap molecules, each of "
+      },
+      {
+       "t": "them",
+       "n": 4
+      },
+      {
+       "t": " has a water-loving end, surround the fat and pull it apart. Soap is "
+      },
+      {
+       "t": "as old as",
+       "n": 5
+      },
+      {
+       "t": " writing: a recipe for it is written on a Babylonian clay tablet."
+      }
+     ],
+     "tr": [
+      "비누는 바이러스를 죽이기 때문이 아니라 바이러스를 떼어 내기 때문에 효과가 있다.",
+      "20초 동안 문지르는 것이면 대개 바이러스를 감싼 지방을 느슨하게 하기에 충분하다.",
+      "피부에서 들어 올려진 조각들은 그다음 물에 씻겨 나간다.",
+      "비누 분자는 저마다 물을 좋아하는 쪽 끝을 가지고 있어서, 지방을 둘러싸고 떼어 낸다.",
+      "비누는 문자만큼이나 오래되었다. 그 제조법이 바빌로니아 점토판에 적혀 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "접속사 because / 전치사 because of",
+       "ox": "O",
+       "expl": "뒤에 「주어 + 동사」의 절이 오므로 접속사 because. because of 뒤에는 명사(구)가 온다.",
+       "wrong_ex": "because of"
+      },
+      {
+       "n": 2,
+       "point": "시간 주어의 수 일치",
+       "ox": "O",
+       "expl": "시간을 하나의 단위로 보는 주어이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The pieces가 들어 올려지는 대상이므로 과거분사 lifted.",
+       "wrong_ex": "lifting"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "X",
+       "expl": "접속사 없이 대명사 them을 쓸 수 없다. each of which has로 고 친다.",
+       "fix": "which"
+      },
+      {
+       "n": 5,
+       "point": "원급 비교",
+       "ox": "O",
+       "expl": "as ~ as 사이에는 원급이 온다. 비교급은 쓸 수 없다.",
+       "wrong_ex": "as older as"
+      }
+     ]
+    }
+   ],
+   "id": "기본-21",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 22,
+   "sets": [
+    {
+     "set": 85,
+     "title": "지하철 노선도를 다시 그린 사람",
+     "passage": [
+      {
+       "t": "Most of the stations on the real line "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " not close to the place the map shows. In 1933 a man named Harry Beck "
+      },
+      {
+       "t": "was paid",
+       "n": 2
+      },
+      {
+       "t": " five pounds for a design his bosses had twice refused. He drew every line at forty-five degrees, a choice that "
+      },
+      {
+       "t": "has shaped",
+       "n": 3
+      },
+      {
+       "t": " subway maps ever since. What a rider needs "
+      },
+      {
+       "t": "is",
+       "n": 4
+      },
+      {
+       "t": " the order of the stops, not the distance between them. "
+      },
+      {
+       "t": "Copied",
+       "n": 5
+      },
+      {
+       "t": " by cities from Sydney to Seoul, the map is now so familiar that nobody notices it."
+      }
+     ],
+     "tr": [
+      "실제 노선에서 역들 대부분은 지도가 보여 주는 자리와 가깝지 않다.",
+      "1933년, 해리 벡이라는 사람은 상사들이 두 번이나 퇴짜 놓았던 도안으로 5파운드를 받았다.",
+      "그는 모든 노선을 45도 각도로 그렸는데, 그 선택이 그 이후 지하철 노선도의 모습을 결정해 왔다.",
+      "승객에게 필요한 것은 역의 순서이지 역 사이의 거리가 아니다.",
+      "시드니에서 서울까지 여러 도시가 베껴 쓴 이 지도는 이제 너무 익숙해서 아무도 알아차리지 못한다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "X",
+       "expl": "「Most of + 복수명사」는 뒤의 명사에 동사를 맞추므로 are로 고 친다.",
+       "fix": "are"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Harry Beck이 돈을 받는 대상이므로 was paid.",
+       "wrong_ex": "paid"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "a choice가 영향을 준 주체이고 뒤에 목적어가 있으므로 능동 has shaped.",
+       "wrong_ex": "has been shaped"
+      },
+      {
+       "n": 4,
+       "point": "명사절 주어의 수일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What a rider needs이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 5,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the diagram이 베껴지는 대상이므로 과거분사 Copied.",
+       "wrong_ex": "Copying"
+      }
+     ]
+    },
+    {
+     "set": 86,
+     "title": "얼음 속에 갇힌 하늘",
+     "passage": [
+      {
+       "t": "Air "
+      },
+      {
+       "t": "trapped",
+       "n": 1
+      },
+      {
+       "t": " in a bubble of ice tells us what the sky was like 800,000 years ago. Each of the thin layers under the surface "
+      },
+      {
+       "t": "was",
+       "n": 2
+      },
+      {
+       "t": " laid down in one winter. Workers cut, label, and "
+      },
+      {
+       "t": "store",
+       "n": 3
+      },
+      {
+       "t": " every piece before the ice gets warm. By the time the first ice core reached the lab in 1966, half of its bubbles "
+      },
+      {
+       "t": "have escaped",
+       "n": 4
+      },
+      {
+       "t": ". The ice records not how the weather felt but "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the air really held."
+      }
+     ],
+     "tr": [
+      "얼음의 기포에 갇힌 공기는 80만 년 전 하늘이 어땠는지를 우리에게 알려 준다.",
+      "표면 아래 얇은 층들은 저마다 한 번의 겨울 동안 쌓인 것이다.",
+      "작업자들은 얼음이 따뜻해지기 전에 각 조각을 자르고, 이름표를 붙이고, 보관한다.",
+      "1966년 첫 얼음 코어가 실험실에 도착했을 무렵, 기포의 절반은 이미 빠져나간 뒤였다.",
+      "얼음은 날씨가 어떻게 느껴졌는지가 아니라 공기가 실제로 무엇을 품고 있었는지를 기록한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "Air가 갇히는 대상이므로 과거분사 trapped.",
+       "wrong_ex": "trapping"
+      },
+      {
+       "n": 2,
+       "point": "Each of + 단수동사",
+       "ox": "O",
+       "expl": "「Each of + 복수명사」는 단수 취급하므로 was.",
+       "wrong_ex": "were"
+      },
+      {
+       "n": 3,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "cut, label, store가 and로 연결된 병렬. 모두 주어의 본동사이다.",
+       "wrong_ex": "storing"
+      },
+      {
+       "n": 4,
+       "point": "대과거",
+       "ox": "X",
+       "expl": "코어가 도착한 시점보다 먼저 일어난 일이므로 과거완료 had escaped로 고친다.",
+       "fix": "had escaped"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "선행사를 포함하며 not A but B의 B 자리에 오는 what.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 87,
+     "title": "엘리베이터 앞의 거울",
+     "passage": [
+      {
+       "t": "People in the building complained so often about the lifts that the owner "
+      },
+      {
+       "t": "was advised",
+       "n": 1
+      },
+      {
+       "t": " to change the whole system. A consultant suggested instead that the building "
+      },
+      {
+       "t": "installs",
+       "n": 2
+      },
+      {
+       "t": " mirrors beside every door. The complaints stopped, though the lifts still moved exactly as "
+      },
+      {
+       "t": "slowly",
+       "n": 3
+      },
+      {
+       "t": " as before. What the mirrors changed was not the wait but the way people "
+      },
+      {
+       "t": "spent",
+       "n": 4
+      },
+      {
+       "t": " it. Mirrors "
+      },
+      {
+       "t": "have been standing",
+       "n": 5
+      },
+      {
+       "t": " in lift halls ever since."
+      }
+     ],
+     "tr": [
+      "건물 사람들이 엘리베이터에 대해 하도 자주 불평해서, 건물주는 설비 전체를 바꾸라는 조언을 들었다.",
+      "한 컨설턴트는 그 대신 모든 문 옆에 거울을 설치하라고 제안했다.",
+      "엘리베이터는 예전과 똑같이 느리게 움직였는데도 불평은 멈췄다.",
+      "거울이 바꾼 것은 기다림이 아니라 사람들이 그 시간을 쓰는 방식이었다.",
+      "그 이후로 엘리베이터 앞에는 거울이 계속 서 있다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "the owner가 조언을 받는 대상이므로 was advised.",
+       "wrong_ex": "advised"
+      },
+      {
+       "n": 2,
+       "point": "제안 동사 + (should) 동사원형",
+       "ox": "X",
+       "expl": "suggest가 이끄는 that절은 「(should) + 동사원형」이므로 install로 고친다.",
+       "fix": "install"
+      },
+      {
+       "n": 3,
+       "point": "부사 (동사 수식)",
+       "ox": "O",
+       "expl": "동사를 수식하므로 부사 slowly. as ~ as 사이에는 원급이 온다.",
+       "wrong_ex": "slow"
+      },
+      {
+       "n": 4,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "the way가 이끄는 절의 본동사 자리이므로 spent. 준동사는 올 수없다.",
+       "wrong_ex": "spending"
+      },
+      {
+       "n": 5,
+       "point": "현재완료진행",
+       "ox": "O",
+       "expl": "ever since와 함께 과거부터 지금까지 이어지므로 have been - ing.",
+       "wrong_ex": "are standing"
+      }
+     ]
+    },
+    {
+     "set": 88,
+     "title": "사라진 열흘",
+     "passage": [
+      {
+       "t": "In October 1582 ten days "
+      },
+      {
+       "t": "were removed",
+       "n": 1
+      },
+      {
+       "t": " from the calendar by order of the Pope. People who went to bed on the fourth "
+      },
+      {
+       "t": "woke",
+       "n": 2
+      },
+      {
+       "t": " on the fifteenth and lost nothing at all. The old calendar "
+      },
+      {
+       "t": "had gained",
+       "n": 3
+      },
+      {
+       "t": " ten days since a church meeting in the year 325. Britain said no to the change for almost two hundred years, "
+      },
+      {
+       "t": "leaving",
+       "n": 4
+      },
+      {
+       "t": " its ships with different dates from French ships in the same port. Not the Pope but the astronomers "
+      },
+      {
+       "t": "was",
+       "n": 5
+      },
+      {
+       "t": " right about the true length of a year."
+      }
+     ],
+     "tr": [
+      "1582년 10월, 교황의 명령으로 달력에서 열흘이 사라졌다.",
+      "4일에 잠자리에 든 사람들은 15일에 깨어났지만 잃은 것은 아무것도 없었다.",
+      "옛 달력은 325년의 한 교회 회의 이후로 열흘이 앞서 있었다.",
+      "영국은 거의 200년 동안 이 변경을 거부해서, 같은 항구에 있는 프랑스 배와 자국 배의 날짜가 서로 달랐다.",
+      "한 해의 진짜 길이에 대해 옳았던 것은 교황이 아니라 천문학자들이었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "ten days가 지워지는 대상이므로 were removed.",
+       "wrong_ex": "removed"
+      },
+      {
+       "n": 2,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "주어 People을 받는 본동사 자리이므로 woke. who절은 수식어이다.",
+       "wrong_ex": "waking"
+      },
+      {
+       "n": 3,
+       "point": "과거완료",
+       "ox": "O",
+       "expl": "1582년이라는 과거 시점보다 앞선 기간을 나타내므로 had p.p.",
+       "wrong_ex": "has gained"
+      },
+      {
+       "n": 4,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "거부한 결과를 나타내는 분사구문. 영국이 남기는 주체이므로 leaving.",
+       "wrong_ex": "left"
+      },
+      {
+       "n": 5,
+       "point": "not A but B 수일치",
+       "ox": "X",
+       "expl": "「not A but B」는 B에 동사를 맞춘다. the astronomers가 복수이므로 were로 고친다.",
+       "fix": "were"
+      }
+     ]
+    }
+   ],
+   "id": "기본-22",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 23,
+   "sets": [
+    {
+     "set": 89,
+     "title": "자전거는 왜 넘어지지 않을까",
+     "passage": [
+      {
+       "t": "Nobody "
+      },
+      {
+       "t": "has ever explained",
+       "n": 1
+      },
+      {
+       "t": " exactly why a moving bicycle does not fall over. Engineers once believed that the turning wheels worked like gyroscopes, and so "
+      },
+      {
+       "t": "did",
+       "n": 2
+      },
+      {
+       "t": " most scientists. But a test bicycle with wheels turning in opposite ways "
+      },
+      {
+       "t": "balancing",
+       "n": 3
+      },
+      {
+       "t": " very well without any gyroscope effect. The answer seems to lie in the way "
+      },
+      {
+       "t": "in which",
+       "n": 4
+      },
+      {
+       "t": " the front wheel turns toward the fall. If the front fork were straight instead of curved, the bicycle "
+      },
+      {
+       "t": "would fall",
+       "n": 5
+      },
+      {
+       "t": " over within a metre."
+      }
+     ],
+     "tr": [
+      "움직이는 자전거가 왜 넘어지지 않는지를 지금껏 정확히 설명해 낸 사람은 아무도 없다.",
+      "기술자들은 한때 도는 바퀴가 자이로스코프처럼 작용한다고 믿었고, 대부분의 과학자도 그랬다.",
+      "그러나 서로 반대로 도는 바퀴를 단 시험용 자전거는 자이로 효과가 전혀 없는데도 아주 잘 균형을 잡았다.",
+      "답은 앞바퀴가 넘어지는 쪽으로 꺾이는 방식에 있는 듯하다.",
+      "앞 포크가 굽지 않고 곧았다면 자전거는 1미터도 못 가 넘어질 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "Nobody가 설명하는 주체이고 뒤에 목적어인 why절이 있으므로 능동.",
+       "wrong_ex": "has ever been explained"
+      },
+      {
+       "n": 2,
+       "point": "so + 대동사 도치",
+       "ox": "O",
+       "expl": "앞의 일반동사 believed를 대신 받아 「so + did + 주어」로 도치한다.",
+       "wrong_ex": "were"
+      },
+      {
+       "n": 3,
+       "point": "본동사",
+       "ox": "X",
+       "expl": "주어 A test bicycle을 받는 본동사가 없다. 분사가 아니라 balanced로 고친다.",
+       "fix": "balanced"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "the way in which ~ 구조. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "in that"
+      },
+      {
+       "n": 5,
+       "point": "가정법 과거",
+       "ox": "O",
+       "expl": "If절이 were이므로 주절은 「would + 동사원형」.",
+       "wrong_ex": "would have fallen"
+      }
+     ]
+    },
+    {
+     "set": 90,
+     "title": "우표에 구멍을 낸 사람",
+     "passage": [
+      {
+       "t": "Before 1854 every stamp "
+      },
+      {
+       "t": "cut",
+       "n": 1
+      },
+      {
+       "t": " from a sheet with scissors, and a busy clerk could ruin a dozen in one morning. An Irish engineer named Henry Archer, "
+      },
+      {
+       "t": "who",
+       "n": 2
+      },
+      {
+       "t": " had watched the long lines at the counter, built a machine that made rows of tiny holes. The Post Office bought it only after the machine "
+      },
+      {
+       "t": "had been tested",
+       "n": 3
+      },
+      {
+       "t": " for two years. Collectors today pay much more for rare sheets "
+      },
+      {
+       "t": "left",
+       "n": 4
+      },
+      {
+       "t": " without holes than for perfect ones. "
+      },
+      {
+       "t": "It was",
+       "n": 5
+      },
+      {
+       "t": " Archer's machine that turned a sheet of paper into something you could tear."
+      }
+     ],
+     "tr": [
+      "1854년 이전에는 모든 우표를 가위로 전지에서 잘라 냈고, 바쁜 직원은 한나절에 열두 장을 망치기도 했다.",
+      "창구의 긴 줄을 지켜본 헨리 아처라는 아일랜드 기술자는 작은 구멍을 줄지어 내는 기계를 만들었다.",
+      "우체국은 그 기계를 2년 동안 시험한 뒤에야 사들였다.",
+      "오늘날 수집가들은 구멍 없이 남은 희귀 전지에 완전한 것보다 훨씬 높은 값을 치른다.",
+      "종이 한 장을 손으로 찢을 수 있는 물건으로 바꾼 것은 바로 아처의 기계였다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "every stamp가 잘리는 대상이므로 was cut으로 고친다.",
+       "fix": "was cut"
+      },
+      {
+       "n": 2,
+       "point": "주격 관계대명사",
+       "ox": "O",
+       "expl": "선행사가 사람이고 뒤에 주어가 빠져 있으므로 who.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "과거완료 수동태",
+       "ox": "O",
+       "expl": "기계가 시험받는 대상이고 구입보다 앞선 일이므로 had been p.p.",
+       "wrong_ex": "had tested"
+      },
+      {
+       "n": 4,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the rare sheets가 남겨진 대상이므로 과거분사 left.",
+       "wrong_ex": "leaving"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "주어 Archer's machine을 강조하는 It ~ that 구문.",
+       "wrong_ex": "There was"
+      }
+     ]
+    },
+    {
+     "set": 91,
+     "title": "눈송이의 팔은 왜 여섯인가",
+     "passage": [
+      {
+       "t": "Every snowflake "
+      },
+      {
+       "t": "begins",
+       "n": 1
+      },
+      {
+       "t": " as a tiny piece of dust with a little water frozen around it. Water molecules join at sixty degrees, "
+      },
+      {
+       "t": "giving",
+       "n": 2
+      },
+      {
+       "t": " every crystal six arms. What shape those arms take depends on how cold the air "
+      },
+      {
+       "t": "is",
+       "n": 3
+      },
+      {
+       "t": " at each moment of the fall. The cold makes the water "
+      },
+      {
+       "t": "to freeze",
+       "n": 4
+      },
+      {
+       "t": " fastest at the corners, where the arms split. Only under a microscope "
+      },
+      {
+       "t": "can you see",
+       "n": 5
+      },
+      {
+       "t": " how different two flakes really are."
+      }
+     ],
+     "tr": [
+      "모든 눈송이는 작은 먼지 조각에 물이 얼어붙으면서 시작된다.",
+      "물 분자는 60도 각도로 맞물리며, 그래서 모든 결정에 여섯 개의 팔이 생긴다.",
+      "그 팔이 어떤 모양이 되는지는 떨어지는 순간순간 공기가 얼마나 차가운지에 달려 있다.",
+      "추위는 모서리에서 물을 가장 빨리 얼게 하고, 그곳에서 팔이 갈라진다.",
+      "현미경으로 봐야만 두 눈송이가 실제로 얼마나 다른지 알 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "Every + 단수동사",
+       "ox": "O",
+       "expl": "「Every + 단수명사」는 단수 취급하므로 begins.",
+       "wrong_ex": "begin"
+      },
+      {
+       "n": 2,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 팔을 만들어 주는 주체이므로 능동의 giving.",
+       "wrong_ex": "given"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "depends on의 목적어인 명사절이므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "is the air"
+      },
+      {
+       "n": 4,
+       "point": "사역동사 make + 원형부정사",
+       "ox": "X",
+       "expl": "make는 목적격보어로 원형부정사를 취하므로 freeze로 고친다.",
+       "fix": "freeze"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사구 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "you can see"
+      }
+     ]
+    },
+    {
+     "set": 92,
+     "title": "유리는 흐르지 않는다",
+     "passage": [
+      {
+       "t": "Old church windows are often thicker at the bottom, which "
+      },
+      {
+       "t": "has led",
+       "n": 1
+      },
+      {
+       "t": " many people to believe that glass slowly flows. The real reason, as several studies of old glass "
+      },
+      {
+       "t": "shows",
+       "n": 2
+      },
+      {
+       "t": ", is the way the glass was made. Spun into a flat disc and then cut into squares, each pane "
+      },
+      {
+       "t": "came",
+       "n": 3
+      },
+      {
+       "t": " out thicker at one edge. Workers simply put the heavy edge at the bottom, and glass at room temperature would need billions of years "
+      },
+      {
+       "t": "to move",
+       "n": 4
+      },
+      {
+       "t": " even one millimetre. The story survives because it sounds "
+      },
+      {
+       "t": "reasonable",
+       "n": 5
+      },
+      {
+       "t": "."
+      }
+     ],
+     "tr": [
+      "오래된 교회 창유리는 아래쪽이 더 두꺼운 경우가 많은데, 이 때문에 많은 사람이 유리가 천천히 흐른다고 믿게 되었다.",
+      "오래된 유리를 다룬 여러 연구가 보여 주듯, 진짜 이유는 유리를 만든 방식에 있다.",
+      "평평한 원반으로 돌려 만든 뒤 네모나게 잘랐기 때문에, 유리판은 한쪽 가장자리가 더 두껍게 나왔다.",
+      "작업자들은 그 두꺼운 쪽을 아래에 놓았을 뿐이고, 실온의 유리가 1밀리미터라도 움직이려면 수십억 년이 걸린다.",
+      "이 이야기는 그럴듯하게 들리기 때문에 살아남았다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 이끈 주체이고 목적어 many people이 있으므로 능동.",
+       "wrong_ex": "has been led"
+      },
+      {
+       "n": 2,
+       "point": "삽입절의 수일치",
+       "ox": "X",
+       "expl": "as가 이끄는 절의 주어는 several studies(복수)이므로 show로 고 친다.",
+       "fix": "show"
+      },
+      {
+       "n": 3,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "분사구문 뒤에 오는 주절의 본동사 자리이므로 came.",
+       "wrong_ex": "coming"
+      },
+      {
+       "n": 4,
+       "point": "부정사 (목적)",
+       "ox": "O",
+       "expl": "'~하려면'의 뜻으로 need의 목적을 나타내는 to부정사.",
+       "wrong_ex": "moving"
+      },
+      {
+       "n": 5,
+       "point": "감각동사 + 형용사",
+       "ox": "O",
+       "expl": "sound는 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "reasonably"
+      }
+     ]
+    }
+   ],
+   "id": "기본-23",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 24,
+   "sets": [
+    {
+     "set": 93,
+     "title": "지도 한 장이 멈춘 전염병",
+     "passage": [
+      {
+       "t": "When cholera reached one part of London in 1854, the street "
+      },
+      {
+       "t": "where",
+       "n": 1
+      },
+      {
+       "t": " the most people died had a public water pump at its centre. John Snow walked the area night after night and saw families "
+      },
+      {
+       "t": "carrying",
+       "n": 2
+      },
+      {
+       "t": " water home in buckets. The handle of that pump "
+      },
+      {
+       "t": "was removed",
+       "n": 3
+      },
+      {
+       "t": " on 8 September, and the disease stopped within days. Houses next to the pump lost "
+      },
+      {
+       "t": "three times as many",
+       "n": 4
+      },
+      {
+       "t": " people as houses two streets away. If Snow had not drawn his map, we "
+      },
+      {
+       "t": "would not have understood",
+       "n": 5
+      },
+      {
+       "t": " today how the disease moves."
+      }
+     ],
+     "tr": [
+      "1854년 런던의 한 지역에 콜레라가 닥쳤을 때, 가장 많은 사람이 죽은 거리 한가운데에는 공용 펌프가 있었다.",
+      "존 스노는 밤마다 그 동네를 걸으며 가족들이 양동이로 물을 길어 가는 것을 보았다.",
+      "9월 8일 그 펌프의 손잡이가 제거되었고, 병은 며칠 만에 멈췄다.",
+      "펌프 옆의 집들은 두 블록 떨어진 집들보다 세 배 많은 사람을 잃었다.",
+      "스노가 그 지도를 그리지 않았다면, 우리는 오늘날 이 병이 어떻게 퍼지는지 알지 못할 것이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "선행사가 장소 the street이고 뒤에 완전한 절이 오므로 where.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "지각동사 + 현재분사",
+       "ox": "O",
+       "expl": "saw의 목적어 families가 물을 긷는 주체이고 진행 중이므로 현재분사 carrying.",
+       "wrong_ex": "carried"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "The handle이 제거되는 대상이므로 was removed.",
+       "wrong_ex": "removed"
+      },
+      {
+       "n": 4,
+       "point": "배수 비교",
+       "ox": "O",
+       "expl": "「배수사 + as + 원급 + as」 구문. people은 셀 수 있으므로 as many as.",
+       "wrong_ex": "three times as much"
+      },
+      {
+       "n": 5,
+       "point": "혼합 가정법",
+       "ox": "X",
+       "expl": "if절은 1854년의 일, 주절은 today의 일이므로 would not understand로 고친다.",
+       "fix": "would not understand"
+      }
+     ]
+    },
+    {
+     "set": 94,
+     "title": "소방차는 왜 빨간색일까",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "Painting",
+       "n": 1
+      },
+      {
+       "t": " a fire engine red made sense in 1900, when most cars on the road were black. Early designers "
+      },
+      {
+       "t": "cannot have known",
+       "n": 2
+      },
+      {
+       "t": " how poorly red is seen at dusk, when the eye loses long wavelengths first. The number of night crashes with bright yellow engines "
+      },
+      {
+       "t": "are",
+       "n": 3
+      },
+      {
+       "t": " about half that of red ones. "
+      },
+      {
+       "t": "Having compared",
+       "n": 4
+      },
+      {
+       "t": " ten years of records, one scientist called red the worst colour for a night vehicle. Crashes with red engines still outnumber "
+      },
+      {
+       "t": "those",
+       "n": 5
+      },
+      {
+       "t": " with yellow ones in almost every city."
+      }
+     ],
+     "tr": [
+      "1900년에 소방차를 빨갛게 칠하는 것은 합리적이었다. 당시 도로의 차는 대부분 검은색이었기 때문이다.",
+      "눈이 긴 파장을 먼저 잃는 해질 무렵에 빨강이 얼마나 잘 안 보이는지를 초기 설계자들이 알았을 리가 없다.",
+      "밝은 노란색 소방차가 관련된 야간 사고의 수는 빨간 소방차의 경우의 약 절반이다.",
+      "10년치 기록을 비교한 끝에, 한 과학자는 빨강이 야간 차량에 가장 나쁜 색이라고 말했다.",
+      "거의 모든 도시에서 빨간 소방차의 사고는 여전히 노란 소방차의 사고보다 많다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "동명사 주어",
+       "ox": "O",
+       "expl": "문장의 주어 자리이므로 동명사 Painting. 단수 취급하여 동사는 made.",
+       "wrong_ex": "Paint"
+      },
+      {
+       "n": 2,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 강한 부정의 추측이므로 cannot have p.p.",
+       "wrong_ex": "cannot know"
+      },
+      {
+       "n": 3,
+       "point": "The number of 수일치",
+       "ox": "X",
+       "expl": "「The number of ~」는 '~의 수'로 단수 취급하므로 is로 고친다.",
+       "fix": "is"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "비교한 일이 주절보다 앞서므로 「Having + p.p.」.",
+       "wrong_ex": "Compared"
+      },
+      {
+       "n": 5,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 Crashes를 대신 받으므로 those.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 95,
+     "title": "사막이 먹여 살리는 숲",
+     "passage": [
+      {
+       "t": "Every year the Amazon depends on dust "
+      },
+      {
+       "t": "blew",
+       "n": 1
+      },
+      {
+       "t": " across the Atlantic from the Sahara. The cloud leaves Africa in winter, "
+      },
+      {
+       "t": "when",
+       "n": 2
+      },
+      {
+       "t": " the desert wind is at its strongest. One storm carries more plant food to the forest than the whole river system "
+      },
+      {
+       "t": "does",
+       "n": 3
+      },
+      {
+       "t": " in a year. The dust feeds the trees, fills the ocean with iron, and "
+      },
+      {
+       "t": "makes",
+       "n": 4
+      },
+      {
+       "t": " European skies grey in June. Little "
+      },
+      {
+       "t": "did scientists suspect",
+       "n": 5
+      },
+      {
+       "t": " that a dead desert could keep a rainforest alive."
+      }
+     ],
+     "tr": [
+      "해마다 아마존은 사하라에서 대서양을 건너 날아온 먼지에 기대어 산다.",
+      "그 먼지구름은 사막 바람이 가장 강한 겨울에 아프리카를 떠난다.",
+      "폭풍 한 번이 강 전체가 1년 동안 실어 나르는 것보다 더 많은 양분을 숲에 가져다준다.",
+      "그 먼지는 나무를 먹이고, 바다를 철분으로 채우며, 6월의 유럽 하늘을 잿빛으로 만든다.",
+      "죽은 사막이 열대우림을 살려 둔다는 것을 과학자들은 거의 짐작하지 못했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "X",
+       "expl": "dust가 바람에 날려 온 대상이므로 과거분사 blown으로 고친다.",
+       "fix": "blown"
+      },
+      {
+       "n": 2,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 winter이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "대동사",
+       "ox": "O",
+       "expl": "앞의 일반동사 carries를 대신 받으므로 be동사가 아니라 does.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "feeds, fills, makes가 and로 연결된 병렬. 주어는 The dust.",
+       "wrong_ex": "making"
+      },
+      {
+       "n": 5,
+       "point": "Little 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Little이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "scientists did suspect"
+      }
+     ]
+    },
+    {
+     "set": 96,
+     "title": "1300년 동안 문을 연 여관",
+     "passage": [
+      {
+       "t": "A hot-spring inn at the foot of a mountain in Japan "
+      },
+      {
+       "t": "has been run",
+       "n": 1
+      },
+      {
+       "t": " by one family since the year 705. The house is known "
+      },
+      {
+       "t": "for",
+       "n": 2
+      },
+      {
+       "t": " its water rather than for its rooms, and the spring has never once dried up. Guests sleep behind walls "
+      },
+      {
+       "t": "whose",
+       "n": 3
+      },
+      {
+       "t": " paper was changed in the 1990s, though the baths were left exactly as they were. The inn is one of the oldest family "
+      },
+      {
+       "t": "business",
+       "n": 4
+      },
+      {
+       "t": " in the world, with fifty-two generations behind the desk. "
+      },
+      {
+       "t": "Far",
+       "n": 5
+      },
+      {
+       "t": " older than any hotel chain, it has outlived shoguns, wars and empires."
+      }
+     ],
+     "tr": [
+      "일본의 한 산기슭에 있는 온천 여관은 705년부터 한 가문이 운영해 오고 있다.",
+      "이 집은 객실보다 물로 알려져 있고, 그 샘은 한 번도 마른 적이 없다.",
+      "손님들은 1990년대에 종이를 새로 바른 벽 뒤에서 잠들지만, 욕탕은 예전 모습 그대로 두었다.",
+      "이 여관은 쉰두 세대가 그 자리를 지켜 온, 세계에서 가장 오래된 가족 사업체 가운데 하나다.",
+      "어떤 호텔 체인보다도 훨씬 오래된 이 여관은 쇼군과 전쟁과 제국보다 오래 살아남았다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "여관이 운영되는 대상이고 705년부터 지금까지 이어지므로 has been p.p.",
+       "wrong_ex": "has run"
+      },
+      {
+       "n": 2,
+       "point": "be known for / as",
+       "ox": "O",
+       "expl": "'~으로 유명하다'에서 이유·특징은 for, 자격·이름은 as로 받는다.",
+       "wrong_ex": "as"
+      },
+      {
+       "n": 3,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "walls와 paper가 소유 관계이므로 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "one of the + 복수명사",
+       "ox": "X",
+       "expl": "「one of the + 최상급 + 복수명사」이므로 businesses로 고친다.",
+       "fix": "businesses"
+      },
+      {
+       "n": 5,
+       "point": "비교급 강조 far",
+       "ox": "O",
+       "expl": "far가 비교급 older를 강조한다. very는 비교급을 강조할 수 없다.",
+       "wrong_ex": "Very"
+      }
+     ]
+    }
+   ],
+   "id": "기본-24",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 25,
+   "sets": [
+    {
+     "set": 97,
+     "title": "코코넛 껍데기로 만드는 말발굽 소리",
+     "passage": [
+      {
+       "t": "Audiences "
+      },
+      {
+       "t": "find it",
+       "n": 1
+      },
+      {
+       "t": " strange that the sound of a running horse is made with two coconut shells. A sound artist once explained that he "
+      },
+      {
+       "t": "records",
+       "n": 2
+      },
+      {
+       "t": " the sound of snow months before the film was shot. The studio keeps a floor of stones, a box of sand and a tank of water "
+      },
+      {
+       "t": "ready",
+       "n": 3
+      },
+      {
+       "t": " for every scene. Rain recorded outside a window never sounds like rain, "
+      },
+      {
+       "t": "which",
+       "n": 4
+      },
+      {
+       "t": " is why artists cook bacon instead. Nothing in a film is "
+      },
+      {
+       "t": "more artificial than",
+       "n": 5
+      },
+      {
+       "t": " the sound you trust most."
+      }
+     ],
+     "tr": [
+      "관객들은 달리는 말발굽 소리가 코코넛 껍데기 두 개로 만들어진다는 것을 신기해한다.",
+      "한 음향 기사는 영화 촬영이 시작되기 몇 달 전에 눈 소리를 녹음해 두었다고 설명한 적이 있다.",
+      "스튜디오는 모든 장면에 대비해 돌 바닥과 모래 상자, 물탱크를 준비된 상태로 둔다.",
+      "창밖에서 녹음한 비는 결코 비처럼 들리지 않는데, 그래서 기사들은 대신 베이컨을 굽는다.",
+      "영화에서 당신이 가장 믿는 그 소리보다 더 인공적인 것은 없다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "가목적어 it",
+       "ox": "O",
+       "expl": "find의 진목적어가 뒤의 that절이므로 가목적어 it이 필요하다.",
+       "wrong_ex": "find"
+      },
+      {
+       "n": 2,
+       "point": "시제 일치",
+       "ox": "X",
+       "expl": "주절이 과거(explained)이고 녹음이 그보다 앞선 일이므로 had recorded로 고친다.",
+       "fix": "had recorded"
+      },
+      {
+       "n": 3,
+       "point": "목적격보어 형용사",
+       "ox": "O",
+       "expl": "keep + 목적어 + 형용사 구조이므로 ready. 부사는 보어가 될 수 없다.",
+       "wrong_ex": "readily"
+      },
+      {
+       "n": 4,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 5,
+       "point": "부정주어 + 비교급",
+       "ox": "O",
+       "expl": "「Nothing ~ 비교급 + than」으로 최상급의 뜻을 나타낸다.",
+       "wrong_ex": "the most artificial than"
+      }
+     ]
+    },
+    {
+     "set": 98,
+     "title": "한 그램에 꽃 백오십 송이",
+     "passage": [
+      {
+       "t": "Each saffron flower "
+      },
+      {
+       "t": "gives",
+       "n": 1
+      },
+      {
+       "t": " three red threads, and one gram needs about a hundred and fifty of them. The threads must be pulled out by hand before the sun is high, and it is no use "
+      },
+      {
+       "t": "trying",
+       "n": 2
+      },
+      {
+       "t": " to do the work with a machine. The price has less to do with the plant itself than with the work "
+      },
+      {
+       "t": "involved",
+       "n": 3
+      },
+      {
+       "t": ". One kilogram takes about forty hours to pick, to dry and "
+      },
+      {
+       "t": "to sort",
+       "n": 4
+      },
+      {
+       "t": ". A friend "
+      },
+      {
+       "t": "of me",
+       "n": 5
+      },
+      {
+       "t": " who cooks Persian food showed me how little one dish really needs."
+      }
+     ],
+     "tr": [
+      "사프란 꽃 한 송이는 붉은 암술 세 가닥을 내고, 1그램을 얻으려면 그것이 약 150가닥 필요하다.",
+      "암술은 해가 높이 뜨기 전에 손으로 뽑아야 하며, 그 일을 기계로 하려고 해 봐야 소용이 없다.",
+      "가격은 식물 자체보다 거기에 들어가는 일과 관련이 깊다.",
+      "1킬로그램을 따고, 말리고, 골라내는 데는 마흔 시간쯤 걸린다.",
+      "페르시아 요리를 하는 내 친구 하나가 한 접시에 실제로 얼마나 조금 드는지를 보여 주었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "Each + 단수동사",
+       "ox": "O",
+       "expl": "「Each + 단수명사」는 단수 취급하므로 gives.",
+       "wrong_ex": "give"
+      },
+      {
+       "n": 2,
+       "point": "It is no use + 동명사",
+       "ox": "O",
+       "expl": "'~해 봐야 소용없다'는 It is no use + 동명사.",
+       "wrong_ex": "to try"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the labour가 그 일에 포함되는 대상이므로 과거분사 involved.",
+       "wrong_ex": "involving"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "to pick, to dry, to sort가 and로 연결된 병렬.",
+       "wrong_ex": "sorting"
+      },
+      {
+       "n": 5,
+       "point": "이중소유격",
+       "ox": "X",
+       "expl": "「a + 명사 + of + 소유대명사」 형태이므로 of mine으로 고친다.",
+       "fix": "of mine"
+      }
+     ]
+    },
+    {
+     "set": 99,
+     "title": "비가 오기 전의 냄새",
+     "passage": [
+      {
+       "t": "The smell that follows the first rain of summer "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " a name: petrichor, from the Greek words for stone and blood. Oils from dry plants fall on the ground, and soil bacteria add "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " chemists call geosmin. A falling drop traps a bubble of air, and the burst leaves the smell "
+      },
+      {
+       "t": "carrying",
+       "n": 3
+      },
+      {
+       "t": " upward on drops too small to see. So sensitive "
+      },
+      {
+       "t": "is the human nose",
+       "n": 4
+      },
+      {
+       "t": " to geosmin that we beat sharks at the job. We notice it at five parts per trillion, far "
+      },
+      {
+       "t": "better than",
+       "n": 5
+      },
+      {
+       "t": " a shark notices blood."
+      }
+     ],
+     "tr": [
+      "여름 첫비 뒤에 나는 냄새에는 이름이 있다. 돌과 피를 뜻하는 그리스어에서 온 페트리코어다.",
+      "마른 식물에서 나온 기름이 땅에 떨어지고, 흙 속 세균이 화학자들이 지오스민이라 부르는 물질을 더한다.",
+      "떨어지는 빗방울은 공기 방울을 가두고, 그것이 터지면서 눈에 보이지 않을 만큼 작은 물방울에 냄새가 실려 올라간다.",
+      "사람의 코는 지오스민에 워낙 예민해서 이 일에서는 상어를 이긴다.",
+      "우리는 1조분의 5 농도에서 그것을 알아채는데, 상어가 피를 알아채는 것보다 훨씬 낫다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The smell(단수)이고 that절은 수식어이므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "add의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 3,
+       "point": "목적격보어 (수동)",
+       "ox": "X",
+       "expl": "the scent가 실려 올라가는 대상이므로 과거분사 carried로 고친다.",
+       "fix": "carried"
+      },
+      {
+       "n": 4,
+       "point": "보어 도치",
+       "ox": "O",
+       "expl": "보어 So sensitive가 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "the human nose is"
+      },
+      {
+       "n": 5,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "far가 비교급 better를 강조한다. 비교급을 겹쳐 쓸 수는 없다.",
+       "wrong_ex": "more better than"
+      }
+     ]
+    },
+    {
+     "set": 100,
+     "title": "0이 금지되었던 도시",
+     "passage": [
+      {
+       "t": "Merchants in Florence "
+      },
+      {
+       "t": "banned",
+       "n": 1
+      },
+      {
+       "t": " from writing zero in their account books in 1299. The city feared that a round symbol would be easy "
+      },
+      {
+       "t": "to alter",
+       "n": 2
+      },
+      {
+       "t": " into a six or a nine. Italian bankers who had met the system in North Africa kept "
+      },
+      {
+       "t": "using",
+       "n": 3
+      },
+      {
+       "t": " it in secret, and the word ‘cipher’ came to mean a hidden message. Zero "
+      },
+      {
+       "t": "had been",
+       "n": 4
+      },
+      {
+       "t": " a foreign trick for two hundred years before the universities accepted it. "
+      },
+      {
+       "t": "Written",
+       "n": 5
+      },
+      {
+       "t": " as an empty circle, the symbol made modern math possible."
+      }
+     ],
+     "tr": [
+      "1299년 피렌체의 상인들은 장부에 0을 적는 것이 금지되었다.",
+      "그 도시는 둥근 기호가 6이나 9로 고치기 쉬울 것이라고 염려했다.",
+      "북아프리카에서 이 체계를 접한 이탈리아 은행가들은 몰래 계속 그것을 썼고, 'cipher'라는 말은 암호라는 뜻을 갖게 되었다.",
+      "0은 대학들이 받아들이기까지 200년 동안 이방의 속임수로 남아 있었다.",
+      "빈 동그라미로 쓰인 이 기호는 현대의 수학을 가능하게 했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "Merchants가 금지당하는 대상이므로 were banned로 고친다.",
+       "fix": "were banned"
+      },
+      {
+       "n": 2,
+       "point": "부정사 (형용사 수식)",
+       "ox": "O",
+       "expl": "앞의 형용사 easy를 수식하는 to부정사.",
+       "wrong_ex": "altering"
+      },
+      {
+       "n": 3,
+       "point": "keep + 동명사",
+       "ox": "O",
+       "expl": "keep은 목적어로 동명사를 취한다.",
+       "wrong_ex": "to use"
+      },
+      {
+       "n": 4,
+       "point": "과거완료",
+       "ox": "O",
+       "expl": "대학이 받아들인 과거 시점까지 이어진 상태이므로 had been.",
+       "wrong_ex": "has been"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "the symbol이 쓰이는 대상이므로 과거분사 Written.",
+       "wrong_ex": "Writing"
+      }
+     ]
+    }
+   ],
+   "id": "기본-25",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 26,
+   "sets": [
+    {
+     "set": 101,
+     "title": "혀를 차서 벽을 보는 사람",
+     "passage": [
+      {
+       "t": "Blind since the age of three, Daniel Kish "
+      },
+      {
+       "t": "learned",
+       "n": 1
+      },
+      {
+       "t": " to click his tongue and listen for the walls around him. Each click "
+      },
+      {
+       "t": "is reflected",
+       "n": 2
+      },
+      {
+       "t": " by surfaces as far as a hundred metres away. The brain areas "
+      },
+      {
+       "t": "used",
+       "n": 3
+      },
+      {
+       "t": " for sight become active when a blind clicker hears the echo. Scientists had difficulty "
+      },
+      {
+       "t": "to measure",
+       "n": 4
+      },
+      {
+       "t": " how exact the skill really is. Nor "
+      },
+      {
+       "t": "can most sighted people",
+       "n": 5
+      },
+      {
+       "t": " learn it quickly, even after months of practice."
+      }
+     ],
+     "tr": [
+      "세 살 때부터 앞을 보지 못한 대니얼 키시는 혀를 차고 주변 벽에서 돌아오는 소리를 듣는 법을 익혔다.",
+      "혀 차는 소리 하나하나는 100미터나 떨어진 면에서도 반사되어 돌아온다.",
+      "시각을 담당하는 뇌 영역은 시각장애인이 그 메아리를 들을 때 활발해진다.",
+      "과학자들은 이 능력이 실제로 얼마나 정확한지를 측정하는 데 어려움을 겪었다.",
+      "눈이 보이는 사람들 대부분도 몇 달을 연습한 뒤에조차 이것을 빨리 배우지는 못한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "분사구문 뒤에 오는 주절의 본동사 자리이므로 learned.",
+       "wrong_ex": "learning"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Each click이 반사되는 대상이므로 is reflected.",
+       "wrong_ex": "reflects"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The brain areas가 쓰이는 대상이므로 과거분사 used.",
+       "wrong_ex": "using"
+      },
+      {
+       "n": 4,
+       "point": "have difficulty + 동명사",
+       "ox": "X",
+       "expl": "「have difficulty (in) + 동명사」 구조이므로 measuring으로 고 친다.",
+       "fix": "measuring"
+      },
+      {
+       "n": 5,
+       "point": "Nor 도치",
+       "ox": "O",
+       "expl": "부정어 Nor가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "most sighted people can"
+      }
+     ]
+    },
+    {
+     "set": 102,
+     "title": "세상에서 가장 조용한 방",
+     "passage": [
+      {
+       "t": "The quietest room in the world "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " in a lab in Minnesota, where the walls take in almost every sound. You will hear your own heartbeat as soon as the door "
+      },
+      {
+       "t": "will close",
+       "n": 2
+      },
+      {
+       "t": " behind you. Visitors are often surprised "
+      },
+      {
+       "t": "to find",
+       "n": 3
+      },
+      {
+       "t": " that perfect silence is unpleasant rather than restful. The walls are covered "
+      },
+      {
+       "t": "with",
+       "n": 4
+      },
+      {
+       "t": " pieces of foam a metre deep, and the floor hangs on springs. Nobody has stayed inside for more than an hour, "
+      },
+      {
+       "t": "which",
+       "n": 5
+      },
+      {
+       "t": " the lab treats as a kind of record."
+      }
+     ],
+     "tr": [
+      "세계에서 가장 조용한 방은 미네소타의 한 실험실에 있는데, 그곳의 벽은 거의 모든 소리를 빨아들인다.",
+      "문이 뒤에서 닫히자마자 당신은 자기 심장 소리를 듣게 된다.",
+      "방문객들은 완벽한 고요가 편안하기는커녕 불쾌하다는 것을 알고 놀라곤 한다.",
+      "벽은 1미터 두께의 흡음재 조각으로 덮여 있고, 바닥은 스프링에 매달려 있다.",
+      "한 시간 넘게 안에 머문 사람은 아무도 없는데, 실험실은 그것을 일종의 기록으로 여긴다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The quietest room(단수)이고 in the world는 수식어구이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "시간 부사절의 시제",
+       "ox": "X",
+       "expl": "시간을 나타내는 부사절에서는 미래 대신 현재시제를 쓰므로 closes 로 고친다.",
+       "fix": "closes"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (감정의 원인)",
+       "ox": "O",
+       "expl": "surprised의 원인을 나타내는 to부정사.",
+       "wrong_ex": "finding"
+      },
+      {
+       "n": 4,
+       "point": "be covered with",
+       "ox": "O",
+       "expl": "'~으로 덮여 있다'는 be covered with. 행위자가 아니므로 by를 쓰지 않는다.",
+       "wrong_ex": "by"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받으며 treats의 목적어가 되는 which.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 103,
+     "title": "20년 동안 팔리지 않은 지퍼",
+     "passage": [
+      {
+       "t": "All "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " the first buyers wanted was a fastener that would not open by itself. Tobacco bags and boots "
+      },
+      {
+       "t": "were",
+       "n": 2
+      },
+      {
+       "t": " the only products that would carry the new device at first. The hooks had to be made "
+      },
+      {
+       "t": "small enough",
+       "n": 3
+      },
+      {
+       "t": " to lie flat under a seam, which took another twenty years. Even today one jammed zip can make a jacket "
+      },
+      {
+       "t": "useless",
+       "n": 4
+      },
+      {
+       "t": ". It was the army, putting zips into flying suits, "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " finally made the device ordinary."
+      }
+     ],
+     "tr": [
+      "첫 구매자들이 원한 것은 저절로 열리지 않는 잠금장치가 전부였다.",
+      "처음에 이 새 장치를 달아 준 제품은 담배 주머니와 부츠뿐이었다.",
+      "고리는 솔기 아래 납작하게 눕힐 만큼 작게 만들어야 했고, 거기에 또 20년이 걸렸다.",
+      "오늘날에도 지퍼 하나가 끼면 재킷 한 벌을 못 쓰게 만들 수 있다.",
+      "이 장치를 평범한 물건으로 만든 것은 비행복에 지퍼를 달아 넣은 군대였다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 that (선행사 All)",
+       "ox": "O",
+       "expl": "선행사가 All이면 관계대명사 that을 쓴다. what은 선행사를 포함하므로 겹쳐 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Tobacco pouches and boots(복수)이므로 were.",
+       "wrong_ex": "was"
+      },
+      {
+       "n": 3,
+       "point": "enough의 위치",
+       "ox": "O",
+       "expl": "enough가 형용사를 수식할 때는 형용사 뒤에 온다.",
+       "wrong_ex": "enough small"
+      },
+      {
+       "n": 4,
+       "point": "목적격보어 형용사",
+       "ox": "O",
+       "expl": "make + 목적어 + 형용사 구조이므로 useless. 부사는 보어가 될 수없다.",
+       "wrong_ex": "uselessly"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "X",
+       "expl": "the army를 강조하는 It ~ that 구문이므로 that으로 고친다.",
+       "fix": "that"
+      }
+     ]
+    },
+    {
+     "set": 104,
+     "title": "벽에 남은 낙서",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "Covering",
+       "n": 1
+      },
+      {
+       "t": " in ash for seventeen centuries, the walls of Pompeii kept their graffiti. Scratched beside a door, one line "
+      },
+      {
+       "t": "complains",
+       "n": 2
+      },
+      {
+       "t": " that the owner's bread was burnt again. Scientists have found eleven thousand of them, most of "
+      },
+      {
+       "t": "which",
+       "n": 3
+      },
+      {
+       "t": " were written by ordinary people with nothing to prove. The graffiti tell us "
+      },
+      {
+       "t": "what",
+       "n": 4
+      },
+      {
+       "t": " the schoolbooks never wrote down. Only because the city died so quickly "
+      },
+      {
+       "t": "do we have",
+       "n": 5
+      },
+      {
+       "t": " a record of its jokes."
+      }
+     ],
+     "tr": [
+      "열일곱 세기 동안 화산재에 덮여 있었던 덕분에 폼페이의 벽은 낙서를 간직했다.",
+      "문 옆에 긁어 쓴 한 줄은 주인집 빵이 또 탔다고 불평한다.",
+      "과학자들은 그런 낙서를 1만 1천 개 넘게 찾아냈는데, 대부분은 증명할 것이 없는 평범한 사람들이 쓴 것이다.",
+      "이 낙서들은 교과서가 한 번도 적어 두지 않은 것을 우리에게 알려 준다.",
+      "그 도시가 그토록 빨리 죽었기 때문에야 비로소 우리는 그곳의 농담을 기록으로 갖게 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (수동)",
+       "ox": "X",
+       "expl": "the walls가 덮인 대상이므로 과거분사 Covered로 고친다.",
+       "fix": "Covered"
+      },
+      {
+       "n": 2,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "주어 one line을 받는 본동사 자리이므로 complains.",
+       "wrong_ex": "complaining"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사 (most of which)",
+       "ox": "O",
+       "expl": "「부분 표현 + of + 관계대명사」 구조. them을 쓰면 접속사가 없어진다.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 4,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "tell의 직접목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "we have"
+      }
+     ]
+    }
+   ],
+   "id": "기본-26",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 27,
+   "sets": [
+    {
+     "set": 105,
+     "title": "달에 남은 발자국",
+     "passage": [
+      {
+       "t": "The footprints left by the Apollo crews "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " still exactly where the boots pressed them. The grey dust, "
+      },
+      {
+       "t": "broken",
+       "n": 2
+      },
+      {
+       "t": " into sharp grains by falling rocks, keeps a shape the way wet sand does. One print can last ten million years without "
+      },
+      {
+       "t": "disturbing",
+       "n": 3
+      },
+      {
+       "t": " by anything bigger than a speck of dust. The longer they stay, "
+      },
+      {
+       "t": "the more valuable",
+       "n": 4
+      },
+      {
+       "t": " they become to the historians of this century. Only if a treaty is signed "
+      },
+      {
+       "t": "will the prints be",
+       "n": 5
+      },
+      {
+       "t": " safe from the next landing."
+      }
+     ],
+     "tr": [
+      "아폴로 승무원들이 남긴 발자국은 부츠가 눌러 놓은 그 자리에 그대로 있다.",
+      "떨어지는 돌에 부딪혀 날카로운 알갱이가 된 회색 먼지는 젖은 모래가 그러하듯 모양을 유지한다.",
+      "발자국 하나는 먼지 티끌보다 큰 무언가에 흐트러지는 일 없이 천만 년을 버틸 수 있다.",
+      "오래 남아 있을수록 그것은 이 세기의 역사가들에게 더 값진 것이 된다.",
+      "조약이 체결되어야만 그 발자국들은 다음 착륙으로부터 안전할 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The footprints(복수)이고 left 이하는 수식어구이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 2,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The grey dust가 부서진 대상이므로 과거분사 broken.",
+       "wrong_ex": "breaking"
+      },
+      {
+       "n": 3,
+       "point": "동명사의 수동",
+       "ox": "X",
+       "expl": "전치사 without의 목적어 자리이고 발자국이 흐트러지는 대상이므로 being disturbed로 고친다.",
+       "fix": "being disturbed"
+      },
+      {
+       "n": 4,
+       "point": "the 비교급, the 비교급",
+       "ox": "O",
+       "expl": "「The 비교급 ~, the 비교급 ~」으로 '~할수록 더 …하다'를 나타낸다.",
+       "wrong_ex": "the most valuable"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "the prints will be"
+      }
+     ]
+    },
+    {
+     "set": 106,
+     "title": "유리창에 부딪히는 새들",
+     "passage": [
+      {
+       "t": "Why birds fly into glass",
+       "n": 1
+      },
+      {
+       "t": " has a simple answer: they see a reflected sky instead of a wall. A building can get the problem "
+      },
+      {
+       "t": "fixed",
+       "n": 2
+      },
+      {
+       "t": " with stickers that cost less than one window. Up to a billion birds "
+      },
+      {
+       "t": "are killed",
+       "n": 3
+      },
+      {
+       "t": " against windows in North America every year. Architects now test a design by putting up patterns, counting strikes, and "
+      },
+      {
+       "t": "comparing",
+       "n": 4
+      },
+      {
+       "t": " the results season by season. Those losses "
+      },
+      {
+       "t": "are consisted of",
+       "n": 5
+      },
+      {
+       "t": " common garden birds, not the rare ones we photograph."
+      }
+     ],
+     "tr": [
+      "새들이 왜 유리에 부딪히는지에는 간단한 답이 있다. 벽이 아니라 비친 하늘을 보기 때문이다.",
+      "건물은 창문 한 장 값도 안 되는 스티커로 이 문제를 해결할 수 있다.",
+      "북미에서는 해마다 최대 10억 마리의 새가 창문에 부딪혀 죽는다.",
+      "건축가들은 이제 무늬를 붙이고, 충돌 횟수를 세고, 계절별로 결과를 비교하며 설계를 시험한다.",
+      "그 희생은 우리가 사진 찍는 희귀한 새가 아니라 흔한 텃새들로 이루어져 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "간접의문문 주어",
+       "ox": "O",
+       "expl": "의문사절이 주어 자리에 왔으므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "Why do birds fly into glass"
+      },
+      {
+       "n": 2,
+       "point": "get + 목적어 + 과거분사",
+       "ox": "O",
+       "expl": "the problem이 해결되는 대상이므로 과거분사 fixed.",
+       "wrong_ex": "fix"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "birds가 죽임을 당하는 대상이므로 are killed.",
+       "wrong_ex": "kill"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "by 뒤에 hanging, counting, comparing이 and로 연결된 병렬.",
+       "wrong_ex": "compared"
+      },
+      {
+       "n": 5,
+       "point": "consist of (수동 불가)",
+       "ox": "X",
+       "expl": "consist of는 목적어를 갖지 않는 자동사이므로 consist of로 고친다.",
+       "fix": "consist of"
+      }
+     ]
+    },
+    {
+     "set": 107,
+     "title": "손가락이 쭈글해지는 이유",
+     "passage": [
+      {
+       "t": "Soaked",
+       "n": 1
+      },
+      {
+       "t": " in warm water for ten minutes, our fingers wrinkle in a pattern that is the same every time. The grip of wet fingers on a wet object is clearly stronger than "
+      },
+      {
+       "t": "dry fingers",
+       "n": 2
+      },
+      {
+       "t": ". Scientists had wondered for many years "
+      },
+      {
+       "t": "whether",
+       "n": 3
+      },
+      {
+       "t": " the pattern had any use at all. The wrinkles "
+      },
+      {
+       "t": "must have helped",
+       "n": 4
+      },
+      {
+       "t": " our ancestors hold wet branches and catch fish by hand. Fingers kept in water for an hour "
+      },
+      {
+       "t": "lose",
+       "n": 5
+      },
+      {
+       "t": " the pattern and turn smooth again."
+      }
+     ],
+     "tr": [
+      "따뜻한 물에 10분 담그면 우리 손가락은 매번 똑같은 무늬로 쭈글쭈글해진다.",
+      "젖은 물건을 쥘 때 젖은 손가락의 악력은 마른 손가락의 악력보다 분명히 더 세다.",
+      "과학자들은 이 무늬에 쓸모가 있기는 한지를 여러 해 동안 궁금해했다.",
+      "이 주름은 우리 조상들이 젖은 나뭇가지를 붙잡고 맨손으로 물고기를 잡는 데 도움이 되었음이 틀림없다.",
+      "한 시간 동안 물에 담가 둔 손가락은 그 무늬를 잃고 다시 매끈해진다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "our fingers가 물에 담기는 대상이므로 과거분사 Soaked.",
+       "wrong_ex": "Soaking"
+      },
+      {
+       "n": 2,
+       "point": "비교 대상 일치",
+       "ox": "X",
+       "expl": "The grip과 비교해야 하므로 that of dry fingers로 고친다.",
+       "fix": "that of dry fingers"
+      },
+      {
+       "n": 3,
+       "point": "명사절 접속사 whether",
+       "ox": "O",
+       "expl": "'~인지 아닌지'의 뜻으로 wondered의 목적어가 되는 명사절을 이끈다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 강한 추측이므로 must have p.p.",
+       "wrong_ex": "must help"
+      },
+      {
+       "n": 5,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Fingers(복수)이고 kept 이하는 수식어구이므로 lose.",
+       "wrong_ex": "loses"
+      }
+     ]
+    },
+    {
+     "set": 108,
+     "title": "깨지지 않은 플라스크",
+     "passage": [
+      {
+       "t": "A French chemist "
+      },
+      {
+       "t": "had been working",
+       "n": 1
+      },
+      {
+       "t": " on dyes when a glass flask fell from a shelf and did not break. Inside was a film of dried plastic, too thin "
+      },
+      {
+       "t": "to notice",
+       "n": 2
+      },
+      {
+       "t": " but strong enough to hold the pieces together. The glass "
+      },
+      {
+       "t": "he made",
+       "n": 3
+      },
+      {
+       "t": " that night is still in every car window on the road. Neither the maker nor the drivers "
+      },
+      {
+       "t": "was",
+       "n": 4
+      },
+      {
+       "t": " aware of how many lives it would save. "
+      },
+      {
+       "t": "Sold",
+       "n": 5
+      },
+      {
+       "t": " at first for gas masks, safety glass reached cars only after 1930."
+      }
+     ],
+     "tr": [
+      "한 프랑스 화학자가 염료를 연구하던 중 유리 플라스크가 선반에서 떨어졌는데 깨지지 않았다.",
+      "안쪽에는 말라붙은 플라스틱 막이 있었는데, 알아채지 못할 만큼 얇았지만 조각들을 붙들어 둘 만큼 강했다.",
+      "그날 밤 그가 만든 유리는 지금도 도로 위 모든 차의 창유리에 들어 있다.",
+      "만든 사람도 운전자들도 그것이 얼마나 많은 생명을 구하게 될지 알지 못했다.",
+      "처음에는 방독면용으로 팔린 안전유리는 1930년이 지나서야 자동차에 들어갔다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "과거완료진행",
+       "ox": "O",
+       "expl": "플라스크가 떨어진 과거 시점 이전부터 계속되던 일이므로 had been -ing.",
+       "wrong_ex": "has been working"
+      },
+      {
+       "n": 2,
+       "point": "too ~ to부정사",
+       "ox": "O",
+       "expl": "'너무 ~해서 …할 수 없다'를 나타내는 「too + 형용사 + to부정사」.",
+       "wrong_ex": "noticing"
+      },
+      {
+       "n": 3,
+       "point": "목적격 관계대명사 생략",
+       "ox": "O",
+       "expl": "The glass를 수식하며 made의 목적어가 빠진 자리. 관계대명사가 생략된 형태이다.",
+       "wrong_ex": "which he made it"
+      },
+      {
+       "n": 4,
+       "point": "neither A nor B 수일치",
+       "ox": "X",
+       "expl": "「Neither A nor B」는 B에 동사를 맞춘다. the drivers가 복수이므로 were로 고친다.",
+       "fix": "were"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "safety glass가 팔리는 대상이므로 과거분사 Sold.",
+       "wrong_ex": "Selling"
+      }
+     ]
+    }
+   ],
+   "id": "기본-27",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 28,
+   "sets": [
+    {
+     "set": 109,
+     "title": "백 년 동안 아홉 방울",
+     "passage": [
+      {
+       "t": "A funnel of black tar has been dripping since 1927, and the university keeps "
+      },
+      {
+       "t": "their",
+       "n": 1
+      },
+      {
+       "t": " camera on it day and night. Only nine drops "
+      },
+      {
+       "t": "have fallen",
+       "n": 2
+      },
+      {
+       "t": " in a hundred years. The professor who started the experiment died in 1961, "
+      },
+      {
+       "t": "having seen",
+       "n": 3
+      },
+      {
+       "t": " not a single drop fall. It is nearly fourteen years "
+      },
+      {
+       "t": "since",
+       "n": 4
+      },
+      {
+       "t": " the ninth drop landed in the glass. "
+      },
+      {
+       "t": "Were the funnel to be",
+       "n": 5
+      },
+      {
+       "t": " moved to another room, the next drop might never form at all."
+      }
+     ],
+     "tr": [
+      "검은 타르 깔때기는 1927년부터 지금까지 떨어지고 있고, 대학은 밤낮으로 카메라를 그것에 맞춰 두고 있다.",
+      "백 년 동안 떨어진 방울은 아홉 개뿐이다.",
+      "이 실험을 시작한 교수는 방울이 떨어지는 것을 단 한 번도 보지 못한 채 1961년에 세상을 떠났다.",
+      "아홉 번째 방울이 유리잔에 떨어진 지 거의 14년이 되었다.",
+      "깔때기를 다른 방으로 옮긴다면, 다음 방울은 영영 맺히지 않을지도 모른다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "대명사 수 일치",
+       "ox": "X",
+       "expl": "the university는 단수이므로 its로 고친다.",
+       "fix": "its"
+      },
+      {
+       "n": 2,
+       "point": "현재완료 (자동사)",
+       "ox": "O",
+       "expl": "fall은 목적어를 갖지 않는 자동사이므로 수동태로 쓸 수 없다.",
+       "wrong_ex": "have been fallen"
+      },
+      {
+       "n": 3,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "보지 못한 일이 사망 시점까지 이어지므로 「having + p.p.」.",
+       "wrong_ex": "seeing"
+      },
+      {
+       "n": 4,
+       "point": "It is ~ since",
+       "ox": "O",
+       "expl": "'~한 지 …가 되다'를 나타내는 구문. since 뒤에는 과거시제 절이 온다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "가정법 도치 (were to)",
+       "ox": "O",
+       "expl": "If the funnel were to be moved에서 If가 생략되어 Were가 앞으로 나온 형태.",
+       "wrong_ex": "Was the funnel to be"
+      }
+     ]
+    },
+    {
+     "set": 110,
+     "title": "하루 두 번 하늘로",
+     "passage": [
+      {
+       "t": "Twice a day, in nine hundred places at once, a weather balloon "
+      },
+      {
+       "t": "is released",
+       "n": 1
+      },
+      {
+       "t": " into the sky. Down "
+      },
+      {
+       "t": "comes the instrument",
+       "n": 2
+      },
+      {
+       "t": " on a small parachute about two hours later. The balloons "
+      },
+      {
+       "t": "enter into",
+       "n": 3
+      },
+      {
+       "t": " the upper air and burst at thirty kilometres. Not every flight "
+      },
+      {
+       "t": "returns",
+       "n": 4
+      },
+      {
+       "t": " useful data, because ice can freeze the sensor on the way up. Two thirds of the numbers in tomorrow's forecast "
+      },
+      {
+       "t": "come",
+       "n": 5
+      },
+      {
+       "t": " from balloons rather than from satellites."
+      }
+     ],
+     "tr": [
+      "하루 두 번, 900곳에서 동시에 기상 관측 기구가 하늘로 띄워진다.",
+      "약 두 시간 뒤 관측 장비가 작은 낙하산에 매달려 내려온다.",
+      "기구는 높은 대기로 들어가 30킬로미터 상공에서 터진다.",
+      "올라가는 도중 센서가 얼어붙을 수 있어서, 모든 비행이 쓸모 있는 자료를 보내 주는 것은 아니다.",
+      "내일 예보에 쓰이는 수치의 3분의 2는 위성이 아니라 기구에서 나온다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "a weather balloon이 띄워지는 대상이므로 is released.",
+       "wrong_ex": "releases"
+      },
+      {
+       "n": 2,
+       "point": "완전 도치",
+       "ox": "O",
+       "expl": "방향을 나타내는 부사 Down이 문두에 오면 주어와 동사가 통째로 도치된다.",
+       "wrong_ex": "the instrument comes"
+      },
+      {
+       "n": 3,
+       "point": "타동사 enter",
+       "ox": "X",
+       "expl": "enter는 타동사이므로 into 없이 목적어를 바로 취한다. enter로 고 친다.",
+       "fix": "enter"
+      },
+      {
+       "n": 4,
+       "point": "부분부정 not every",
+       "ox": "O",
+       "expl": "'모두 ~인 것은 아니다'. every + 단수명사이므로 동사도 단수 returns.",
+       "wrong_ex": "return"
+      },
+      {
+       "n": 5,
+       "point": "분수 표현 수일치",
+       "ox": "O",
+       "expl": "「분수 + of + 복수명사」는 복수 취급하므로 come.",
+       "wrong_ex": "comes"
+      }
+     ]
+    },
+    {
+     "set": 111,
+     "title": "바다 밑 우체통",
+     "passage": [
+      {
+       "t": "A red post box "
+      },
+      {
+       "t": "stands",
+       "n": 1
+      },
+      {
+       "t": " ten metres under the sea near a Japanese fishing village. Divers drop in waterproof cards, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " a local diver collects at the end of each day. More than forty thousand letters "
+      },
+      {
+       "t": "have been posted",
+       "n": 3
+      },
+      {
+       "t": " from the box since 1999. It was put there "
+      },
+      {
+       "t": "during",
+       "n": 4
+      },
+      {
+       "t": " the village held its first diving festival. The ink runs and the words disappear unless the writer "
+      },
+      {
+       "t": "uses",
+       "n": 5
+      },
+      {
+       "t": " an oil-based pen."
+      }
+     ],
+     "tr": [
+      "일본의 한 어촌 가까운 바다 10미터 아래에는 빨간 우체통이 서 있다.",
+      "잠수부들이 방수 엽서를 넣으면, 그 지역 잠수부가 매일 저녁 그것을 수거한다.",
+      "1999년 이래로 이 우체통에서 4만 통이 넘는 편지가 부쳐졌다.",
+      "그것은 마을이 첫 다이빙 축제를 열던 동안 그곳에 놓였다.",
+      "유성펜으로 쓰지 않으면 잉크가 번져 글자가 사라진다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 A red post box(단수)이므로 stands.",
+       "wrong_ex": "stand"
+      },
+      {
+       "n": 2,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "collects의 목적어가 빠진 자리이고 선행사 cards가 있으므로 which.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "letters가 부쳐지는 대상이고 1999년부터 이어지므로 have been p.p.",
+       "wrong_ex": "have posted"
+      },
+      {
+       "n": 4,
+       "point": "접속사 while",
+       "ox": "X",
+       "expl": "뒤에 「주어 + 동사」의 절이 오므로 전치사 during을 쓸 수 없다. while로 고친다.",
+       "fix": "while"
+      },
+      {
+       "n": 5,
+       "point": "접속사 unless + 현재시제",
+       "ox": "O",
+       "expl": "조건의 부사절에서는 미래 대신 현재시제를 쓴다.",
+       "wrong_ex": "will use"
+      }
+     ]
+    },
+    {
+     "set": 112,
+     "title": "소금을 지고 걷는 밤",
+     "passage": [
+      {
+       "t": "Camels carry blocks of salt "
+      },
+      {
+       "t": "cut",
+       "n": 1
+      },
+      {
+       "t": " from a dry lake in the Ethiopian desert. The drivers put off "
+      },
+      {
+       "t": "to travel",
+       "n": 2
+      },
+      {
+       "t": " until the sun drops behind the hills. Each camel carries eight blocks on "
+      },
+      {
+       "t": "its",
+       "n": 3
+      },
+      {
+       "t": " back for five days without water. The group moves at night, "
+      },
+      {
+       "t": "when",
+       "n": 4
+      },
+      {
+       "t": " the stone is cool enough to hold. "
+      },
+      {
+       "t": "It is",
+       "n": 5
+      },
+      {
+       "t": " the camels, not the trucks, that the highland markets still trust for the best salt."
+      }
+     ],
+     "tr": [
+      "낙타들은 에티오피아 사막의 마른 호수에서 잘라 낸 소금 덩이를 나른다.",
+      "몰이꾼들은 해가 언덕 뒤로 질 때까지 이동을 미룬다.",
+      "낙타는 저마다 등에 소금 덩이 여덟 개를 싣고 물 없이 닷새를 간다.",
+      "일행은 돌이 잡을 만큼 식는 밤에 움직인다.",
+      "고원의 시장이 가장 좋은 소금을 두고 여전히 믿는 것은 트럭이 아니라 낙타다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "slabs of salt가 잘리는 대상이므로 과거분사 cut.",
+       "wrong_ex": "cutting"
+      },
+      {
+       "n": 2,
+       "point": "put off + 동명사",
+       "ox": "X",
+       "expl": "put off는 목적어로 동명사를 취하므로 travelling으로 고친다.",
+       "fix": "travelling"
+      },
+      {
+       "n": 3,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "Each camel은 단수이므로 its.",
+       "wrong_ex": "their"
+      },
+      {
+       "n": 4,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 night이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "the camels를 강조하는 It ~ that 구문.",
+       "wrong_ex": "They are"
+      }
+     ]
+    }
+   ],
+   "id": "기본-28",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 1,
+   "sets": [
+    {
+     "set": 1,
+     "title": "기억은 녹화가 아니라 재구성이다",
+     "passage": [
+      {
+       "t": "Most people assume that memory works like a camera, "
+      },
+      {
+       "t": "recording",
+       "n": 1
+      },
+      {
+       "t": " events exactly as they happen. In reality, every act of recall slightly alters the original trace. What we remember "
+      },
+      {
+       "t": "are shaped",
+       "n": 2
+      },
+      {
+       "t": " by our mood, our beliefs, and the questions we are asked. In one classic study, participants who "
+      },
+      {
+       "t": "had watched",
+       "n": 3
+      },
+      {
+       "t": " a filmed accident gave much higher speed estimates when the verb “smashed” was used instead of “hit.” This does not mean "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " our memories are worthless. Only by accepting this "
+      },
+      {
+       "t": "can we",
+       "n": 5
+      },
+      {
+       "t": " treat eyewitness testimony with proper caution."
+      }
+     ],
+     "tr": [
+      "대부분의 사람은 기억이 카메라처럼 작동해서 일어난 일을 그대로 녹화한다고 여긴다.",
+      "그러나 실제로는 떠올리는 행위 하나하나가 원래의 기억 흔적을 조금씩 바꾼다.",
+      "우리가 기억하는 것은 그때의 기분, 믿음, 그리고 우리가 받은 질문에 의해 만들어진다.",
+      "한 유명한 실험에서, 사고 영상을 본 참가자들은 'hit' 대신 'smashed'라는 동사가 쓰였을 때 속도를 훨씬 빠르게 추정했다.",
+      "이것이 우리의 기억이 쓸모없다는 뜻은 아니다.",
+      "이 사실을 받아들일 때에야 비로소 우리는 목격자 진술을 적절히 신중하게 다룰 수 있다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "앞 절의 주어 memory가 record하는 주체이므로 능동의 현재분사 recording.",
+       "wrong_ex": "recorded"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "X",
+       "expl": "주어가 명사절 What we remember이므로 단수 취급. are shaped → is shaped.",
+       "fix": "is shaped"
+      },
+      {
+       "n": 3,
+       "point": "과거완료 능동",
+       "ox": "O",
+       "expl": "사고를 본 시점이 진술 시점보다 앞서므로 과거완료. participants 가 보는 주체이므로 능동.",
+       "wrong_ex": "had been watched"
+      },
+      {
+       "n": 4,
+       "point": "명사절 접속사 that",
+       "ox": "O",
+       "expl": "mean의 목적어가 되는 완전한 절을 이끄는 명사절 접속사 that.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 5,
+       "point": "도치 (Only+부사구)",
+       "ox": "O",
+       "expl": "Only+부사구가 문두에 오면 주어·동사가 도치되어 can we가 된다.",
+       "wrong_ex": "we can"
+      }
+     ]
+    },
+    {
+     "set": 2,
+     "title": "잠은 훈련의 일부다",
+     "passage": [
+      {
+       "t": "Athletes often focus on training and diet, but sleep is "
+      },
+      {
+       "t": "what",
+       "n": 1
+      },
+      {
+       "t": " separates good performance from great performance. During deep sleep, the body releases growth hormone, "
+      },
+      {
+       "t": "allowing",
+       "n": 2
+      },
+      {
+       "t": " damaged muscle tissue to repair itself. Studies of college basketball players "
+      },
+      {
+       "t": "show",
+       "n": 3
+      },
+      {
+       "t": " that those who extended their sleep to ten hours "
+      },
+      {
+       "t": "improved",
+       "n": 4
+      },
+      {
+       "t": " both sprint times and shooting accuracy. Surprisingly, the players had no idea how much better they had become. If they had known this earlier, many of them "
+      },
+      {
+       "t": "would sleep",
+       "n": 5
+      },
+      {
+       "t": " far longer during the season."
+      }
+     ],
+     "tr": [
+      "운동선수들은 흔히 훈련과 식단에 집중하지만, 좋은 경기력과 뛰어난 경기력을 가르는 것은 잠이다.",
+      "깊은 잠을 자는 동안 몸은 성장호르몬을 분비하여, 손상된 근육 조직이 스스로 회복하게 해 준다.",
+      "대학 농구 선수들에 관한 연구들은, 수면을 10시간으로 늘린 선수들이 단거리 기록과 슛 정확도 모두 향상되었음을 보여 준다.",
+      "놀랍게도 그 선수들은 자신이 얼마나 더 좋아졌는지 전혀 알지 못했다.",
+      "이 사실을 더 일찍 알았더라면, 그들 중 많은 수가 시즌 동안 훨씬 더 오래 잤을 것이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "선행사를 포함하며 be동사의 보어 자리에 오는 관계대명사 what.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "releases의 결과를 나타내는 분사구문. 주어가 allow의 주체이므로 능동의 allowing.",
+       "wrong_ex": "allowed"
+      },
+      {
+       "n": 3,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Studies(복수), of college basketball players는 수식어구이므로 show.",
+       "wrong_ex": "shows"
+      },
+      {
+       "n": 4,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "those who extended ~ ten hours는 주어+관계사절. that절 주어 those를 받는 본동사가 필요하므로 improved.",
+       "wrong_ex": "improving"
+      },
+      {
+       "n": 5,
+       "point": "조동사 + 완료시제",
+       "ox": "X",
+       "expl": "If절이 had known인 가정법 과거완료. 밑줄은 주절의 조동사 자리이므로 완료형 would have p.p.여야 한다.",
+       "fix": "would have slept"
+      }
+     ]
+    },
+    {
+     "set": 3,
+     "title": "가로수는 장식이 아니라 기반시설이다",
+     "passage": [
+      {
+       "t": "City planners once treated street trees as decoration, but such trees are now regarded "
+      },
+      {
+       "t": "as",
+       "n": 1
+      },
+      {
+       "t": " essential infrastructure. A mature tree can cool the air around it as effectively "
+      },
+      {
+       "t": "as",
+       "n": 2
+      },
+      {
+       "t": " several air conditioners running at once. It also traps fine dust, absorbs rainwater, and "
+      },
+      {
+       "t": "reduces",
+       "n": 3
+      },
+      {
+       "t": " the noise of traffic. In neighborhoods "
+      },
+      {
+       "t": "where",
+       "n": 4
+      },
+      {
+       "t": " trees were planted along the sidewalks, residents reported lower stress and walked more often. What matters is not simply the number of trees "
+      },
+      {
+       "t": "planting",
+       "n": 5
+      },
+      {
+       "t": ", but whether they are given enough soil to grow."
+      }
+     ],
+     "tr": [
+      "도시 계획가들은 한때 가로수를 장식으로 취급했지만, 이제 그런 나무들은 필수 기반시설로 여겨진다.",
+      "다 자란 나무 한 그루는 에어컨 여러 대를 동시에 켠 것만큼 효과적으로 주변 공기를 식힐 수 있다.",
+      "또한 그것은 미세먼지를 붙잡고, 빗물을 흡수하며, 교통 소음을 줄여 준다.",
+      "보도를 따라 나무가 심긴 동네에서는 주민들이 스트레스가 더 낮다고 보고했고 더 자주 걸었다.",
+      "중요한 것은 단순히 심긴 나무의 수가 아니라, 그 나무들에게 자랄 만큼 충분한 흙이 주어지는가이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "regard A as B의 수동형은 A be regarded as B. 전치사 as를 그대로 남긴다.",
+       "wrong_ex": "for"
+      },
+      {
+       "n": 2,
+       "point": "원급 비교",
+       "ox": "O",
+       "expl": "as + 원급 + as 구문. 뒤의 as는 비교 대상을 이끄는 접속사.",
+       "wrong_ex": "than"
+      },
+      {
+       "n": 3,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "traps, absorbs, reduces가 and로 연결된 병렬. 주어 It에 맞춰 -s.",
+       "wrong_ex": "reducing"
+      },
+      {
+       "n": 4,
+       "point": "관계부사",
+       "ox": "O",
+       "expl": "선행사가 장소 neighborhoods이고 뒤에 완전한 절이 오므로 관계부사 where.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 5,
+       "point": "분사구문(수동)",
+       "ox": "X",
+       "expl": "trees를 뒤에서 수식하는 자리. 나무는 심어지는 대상이므로 수동의 과거분사 planted.",
+       "fix": "planted"
+      }
+     ]
+    },
+    {
+     "set": 4,
+     "title": "실패를 숨기지 않는 조직",
+     "passage": [
+      {
+       "t": "Most companies say they welcome failure, but few of them actually "
+      },
+      {
+       "t": "do",
+       "n": 1
+      },
+      {
+       "t": ". When a project collapses, managers usually look for the person "
+      },
+      {
+       "t": "whose",
+       "n": 2
+      },
+      {
+       "t": " decision caused the loss. Research on hospital teams found that the units "
+      },
+      {
+       "t": "reporting",
+       "n": 3
+      },
+      {
+       "t": " the most errors were not the worst ones; they were the ones with the highest trust. Nurses there felt safe enough "
+      },
+      {
+       "t": "speaking up",
+       "n": 4
+      },
+      {
+       "t": ". What such findings suggest is that "
+      },
+      {
+       "t": "measuring",
+       "n": 5
+      },
+      {
+       "t": " failure honestly matters more than hiding it."
+      }
+     ],
+     "tr": [
+      "대부분의 회사는 실패를 환영한다고 말하지만, 실제로 그러는 곳은 거의 없다.",
+      "프로젝트가 무너지면 관리자들은 대개 누구의 결정이 손실을 불렀는지 그 사람을 찾는다.",
+      "병원 의료팀 연구에 따르면, 오류를 가장 많이 보고한 부서는 가장 나쁜 부서가 아니라 신뢰도가 가장 높은 부서였다.",
+      "그곳의 간호사들은 목소리를 낼 만큼 충분히 안전하다고 느꼈다.",
+      "이런 결과가 시사하는 바는, 실패를 정직하게 측정하는 것이 그것을 숨기는 것보다 더 중요하다는 것이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "대동사",
+       "ox": "O",
+       "expl": "앞에 나온 welcome failure를 대신 받는 대동사 do.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "the person과 decision이 소유 관계이므로 소유격 관계대명사 whose.",
+       "wrong_ex": "who"
+      },
+      {
+       "n": 3,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "the units를 뒤에서 수식하며 보고하는 주체이므로 능동의 현재분사 reporting.",
+       "wrong_ex": "reported"
+      },
+      {
+       "n": 4,
+       "point": "부정사 (enough to)",
+       "ox": "X",
+       "expl": "형용사 + enough + to부정사 구조이므로 speaking up → to speak up.",
+       "fix": "to speak up"
+      },
+      {
+       "n": 5,
+       "point": "동명사 주어",
+       "ox": "O",
+       "expl": "that절의 주어 자리이므로 동명사 measuring. 단수 취급하여 동사는 matters.",
+       "wrong_ex": "measure"
+      }
+     ]
+    }
+   ],
+   "id": "실력-01",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 2,
+   "sets": [
+    {
+     "set": 5,
+     "title": "녹음된 내 목소리가 낯선 이유",
+     "passage": [
+      {
+       "t": "When people hear a recording of their own voice, most of them describe "
+      },
+      {
+       "t": "it",
+       "n": 1
+      },
+      {
+       "t": " as strange and even unpleasant. The reason is surprisingly "
+      },
+      {
+       "t": "simple",
+       "n": 2
+      },
+      {
+       "t": ". When you speak, sound travels to your ears through the air and also through the bones of your skull, which makes your voice seem lower and fuller. A recording removes that second path, so you finally learn "
+      },
+      {
+       "t": "how do other people hear",
+       "n": 3
+      },
+      {
+       "t": " you. If you recorded yourself every day, you "
+      },
+      {
+       "t": "would stop",
+       "n": 4
+      },
+      {
+       "t": " noticing the difference within a few weeks. Voice actors, for example, hear their own lines "
+      },
+      {
+       "t": "played back",
+       "n": 5
+      },
+      {
+       "t": " for hours without any embarrassment."
+      }
+     ],
+     "tr": [
+      "사람들이 녹음된 자기 목소리를 들으면, 대부분은 그것을 낯설고 심지어 불쾌하다고 말한다.",
+      "그 이유는 놀라울 만큼 간단하다.",
+      "말을 할 때 소리는 공기를 통해서도, 두개골의 뼈를 통해서도 귀에 전달되는데, 이것이 목소리를 더 낮고 풍부하게 들리도록 만든다.",
+      "녹음은 그 두 번째 경로를 없애기 때문에, 비로소 다른 사람들이 나를 어떻게 듣는지 알게 된다.",
+      "만약 매일 자기 목소리를 녹음한다면, 몇 주 안에 그 차이를 느끼지 않게 될 것이다.",
+      "예를 들어 성우들은 자기 대사가 몇 시간씩 재생되는 것을 들으면서도 전혀 부끄러워하지 않는다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "앞에 나온 a recording을 받으므로 단수 대명사 it.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 2,
+       "point": "보어 자리 형용사",
+       "ox": "O",
+       "expl": "be동사의 보어 자리이므로 형용사 simple. surprisingly는 이를 수식하는 부사.",
+       "wrong_ex": "simply"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 어순",
+       "ox": "X",
+       "expl": "learn의 목적어인 명사절이므로 「의문사+주어+동사」 어순이어야한다.",
+       "fix": "how other people hear"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + 완료시제",
+       "ox": "O",
+       "expl": "If절이 recorded(과거)인 가정법 과거. 밑줄은 주절의 조동사 자리이므로 would+동사원형이 맞다.",
+       "wrong_ex": "would have stopped"
+      },
+      {
+       "n": 5,
+       "point": "목적격보어 (지각동사)",
+       "ox": "O",
+       "expl": "hear의 목적어 lines가 재생되는 대상이므로 과거분사 played back.",
+       "wrong_ex": "playing back"
+      }
+     ]
+    },
+    {
+     "set": 6,
+     "title": "습관은 우스울 만큼 작게 시작한다",
+     "passage": [
+      {
+       "t": "That",
+       "n": 1
+      },
+      {
+       "t": " is not easy to change a habit in a single week. Psychologists suggest "
+      },
+      {
+       "t": "starting",
+       "n": 2
+      },
+      {
+       "t": " with a step so small that it feels almost silly. If the new action "
+      },
+      {
+       "t": "takes",
+       "n": 3
+      },
+      {
+       "t": " less than two minutes, your brain accepts it without resistance. The trick is to start small, to repeat often, and "
+      },
+      {
+       "t": "to forget",
+       "n": 4
+      },
+      {
+       "t": " about speed. Progress that feels slow is usually "
+      },
+      {
+       "t": "more lasting",
+       "n": 5
+      },
+      {
+       "t": " than progress that feels fast."
+      }
+     ],
+     "tr": [
+      "한 주 만에 습관을 바꾸기란 쉽지 않다.",
+      "심리학자들은 우스울 만큼 작은 단계에서 시작하라고 권한다.",
+      "새로운 행동이 2분도 걸리지 않으면, 뇌는 저항 없이 그것을 받아들인다.",
+      "요령은 작게 시작하고, 자주 반복하고, 속도는 잊는 것이다.",
+      "느리게 느껴지는 변화가 대개 빠르게 느껴지는 변화보다 더 오래간다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "가주어 it",
+       "ox": "X",
+       "expl": "뒤의 to부정사구를 대신하는 가주어 자리이므로 That이 아니라 It을 쓴다.",
+       "fix": "It"
+      },
+      {
+       "n": 2,
+       "point": "동명사 (suggest)",
+       "ox": "O",
+       "expl": "suggest는 목적어로 동명사를 취하는 동사이다.",
+       "wrong_ex": "to start"
+      },
+      {
+       "n": 3,
+       "point": "시제 (조건 부사절)",
+       "ox": "O",
+       "expl": "조건을 나타내는 부사절에서는 미래 대신 현재시제를 쓴다.",
+       "wrong_ex": "will take"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "to start, to repeat, to forget이 and로 연결된 병렬.",
+       "wrong_ex": "forgetting"
+      },
+      {
+       "n": 5,
+       "point": "비교급",
+       "ox": "O",
+       "expl": "뒤의 than과 호응하는 비교급 more lasting.",
+       "wrong_ex": "most lasting"
+      }
+     ]
+    },
+    {
+     "set": 7,
+     "title": "재활용되지 않는 재활용 플라스틱",
+     "passage": [
+      {
+       "t": "Recycling plants sort plastic "
+      },
+      {
+       "t": "surprisingly",
+       "n": 1
+      },
+      {
+       "t": " well when the bottles are clear. Colored plastic, however, is much "
+      },
+      {
+       "t": "harder",
+       "n": 2
+      },
+      {
+       "t": " to process, and mixed loads are worse still. Once several types are combined, the whole batch "
+      },
+      {
+       "t": "must be burned",
+       "n": 3
+      },
+      {
+       "t": " or buried. Cities that report high recycling rates often "
+      },
+      {
+       "t": "sending",
+       "n": 4
+      },
+      {
+       "t": " their waste abroad, where nobody counts "
+      },
+      {
+       "t": "it",
+       "n": 5
+      },
+      {
+       "t": ". The honest lesson is that using less matters more than sorting better."
+      }
+     ],
+     "tr": [
+      "재활용 공장은 병이 투명할 때는 놀라울 만큼 플라스틱을 잘 분류한다.",
+      "그러나 색이 있는 플라스틱은 처리하기가 훨씬 더 어렵고, 섞인 더미는 그보다 더 나쁘다.",
+      "여러 종류가 한번 섞이고 나면, 그 묶음 전체를 태우거나 묻어야 한다.",
+      "재활용률이 높다고 보고하는 도시들은 흔히 쓰레기를 해외로 보내는데, 그곳에서는 아무도 그것을 세지 않는다.",
+      "정직한 교훈은, 더 잘 분류하는 것보다 덜 쓰는 것이 더 중요하다는 것이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사",
+       "ox": "O",
+       "expl": "부사 well을 앞에서 수식하므로 부사 surprisingly.",
+       "wrong_ex": "surprising"
+      },
+      {
+       "n": 2,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "much가 비교급 harder를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "hardest"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "batch가 태워지는 대상이므로 조동사 뒤에 be p.p.",
+       "wrong_ex": "must burn"
+      },
+      {
+       "n": 4,
+       "point": "본동사",
+       "ox": "X",
+       "expl": "주어는 Cities이고 that절은 수식어. 문장의 본동사가 필요하므로 send.",
+       "fix": "send"
+      },
+      {
+       "n": 5,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "앞에 나온 their waste를 받으므로 단수 대명사 it.",
+       "wrong_ex": "them"
+      }
+     ]
+    },
+    {
+     "set": 8,
+     "title": "사라진 밤하늘",
+     "passage": [
+      {
+       "t": "A hundred years ago, the Milky Way "
+      },
+      {
+       "t": "could be seen",
+       "n": 1
+      },
+      {
+       "t": " from almost any village in Europe. Today, in large cities, "
+      },
+      {
+       "t": "rarely  people  see",
+       "n": 2
+      },
+      {
+       "t": " more than a few dozen stars. In some towns, streetlights are designed "
+      },
+      {
+       "t": "to  point",
+       "n": 3
+      },
+      {
+       "t": " downward, and the difference is immediate. "
+      },
+      {
+       "t": "Although",
+       "n": 4
+      },
+      {
+       "t": " the technology is cheap, most cities have not adopted it. Astronomers keep "
+      },
+      {
+       "t": "arguing",
+       "n": 5
+      },
+      {
+       "t": " that darkness is worth protecting."
+      }
+     ],
+     "tr": [
+      "백 년 전에는 유럽의 거의 모든 마을에서 은하수를 볼 수 있었다.",
+      "오늘날 큰 도시에서는 사람들이 수십 개가 넘는 별을 보는 일이 드물다.",
+      "몇몇 마을에서는 가로등이 아래를 향하도록 설계되어 있고, 그 차이는 즉각적이다.",
+      "그 기술이 저렴한데도 대부분의 도시는 그것을 도입하지 않았다.",
+      "천문학자들은 어둠도 지킬 가치가 있다고 계속 주장한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "the Milky Way가 보이는 대상이므로 could be seen.",
+       "wrong_ex": "could see"
+      },
+      {
+       "n": 2,
+       "point": "부정어 도치",
+       "ox": "X",
+       "expl": "부정의 부사 rarely가 문두에 오면 주어와 동사를 도치한다.",
+       "fix": "rarely do people see"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (be designed to)",
+       "ox": "O",
+       "expl": "be designed to + 동사원형 구조.",
+       "wrong_ex": "pointing"
+      },
+      {
+       "n": 4,
+       "point": "접속사",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 Although. 전치사 Despite는 쓸 수 없다.",
+       "wrong_ex": "Despite"
+      },
+      {
+       "n": 5,
+       "point": "동명사 (keep)",
+       "ox": "O",
+       "expl": "keep은 목적어로 동명사를 취한다.",
+       "wrong_ex": "to argue"
+      }
+     ]
+    }
+   ],
+   "id": "실력-02",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 3,
+   "sets": [
+    {
+     "set": 9,
+     "title": "사진을 찍으면 왜 덜 기억할까",
+     "passage": [
+      {
+       "t": "There is a reason "
+      },
+      {
+       "t": "why",
+       "n": 1
+      },
+      {
+       "t": " tourists who photograph everything often remember the least. Taking a picture lets the brain "
+      },
+      {
+       "t": "treat",
+       "n": 2
+      },
+      {
+       "t": " the camera as external storage. In one experiment, visitors to a museum photographed half of the objects and simply looked at the other half. The next day, the photographed items "
+      },
+      {
+       "t": "recalled",
+       "n": 3
+      },
+      {
+       "t": " far less accurately. The museum "
+      },
+      {
+       "t": "has since removed",
+       "n": 4
+      },
+      {
+       "t": " its no-camera signs, because it believes the choice should belong to the visitor. Still, the finding suggests that attention, not equipment, "
+      },
+      {
+       "t": "is",
+       "n": 5
+      },
+      {
+       "t": " what turns an experience into a memory."
+      }
+     ],
+     "tr": [
+      "모든 것을 사진으로 찍는 여행자가 오히려 가장 적게 기억하는 데에는 이유가 있다.",
+      "사진을 찍는 행위는 뇌가 카메라를 외부 저장 장치로 취급하게 만든다.",
+      "한 실험에서 박물관 방문객들은 전시물의 절반은 사진으로 찍고 나머지 절반은 그냥 보기만 했다.",
+      "다음 날, 사진으로 찍은 전시물은 훨씬 덜 정확하게 기억되었다.",
+      "그 박물관은 이후 '촬영 금지' 표지를 없앴는데, 선택은 관람객의 몫이어야 한다고 보기 때문이다.",
+      "그럼에도 이 결과는 경험을 기억으로 바꾸는 것이 장비가 아니라 주의력임을 보여 준다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 why",
+       "ox": "O",
+       "expl": "선행사가 a reason이고 뒤에 완전한 절이 오므로 관계부사 why.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "목적격보어 (사역동사 let)",
+       "ox": "O",
+       "expl": "let은 목적격보어로 원형부정사를 취한다.",
+       "wrong_ex": "to treat"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "items가 기억되는 대상이므로 수동태여야 한다. recalled → were recalled.",
+       "fix": "were recalled"
+      },
+      {
+       "n": 4,
+       "point": "시제 (현재완료)",
+       "ox": "O",
+       "expl": "since와 함께 과거의 일이 현재까지 이어진 결과를 나타내므로 현재완료.",
+       "wrong_ex": "removed"
+      },
+      {
+       "n": 5,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "「A, not B」 구조에서는 A(attention)에 동사를 일치시키므로 is.",
+       "wrong_ex": "are"
+      }
+     ]
+    },
+    {
+     "set": 10,
+     "title": "손으로 쓰면 왜 더 남을까",
+     "passage": [
+      {
+       "t": "Handwriting makes students "
+      },
+      {
+       "t": "to slow",
+       "n": 1
+      },
+      {
+       "t": " down, and that is the whole point. A keyboard allows them to record almost every word, "
+      },
+      {
+       "t": "while",
+       "n": 2
+      },
+      {
+       "t": " a pen forces the writer to choose. That choice is "
+      },
+      {
+       "t": "where",
+       "n": 3
+      },
+      {
+       "t": " the learning happens. Researchers found that typists produced longer notes but "
+      },
+      {
+       "t": "remembered",
+       "n": 4
+      },
+      {
+       "t": " fewer ideas. If you want to remember a lecture, it may help "
+      },
+      {
+       "t": "to write",
+       "n": 5
+      },
+      {
+       "t": " less rather than more."
+      }
+     ],
+     "tr": [
+      "손글씨는 학생을 느려지게 만드는데, 바로 그 점이 핵심이다.",
+      "키보드는 거의 모든 말을 받아 적게 해 주지만, 펜은 쓰는 사람에게 선택을 강요한다.",
+      "바로 그 선택이 학습이 일어나는 지점이다.",
+      "연구자들은 타자를 친 사람들이 더 긴 필기를 했지만 더 적은 내용을 기억했다는 것을 발견했다.",
+      "강의를 기억하고 싶다면, 더 많이가 아니라 더 적게 쓰는 편이 도움이 될 수 있다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "목적격보어 (사역동사 make)",
+       "ox": "X",
+       "expl": "make는 목적격보어로 원형부정사를 취한다. to slow → slow.",
+       "fix": "slow"
+      },
+      {
+       "n": 2,
+       "point": "접속사",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 while. 전치사 during은 쓸 수 없다.",
+       "wrong_ex": "during"
+      },
+      {
+       "n": 3,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "「~하는 지점」을 뜻하며 뒤에 완전한 절이 오므로 관계부사 where.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "produced와 remembered가 but으로 연결된 병렬.",
+       "wrong_ex": "remembering"
+      },
+      {
+       "n": 5,
+       "point": "부정사 (진주어)",
+       "ox": "O",
+       "expl": "it이 가주어이고 to write 이하가 진주어이다.",
+       "wrong_ex": "writing"
+      }
+     ]
+    },
+    {
+     "set": 11,
+     "title": "도시의 새가 더 크게 우는 이유",
+     "passage": [
+      {
+       "t": "City birds sing louder than their country cousins, and some sing at night as well. Traffic noise covers the low notes, "
+      },
+      {
+       "t": "forcing",
+       "n": 1
+      },
+      {
+       "t": " males to raise their pitch. Females in noisy areas seem to prefer higher songs, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " suggests that the change is not an accident. Researchers have spent years "
+      },
+      {
+       "t": "recording",
+       "n": 3
+      },
+      {
+       "t": " birdsong in more than twenty species. In general, the busier a street becomes, "
+      },
+      {
+       "t": "the loudest",
+       "n": 4
+      },
+      {
+       "t": " its birds sound. Only when the traffic stops "
+      },
+      {
+       "t": "do the old songs return",
+       "n": 5
+      },
+      {
+       "t": "."
+      }
+     ],
+     "tr": [
+      "도시의 새들은 시골의 같은 종보다 더 크게 울고, 일부는 밤에도 운다.",
+      "교통 소음이 낮은 음을 덮어 버려서, 수컷들이 음높이를 올리게 만든다.",
+      "시끄러운 지역의 암컷들은 더 높은 노래를 선호하는 것으로 보이는데, 이는 이 변화가 우연이 아님을 시사한다.",
+      "연구자들은 스무 종이 넘는 새의 울음소리를 녹음하는 데 수년을 썼다.",
+      "대체로 거리가 붐빌수록 그곳의 새들은 더 크게 운다.",
+      "교통이 멈출 때에야 비로소 예전의 노래가 돌아온다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 males에게 영향을 주는 주체이므로 능동의 forcing.",
+       "wrong_ex": "forced"
+      },
+      {
+       "n": 2,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "동명사 (spend + 시간)",
+       "ox": "O",
+       "expl": "spend + 시간 + -ing 구조.",
+       "wrong_ex": "to record"
+      },
+      {
+       "n": 4,
+       "point": "the 비교급, the 비교급",
+       "ox": "X",
+       "expl": "「the 비교급 ~, the 비교급 ~」 구문이므로 최상급을 쓸 수 없다.",
+       "fix": "the louder"
+      },
+      {
+       "n": 5,
+       "point": "도치 (Only + 부사절)",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어·동사가 도치된다.",
+       "wrong_ex": "the old songs return"
+      }
+     ]
+    },
+    {
+     "set": 12,
+     "title": "공짜가 판단을 지우는 방식",
+     "passage": [
+      {
+       "t": "Shoppers behave strangely when a price drops to zero. In one study, customers "
+      },
+      {
+       "t": "were offered",
+       "n": 1
+      },
+      {
+       "t": " two chocolates: a fine one for fifteen cents and an ordinary one for one cent. Most chose the fine one. When both prices fell by one cent, "
+      },
+      {
+       "t": "making",
+       "n": 2
+      },
+      {
+       "t": " the ordinary chocolate free, the pattern reversed completely. The word “free” seems to remove the moment "
+      },
+      {
+       "t": "when",
+       "n": 3
+      },
+      {
+       "t": " we compare value. Economists call this the zero-price effect, and it explains "
+      },
+      {
+       "t": "why so many people take",
+       "n": 4
+      },
+      {
+       "t": " things they do not need. In the end, shoppers often find "
+      },
+      {
+       "t": "them",
+       "n": 5
+      },
+      {
+       "t": " holding a free item they never wanted."
+      }
+     ],
+     "tr": [
+      "가격이 0원이 되면 소비자들은 이상하게 행동한다.",
+      "한 실험에서 고객들에게 두 종류의 초콜릿이 제시되었다. 좋은 것은 15센트, 평범한 것은 1센트였다.",
+      "대부분은 좋은 것을 골랐다.",
+      "두 가격을 모두 1센트씩 내려 평범한 초콜릿을 공짜로 만들자, 양상이 완전히 뒤집혔다.",
+      "'공짜'라는 말은 우리가 가치를 비교하는 순간 자체를 없애 버리는 듯하다.",
+      "경제학자들은 이를 '0원 효과'라 부르며, 이것이 왜 그토록 많은 사람들이 필요 없는 물건을 가져가는지를 설명해 준다.",
+      "결국 소비자들은 원한 적도 없는 공짜 물건을 손에 든 자신을 발견하곤 한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "customers가 제안을 받는 대상이므로 were offered.",
+       "wrong_ex": "offered"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "가격 인하가 초콜릿을 공짜로 만드는 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      },
+      {
+       "n": 3,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 the moment이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "explains의 목적어인 명사절이므로 「의문사+주어+동사」 어순.",
+       "wrong_ex": "why do so many people take"
+      },
+      {
+       "n": 5,
+       "point": "재귀대명사",
+       "ox": "X",
+       "expl": "find의 목적어가 주어 shoppers와 같으므로 재귀대명사 themselves.",
+       "fix": "themselves"
+      }
+     ]
+    }
+   ],
+   "id": "실력-03",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 4,
+   "sets": [
+    {
+     "set": 13,
+     "title": "우연을 발견으로 바꾼 사람",
+     "passage": [
+      {
+       "t": "It was not skill but luck "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " led Alexander Fleming to penicillin in 1928. Returning from holiday, he noticed "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " a mould had killed the bacteria in one of his dishes. Most researchers at the time would have thrown the dish away, but he chose "
+      },
+      {
+       "t": "to look",
+       "n": 3
+      },
+      {
+       "t": " more closely. Not every accident "
+      },
+      {
+       "t": "becomes",
+       "n": 4
+      },
+      {
+       "t": " a discovery; the difference lies in who is paying attention. Fleming spent the next decade growing the mould, testing its effects, and "
+      },
+      {
+       "t": "persuading",
+       "n": 5
+      },
+      {
+       "t": " others that it mattered."
+      }
+     ],
+     "tr": [
+      "1928년 알렉산더 플레밍을 페니실린으로 이끈 것은 실력이 아니라 운이었다.",
+      "휴가에서 돌아온 그는 곰팡이가 접시 하나에 있던 세균을 죽였다는 것을 알아차렸다.",
+      "당시 대부분의 연구자라면 그 접시를 버렸겠지만, 그는 더 자세히 들여다보기를 택했다.",
+      "모든 우연이 발견이 되는 것은 아니다. 차이는 누가 주의를 기울이고 있느냐에 있다.",
+      "플레밍은 이후 10년을 곰팡이를 배양하고, 그 효과를 시험하고, 그것이 중요하다고 다른 사람들을 설득하는 데 썼다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "not skill but luck을 강조하는 It ~ that 구문. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 that",
+       "ox": "X",
+       "expl": "noticed의 목적어로 완전한 절이 오므로 what이 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (choose)",
+       "ox": "O",
+       "expl": "choose는 목적어로 to부정사를 취한다.",
+       "wrong_ex": "looking"
+      },
+      {
+       "n": 4,
+       "point": "부분부정 · 수일치",
+       "ox": "O",
+       "expl": "Not every ~는 부분부정. every+단수명사는 단수 취급하므로 becomes.",
+       "wrong_ex": "become"
+      },
+      {
+       "n": 5,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "spend+시간+-ing 구조에서 growing, testing, persuading이 병렬.",
+       "wrong_ex": "persuaded"
+      }
+     ]
+    },
+    {
+     "set": 14,
+     "title": "산속의 종자 저장고",
+     "passage": [
+      {
+       "t": "Deep inside a mountain in Norway lies a vault "
+      },
+      {
+       "t": "in which",
+       "n": 1
+      },
+      {
+       "t": " more than a million seed samples are stored. "
+      },
+      {
+       "t": "Built",
+       "n": 2
+      },
+      {
+       "t": " into permafrost, the room stays cold even if the power fails. Whoever chose this location "
+      },
+      {
+       "t": "must think",
+       "n": 3
+      },
+      {
+       "t": " about ice ages, not just bad harvests. Countries may deposit "
+      },
+      {
+       "t": "whatever",
+       "n": 4
+      },
+      {
+       "t": " crops they wish, and they keep full ownership. On the shelves "
+      },
+      {
+       "t": "sit",
+       "n": 5
+      },
+      {
+       "t": " small black boxes from more than eighty nations."
+      }
+     ],
+     "tr": [
+      "노르웨이의 한 산 깊은 곳에 백만 점이 넘는 종자 표본이 보관된 저장고가 있다.",
+      "영구 동토층 안에 지어져 있어서, 전력이 끊겨도 그 방은 차갑게 유지된다.",
+      "이 장소를 고른 사람이 누구든, 그는 흉작만이 아니라 빙하기까지 생각했음이 틀림없다.",
+      "각국은 원하는 작물이면 무엇이든 맡길 수 있고, 소유권은 그대로 유지한다.",
+      "선반 위에는 여든 개가 넘는 나라에서 온 작고 검은 상자들이 놓여 있다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "are stored 뒤에 장소를 나타내는 전치사가 필요하므로 in which.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(수동)",
+       "ox": "O",
+       "expl": "the room이 지어지는 대상이므로 과거분사 Built. Being이 생략된형태.",
+       "wrong_ex": "Building"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + have p.p.",
+       "ox": "X",
+       "expl": "과거의 일에 대한 강한 추측이므로 must have thought로 써야 한다.",
+       "fix": "must have thought"
+      },
+      {
+       "n": 4,
+       "point": "복합관계사",
+       "ox": "O",
+       "expl": "deposit의 목적어 명사절을 이끌며 crops를 수식하므로 whatever.",
+       "wrong_ex": "whoever"
+      },
+      {
+       "n": 5,
+       "point": "수일치 (장소부사구도치)",
+       "ox": "O",
+       "expl": "On the shelves가 문두에 와 도치된 문장. 주어가 boxes(복수)이므로 sit.",
+       "wrong_ex": "sits"
+      }
+     ]
+    },
+    {
+     "set": 15,
+     "title": "가짜 약이 듣는 이유",
+     "passage": [
+      {
+       "t": "Patients often report relief "
+      },
+      {
+       "t": "as if they take",
+       "n": 1
+      },
+      {
+       "t": " a real drug, even when the pill contains only sugar. Brain scans show that expectation alone "
+      },
+      {
+       "t": "releases",
+       "n": 2
+      },
+      {
+       "t": " natural painkillers. Stranger still, a pill "
+      },
+      {
+       "t": "known",
+       "n": 3
+      },
+      {
+       "t": " to be fake can work, as long as the doctor explains why. Doctors "
+      },
+      {
+       "t": "whom",
+       "n": 4
+      },
+      {
+       "t": " patients trust report the strongest results, which suggests that the relationship matters as much as the chemistry. Rarely "
+      },
+      {
+       "t": "has a topic divided",
+       "n": 5
+      },
+      {
+       "t": " researchers so sharply."
+      }
+     ],
+     "tr": [
+      "환자들은 알약에 설탕밖에 들어 있지 않은데도, 마치 진짜 약을 먹은 것처럼 통증이 나아졌다고 말하곤 한다.",
+      "뇌 영상은 기대만으로도 천연 진통 물질이 분비된다는 것을 보여 준다.",
+      "더 이상한 것은, 가짜라고 알려진 알약도 의사가 그 이유를 설명해 주면 효과를 낼 수 있다는 점이다.",
+      "환자들이 신뢰하는 의사가 가장 좋은 결과를 얻는데, 이는 관계가 화학 작용만큼이나 중요함을 시사한다.",
+      "이토록 연구자들을 첨예하게 갈라놓은 주제는 좀처럼 없었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "가정법 시제 (as if)",
+       "ox": "X",
+       "expl": "밑줄은 as if절의 동사 자리. 실제로는 먹지 않았으므로 가정법 과거완료 had taken.",
+       "fix": "as if they had taken"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 expectation(단수)이고 alone은 강조어이므로 releases.",
+       "wrong_ex": "release"
+      },
+      {
+       "n": 3,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "a pill이 알려지는 대상이므로 과거분사 known.",
+       "wrong_ex": "knowing"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "trust의 목적어가 빠져 있으므로 목적격 whom.",
+       "wrong_ex": "whose"
+      },
+      {
+       "n": 5,
+       "point": "부정어 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Rarely가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a topic has divided"
+      }
+     ]
+    },
+    {
+     "set": 16,
+     "title": "수직 농장의 셈법",
+     "passage": [
+      {
+       "t": "A vertical farm can produce ten times "
+      },
+      {
+       "t": "as much",
+       "n": 1
+      },
+      {
+       "t": " lettuce per square metre as an open field. Growers stack trays under LED lights "
+      },
+      {
+       "t": "so that",
+       "n": 2
+      },
+      {
+       "t": " every leaf receives the same amount of energy. The buildings "
+      },
+      {
+       "t": "are usually placed",
+       "n": 3
+      },
+      {
+       "t": " near cities, where transport costs and spoilage both fall sharply. Critics point out that the method saves water, reduces pesticide use, but "
+      },
+      {
+       "t": "demanding",
+       "n": 4
+      },
+      {
+       "t": " enormous electricity. For crops like wheat, the numbers are still "
+      },
+      {
+       "t": "too poor to justify",
+       "n": 5
+      },
+      {
+       "t": " the investment."
+      }
+     ],
+     "tr": [
+      "수직 농장은 1제곱미터당 노지 밭보다 열 배 많은 상추를 생산할 수 있다.",
+      "재배자들은 모든 잎이 같은 양의 에너지를 받도록 LED 조명 아래 트레이를 층층이 쌓는다.",
+      "건물은 대개 도시 가까이에 지어지는데, 그곳에서는 운송비와 부패 손실이 모두 크게 줄어든다.",
+      "비판자들은 이 방식이 물을 아끼고 농약 사용을 줄이지만 막대한 전기를 요구한다고 지적한다.",
+      "밀 같은 작물에는 그 수치가 아직 투자를 정당화하기에 너무 나쁘다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "배수 비교",
+       "ox": "O",
+       "expl": "「배수사 + as + 원급 + as」 구문. lettuce는 셀 수 없으므로 as much.",
+       "wrong_ex": "as many"
+      },
+      {
+       "n": 2,
+       "point": "접속사 so that",
+       "ox": "O",
+       "expl": "목적을 나타내는 절을 이끄는 so that. 뒤에 「주어+동사」가 온다.",
+       "wrong_ex": "so as"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "The buildings가 세워지는 대상이므로 are placed.",
+       "wrong_ex": "place"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "X",
+       "expl": "saves, reduces와 but으로 연결되는 자리이므로 demanding → demands.",
+       "fix": "demands"
+      },
+      {
+       "n": 5,
+       "point": "부정사 (too ~ to)",
+       "ox": "O",
+       "expl": "「too + 형용사 + to부정사」로 '너무 ~해서 …할 수 없다'를 나타낸다.",
+       "wrong_ex": "so poor to justify"
+      }
+     ]
+    }
+   ],
+   "id": "실력-04",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 5,
+   "sets": [
+    {
+     "set": 17,
+     "title": "빨리 말하는 언어는 정말 빠를까",
+     "passage": [
+      {
+       "t": "Some languages sound much faster than others, and listeners often find them "
+      },
+      {
+       "t": "confusing",
+       "n": 1
+      },
+      {
+       "t": ". Researchers counted the syllables "
+      },
+      {
+       "t": "spoken",
+       "n": 2
+      },
+      {
+       "t": " per second in seven languages. Spanish and Japanese use many syllables, "
+      },
+      {
+       "t": "each carrying",
+       "n": 3
+      },
+      {
+       "t": " little information, while English packs more meaning into fewer sounds. The team found "
+      },
+      {
+       "t": "it",
+       "n": 4
+      },
+      {
+       "t": " surprising that all seven delivered information at nearly the same rate. Speed, in the end, is "
+      },
+      {
+       "t": "far less important as",
+       "n": 5
+      },
+      {
+       "t": " efficiency."
+      }
+     ],
+     "tr": [
+      "어떤 언어들은 다른 언어보다 훨씬 빠르게 들리고, 듣는 사람은 종종 그것을 혼란스럽다고 느낀다.",
+      "연구자들은 일곱 개 언어에서 초당 발화되는 음절 수를 세었다.",
+      "스페인어와 일본어는 많은 음절을 쓰는데, 각 음절이 담는 정보는 적다. 반면 영어는 더 적은 소리에 더 많은 의미를 담는다.",
+      "연구진이 놀랍다고 여긴 것은, 일곱 언어 모두가 거의 같은 속도로 정보를 전달했다는 점이었다.",
+      "결국 속도는 효율성보다 훨씬 덜 중요하다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "감정분사",
+       "ox": "O",
+       "expl": "them(languages)이 혼란을 주는 주체이므로 현재분사 confusing.",
+       "wrong_ex": "confused"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "the syllables가 말해지는 대상이므로 과거분사 spoken.",
+       "wrong_ex": "speaking"
+      },
+      {
+       "n": 3,
+       "point": "독립분사구문",
+       "ox": "O",
+       "expl": "분사의 의미상 주어 each를 앞에 밝힌 독립분사구문. 능동이므로 carrying.",
+       "wrong_ex": "each carried"
+      },
+      {
+       "n": 4,
+       "point": "가목적어 it",
+       "ox": "O",
+       "expl": "found의 진목적어는 that절이고 it은 가목적어이다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "비교급 + than",
+       "ox": "X",
+       "expl": "less important는 비교급이므로 as가 아니라 than과 호응한다.",
+       "fix": "far less important than"
+      }
+     ]
+    },
+    {
+     "set": 18,
+     "title": "이천 년을 버틴 로마 콘크리트",
+     "passage": [
+      {
+       "t": "Roman concrete has lasted two thousand years, "
+      },
+      {
+       "t": "while",
+       "n": 1
+      },
+      {
+       "t": " modern concrete often cracks within fifty. Engineers "
+      },
+      {
+       "t": "used to think",
+       "n": 2
+      },
+      {
+       "t": " the secret was volcanic ash alone. Recent work shows that seawater matters too: when cracks appear, minerals grow inside them, so the material is capable of "
+      },
+      {
+       "t": "repair",
+       "n": 3
+      },
+      {
+       "t": " itself. Not only "
+      },
+      {
+       "t": "did the Romans mix",
+       "n": 4
+      },
+      {
+       "t": " well, but they also chose their sites with care. Scientists are now trying to copy the recipe, "
+      },
+      {
+       "t": "hoping",
+       "n": 5
+      },
+      {
+       "t": " to cut the carbon cost of new buildings."
+      }
+     ],
+     "tr": [
+      "로마 콘크리트는 이천 년을 버텨 왔지만, 현대 콘크리트는 흔히 오십 년 안에 갈라진다.",
+      "기술자들은 그 비결이 화산재뿐이라고 생각하곤 했다.",
+      "최근 연구는 바닷물도 중요하다는 것을 보여 준다. 균열이 생기면 그 안에서 광물이 자라기 때문에, 그 재료는 스스로를 고칠 수 있다.",
+      "로마인들은 배합만 잘한 것이 아니라, 터도 신중하게 골랐다.",
+      "과학자들은 이제 그 배합법을 따라 하려 하고 있는데, 새 건물의 탄소 비용을 줄이기를 바라기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "접속사 while (대조)",
+       "ox": "O",
+       "expl": "두 절을 대조하는 접속사 while. 뒤에 「주어+동사」가 온다.",
+       "wrong_ex": "during"
+      },
+      {
+       "n": 2,
+       "point": "used to + 동사원형",
+       "ox": "O",
+       "expl": "과거의 습관이나 상태를 나타내는 used to. 뒤에는 동사원형이 온다.",
+       "wrong_ex": "were used to thinking"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "X",
+       "expl": "capable of의 of는 전치사이므로 뒤에 동명사가 와야 한다.",
+       "fix": "repairing"
+      },
+      {
+       "n": 4,
+       "point": "Not only 도치",
+       "ox": "O",
+       "expl": "Not only가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "the Romans mixed"
+      },
+      {
+       "n": 5,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "주어가 hope하는 주체이므로 능동의 현재분사 hoping.",
+       "wrong_ex": "hoped"
+      }
+     ]
+    },
+    {
+     "set": 19,
+     "title": "하품은 왜 옮을까",
+     "passage": [
+      {
+       "t": "Yawning is contagious, and "
+      },
+      {
+       "t": "so is",
+       "n": 1
+      },
+      {
+       "t": " laughter. Dogs catch yawns from their owners, and even fish appear "
+      },
+      {
+       "t": "to affect",
+       "n": 2
+      },
+      {
+       "t": ". The idea "
+      },
+      {
+       "t": "that",
+       "n": 3
+      },
+      {
+       "t": " the response measures empathy is now widely accepted, since its strength depends on how close you feel to the person. Children under four rarely yawn back, and neither "
+      },
+      {
+       "t": "do children",
+       "n": 4
+      },
+      {
+       "t": " with certain conditions. Scientists still argue about "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the behaviour is for."
+      }
+     ],
+     "tr": [
+      "하품은 전염되며, 웃음도 그렇다.",
+      "개는 주인에게서 하품이 옮고, 물고기조차 영향을 받는 것으로 보인다.",
+      "이 반응이 공감을 재는 척도라는 생각은 이제 널리 받아들여지는데, 그 강도가 상대와 얼마나 가깝게 느끼는지에 달려 있기 때문이다.",
+      "네 살 미만 아이들은 따라 하품하는 일이 드물고, 특정 질환이 있는 아이들도 마찬가지다.",
+      "과학자들은 이 행동이 무엇을 위한 것인지를 두고 아직도 논쟁한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "so 도치",
+       "ox": "O",
+       "expl": "앞 내용에 대해 '~도 그렇다'를 뜻하는 so + 동사 + 주어 도치.",
+       "wrong_ex": "so laughter is"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 수동태",
+       "ox": "X",
+       "expl": "fish는 영향을 받는 대상이므로 to be affected로 써야 한다.",
+       "fix": "to be affected"
+      },
+      {
+       "n": 3,
+       "point": "동격의 that",
+       "ox": "O",
+       "expl": "The idea의 내용을 설명하는 동격절을 이끄는 that.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "neither 도치",
+       "ox": "O",
+       "expl": "neither가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "neither children"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "전치사 about의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 20,
+     "title": "매장 음악이 지갑을 여는 법",
+     "passage": [
+      {
+       "t": "Play",
+       "n": 1
+      },
+      {
+       "t": " loud music in a store changes what people buy. Shoppers move faster, spend less time comparing, and "
+      },
+      {
+       "t": "end up choosing",
+       "n": 2
+      },
+      {
+       "t": " familiar brands. Slow music has "
+      },
+      {
+       "t": "a far stronger",
+       "n": 3
+      },
+      {
+       "t": " effect on the average bill, as people wander and pick up extra items. Managers who understand this "
+      },
+      {
+       "t": "adjust",
+       "n": 4
+      },
+      {
+       "t": " the volume by the hour. If you notice the beat speeding up in the evening, it is probably "
+      },
+      {
+       "t": "because",
+       "n": 5
+      },
+      {
+       "t": " the shop wants the room empty before closing."
+      }
+     ],
+     "tr": [
+      "매장에서 시끄러운 음악을 트는 것은 사람들이 무엇을 사는지를 바꾼다.",
+      "쇼핑객은 더 빨리 움직이고, 비교하는 데 시간을 덜 쓰며, 결국 익숙한 브랜드를 고르게 된다.",
+      "느린 음악은 평균 구매액에 훨씬 더 큰 영향을 미치는데, 사람들이 매장을 돌아다니며 물건을 더 집기 때문이다.",
+      "이를 아는 관리자들은 시간대별로 음량을 조절한다.",
+      "저녁에 비트가 빨라지는 것을 느낀다면, 그것은 아마 가게가 문 닫기 전에 매장을 비우고 싶어서일 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어 자리 (동명사)",
+       "ox": "X",
+       "expl": "문장의 주어 자리이므로 동사원형이 아니라 동명사 Playing을 쓴다.",
+       "fix": "Playing"
+      },
+      {
+       "n": 2,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "move, spend, end up이 and로 연결된 병렬.",
+       "wrong_ex": "ending up"
+      },
+      {
+       "n": 3,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "far가 비교급 stronger를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "a very stronger"
+      },
+      {
+       "n": 4,
+       "point": "수일치 (관계사절 뒤본동사)",
+       "ox": "O",
+       "expl": "주어는 Managers(복수)이고 who절은 수식어이므로 adjust.",
+       "wrong_ex": "adjusts"
+      },
+      {
+       "n": 5,
+       "point": "because vs because of",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 because.",
+       "wrong_ex": "because of"
+      }
+     ]
+    }
+   ],
+   "id": "실력-05",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 6,
+   "sets": [
+    {
+     "set": 21,
+     "title": "냉장고가 바꾼 식탁",
+     "passage": [
+      {
+       "t": "Before refrigeration, most families ate "
+      },
+      {
+       "t": "what",
+       "n": 1
+      },
+      {
+       "t": " was in season. Salt, smoke, and sugar were the only ways "
+      },
+      {
+       "t": "to keep",
+       "n": 2
+      },
+      {
+       "t": " food safe through the winter. The refrigerator changed not only diets "
+      },
+      {
+       "t": "but also",
+       "n": 3
+      },
+      {
+       "t": " cities, since fresh milk could finally travel. Had electricity not spread so quickly, the change "
+      },
+      {
+       "t": "would be",
+       "n": 4
+      },
+      {
+       "t": " far slower. Today, cooling takes a large share of household energy, "
+      },
+      {
+       "t": "which",
+       "n": 5
+      },
+      {
+       "t": " is why efficiency standards matter."
+      }
+     ],
+     "tr": [
+      "냉장 기술이 나오기 전에 대부분의 가정은 제철에 나는 것을 먹었다.",
+      "소금, 훈연, 설탕이 겨우내 음식을 상하지 않게 지키는 유일한 방법이었다.",
+      "냉장고는 식단만이 아니라 도시까지 바꾸어 놓았는데, 신선한 우유가 비로소 먼 거리를 이동할 수 있었기 때문이다.",
+      "전기가 그렇게 빠르게 보급되지 않았더라면, 그 변화는 훨씬 더 느렸을 것이다.",
+      "오늘날 냉각은 가정 에너지의 큰 몫을 차지하는데, 이것이 바로 효율 기준이 중요한 이유다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "ate의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 2,
+       "point": "부정사 (형용사적 용법)",
+       "ox": "O",
+       "expl": "the only ways를 뒤에서 수식하는 to부정사.",
+       "wrong_ex": "keeping"
+      },
+      {
+       "n": 3,
+       "point": "not only A but also B",
+       "ox": "O",
+       "expl": "not only와 짝을 이루는 상관접속사 but also.",
+       "wrong_ex": "and also"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + 완료시제",
+       "ox": "X",
+       "expl": "If가 생략되어 도치된 가정법 과거완료. 밑줄은 주절의 조동사 자리이므로 would have been.",
+       "fix": "would have been"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 22,
+     "title": "에스컬레이터 한 줄 서기의 함정",
+     "passage": [
+      {
+       "t": "Standing on both sides of an escalator moves more people than "
+      },
+      {
+       "t": "to let",
+       "n": 1
+      },
+      {
+       "t": " one side walk. Trials in London showed a rise of nearly thirty percent. Yet passengers resisted, "
+      },
+      {
+       "t": "insisting",
+       "n": 2
+      },
+      {
+       "t": " that walking felt faster. What they measured was their own time, "
+      },
+      {
+       "t": "not the crowd's",
+       "n": 3
+      },
+      {
+       "t": ". Staff eventually gave up, "
+      },
+      {
+       "t": "having failed",
+       "n": 4
+      },
+      {
+       "t": " to change the habit. Only after a second trial "
+      },
+      {
+       "t": "did the numbers convince",
+       "n": 5
+      },
+      {
+       "t": " them."
+      }
+     ],
+     "tr": [
+      "에스컬레이터 양쪽에 모두 서는 것이 한쪽을 걷게 두는 것보다 더 많은 사람을 실어 나른다.",
+      "런던에서의 실험은 거의 30퍼센트의 증가를 보여 주었다.",
+      "그런데도 승객들은 걷는 편이 더 빠르게 느껴진다고 주장하며 받아들이지 않았다.",
+      "그들이 잰 것은 자기 자신의 시간이었지, 전체 인파의 시간이 아니었다.",
+      "직원들은 그 습관을 바꾸는 데 실패하고 결국 포기했다.",
+      "두 번째 실험을 하고 나서야 비로소 그 수치가 그들을 설득했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "병렬 구조 (비교 대상)",
+       "ox": "X",
+       "expl": "than 앞의 Standing과 형태를 맞추어야 하므로 동명사 letting.",
+       "fix": "letting"
+      },
+      {
+       "n": 2,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "passengers가 주장하는 주체이므로 능동의 현재분사 insisting.",
+       "wrong_ex": "insisted"
+      },
+      {
+       "n": 3,
+       "point": "소유대명사",
+       "ox": "O",
+       "expl": "the crowd's time을 뜻하므로 소유격 뒤 명사를 생략한 the crowd's.",
+       "wrong_ex": "not the crowd"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "실패한 시점이 포기한 시점보다 앞서므로 having p.p.",
+       "wrong_ex": "failing"
+      },
+      {
+       "n": 5,
+       "point": "도치 (Only + 부사구)",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 주어·동사를 도치한다.",
+       "wrong_ex": "the numbers convinced"
+      }
+     ]
+    },
+    {
+     "set": 23,
+     "title": "고양이는 왜 상자에 들어갈까",
+     "passage": [
+      {
+       "t": "Cats squeeze into boxes that look far "
+      },
+      {
+       "t": "too small",
+       "n": 1
+      },
+      {
+       "t": " for them. Shelter studies found that cats "
+      },
+      {
+       "t": "given",
+       "n": 2
+      },
+      {
+       "t": " a box settled into a new place faster than those without one. A box lowers stress "
+      },
+      {
+       "t": "by removing",
+       "n": 3
+      },
+      {
+       "t": " choices: there is only one way in and one way out. Some researchers argue that the walls matter more than the roof, "
+      },
+      {
+       "t": "though",
+       "n": 4
+      },
+      {
+       "t": " the evidence is thin. Whatever the reason, a cardboard box costs almost nothing and "
+      },
+      {
+       "t": "making",
+       "n": 5
+      },
+      {
+       "t": " a nervous animal feel safe."
+      }
+     ],
+     "tr": [
+      "고양이는 자기에게 너무 작아 보이는 상자에도 몸을 밀어 넣는다.",
+      "보호소 연구는 상자를 받은 고양이가 그렇지 않은 고양이보다 새 장소에 더 빨리 적응했다는 것을 발견했다.",
+      "상자는 선택지를 없앰으로써 스트레스를 낮춘다. 들어가는 길도 나오는 길도 하나뿐이다.",
+      "일부 연구자는 증거가 빈약하기는 하지만 천장보다 벽이 더 중요하다고 주장한다.",
+      "이유가 무엇이든, 종이 상자는 거의 돈이 들지 않으면서 불안한 동물을 안전하다고 느끼게 해 준다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사 far (강조)",
+       "ox": "O",
+       "expl": "far가 too small을 강조한다. very too는 쓸 수 없다.",
+       "wrong_ex": "very too small"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "cats가 상자를 받는 대상이므로 과거분사 given.",
+       "wrong_ex": "giving"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "by는 전치사이므로 뒤에 동명사 removing이 온다.",
+       "wrong_ex": "by remove"
+      },
+      {
+       "n": 4,
+       "point": "접속사 though",
+       "ox": "O",
+       "expl": "뒤에 「주어+동사」의 절이 오므로 접속사 though. 전치사 despite는 쓸 수 없다.",
+       "wrong_ex": "despite"
+      },
+      {
+       "n": 5,
+       "point": "병렬 구조 (본동사)",
+       "ox": "X",
+       "expl": "costs와 and로 연결되는 본동사 자리이므로 makes.",
+       "fix": "makes"
+      }
+     ]
+    },
+    {
+     "set": 24,
+     "title": "벼락치기가 남지 않는 이유",
+     "passage": [
+      {
+       "t": "Students who study everything the night before remember "
+      },
+      {
+       "t": "less than those",
+       "n": 1
+      },
+      {
+       "t": " who spread the work out. The effect is so reliable "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " teachers now build it into their schedules. Sleep seems to do the sorting, "
+      },
+      {
+       "t": "moving",
+       "n": 3
+      },
+      {
+       "t": " facts from short-term to long-term storage. It is not the total hours "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " count, but the gaps between them. Anyone "
+      },
+      {
+       "t": "who has crammed",
+       "n": 5
+      },
+      {
+       "t": " for an exam knows how quickly the material disappears."
+      }
+     ],
+     "tr": [
+      "전날 밤에 몰아서 공부하는 학생은 공부를 나누어 한 학생보다 더 적게 기억한다.",
+      "이 효과는 매우 일관되어서 교사들은 이제 그것을 일정에 반영한다.",
+      "잠이 그 정리 작업을 하는 것으로 보이는데, 사실들을 단기 저장고에서 장기 저장고로 옮긴다.",
+      "중요한 것은 총 시간이 아니라 그 사이의 간격이다.",
+      "시험을 앞두고 벼락치기를 해 본 사람이라면 그 내용이 얼마나 빨리 사라지는지 안다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "비교 대상인 students를 대신하는 those. 뒤에 who절의 수식을 받는다.",
+       "wrong_ex": "less than they"
+      },
+      {
+       "n": 2,
+       "point": "so ~ that 구문",
+       "ox": "X",
+       "expl": "「so + 형용사 + that + 절」 구문이므로 what이 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 3,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "Sleep이 옮기는 주체이므로 능동의 현재분사 moving.",
+       "wrong_ex": "moved"
+      },
+      {
+       "n": 4,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "not the total hours를 강조하는 It ~ that 구문.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 5,
+       "point": "주격 관계대명사 + 현재완료",
+       "ox": "O",
+       "expl": "선행사 Anyone이 cram의 주체이므로 주격 who. 경험을 나타내는 현재완료.",
+       "wrong_ex": "whom has crammed"
+      }
+     ]
+    }
+   ],
+   "id": "실력-06",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 7,
+   "sets": [
+    {
+     "set": 25,
+     "title": "웃음은 농담에 대한 반응이 아니다",
+     "passage": [
+      {
+       "t": "Most of the laughter we hear "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " not a response to jokes at all. Listen to any group and you will hear people "
+      },
+      {
+       "t": "laughing",
+       "n": 2
+      },
+      {
+       "t": " while they speak, not after a punchline. One research team recommends that canned laughter "
+      },
+      {
+       "t": "is removed",
+       "n": 3
+      },
+      {
+       "t": " from comedy shows, since it adds nothing to a real audience. Genuine laughter "
+      },
+      {
+       "t": "does  spread",
+       "n": 4
+      },
+      {
+       "t": " through a room faster than speech itself. "
+      },
+      {
+       "t": "However hard",
+       "n": 5
+      },
+      {
+       "t": " a comedian works, nothing draws laughs like the presence of other people."
+      }
+     ],
+     "tr": [
+      "우리가 듣는 웃음의 대부분은 사실 농담에 대한 반응이 아니다.",
+      "어떤 무리든 귀 기울여 보면, 사람들이 결정적 대사 뒤가 아니라 말하는 도중에 웃는 것을 듣게 된다.",
+      "한 연구팀은 코미디 프로그램에서 녹음된 웃음소리를 빼야 한다고 권고하는데, 실제 관객에게는 보태는 바가 없기 때문이다.",
+      "진짜 웃음은 말 자체보다 더 빠르게 방 안으로 번진다.",
+      "코미디언이 아무리 애를 써도, 다른 사람이 함께 있다는 사실만큼 웃음을 끌어내는 것은 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "O",
+       "expl": "「Most of + 명사」는 뒤의 명사에 동사를 맞춘다. laughter는 불가산이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "지각동사 + 현재분사",
+       "ox": "O",
+       "expl": "hear의 목적어 people이 웃는 주체이고 진행 중이므로 현재분사 laughing.",
+       "wrong_ex": "laughed"
+      },
+      {
+       "n": 3,
+       "point": "제안 동사 + (should) 동사원형",
+       "ox": "X",
+       "expl": "recommend가 이끄는 that절은 「(should) + 동사원형」이므로 be removed.",
+       "fix": "be removed"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do",
+       "ox": "O",
+       "expl": "동사 spread를 강조하는 조동사 does. 주어가 laughter(단수)이므로 does.",
+       "wrong_ex": "do spread"
+      },
+      {
+       "n": 5,
+       "point": "복합관계부사 however",
+       "ox": "O",
+       "expl": "「However + 형용사/부사 + 주어 + 동사」로 양보를 나타낸다.",
+       "wrong_ex": "How hard"
+      }
+     ]
+    },
+    {
+     "set": 26,
+     "title": "주차장을 없앤 거리가 더 잘 팔린다",
+     "passage": [
+      {
+       "t": "When a city removes parking spaces, shop owners protest, "
+      },
+      {
+       "t": "with sales figures often telling",
+       "n": 1
+      },
+      {
+       "t": " a different story later. It is hard "
+      },
+      {
+       "t": "for",
+       "n": 2
+      },
+      {
+       "t": " a small business to imagine customers arriving without a car. Yet once bike lanes open, the pavements grow "
+      },
+      {
+       "t": "busier and busier",
+       "n": 3
+      },
+      {
+       "t": ", and spending usually rises. The pattern is much "
+      },
+      {
+       "t": "the same as",
+       "n": 4
+      },
+      {
+       "t": " the one seen in pedestrian zones thirty years ago. Either the shop owners or the council "
+      },
+      {
+       "t": "are",
+       "n": 5
+      },
+      {
+       "t": " expected to pay for the change."
+      }
+     ],
+     "tr": [
+      "도시가 주차 공간을 없애면 상인들은 항의하지만, 나중에 매출 수치는 다른 이야기를 들려주곤 한다.",
+      "작은 가게가 차 없이 찾아오는 손님을 상상하기란 어렵다.",
+      "그러나 자전거 도로가 생기고 나면 인도는 점점 더 붐비게 되고, 소비도 대개 늘어난다.",
+      "이 양상은 삼십 년 전 보행자 전용 구역에서 나타난 것과 거의 같다.",
+      "상인들이든 시의회든 둘 중 한쪽이 그 변화의 비용을 부담하게 되어 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "with + 목적어 + 분사",
+       "ox": "O",
+       "expl": "「with + 목적어 + 분사」 부대상황. figures가 말해 주는 주체이므로 telling.",
+       "wrong_ex": "with sales figures often told"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 의미상 주어",
+       "ox": "O",
+       "expl": "「It is 형용사 for 목적격 to부정사」. hard는 사람의 성질을 나타내지 않으므로 for.",
+       "wrong_ex": "of"
+      },
+      {
+       "n": 3,
+       "point": "비교급 and 비교급",
+       "ox": "O",
+       "expl": "「비교급 + and + 비교급」으로 '점점 더 ~한'을 나타낸다.",
+       "wrong_ex": "busy and busier"
+      },
+      {
+       "n": 4,
+       "point": "the same as",
+       "ox": "O",
+       "expl": "「the same as ~」로 비교 대상을 이끈다.",
+       "wrong_ex": "the same with"
+      },
+      {
+       "n": 5,
+       "point": "상관접속사 수일치",
+       "ox": "X",
+       "expl": "「Either A or B」는 B에 동사를 맞춘다. the council이 단수이므로 is expected.",
+       "fix": "is"
+      }
+     ]
+    },
+    {
+     "set": 27,
+     "title": "냄새가 기억을 여는 방식",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "The way how",
+       "n": 1
+      },
+      {
+       "t": " a smell brings back a memory is unlike any other sense. Signals from the nose reach the memory centre directly, "
+      },
+      {
+       "t": "without passing",
+       "n": 2
+      },
+      {
+       "t": " through the areas that handle language. Two people may smell the same flower and recall different scenes: one a hospital, "
+      },
+      {
+       "t": "the other",
+       "n": 3
+      },
+      {
+       "t": " a garden. Novelists have used this effect for a century, "
+      },
+      {
+       "t": "Proust  being",
+       "n": 4
+      },
+      {
+       "t": " the most famous example. Hardly "
+      },
+      {
+       "t": "had  he  tasted",
+       "n": 5
+      },
+      {
+       "t": " the cake when his whole childhood returned to him."
+      }
+     ],
+     "tr": [
+      "냄새가 기억을 되살리는 방식은 다른 어떤 감각과도 다르다.",
+      "코에서 온 신호는 언어를 담당하는 영역을 거치지 않고 기억 중추에 곧바로 도달한다.",
+      "두 사람이 같은 꽃 냄새를 맡고도 서로 다른 장면을 떠올릴 수 있다. 한 사람은 병원을, 다른 한 사람은 정원을 떠올린다.",
+      "소설가들은 한 세기 동안 이 효과를 활용해 왔는데, 프루스트가 가장 유명한 예다.",
+      "그가 과자를 맛보자마자 어린 시절 전체가 그에게 되돌아왔다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 the way / how",
+       "ox": "X",
+       "expl": "the way와 how는 함께 쓰지 않는다. 둘 중 하나만 남긴다.",
+       "fix": "The way"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "전치사 without의 목적어 자리이므로 동명사 passing.",
+       "wrong_ex": "without pass"
+      },
+      {
+       "n": 3,
+       "point": "부정대명사 the other",
+       "ox": "O",
+       "expl": "둘 중 하나는 one, 나머지 하나는 the other.",
+       "wrong_ex": "another"
+      },
+      {
+       "n": 4,
+       "point": "독립분사구문",
+       "ox": "O",
+       "expl": "분사구문의 주어(Proust)가 주절 주어와 달라 앞에 남긴 형태.",
+       "wrong_ex": "Proust been"
+      },
+      {
+       "n": 5,
+       "point": "Hardly 도치",
+       "ox": "O",
+       "expl": "준부정어 Hardly가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "he had tasted"
+      }
+     ]
+    },
+    {
+     "set": 28,
+     "title": "시계를 버리기로 한 마을",
+     "passage": [
+      {
+       "t": "In one Norwegian island village, residents once voted to help each other "
+      },
+      {
+       "t": "forget",
+       "n": 1
+      },
+      {
+       "t": " the clock. Sommarøy, "
+      },
+      {
+       "t": "whose",
+       "n": 2
+      },
+      {
+       "t": " sun never sets between May and July, argued that fixed hours made little sense there. The story "
+      },
+      {
+       "t": "has spread",
+       "n": 3
+      },
+      {
+       "t": " around the world since the campaign began in 2019. The number of villagers who still support the idea "
+      },
+      {
+       "t": "have fallen",
+       "n": 4
+      },
+      {
+       "t": ", but the debate goes on. "
+      },
+      {
+       "t": "So strong was",
+       "n": 5
+      },
+      {
+       "t": " the habit of scheduling that even the campaigners kept their watches."
+      }
+     ],
+     "tr": [
+      "노르웨이의 한 섬마을에서 주민들은 서로가 시계를 잊도록 돕자고 투표한 적이 있다.",
+      "5월부터 7월까지 해가 지지 않는 솜마뢰위는 그곳에서 정해진 시간이 별 의미가 없다고 주장했다.",
+      "이 이야기는 2019년 캠페인이 시작된 이래 전 세계로 퍼졌다.",
+      "그 생각을 여전히 지지하는 주민의 수는 줄었지만, 논쟁은 계속되고 있다.",
+      "일정을 짜는 습관이 워낙 강해서 캠페인을 벌인 사람들조차 손목시계를 계속 찼다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "help + 원형부정사",
+       "ox": "O",
+       "expl": "help는 목적격보어로 원형부정사 또는 to부정사를 취한다.",
+       "wrong_ex": "forgetting"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "Sommarøy와 sun이 소유 관계이므로 소유격 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 (since)",
+       "ox": "O",
+       "expl": "since가 이끄는 과거 시점부터 현재까지 이어지므로 현재완료.",
+       "wrong_ex": "spread"
+      },
+      {
+       "n": 4,
+       "point": "the number of + 복수명사",
+       "ox": "X",
+       "expl": "「The number of ~」는 '~의 수'로 단수 취급하므로 has fallen.",
+       "fix": "has fallen"
+      },
+      {
+       "n": 5,
+       "point": "보어 도치",
+       "ox": "O",
+       "expl": "보어 So strong이 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "The habit was so strong"
+      }
+     ]
+    }
+   ],
+   "id": "실력-07",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 8,
+   "sets": [
+    {
+     "set": 29,
+     "title": "문어는 몸으로 생각한다",
+     "passage": [
+      {
+       "t": "Each of the eight arms "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " its own cluster of neurons, so an octopus thinks with its whole body. In tanks, octopuses avoid "
+      },
+      {
+       "t": "to touch",
+       "n": 2
+      },
+      {
+       "t": " objects that once gave them a mild shock. They open a sealed jar "
+      },
+      {
+       "t": "by pushing",
+       "n": 3
+      },
+      {
+       "t": " the lid with two arms while pulling with a third. What surprises researchers most "
+      },
+      {
+       "t": "is",
+       "n": 4
+      },
+      {
+       "t": " the speed of the learning. An octopus "
+      },
+      {
+       "t": "deprived",
+       "n": 5
+      },
+      {
+       "t": " of a familiar toy will invent a new game within minutes."
+      }
+     ],
+     "tr": [
+      "여덟 개의 팔은 저마다 자기만의 신경 다발을 가지고 있어서, 문어는 온몸으로 생각한다.",
+      "수조 안에서 문어는 예전에 약한 전기 충격을 준 적이 있는 물건을 만지기를 피한다.",
+      "문어는 두 팔로 뚜껑을 밀고 세 번째 팔로 당기는 방식으로 밀폐된 병을 연다.",
+      "연구자들을 가장 놀라게 하는 것은 학습의 속도다.",
+      "익숙한 장난감을 빼앗긴 문어는 몇 분 안에 새로운 놀이를 만들어 낸다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "Each of + 단수동사",
+       "ox": "O",
+       "expl": "「Each of + 복수명사」는 단수 취급하므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "동명사를 목적어로 취하는 동사",
+       "ox": "X",
+       "expl": "avoid는 목적어로 동명사를 취하므로 touching.",
+       "fix": "touching"
+      },
+      {
+       "n": 3,
+       "point": "전치사 + 동명사",
+       "ox": "O",
+       "expl": "전치사 by의 목적어 자리이므로 동명사 pushing.",
+       "wrong_ex": "by push"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What surprises researchers most이므로 단수 취급.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 5,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "An octopus가 빼앗기는 대상이므로 과거분사 deprived.",
+       "wrong_ex": "depriving"
+      }
+     ]
+    },
+    {
+     "set": 30,
+     "title": "도시는 왜 더 더울까",
+     "passage": [
+      {
+       "t": "City centres can be "
+      },
+      {
+       "t": "as much as",
+       "n": 1
+      },
+      {
+       "t": " seven degrees warmer than the fields around them. Concrete and asphalt store heat all day and release it at night, "
+      },
+      {
+       "t": "when",
+       "n": 2
+      },
+      {
+       "t": " country soil has already cooled. By the time one team finished its survey in Seoul, the gap "
+      },
+      {
+       "t": "widened",
+       "n": 3
+      },
+      {
+       "t": " to a record level. Trees help, but only if they "
+      },
+      {
+       "t": "are planted",
+       "n": 4
+      },
+      {
+       "t": " in wide strips rather than in single rows. "
+      },
+      {
+       "t": "What",
+       "n": 5
+      },
+      {
+       "t": " matters most is not the number of parks but their shape."
+      }
+     ],
+     "tr": [
+      "도심은 주변 들판보다 최대 7도까지 더 따뜻할 수 있다.",
+      "콘크리트와 아스팔트는 하루 종일 열을 저장했다가 밤에 내보내는데, 그때 시골의 흙은 이미 식어 있다.",
+      "한 연구팀이 서울에서 조사를 마쳤을 무렵, 그 격차는 이미 최고 수준까지 벌어져 있었다.",
+      "나무가 도움이 되지만, 한 줄로가 아니라 넓은 띠 모양으로 심길 때에만 그렇다.",
+      "가장 중요한 것은 공원의 수가 아니라 그 형태다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "as much as",
+       "ox": "O",
+       "expl": "seven degrees는 정도를 나타내므로 as much as. 수를 셀 때만 as many as를 쓴다.",
+       "wrong_ex": "as many as"
+      },
+      {
+       "n": 2,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 at night이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "대과거",
+       "ox": "X",
+       "expl": "조사가 끝난 시점보다 격차가 벌어진 것이 앞서므로 과거완료 had widened.",
+       "fix": "had widened"
+      },
+      {
+       "n": 4,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "they(trees)가 심어지는 대상이므로 are planted.",
+       "wrong_ex": "plant"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "선행사를 포함하며 문장의 주어 자리에 오는 관계대명사 what.",
+       "wrong_ex": "That"
+      }
+     ]
+    },
+    {
+     "set": 31,
+     "title": "필사가 남긴 실수의 계보",
+     "passage": [
+      {
+       "t": "A scribe "
+      },
+      {
+       "t": "made",
+       "n": 1
+      },
+      {
+       "t": " a single error passed it on to every later copy of the text. Because each manuscript "
+      },
+      {
+       "t": "was copied",
+       "n": 2
+      },
+      {
+       "t": " by hand, scholars can now trace family trees of mistakes. Some errors are "
+      },
+      {
+       "t": "such distinctive marks",
+       "n": 3
+      },
+      {
+       "t": " that they work like fingerprints. "
+      },
+      {
+       "t": "Having compared",
+       "n": 4
+      },
+      {
+       "t": " thousands of versions, editors can often name a lost original. It is this patient work "
+      },
+      {
+       "t": "that",
+       "n": 5
+      },
+      {
+       "t": " lies behind the clean texts we read today."
+      }
+     ],
+     "tr": [
+      "단 하나의 실수를 저지른 필경사가 그 실수를 이후의 모든 사본에 넘겼다.",
+      "사본이 저마다 손으로 베껴졌기 때문에, 학자들은 이제 실수의 계보를 추적할 수 있다.",
+      "어떤 오류는 워낙 독특한 표시여서 지문처럼 기능한다.",
+      "수천 개의 판본을 비교한 끝에, 편집자들은 사라진 원본을 짚어낼 수 있는 경우가 많다.",
+      "오늘날 우리가 읽는 깔끔한 텍스트 뒤에 있는 것은 바로 이 끈질긴 작업이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "주격 관계대명사",
+       "ox": "X",
+       "expl": "A scribe를 수식하는 절이 필요하므로 who made로 써야 한다. 그대로 두면 동사가 둘이 된다.",
+       "fix": "who made"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "each manuscript가 베껴지는 대상이므로 was copied.",
+       "wrong_ex": "copied"
+      },
+      {
+       "n": 3,
+       "point": "such + 명사 + that",
+       "ox": "O",
+       "expl": "뒤에 「형용사+명사」가 오므로 so가 아니라 such.",
+       "wrong_ex": "so distinctive marks"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "비교한 것이 주절보다 앞서므로 「Having + p.p.」.",
+       "wrong_ex": "Compared"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "this patient work를 강조하는 It ~ that 구문.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 32,
+     "title": "소음 속에서도 이름은 들린다",
+     "passage": [
+      {
+       "t": "At a crowded party you can "
+      },
+      {
+       "t": "hardly",
+       "n": 1
+      },
+      {
+       "t": " hear yourself think, yet your own name cuts straight through the noise. The brain filters sound "
+      },
+      {
+       "t": "in a way that",
+       "n": 2
+      },
+      {
+       "t": " no machine has yet matched. Deep in the auditory cortex "
+      },
+      {
+       "t": "lies",
+       "n": 3
+      },
+      {
+       "t": " a system that tracks several voices at once. Even half asleep, you can have your name "
+      },
+      {
+       "t": "hear",
+       "n": 4
+      },
+      {
+       "t": " across a room. This is "
+      },
+      {
+       "t": "why",
+       "n": 5
+      },
+      {
+       "t": " hospital staff use first names when a patient stops responding."
+      }
+     ],
+     "tr": [
+      "붐비는 파티에서는 자기 생각조차 거의 들리지 않지만, 자기 이름만은 소음을 뚫고 곧장 들어온다.",
+      "뇌는 어떤 기계도 아직 따라잡지 못한 방식으로 소리를 걸러 낸다.",
+      "청각 피질 깊은 곳에는 여러 목소리를 동시에 추적하는 체계가 있다.",
+      "반쯤 잠든 상태에서도 방 건너편에서 자기 이름이 불리는 것을 들을 수 있다.",
+      "환자가 반응을 멈췄을 때 병원 직원들이 이름을 부르는 것은 이 때문이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "준부정어 hardly",
+       "ox": "O",
+       "expl": "'거의 ~않다'는 hardly. hard는 '열심히'라는 뜻이라 문맥에 맞지 않는다.",
+       "wrong_ex": "hard"
+      },
+      {
+       "n": 2,
+       "point": "the way + that",
+       "ox": "O",
+       "expl": "「in a way that ~」 구조. the way와 how는 함께 쓰지 않는다.",
+       "wrong_ex": "in a way how"
+      },
+      {
+       "n": 3,
+       "point": "장소부사구 도치",
+       "ox": "O",
+       "expl": "장소를 나타내는 부사구가 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "a system lies"
+      },
+      {
+       "n": 4,
+       "point": "사역동사 have + p.p.",
+       "ox": "X",
+       "expl": "목적어 your name이 들리는 대상이므로 과거분사 heard.",
+       "fix": "heard"
+      },
+      {
+       "n": 5,
+       "point": "관계부사 why",
+       "ox": "O",
+       "expl": "이유를 나타내는 선행사가 생략된 관계부사 why.",
+       "wrong_ex": "because"
+      }
+     ]
+    }
+   ],
+   "id": "실력-08",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 9,
+   "sets": [
+    {
+     "set": 33,
+     "title": "종이로 읽을 때 더 잘 남는 이유",
+     "passage": [
+      {
+       "t": "Readers often find paper "
+      },
+      {
+       "t": "easier",
+       "n": 1
+      },
+      {
+       "t": " than a screen, and the reason is not nostalgia. "
+      },
+      {
+       "t": "There are",
+       "n": 2
+      },
+      {
+       "t": " several studies showing that the hand remembers where a passage sat on the page. On a screen the text keeps moving, so the brain loses track of "
+      },
+      {
+       "t": "where to look",
+       "n": 3
+      },
+      {
+       "t": ". Students "
+      },
+      {
+       "t": "are used to scrolling",
+       "n": 4
+      },
+      {
+       "t": ", yet they still score lower on questions about detail. If you compare a printed book with a digital "
+      },
+      {
+       "t": "it",
+       "n": 5
+      },
+      {
+       "t": ", the gap appears only in long and difficult texts."
+      }
+     ],
+     "tr": [
+      "독자들은 종이가 화면보다 더 쉽다고 느끼는 경우가 많은데, 그 이유는 향수 때문이 아니다.",
+      "어떤 구절이 페이지의 어디에 있었는지를 손이 기억한다는 것을 보여 주는 연구가 여럿 있다.",
+      "화면에서는 글이 계속 움직이기 때문에, 뇌는 어디를 봐야 할지 감을 잃는다.",
+      "학생들은 스크롤에 익숙하지만, 세부 내용을 묻는 문제에서는 여전히 점수가 더 낮다.",
+      "인쇄된 책과 디지털 책을 비교해 보면, 그 차이는 길고 어려운 글에서만 나타난다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "목적격보어 (find + 형용사)",
+       "ox": "O",
+       "expl": "find의 목적격보어 자리이므로 형용사 easier. 부사는 올 수 없다.",
+       "wrong_ex": "more easily"
+      },
+      {
+       "n": 2,
+       "point": "There + be 수일치",
+       "ox": "O",
+       "expl": "뒤의 주어가 several studies(복수)이므로 There are.",
+       "wrong_ex": "There is"
+      },
+      {
+       "n": 3,
+       "point": "의문사 + to부정사",
+       "ox": "O",
+       "expl": "전치사 of의 목적어로 쓰인 「의문사 + to부정사」.",
+       "wrong_ex": "where to looking"
+      },
+      {
+       "n": 4,
+       "point": "be used to + 동명사",
+       "ox": "O",
+       "expl": "'~에 익숙하다'는 be used to + 동명사. used to + 동사원형과 구별한다.",
+       "wrong_ex": "are used to scroll"
+      },
+      {
+       "n": 5,
+       "point": "부정대명사 one",
+       "ox": "X",
+       "expl": "앞에 나온 book과 같은 종류의 다른 것을 가리키므로 it이 아니라 one.",
+       "fix": "one"
+      }
+     ]
+    },
+    {
+     "set": 34,
+     "title": "꿀벌은 어둠 속에서 방향을 말한다",
+     "passage": [
+      {
+       "t": "Strange as it sounds",
+       "n": 1
+      },
+      {
+       "t": ", a bee can tell the hive where flowers are by dancing in complete darkness. Scientists debated "
+      },
+      {
+       "t": "that",
+       "n": 2
+      },
+      {
+       "t": " the dance really carried information for nearly forty years. "
+      },
+      {
+       "t": "Whoever",
+       "n": 3
+      },
+      {
+       "t": " watches a hive closely will notice that the angle of the dance matches the angle of the sun. The waggle run grows "
+      },
+      {
+       "t": "even",
+       "n": 4
+      },
+      {
+       "t": " shorter when the food is close by. Karl von Frisch, "
+      },
+      {
+       "t": "who",
+       "n": 5
+      },
+      {
+       "t": " won a Nobel Prize for the discovery, spent decades marking individual bees."
+      }
+     ],
+     "tr": [
+      "이상하게 들리겠지만, 꿀벌은 완전한 어둠 속에서 춤을 추어 벌집에 꽃이 어디 있는지 알려 줄 수 있다.",
+      "과학자들은 그 춤이 정말로 정보를 담고 있는지를 거의 40년 동안 논쟁했다.",
+      "벌집을 자세히 지켜보는 사람이라면 누구나 춤의 각도가 태양의 각도와 일치한다는 것을 알아차릴 것이다.",
+      "먹이가 가까이 있을수록 8자 구간은 더욱 짧아진다.",
+      "이 발견으로 노벨상을 받은 카를 폰 프리슈는 벌 한 마리 한 마리에 표시를 하며 수십 년을 보냈다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "양보 도치 (형용사 + as)",
+       "ox": "O",
+       "expl": "「형용사 + as + 주어 + 동사」로 '비록 ~이지만'을 나타낸다.",
+       "wrong_ex": "Strange as it sounds it"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 whether",
+       "ox": "X",
+       "expl": "'~인지 아닌지'의 뜻으로 논쟁의 대상을 나타내므로 whether.",
+       "fix": "whether"
+      },
+      {
+       "n": 3,
+       "point": "복합관계대명사 whoever",
+       "ox": "O",
+       "expl": "'~하는 사람은 누구나'의 뜻으로 명사절을 이끄는 whoever.",
+       "wrong_ex": "Whomever"
+      },
+      {
+       "n": 4,
+       "point": "비교급 강조 even",
+       "ox": "O",
+       "expl": "even이 비교급 shorter를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "very"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "사람 선행사를 콤마 뒤에서 받는 who. that은 계속적 용법에 쓸 수없다.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 35,
+     "title": "안개에서 물을 걷어 올리는 마을",
+     "passage": [
+      {
+       "t": "Villages with "
+      },
+      {
+       "t": "little",
+       "n": 1
+      },
+      {
+       "t": " rainfall have few options once the wells run dry. In Morocco and Chile, large nets "
+      },
+      {
+       "t": "are being tested",
+       "n": 2
+      },
+      {
+       "t": " on ridges where fog rolls in from the sea. The results were "
+      },
+      {
+       "t": "surprised",
+       "n": 3
+      },
+      {
+       "t": " even to the engineers who built them: one net can collect hundreds of litres a day. The system needs only "
+      },
+      {
+       "t": "such simple tools as",
+       "n": 4
+      },
+      {
+       "t": " mesh, gutters, and gravity. "
+      },
+      {
+       "t": "No sooner had",
+       "n": 5
+      },
+      {
+       "t": " the sun risen than the flow slowed to nothing."
+      }
+     ],
+     "tr": [
+      "비가 거의 오지 않는 마을은 우물이 마르고 나면 선택지가 거의 없다.",
+      "모로코와 칠레에서는 바다에서 안개가 밀려오는 능선에 커다란 그물이 시험 설치되고 있다.",
+      "그 결과는 그물을 만든 기술자들에게조차 놀라웠다. 그물 하나가 하루에 수백 리터를 모을 수 있었다.",
+      "이 방식에 필요한 것은 그물망, 홈통, 중력 같은 단순한 도구뿐이다.",
+      "해가 뜨자마자 물의 흐름은 아무것도 아닌 수준으로 줄어들었다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "수량형용사 little",
+       "ox": "O",
+       "expl": "rainfall은 불가산명사이므로 little. few는 가산명사에 쓴다.",
+       "wrong_ex": "few"
+      },
+      {
+       "n": 2,
+       "point": "진행형 수동태",
+       "ox": "O",
+       "expl": "nets가 시험받는 대상이고 진행 중이므로 are being tested.",
+       "wrong_ex": "are testing"
+      },
+      {
+       "n": 3,
+       "point": "감정분사",
+       "ox": "X",
+       "expl": "결과가 놀라움을 주는 주체이므로 현재분사 surprising.",
+       "fix": "surprising"
+      },
+      {
+       "n": 4,
+       "point": "as 관계대명사 (such ~ as)",
+       "ox": "O",
+       "expl": "「such + 명사 + as」로 예시를 이끈다.",
+       "wrong_ex": "such simple tools that"
+      },
+      {
+       "n": 5,
+       "point": "No sooner 도치",
+       "ox": "O",
+       "expl": "No sooner가 문두에 오면 조동사와 주어를 도치하고 than과 짝을 이룬다.",
+       "wrong_ex": "The sun had no sooner"
+      }
+     ]
+    },
+    {
+     "set": 36,
+     "title": "이름이 없으면 지킬 수 없다",
+     "passage": [
+      {
+       "t": "The kakapo, "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " lives only in New Zealand, was declared extinct twice before anyone counted carefully. A species must be named before it "
+      },
+      {
+       "t": "can be protected",
+       "n": 2
+      },
+      {
+       "t": " by law. Taxonomists therefore race to describe new animals, "
+      },
+      {
+       "t": "knowing",
+       "n": 3
+      },
+      {
+       "t": " that a nameless species has no legal standing. Some biologists spend a whole career on a single genus, only "
+      },
+      {
+       "t": "to find",
+       "n": 4
+      },
+      {
+       "t": " that half of it has already vanished. "
+      },
+      {
+       "t": "It is high time",
+       "n": 5
+      },
+      {
+       "t": " governments funded this quiet work properly."
+      }
+     ],
+     "tr": [
+      "뉴질랜드에만 사는 카카포는 누군가 제대로 세어 보기 전에 두 번이나 멸종 선언을 당했다.",
+      "한 종은 이름이 붙어야 비로소 법으로 보호받을 수 있다.",
+      "그래서 분류학자들은 이름 없는 종에게는 법적 지위가 없다는 것을 알기에 새 동물을 기재하려 서두른다.",
+      "어떤 생물학자들은 한 속(屬)에 평생을 바치지만, 결국 그 절반이 이미 사라졌다는 사실을 알게 될 뿐이다.",
+      "이제는 정부가 이 조용한 작업에 제대로 예산을 댈 때가 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "계속적 용법 관계대명사",
+       "ox": "X",
+       "expl": "콤마 뒤 계속적 용법에는 that을 쓸 수 없으므로 which.",
+       "fix": "which"
+      },
+      {
+       "n": 2,
+       "point": "조동사 + 수동태",
+       "ox": "O",
+       "expl": "a species가 보호받는 대상이므로 조동사 뒤에 be p.p.",
+       "wrong_ex": "can protect"
+      },
+      {
+       "n": 3,
+       "point": "분사구문(능동)",
+       "ox": "O",
+       "expl": "주어가 아는 주체이므로 능동의 현재분사 knowing.",
+       "wrong_ex": "known"
+      },
+      {
+       "n": 4,
+       "point": "부정사 (결과의 only to)",
+       "ox": "O",
+       "expl": "「only + to부정사」로 예상과 다른 결과를 나타낸다.",
+       "wrong_ex": "only finding"
+      },
+      {
+       "n": 5,
+       "point": "It is time + 과거동사",
+       "ox": "O",
+       "expl": "「It is (high) time + 주어 + 과거동사」로 '~할 때가 되었다'를 나타낸다.",
+       "wrong_ex": "fund"
+      }
+     ]
+    }
+   ],
+   "id": "실력-09",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 10,
+   "sets": [
+    {
+     "set": 37,
+     "title": "소리 내지 않고 읽기까지",
+     "passage": [
+      {
+       "t": "Reading silently was once rare, and the monks "
+      },
+      {
+       "t": "among whom",
+       "n": 1
+      },
+      {
+       "t": " the habit spread found it deeply strange. In the ancient world, readers "
+      },
+      {
+       "t": "would move",
+       "n": 2
+      },
+      {
+       "t": " their lips even when they were alone. A number of scholars "
+      },
+      {
+       "t": "believes",
+       "n": 3
+      },
+      {
+       "t": " that Augustine's surprise at seeing Ambrose read without a sound marks the turning point. "
+      },
+      {
+       "t": "Once",
+       "n": 4
+      },
+      {
+       "t": " the practice took hold, libraries could finally become quiet places. Silent reading "
+      },
+      {
+       "t": "seems to have changed",
+       "n": 5
+      },
+      {
+       "t": " not only our speed but our sense of privacy."
+      }
+     ],
+     "tr": [
+      "소리 내지 않고 읽는 일은 한때 드물었고, 그 습관이 퍼져 나간 수도사들조차 그것을 몹시 이상하게 여겼다.",
+      "고대 세계에서 독자들은 혼자 있을 때조차 입술을 움직이곤 했다.",
+      "많은 학자들은 암브로시우스가 소리 없이 읽는 것을 보고 아우구스티누스가 놀란 일이 전환점이라고 본다.",
+      "일단 그 방식이 자리를 잡자, 도서관은 마침내 조용한 공간이 될 수 있었다.",
+      "묵독은 읽는 속도뿐 아니라 사생활에 대한 감각까지 바꾸어 놓은 것으로 보인다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "spread among the monks의 관계를 살린 among whom. 사람이므로 whom.",
+       "wrong_ex": "among which"
+      },
+      {
+       "n": 2,
+       "point": "과거의 습관 would",
+       "ox": "O",
+       "expl": "'~하곤 했다'는 과거의 반복적 습관을 나타내는 would.",
+       "wrong_ex": "would moving"
+      },
+      {
+       "n": 3,
+       "point": "a number of + 복수동사",
+       "ox": "X",
+       "expl": "「a number of + 복수명사」는 복수 취급하므로 believe.",
+       "fix": "believe"
+      },
+      {
+       "n": 4,
+       "point": "접속사 once",
+       "ox": "O",
+       "expl": "'일단 ~하자'의 뜻으로 시간·조건의 부사절을 이끄는 접속사 once.",
+       "wrong_ex": "Once of"
+      },
+      {
+       "n": 5,
+       "point": "부정사의 완료형",
+       "ox": "O",
+       "expl": "본동사 seems보다 앞선 일을 나타내므로 to have p.p.",
+       "wrong_ex": "seems to change"
+      }
+     ]
+    },
+    {
+     "set": 38,
+     "title": "신호등은 색으로만 말하지 않는다",
+     "passage": [
+      {
+       "t": "About one in twelve men "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " some form of colour blindness. Traffic lights solve the problem by position: the red lamp sits on top, "
+      },
+      {
+       "t": "the others",
+       "n": 2
+      },
+      {
+       "t": " below it in a fixed order. "
+      },
+      {
+       "t": "Not all",
+       "n": 3
+      },
+      {
+       "t": " countries follow exactly the same rule, but almost every one keeps the vertical order. "
+      },
+      {
+       "t": "Despite",
+       "n": 4
+      },
+      {
+       "t": " the simplicity of the idea, it took decades to standardise. For some eyes red is not as "
+      },
+      {
+       "t": "brighter",
+       "n": 5
+      },
+      {
+       "t": " as green, so shape and place carry the message instead."
+      }
+     ],
+     "tr": [
+      "남성 열두 명 중 약 한 명은 어떤 형태로든 색각 이상을 가지고 있다.",
+      "신호등은 위치로 이 문제를 해결한다. 빨간 등이 맨 위에 있고, 나머지는 정해진 순서로 그 아래에 놓인다.",
+      "모든 나라가 똑같은 규칙을 따르는 것은 아니지만, 거의 모든 나라가 수직 순서만은 지킨다.",
+      "발상이 단순한데도 표준으로 자리 잡기까지는 수십 년이 걸렸다.",
+      "어떤 눈에는 빨강이 초록만큼 밝지 않기 때문에, 대신 모양과 위치가 메시지를 전달한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "비율 표현 수일치",
+       "ox": "O",
+       "expl": "「one in + 복수명사」는 one에 동사를 맞추므로 단수 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "부정대명사 the others",
+       "ox": "O",
+       "expl": "정해진 무리에서 하나를 뺀 나머지 전부이므로 the others.",
+       "wrong_ex": "others"
+      },
+      {
+       "n": 3,
+       "point": "부분부정 not all",
+       "ox": "O",
+       "expl": "「Not all ~」은 '모두 ~인 것은 아니다'라는 부분부정.",
+       "wrong_ex": "All not"
+      },
+      {
+       "n": 4,
+       "point": "전치사 despite",
+       "ox": "O",
+       "expl": "뒤에 명사구가 오므로 전치사 Despite. 접속사 Although는 쓸 수없다.",
+       "wrong_ex": "Although"
+      },
+      {
+       "n": 5,
+       "point": "원급 비교",
+       "ox": "X",
+       "expl": "「as ~ as」 사이에는 원급이 오므로 brighter가 아니라 bright.",
+       "fix": "bright"
+      }
+     ]
+    },
+    {
+     "set": 39,
+     "title": "지구 궤도를 도는 쓰레기",
+     "passage": [
+      {
+       "t": "More than thirty thousand pieces "
+      },
+      {
+       "t": "of",
+       "n": 1
+      },
+      {
+       "t": " debris larger than a tennis ball now circle the Earth. Space agencies discussed "
+      },
+      {
+       "t": "about",
+       "n": 2
+      },
+      {
+       "t": " the danger for years without taking any real action. "
+      },
+      {
+       "t": "Not until",
+       "n": 3
+      },
+      {
+       "t": " a satellite collision in 2009 did serious funding appear. Today the orbit is more crowded "
+      },
+      {
+       "t": "than ever",
+       "n": 4
+      },
+      {
+       "t": ", and a single crash could double the count overnight. Several nets and harpoons "
+      },
+      {
+       "t": "have been tested",
+       "n": 5
+      },
+      {
+       "t": ", but none has cleared more than a few objects."
+      }
+     ],
+     "tr": [
+      "테니스공보다 큰 파편이 3만 개 넘게 지금도 지구 주위를 돌고 있다.",
+      "우주 기관들은 실질적인 조치 없이 여러 해 동안 그 위험을 논의만 했다.",
+      "2009년 위성 충돌이 일어나고 나서야 비로소 본격적인 예산이 나왔다.",
+      "오늘날 궤도는 그 어느 때보다 붐비고, 단 한 번의 충돌로 파편 수가 하룻밤 사이에 두 배가 될 수도 있다.",
+      "여러 그물과 작살이 시험되었지만, 어느 것도 몇 개 이상을 치워 내지는 못했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "수량 표현 + of",
+       "ox": "O",
+       "expl": "「pieces of + 불가산명사」 구조. debris는 셀 수 없는 명사이다.",
+       "wrong_ex": "for"
+      },
+      {
+       "n": 2,
+       "point": "타동사의 목적어",
+       "ox": "X",
+       "expl": "discuss는 타동사이므로 전치사 about 없이 목적어를 바로 취한다.",
+       "fix": "discussed the danger"
+      },
+      {
+       "n": 3,
+       "point": "Not until 도치",
+       "ox": "O",
+       "expl": "「Not until ~」이 문두에 오면 주절의 조동사와 주어를 도치한다.",
+       "wrong_ex": "serious funding appeared"
+      },
+      {
+       "n": 4,
+       "point": "비교급 + than ever",
+       "ox": "O",
+       "expl": "'그 어느 때보다 더 ~한'을 나타내는 비교급 관용 표현.",
+       "wrong_ex": "than never"
+      },
+      {
+       "n": 5,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "nets and harpoons가 시험받는 대상이고 현재까지의 경험이므로 have been tested.",
+       "wrong_ex": "have tested"
+      }
+     ]
+    },
+    {
+     "set": 40,
+     "title": "손을 씻자고 말한 죄",
+     "passage": [
+      {
+       "t": "In the 1840s "
+      },
+      {
+       "t": "the poor",
+       "n": 1
+      },
+      {
+       "t": " often entered a Vienna hospital in good health and left in a coffin. Semmelweis noticed that doctors walked straight from the autopsy room to the delivery ward, and he "
+      },
+      {
+       "t": "may well have been",
+       "n": 2
+      },
+      {
+       "t": " the first to connect the two. Fever kept spreading "
+      },
+      {
+       "t": "unless",
+       "n": 3
+      },
+      {
+       "t": " the staff washed their hands in chlorine. The death rate in his ward soon fell far below "
+      },
+      {
+       "t": "those",
+       "n": 4
+      },
+      {
+       "t": " in the ward next door. "
+      },
+      {
+       "t": "Not knowing",
+       "n": 5
+      },
+      {
+       "t": " what actually caused infection, his colleagues rejected the idea for thirty years."
+      }
+     ],
+     "tr": [
+      "1840년대에 가난한 사람들은 건강한 몸으로 빈의 병원에 들어갔다가 관에 실려 나오는 일이 잦았다.",
+      "제멜바이스는 의사들이 해부실에서 곧장 분만실로 걸어간다는 것을 알아차렸고, 그 둘을 연결지은 최초의 인물이었을 법하다.",
+      "직원들이 염소액으로 손을 씻지 않는 한 열병은 계속 퍼졌다.",
+      "그의 병동 사망률은 곧 옆 병동의 사망률보다 훨씬 아래로 떨어졌다.",
+      "무엇이 실제로 감염을 일으키는지 알지 못했기에, 그의 동료들은 30년 동안 그 생각을 받아들이지 않았다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "the + 형용사 (복수취급)",
+       "ox": "O",
+       "expl": "「the + 형용사」는 '~한 사람들'로 복수 취급하므로 뒤의 동사도 복수형.",
+       "wrong_ex": "the poors"
+      },
+      {
+       "n": 2,
+       "point": "조동사 관용 (may well)",
+       "ox": "O",
+       "expl": "'~했을 법하다'는 may well + have p.p. 과거의 추측을 나타낸다.",
+       "wrong_ex": "may well be"
+      },
+      {
+       "n": 3,
+       "point": "접속사 unless",
+       "ox": "O",
+       "expl": "'~하지 않는 한'의 뜻으로 조건의 부사절을 이끈다.",
+       "wrong_ex": "unless not"
+      },
+      {
+       "n": 4,
+       "point": "지시대명사 that",
+       "ox": "X",
+       "expl": "앞의 단수명사 The death rate를 대신하므로 those가 아니라 that.",
+       "fix": "that"
+      },
+      {
+       "n": 5,
+       "point": "분사구문의 부정",
+       "ox": "O",
+       "expl": "분사구문을 부정할 때는 분사 앞에 Not을 둔다.",
+       "wrong_ex": "Knowing not"
+      }
+     ]
+    }
+   ],
+   "id": "실력-10",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 11,
+   "sets": [
+    {
+     "set": 41,
+     "title": "비둘기는 어떻게 집을 찾는가",
+     "passage": [
+      {
+       "t": "Homing pigeons are "
+      },
+      {
+       "t": "one of the oldest messengers",
+       "n": 1
+      },
+      {
+       "t": " in history, used by armies long before radio existed. A bird "
+      },
+      {
+       "t": "whom",
+       "n": 2
+      },
+      {
+       "t": " scientists believe finds its way by smell can return from six hundred kilometres away. Others seem to read the magnetic field of the Earth, and young birds learn to "
+      },
+      {
+       "t": "do so",
+       "n": 3
+      },
+      {
+       "t": " within a few weeks. Researchers fitted tiny trackers to a flock, "
+      },
+      {
+       "t": "some of which",
+       "n": 4
+      },
+      {
+       "t": " flew straight home while the rest circled for hours. The birds were released at dawn "
+      },
+      {
+       "t": "so as to",
+       "n": 5
+      },
+      {
+       "t": " give them a full day of light."
+      }
+     ],
+     "tr": [
+      "전서구는 역사상 가장 오래된 전령 가운데 하나로, 무전기가 생기기 훨씬 전부터 군대가 사용했다.",
+      "과학자들이 냄새로 길을 찾는다고 보는 이 새는 600킬로미터 떨어진 곳에서도 돌아올 수 있다.",
+      "다른 비둘기들은 지구의 자기장을 읽는 듯한데, 어린 새들은 몇 주 안에 그렇게 하는 법을 배운다.",
+      "연구자들이 한 무리에 작은 추적기를 달았더니, 그중 일부는 곧장 집으로 날아갔고 나머지는 몇 시간을 맴돌았다.",
+      "새들에게 온종일의 빛을 주기 위해 새벽에 풀어 주었다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "one of the + 최상급 + 복수명사",
+       "ox": "O",
+       "expl": "「one of the + 최상급 + 복수명사」 구조이므로 messengers.",
+       "wrong_ex": "one of the oldest messenger"
+      },
+      {
+       "n": 2,
+       "point": "삽입절이 있는 관계대명사",
+       "ox": "X",
+       "expl": "scientists believe는 삽입절이고 finds의 주어가 필요하므로 주격 who.",
+       "fix": "who"
+      },
+      {
+       "n": 3,
+       "point": "대동사 do so",
+       "ox": "O",
+       "expl": "앞에 나온 read the magnetic field를 대신 받는 do so.",
+       "wrong_ex": "make so"
+      },
+      {
+       "n": 4,
+       "point": "부분을 나타내는 관계사",
+       "ox": "O",
+       "expl": "「부분 표현 + of + 관계대명사」 구조이므로 some of which.",
+       "wrong_ex": "some of them"
+      },
+      {
+       "n": 5,
+       "point": "so as to + 동사원형",
+       "ox": "O",
+       "expl": "목적을 나타내는 so as to 뒤에는 동사원형이 온다.",
+       "wrong_ex": "so as giving"
+      }
+     ]
+    },
+    {
+     "set": 42,
+     "title": "그늘에서 자란 커피",
+     "passage": [
+      {
+       "t": "About two thirds of the world's coffee "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " now grown in full sun rather than under trees. Shade-grown plants produce "
+      },
+      {
+       "t": "less fruit than",
+       "n": 2
+      },
+      {
+       "t": " those in open fields, which is why many farms cleared their canopy. "
+      },
+      {
+       "t": "Now that",
+       "n": 3
+      },
+      {
+       "t": " the birds have gone, insect damage has risen sharply. Some growers are planting the trees again after cutting "
+      },
+      {
+       "t": "down them",
+       "n": 4
+      },
+      {
+       "t": " fifty years ago. "
+      },
+      {
+       "t": "There is no denying",
+       "n": 5
+      },
+      {
+       "t": " that shade costs a farm something, but pesticides cost far more."
+      }
+     ],
+     "tr": [
+      "전 세계 커피의 약 3분의 2는 이제 나무 아래가 아니라 뙤약볕에서 재배된다.",
+      "그늘에서 자란 나무는 노지의 나무보다 열매를 적게 맺는데, 그래서 많은 농장이 위쪽 나무를 걷어 냈다.",
+      "이제 새들이 사라지고 나니 해충 피해가 급격히 늘었다.",
+      "일부 농부들은 50년 전에 베어 낸 나무를 다시 심고 있다.",
+      "그늘이 농장에 비용을 치르게 한다는 점은 부인할 수 없지만, 농약은 그보다 훨씬 비싸다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분수 표현 수일치",
+       "ox": "O",
+       "expl": "「분수 + of + 명사」는 뒤의 명사에 동사를 맞춘다. coffee는 불가 산이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "비교급 less ~ than",
+       "ox": "O",
+       "expl": "fruit은 불가산명사이므로 fewer가 아니라 less.",
+       "wrong_ex": "fewer fruit than"
+      },
+      {
+       "n": 3,
+       "point": "접속사 now that",
+       "ox": "O",
+       "expl": "'이제 ~이므로'의 뜻으로 이유의 부사절을 이끈다.",
+       "wrong_ex": "Now than"
+      },
+      {
+       "n": 4,
+       "point": "타동사 + 부사 어순",
+       "ox": "X",
+       "expl": "목적어가 대명사이면 「동사 + 대명사 + 부사」 어순이므로 cutting them down.",
+       "fix": "them down"
+      },
+      {
+       "n": 5,
+       "point": "There is no + 동명사",
+       "ox": "O",
+       "expl": "「There is no + 동명사」로 '~할 수 없다'를 나타낸다.",
+       "wrong_ex": "There is no deny"
+      }
+     ]
+    },
+    {
+     "set": 43,
+     "title": "기차가 만든 표준시",
+     "passage": [
+      {
+       "t": "It took cities "
+      },
+      {
+       "t": "adopting",
+       "n": 1
+      },
+      {
+       "t": " a single time standard nearly forty years. Before the railways, each town set its clocks "
+      },
+      {
+       "t": "whether",
+       "n": 2
+      },
+      {
+       "t": " by the sun or by the church bell. Travellers crossing the country had to guess the difference "
+      },
+      {
+       "t": "between",
+       "n": 3
+      },
+      {
+       "t": " one station and the next. The zone system "
+      },
+      {
+       "t": "we use",
+       "n": 4
+      },
+      {
+       "t": " today was fixed at a conference in Washington in 1884. Trains then ran to a printed timetable, "
+      },
+      {
+       "t": "so that",
+       "n": 5
+      },
+      {
+       "t": " a minute finally meant the same thing everywhere."
+      }
+     ],
+     "tr": [
+      "도시들이 하나의 표준시를 받아들이는 데는 거의 40년이 걸렸다.",
+      "철도가 놓이기 전에는 마을마다 해를 보거나 교회 종소리를 듣고 시계를 맞췄다.",
+      "전국을 가로지르는 여행자들은 한 역과 다음 역 사이의 시차를 어림짐작해야 했다.",
+      "오늘날 우리가 쓰는 시간대 체계는 1884년 워싱턴 회의에서 확정되었다.",
+      "그 후 기차는 인쇄된 시간표대로 달렸고, 그래서 1분은 마침내 어디서나 같은 것을 뜻하게 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "It takes + 목적어 + to부정사",
+       "ox": "X",
+       "expl": "「It takes + 사람 + 시간 + to부정사」 구조이므로 to adopt.",
+       "fix": "to adopt"
+      },
+      {
+       "n": 2,
+       "point": "접속사 whether A or B",
+       "ox": "O",
+       "expl": "'A든 B든'의 뜻으로 두 선택지를 나란히 잇는 whether ~ or.",
+       "wrong_ex": "either"
+      },
+      {
+       "n": 3,
+       "point": "전치사 between",
+       "ox": "O",
+       "expl": "둘 사이를 나타내므로 between. 셋 이상은 among을 쓴다.",
+       "wrong_ex": "among"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사 생략",
+       "ox": "O",
+       "expl": "The zone system을 수식하며 목적격 관계대명사가 생략된 형태.",
+       "wrong_ex": "which we use it"
+      },
+      {
+       "n": 5,
+       "point": "접속사 so that (결과)",
+       "ox": "O",
+       "expl": "'그래서 ~하다'라는 결과를 나타내는 so that.",
+       "wrong_ex": "so as"
+      }
+     ]
+    },
+    {
+     "set": 44,
+     "title": "점자는 어떻게 만들어졌나",
+     "passage": [
+      {
+       "t": "Louis Braille was told "
+      },
+      {
+       "t": "not to waste",
+       "n": 1
+      },
+      {
+       "t": " his time on a soldier's code for reading in the dark. He kept working "
+      },
+      {
+       "t": "as long as",
+       "n": 2
+      },
+      {
+       "t": " the candles lasted, and by fifteen he had cut twelve dots down to six. The result is "
+      },
+      {
+       "t": "what is now called",
+       "n": 3
+      },
+      {
+       "t": " Braille, read by touch in almost every language on earth. "
+      },
+      {
+       "t": "His being blind",
+       "n": 4
+      },
+      {
+       "t": " from the age of three was not the reason he succeeded; his patience was. Teachers who watch a child read a whole page in silence cannot help "
+      },
+      {
+       "t": "to admire",
+       "n": 5
+      },
+      {
+       "t": " the design."
+      }
+     ],
+     "tr": [
+      "루이 브라유는 어둠 속에서 읽기 위한 군인용 암호에 시간을 낭비하지 말라는 말을 들었다.",
+      "그는 촛불이 남아 있는 한 계속 작업했고, 열다섯 살에 열두 개의 점을 여섯 개로 줄였다.",
+      "그 결과가 오늘날 점자라고 불리는 것으로, 지구상 거의 모든 언어에서 손끝으로 읽힌다.",
+      "그가 세 살부터 앞을 보지 못했다는 사실이 성공의 이유는 아니었다. 이유는 그의 끈기였다.",
+      "아이가 한 쪽을 소리 없이 읽어 내는 것을 지켜보는 교사라면 이 설계에 감탄하지 않을 수 없다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "부정사의 부정",
+       "ox": "O",
+       "expl": "to부정사를 부정할 때는 to 앞에 not을 둔다.",
+       "wrong_ex": "to not waste"
+      },
+      {
+       "n": 2,
+       "point": "접속사 as long as",
+       "ox": "O",
+       "expl": "'~하는 한'의 뜻으로 조건·기간의 부사절을 이끈다.",
+       "wrong_ex": "as long"
+      },
+      {
+       "n": 3,
+       "point": "what is called",
+       "ox": "O",
+       "expl": "'이른바 ~'을 뜻하는 관용 표현. 선행사를 포함한 what을 쓴다.",
+       "wrong_ex": "that is now called"
+      },
+      {
+       "n": 4,
+       "point": "동명사의 의미상 주어",
+       "ox": "O",
+       "expl": "동명사의 행위 주체를 소유격으로 앞에 밝힌 형태.",
+       "wrong_ex": "He being blind"
+      },
+      {
+       "n": 5,
+       "point": "cannot help + 동명사",
+       "ox": "X",
+       "expl": "「cannot help + 동명사」로 '~하지 않을 수 없다'를 나타내므로 admiring.",
+       "fix": "admiring"
+      }
+     ]
+    }
+   ],
+   "id": "실력-11",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 12,
+   "sets": [
+    {
+     "set": 45,
+     "title": "고래의 노래에도 유행이 있다",
+     "passage": [
+      {
+       "t": "Humpback songs change "
+      },
+      {
+       "t": "every few years",
+       "n": 1
+      },
+      {
+       "t": ", and the new version spreads across an entire ocean within a season. Researchers keep their microphones running "
+      },
+      {
+       "t": "in case",
+       "n": 2
+      },
+      {
+       "t": " a rare pattern appears in the middle of the night. They wish they "
+      },
+      {
+       "t": "can record",
+       "n": 3
+      },
+      {
+       "t": " every population at once, but the budget stretches to only three. The songs seem to have no obvious purpose "
+      },
+      {
+       "t": "to serve",
+       "n": 4
+      },
+      {
+       "t": " beyond attracting a mate. "
+      },
+      {
+       "t": "Never has",
+       "n": 5
+      },
+      {
+       "t": " a human language travelled so fast across such a distance."
+      }
+     ],
+     "tr": [
+      "혹등고래의 노래는 몇 년마다 바뀌는데, 새 버전은 한 계절 안에 바다 전체로 퍼진다.",
+      "연구자들은 한밤중에 드문 패턴이 나올 경우에 대비해 마이크를 계속 켜 둔다.",
+      "그들은 모든 무리를 한꺼번에 녹음할 수 있으면 좋겠다고 바라지만, 예산은 세 무리분밖에 되지 않는다.",
+      "이 노래들은 짝을 부르는 것 말고는 뚜렷이 수행할 목적이 없어 보인다.",
+      "인간의 어떤 언어도 그토록 먼 거리를 그렇게 빠르게 건너간 적은 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "every + 기수 + 복수명사",
+       "ox": "O",
+       "expl": "「every + 기수 + 복수명사」로 '~마다'를 나타낸다.",
+       "wrong_ex": "every few year"
+      },
+      {
+       "n": 2,
+       "point": "접속사 in case",
+       "ox": "O",
+       "expl": "'~할 경우에 대비하여'의 뜻으로 부사절을 이끈다.",
+       "wrong_ex": "in case of"
+      },
+      {
+       "n": 3,
+       "point": "I wish 가정법",
+       "ox": "X",
+       "expl": "현재 이룰 수 없는 소망이므로 wish 뒤에는 과거형 could record.",
+       "fix": "could record"
+      },
+      {
+       "n": 4,
+       "point": "부정사의 형용사적 용법",
+       "ox": "O",
+       "expl": "앞의 명사 purpose를 수식하는 to부정사.",
+       "wrong_ex": "serving"
+      },
+      {
+       "n": 5,
+       "point": "Never 도치",
+       "ox": "O",
+       "expl": "부정어 Never가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a human language has never"
+      }
+     ]
+    },
+    {
+     "set": 46,
+     "title": "세계지도는 왜 틀렸을까",
+     "passage": [
+      {
+       "t": "A flat map is "
+      },
+      {
+       "t": "not so honest as",
+       "n": 1
+      },
+      {
+       "t": " a globe, and every projection has to distort something. On the Mercator map Greenland looks larger than "
+      },
+      {
+       "t": "any other countries",
+       "n": 2
+      },
+      {
+       "t": ", though it is in fact smaller than the Congo. Sailors found it "
+      },
+      {
+       "t": "so useful a tool",
+       "n": 3
+      },
+      {
+       "t": " that they accepted the distortion for four centuries. Areas near the poles stretch far beyond "
+      },
+      {
+       "t": "those",
+       "n": 4
+      },
+      {
+       "t": " near the equator. A map that looks familiar is "
+      },
+      {
+       "t": "not necessarily",
+       "n": 5
+      },
+      {
+       "t": " the one that tells the truth."
+      }
+     ],
+     "tr": [
+      "평면 지도는 지구본만큼 정직하지 않으며, 모든 도법은 무언가를 왜곡할 수밖에 없다.",
+      "메르카토르 지도에서 그린란드는 다른 어떤 나라보다 커 보이지만, 실제로는 콩고보다 작다.",
+      "뱃사람들에게는 그것이 워낙 쓸모 있는 도구여서 400년 동안 그 왜곡을 감수했다.",
+      "극지방 가까운 지역은 적도 가까운 지역보다 훨씬 늘어난다.",
+      "익숙해 보이는 지도가 반드시 진실을 말해 주는 지도인 것은 아니다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "원급 비교의 부정",
+       "ox": "O",
+       "expl": "「not so + 원급 + as」로 '~만큼 …하지 않다'를 나타낸다.",
+       "wrong_ex": "not so honest than"
+      },
+      {
+       "n": 2,
+       "point": "비교급 + than any other + 단수명사",
+       "ox": "X",
+       "expl": "「than any other」 뒤에는 단수명사가 오므로 country.",
+       "fix": "any other country"
+      },
+      {
+       "n": 3,
+       "point": "so + 형용사 + a + 명사",
+       "ox": "O",
+       "expl": "so가 형용사를 수식할 때는 「so + 형용사 + a(n) + 명사」 어순.",
+       "wrong_ex": "a so useful tool"
+      },
+      {
+       "n": 4,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 Areas를 대신하므로 those.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "부분부정 not necessarily",
+       "ox": "O",
+       "expl": "'반드시 ~인 것은 아니다'라는 부분부정.",
+       "wrong_ex": "necessarily not"
+      }
+     ]
+    },
+    {
+     "set": 47,
+     "title": "반죽 속에 사는 것들",
+     "passage": [
+      {
+       "t": "On opening",
+       "n": 1
+      },
+      {
+       "t": " a jar of sourdough starter, you meet a colony older than most buildings in the city. "
+      },
+      {
+       "t": "Neither",
+       "n": 2
+      },
+      {
+       "t": " of the two main organisms works alone: wild yeast makes the gas, and bacteria make the sour taste. Bakers are "
+      },
+      {
+       "t": "busy feeding",
+       "n": 3
+      },
+      {
+       "t": " the mixture flour and water at the same hour every day. They had better "
+      },
+      {
+       "t": "to keep",
+       "n": 4
+      },
+      {
+       "t": " the jar cool, or the bacteria will take over. "
+      },
+      {
+       "t": "No matter how",
+       "n": 5
+      },
+      {
+       "t": " carefully you follow a recipe, the starter in your kitchen will taste of your kitchen."
+      }
+     ],
+     "tr": [
+      "사워도우 스타터가 담긴 병을 열자마자, 당신은 도시의 웬만한 건물보다 오래된 군집과 마주하게 된다.",
+      "두 주요 생물 중 어느 쪽도 혼자 일하지 않는다. 야생 효모는 가스를 만들고, 세균은 신맛을 만든다.",
+      "제빵사들은 매일 같은 시각에 이 혼합물에 밀가루와 물을 먹이느라 바쁘다.",
+      "병을 서늘하게 두는 편이 좋다. 그러지 않으면 세균이 우세해진다.",
+      "당신이 아무리 조심스럽게 조리법을 따라도, 당신 부엌의 스타터는 당신 부엌의 맛이 난다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "On + 동명사",
+       "ox": "O",
+       "expl": "「On + 동명사」로 '~하자마자'를 나타낸다.",
+       "wrong_ex": "On open"
+      },
+      {
+       "n": 2,
+       "point": "Neither of + 단수동사",
+       "ox": "O",
+       "expl": "「Neither of + 복수명사」는 단수 취급하므로 works.",
+       "wrong_ex": "Both"
+      },
+      {
+       "n": 3,
+       "point": "be busy + 동명사",
+       "ox": "O",
+       "expl": "'~하느라 바쁘다'는 be busy + 동명사.",
+       "wrong_ex": "busy to feed"
+      },
+      {
+       "n": 4,
+       "point": "had better + 동사원형",
+       "ox": "X",
+       "expl": "had better 뒤에는 동사원형이 오므로 keep.",
+       "fix": "keep"
+      },
+      {
+       "n": 5,
+       "point": "no matter how",
+       "ox": "O",
+       "expl": "「no matter how + 부사 + 주어 + 동사」로 양보를 나타낸다. however로 바꿔 쓸 수 있다.",
+       "wrong_ex": "No matter what"
+      }
+     ]
+    },
+    {
+     "set": 48,
+     "title": "발밑의 점자블록",
+     "passage": [
+      {
+       "t": "When the yellow blocks first appeared in Okayama in 1967, blind travellers "
+      },
+      {
+       "t": "were made follow",
+       "n": 1
+      },
+      {
+       "t": " a line they could not see. Bumps and bars, "
+      },
+      {
+       "t": "laid",
+       "n": 2
+      },
+      {
+       "t": " in two clearly different patterns, tell the foot to stop or to walk on. The system spread "
+      },
+      {
+       "t": "a  lot",
+       "n": 3
+      },
+      {
+       "t": " faster than anyone had expected, reaching stations across Asia within a decade. Designers still argue about corners, "
+      },
+      {
+       "t": "where",
+       "n": 4
+      },
+      {
+       "t": " the two patterns meet at awkward angles. By 2030 the network "
+      },
+      {
+       "t": "will have covered",
+       "n": 5
+      },
+      {
+       "t": " almost every public building in the country."
+      }
+     ],
+     "tr": [
+      "1967년 오카야마에 노란 블록이 처음 등장했을 때, 시각장애인들은 보이지 않는 선을 따라가야 했다.",
+      "뚜렷이 다른 두 가지 모양으로 놓인 돌기와 막대는 발에게 멈추라고, 혹은 계속 걸으라고 말해 준다.",
+      "이 체계는 누구의 예상보다도 훨씬 빠르게 퍼져 10년 만에 아시아 전역의 역에 도달했다.",
+      "설계자들은 두 패턴이 어색한 각도로 만나는 모퉁이를 두고 여전히 논쟁한다.",
+      "2030년이면 이 망은 전국의 거의 모든 공공건물을 덮게 될 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "사역동사의 수동태",
+       "ox": "X",
+       "expl": "make의 수동태에서는 생략되었던 to가 살아나므로 were made to follow.",
+       "fix": "were made to follow"
+      },
+      {
+       "n": 2,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "Bumps and bars가 놓이는 대상이므로 과거분사 laid.",
+       "wrong_ex": "laying"
+      },
+      {
+       "n": 3,
+       "point": "비교급 강조 a lot",
+       "ox": "O",
+       "expl": "a lot이 비교급 faster를 강조한다. very는 쓸 수 없다.",
+       "wrong_ex": "very"
+      },
+      {
+       "n": 4,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "선행사가 장소 corners이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 5,
+       "point": "미래완료",
+       "ox": "O",
+       "expl": "2030년이라는 미래 시점까지 완료될 일을 나타내므로 will have p.p.",
+       "wrong_ex": "will cover"
+      }
+     ]
+    }
+   ],
+   "id": "실력-12",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 13,
+   "sets": [
+    {
+     "set": 49,
+     "title": "나이테가 기록한 기후",
+     "passage": [
+      {
+       "t": "The majority of what we know about ancient climate "
+      },
+      {
+       "t": "comes",
+       "n": 1
+      },
+      {
+       "t": " from tree rings. A single old trunk is "
+      },
+      {
+       "t": "worth studying",
+       "n": 2
+      },
+      {
+       "t": " for the centuries of rainfall stored inside it. Scientists "
+      },
+      {
+       "t": "should record",
+       "n": 3
+      },
+      {
+       "t": " the pattern of the oldest pines decades ago, but the forests burned first. Both the width and the colour of a ring "
+      },
+      {
+       "t": "tell",
+       "n": 4
+      },
+      {
+       "t": " a story about one particular summer. A tree is "
+      },
+      {
+       "t": "the last witness to exaggerate",
+       "n": 5
+      },
+      {
+       "t": "; it simply grows and stops."
+      }
+     ],
+     "tr": [
+      "고대 기후에 대해 우리가 아는 것의 대부분은 나이테에서 나온다.",
+      "오래된 나무줄기 하나는 그 안에 쌓인 수백 년치 강수 기록만으로도 연구할 가치가 있다.",
+      "과학자들은 수십 년 전에 가장 오래된 소나무들의 무늬를 기록했어야 했지만, 그전에 숲이 먼저 불탔다.",
+      "나이테의 폭과 색은 둘 다 어느 한 해 여름에 대한 이야기를 들려준다.",
+      "나무는 결코 과장하는 법이 없는 증인이다. 그저 자라고, 멈출 뿐이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "O",
+       "expl": "「The majority of + 명사절」이므로 단수 취급하여 comes.",
+       "wrong_ex": "come"
+      },
+      {
+       "n": 2,
+       "point": "be worth + 동명사",
+       "ox": "O",
+       "expl": "「be worth + 동명사」로 '~할 가치가 있다'를 나타낸다.",
+       "wrong_ex": "worth to study"
+      },
+      {
+       "n": 3,
+       "point": "should have p.p.",
+       "ox": "X",
+       "expl": "과거에 하지 못한 일에 대한 후회이므로 should have recorded.",
+       "fix": "should have recorded"
+      },
+      {
+       "n": 4,
+       "point": "Both A and B 수일치",
+       "ox": "O",
+       "expl": "「Both A and B」는 복수 취급하므로 tell.",
+       "wrong_ex": "tells"
+      },
+      {
+       "n": 5,
+       "point": "the last + 명사 + to 부정사",
+       "ox": "O",
+       "expl": "'결코 ~할 사람(것)이 아니다'라는 뜻의 the last ~ to부정사.",
+       "wrong_ex": "the last witness exaggerating"
+      }
+     ]
+    },
+    {
+     "set": 50,
+     "title": "천 번을 접어도 펴지는 종이",
+     "passage": [
+      {
+       "t": "Having been folded",
+       "n": 1
+      },
+      {
+       "t": " a thousand times, the sheet still opens with a single pull. "
+      },
+      {
+       "t": "Fold",
+       "n": 2
+      },
+      {
+       "t": " a page along the Miura pattern and it will never crease in the wrong place. Engineers "
+      },
+      {
+       "t": "had no choice but to",
+       "n": 3
+      },
+      {
+       "t": " borrow the idea when a solar array had to fit inside a rocket. A flat sheet and a folded one differ in area but not in strength; "
+      },
+      {
+       "t": "the latter",
+       "n": 4
+      },
+      {
+       "t": " simply hides the rest of itself. The first satellite to use the pattern "
+      },
+      {
+       "t": "was to launched",
+       "n": 5
+      },
+      {
+       "t": " in 1995."
+      }
+     ],
+     "tr": [
+      "천 번을 접혔는데도 그 종이는 한 번만 당기면 펼쳐진다.",
+      "미우라 방식으로 종이를 접어 보라, 그러면 엉뚱한 곳에 주름이 생기는 일이 없을 것이다.",
+      "태양전지판을 로켓 안에 넣어야 했을 때 기술자들은 이 아이디어를 빌려 올 수밖에 없었다.",
+      "평평한 종이와 접힌 종이는 넓이는 다르지만 강도는 다르지 않다. 후자는 그저 나머지를 숨기고 있을 뿐이다.",
+      "이 방식을 처음 사용한 위성은 1995년에 발사될 예정이었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "완료 수동 분사구문",
+       "ox": "O",
+       "expl": "접히는 대상이고 주절보다 앞선 일이므로 Having been p.p.",
+       "wrong_ex": "Having folded"
+      },
+      {
+       "n": 2,
+       "point": "명령문 + and",
+       "ox": "O",
+       "expl": "「명령문 + and」로 '~해라, 그러면 …할 것이다'를 나타낸다.",
+       "wrong_ex": "Folding"
+      },
+      {
+       "n": 3,
+       "point": "have no choice but to부정사",
+       "ox": "O",
+       "expl": "'~할 수밖에 없다'는 have no choice but + to부정사.",
+       "wrong_ex": "have no choice but borrowing"
+      },
+      {
+       "n": 4,
+       "point": "부정대명사 the latter",
+       "ox": "O",
+       "expl": "앞에 언급한 둘 중 뒤의 것을 가리키므로 the latter.",
+       "wrong_ex": "the later"
+      },
+      {
+       "n": 5,
+       "point": "be to 용법",
+       "ox": "X",
+       "expl": "「be + to부정사」 구조이고 위성이 발사되는 대상이므로 was to be launched.",
+       "fix": "was to be launched"
+      }
+     ]
+    },
+    {
+     "set": 51,
+     "title": "죽은 산호초에 소리를 돌려주다",
+     "passage": [
+      {
+       "t": "The crackle of shrimp as well as the calls of fish "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " recorded on every healthy reef. Divers now return to bleached coral "
+      },
+      {
+       "t": "with underwater speakers playing",
+       "n": 2
+      },
+      {
+       "t": " those old recordings. Young fish hear "
+      },
+      {
+       "t": "much",
+       "n": 3
+      },
+      {
+       "t": " noise and mistake the ruins for a living home. "
+      },
+      {
+       "t": "Little did",
+       "n": 4
+      },
+      {
+       "t": " the first team expect the settlement rate to double within six weeks. "
+      },
+      {
+       "t": "Choose",
+       "n": 5
+      },
+      {
+       "t": " the recording carefully, or the larvae will swim away for good."
+      }
+     ],
+     "tr": [
+      "건강한 산호초에서는 어디서나 새우가 딱딱거리는 소리와 물고기 울음소리가 함께 녹음된다.",
+      "이제 잠수부들은 수중 스피커로 그 옛 녹음을 틀어 놓은 채 백화된 산호로 돌아간다.",
+      "어린 물고기들은 그 소란스러운 소리를 듣고 폐허를 살아 있는 집으로 착각한다.",
+      "첫 연구팀은 정착률이 6주 만에 두 배가 되리라고는 전혀 예상하지 못했다.",
+      "녹음을 신중히 고르라, 그러지 않으면 유생들은 영영 헤엄쳐 가 버릴 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "as well as 수일치",
+       "ox": "X",
+       "expl": "「A as well as B」는 A에 동사를 맞춘다. The crackle이 단수이므로 is.",
+       "fix": "is"
+      },
+      {
+       "n": 2,
+       "point": "with + 목적어 + 분사",
+       "ox": "O",
+       "expl": "「with + 목적어 + 분사」 부대상황. speakers가 재생하는 주체이므로 playing.",
+       "wrong_ex": "with underwater speakers played"
+      },
+      {
+       "n": 3,
+       "point": "수량형용사 much",
+       "ox": "O",
+       "expl": "noise는 불가산명사이므로 much. many는 가산명사에 쓴다.",
+       "wrong_ex": "many"
+      },
+      {
+       "n": 4,
+       "point": "Little 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Little이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "Little the first team did"
+      },
+      {
+       "n": 5,
+       "point": "명령문 + or",
+       "ox": "O",
+       "expl": "「명령문 + or」로 '~해라, 그러지 않으면 …할 것이다'를 나타낸다.",
+       "wrong_ex": "Choosing"
+      }
+     ]
+    },
+    {
+     "set": 52,
+     "title": "2천 년을 기다린 씨앗",
+     "passage": [
+      {
+       "t": "Considering",
+       "n": 1
+      },
+      {
+       "t": " how long they can wait, seeds are patient in a way no animal ever is. "
+      },
+      {
+       "t": "If it was not for",
+       "n": 2
+      },
+      {
+       "t": " the cold and the dark, the date palm seed found at Masada would have rotted centuries ago. The seed is believed "
+      },
+      {
+       "t": "to have been buried",
+       "n": 3
+      },
+      {
+       "t": " for roughly two thousand years. It is now "
+      },
+      {
+       "t": "the oldest seed that has ever produced",
+       "n": 4
+      },
+      {
+       "t": " a living tree. "
+      },
+      {
+       "t": "It was not until",
+       "n": 5
+      },
+      {
+       "t": " 2005 that anyone actually tried to plant it."
+      }
+     ],
+     "tr": [
+      "얼마나 오래 기다릴 수 있는지를 생각하면, 씨앗은 어떤 동물도 따라갈 수 없는 방식으로 참을성이 있다.",
+      "추위와 어둠이 없었더라면, 마사다에서 발견된 대추야자 씨앗은 수백 년 전에 썩었을 것이다.",
+      "그 씨앗은 약 2천 년 동안 묻혀 있었던 것으로 여겨진다.",
+      "그것은 이제 살아 있는 나무를 길러 낸 씨앗 가운데 가장 오래된 것이다.",
+      "2005년이 되어서야 비로소 누군가가 실제로 그것을 심어 보았다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "비인칭 독립분사구문",
+       "ox": "O",
+       "expl": "Considering ~은 '~을 고려하면'의 뜻으로 굳어진 분사구문이다.",
+       "wrong_ex": "Considered"
+      },
+      {
+       "n": 2,
+       "point": "가정법 과거완료 (if 대용)",
+       "ox": "X",
+       "expl": "주절이 would have p.p.이므로 Had it not been for로 써야 한다.",
+       "fix": "Had it not been for"
+      },
+      {
+       "n": 3,
+       "point": "부정사의 완료 수동형",
+       "ox": "O",
+       "expl": "본동사보다 앞선 일이고 묻히는 대상이므로 to have been p.p.",
+       "wrong_ex": "to be buried"
+      },
+      {
+       "n": 4,
+       "point": "최상급 + 관계사",
+       "ox": "O",
+       "expl": "최상급 뒤의 관계사절에서는 흔히 현재완료를 쓴다.",
+       "wrong_ex": "the oldest seed what has ever produced"
+      },
+      {
+       "n": 5,
+       "point": "It is not until ~ that",
+       "ox": "O",
+       "expl": "'~하고 나서야 비로소 …하다'를 나타내는 강조 구문.",
+       "wrong_ex": "It was until"
+      }
+     ]
+    }
+   ],
+   "id": "실력-13",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 14,
+   "sets": [
+    {
+     "set": 53,
+     "title": "옥상에서 벌을 치다",
+     "passage": [
+      {
+       "t": "There is little point in "
+      },
+      {
+       "t": "keeping",
+       "n": 1
+      },
+      {
+       "t": " bees on a roof if nothing flowers within a kilometre. Not only the parks but also the railway edge "
+      },
+      {
+       "t": "feeds",
+       "n": 2
+      },
+      {
+       "t": " a hive right through August. Many keepers would rather "
+      },
+      {
+       "t": "lose",
+       "n": 3
+      },
+      {
+       "t": " a whole season than treat their colonies with chemicals. City honey is "
+      },
+      {
+       "t": "anything but",
+       "n": 4
+      },
+      {
+       "t": " uniform: each block tastes of its own weeds. Some councils handed out free "
+      },
+      {
+       "t": "equipments",
+       "n": 5
+      },
+      {
+       "t": " to anyone who registered a hive."
+      }
+     ],
+     "tr": [
+      "1킬로미터 안에 꽃 피는 것이 없다면 옥상에서 벌을 치는 일은 별 의미가 없다.",
+      "공원뿐 아니라 철길 가장자리도 8월 내내 벌통을 먹여 살린다.",
+      "많은 양봉가들은 약품으로 벌집을 처리하느니 차라리 한 철을 통째로 잃는 쪽을 택한다.",
+      "도시의 꿀은 결코 균일하지 않다. 구역마다 그곳의 잡초 맛이 난다.",
+      "일부 지자체는 벌통을 등록한 사람 누구에게나 장비를 무료로 나눠 주었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "There is no[little] point in + 동명사",
+       "ox": "O",
+       "expl": "전치사 in의 목적어 자리이므로 동명사 keeping.",
+       "wrong_ex": "to keep"
+      },
+      {
+       "n": 2,
+       "point": "not only A but also B 수일치",
+       "ox": "O",
+       "expl": "「not only A but also B」는 B에 동사를 맞춘다. edge가 단수이므로 feeds.",
+       "wrong_ex": "feed"
+      },
+      {
+       "n": 3,
+       "point": "would rather A than B",
+       "ox": "O",
+       "expl": "「would rather + 동사원형 + than + 동사원형」 구조.",
+       "wrong_ex": "to lose"
+      },
+      {
+       "n": 4,
+       "point": "anything but",
+       "ox": "O",
+       "expl": "'결코 ~이 아닌'의 뜻. nothing but은 '단지 ~일 뿐'이라 뜻이 반대다.",
+       "wrong_ex": "nothing but"
+      },
+      {
+       "n": 5,
+       "point": "불가산명사",
+       "ox": "X",
+       "expl": "equipment는 불가산명사이므로 복수형으로 쓰지 않는다.",
+       "fix": "equipment"
+      }
+     ]
+    },
+    {
+     "set": 54,
+     "title": "색에 이름을 붙이는 순서",
+     "passage": [
+      {
+       "t": "How many colour words do you think",
+       "n": 1
+      },
+      {
+       "t": " a language really needs? "
+      },
+      {
+       "t": "Whether",
+       "n": 2
+      },
+      {
+       "t": " a culture names blue separately from green depends on its history, not on its eyes. We can watch a child "
+      },
+      {
+       "t": "to sort",
+       "n": 3
+      },
+      {
+       "t": " colour chips long before she learns any of the words. Black and white "
+      },
+      {
+       "t": "always come",
+       "n": 4
+      },
+      {
+       "t": " first, then red, then green or yellow. Researchers try to question speakers "
+      },
+      {
+       "t": "as carefully as possible",
+       "n": 5
+      },
+      {
+       "t": ", because a single question can plant a word."
+      }
+     ],
+     "tr": [
+      "한 언어에 정말로 필요한 색 이름은 몇 개라고 생각하는가?",
+      "어떤 문화가 파랑을 초록과 따로 부르는지는 그 문화의 역사에 달려 있지, 눈에 달려 있지 않다.",
+      "아이가 색 이름을 하나도 배우기 훨씬 전부터 색칠판을 분류하는 모습을 볼 수 있다.",
+      "검정과 하양이 늘 먼저 오고, 그다음이 빨강, 그다음이 초록이나 노랑이다.",
+      "연구자들은 가능한 한 조심스럽게 화자에게 질문하려 하는데, 질문 하나가 없던 단어를 심을 수도 있기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "의문사 + do you think 어순",
+       "ox": "O",
+       "expl": "think류 동사가 삽입되면 의문사를 문두에 두고 뒤는 평서문 어순으로 쓴다.",
+       "wrong_ex": "Do you think how many colour words"
+      },
+      {
+       "n": 2,
+       "point": "명사절 접속사 whether",
+       "ox": "O",
+       "expl": "'~인지 아닌지'의 뜻으로 주어 자리에 오는 명사절을 이끈다.",
+       "wrong_ex": "If"
+      },
+      {
+       "n": 3,
+       "point": "지각동사의 목적격보어",
+       "ox": "X",
+       "expl": "watch는 목적격보어로 원형부정사나 현재분사를 취하므로 sort.",
+       "fix": "sort"
+      },
+      {
+       "n": 4,
+       "point": "빈도부사의 위치",
+       "ox": "O",
+       "expl": "빈도부사 always는 일반동사 앞에 온다.",
+       "wrong_ex": "come always"
+      },
+      {
+       "n": 5,
+       "point": "as ~ as possible",
+       "ox": "O",
+       "expl": "'가능한 한 ~하게'를 나타내는 원급 관용 표현.",
+       "wrong_ex": "as careful as possible"
+      }
+     ]
+    },
+    {
+     "set": 55,
+     "title": "횡단보도의 초록불은 몇 초여야 하나",
+     "passage": [
+      {
+       "t": "Pedestrians and drivers rarely see "
+      },
+      {
+       "t": "each other",
+       "n": 1
+      },
+      {
+       "t": " clearly at a wide crossing. Planners "
+      },
+      {
+       "t": "need not have shortened",
+       "n": 2
+      },
+      {
+       "t": " the walk signal; the delay to traffic turned out to be under nine seconds. Of the two options, the longer green is "
+      },
+      {
+       "t": "the safer",
+       "n": 3
+      },
+      {
+       "t": ", though it looks wasteful on paper. It took campaigners three years to get the city "
+      },
+      {
+       "t": "change",
+       "n": 4
+      },
+      {
+       "t": " the timing. "
+      },
+      {
+       "t": "Provided that",
+       "n": 5
+      },
+      {
+       "t": " the count starts at the kerb, older walkers finish with time to spare."
+      }
+     ],
+     "tr": [
+      "넓은 횡단보도에서 보행자와 운전자는 서로를 또렷이 보는 일이 드물다.",
+      "설계자들은 보행 신호를 줄일 필요가 없었는데도 줄였다. 차량이 지체되는 시간은 9초도 되지 않는 것으로 드러났다.",
+      "두 방안 중에서는 초록불이 긴 쪽이 더 안전하다. 서류상으로는 낭비처럼 보이지만 말이다.",
+      "시민 단체가 시로 하여금 신호 시간을 바꾸게 하는 데 3년이 걸렸다.",
+      "카운트가 연석에서 시작되기만 한다면, 나이 든 보행자도 여유 있게 건널 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "each other",
+       "ox": "O",
+       "expl": "둘 사이의 '서로'를 나타내므로 each other. 셋 이상은 one another를 쓴다.",
+       "wrong_ex": "the other"
+      },
+      {
+       "n": 2,
+       "point": "need not have p.p.",
+       "ox": "O",
+       "expl": "'~할 필요가 없었는데 했다'는 need not have p.p.",
+       "wrong_ex": "need not shorten"
+      },
+      {
+       "n": 3,
+       "point": "the + 비교급 of the two",
+       "ox": "O",
+       "expl": "둘 중 더 ~한 쪽을 가리킬 때는 비교급 앞에 the를 붙인다.",
+       "wrong_ex": "safer"
+      },
+      {
+       "n": 4,
+       "point": "get + 목적어 + to부정사",
+       "ox": "X",
+       "expl": "get은 목적격보어로 to부정사를 취하므로 to change.",
+       "fix": "to change"
+      },
+      {
+       "n": 5,
+       "point": "접속사 provided that",
+       "ox": "O",
+       "expl": "'~라면'의 뜻으로 조건의 부사절을 이끈다.",
+       "wrong_ex": "Providing of"
+      }
+     ]
+    },
+    {
+     "set": 56,
+     "title": "손으로 쓴 편지가 돌아오다",
+     "passage": [
+      {
+       "t": "You "
+      },
+      {
+       "t": "may as well to write",
+       "n": 1
+      },
+      {
+       "t": " a short note by hand as send another message that nobody reads. Some schools "
+      },
+      {
+       "t": "make it a rule to",
+       "n": 2
+      },
+      {
+       "t": " post one letter every term. "
+      },
+      {
+       "t": "Unable",
+       "n": 3
+      },
+      {
+       "t": " to reach a friend online, one student wrote to an old address and got three pages back. "
+      },
+      {
+       "t": "None",
+       "n": 4
+      },
+      {
+       "t": " of the letters in that exchange took less than four days to arrive. "
+      },
+      {
+       "t": "Were it not for",
+       "n": 5
+      },
+      {
+       "t": " the waiting, the pleasure of opening one would be far smaller."
+      }
+     ],
+     "tr": [
+      "아무도 읽지 않는 메시지를 또 하나 보내느니 짧은 쪽지를 손으로 쓰는 편이 낫다.",
+      "어떤 학교는 학기마다 편지 한 통을 부치는 것을 원칙으로 삼는다.",
+      "온라인으로 친구에게 닿을 수 없었던 한 학생은 옛 주소로 편지를 썼고 세 장짜리 답장을 받았다.",
+      "그 편지들 가운데 나흘 안에 도착한 것은 하나도 없었다.",
+      "기다림이 없다면, 편지를 뜯어 보는 즐거움은 훨씬 작을 것이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "may as well A as B",
+       "ox": "X",
+       "expl": "「may as well + 동사원형 + as + 동사원형」이므로 may as well write.",
+       "fix": "may as well write"
+      },
+      {
+       "n": 2,
+       "point": "make it a rule to부정사",
+       "ox": "O",
+       "expl": "'~하는 것을 원칙으로 삼다'라는 관용 표현. it은 가목적어.",
+       "wrong_ex": "make it a rule posting"
+      },
+      {
+       "n": 3,
+       "point": "Being 생략 분사구문",
+       "ox": "O",
+       "expl": "Being unable to ~에서 Being이 생략된 형태.",
+       "wrong_ex": "Unabling"
+      },
+      {
+       "n": 4,
+       "point": "부정대명사 None of",
+       "ox": "O",
+       "expl": "'~중 아무것도 …않다'를 나타내는 None of.",
+       "wrong_ex": "No one"
+      },
+      {
+       "n": 5,
+       "point": "가정법 도치 (Were it not for)",
+       "ox": "O",
+       "expl": "If it were not for에서 if가 생략되어 도치된 형태.",
+       "wrong_ex": "Was it not for"
+      }
+     ]
+    }
+   ],
+   "id": "실력-14",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 15,
+   "sets": [
+    {
+     "set": 57,
+     "title": "연체료를 없앤 도서관",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "As is often the case",
+       "n": 1
+      },
+      {
+       "t": " with old rules, nobody could remember why the fine existed. Library fines "
+      },
+      {
+       "t": "raised",
+       "n": 2
+      },
+      {
+       "t": " slowly over several decades until one overdue novel cost more than a meal. Some cities now "
+      },
+      {
+       "t": "provide",
+       "n": 3
+      },
+      {
+       "t": " borrowers with a grace week instead of a charge. "
+      },
+      {
+       "t": "Few",
+       "n": 4
+      },
+      {
+       "t": " libraries that dropped the fine saw their shelves empty; most saw returns rise. The policy "
+      },
+      {
+       "t": "is said to have started",
+       "n": 5
+      },
+      {
+       "t": " in a small town in Ohio."
+      }
+     ],
+     "tr": [
+      "오래된 규칙이 흔히 그렇듯, 그 연체료가 왜 생겼는지는 아무도 기억하지 못했다.",
+      "도서관 연체료는 수십 년에 걸쳐 조금씩 올라, 소설 한 권을 늦게 반납하면 한 끼 밥값보다 비싸졌다.",
+      "이제 어떤 도시들은 벌금 대신 일주일의 유예 기간을 이용자에게 준다.",
+      "연체료를 없앴다고 해서 서가가 비어 버린 도서관은 거의 없었다. 오히려 반납이 늘어난 곳이 대부분이었다.",
+      "이 정책은 오하이오의 작은 마을에서 시작되었다고 한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 as (절 전체 선행사)",
+       "ox": "O",
+       "expl": "뒤에 오는 절 전체를 선행사로 받는 as. 「As is often the case with ~」는 굳어진 표현이다.",
+       "wrong_ex": "Which is often the case"
+      },
+      {
+       "n": 2,
+       "point": "자동사 rise / 타동사 raise",
+       "ox": "X",
+       "expl": "목적어가 없고 '오르다'라는 뜻이므로 자동사 rose를 쓴다.",
+       "fix": "rose"
+      },
+      {
+       "n": 3,
+       "point": "provide A with B",
+       "ox": "O",
+       "expl": "「provide + 사람 + with + 사물」 구조.",
+       "wrong_ex": "provide with"
+      },
+      {
+       "n": 4,
+       "point": "수량형용사 few",
+       "ox": "O",
+       "expl": "'거의 없다'는 부정의 의미이므로 few. a few는 '몇몇 있다'로 뜻이반대다.",
+       "wrong_ex": "A few"
+      },
+      {
+       "n": 5,
+       "point": "be said to have p.p.",
+       "ox": "O",
+       "expl": "'~했다고 한다'로 본동사보다 앞선 일을 나타낸다.",
+       "wrong_ex": "is said to start"
+      }
+     ]
+    },
+    {
+     "set": 58,
+     "title": "등대지기가 사라진 뒤",
+     "passage": [
+      {
+       "t": "When a ship struck the rocks, the weather was rarely the only thing "
+      },
+      {
+       "t": "to blame",
+       "n": 1
+      },
+      {
+       "t": ". A lens that turns all night "
+      },
+      {
+       "t": "needs cleaning",
+       "n": 2
+      },
+      {
+       "t": " every morning, because salt eats into the brass. No two lighthouses "
+      },
+      {
+       "t": "resemble to",
+       "n": 3
+      },
+      {
+       "t": " each other; the pattern of flashes works as a name. "
+      },
+      {
+       "t": "Wherever",
+       "n": 4
+      },
+      {
+       "t": " the last keeper went, a machine now counts the seconds in his place. The light "
+      },
+      {
+       "t": "cannot have failed",
+       "n": 5
+      },
+      {
+       "t": " on that particular night, because three other ships saw it clearly."
+      }
+     ],
+     "tr": [
+      "배가 암초에 부딪혔을 때, 책임이 있는 것이 날씨뿐인 경우는 드물었다.",
+      "밤새 도는 렌즈는 아침마다 닦아 주어야 하는데, 소금이 놋쇠를 파고들기 때문이다.",
+      "서로 닮은 등대는 하나도 없다. 불빛이 깜박이는 패턴이 곧 이름 노릇을 한다.",
+      "마지막 등대지기가 어디로 떠났든, 이제는 기계가 그를 대신해 초를 센다.",
+      "그날 밤 불빛이 꺼졌을 리는 없다. 다른 배 세 척이 그것을 또렷이 보았기 때문이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "be to blame",
+       "ox": "O",
+       "expl": "'~에 책임이 있다'는 능동형 to blame으로 쓴다. 수동형으로 바꾸지않는다.",
+       "wrong_ex": "to be blamed"
+      },
+      {
+       "n": 2,
+       "point": "need + 동명사 (수동의미)",
+       "ox": "O",
+       "expl": "「need + 동명사」는 '~될 필요가 있다'는 수동의 뜻을 지닌다.",
+       "wrong_ex": "needs to clean"
+      },
+      {
+       "n": 3,
+       "point": "타동사 resemble",
+       "ox": "X",
+       "expl": "resemble은 타동사이므로 전치사 to 없이 목적어를 바로 취한다.",
+       "fix": "resemble"
+      },
+      {
+       "n": 4,
+       "point": "복합관계부사 wherever",
+       "ox": "O",
+       "expl": "'어디로 ~하든'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "Where"
+      },
+      {
+       "n": 5,
+       "point": "cannot have p.p.",
+       "ox": "O",
+       "expl": "'~했을 리가 없다'는 과거 사실에 대한 강한 부정의 추측.",
+       "wrong_ex": "cannot fail"
+      }
+     ]
+    },
+    {
+     "set": 59,
+     "title": "겨울 바다에서 걷어 올리는 것",
+     "passage": [
+      {
+       "t": "While drying",
+       "n": 1
+      },
+      {
+       "t": " in the winter wind, the sheets turn from red to black. The crop is "
+      },
+      {
+       "t": "not so much farmed as",
+       "n": 2
+      },
+      {
+       "t": " gathered, since the spores settle on the nets by themselves. Farmers hang "
+      },
+      {
+       "t": "whatever nets",
+       "n": 3
+      },
+      {
+       "t": " the tide allows, then wait for the water to cool. Dried sheets smell "
+      },
+      {
+       "t": "sweetly",
+       "n": 4
+      },
+      {
+       "t": " of the sea and snap cleanly when you fold them. Four centuries of careful selection made the seaweed "
+      },
+      {
+       "t": "what it is",
+       "n": 5
+      },
+      {
+       "t": " today."
+      }
+     ],
+     "tr": [
+      "겨울바람에 마르는 동안 김은 붉은색에서 검은색으로 변한다.",
+      "이 작물은 재배된다기보다 거두어진다고 해야 한다. 포자가 스스로 그물에 내려앉기 때문이다.",
+      "어민들은 물때가 허락하는 그물이면 무엇이든 걸어 두고, 물이 식기를 기다린다.",
+      "마른 김에서는 바다의 향긋한 냄새가 나고, 접으면 깔끔하게 부러진다.",
+      "400년에 걸친 세심한 선별이 이 해조류를 오늘날의 모습으로 만들었다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "부사절의 축약",
+       "ox": "O",
+       "expl": "「접속사 + 분사」로 부사절을 줄인 형태. 주어가 같아 생략되었다.",
+       "wrong_ex": "While dried"
+      },
+      {
+       "n": 2,
+       "point": "not so much A as B",
+       "ox": "O",
+       "expl": "'A라기보다는 B인'을 나타내는 비교 관용 표현.",
+       "wrong_ex": "not so much farmed than"
+      },
+      {
+       "n": 3,
+       "point": "복합관계형용사 whatever",
+       "ox": "O",
+       "expl": "뒤의 명사 nets를 수식하며 명사절을 이끄는 복합관계형용사.",
+       "wrong_ex": "what nets"
+      },
+      {
+       "n": 4,
+       "point": "감각동사 + 형용사",
+       "ox": "X",
+       "expl": "smell은 보어로 형용사를 취하므로 sweet으로 써야 한다.",
+       "fix": "sweet"
+      },
+      {
+       "n": 5,
+       "point": "what + 주어 + be",
+       "ox": "O",
+       "expl": "'현재의 모습'을 뜻하는 관용 표현 what it is.",
+       "wrong_ex": "that it is"
+      }
+     ]
+    },
+    {
+     "set": 60,
+     "title": "너무 안전한 놀이터",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "No matter what",
+       "n": 1
+      },
+      {
+       "t": " the surface is made of, children will find a way to fall on it. "
+      },
+      {
+       "t": "It appears that",
+       "n": 2
+      },
+      {
+       "t": " the safest playgrounds produce the most broken arms, because nobody learns to judge height. It was careless "
+      },
+      {
+       "t": "of",
+       "n": 3
+      },
+      {
+       "t": " the designers to remove every slope from the site. The old rule about soft landings has become a rule "
+      },
+      {
+       "t": "hard to defend",
+       "n": 4
+      },
+      {
+       "t": ". On the new playground "
+      },
+      {
+       "t": "stands",
+       "n": 5
+      },
+      {
+       "t": " three tall towers with no steps at all."
+      }
+     ],
+     "tr": [
+      "바닥이 무엇으로 만들어졌든, 아이들은 그 위에서 넘어질 방법을 찾아낸다.",
+      "가장 안전한 놀이터에서 팔이 가장 많이 부러지는 것으로 보인다. 아무도 높이를 가늠하는 법을 배우지 못하기 때문이다.",
+      "부지에서 경사를 전부 걷어 낸 것은 설계자들의 부주의였다.",
+      "푹신한 착지에 관한 옛 규칙은 이제 옹호하기 어려운 규칙이 되었다.",
+      "새 놀이터에는 계단이 전혀 없는 높은 탑 세 개가 서 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "복합관계대명사 no matter what",
+       "ox": "O",
+       "expl": "'무엇이 ~이든'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "No matter how"
+      },
+      {
+       "n": 2,
+       "point": "It appears that",
+       "ox": "O",
+       "expl": "'~인 것으로 보인다'를 나타내는 가주어 구문.",
+       "wrong_ex": "It appears what"
+      },
+      {
+       "n": 3,
+       "point": "부정사의 의미상 주어 of",
+       "ox": "O",
+       "expl": "careless처럼 사람의 성질을 나타내는 형용사 뒤에는 of를 쓴다.",
+       "wrong_ex": "for"
+      },
+      {
+       "n": 4,
+       "point": "형용사 + to부정사",
+       "ox": "O",
+       "expl": "「형용사 + to부정사」로 앞의 명사를 수식한다. defend의 목적어가 rule이다.",
+       "wrong_ex": "hard to be defended"
+      },
+      {
+       "n": 5,
+       "point": "장소부사구 도치의 수일치",
+       "ox": "X",
+       "expl": "도치된 문장의 주어가 three tall towers(복수)이므로 stand.",
+       "fix": "stand"
+      }
+     ]
+    }
+   ],
+   "id": "실력-15",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 16,
+   "sets": [
+    {
+     "set": 61,
+     "title": "세상을 바꾼 쇠상자",
+     "passage": [
+      {
+       "t": "A shipping container is "
+      },
+      {
+       "t": "capable of surviving",
+       "n": 1
+      },
+      {
+       "t": " twenty winters at sea with nothing but paint to protect it. Before 1956 there was nothing "
+      },
+      {
+       "t": "to be done",
+       "n": 2
+      },
+      {
+       "t": " about the days a ship wasted sitting in port. "
+      },
+      {
+       "t": "It was in Newark that",
+       "n": 3
+      },
+      {
+       "t": " a trucker first lifted a whole trailer onto a deck. "
+      },
+      {
+       "t": "Whenever",
+       "n": 4
+      },
+      {
+       "t": " a port refused the standard size, its traffic moved elsewhere within a decade. It was "
+      },
+      {
+       "t": "such simple a box",
+       "n": 5
+      },
+      {
+       "t": " that nobody thought it worth a patent."
+      }
+     ],
+     "tr": [
+      "컨테이너는 페인트 말고는 보호 장치가 없는데도 바다에서 스무 번의 겨울을 견뎌 낼 수 있다.",
+      "1956년 이전에는 배가 항구에 멈춰 서서 허비하는 날들에 대해 손쓸 방법이 없었다.",
+      "한 트럭 운전사가 트레일러를 통째로 갑판에 올린 곳은 바로 뉴어크였다.",
+      "표준 규격을 거부한 항구는 어디든 10년 안에 물동량이 다른 곳으로 옮겨 갔다.",
+      "그것은 워낙 단순한 상자여서 아무도 특허를 낼 만하다고 여기지 않았다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "형용사 + 전치사 + 동명사",
+       "ox": "O",
+       "expl": "「be capable of + 동명사」 구조. 전치사 of 뒤에는 동명사가 온다.",
+       "wrong_ex": "capable to survive"
+      },
+      {
+       "n": 2,
+       "point": "부정사의 수동형",
+       "ox": "O",
+       "expl": "nothing이 행해지는 대상이므로 to be p.p.",
+       "wrong_ex": "to do"
+      },
+      {
+       "n": 3,
+       "point": "It ~ that 강조구문 (부사구)",
+       "ox": "O",
+       "expl": "부사구 in Newark를 강조하는 It ~ that 구문.",
+       "wrong_ex": "It was in Newark which"
+      },
+      {
+       "n": 4,
+       "point": "복합관계부사 whenever",
+       "ox": "O",
+       "expl": "'~할 때마다'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "Whatever"
+      },
+      {
+       "n": 5,
+       "point": "so/such 어순",
+       "ox": "X",
+       "expl": "「so + 형용사 + a + 명사」 또는 「such + a + 형용사 + 명사」이므로 so simple a box.",
+       "fix": "so simple a box"
+      }
+     ]
+    },
+    {
+     "set": 62,
+     "title": "개의 코가 하는 일",
+     "passage": [
+      {
+       "t": "A dog's nose "
+      },
+      {
+       "t": "remains useful",
+       "n": 1
+      },
+      {
+       "t": " long after its eyes begin to fail. The receptors are "
+      },
+      {
+       "t": "sensitive enough",
+       "n": 2
+      },
+      {
+       "t": " to find a single drop in an Olympic pool. Handlers stand back and watch the animal decide "
+      },
+      {
+       "t": "which sample holds",
+       "n": 3
+      },
+      {
+       "t": " the disease. Trainers cannot "
+      },
+      {
+       "t": "explain the dog the task",
+       "n": 4
+      },
+      {
+       "t": ", so they reward the moment of stillness instead. "
+      },
+      {
+       "t": "When trained",
+       "n": 5
+      },
+      {
+       "t": " young, a detection dog works for about eight years."
+      }
+     ],
+     "tr": [
+      "개의 코는 눈이 나빠지기 시작한 뒤로도 한참 동안 쓸모를 유지한다.",
+      "그 수용체는 올림픽 규격 수영장에서 한 방울을 찾아낼 만큼 예민하다.",
+      "조련사는 뒤로 물러서서 어느 시료에 병이 들어 있는지를 개가 판단하는 것을 지켜본다.",
+      "조련사는 개에게 과제를 설명해 줄 수 없기 때문에, 대신 개가 가만히 멈추는 순간에 보상을 준다.",
+      "어릴 때 훈련받으면 탐지견은 약 8년 동안 일한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "remain + 형용사",
+       "ox": "O",
+       "expl": "remain은 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "remains usefully"
+      },
+      {
+       "n": 2,
+       "point": "enough의 위치",
+       "ox": "O",
+       "expl": "enough가 형용사를 수식할 때는 형용사 뒤에 온다.",
+       "wrong_ex": "enough sensitive"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 (의문사가 주어)",
+       "ox": "O",
+       "expl": "의문사가 주어이면 「의문사 + 동사」 어순을 그대로 쓴다.",
+       "wrong_ex": "which sample does hold"
+      },
+      {
+       "n": 4,
+       "point": "4형식이 불가능한 동사",
+       "ox": "X",
+       "expl": "explain은 간접목적어를 바로 취하지 못하므로 explain the task to the dog.",
+       "fix": "explain the task to the dog"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (접속사 남김)",
+       "ox": "O",
+       "expl": "When (they are) trained에서 주어와 be동사가 생략된 형태.",
+       "wrong_ex": "When training"
+      }
+     ]
+    },
+    {
+     "set": 63,
+     "title": "덮었던 물길을 다시 열다",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "It is now accepted that",
+       "n": 1
+      },
+      {
+       "t": " a buried stream costs a city more than an open one ever did. Seoul removed an elevated road in 2003, a project "
+      },
+      {
+       "t": "during which",
+       "n": 2
+      },
+      {
+       "t": " traffic fell instead of rising. Two smaller streams, both of which "
+      },
+      {
+       "t": "flows",
+       "n": 3
+      },
+      {
+       "t": " into the same river, were opened to the sky last year. "
+      },
+      {
+       "t": "Only after",
+       "n": 4
+      },
+      {
+       "t": " the water returned did the summer temperature drop by three degrees. Planners now keep the banks rough "
+      },
+      {
+       "t": "so as not to",
+       "n": 5
+      },
+      {
+       "t": " lose the insects a second time."
+      }
+     ],
+     "tr": [
+      "덮어 버린 하천이 열린 하천보다 도시에 더 큰 비용을 치르게 한다는 점은 이제 받아들여진다.",
+      "서울은 2003년에 고가도로를 걷어 냈는데, 그 사업이 진행되는 동안 교통량은 늘기는커녕 줄었다.",
+      "같은 강으로 흘러드는 더 작은 하천 두 곳이 지난해 하늘을 향해 열렸다.",
+      "물이 돌아오고 나서야 비로소 여름 기온이 3도 떨어졌다.",
+      "이제 설계자들은 곤충을 다시 잃지 않기 위해 둔치를 거칠게 둔다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "가주어 it + that절",
+       "ox": "O",
+       "expl": "진주어인 that절을 대신하는 가주어 it 구문.",
+       "wrong_ex": "It is now accepted what"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "during the project의 관계를 살린 during which. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "during that"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사의 수일치",
+       "ox": "X",
+       "expl": "both of which의 선행사가 Two smaller streams(복수)이므로 flow.",
+       "fix": "flow"
+      },
+      {
+       "n": 4,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "the summer temperature dropped"
+      },
+      {
+       "n": 5,
+       "point": "so as not to + 동사원형",
+       "ox": "O",
+       "expl": "목적의 so as to를 부정할 때는 not을 to 앞에 둔다.",
+       "wrong_ex": "so as to not"
+      }
+     ]
+    },
+    {
+     "set": 64,
+     "title": "자막을 켜고 자란 아이들",
+     "passage": [
+      {
+       "t": "Children who watch subtitled cartoons are "
+      },
+      {
+       "t": "likely to read",
+       "n": 1
+      },
+      {
+       "t": " faster by the age of ten. India tried this in the 1990s, a country "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " literacy rate then rose among viewers of a single song programme. "
+      },
+      {
+       "t": "As",
+       "n": 3
+      },
+      {
+       "t": " the words move along with the music, even a weak reader follows them. Families may choose "
+      },
+      {
+       "t": "whichever",
+       "n": 4
+      },
+      {
+       "t": " channel they like, since the subtitles are in the same language as the speech. "
+      },
+      {
+       "t": "Though small",
+       "n": 5
+      },
+      {
+       "t": ", the gain appears in every study that has measured it."
+      }
+     ],
+     "tr": [
+      "자막이 있는 만화를 보는 아이들은 열 살 무렵이면 더 빠르게 읽을 가능성이 높다.",
+      "인도는 1990년대에 이것을 시도했는데, 노래 프로그램 하나를 본 시청자들 사이에서 문해율이 올라간 나라다.",
+      "글자가 음악에 맞춰 움직이기 때문에, 읽기가 서툰 사람도 그것을 따라간다.",
+      "자막이 말소리와 같은 언어로 되어 있으므로, 가족들은 어느 채널이든 원하는 것을 고르면 된다.",
+      "그 효과는 작지만, 그것을 측정한 모든 연구에서 나타난다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "be likely to부정사",
+       "ox": "O",
+       "expl": "'~할 가능성이 높다'는 be likely + to부정사.",
+       "wrong_ex": "likely reading"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "X",
+       "expl": "a country와 literacy rate가 소유 관계이므로 whose로 써야 한다.",
+       "fix": "whose"
+      },
+      {
+       "n": 3,
+       "point": "접속사 as (비례)",
+       "ox": "O",
+       "expl": "'~함에 따라'의 뜻으로 비례를 나타내는 접속사 as.",
+       "wrong_ex": "As of"
+      },
+      {
+       "n": 4,
+       "point": "복합관계형용사 whichever",
+       "ox": "O",
+       "expl": "뒤의 명사 channel을 수식하며 '어느 ~이든'을 뜻한다.",
+       "wrong_ex": "whoever"
+      },
+      {
+       "n": 5,
+       "point": "부사절의 축약 (형용사만 남김)",
+       "ox": "O",
+       "expl": "Though it is small에서 주어와 be동사가 생략된 형태.",
+       "wrong_ex": "Though smally"
+      }
+     ]
+    }
+   ],
+   "id": "실력-16",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 17,
+   "sets": [
+    {
+     "set": 65,
+     "title": "지진보다 먼저 도착하는 경보",
+     "passage": [
+      {
+       "t": "In 2011 the alarm "
+      },
+      {
+       "t": "was heard ring",
+       "n": 1
+      },
+      {
+       "t": " across northern Japan a full minute before the shaking began. "
+      },
+      {
+       "t": "The moment",
+       "n": 2
+      },
+      {
+       "t": " a sensor near the epicentre feels the first fast wave, it sends a signal ahead of the slow one. A minute is "
+      },
+      {
+       "t": "too short for most people to leave",
+       "n": 3
+      },
+      {
+       "t": " a building, but long enough to stop a train. The warning is "
+      },
+      {
+       "t": "such a simple idea as to",
+       "n": 4
+      },
+      {
+       "t": " seem obvious now. The system cannot predict a quake; it merely outruns the wave "
+      },
+      {
+       "t": "itself",
+       "n": 5
+      },
+      {
+       "t": "."
+      }
+     ],
+     "tr": [
+      "2011년, 흔들림이 시작되기 꼬박 1분 전에 일본 북부 전역에서 경보음이 울리는 것이 들렸다.",
+      "진앙 근처의 감지기가 먼저 오는 빠른 파동을 느끼는 순간, 그것은 느린 파동보다 앞서 신호를 보낸다.",
+      "1분은 대부분의 사람이 건물을 빠져나가기에는 너무 짧지만, 열차를 세우기에는 충분히 길다.",
+      "이 경보는 지금 보면 당연해 보일 만큼 단순한 발상이다.",
+      "이 체계는 지진을 예측하지 못한다. 다만 파동 그 자체보다 빨리 달릴 뿐이다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "지각동사의 수동태",
+       "ox": "X",
+       "expl": "hear의 수동태에서는 생략되었던 to가 살아나므로 was heard to ring.",
+       "fix": "was heard to ring"
+      },
+      {
+       "n": 2,
+       "point": "접속사 the moment",
+       "ox": "O",
+       "expl": "'~하자마자'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "The moment when"
+      },
+      {
+       "n": 3,
+       "point": "too ~ for A to부정사",
+       "ox": "O",
+       "expl": "「too + 형용사 + for 목적격 + to부정사」로 의미상 주어를 밝힌형태.",
+       "wrong_ex": "too short for most people leaving"
+      },
+      {
+       "n": 4,
+       "point": "such ~ as to부정사",
+       "ox": "O",
+       "expl": "「such + a + 형용사 + 명사 + as to부정사」로 정도와 결과를 나타낸다.",
+       "wrong_ex": "such a simple idea as"
+      },
+      {
+       "n": 5,
+       "point": "강조 재귀대명사",
+       "ox": "O",
+       "expl": "앞의 명사 the wave를 강조하는 재귀대명사. 생략해도 문장이 성립한다.",
+       "wrong_ex": "it"
+      }
+     ]
+    },
+    {
+     "set": 66,
+     "title": "불로 막는 산불",
+     "passage": [
+      {
+       "t": "Neither the rain nor the winter storms "
+      },
+      {
+       "t": "clear",
+       "n": 1
+      },
+      {
+       "t": " the dead wood from a dry forest. A pine wood "
+      },
+      {
+       "t": "the floor of which",
+       "n": 2
+      },
+      {
+       "t": " is buried under years of needles will burn at a temperature nothing survives. Controlled burning is "
+      },
+      {
+       "t": "the only tool that",
+       "n": 3
+      },
+      {
+       "t": " reliably lowers that risk. Yet one escaped flame can grow into a fire ten times "
+      },
+      {
+       "t": "the size than",
+       "n": 4
+      },
+      {
+       "t": " the town it threatens. "
+      },
+      {
+       "t": "What is worse",
+       "n": 5
+      },
+      {
+       "t": ", the public remembers the escapes and forgets the thousands of quiet burns."
+      }
+     ],
+     "tr": [
+      "비도 겨울 폭풍도 마른 숲에서 죽은 나무를 치워 주지는 않는다.",
+      "바닥이 수년치 솔잎에 덮인 소나무 숲은 그 무엇도 살아남지 못할 온도로 타오른다.",
+      "통제된 소각은 그 위험을 확실히 낮추는 유일한 수단이다.",
+      "그러나 새어 나간 불씨 하나가 그것이 위협하는 마을의 열 배 크기 화재로 자랄 수도 있다.",
+      "더 나쁜 것은, 사람들이 새어 나간 사례만 기억하고 조용히 끝난 수천 번의 소각은 잊는다는 점이다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "neither A nor B 수일치",
+       "ox": "O",
+       "expl": "「Neither A nor B」는 B에 동사를 맞춘다. storms가 복수이므로 clear.",
+       "wrong_ex": "clears"
+      },
+      {
+       "n": 2,
+       "point": "전치사 + 관계대명사 + 명사",
+       "ox": "O",
+       "expl": "the floor of the wood의 관계를 살린 the floor of which. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which floor"
+      },
+      {
+       "n": 3,
+       "point": "관계대명사 that (the only 뒤)",
+       "ox": "O",
+       "expl": "선행사에 the only가 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the only tool what"
+      },
+      {
+       "n": 4,
+       "point": "배수 + the size of",
+       "ox": "X",
+       "expl": "「배수사 + the size of + 명사」 구조이므로 the size of.",
+       "fix": "the size of"
+      },
+      {
+       "n": 5,
+       "point": "What is worse",
+       "ox": "O",
+       "expl": "'더 나쁜 것은'을 뜻하는 삽입 관용 표현. 관계대명사 what을 쓴다.",
+       "wrong_ex": "That is worse"
+      }
+     ]
+    },
+    {
+     "set": 67,
+     "title": "사라진 단어를 쫓는 사람들",
+     "passage": [
+      {
+       "t": "The editors "
+      },
+      {
+       "t": "had hoped",
+       "n": 1
+      },
+      {
+       "t": " to finish the dictionary within ten years; it took them seventy. One lexicographer speaks about a lost word as if it "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " an old friend who moved away without leaving an address. Every citation "
+      },
+      {
+       "t": "available",
+       "n": 3
+      },
+      {
+       "t": " in print had to be copied by hand onto a paper slip. The whole project rested on the idea "
+      },
+      {
+       "t": "of reading",
+       "n": 4
+      },
+      {
+       "t": " everything ever written in English. "
+      },
+      {
+       "t": "Under no circumstances would",
+       "n": 5
+      },
+      {
+       "t": " a word enter the book without a dated quotation behind it."
+      }
+     ],
+     "tr": [
+      "편집자들은 10년 안에 사전을 끝내기를 바랐지만, 실제로는 70년이 걸렸다.",
+      "한 사전 편찬자는 사라진 단어를 두고 마치 주소도 남기지 않고 떠난 옛 친구인 것처럼 말한다.",
+      "인쇄물에서 구할 수 있는 모든 용례는 손으로 종이쪽지에 옮겨 적어야 했다.",
+      "이 사업 전체는 영어로 쓰인 모든 글을 읽는다는 발상 위에 놓여 있었다.",
+      "날짜가 적힌 인용문이 뒷받침되지 않는 한, 어떤 단어도 결코 이 책에 실릴 수 없었다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "had hoped (이루지못한 소망)",
+       "ox": "O",
+       "expl": "「had + hoped/expected」로 이루어지지 않은 과거의 기대를 나타낸다.",
+       "wrong_ex": "have hoped"
+      },
+      {
+       "n": 2,
+       "point": "as if + 가정법 과거",
+       "ox": "X",
+       "expl": "현재 사실과 반대되는 가정이므로 as if 뒤에 were를 쓴다.",
+       "fix": "were"
+      },
+      {
+       "n": 3,
+       "point": "형용사의 후치 수식",
+       "ox": "O",
+       "expl": "available처럼 뒤에서 명사를 수식하는 형용사. Every citation (that was) available의 형태이다.",
+       "wrong_ex": "availably"
+      },
+      {
+       "n": 4,
+       "point": "동격의 of",
+       "ox": "O",
+       "expl": "the idea의 내용을 설명하는 동격의 of + 동명사.",
+       "wrong_ex": "of read"
+      },
+      {
+       "n": 5,
+       "point": "부정어 도치",
+       "ox": "O",
+       "expl": "Under no circumstances가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a word would enter"
+      }
+     ]
+    },
+    {
+     "set": 68,
+     "title": "빗물을 붙잡아 두는 정원",
+     "passage": [
+      {
+       "t": "Cities now face "
+      },
+      {
+       "t": "a situation where",
+       "n": 1
+      },
+      {
+       "t": " a single storm drops a month of rain within an hour. A rain garden "
+      },
+      {
+       "t": "has the water sit",
+       "n": 2
+      },
+      {
+       "t": " in a shallow bowl instead of racing straight to the drain. About a third of the flow soaks in within a day; "
+      },
+      {
+       "t": "the rest of it",
+       "n": 3
+      },
+      {
+       "t": " evaporates or feeds the plants. The bowls are "
+      },
+      {
+       "t": "so cheap as to",
+       "n": 4
+      },
+      {
+       "t": " look unserious next to a concrete tank. Planners "
+      },
+      {
+       "t": "ought to built",
+       "n": 5
+      },
+      {
+       "t": " them before the flood, not after it."
+      }
+     ],
+     "tr": [
+      "이제 도시들은 폭우 한 번이 한 달치 비를 한 시간 안에 쏟아붓는 상황을 마주한다.",
+      "빗물 정원은 물이 곧장 배수구로 달려가는 대신 얕은 웅덩이에 머무르게 한다.",
+      "흘러드는 물의 약 3분의 1은 하루 안에 스며들고, 나머지는 증발하거나 식물을 먹인다.",
+      "이 웅덩이들은 콘크리트 저류조 옆에 두면 너무 값싸서 진지해 보이지 않을 정도다.",
+      "설계자들은 홍수가 난 뒤가 아니라 그전에 이것을 만들었어야 했다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "추상 선행사 + 관계부사 where",
+       "ox": "O",
+       "expl": "situation처럼 추상적인 '상황'을 선행사로 받아 where를 쓸 수 있다.",
+       "wrong_ex": "a situation which"
+      },
+      {
+       "n": 2,
+       "point": "사역동사 have + 원형부정사",
+       "ox": "O",
+       "expl": "have는 목적격보어로 원형부정사를 취한다.",
+       "wrong_ex": "has the water to sit"
+      },
+      {
+       "n": 3,
+       "point": "the rest of 수일치",
+       "ox": "O",
+       "expl": "「the rest of + 명사」는 뒤의 명사에 동사를 맞춘다. it이 단수이므로 evaporates.",
+       "wrong_ex": "the rest of them"
+      },
+      {
+       "n": 4,
+       "point": "so ~ as to부정사",
+       "ox": "O",
+       "expl": "「so + 형용사 + as to부정사」로 정도와 결과를 나타낸다.",
+       "wrong_ex": "so cheap to"
+      },
+      {
+       "n": 5,
+       "point": "ought to have p.p.",
+       "ox": "X",
+       "expl": "과거에 하지 못한 일에 대한 유감이므로 ought to have built.",
+       "fix": "ought to have built"
+      }
+     ]
+    }
+   ],
+   "id": "실력-17",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 18,
+   "sets": [
+    {
+     "set": 69,
+     "title": "전기 없이 차가워지는 항아리",
+     "passage": [
+      {
+       "t": "With the outer pot is wet",
+       "n": 1
+      },
+      {
+       "t": ", the water in the sand begins to evaporate and the inner pot grows cold. "
+      },
+      {
+       "t": "Every time",
+       "n": 2
+      },
+      {
+       "t": " the sun heats the surface, the evaporation speeds up and the temperature drops further. The device is "
+      },
+      {
+       "t": "supposed to hold",
+       "n": 3
+      },
+      {
+       "t": " vegetables for three weeks instead of three days. "
+      },
+      {
+       "t": "No other cooling method is as cheap as",
+       "n": 4
+      },
+      {
+       "t": " this one in a village without electricity. The pot does the work "
+      },
+      {
+       "t": "by itself",
+       "n": 5
+      },
+      {
+       "t": ", needing only a jug of water each morning."
+      }
+     ],
+     "tr": [
+      "바깥 항아리가 젖어 있으면, 모래 속의 물이 증발하기 시작하고 안쪽 항아리는 차가워진다.",
+      "햇볕이 표면을 데울 때마다 증발이 빨라지고 온도는 더 떨어진다.",
+      "이 장치는 채소를 사흘이 아니라 3주 동안 보관해 주기로 되어 있다.",
+      "전기가 없는 마을에서 이만큼 값싼 냉각 방법은 없다.",
+      "이 항아리는 아침마다 물 한 주전자만 있으면 저절로 일을 해낸다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "with + 목적어 + 분사",
+       "ox": "X",
+       "expl": "「with + 목적어 + 분사/형용사」 구조이므로 동사를 쓸 수 없다. With the outer pot wet으로 고친다.",
+       "fix": "With the outer pot wet"
+      },
+      {
+       "n": 2,
+       "point": "접속사 every time",
+       "ox": "O",
+       "expl": "'~할 때마다'의 뜻으로 시간의 부사절을 이끈다.",
+       "wrong_ex": "Every time when"
+      },
+      {
+       "n": 3,
+       "point": "be supposed to",
+       "ox": "O",
+       "expl": "'~하기로 되어 있다'를 나타내는 be supposed to + 동사원형.",
+       "wrong_ex": "supposed to holding"
+      },
+      {
+       "n": 4,
+       "point": "최상급 대용 (no other ~ as ~ as)",
+       "ox": "O",
+       "expl": "「No other + 단수명사 + as 원급 as」로 최상급의 뜻을 나타낸다.",
+       "wrong_ex": "No other cooling methods are as cheap as"
+      },
+      {
+       "n": 5,
+       "point": "재귀대명사 관용 by itself",
+       "ox": "O",
+       "expl": "'저절로, 혼자 힘으로'를 뜻하는 by itself.",
+       "wrong_ex": "by it"
+      }
+     ]
+    },
+    {
+     "set": 70,
+     "title": "새끼 거북은 왜 바다를 등질까",
+     "passage": [
+      {
+       "t": "Not the moon but the hotel signs "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " what now draw hatchlings away from the water. Ninety percent of the young turtles "
+      },
+      {
+       "t": "die",
+       "n": 2
+      },
+      {
+       "t": " before they ever reach deep water, and artificial light adds to that toll. Conservationists wish they "
+      },
+      {
+       "t": "started",
+       "n": 3
+      },
+      {
+       "t": " the lighting rules a decade earlier than they did. "
+      },
+      {
+       "t": "Do switch off",
+       "n": 4
+      },
+      {
+       "t": " the balcony lamp in nesting season, however small the gesture feels. Turtles are unusual "
+      },
+      {
+       "t": "in that",
+       "n": 5
+      },
+      {
+       "t": " they navigate by the brightest line on the horizon."
+      }
+     ],
+     "tr": [
+      "이제 새끼 거북을 물에서 멀어지게 끌어당기는 것은 달이 아니라 호텔 간판이다.",
+      "어린 거북의 90퍼센트는 깊은 바다에 닿기도 전에 죽는데, 인공조명이 그 희생을 키운다.",
+      "보존 활동가들은 조명 규제를 실제보다 10년 더 일찍 시작했더라면 하고 아쉬워한다.",
+      "산란철에는 발코니 등을 꼭 꺼 달라. 아무리 사소한 행동처럼 느껴지더라도 말이다.",
+      "거북이 특이한 것은 수평선에서 가장 밝은 선을 기준으로 방향을 잡는다는 점에서다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "not A but B 수일치",
+       "ox": "O",
+       "expl": "「not A but B」는 B에 동사를 맞춘다. signs가 복수이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 2,
+       "point": "percent of 수일치",
+       "ox": "O",
+       "expl": "「퍼센트 + of + 명사」는 뒤의 명사에 동사를 맞춘다. turtles가 복수이므로 die.",
+       "wrong_ex": "dies"
+      },
+      {
+       "n": 3,
+       "point": "I wish + 가정법 과거완료",
+       "ox": "X",
+       "expl": "과거에 이루지 못한 일에 대한 아쉬움이므로 had started.",
+       "fix": "had started"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do (명령문)",
+       "ox": "O",
+       "expl": "명령문 앞의 do는 '꼭 ~해라'라는 강조를 나타낸다.",
+       "wrong_ex": "Does switch off"
+      },
+      {
+       "n": 5,
+       "point": "접속사 in that",
+       "ox": "O",
+       "expl": "'~라는 점에서'의 뜻으로 이유·근거의 부사절을 이끈다.",
+       "wrong_ex": "in which"
+      }
+     ]
+    },
+    {
+     "set": 71,
+     "title": "소리를 품은 나무",
+     "passage": [
+      {
+       "t": "Spruce from a cold northern slope is "
+      },
+      {
+       "t": "the finest wood that",
+       "n": 1
+      },
+      {
+       "t": " a maker can hope to find. Slow growth packs the grain tight, and the tone is "
+      },
+      {
+       "t": "all the clearer",
+       "n": 2
+      },
+      {
+       "t": " for it. Trees felled during the Little Ice Age "
+      },
+      {
+       "t": "may have grown",
+       "n": 3
+      },
+      {
+       "t": " more slowly than any that have grown since. The value comes from "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " the rings sit close together, not from the age of the tree. Modern spruce shoots up in warm summers, "
+      },
+      {
+       "t": "whereas",
+       "n": 5
+      },
+      {
+       "t": " the old wood took a century to reach the same width."
+      }
+     ],
+     "tr": [
+      "북쪽 찬 비탈에서 자란 가문비나무는 제작자가 구할 수 있는 가장 좋은 목재다.",
+      "느리게 자라면 나뭇결이 촘촘해지고, 그 덕분에 소리는 그만큼 더 맑아진다.",
+      "소빙기에 베어진 나무들은 그 이후에 자란 어떤 나무보다도 느리게 자랐을지 모른다.",
+      "그 가치는 나무의 나이가 아니라 나이테가 촘촘히 붙어 있다는 사실에서 나온다.",
+      "현대의 가문비나무는 따뜻한 여름에 쑥쑥 자라는 반면, 옛 목재는 같은 굵기에 이르는 데 백 년이 걸렸다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 that (최상급 뒤)",
+       "ox": "O",
+       "expl": "선행사에 최상급이 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the finest wood what"
+      },
+      {
+       "n": 2,
+       "point": "all the + 비교급",
+       "ox": "O",
+       "expl": "「all the + 비교급 + for ~」로 '~때문에 그만큼 더 …한'을 나타낸다.",
+       "wrong_ex": "all the clear"
+      },
+      {
+       "n": 3,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 약한 추측이므로 may have p.p.",
+       "wrong_ex": "may grow"
+      },
+      {
+       "n": 4,
+       "point": "전치사의 목적어",
+       "ox": "X",
+       "expl": "전치사 뒤에 that절을 바로 둘 수 없으므로 from the fact that으로 고친다.",
+       "fix": "the fact that"
+      },
+      {
+       "n": 5,
+       "point": "접속사 whereas",
+       "ox": "O",
+       "expl": "'~인 반면에'의 뜻으로 대조를 나타내는 접속사.",
+       "wrong_ex": "whereas of"
+      }
+     ]
+    },
+    {
+     "set": 72,
+     "title": "지문은 얼마나 확실한가",
+     "passage": [
+      {
+       "t": "The police was",
+       "n": 1
+      },
+      {
+       "t": " slow to admit that a fingerprint match can be wrong. A London burglary in 1902 was "
+      },
+      {
+       "t": "the first case that",
+       "n": 2
+      },
+      {
+       "t": " a British court accepted a print as proof. An examiner may work from "
+      },
+      {
+       "t": "no more than",
+       "n": 3
+      },
+      {
+       "t": " eight clear points of comparison. Two trained experts "
+      },
+      {
+       "t": "hardly ever",
+       "n": 4
+      },
+      {
+       "t": " disagree in public, which hides how often they disagree in private. A famous error in 2004 changed that; "
+      },
+      {
+       "t": "only then did",
+       "n": 5
+      },
+      {
+       "t": " laboratories begin testing their own examiners blind."
+      }
+     ],
+     "tr": [
+      "경찰은 지문 대조가 틀릴 수 있다는 사실을 인정하는 데 더뎠다.",
+      "1902년 런던의 한 절도 사건은 영국 법정이 지문을 증거로 받아들인 첫 사례였다.",
+      "감식관은 뚜렷한 비교점 여덟 개만 가지고 작업하기도 한다.",
+      "훈련된 전문가 두 사람이 공개적으로 의견을 달리하는 일은 좀처럼 없는데, 이 때문에 비공개 석상에서 얼마나 자주 갈리는지가 가려진다.",
+      "2004년의 유명한 오류가 그 상황을 바꾸었다. 그제서야 비로소 연구소들은 감식관을 대상으로 블라인드 검증을 시작했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "police 복수 취급",
+       "ox": "X",
+       "expl": "the police는 복수 취급하는 명사이므로 were.",
+       "fix": "The police were"
+      },
+      {
+       "n": 2,
+       "point": "관계대명사 that (서 수 뒤)",
+       "ox": "O",
+       "expl": "선행사에 the first 같은 서수가 붙으면 관계대명사 that을 쓴다.",
+       "wrong_ex": "the first case what"
+      },
+      {
+       "n": 3,
+       "point": "비교 관용 no more than",
+       "ox": "O",
+       "expl": "'겨우 ~밖에'라는 뜻으로 적음을 강조한다.",
+       "wrong_ex": "not more than"
+      },
+      {
+       "n": 4,
+       "point": "준부정어 hardly ever",
+       "ox": "O",
+       "expl": "'좀처럼 ~하지 않다'를 뜻하는 부사구.",
+       "wrong_ex": "hard ever"
+      },
+      {
+       "n": 5,
+       "point": "only + 부사 도치",
+       "ox": "O",
+       "expl": "only then이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "only then laboratories did"
+      }
+     ]
+    }
+   ],
+   "id": "실력-18",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 19,
+   "sets": [
+    {
+     "set": 73,
+     "title": "늦게 여는 교문",
+     "passage": [
+      {
+       "t": "Teenagers are not lazy in the morning; their body clocks simply "
+      },
+      {
+       "t": "run",
+       "n": 1
+      },
+      {
+       "t": " about two hours behind adults' clocks. A district in Seattle "
+      },
+      {
+       "t": "has moved",
+       "n": 2
+      },
+      {
+       "t": " its first bell from 7:50 to 8:45 in 2016, and students began sleeping over half an hour longer. Teachers reported that "
+      },
+      {
+       "t": "fewer",
+       "n": 3
+      },
+      {
+       "t": " students fell asleep during first period. Researchers say it is essential that every district "
+      },
+      {
+       "t": "review",
+       "n": 4
+      },
+      {
+       "t": " its schedule with sleep in mind. "
+      },
+      {
+       "t": "Almost",
+       "n": 5
+      },
+      {
+       "t": " every family that tried the later start wanted to keep it."
+      }
+     ],
+     "tr": [
+      "십대들이 아침에 게으른 것이 아니다. 그들의 생체 시계가 어른보다 두 시간쯤 늦게 돌아갈 뿐이다.",
+      "시애틀의 한 교육구는 2016년에 첫 종을 7시 50분에서 8시 45분으로 옮겼고, 학생들은 30분 넘게 더 자기 시작했다.",
+      "교사들은 1교시에 조는 학생이 줄었다고 보고했다.",
+      "연구자들은 모든 교육구가 수면을 염두에 두고 시간표를 검토하는 것이 꼭 필요하다고 말한다.",
+      "늦은 등교를 시도해 본 거의 모든 가정이 그것을 유지하기를 원했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어가 their body clocks(복수)이므로 run.",
+       "wrong_ex": "runs"
+      },
+      {
+       "n": 2,
+       "point": "과거 시점 부사와 현재완료",
+       "ox": "X",
+       "expl": "in 2016처럼 명백한 과거 시점이 있으면 현재완료를 쓸 수 없으므로 moved.",
+       "fix": "moved"
+      },
+      {
+       "n": 3,
+       "point": "수량형용사 fewer",
+       "ox": "O",
+       "expl": "students는 가산 복수명사이므로 fewer. less는 불가산명사에 쓴다.",
+       "wrong_ex": "less"
+      },
+      {
+       "n": 4,
+       "point": "이성적 판단 형용사 + (should) 동사원형",
+       "ox": "O",
+       "expl": "essential 같은 이성적 판단 형용사 뒤 that절에는 (should) + 동사원형을 쓴다.",
+       "wrong_ex": "reviews"
+      },
+      {
+       "n": 5,
+       "point": "부사 almost",
+       "ox": "O",
+       "expl": "almost는 부사로 every를 수식한다. most는 every 앞에 올 수 없다.",
+       "wrong_ex": "Most"
+      }
+     ]
+    },
+    {
+     "set": 74,
+     "title": "비행기 창문은 왜 둥글까",
+     "passage": [
+      {
+       "t": "Early jet airliners had square windows, and two of them broke apart in the air in 1954. Engineers discovered that the stress at a sharp corner is three times greater than "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " along a curved edge. After that year, manufacturers stopped "
+      },
+      {
+       "t": "using",
+       "n": 2
+      },
+      {
+       "t": " square frames altogether. A round window spreads the force "
+      },
+      {
+       "t": "evenly",
+       "n": 3
+      },
+      {
+       "t": " around its whole edge. The glass is also set "
+      },
+      {
+       "t": "high",
+       "n": 4
+      },
+      {
+       "t": " enough on the wall to line up with a seated passenger's eyes. The inner pane, which "
+      },
+      {
+       "t": "lays",
+       "n": 5
+      },
+      {
+       "t": " closest to the passenger, has a tiny hole that balances the pressure."
+      }
+     ],
+     "tr": [
+      "초기 제트 여객기는 창문이 네모났는데, 그중 두 대가 1954년 공중에서 부서졌다.",
+      "기술자들은 날카로운 모서리에 걸리는 응력이 둥근 가장자리를 따라 걸리는 응력보다 세 배 크다는 것을 알아냈다.",
+      "그해 이후 제작사들은 네모난 창틀을 아예 쓰지 않게 되었다.",
+      "둥근 창문은 힘을 가장자리 전체에 고르게 퍼뜨린다.",
+      "유리는 또한 앉은 승객의 눈높이에 맞을 만큼 벽의 높은 곳에 설치된다.",
+      "승객에게 가장 가까이 놓인 안쪽 판에는 압력을 맞춰 주는 작은 구멍이 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "비교 대상 일치 (that)",
+       "ox": "O",
+       "expl": "비교 대상이 the stress(단수)이므로 이를 받는 지시대명사 that.",
+       "wrong_ex": "those"
+      },
+      {
+       "n": 2,
+       "point": "stop + 동명사",
+       "ox": "O",
+       "expl": "'~하는 것을 그만두다'는 stop + 동명사. stop + to부정사는 '~하기위해 멈추다'로 뜻이 달라진다.",
+       "wrong_ex": "to use"
+      },
+      {
+       "n": 3,
+       "point": "부사 (동사 수식)",
+       "ox": "O",
+       "expl": "동사 spreads를 수식하므로 부사 evenly.",
+       "wrong_ex": "even"
+      },
+      {
+       "n": 4,
+       "point": "형용사·부사 형태가 같은 high",
+       "ox": "O",
+       "expl": "'높은 곳에'라는 위치의 뜻이므로 high. highly는 '매우'라는 뜻이다.",
+       "wrong_ex": "highly"
+      },
+      {
+       "n": 5,
+       "point": "자동사 lie / 타동사 lay",
+       "ox": "X",
+       "expl": "목적어 없이 '놓여 있다'는 뜻이므로 자동사 lies.",
+       "fix": "lies"
+      }
+     ]
+    },
+    {
+     "set": 75,
+     "title": "거미줄을 만드는 염소",
+     "passage": [
+      {
+       "t": "Spider silk is tougher than steel of the same weight, and a single protein is "
+      },
+      {
+       "t": "the very",
+       "n": 1
+      },
+      {
+       "t": " thing that makes it so hard to copy. Scientists once tried to farm spiders, but spiders kept in the same box end up "
+      },
+      {
+       "t": "eating",
+       "n": 2
+      },
+      {
+       "t": " one another. Researchers "
+      },
+      {
+       "t": "were interested at",
+       "n": 3
+      },
+      {
+       "t": " producing the silk without the spider. Several goats "
+      },
+      {
+       "t": "were given",
+       "n": 4
+      },
+      {
+       "t": " a single spider gene, and their milk contained the protein. "
+      },
+      {
+       "t": "Lately",
+       "n": 5
+      },
+      {
+       "t": ", teams have turned to bacteria, which grow faster and cost far less to feed."
+      }
+     ],
+     "tr": [
+      "거미줄은 같은 무게의 강철보다 질기며, 단백질 하나가 바로 그것을 모방하기 어렵게 만드는 요인이다.",
+      "과학자들은 한때 거미를 기르려 했지만, 한 상자에 넣어 둔 거미들은 결국 서로를 잡아먹게 된다.",
+      "연구자들은 거미 없이 거미줄을 만들어 내는 데 관심이 있었다.",
+      "염소 몇 마리에게 거미 유전자 하나가 주어졌고, 그 젖에는 그 단백질이 들어 있었다.",
+      "최근에 연구팀들은 더 빨리 자라고 먹이 비용도 훨씬 적게 드는 세균으로 눈을 돌렸다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "강조의 the very",
+       "ox": "O",
+       "expl": "「the very + 명사」로 '바로 그 ~'를 강조한다.",
+       "wrong_ex": "the much"
+      },
+      {
+       "n": 2,
+       "point": "end up + 동명사",
+       "ox": "O",
+       "expl": "'결국 ~하게 되다'는 end up + 동명사.",
+       "wrong_ex": "to eat"
+      },
+      {
+       "n": 3,
+       "point": "수동태 뒤 전치사",
+       "ox": "X",
+       "expl": "'~에 관심이 있다'는 be interested in이므로 were interested in.",
+       "fix": "were interested in"
+      },
+      {
+       "n": 4,
+       "point": "4형식 수동태",
+       "ox": "O",
+       "expl": "give A B에서 간접목적어 goats를 주어로 한 수동태. 직접목적어 a gene이 뒤에 남는다.",
+       "wrong_ex": "gave"
+      },
+      {
+       "n": 5,
+       "point": "late / lately",
+       "ox": "O",
+       "expl": "'최근에'는 lately. late는 '늦게'라는 뜻이다. 현재완료와 잘 어울린다.",
+       "wrong_ex": "Late"
+      }
+     ]
+    },
+    {
+     "set": 76,
+     "title": "우유는 왜 맨 안쪽에 있을까",
+     "passage": [
+      {
+       "t": "In most supermarkets the milk sits at the very back, and the layout "
+      },
+      {
+       "t": "causes shoppers walk",
+       "n": 1
+      },
+      {
+       "t": " past the whole store to reach it. "
+      },
+      {
+       "t": "Should you need",
+       "n": 2
+      },
+      {
+       "t": " only bread, you will still pass the snacks twice. On an ordinary trip a customer passes "
+      },
+      {
+       "t": "hundreds of",
+       "n": 3
+      },
+      {
+       "t": " items without looking at them. Music, lighting, and even the width of the aisles "
+      },
+      {
+       "t": "affect",
+       "n": 4
+      },
+      {
+       "t": " how much we put in the basket. The trick works "
+      },
+      {
+       "t": "even if",
+       "n": 5
+      },
+      {
+       "t": " you know exactly how it is done."
+      }
+     ],
+     "tr": [
+      "대부분의 슈퍼마켓에서 우유는 맨 안쪽에 있고, 그 배치는 손님이 우유에 닿기 위해 가게 전체를 지나 걷게 만든다.",
+      "혹시 빵만 필요하더라도, 당신은 여전히 과자 코너를 두 번 지나게 된다.",
+      "평범한 장보기 한 번에 손님은 수백 가지 물건을 쳐다보지도 않고 지나친다.",
+      "음악, 조명, 그리고 통로의 폭까지도 우리가 바구니에 얼마나 담는지에 영향을 준다.",
+      "이 수법은 그것이 어떻게 이루어지는지 정확히 알고 있더라도 통한다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "cause + 목적어 + to 부정사",
+       "ox": "X",
+       "expl": "cause는 목적격보어로 to부정사를 취하므로 causes shoppers to walk.",
+       "fix": "causes shoppers to walk"
+      },
+      {
+       "n": 2,
+       "point": "가정법 도치 (Should)",
+       "ox": "O",
+       "expl": "If you should need에서 If가 생략되어 Should가 앞으로 나온 형태. 뒤에는 동사원형.",
+       "wrong_ex": "Should you needed"
+      },
+      {
+       "n": 3,
+       "point": "수사 hundreds of",
+       "ox": "O",
+       "expl": "막연히 많은 수는 hundreds of. 구체적인 숫자 뒤에는 two hundred처럼 -s와 of를 붙이지 않는다.",
+       "wrong_ex": "hundred of"
+      },
+      {
+       "n": 4,
+       "point": "수일치 (and로 연결된 주어)",
+       "ox": "O",
+       "expl": "A, B, and C가 and로 연결된 주어이므로 복수 취급하여 affect.",
+       "wrong_ex": "affects"
+      },
+      {
+       "n": 5,
+       "point": "접속사 even if",
+       "ox": "O",
+       "expl": "'비록 ~하더라도'의 뜻으로 양보의 부사절을 이끈다.",
+       "wrong_ex": "even"
+      }
+     ]
+    }
+   ],
+   "id": "실력-19",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 20,
+   "sets": [
+    {
+     "set": 77,
+     "title": "냄새로 고향을 찾는 연어",
+     "passage": [
+      {
+       "t": "A sharp sense of smell enables salmon "
+      },
+      {
+       "t": "to find",
+       "n": 1
+      },
+      {
+       "t": " the exact stream where they hatched. They return after "
+      },
+      {
+       "t": "as many as",
+       "n": 2
+      },
+      {
+       "t": " five years at sea, guided by the chemistry of a single valley. Of the thousands of eggs laid in each nest, only a handful come back "
+      },
+      {
+       "t": "alive",
+       "n": 3
+      },
+      {
+       "t": ". Dams "
+      },
+      {
+       "t": "have been blocked",
+       "n": 4
+      },
+      {
+       "t": " many of these routes for a century. Fishery staff in some towns must remember "
+      },
+      {
+       "t": "to open",
+       "n": 5
+      },
+      {
+       "t": " the gates each spring, or the run fails."
+      }
+     ],
+     "tr": [
+      "예민한 후각 덕분에 연어는 자신이 부화한 바로 그 하천을 찾아갈 수 있다.",
+      "연어는 바다에서 많게는 5년을 보낸 뒤, 한 골짜기의 화학 성분에 이끌려 돌아온다.",
+      "둥지마다 낳은 수천 개의 알 가운데 살아서 돌아오는 것은 한 줌뿐이다.",
+      "댐은 한 세기 동안 이 경로의 상당수를 막아 왔다.",
+      "어떤 마을의 어업 담당자들은 봄마다 수문 여는 일을 잊지 말아야 하는데, 그러지 않으면 연어의 회귀가 실패한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "enable + 목적어 + to부정사",
+       "ox": "O",
+       "expl": "enable은 목적격보어로 to부정사를 취한다.",
+       "wrong_ex": "find"
+      },
+      {
+       "n": 2,
+       "point": "as many as",
+       "ox": "O",
+       "expl": "five years처럼 셀 수 있는 수를 강조하므로 as many as. as much as는 양에 쓴다.",
+       "wrong_ex": "as much as"
+      },
+      {
+       "n": 3,
+       "point": "서술적 형용사 alive",
+       "ox": "O",
+       "expl": "alive는 명사 앞에 오지 않고 보어 자리에만 쓰는 서술적 형용사이다.",
+       "wrong_ex": "lively"
+      },
+      {
+       "n": 4,
+       "point": "능동태 / 수동태 (현재완료)",
+       "ox": "X",
+       "expl": "Dams가 경로를 막는 주체이고 목적어 routes가 있으므로 능동 have blocked.",
+       "fix": "have blocked"
+      },
+      {
+       "n": 5,
+       "point": "remember + to부정사",
+       "ox": "O",
+       "expl": "'(앞으로) ~할 것을 기억하다'는 remember + to부정사. remember + 동명사는 '(과거에) ~한 것을 기억하다'.",
+       "wrong_ex": "opening"
+      }
+     ]
+    },
+    {
+     "set": 78,
+     "title": "망치로 다리를 듣는 사람들",
+     "passage": [
+      {
+       "t": "Nearly",
+       "n": 1
+      },
+      {
+       "t": " half of the bridges in the country are more than fifty years old. After a hairline crack appeared in one, the chief engineer insisted that it "
+      },
+      {
+       "t": "be",
+       "n": 2
+      },
+      {
+       "t": " only on the surface, and the bridge stayed open. The main cables are made "
+      },
+      {
+       "t": "of",
+       "n": 3
+      },
+      {
+       "t": " steel wire twisted together into thick ropes. Drones now reach places "
+      },
+      {
+       "t": "that",
+       "n": 4
+      },
+      {
+       "t": " no person could climb to. Still, many inspectors prefer to trust a hammer rather than "
+      },
+      {
+       "t": "rely",
+       "n": 5
+      },
+      {
+       "t": " on software alone."
+      }
+     ],
+     "tr": [
+      "국내 교량의 거의 절반은 지은 지 50년이 넘었다.",
+      "한 다리에 머리카락 같은 균열이 생기자 수석 기술자는 그것이 표면에만 있다고 주장했고, 다리는 계속 개통되어 있었다.",
+      "주 케이블은 강철선을 꼬아 굵은 밧줄로 만든 것이다.",
+      "이제 드론은 사람이 올라갈 수 없는 곳까지 닿는다.",
+      "그래도 많은 점검원은 소프트웨어에만 의존하기보다 망치를 믿는 쪽을 택한다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "near / nearly",
+       "ox": "O",
+       "expl": "'거의'는 부사 nearly. near는 '가까이'라는 뜻이다.",
+       "wrong_ex": "Near"
+      },
+      {
+       "n": 2,
+       "point": "insist (주장 vs 요구)",
+       "ox": "X",
+       "expl": "여기서 insist는 '~라고 주장하다'로 사실을 말하므로 (should) 원형이 아니라 was를 쓴다.",
+       "fix": "was"
+      },
+      {
+       "n": 3,
+       "point": "be made of / from",
+       "ox": "O",
+       "expl": "재료의 형태가 그대로 남아 있으므로 be made of. 형태가 변하면 from을 쓴다.",
+       "wrong_ex": "from"
+      },
+      {
+       "n": 4,
+       "point": "목적격 관계대명사 (전치사 뒤에 남김)",
+       "ox": "O",
+       "expl": "climb to의 목적어가 빠진 자리이므로 목적격 관계대명사 that. 전치사 to가 뒤에 남아 있다.",
+       "wrong_ex": "where"
+      },
+      {
+       "n": 5,
+       "point": "병렬 (prefer to A rather than B)",
+       "ox": "O",
+       "expl": "prefer to A rather than B에서 B도 동사원형으로 맞춘다.",
+       "wrong_ex": "relying"
+      }
+     ]
+    },
+    {
+     "set": 79,
+     "title": "함께 부르는 노래",
+     "passage": [
+      {
+       "t": "Singing in a choir "
+      },
+      {
+       "t": "lowers",
+       "n": 1
+      },
+      {
+       "t": " stress faster than most forms of exercise. The heartbeats of singers "
+      },
+      {
+       "t": "tend to",
+       "n": 2
+      },
+      {
+       "t": " rise and fall together within a few minutes. In one study the members, most of "
+      },
+      {
+       "t": "whom",
+       "n": 3
+      },
+      {
+       "t": " had never sung before, reported sleeping better after eight weeks. Even the shyest members said they "
+      },
+      {
+       "t": "enjoyed themselves",
+       "n": 4
+      },
+      {
+       "t": ". Scientists are now testing "
+      },
+      {
+       "t": "if or not",
+       "n": 5
+      },
+      {
+       "t": " the effect lasts once the choir stops meeting."
+      }
+     ],
+     "tr": [
+      "합창단에서 노래하는 것은 대부분의 운동보다 스트레스를 빨리 낮춘다.",
+      "노래하는 사람들의 심장 박동은 몇 분 안에 함께 오르내리는 경향이 있다.",
+      "한 연구에서 단원들은 대부분 노래를 해 본 적이 없었는데, 8주 뒤 잠을 더 잘 잔다고 보고했다.",
+      "가장 수줍은 단원들조차 즐거운 시간을 보냈다고 말했다.",
+      "과학자들은 이제 합창단 모임이 끝난 뒤에도 그 효과가 지속되는지를 시험하고 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "동명사 주어 수일치",
+       "ox": "O",
+       "expl": "주어가 동명사구 Singing in a choir이므로 단수 취급하여 lowers.",
+       "wrong_ex": "lower"
+      },
+      {
+       "n": 2,
+       "point": "tend to + 동사원형",
+       "ox": "O",
+       "expl": "'~하는 경향이 있다'는 tend to + 동사원형.",
+       "wrong_ex": "tend"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사 (most of whom)",
+       "ox": "O",
+       "expl": "사람 선행사를 받는 「부분 표현 + of + whom」. them을 쓰면 접속사가 없어 문장이 성립하지 않는다.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 4,
+       "point": "enjoy + 재귀대명사",
+       "ox": "O",
+       "expl": "enjoy는 목적어가 필요한 타동사이므로 '즐거운 시간을 보내다'는 enjoy oneself.",
+       "wrong_ex": "enjoyed"
+      },
+      {
+       "n": 5,
+       "point": "if / whether (or not)",
+       "ox": "X",
+       "expl": "if는 바로 뒤에 or not을 붙일 수 없으므로 whether or not.",
+       "fix": "whether or not"
+      }
+     ]
+    },
+    {
+     "set": 80,
+     "title": "모래 위에서 시작된 바코드",
+     "passage": [
+      {
+       "t": "The barcode began as a set of lines "
+      },
+      {
+       "t": "drawn",
+       "n": 1
+      },
+      {
+       "t": " in the sand of a Miami beach in 1949. Norman Woodland "
+      },
+      {
+       "t": "had been thinking",
+       "n": 2
+      },
+      {
+       "t": " about checkout queues for months when he pulled his fingers through the sand. By the time scanners became cheap enough, the original patent "
+      },
+      {
+       "t": "has expired",
+       "n": 3
+      },
+      {
+       "t": ". Today "
+      },
+      {
+       "t": "most",
+       "n": 4
+      },
+      {
+       "t": " items in a supermarket carry one, yet few shoppers know "
+      },
+      {
+       "t": "how it began",
+       "n": 5
+      },
+      {
+       "t": " on a beach."
+      }
+     ],
+     "tr": [
+      "바코드는 1949년 마이애미 해변의 모래 위에 그려진 선 몇 줄에서 시작되었다.",
+      "노먼 우들랜드는 몇 달 동안 계산대 줄에 대해 고민하던 중 모래 위로 손가락을 끌어당겼다.",
+      "스캐너가 충분히 저렴해졌을 무렵, 원래 특허는 이미 만료되어 있었다.",
+      "오늘날 슈퍼마켓 물건의 대부분에 바코드가 붙어 있지만, 그것이 해변에서 시작되었다는 것을 아는 사람은 거의 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사(수동)",
+       "ox": "O",
+       "expl": "lines가 그려진 대상이므로 과거분사 drawn.",
+       "wrong_ex": "drawing"
+      },
+      {
+       "n": 2,
+       "point": "과거완료 진행",
+       "ox": "O",
+       "expl": "과거의 한 시점(손가락을 끌어당긴 때) 이전부터 계속되던 동작이므로 had been -ing.",
+       "wrong_ex": "has been thinking"
+      },
+      {
+       "n": 3,
+       "point": "과거완료 (by the time + 과거)",
+       "ox": "X",
+       "expl": "By the time 뒤가 과거(became)이고 그보다 먼저 끝난 일이므로 had expired.",
+       "fix": "had expired"
+      },
+      {
+       "n": 4,
+       "point": "most / almost",
+       "ox": "O",
+       "expl": "most는 형용사로 명사 items를 직접 수식한다. almost는 부사라명사를 바로 꾸밀 수 없다.",
+       "wrong_ex": "almost"
+      },
+      {
+       "n": 5,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "know의 목적어인 명사절이므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "how did it begin"
+      }
+     ]
+    }
+   ],
+   "id": "실력-20",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 21,
+   "sets": [
+    {
+     "set": 81,
+     "title": "50년째 날아가는 탐사선",
+     "passage": [
+      {
+       "t": "Such",
+       "n": 1
+      },
+      {
+       "t": " was the quality of the engineering that the two Voyager probes still work after almost fifty years. Many a signal "
+      },
+      {
+       "t": "has taken",
+       "n": 2
+      },
+      {
+       "t": " more than twenty hours to reach the Earth. A fault "
+      },
+      {
+       "t": "was occurred",
+       "n": 3
+      },
+      {
+       "t": " in 2023, and for five months one craft pointed its antenna the wrong way. Engineers kept the spacecraft "
+      },
+      {
+       "t": "from freezing",
+       "n": 4
+      },
+      {
+       "t": " by firing heaters that had not been used since the 1980s. But for the nuclear battery, the mission would "
+      },
+      {
+       "t": "have ended",
+       "n": 5
+      },
+      {
+       "t": " decades ago."
+      }
+     ],
+     "tr": [
+      "공학의 수준이 워낙 뛰어나서 보이저 탐사선 두 대는 거의 50년이 지난 지금도 작동한다.",
+      "수많은 신호가 지구에 닿기까지 스무 시간 넘게 걸렸다.",
+      "2023년에 고장이 발생해, 다섯 달 동안 탐사선 한 대가 안테나를 엉뚱한 방향으로 향하고 있었다.",
+      "기술자들은 1980년대 이후 쓰지 않던 히터를 켜서 탐사선이 얼지 않게 했다.",
+      "원자력 전지가 없었다면 이 임무는 수십 년 전에 끝났을 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "such / so 구별",
+       "ox": "O",
+       "expl": "뒤에 the quality of the engineering이라는 명사구가 오므로 Such. so는 형용사·부사를 받는다.",
+       "wrong_ex": "So"
+      },
+      {
+       "n": 2,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "뒤에 목적어 more than twenty hours가 있으므로 능동. many a signal은 단수 취급하여 has.",
+       "wrong_ex": "has been taken"
+      },
+      {
+       "n": 3,
+       "point": "수동태 불가 자동사",
+       "ox": "X",
+       "expl": "occur는 목적어를 갖지 않는 자동사이므로 수동태로 쓸 수 없다. occurred로 고친다.",
+       "fix": "occurred"
+      },
+      {
+       "n": 4,
+       "point": "keep + 목적어 + from + 동명사",
+       "ox": "O",
+       "expl": "'~가 …하지 못하게 하다'는 keep A from + 동명사.",
+       "wrong_ex": "from freeze"
+      },
+      {
+       "n": 5,
+       "point": "조동사 + 완료시제",
+       "ox": "O",
+       "expl": "But for(~이 없었다면)가 이끄는 가정법 과거완료이므로 주절은 would have p.p.",
+       "wrong_ex": "end"
+      }
+     ]
+    },
+    {
+     "set": 82,
+     "title": "커피 찌꺼기의 두 번째 삶",
+     "passage": [
+      {
+       "t": "Caffeine left in used coffee grounds "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " a measurable effect on the soil of a garden. The grounds that "
+      },
+      {
+       "t": "throw away",
+       "n": 2
+      },
+      {
+       "t": " by a single café each morning would fill a sack. Gardeners spread them around young plants to hold moisture in the soil. Engineers have found that the grounds, when "
+      },
+      {
+       "t": "mixed",
+       "n": 3
+      },
+      {
+       "t": " into concrete, "
+      },
+      {
+       "t": "make",
+       "n": 4
+      },
+      {
+       "t": " it stronger than sand "
+      },
+      {
+       "t": "does",
+       "n": 5
+      },
+      {
+       "t": ". None of this helps, of course, unless the café sorts its bins."
+      }
+     ],
+     "tr": [
+      "쓰고 남은 커피 찌꺼기에 남아 있는 카페인은 정원의 흙에 측정 가능한 영향을 준다.",
+      "카페 한 곳이 아침마다 버리는 찌꺼기는 한 자루를 채울 정도다.",
+      "정원사들은 어린 식물 둘레에 그것을 뿌려 흙에 물기를 잡아 둔다.",
+      "기술자들은 이 찌꺼기를 콘크리트에 섞으면 모래보다 콘크리트를 더 단단하게 만든다는 것을 알아냈다.",
+      "물론 카페가 쓰레기를 분리하지 않는다면 이 가운데 어느 것도 도움이 되지 않는다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Caffeine(단수)이고 left 이하는 수식어구이므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "주어 The grounds가 버려지는 대상이므로 that are thrown away로 고친다.",
+       "fix": "are thrown away"
+      },
+      {
+       "n": 3,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "when (they are) mixed에서 주어와 be동사가 생략된 형태. 찌꺼기는 섞이는 대상이다.",
+       "wrong_ex": "mixing"
+      },
+      {
+       "n": 4,
+       "point": "본동사 수 일치",
+       "ox": "O",
+       "expl": "that절의 주어는 the grounds(복수)이고 when 이하는 삽입구이므로 make.",
+       "wrong_ex": "makes"
+      },
+      {
+       "n": 5,
+       "point": "대동사",
+       "ox": "O",
+       "expl": "앞의 일반동사 make를 대신 받으므로 be동사가 아니라 does.",
+       "wrong_ex": "is"
+      }
+     ]
+    },
+    {
+     "set": 83,
+     "title": "돌아오는 유물",
+     "passage": [
+      {
+       "t": "Nigeria "
+      },
+      {
+       "t": "has been asking",
+       "n": 1
+      },
+      {
+       "t": " for the Benin Bronzes since British soldiers carried them off in 1897. A German museum returned twenty of them in 2022, and it was not long before other institutions followed. The government has promised to lend the pieces to whomever the national museum "
+      },
+      {
+       "t": "names",
+       "n": 2
+      },
+      {
+       "t": " as a partner. A museum had better not "
+      },
+      {
+       "t": "put off",
+       "n": 3
+      },
+      {
+       "t": " an answer for another century. Nigeria "
+      },
+      {
+       "t": "has built",
+       "n": 4
+      },
+      {
+       "t": " a new gallery in Benin City, "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the bronzes will be displayed in."
+      }
+     ],
+     "tr": [
+      "나이지리아는 1897년 영국 군인들이 가져가 버린 이래로 베냉 브론즈의 반환을 요구해 오고 있다.",
+      "2022년 독일의 한 박물관이 그중 스무 점을 돌려주었고, 머지않아 다른 기관들도 뒤를 따랐다.",
+      "정부는 국립박물관이 협력 기관으로 지명하는 곳이면 어디에든 이 유물을 빌려주겠다고 약속했다.",
+      "박물관은 또 한 세기 동안 답을 미루지 않는 편이 좋다.",
+      "나이지리아는 베냉시티에 새 전시관을 지었고, 브론즈는 그곳에 전시될 것이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료진행 (능동)",
+       "ox": "O",
+       "expl": "나이지리아가 요구하는 주체이므로 능동. 1897년부터 지금까지 이어지는 동작이라 has been -ing.",
+       "wrong_ex": "has been asked"
+      },
+      {
+       "n": 2,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "names의 주어는 the national museum(지명하는 주체)이고 목적어 whomever가 앞에 빠져 있으므로 능동.",
+       "wrong_ex": "is named"
+      },
+      {
+       "n": 3,
+       "point": "had better + 동사원형 (능동)",
+       "ox": "O",
+       "expl": "had better 뒤에는 동사원형이 온다. 목적어 an answer가 있으므로 수동으로 쓸 수 없다.",
+       "wrong_ex": "been put off"
+      },
+      {
+       "n": 4,
+       "point": "능동태 / 수동태",
+       "ox": "O",
+       "expl": "Nigeria가 짓는 주체이고 목적어 a new gallery가 있으므로 능동 has built.",
+       "wrong_ex": "has been built"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "X",
+       "expl": "앞에 선행사 a new gallery가 있으므로 what을 쓸 수 없다. which 로 고친다.",
+       "fix": "which"
+      }
+     ]
+    },
+    {
+     "set": 84,
+     "title": "비누가 하는 일",
+     "passage": [
+      {
+       "t": "Soap works not because it kills the virus but "
+      },
+      {
+       "t": "because",
+       "n": 1
+      },
+      {
+       "t": " it pulls the virus apart. Twenty seconds of rubbing "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " usually enough to loosen the fat layer around the virus. The pieces "
+      },
+      {
+       "t": "lifted",
+       "n": 3
+      },
+      {
+       "t": " off the skin are then carried away by the water. Soap molecules, each of "
+      },
+      {
+       "t": "them",
+       "n": 4
+      },
+      {
+       "t": " has a water-loving end, surround the fat and pull it apart. Soap is "
+      },
+      {
+       "t": "as old as",
+       "n": 5
+      },
+      {
+       "t": " writing: a recipe for it survives on a Babylonian tablet."
+      }
+     ],
+     "tr": [
+      "비누는 바이러스를 죽이기 때문이 아니라 바이러스를 떼어 내기 때문에 효과가 있다.",
+      "20초 동안 문지르는 것이면 대개 바이러스를 감싼 지방층을 느슨하게 하기에 충분하다.",
+      "피부에서 들어 올려진 조각들은 그다음 물에 씻겨 나간다.",
+      "비누 분자는 저마다 물을 좋아하는 쪽 끝을 가지고 있어서, 지방을 둘러싸고 떼어 낸다.",
+      "비누는 문자만큼이나 오래되었다. 그 제조법이 바빌로니아 점토판에 남아 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "접속사 because / 전치사 because of",
+       "ox": "O",
+       "expl": "뒤에 「주어 + 동사」의 절이 오므로 접속사 because. because of 뒤에는 명사(구)가 온다.",
+       "wrong_ex": "because of"
+      },
+      {
+       "n": 2,
+       "point": "시간 주어의 수 일치",
+       "ox": "O",
+       "expl": "시간을 하나의 단위로 보는 주어이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The pieces가 들어 올려지는 대상이므로 과거분사 lifted.",
+       "wrong_ex": "lifting"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "X",
+       "expl": "접속사 없이 대명사 them을 쓸 수 없다. each of which has로 고 친다.",
+       "fix": "which"
+      },
+      {
+       "n": 5,
+       "point": "원급 비교",
+       "ox": "O",
+       "expl": "as ~ as 사이에는 원급이 온다. 비교급은 쓸 수 없다.",
+       "wrong_ex": "as older as"
+      }
+     ]
+    }
+   ],
+   "id": "실력-21",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 22,
+   "sets": [
+    {
+     "set": 85,
+     "title": "지하철 노선도를 다시 그린 사람",
+     "passage": [
+      {
+       "t": "Most of the stations on the real line "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " nowhere near where the map puts them. In 1933 a draughtsman named Harry Beck "
+      },
+      {
+       "t": "was paid",
+       "n": 2
+      },
+      {
+       "t": " five guineas for a design his employers had twice rejected. He drew every line at forty-five degrees, a choice that "
+      },
+      {
+       "t": "has shaped",
+       "n": 3
+      },
+      {
+       "t": " transit maps ever since. What a rider needs "
+      },
+      {
+       "t": "is",
+       "n": 4
+      },
+      {
+       "t": " the order of the stops, not the distance between them. "
+      },
+      {
+       "t": "Copied",
+       "n": 5
+      },
+      {
+       "t": " by cities from Sydney to Seoul, the diagram is now so familiar that nobody notices it."
+      }
+     ],
+     "tr": [
+      "실제 노선에서 역들 대부분은 지도가 표시한 위치와 전혀 가깝지 않다.",
+      "1933년, 해리 벡이라는 제도사는 고용주가 두 번이나 퇴짜 놓았던 도안으로 5기니를 받았다.",
+      "그는 모든 노선을 45도 각도로 그렸는데, 그 선택이 그 이후 교통 노선도의 모습을 결정해 왔다.",
+      "승객에게 필요한 것은 역의 순서이지 역 사이의 거리가 아니다.",
+      "시드니에서 서울까지 여러 도시가 베껴 쓴 이 도해는 이제 너무 익숙해서 아무도 알아차리지 못한다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "부분표현 수일치",
+       "ox": "X",
+       "expl": "「Most of + 복수명사」는 뒤의 명사에 동사를 맞추므로 are로 고 친다.",
+       "fix": "are"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Harry Beck이 돈을 받는 대상이므로 was paid.",
+       "wrong_ex": "paid"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "a choice가 영향을 준 주체이고 뒤에 목적어가 있으므로 능동 has shaped.",
+       "wrong_ex": "has been shaped"
+      },
+      {
+       "n": 4,
+       "point": "명사절 주어의 수일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What a rider needs이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 5,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the diagram이 베껴지는 대상이므로 과거분사 Copied.",
+       "wrong_ex": "Copying"
+      }
+     ]
+    },
+    {
+     "set": 86,
+     "title": "얼음 속에 갇힌 하늘",
+     "passage": [
+      {
+       "t": "Air "
+      },
+      {
+       "t": "trapped",
+       "n": 1
+      },
+      {
+       "t": " in a bubble of Antarctic ice tells us what the sky was like 800,000 years ago. Each of the thin layers below the surface "
+      },
+      {
+       "t": "was",
+       "n": 2
+      },
+      {
+       "t": " laid down in a single winter. Drillers cut, label, and "
+      },
+      {
+       "t": "store",
+       "n": 3
+      },
+      {
+       "t": " every section before the ice can warm. By the time the first core reached the laboratory in 1966, half of its bubbles "
+      },
+      {
+       "t": "have escaped",
+       "n": 4
+      },
+      {
+       "t": ". The ice records not what the weather felt like but "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " the air actually held."
+      }
+     ],
+     "tr": [
+      "남극 얼음의 기포에 갇힌 공기는 80만 년 전 하늘이 어땠는지를 우리에게 알려 준다.",
+      "표면 아래 얇은 층들은 저마다 한 번의 겨울 동안 쌓인 것이다.",
+      "시추자들은 얼음이 녹기 전에 각 구간을 자르고, 이름표를 붙이고, 보관한다.",
+      "1966년 첫 코어가 실험실에 도착했을 무렵, 기포의 절반은 이미 빠져나간 뒤였다.",
+      "얼음은 날씨가 어떻게 느껴졌는지가 아니라 공기가 실제로 무엇을 품고 있었는지를 기록한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "Air가 갇히는 대상이므로 과거분사 trapped.",
+       "wrong_ex": "trapping"
+      },
+      {
+       "n": 2,
+       "point": "Each of + 단수동사",
+       "ox": "O",
+       "expl": "「Each of + 복수명사」는 단수 취급하므로 was.",
+       "wrong_ex": "were"
+      },
+      {
+       "n": 3,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "cut, label, store가 and로 연결된 병렬. 모두 주어의 본동사이다.",
+       "wrong_ex": "storing"
+      },
+      {
+       "n": 4,
+       "point": "대과거",
+       "ox": "X",
+       "expl": "코어가 도착한 시점보다 먼저 일어난 일이므로 과거완료 had escaped로 고친다.",
+       "fix": "had escaped"
+      },
+      {
+       "n": 5,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "선행사를 포함하며 not A but B의 B 자리에 오는 what.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 87,
+     "title": "엘리베이터 앞의 거울",
+     "passage": [
+      {
+       "t": "Tenants complained so often about the lifts that the owner "
+      },
+      {
+       "t": "was advised",
+       "n": 1
+      },
+      {
+       "t": " to replace the whole system. A consultant suggested instead that the building "
+      },
+      {
+       "t": "installs",
+       "n": 2
+      },
+      {
+       "t": " mirrors beside every door. The complaints stopped, though the lifts still ran exactly as "
+      },
+      {
+       "t": "slowly",
+       "n": 3
+      },
+      {
+       "t": " as before. What the mirrors changed was not the wait but the way people "
+      },
+      {
+       "t": "spent",
+       "n": 4
+      },
+      {
+       "t": " it. Mirrors "
+      },
+      {
+       "t": "have been standing",
+       "n": 5
+      },
+      {
+       "t": " in lift lobbies ever since."
+      }
+     ],
+     "tr": [
+      "세입자들이 엘리베이터에 대해 하도 자주 불평해서, 건물주는 설비 전체를 교체하라는 조언을 들었다.",
+      "한 컨설턴트는 그 대신 모든 문 옆에 거울을 설치하라고 제안했다.",
+      "엘리베이터는 예전과 똑같이 느리게 움직였는데도 불평은 멈췄다.",
+      "거울이 바꾼 것은 기다림이 아니라 사람들이 그 시간을 쓰는 방식이었다.",
+      "그 이후로 엘리베이터 앞에는 거울이 계속 서 있다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "the owner가 조언을 받는 대상이므로 was advised.",
+       "wrong_ex": "advised"
+      },
+      {
+       "n": 2,
+       "point": "제안 동사 + (should) 동사원형",
+       "ox": "X",
+       "expl": "suggest가 이끄는 that절은 「(should) + 동사원형」이므로 install로 고친다.",
+       "fix": "install"
+      },
+      {
+       "n": 3,
+       "point": "부사 (동사 수식)",
+       "ox": "O",
+       "expl": "동사를 수식하므로 부사 slowly. as ~ as 사이에는 원급이 온다.",
+       "wrong_ex": "slow"
+      },
+      {
+       "n": 4,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "the way가 이끄는 절의 본동사 자리이므로 spent. 준동사는 올 수없다.",
+       "wrong_ex": "spending"
+      },
+      {
+       "n": 5,
+       "point": "현재완료진행",
+       "ox": "O",
+       "expl": "ever since와 함께 과거부터 지금까지 이어지므로 have been - ing.",
+       "wrong_ex": "are standing"
+      }
+     ]
+    },
+    {
+     "set": 88,
+     "title": "사라진 열흘",
+     "passage": [
+      {
+       "t": "In October 1582 ten days "
+      },
+      {
+       "t": "were removed",
+       "n": 1
+      },
+      {
+       "t": " from the calendar by order of the Pope. People who went to bed on the fourth "
+      },
+      {
+       "t": "woke",
+       "n": 2
+      },
+      {
+       "t": " on the fifteenth and lost nothing at all. The old calendar "
+      },
+      {
+       "t": "had gained",
+       "n": 3
+      },
+      {
+       "t": " ten full days since the Council of Nicaea in 325. Britain refused the change for almost two centuries, "
+      },
+      {
+       "t": "leaving",
+       "n": 4
+      },
+      {
+       "t": " its ships dated differently from French ones in the same harbour. Not the Pope but the astronomers "
+      },
+      {
+       "t": "was",
+       "n": 5
+      },
+      {
+       "t": " right about the true length of a year."
+      }
+     ],
+     "tr": [
+      "1582년 10월, 교황의 명령으로 달력에서 열흘이 사라졌다.",
+      "4일에 잠자리에 든 사람들은 15일에 깨어났지만 잃은 것은 아무것도 없었다.",
+      "옛 달력은 325년 니케아 공의회 이후로 꼬박 열흘이 앞서 있었다.",
+      "영국은 거의 두 세기 동안 이 변경을 거부해서, 같은 항구에 있는 프랑스 배와 자국 배의 날짜가 서로 달랐다.",
+      "한 해의 진짜 길이에 대해 옳았던 것은 교황이 아니라 천문학자들이었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "ten days가 지워지는 대상이므로 were removed.",
+       "wrong_ex": "removed"
+      },
+      {
+       "n": 2,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "주어 People을 받는 본동사 자리이므로 woke. who절은 수식어이다.",
+       "wrong_ex": "waking"
+      },
+      {
+       "n": 3,
+       "point": "과거완료",
+       "ox": "O",
+       "expl": "1582년이라는 과거 시점보다 앞선 기간을 나타내므로 had p.p.",
+       "wrong_ex": "has gained"
+      },
+      {
+       "n": 4,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "거부한 결과를 나타내는 분사구문. 영국이 남기는 주체이므로 leaving.",
+       "wrong_ex": "left"
+      },
+      {
+       "n": 5,
+       "point": "not A but B 수일치",
+       "ox": "X",
+       "expl": "「not A but B」는 B에 동사를 맞춘다. the astronomers가 복수이므로 were로 고친다.",
+       "fix": "were"
+      }
+     ]
+    }
+   ],
+   "id": "실력-22",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 23,
+   "sets": [
+    {
+     "set": 89,
+     "title": "자전거는 왜 넘어지지 않을까",
+     "passage": [
+      {
+       "t": "Nobody "
+      },
+      {
+       "t": "has ever explained",
+       "n": 1
+      },
+      {
+       "t": " exactly why a moving bicycle stays upright. Engineers once believed that the spinning wheels acted like gyroscopes, and so "
+      },
+      {
+       "t": "did",
+       "n": 2
+      },
+      {
+       "t": " most physicists. A test bicycle with counter-rotating wheels, however, "
+      },
+      {
+       "t": "balancing",
+       "n": 3
+      },
+      {
+       "t": " perfectly well without any gyroscopic effect at all. The answer seems to lie in the way "
+      },
+      {
+       "t": "in which",
+       "n": 4
+      },
+      {
+       "t": " the front wheel turns into a fall. If the fork were straight instead of curved, the bicycle "
+      },
+      {
+       "t": "would fall",
+       "n": 5
+      },
+      {
+       "t": " over within a metre."
+      }
+     ],
+     "tr": [
+      "움직이는 자전거가 왜 넘어지지 않는지를 지금껏 정확히 설명해 낸 사람은 아무도 없다.",
+      "기술자들은 한때 회전하는 바퀴가 자이로스코프처럼 작용한다고 믿었고, 대부분의 물리학자도 그랬다.",
+      "그러나 서로 반대로 도는 바퀴를 단 시험용 자전거는 자이로 효과가 전혀 없는데도 아주 잘 균형을 잡았다.",
+      "답은 앞바퀴가 넘어지는 쪽으로 꺾이는 방식에 있는 듯하다.",
+      "앞 포크가 굽지 않고 곧았다면 자전거는 1미터도 못 가 넘어질 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "Nobody가 설명하는 주체이고 뒤에 목적어인 why절이 있으므로 능동.",
+       "wrong_ex": "has ever been explained"
+      },
+      {
+       "n": 2,
+       "point": "so + 대동사 도치",
+       "ox": "O",
+       "expl": "앞의 일반동사 believed를 대신 받아 「so + did + 주어」로 도치한다.",
+       "wrong_ex": "were"
+      },
+      {
+       "n": 3,
+       "point": "본동사",
+       "ox": "X",
+       "expl": "주어 A test bicycle을 받는 본동사가 없다. 분사가 아니라 balanced로 고친다.",
+       "fix": "balanced"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "O",
+       "expl": "the way in which ~ 구조. 뒤에 완전한 절이 온다.",
+       "wrong_ex": "in that"
+      },
+      {
+       "n": 5,
+       "point": "가정법 과거",
+       "ox": "O",
+       "expl": "If절이 were이므로 주절은 「would + 동사원형」.",
+       "wrong_ex": "would have fallen"
+      }
+     ]
+    },
+    {
+     "set": 90,
+     "title": "우표에 구멍을 낸 사람",
+     "passage": [
+      {
+       "t": "Before 1854 every stamp "
+      },
+      {
+       "t": "cut",
+       "n": 1
+      },
+      {
+       "t": " from a sheet with a pair of scissors, and a busy clerk could ruin a dozen in one morning. An Irish engineer named Henry Archer, "
+      },
+      {
+       "t": "who",
+       "n": 2
+      },
+      {
+       "t": " had watched the queues at the counter, built a machine that punched rows of tiny holes. The Post Office bought it only after the machine "
+      },
+      {
+       "t": "had been tested",
+       "n": 3
+      },
+      {
+       "t": " for two years. Collectors today pay far more for the rare sheets "
+      },
+      {
+       "t": "left",
+       "n": 4
+      },
+      {
+       "t": " unperforated than for perfect ones. "
+      },
+      {
+       "t": "It was",
+       "n": 5
+      },
+      {
+       "t": " Archer's machine that turned a sheet of paper into something you could tear."
+      }
+     ],
+     "tr": [
+      "1854년 이전에는 모든 우표를 가위로 전지에서 잘라 냈고, 바쁜 직원은 한나절에 열두 장을 망치기도 했다.",
+      "창구의 줄을 지켜본 헨리 아처라는 아일랜드 기술자는 작은 구멍을 줄지어 뚫는 기계를 만들었다.",
+      "우체국은 그 기계를 2년 동안 시험한 뒤에야 사들였다.",
+      "오늘날 수집가들은 톱니가 없는 채로 남은 희귀 전지에 완전한 것보다 훨씬 높은 값을 치른다.",
+      "종이 한 장을 손으로 찢을 수 있는 물건으로 바꾼 것은 바로 아처의 기계였다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "every stamp가 잘리는 대상이므로 was cut으로 고친다.",
+       "fix": "was cut"
+      },
+      {
+       "n": 2,
+       "point": "주격 관계대명사",
+       "ox": "O",
+       "expl": "선행사가 사람이고 뒤에 주어가 빠져 있으므로 who.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "과거완료 수동태",
+       "ox": "O",
+       "expl": "기계가 시험받는 대상이고 구입보다 앞선 일이므로 had been p.p.",
+       "wrong_ex": "had tested"
+      },
+      {
+       "n": 4,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the rare sheets가 남겨진 대상이므로 과거분사 left.",
+       "wrong_ex": "leaving"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "주어 Archer's machine을 강조하는 It ~ that 구문.",
+       "wrong_ex": "There was"
+      }
+     ]
+    },
+    {
+     "set": 91,
+     "title": "눈송이의 팔은 왜 여섯인가",
+     "passage": [
+      {
+       "t": "Every snowflake "
+      },
+      {
+       "t": "begins",
+       "n": 1
+      },
+      {
+       "t": " as a speck of dust with a little water frozen around it. Water molecules lock together at sixty degrees, "
+      },
+      {
+       "t": "giving",
+       "n": 2
+      },
+      {
+       "t": " every crystal six arms. What shape those arms take depends on how cold the air "
+      },
+      {
+       "t": "is",
+       "n": 3
+      },
+      {
+       "t": " at each moment of the fall. The cold makes the water "
+      },
+      {
+       "t": "to freeze",
+       "n": 4
+      },
+      {
+       "t": " fastest at the corners, where the arms branch. Only under a microscope "
+      },
+      {
+       "t": "can you see",
+       "n": 5
+      },
+      {
+       "t": " how different two flakes really are."
+      }
+     ],
+     "tr": [
+      "모든 눈송이는 작은 먼지 알갱이에 물이 얼어붙으면서 시작된다.",
+      "물 분자는 60도 각도로 맞물리며, 그래서 모든 결정에 여섯 개의 팔이 생긴다.",
+      "그 팔이 어떤 모양이 되는지는 떨어지는 순간순간 공기가 얼마나 차가운지에 달려 있다.",
+      "추위는 모서리에서 물을 가장 빨리 얼게 하고, 그곳에서 팔이 갈라진다.",
+      "현미경으로 봐야만 두 눈송이가 실제로 얼마나 다른지 알 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "Every + 단수동사",
+       "ox": "O",
+       "expl": "「Every + 단수명사」는 단수 취급하므로 begins.",
+       "wrong_ex": "begin"
+      },
+      {
+       "n": 2,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 팔을 만들어 주는 주체이므로 능동의 giving.",
+       "wrong_ex": "given"
+      },
+      {
+       "n": 3,
+       "point": "간접의문문 어순",
+       "ox": "O",
+       "expl": "depends on의 목적어인 명사절이므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "is the air"
+      },
+      {
+       "n": 4,
+       "point": "사역동사 make + 원형부정사",
+       "ox": "X",
+       "expl": "make는 목적격보어로 원형부정사를 취하므로 freeze로 고친다.",
+       "fix": "freeze"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사구 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "you can see"
+      }
+     ]
+    },
+    {
+     "set": 92,
+     "title": "유리는 흐르지 않는다",
+     "passage": [
+      {
+       "t": "Old cathedral windows are often thicker at the bottom, which "
+      },
+      {
+       "t": "has led",
+       "n": 1
+      },
+      {
+       "t": " many people to believe that glass slowly flows. The real reason, as several studies of medieval panes "
+      },
+      {
+       "t": "shows",
+       "n": 2
+      },
+      {
+       "t": ", is the way the glass was made. Spun into a flat disc and then cut into squares, each pane "
+      },
+      {
+       "t": "came",
+       "n": 3
+      },
+      {
+       "t": " out thicker at one edge. Glaziers simply set the heavy edge downward, and glass at room temperature would need billions of years "
+      },
+      {
+       "t": "to move",
+       "n": 4
+      },
+      {
+       "t": " even a millimetre. The myth survives because it sounds "
+      },
+      {
+       "t": "reasonable",
+       "n": 5
+      },
+      {
+       "t": "."
+      }
+     ],
+     "tr": [
+      "오래된 성당 창유리는 아래쪽이 더 두꺼운 경우가 많은데, 이 때문에 많은 사람이 유리가 천천히 흐른다고 믿게 되었다.",
+      "중세 유리판을 다룬 여러 연구가 보여 주듯, 진짜 이유는 유리를 만든 방식에 있다.",
+      "평평한 원반으로 돌려 만든 뒤 네모나게 잘랐기 때문에, 유리판은 한쪽 가장자리가 더 두껍게 나왔다.",
+      "유리공들은 그 두꺼운 쪽을 아래로 놓았을 뿐이고, 실온의 유리가 1밀리미터라도 움직이려면 수십억 년이 걸린다.",
+      "이 속설은 그럴듯하게 들리기 때문에 살아남았다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 이끈 주체이고 목적어 many people이 있으므로 능동.",
+       "wrong_ex": "has been led"
+      },
+      {
+       "n": 2,
+       "point": "삽입절의 수일치",
+       "ox": "X",
+       "expl": "as가 이끄는 절의 주어는 several studies(복수)이므로 show로 고 친다.",
+       "fix": "show"
+      },
+      {
+       "n": 3,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "분사구문 뒤에 오는 주절의 본동사 자리이므로 came.",
+       "wrong_ex": "coming"
+      },
+      {
+       "n": 4,
+       "point": "부정사 (목적)",
+       "ox": "O",
+       "expl": "'~하려면'의 뜻으로 need의 목적을 나타내는 to부정사.",
+       "wrong_ex": "moving"
+      },
+      {
+       "n": 5,
+       "point": "감각동사 + 형용사",
+       "ox": "O",
+       "expl": "sound는 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "reasonably"
+      }
+     ]
+    }
+   ],
+   "id": "실력-23",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 24,
+   "sets": [
+    {
+     "set": 93,
+     "title": "지도 한 장이 멈춘 전염병",
+     "passage": [
+      {
+       "t": "When cholera reached Soho in 1854, the street "
+      },
+      {
+       "t": "where",
+       "n": 1
+      },
+      {
+       "t": " the deaths were thickest had one public pump at its centre. John Snow walked the district night after night and saw families "
+      },
+      {
+       "t": "carrying",
+       "n": 2
+      },
+      {
+       "t": " water home in buckets. The handle of that pump "
+      },
+      {
+       "t": "was removed",
+       "n": 3
+      },
+      {
+       "t": " on 8 September, and the outbreak stopped within days. Houses beside the pump lost "
+      },
+      {
+       "t": "three times as many",
+       "n": 4
+      },
+      {
+       "t": " people as houses two streets away. If Snow had not drawn his map, we "
+      },
+      {
+       "t": "would not have understood",
+       "n": 5
+      },
+      {
+       "t": " today how the disease travels."
+      }
+     ],
+     "tr": [
+      "1854년 콜레라가 소호에 닥쳤을 때, 사망자가 가장 많았던 거리 한가운데에는 공용 펌프가 하나 있었다.",
+      "존 스노는 밤마다 그 구역을 걸으며 가족들이 양동이로 물을 길어 가는 것을 보았다.",
+      "9월 8일 그 펌프의 손잡이가 제거되었고, 유행은 며칠 만에 멈췄다.",
+      "펌프 옆의 집들은 두 블록 떨어진 집들보다 세 배 많은 사람을 잃었다.",
+      "스노가 그 지도를 그리지 않았다면, 우리는 오늘날 이 병이 어떻게 퍼지는지 알지 못할 것이다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계부사 where",
+       "ox": "O",
+       "expl": "선행사가 장소 the street이고 뒤에 완전한 절이 오므로 where.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 2,
+       "point": "지각동사 + 현재분사",
+       "ox": "O",
+       "expl": "saw의 목적어 families가 물을 긷는 주체이고 진행 중이므로 현재분사 carrying.",
+       "wrong_ex": "carried"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "The handle이 제거되는 대상이므로 was removed.",
+       "wrong_ex": "removed"
+      },
+      {
+       "n": 4,
+       "point": "배수 비교",
+       "ox": "O",
+       "expl": "「배수사 + as + 원급 + as」 구문. people은 셀 수 있으므로 as many as.",
+       "wrong_ex": "three times as much"
+      },
+      {
+       "n": 5,
+       "point": "혼합 가정법",
+       "ox": "X",
+       "expl": "if절은 1854년의 일, 주절은 today의 일이므로 would not understand로 고친다.",
+       "fix": "would not understand"
+      }
+     ]
+    },
+    {
+     "set": 94,
+     "title": "소방차는 왜 빨간색일까",
+     "passage": [
+      {
+       "t": "Painting",
+       "n": 1
+      },
+      {
+       "t": " a fire engine red made sense in 1900, when most vehicles on the road were black. Early designers "
+      },
+      {
+       "t": "cannot have known",
+       "n": 2
+      },
+      {
+       "t": " how poorly red reads at dusk, when the eye loses the long wavelengths first. The number of night collisions involving lime-yellow engines "
+      },
+      {
+       "t": "are",
+       "n": 3
+      },
+      {
+       "t": " about half that of red ones. "
+      },
+      {
+       "t": "Having compared",
+       "n": 4
+      },
+      {
+       "t": " ten years of records, one researcher called red the worst possible colour for a night vehicle. Crashes involving red engines still outnumber "
+      },
+      {
+       "t": "those",
+       "n": 5
+      },
+      {
+       "t": " involving yellow ones in almost every city."
+      }
+     ],
+     "tr": [
+      "1900년에 소방차를 빨갛게 칠하는 것은 합리적이었다. 당시 도로의 차량은 대부분 검은색이었기 때문이다.",
+      "눈이 긴 파장을 먼저 잃는 해질 무렵에 빨강이 얼마나 안 보이는지를 초기 설계자들이 알았을 리가 없다.",
+      "라임옐로 소방차가 관련된 야간 충돌의 수는 빨간 소방차의 경우의 약 절반이다.",
+      "10년치 기록을 비교한 끝에, 한 연구자는 빨강이 야간 차량에 쓸 수 있는 가장 나쁜 색이라고 말했다.",
+      "거의 모든 도시에서 빨간 소방차의 사고는 여전히 노란 소방차의 사고보다 많다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "동명사 주어",
+       "ox": "O",
+       "expl": "문장의 주어 자리이므로 동명사 Painting. 단수 취급하여 동사는 made.",
+       "wrong_ex": "Paint"
+      },
+      {
+       "n": 2,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 강한 부정의 추측이므로 cannot have p.p.",
+       "wrong_ex": "cannot know"
+      },
+      {
+       "n": 3,
+       "point": "The number of 수일치",
+       "ox": "X",
+       "expl": "「The number of ~」는 '~의 수'로 단수 취급하므로 is로 고친다.",
+       "fix": "is"
+      },
+      {
+       "n": 4,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "비교한 일이 주절보다 앞서므로 「Having + p.p.」.",
+       "wrong_ex": "Compared"
+      },
+      {
+       "n": 5,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 Crashes를 대신 받으므로 those.",
+       "wrong_ex": "that"
+      }
+     ]
+    },
+    {
+     "set": 95,
+     "title": "사막이 먹여 살리는 숲",
+     "passage": [
+      {
+       "t": "Every year the Amazon depends on dust "
+      },
+      {
+       "t": "blew",
+       "n": 1
+      },
+      {
+       "t": " across the Atlantic from the Sahara. The cloud leaves Africa in winter, "
+      },
+      {
+       "t": "when",
+       "n": 2
+      },
+      {
+       "t": " the desert wind is at its strongest. A single storm carries more phosphorus to the forest than the whole river system "
+      },
+      {
+       "t": "does",
+       "n": 3
+      },
+      {
+       "t": " in a year. The dust feeds the trees, fills the ocean with iron, and "
+      },
+      {
+       "t": "makes",
+       "n": 4
+      },
+      {
+       "t": " European skies hazy in June. Little "
+      },
+      {
+       "t": "did scientists suspect",
+       "n": 5
+      },
+      {
+       "t": " that a dead desert could keep a rainforest alive."
+      }
+     ],
+     "tr": [
+      "해마다 아마존은 사하라에서 대서양을 건너 날아온 먼지에 기대어 산다.",
+      "그 먼지구름은 사막 바람이 가장 강한 겨울에 아프리카를 떠난다.",
+      "폭풍 한 번이 강 전체가 1년 동안 실어 나르는 것보다 더 많은 인을 숲에 가져다준다.",
+      "그 먼지는 나무를 먹이고, 바다를 철분으로 채우며, 6월의 유럽 하늘을 뿌옇게 만든다.",
+      "죽은 사막이 열대우림을 살려 둔다는 것을 과학자들은 거의 짐작하지 못했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "X",
+       "expl": "dust가 바람에 날려 온 대상이므로 과거분사 blown으로 고친다.",
+       "fix": "blown"
+      },
+      {
+       "n": 2,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 winter이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "대동사",
+       "ox": "O",
+       "expl": "앞의 일반동사 carries를 대신 받으므로 be동사가 아니라 does.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "feeds, fills, makes가 and로 연결된 병렬. 주어는 The dust.",
+       "wrong_ex": "making"
+      },
+      {
+       "n": 5,
+       "point": "Little 도치",
+       "ox": "O",
+       "expl": "부정의 부사 Little이 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "scientists did suspect"
+      }
+     ]
+    },
+    {
+     "set": 96,
+     "title": "1300년 동안 문을 연 여관",
+     "passage": [
+      {
+       "t": "A hot-spring inn at the foot of a mountain in Japan "
+      },
+      {
+       "t": "has been run",
+       "n": 1
+      },
+      {
+       "t": " by one family since the year 705. The house is known "
+      },
+      {
+       "t": "for",
+       "n": 2
+      },
+      {
+       "t": " its water rather than for its rooms, and the spring has never once run dry. Guests sleep behind walls "
+      },
+      {
+       "t": "whose",
+       "n": 3
+      },
+      {
+       "t": " paper was replaced in the 1990s, though the baths were left exactly as they were. The inn is one of the oldest family "
+      },
+      {
+       "t": "business",
+       "n": 4
+      },
+      {
+       "t": " in the world, with fifty-two generations behind the desk. "
+      },
+      {
+       "t": "Far",
+       "n": 5
+      },
+      {
+       "t": " older than any hotel chain, it has outlived shoguns, wars and empires."
+      }
+     ],
+     "tr": [
+      "일본의 한 산기슭에 있는 온천 여관은 705년부터 한 가문이 운영해 오고 있다.",
+      "이 집은 객실보다 물로 알려져 있고, 그 샘은 한 번도 마른 적이 없다.",
+      "손님들은 1990년대에 종이를 새로 바른 벽 뒤에서 잠들지만, 욕탕은 예전 모습 그대로 두었다.",
+      "이 여관은 쉰두 세대가 그 자리를 지켜 온, 세계에서 가장 오래된 가족 사업체 가운데 하나다.",
+      "어떤 호텔 체인보다도 훨씬 오래된 이 여관은 쇼군과 전쟁과 제국보다 오래 살아남았다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "여관이 운영되는 대상이고 705년부터 지금까지 이어지므로 has been p.p.",
+       "wrong_ex": "has run"
+      },
+      {
+       "n": 2,
+       "point": "be known for / as",
+       "ox": "O",
+       "expl": "'~으로 유명하다'에서 이유·특징은 for, 자격·이름은 as로 받는다.",
+       "wrong_ex": "as"
+      },
+      {
+       "n": 3,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "walls와 paper가 소유 관계이므로 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 4,
+       "point": "one of the + 복수명사",
+       "ox": "X",
+       "expl": "「one of the + 최상급 + 복수명사」이므로 businesses로 고친다.",
+       "fix": "businesses"
+      },
+      {
+       "n": 5,
+       "point": "비교급 강조 far",
+       "ox": "O",
+       "expl": "far가 비교급 older를 강조한다. very는 비교급을 강조할 수 없다.",
+       "wrong_ex": "Very"
+      }
+     ]
+    }
+   ],
+   "id": "실력-24",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 25,
+   "sets": [
+    {
+     "set": 97,
+     "title": "코코넛 껍데기로 만드는 말발굽 소리",
+     "passage": [
+      {
+       "t": "Audiences "
+      },
+      {
+       "t": "find it",
+       "n": 1
+      },
+      {
+       "t": " strange that the sound of a galloping horse is made with two coconut shells. A foley artist once explained that he "
+      },
+      {
+       "t": "records",
+       "n": 2
+      },
+      {
+       "t": " the crunch of snow months before the film was shot. The studio keeps a floor of gravel, a box of sand and a tank of water "
+      },
+      {
+       "t": "ready",
+       "n": 3
+      },
+      {
+       "t": " for every take. Rain recorded outside a window never sounds like rain, "
+      },
+      {
+       "t": "which",
+       "n": 4
+      },
+      {
+       "t": " is why artists fry bacon instead. Nothing in a film is "
+      },
+      {
+       "t": "more artificial than",
+       "n": 5
+      },
+      {
+       "t": " the sound you trust most."
+      }
+     ],
+     "tr": [
+      "관객들은 달리는 말발굽 소리가 코코넛 껍데기 두 개로 만들어진다는 것을 신기해한다.",
+      "한 음향 효과 기사는 영화 촬영이 시작되기 몇 달 전에 눈 밟는 소리를 녹음해 두었다고 설명한 적이 있다.",
+      "스튜디오는 모든 촬영에 대비해 자갈 바닥과 모래 상자, 물탱크를 준비된 상태로 둔다.",
+      "창밖에서 녹음한 비는 결코 비처럼 들리지 않는데, 그래서 효과 기사들은 대신 베이컨을 굽는다.",
+      "영화에서 당신이 가장 믿는 그 소리보다 더 인공적인 것은 없다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "가목적어 it",
+       "ox": "O",
+       "expl": "find의 진목적어가 뒤의 that절이므로 가목적어 it이 필요하다.",
+       "wrong_ex": "find"
+      },
+      {
+       "n": 2,
+       "point": "시제 일치",
+       "ox": "X",
+       "expl": "주절이 과거(explained)이고 녹음이 그보다 앞선 일이므로 had recorded로 고친다.",
+       "fix": "had recorded"
+      },
+      {
+       "n": 3,
+       "point": "목적격보어 형용사",
+       "ox": "O",
+       "expl": "keep + 목적어 + 형용사 구조이므로 ready. 부사는 보어가 될 수 없다.",
+       "wrong_ex": "readily"
+      },
+      {
+       "n": 4,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 5,
+       "point": "부정주어 + 비교급",
+       "ox": "O",
+       "expl": "「Nothing ~ 비교급 + than」으로 최상급의 뜻을 나타낸다.",
+       "wrong_ex": "the most artificial than"
+      }
+     ]
+    },
+    {
+     "set": 98,
+     "title": "한 그램에 꽃 백오십 송이",
+     "passage": [
+      {
+       "t": "Each saffron flower "
+      },
+      {
+       "t": "gives",
+       "n": 1
+      },
+      {
+       "t": " three red threads, and a single gram needs about a hundred and fifty of them. The threads must be pulled out by hand before the sun is high, and it is no use "
+      },
+      {
+       "t": "trying",
+       "n": 2
+      },
+      {
+       "t": " to do the work with a machine. The price has less to do with the plant itself than with the labour "
+      },
+      {
+       "t": "involved",
+       "n": 3
+      },
+      {
+       "t": ". A kilogram takes some forty hours to pick, to dry and "
+      },
+      {
+       "t": "to sort",
+       "n": 4
+      },
+      {
+       "t": ". A friend "
+      },
+      {
+       "t": "of me",
+       "n": 5
+      },
+      {
+       "t": " who cooks Persian food showed me how little a single dish actually needs."
+      }
+     ],
+     "tr": [
+      "사프란 꽃 한 송이는 붉은 암술 세 가닥을 내고, 1그램을 얻으려면 그것이 약 150가닥 필요하다.",
+      "암술은 해가 높이 뜨기 전에 손으로 뽑아야 하며, 그 일을 기계로 하려고 해 봐야 소용이 없다.",
+      "가격은 식물 자체보다 거기에 들어가는 노동과 관련이 깊다.",
+      "1킬로그램을 따고, 말리고, 골라내는 데는 마흔 시간쯤 걸린다.",
+      "페르시아 요리를 하는 내 친구 하나가 한 접시에 실제로 얼마나 조금 드는지를 보여 주었다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "Each + 단수동사",
+       "ox": "O",
+       "expl": "「Each + 단수명사」는 단수 취급하므로 gives.",
+       "wrong_ex": "give"
+      },
+      {
+       "n": 2,
+       "point": "It is no use + 동명사",
+       "ox": "O",
+       "expl": "'~해 봐야 소용없다'는 It is no use + 동명사.",
+       "wrong_ex": "to try"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "the labour가 그 일에 포함되는 대상이므로 과거분사 involved.",
+       "wrong_ex": "involving"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "to pick, to dry, to sort가 and로 연결된 병렬.",
+       "wrong_ex": "sorting"
+      },
+      {
+       "n": 5,
+       "point": "이중소유격",
+       "ox": "X",
+       "expl": "「a + 명사 + of + 소유대명사」 형태이므로 of mine으로 고친다.",
+       "fix": "of mine"
+      }
+     ]
+    },
+    {
+     "set": 99,
+     "title": "비가 오기 전의 냄새",
+     "passage": [
+      {
+       "t": "The smell that follows the first rain of summer "
+      },
+      {
+       "t": "has",
+       "n": 1
+      },
+      {
+       "t": " a name: petrichor, from the Greek words for stone and blood. Oils from dry plants settle on the ground, and soil bacteria add "
+      },
+      {
+       "t": "what",
+       "n": 2
+      },
+      {
+       "t": " chemists call geosmin. A falling drop traps a bubble of air, and the burst leaves the scent "
+      },
+      {
+       "t": "carrying",
+       "n": 3
+      },
+      {
+       "t": " upward on droplets too small to see. So sensitive "
+      },
+      {
+       "t": "is the human nose",
+       "n": 4
+      },
+      {
+       "t": " to geosmin that we beat sharks at the job. We notice it at five parts per trillion, far "
+      },
+      {
+       "t": "better than",
+       "n": 5
+      },
+      {
+       "t": " a shark notices blood."
+      }
+     ],
+     "tr": [
+      "여름 첫비 뒤에 나는 냄새에는 이름이 있다. 돌과 피를 뜻하는 그리스어에서 온 페트리코어다.",
+      "마른 식물에서 나온 기름이 땅에 내려앉고, 흙 속 세균이 화학자들이 지오스민이라 부르는 물질을 더한다.",
+      "떨어지는 빗방울은 공기 방울을 가두고, 그것이 터지면서 눈에 보이지 않을 만큼 작은 물방울에 냄새가 실려 올라간다.",
+      "사람의 코는 지오스민에 워낙 예민해서 이 일에서는 상어를 이긴다.",
+      "우리는 1조분의 5 농도에서 그것을 알아채는데, 상어가 피를 알아채는 것보다 훨씬 낫다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The smell(단수)이고 that절은 수식어이므로 has.",
+       "wrong_ex": "have"
+      },
+      {
+       "n": 2,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "add의 목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 3,
+       "point": "목적격보어 (수동)",
+       "ox": "X",
+       "expl": "the scent가 실려 올라가는 대상이므로 과거분사 carried로 고친다.",
+       "fix": "carried"
+      },
+      {
+       "n": 4,
+       "point": "보어 도치",
+       "ox": "O",
+       "expl": "보어 So sensitive가 문두에 오면 주어와 동사가 도치된다.",
+       "wrong_ex": "the human nose is"
+      },
+      {
+       "n": 5,
+       "point": "비교급 강조",
+       "ox": "O",
+       "expl": "far가 비교급 better를 강조한다. 비교급을 겹쳐 쓸 수는 없다.",
+       "wrong_ex": "more better than"
+      }
+     ]
+    },
+    {
+     "set": 100,
+     "title": "0이 금지되었던 도시",
+     "passage": [
+      {
+       "t": "Merchants in Florence "
+      },
+      {
+       "t": "banned",
+       "n": 1
+      },
+      {
+       "t": " from writing zero in their ledgers in 1299. The city feared that a round symbol would be easy "
+      },
+      {
+       "t": "to alter",
+       "n": 2
+      },
+      {
+       "t": " into a six or a nine. Italian bankers who had met the system in North Africa kept "
+      },
+      {
+       "t": "using",
+       "n": 3
+      },
+      {
+       "t": " it in secret, and the word ‘cipher’ came to mean a hidden message. Zero "
+      },
+      {
+       "t": "had been",
+       "n": 4
+      },
+      {
+       "t": " a foreign trick for two centuries before the universities accepted it. "
+      },
+      {
+       "t": "Written",
+       "n": 5
+      },
+      {
+       "t": " as an empty circle, the symbol made modern arithmetic possible."
+      }
+     ],
+     "tr": [
+      "1299년 피렌체의 상인들은 장부에 0을 적는 것이 금지되었다.",
+      "그 도시는 둥근 기호가 6이나 9로 고치기 쉬울 것이라고 염려했다.",
+      "북아프리카에서 이 체계를 접한 이탈리아 은행가들은 몰래 계속 그것을 썼고, 'cipher'라는 말은 암호라는 뜻을 갖게 되었다.",
+      "0은 대학들이 받아들이기까지 두 세기 동안 이방의 속임수로 남아 있었다.",
+      "빈 동그라미로 쓰인 이 기호는 현대의 계산을 가능하게 했다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "X",
+       "expl": "Merchants가 금지당하는 대상이므로 were banned로 고친다.",
+       "fix": "were banned"
+      },
+      {
+       "n": 2,
+       "point": "부정사 (형용사 수식)",
+       "ox": "O",
+       "expl": "앞의 형용사 easy를 수식하는 to부정사.",
+       "wrong_ex": "altering"
+      },
+      {
+       "n": 3,
+       "point": "keep + 동명사",
+       "ox": "O",
+       "expl": "keep은 목적어로 동명사를 취한다.",
+       "wrong_ex": "to use"
+      },
+      {
+       "n": 4,
+       "point": "과거완료",
+       "ox": "O",
+       "expl": "대학이 받아들인 과거 시점까지 이어진 상태이므로 had been.",
+       "wrong_ex": "has been"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "the symbol이 쓰이는 대상이므로 과거분사 Written.",
+       "wrong_ex": "Writing"
+      }
+     ]
+    }
+   ],
+   "id": "실력-25",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 26,
+   "sets": [
+    {
+     "set": 101,
+     "title": "혀를 차서 벽을 보는 사람",
+     "passage": [
+      {
+       "t": "Blind since the age of three, Daniel Kish "
+      },
+      {
+       "t": "learned",
+       "n": 1
+      },
+      {
+       "t": " to click his tongue and listen for the walls around him. Each click "
+      },
+      {
+       "t": "is reflected",
+       "n": 2
+      },
+      {
+       "t": " by surfaces as far as a hundred metres away. The brain areas "
+      },
+      {
+       "t": "used",
+       "n": 3
+      },
+      {
+       "t": " for sight light up when a blind clicker listens to the echo. Scientists had difficulty "
+      },
+      {
+       "t": "to measure",
+       "n": 4
+      },
+      {
+       "t": " how precise the skill really is. Nor "
+      },
+      {
+       "t": "can most sighted people",
+       "n": 5
+      },
+      {
+       "t": " learn it quickly, even after months of practice."
+      }
+     ],
+     "tr": [
+      "세 살 때부터 앞을 보지 못한 대니얼 키시는 혀를 차고 주변 벽에서 돌아오는 소리를 듣는 법을 익혔다.",
+      "혀 차는 소리 하나하나는 100미터나 떨어진 면에서도 반사되어 돌아온다.",
+      "시각을 담당하는 뇌 영역은 시각장애인이 그 메아리를 들을 때 활성화된다.",
+      "과학자들은 이 능력이 실제로 얼마나 정밀한지를 측정하는 데 어려움을 겪었다.",
+      "눈이 보이는 사람들 대부분도 몇 달을 연습한 뒤에조차 이것을 빨리 배우지는 못한다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "분사구문 뒤에 오는 주절의 본동사 자리이므로 learned.",
+       "wrong_ex": "learning"
+      },
+      {
+       "n": 2,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Each click이 반사되는 대상이므로 is reflected.",
+       "wrong_ex": "reflects"
+      },
+      {
+       "n": 3,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The brain areas가 쓰이는 대상이므로 과거분사 used.",
+       "wrong_ex": "using"
+      },
+      {
+       "n": 4,
+       "point": "have difficulty + 동명사",
+       "ox": "X",
+       "expl": "「have difficulty (in) + 동명사」 구조이므로 measuring으로 고 친다.",
+       "fix": "measuring"
+      },
+      {
+       "n": 5,
+       "point": "Nor 도치",
+       "ox": "O",
+       "expl": "부정어 Nor가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "most sighted people can"
+      }
+     ]
+    },
+    {
+     "set": 102,
+     "title": "세상에서 가장 조용한 방",
+     "passage": [
+      {
+       "t": "The quietest room in the world "
+      },
+      {
+       "t": "is",
+       "n": 1
+      },
+      {
+       "t": " in a laboratory in Minnesota, where the walls swallow almost every sound. You will hear your own heartbeat as soon as the door "
+      },
+      {
+       "t": "will close",
+       "n": 2
+      },
+      {
+       "t": " behind you. Visitors are often surprised "
+      },
+      {
+       "t": "to find",
+       "n": 3
+      },
+      {
+       "t": " that perfect silence is unpleasant rather than restful. The walls are covered "
+      },
+      {
+       "t": "with",
+       "n": 4
+      },
+      {
+       "t": " wedges of foam a metre deep, and the floor hangs on springs. Nobody has stayed inside for more than an hour, "
+      },
+      {
+       "t": "which",
+       "n": 5
+      },
+      {
+       "t": " the laboratory treats as a kind of record."
+      }
+     ],
+     "tr": [
+      "세계에서 가장 조용한 방은 미네소타의 한 실험실에 있는데, 그곳의 벽은 거의 모든 소리를 삼킨다.",
+      "문이 뒤에서 닫히자마자 당신은 자기 심장 소리를 듣게 된다.",
+      "방문객들은 완벽한 고요가 편안하기는커녕 불쾌하다는 것을 알고 놀라곤 한다.",
+      "벽은 1미터 두께의 쐐기 모양 흡음재로 덮여 있고, 바닥은 스프링에 매달려 있다.",
+      "한 시간 넘게 안에 머문 사람은 아무도 없는데, 실험실은 그것을 일종의 기록으로 여긴다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The quietest room(단수)이고 in the world는 수식어구이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 2,
+       "point": "시간 부사절의 시제",
+       "ox": "X",
+       "expl": "시간을 나타내는 부사절에서는 미래 대신 현재시제를 쓰므로 closes 로 고친다.",
+       "fix": "closes"
+      },
+      {
+       "n": 3,
+       "point": "부정사 (감정의 원인)",
+       "ox": "O",
+       "expl": "surprised의 원인을 나타내는 to부정사.",
+       "wrong_ex": "finding"
+      },
+      {
+       "n": 4,
+       "point": "be covered with",
+       "ox": "O",
+       "expl": "'~으로 덮여 있다'는 be covered with. 행위자가 아니므로 by를 쓰지 않는다.",
+       "wrong_ex": "by"
+      },
+      {
+       "n": 5,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받으며 treats의 목적어가 되는 which.",
+       "wrong_ex": "what"
+      }
+     ]
+    },
+    {
+     "set": 103,
+     "title": "20년 동안 팔리지 않은 지퍼",
+     "passage": [
+      {
+       "t": "All "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " the first buyers wanted was a fastener that would not open by itself. Tobacco pouches and boots "
+      },
+      {
+       "t": "were",
+       "n": 2
+      },
+      {
+       "t": " the only products that would carry the new device at first. The hooks had to be made "
+      },
+      {
+       "t": "small enough",
+       "n": 3
+      },
+      {
+       "t": " to lie flat under a seam, which took another twenty years. Even today a single jammed zip can make a jacket "
+      },
+      {
+       "t": "useless",
+       "n": 4
+      },
+      {
+       "t": ". It was the army, sewing zips into flying suits, "
+      },
+      {
+       "t": "what",
+       "n": 5
+      },
+      {
+       "t": " finally made the device ordinary."
+      }
+     ],
+     "tr": [
+      "첫 구매자들이 원한 것은 저절로 열리지 않는 잠금장치가 전부였다.",
+      "처음에 이 새 장치를 달아 준 제품은 담배 주머니와 부츠뿐이었다.",
+      "고리는 솔기 아래 납작하게 눕힐 만큼 작게 만들어야 했고, 거기에 또 20년이 걸렸다.",
+      "오늘날에도 지퍼 하나가 끼면 재킷 한 벌을 못 쓰게 만들 수 있다.",
+      "이 장치를 평범한 물건으로 만든 것은 비행복에 지퍼를 달아 넣은 군대였다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "관계대명사 that (선행사 All)",
+       "ox": "O",
+       "expl": "선행사가 All이면 관계대명사 that을 쓴다. what은 선행사를 포함하므로 겹쳐 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Tobacco pouches and boots(복수)이므로 were.",
+       "wrong_ex": "was"
+      },
+      {
+       "n": 3,
+       "point": "enough의 위치",
+       "ox": "O",
+       "expl": "enough가 형용사를 수식할 때는 형용사 뒤에 온다.",
+       "wrong_ex": "enough small"
+      },
+      {
+       "n": 4,
+       "point": "목적격보어 형용사",
+       "ox": "O",
+       "expl": "make + 목적어 + 형용사 구조이므로 useless. 부사는 보어가 될 수없다.",
+       "wrong_ex": "uselessly"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "X",
+       "expl": "the army를 강조하는 It ~ that 구문이므로 that으로 고친다.",
+       "fix": "that"
+      }
+     ]
+    },
+    {
+     "set": 104,
+     "title": "벽에 남은 낙서",
+     "passage": [
+      {
+       "t": ""
+      },
+      {
+       "t": "Covering",
+       "n": 1
+      },
+      {
+       "t": " in ash for seventeen centuries, the walls of Pompeii kept their graffiti. Scratched beside a door, one line "
+      },
+      {
+       "t": "complains",
+       "n": 2
+      },
+      {
+       "t": " that the owner's bread was burnt again. Archaeologists have found eleven thousand of them, most of "
+      },
+      {
+       "t": "which",
+       "n": 3
+      },
+      {
+       "t": " were written by ordinary people with nothing to prove. The graffiti tell us "
+      },
+      {
+       "t": "what",
+       "n": 4
+      },
+      {
+       "t": " the schoolbooks never bothered to record. Only because the city died so quickly "
+      },
+      {
+       "t": "do we have",
+       "n": 5
+      },
+      {
+       "t": " a record of its jokes."
+      }
+     ],
+     "tr": [
+      "열일곱 세기 동안 화산재에 덮여 있었던 덕분에 폼페이의 벽은 낙서를 간직했다.",
+      "문 옆에 긁어 쓴 한 줄은 주인집 빵이 또 탔다고 불평한다.",
+      "고고학자들은 그런 낙서를 1만 1천 개 넘게 찾아냈는데, 대부분은 증명할 것이 없는 평범한 사람들이 쓴 것이다.",
+      "이 낙서들은 교과서가 굳이 기록하지 않은 것을 우리에게 알려 준다.",
+      "그 도시가 그토록 빨리 죽었기 때문에야 비로소 우리는 그곳의 농담을 기록으로 갖게 되었다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (수동)",
+       "ox": "X",
+       "expl": "the walls가 덮인 대상이므로 과거분사 Covered로 고친다.",
+       "fix": "Covered"
+      },
+      {
+       "n": 2,
+       "point": "본동사",
+       "ox": "O",
+       "expl": "주어 one line을 받는 본동사 자리이므로 complains.",
+       "wrong_ex": "complaining"
+      },
+      {
+       "n": 3,
+       "point": "부분 관계사 (most of which)",
+       "ox": "O",
+       "expl": "「부분 표현 + of + 관계대명사」 구조. them을 쓰면 접속사가 없어진다.",
+       "wrong_ex": "them"
+      },
+      {
+       "n": 4,
+       "point": "관계대명사 what",
+       "ox": "O",
+       "expl": "tell의 직접목적어가 되는 명사절을 이끌며 선행사를 포함한다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "we have"
+      }
+     ]
+    }
+   ],
+   "id": "실력-26",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 27,
+   "sets": [
+    {
+     "set": 105,
+     "title": "달에 남은 발자국",
+     "passage": [
+      {
+       "t": "The footprints left by the Apollo crews "
+      },
+      {
+       "t": "are",
+       "n": 1
+      },
+      {
+       "t": " still exactly where the boots pressed them. The grey dust, "
+      },
+      {
+       "t": "broken",
+       "n": 2
+      },
+      {
+       "t": " into sharp grains by meteor strikes, holds a shape the way wet sand does. A single print can survive ten million years without "
+      },
+      {
+       "t": "disturbing",
+       "n": 3
+      },
+      {
+       "t": " by anything larger than a speck. The longer they stay, "
+      },
+      {
+       "t": "the more valuable",
+       "n": 4
+      },
+      {
+       "t": " they become to the historians of this century. Only if a treaty is signed "
+      },
+      {
+       "t": "will the prints be",
+       "n": 5
+      },
+      {
+       "t": " safe from the next landing."
+      }
+     ],
+     "tr": [
+      "아폴로 승무원들이 남긴 발자국은 부츠가 눌러 놓은 그 자리에 그대로 있다.",
+      "운석 충돌로 날카로운 알갱이가 된 회색 먼지는 젖은 모래가 그러하듯 모양을 유지한다.",
+      "발자국 하나는 티끌보다 큰 무언가에 흐트러지는 일 없이 천만 년을 버틸 수 있다.",
+      "오래 남아 있을수록 그것은 이 세기의 역사가들에게 더 값진 것이 된다.",
+      "조약이 체결되어야만 그 발자국들은 다음 착륙으로부터 안전할 것이다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The footprints(복수)이고 left 이하는 수식어구이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 2,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "The grey dust가 부서진 대상이므로 과거분사 broken.",
+       "wrong_ex": "breaking"
+      },
+      {
+       "n": 3,
+       "point": "동명사의 수동",
+       "ox": "X",
+       "expl": "전치사 without의 목적어 자리이고 발자국이 흐트러지는 대상이므로 being disturbed로 고친다.",
+       "fix": "being disturbed"
+      },
+      {
+       "n": 4,
+       "point": "the 비교급, the 비교급",
+       "ox": "O",
+       "expl": "「The 비교급 ~, the 비교급 ~」으로 '~할수록 더 …하다'를 나타낸다.",
+       "wrong_ex": "the most valuable"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사절 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사절이 문두에 오면 주절의 주어와 조동사를 도치한다.",
+       "wrong_ex": "the prints will be"
+      }
+     ]
+    },
+    {
+     "set": 106,
+     "title": "유리창에 부딪히는 새들",
+     "passage": [
+      {
+       "t": "Why birds fly into glass",
+       "n": 1
+      },
+      {
+       "t": " has a simple answer: they see a reflected sky instead of a wall. A building can get the problem "
+      },
+      {
+       "t": "fixed",
+       "n": 2
+      },
+      {
+       "t": " with stickers that cost less than a single pane. Up to a billion birds "
+      },
+      {
+       "t": "are killed",
+       "n": 3
+      },
+      {
+       "t": " against windows in North America every year. Architects now test a design by hanging patterns, counting strikes, and "
+      },
+      {
+       "t": "comparing",
+       "n": 4
+      },
+      {
+       "t": " the results season by season. Those losses "
+      },
+      {
+       "t": "are consisted of",
+       "n": 5
+      },
+      {
+       "t": " ordinary garden birds, not the rare species we photograph."
+      }
+     ],
+     "tr": [
+      "새들이 왜 유리에 부딪히는지에는 간단한 답이 있다. 벽이 아니라 비친 하늘을 보기 때문이다.",
+      "건물은 유리 한 장 값도 안 되는 스티커로 이 문제를 해결할 수 있다.",
+      "북미에서는 해마다 최대 10억 마리의 새가 창문에 부딪혀 죽는다.",
+      "건축가들은 이제 무늬를 붙이고, 충돌 횟수를 세고, 계절별로 결과를 비교하며 설계를 시험한다.",
+      "그 희생은 우리가 사진 찍는 희귀종이 아니라 흔한 텃새들로 이루어져 있다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "간접의문문 주어",
+       "ox": "O",
+       "expl": "의문사절이 주어 자리에 왔으므로 「의문사 + 주어 + 동사」 어순.",
+       "wrong_ex": "Why do birds fly into glass"
+      },
+      {
+       "n": 2,
+       "point": "get + 목적어 + 과거분사",
+       "ox": "O",
+       "expl": "the problem이 해결되는 대상이므로 과거분사 fixed.",
+       "wrong_ex": "fix"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "birds가 죽임을 당하는 대상이므로 are killed.",
+       "wrong_ex": "kill"
+      },
+      {
+       "n": 4,
+       "point": "병렬 구조",
+       "ox": "O",
+       "expl": "by 뒤에 hanging, counting, comparing이 and로 연결된 병렬.",
+       "wrong_ex": "compared"
+      },
+      {
+       "n": 5,
+       "point": "consist of (수동 불가)",
+       "ox": "X",
+       "expl": "consist of는 목적어를 갖지 않는 자동사이므로 consist of로 고친다.",
+       "fix": "consist of"
+      }
+     ]
+    },
+    {
+     "set": 107,
+     "title": "손가락이 쭈글해지는 이유",
+     "passage": [
+      {
+       "t": "Soaked",
+       "n": 1
+      },
+      {
+       "t": " in warm water for ten minutes, our fingers wrinkle in a pattern that is the same every time. The grip of wet fingers on a wet object is measurably stronger than "
+      },
+      {
+       "t": "dry fingers",
+       "n": 2
+      },
+      {
+       "t": ". Scientists had wondered for decades "
+      },
+      {
+       "t": "whether",
+       "n": 3
+      },
+      {
+       "t": " the pattern served any purpose at all. The wrinkles "
+      },
+      {
+       "t": "must have helped",
+       "n": 4
+      },
+      {
+       "t": " our ancestors hold wet branches and catch fish by hand. Fingers kept in water for an hour "
+      },
+      {
+       "t": "lose",
+       "n": 5
+      },
+      {
+       "t": " the pattern and turn smooth again."
+      }
+     ],
+     "tr": [
+      "따뜻한 물에 10분 담그면 우리 손가락은 매번 똑같은 무늬로 쭈글쭈글해진다.",
+      "젖은 물건을 쥘 때 젖은 손가락의 악력은 마른 손가락의 악력보다 측정 가능할 만큼 더 세다.",
+      "과학자들은 이 무늬에 어떤 쓸모가 있기는 한지를 수십 년 동안 궁금해했다.",
+      "이 주름은 우리 조상들이 젖은 나뭇가지를 붙잡고 맨손으로 물고기를 잡는 데 도움이 되었음이 틀림없다.",
+      "한 시간 동안 물에 담가 둔 손가락은 그 무늬를 잃고 다시 매끈해진다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "our fingers가 물에 담기는 대상이므로 과거분사 Soaked.",
+       "wrong_ex": "Soaking"
+      },
+      {
+       "n": 2,
+       "point": "비교 대상 일치",
+       "ox": "X",
+       "expl": "The grip과 비교해야 하므로 that of dry fingers로 고친다.",
+       "fix": "that of dry fingers"
+      },
+      {
+       "n": 3,
+       "point": "명사절 접속사 whether",
+       "ox": "O",
+       "expl": "'~인지 아닌지'의 뜻으로 wondered의 목적어가 되는 명사절을 이끈다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 4,
+       "point": "조동사 + have p.p.",
+       "ox": "O",
+       "expl": "과거 사실에 대한 강한 추측이므로 must have p.p.",
+       "wrong_ex": "must help"
+      },
+      {
+       "n": 5,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 Fingers(복수)이고 kept 이하는 수식어구이므로 lose.",
+       "wrong_ex": "loses"
+      }
+     ]
+    },
+    {
+     "set": 108,
+     "title": "깨지지 않은 플라스크",
+     "passage": [
+      {
+       "t": "A French chemist "
+      },
+      {
+       "t": "had been working",
+       "n": 1
+      },
+      {
+       "t": " on dyes when a glass flask fell from a shelf and refused to break. Inside was a film of dried plastic, too thin "
+      },
+      {
+       "t": "to notice",
+       "n": 2
+      },
+      {
+       "t": " but strong enough to hold the pieces together. The glass "
+      },
+      {
+       "t": "he made",
+       "n": 3
+      },
+      {
+       "t": " that night is still in every windscreen on the road. Neither the maker nor the drivers "
+      },
+      {
+       "t": "was",
+       "n": 4
+      },
+      {
+       "t": " aware of how many lives it would save. "
+      },
+      {
+       "t": "Sold",
+       "n": 5
+      },
+      {
+       "t": " at first for gas masks, safety glass reached cars only after 1930."
+      }
+     ],
+     "tr": [
+      "한 프랑스 화학자가 염료를 연구하던 중 유리 플라스크가 선반에서 떨어졌는데 깨지지 않았다.",
+      "안쪽에는 말라붙은 플라스틱 막이 있었는데, 알아채지 못할 만큼 얇았지만 조각들을 붙들어 둘 만큼 강했다.",
+      "그날 밤 그가 만든 유리는 지금도 도로 위 모든 차의 앞유리에 들어 있다.",
+      "만든 사람도 운전자들도 그것이 얼마나 많은 생명을 구하게 될지 알지 못했다.",
+      "처음에는 방독면용으로 팔린 안전유리는 1930년이 지나서야 자동차에 들어갔다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "과거완료진행",
+       "ox": "O",
+       "expl": "플라스크가 떨어진 과거 시점 이전부터 계속되던 일이므로 had been -ing.",
+       "wrong_ex": "has been working"
+      },
+      {
+       "n": 2,
+       "point": "too ~ to부정사",
+       "ox": "O",
+       "expl": "'너무 ~해서 …할 수 없다'를 나타내는 「too + 형용사 + to부정사」.",
+       "wrong_ex": "noticing"
+      },
+      {
+       "n": 3,
+       "point": "목적격 관계대명사 생략",
+       "ox": "O",
+       "expl": "The glass를 수식하며 made의 목적어가 빠진 자리. 관계대명사가 생략된 형태이다.",
+       "wrong_ex": "which he made it"
+      },
+      {
+       "n": 4,
+       "point": "neither A nor B 수일치",
+       "ox": "X",
+       "expl": "「Neither A nor B」는 B에 동사를 맞춘다. the drivers가 복수이므로 were로 고친다.",
+       "fix": "were"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "safety glass가 팔리는 대상이므로 과거분사 Sold.",
+       "wrong_ex": "Selling"
+      }
+     ]
+    }
+   ],
+   "id": "실력-27",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 28,
+   "sets": [
+    {
+     "set": 109,
+     "title": "백 년 동안 아홉 방울",
+     "passage": [
+      {
+       "t": "A funnel of black tar has been dripping since 1927, and the university keeps "
+      },
+      {
+       "t": "their",
+       "n": 1
+      },
+      {
+       "t": " camera on it day and night. Only nine drops "
+      },
+      {
+       "t": "have fallen",
+       "n": 2
+      },
+      {
+       "t": " in a hundred years. The professor who set up the experiment died in 1961, "
+      },
+      {
+       "t": "having seen",
+       "n": 3
+      },
+      {
+       "t": " not a single drop fall. It is nearly fourteen years "
+      },
+      {
+       "t": "since",
+       "n": 4
+      },
+      {
+       "t": " the ninth drop landed in the beaker. "
+      },
+      {
+       "t": "Were the funnel to be",
+       "n": 5
+      },
+      {
+       "t": " moved to another room, the next drop might never form at all."
+      }
+     ],
+     "tr": [
+      "검은 타르 깔때기는 1927년부터 지금까지 떨어지고 있고, 대학은 밤낮으로 카메라를 그것에 맞춰 두고 있다.",
+      "백 년 동안 떨어진 방울은 아홉 개뿐이다.",
+      "이 실험을 시작한 교수는 방울이 떨어지는 것을 단 한 번도 보지 못한 채 1961년에 세상을 떠났다.",
+      "아홉 번째 방울이 비커에 떨어진 지 거의 14년이 되었다.",
+      "깔때기를 다른 방으로 옮긴다면, 다음 방울은 영영 맺히지 않을지도 모른다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "대명사 수 일치",
+       "ox": "X",
+       "expl": "the university는 단수이므로 its로 고친다.",
+       "fix": "its"
+      },
+      {
+       "n": 2,
+       "point": "현재완료 (자동사)",
+       "ox": "O",
+       "expl": "fall은 목적어를 갖지 않는 자동사이므로 수동태로 쓸 수 없다.",
+       "wrong_ex": "have been fallen"
+      },
+      {
+       "n": 3,
+       "point": "완료분사구문",
+       "ox": "O",
+       "expl": "보지 못한 일이 사망 시점까지 이어지므로 「having + p.p.」.",
+       "wrong_ex": "seeing"
+      },
+      {
+       "n": 4,
+       "point": "It is ~ since",
+       "ox": "O",
+       "expl": "'~한 지 …가 되다'를 나타내는 구문. since 뒤에는 과거시제 절이 온다.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 5,
+       "point": "가정법 도치 (were to)",
+       "ox": "O",
+       "expl": "If the funnel were to be moved에서 If가 생략되어 Were가 앞으로 나온 형태.",
+       "wrong_ex": "Was the funnel to be"
+      }
+     ]
+    },
+    {
+     "set": 110,
+     "title": "하루 두 번 하늘로",
+     "passage": [
+      {
+       "t": "Twice a day, in nine hundred places at once, a weather balloon "
+      },
+      {
+       "t": "is released",
+       "n": 1
+      },
+      {
+       "t": " into the sky. Down "
+      },
+      {
+       "t": "comes the instrument",
+       "n": 2
+      },
+      {
+       "t": " on a small parachute about two hours later. The balloons "
+      },
+      {
+       "t": "enter into",
+       "n": 3
+      },
+      {
+       "t": " the stratosphere and burst at thirty kilometres. Not every flight "
+      },
+      {
+       "t": "returns",
+       "n": 4
+      },
+      {
+       "t": " usable data, because ice can freeze the sensor on the way up. Two thirds of the numbers in tomorrow's forecast "
+      },
+      {
+       "t": "come",
+       "n": 5
+      },
+      {
+       "t": " from balloons rather than from satellites."
+      }
+     ],
+     "tr": [
+      "하루 두 번, 900곳에서 동시에 기상 관측 기구가 하늘로 띄워진다.",
+      "약 두 시간 뒤 관측 장비가 작은 낙하산에 매달려 내려온다.",
+      "기구는 성층권에 들어가 30킬로미터 상공에서 터진다.",
+      "올라가는 도중 센서가 얼어붙을 수 있어서, 모든 비행이 쓸 만한 자료를 보내 주는 것은 아니다.",
+      "내일 예보에 쓰이는 수치의 3분의 2는 위성이 아니라 기구에서 나온다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "a weather balloon이 띄워지는 대상이므로 is released.",
+       "wrong_ex": "releases"
+      },
+      {
+       "n": 2,
+       "point": "완전 도치",
+       "ox": "O",
+       "expl": "방향을 나타내는 부사 Down이 문두에 오면 주어와 동사가 통째로 도치된다.",
+       "wrong_ex": "the instrument comes"
+      },
+      {
+       "n": 3,
+       "point": "타동사 enter",
+       "ox": "X",
+       "expl": "enter는 타동사이므로 into 없이 목적어를 바로 취한다. enter로 고 친다.",
+       "fix": "enter"
+      },
+      {
+       "n": 4,
+       "point": "부분부정 not every",
+       "ox": "O",
+       "expl": "'모두 ~인 것은 아니다'. every + 단수명사이므로 동사도 단수 returns.",
+       "wrong_ex": "return"
+      },
+      {
+       "n": 5,
+       "point": "분수 표현 수일치",
+       "ox": "O",
+       "expl": "「분수 + of + 복수명사」는 복수 취급하므로 come.",
+       "wrong_ex": "comes"
+      }
+     ]
+    },
+    {
+     "set": 111,
+     "title": "바다 밑 우체통",
+     "passage": [
+      {
+       "t": "A red post box "
+      },
+      {
+       "t": "stands",
+       "n": 1
+      },
+      {
+       "t": " ten metres under the sea off a Japanese fishing village. Divers drop in waterproof cards, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " a local diver collects at the end of each day. More than forty thousand letters "
+      },
+      {
+       "t": "have been posted",
+       "n": 3
+      },
+      {
+       "t": " from the box since 1999. It was put there "
+      },
+      {
+       "t": "during",
+       "n": 4
+      },
+      {
+       "t": " the village held its first diving festival. The ink runs and the words vanish unless the writer "
+      },
+      {
+       "t": "uses",
+       "n": 5
+      },
+      {
+       "t": " an oil-based pen."
+      }
+     ],
+     "tr": [
+      "일본의 한 어촌 앞바다 10미터 아래에는 빨간 우체통이 서 있다.",
+      "잠수부들이 방수 엽서를 넣으면, 그 지역 잠수부가 매일 저녁 그것을 수거한다.",
+      "1999년 이래로 이 우체통에서 4만 통이 넘는 편지가 부쳐졌다.",
+      "그것은 마을이 첫 다이빙 축제를 열던 동안 그곳에 놓였다.",
+      "유성펜으로 쓰지 않으면 잉크가 번져 글자가 사라진다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 A red post box(단수)이므로 stands.",
+       "wrong_ex": "stand"
+      },
+      {
+       "n": 2,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "collects의 목적어가 빠진 자리이고 선행사 cards가 있으므로 which.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "현재완료 수동태",
+       "ox": "O",
+       "expl": "letters가 부쳐지는 대상이고 1999년부터 이어지므로 have been p.p.",
+       "wrong_ex": "have posted"
+      },
+      {
+       "n": 4,
+       "point": "접속사 while",
+       "ox": "X",
+       "expl": "뒤에 「주어 + 동사」의 절이 오므로 전치사 during을 쓸 수 없다. while로 고친다.",
+       "fix": "while"
+      },
+      {
+       "n": 5,
+       "point": "접속사 unless + 현재시제",
+       "ox": "O",
+       "expl": "조건의 부사절에서는 미래 대신 현재시제를 쓴다.",
+       "wrong_ex": "will use"
+      }
+     ]
+    },
+    {
+     "set": 112,
+     "title": "소금을 지고 걷는 밤",
+     "passage": [
+      {
+       "t": "Camels carry slabs of salt "
+      },
+      {
+       "t": "cut",
+       "n": 1
+      },
+      {
+       "t": " from a dry lake in the Ethiopian desert. The drivers put off "
+      },
+      {
+       "t": "to travel",
+       "n": 2
+      },
+      {
+       "t": " until the sun drops below the ridge. Each camel carries eight slabs on "
+      },
+      {
+       "t": "its",
+       "n": 3
+      },
+      {
+       "t": " back for five days without water. The caravan moves at night, "
+      },
+      {
+       "t": "when",
+       "n": 4
+      },
+      {
+       "t": " the stone is cool enough to handle. "
+      },
+      {
+       "t": "It is",
+       "n": 5
+      },
+      {
+       "t": " the camels, not the lorries, that the highland markets still trust for the finest slabs."
+      }
+     ],
+     "tr": [
+      "낙타들은 에티오피아 사막의 마른 호수에서 잘라 낸 소금 판을 나른다.",
+      "몰이꾼들은 해가 능선 아래로 질 때까지 이동을 미룬다.",
+      "낙타는 저마다 등에 소금 판 여덟 장을 싣고 물 없이 닷새를 간다.",
+      "대상은 돌이 다룰 만큼 식는 밤에 움직인다.",
+      "고원의 시장이 가장 좋은 소금 판을 두고 여전히 믿는 것은 트럭이 아니라 낙타다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "slabs of salt가 잘리는 대상이므로 과거분사 cut.",
+       "wrong_ex": "cutting"
+      },
+      {
+       "n": 2,
+       "point": "put off + 동명사",
+       "ox": "X",
+       "expl": "put off는 목적어로 동명사를 취하므로 travelling으로 고친다.",
+       "fix": "travelling"
+      },
+      {
+       "n": 3,
+       "point": "대명사 수 일치",
+       "ox": "O",
+       "expl": "Each camel은 단수이므로 its.",
+       "wrong_ex": "their"
+      },
+      {
+       "n": 4,
+       "point": "관계부사 when",
+       "ox": "O",
+       "expl": "선행사가 시간을 나타내는 night이고 뒤에 완전한 절이 온다.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 5,
+       "point": "It ~ that 강조구문",
+       "ox": "O",
+       "expl": "the camels를 강조하는 It ~ that 구문.",
+       "wrong_ex": "They are"
+      }
+     ]
+    }
+   ],
+   "id": "실력-28",
+   "pdf": true
   }
  ]
 };

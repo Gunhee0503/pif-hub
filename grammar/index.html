@@ -36,6 +36,11 @@
 .steps div{background:var(--paper);border-radius:12px;padding:10px;font-size:12.5px;line-height:1.55;color:var(--ink2)}
 .steps b{display:block;font:700 11px/1 var(--mono);color:var(--acc);margin-bottom:5px;letter-spacing:.06em}
 @media(max-width:560px){.steps{grid-template-columns:1fr}}
+.ltabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0 14px}
+.ltabs button{text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px;color:var(--ink2);display:flex;flex-direction:column;gap:5px}
+.ltabs button b{font:800 17px/1.1 var(--serif);color:var(--ink)} .ltabs button span{font-size:12px} .ltabs button em{font:700 10.5px/1 var(--mono);font-style:normal;letter-spacing:.08em;color:var(--acc)}
+.ltabs button.on{border-color:var(--acc);box-shadow:0 0 0 2px var(--acc) inset;background:linear-gradient(180deg,#fff,var(--acc-soft))}
+.lvl .cont{float:right;border:0;background:var(--acc);color:#fff;border-radius:99px;padding:6px 12px;font:700 11.5px/1 var(--mono);letter-spacing:.04em;margin-top:-6px}
 .lvl{font:700 11.5px/1 var(--mono);letter-spacing:.12em;color:var(--acc);margin:6px 0 10px}
 .rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
 .rc{position:relative;text-align:left;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px 14px;color:var(--ink)}
@@ -147,7 +152,9 @@ const CIRC = '①②③④⑤';
 const POINTS = ['문장의 구조','주어의 이해','목적어와 보어','주어·동사 수 일치','동사의 시제','조동사','수동태','가정법','부정사','동명사',
   '분사·분사구문','접속사','관계대명사','관계부사','병렬 구조','명사·대명사','형용사·부사','비교 구문','어순','강조와 도치'];
 const PTS = { s1: 5, ox: 2, w: 2 };                 // SET당 STEP1 5 + 밑줄 5개 × (O/X 2 + 고치기·오답 2) = 25점
-const LV = { '기본':'b', '심화':'a', '실전':'p' };
+const LV = { '기본':'b', '실력':'s', '심화':'a', '실전':'p' };
+const LVINFO = { '기본': 'CEFR A2 · 기초 어법', '실력': 'CEFR B2 · 고등 내신·수능 어법' };
+let LVSEL = (() => { try { return localStorage.getItem('vtg_lv'); } catch(e){ return null; } })();
 const $app = document.getElementById('app');
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pad = n => String(n).padStart(2,'0');
@@ -226,9 +233,14 @@ function renderList(){
     <div><b>X → 고치기 · O → 오답 만들기</b>X는 바르게 고쳐 쓰고, O는 출제자가 되어 그럴듯한 오답과 이유 한 줄 (각 2점)</div></div>
     <p style="margin:12px 0 0;font-size:12.5px">SET 하나 25점 × 4 = 100점. 먼저 영어로 풀어 보고, 내용이 막힐 때만 해석을 펼쳐 보세요. 오답 만들기는 정해진 답이 없어서 AI 코치가 채점합니다.</p></div>`;
   const levels = [...new Set(ROUNDS.map(r => r.level))];
-  levels.forEach(lv => {
-    const list = ROUNDS.filter(r => r.level === lv);
-    h += `<div class="lvl">${esc(lv)} · ${list.length}회</div><div class="rgrid">`;
+  if (!levels.includes(LVSEL)) LVSEL = levels[0];
+  const fin = lv => ROUNDS.filter(r => r.level === lv && S[r.id] && S[r.id].finishedAt).length;
+  h += `<div class="ltabs">${levels.map(lv => { const n = ROUNDS.filter(r => r.level === lv).length;
+    return `<button data-lv="${esc(lv)}" class="${lv === LVSEL ? 'on' : ''}"><b>${esc(lv)}</b><span>${esc(LVINFO[lv] || '')}</span><em>${fin(lv)} / ${n}회 완료</em></button>`; }).join('')}</div>`;
+  [LVSEL].forEach(lv => {
+    const list = ROUNDS.filter(r => r.level === lv).sort((a, b) => a.round - b.round);
+    const nx = list.find(r => !(S[r.id] && S[r.id].finishedAt));
+    h += `<div class="lvl">${esc(lv)} · ${list.length}회${nx ? ` <button class="cont" data-r="${esc(nx.id)}">${S[nx.id] ? '이어서' : '다음 회차'} · ${pad(nx.round)}회 →</button>` : ''}</div><div class="rgrid">`;
     list.forEach(r => {
       const x = S[r.id], nDone = x ? r.sets.filter(s => (x.sets[s.set] || {}).graded).length : 0;
       const cls = x && x.finishedAt ? 'done' : nDone ? 'go' : '';
@@ -241,7 +253,8 @@ function renderList(){
     h += `<div class="rc soon"><div class="n">NEXT</div><div class="w">다음 회차가 순서대로 올라옵니다</div><div class="st">학습지가 정리되는 대로 업데이트</div></div></div>`;
   });
   $app.innerHTML = h; mountVideo();
-  $app.querySelectorAll('.rc[data-r]').forEach(b => b.onclick = () => openRound(b.dataset.r));
+  $app.querySelectorAll('.rc[data-r],.cont[data-r]').forEach(b => b.onclick = () => openRound(b.dataset.r));
+  $app.querySelectorAll('.ltabs [data-lv]').forEach(b => b.onclick = () => { LVSEL = b.dataset.lv; try { localStorage.setItem('vtg_lv', LVSEL); } catch(e){} const y = scrollY; renderList(); scrollTo(0, y); });
   $app.querySelectorAll('.dl[data-pdf]').forEach(b => b.onclick = () => getPdf(RB[b.dataset.pdf], b));
   scrollTo(0,0);
 }

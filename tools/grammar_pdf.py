@@ -4,7 +4,9 @@
 사용법:  python3 tools/grammar_pdf.py 학습지.pdf [학습지2.pdf ...]
 같은 회차(기본 01회 등)는 덮어쓰고, 새 회차는 추가합니다.
 환경변수 GRAM_PDF_KEY(Edge Function hub-file 안의 키, base64)가 있으면
-로그인한 사람만 받는 PDF도 함께 만듭니다: grammar/files/<b01>-student.bin (정답 제외), -full.bin (정답 포함)
+로그인한 사람만 받는 PDF도 함께 만듭니다: <b01|s01>-student.bin (정답 제외), -full.bin (정답 포함)
+→ GRAM_OUT 폴더(기본 grammar/files)에 생기며, Supabase Storage 비공개 버킷 hub-files/grammar/ 에 올려야 내려받기가 됩니다.
+레벨(기본/실력)·회차는 파일명 '문법STEP학습지_12회_실력_….pdf'에서 읽습니다.
 """
 import sys, re, json, os, warnings
 warnings.filterwarnings('ignore')
@@ -88,6 +90,15 @@ def parse_set_page(page):
             passage[-1]['t'] = re.sub(r'\s+', ' ', passage[-1]['t'] + t)
         else:
             passage.append({'t': t, 'n': n} if n else {'t': t})
+    # 밑줄 하나가 줄바꿈으로 둘로 나뉜 경우(③ it ③ do…) 하나로 합침
+    merged = []
+    for p in passage:
+        if p.get('n') and merged and merged[-1].get('n') == p['n']:
+            merged[-1]['t'] += ' ' + p['t']; continue
+        if p.get('n') and len(merged) >= 2 and not merged[-1].get('n') and not merged[-1]['t'].strip() and merged[-2].get('n') == p['n']:
+            merged.pop(); merged[-1]['t'] += ' ' + p['t']; continue
+        merged.append(p)
+    passage = merged
     passage[0]['t'] = passage[0]['t'].lstrip()
     passage[-1]['t'] = passage[-1]['t'].rstrip()
     # translation
@@ -142,8 +153,8 @@ def parse_answer_pages(pages):
 def parse_pdf(path):
     doc = fitz.open(path)
     p0 = doc[0].get_text()
-    level = re.search(r'(기본|심화|실전)', p0)
-    rnd = re.search(r'(\d+)\s*회', p0)
+    level = re.search(r'(기본|실력|심화|실전)', os.path.basename(path)) or re.search(r'(기본|심화|실전)', p0)
+    rnd = re.search(r'_(\d+)\s*회', os.path.basename(path)) or re.search(r'(\d+)\s*회', p0)
     sets, ans_pages = [], []
     for p in doc:
         t = p.get_text()
@@ -156,8 +167,9 @@ def parse_pdf(path):
         s.update(keys[s['set']])
     return {'level': level.group(1) if level else '기본', 'round': int(rnd.group(1)) if rnd else 1, 'sets': sets}
 
-LVC = {'기본': 'b', '심화': 'a', '실전': 'p'}
-FILES = os.path.join(os.path.dirname(__file__), '..', 'grammar', 'files')
+LVC = {'기본': 'b', '실력': 's', '심화': 'a', '실전': 'p'}
+# 암호화 PDF는 사이트에 넣지 않고 Supabase Storage(hub-files/grammar/)로 올림 → 여기서는 임시 폴더에 만듦
+FILES = os.environ.get('GRAM_OUT') or os.path.join(os.path.dirname(__file__), '..', 'grammar', 'files')
 
 def encrypt_pdf(path, r):
     """학습지(정답 페이지 제외)와 전체 PDF를 AES-GCM으로 암호화해 저장"""
@@ -190,14 +202,14 @@ def main():
         uid = LVC.get(r['level'], 'x') + f"{r['round']:02d}"
         if os.environ.get('GRAM_PDF_KEY'):
             r['pdf'] = encrypt_pdf(path, r)
-        elif os.path.exists(os.path.join(FILES, f'{uid}-student.bin')):
+        else:
             r['pdf'] = True
         rounds = [x for x in rounds if x['id'] != r['id']] + [r]
         print(f"{r['id']}: SET {len(r['sets'])}개")
         for s in r['sets']:
             marks = [p['n'] for p in s['passage'] if p.get('n')]
             print(f"  SET {s['set']:02d} {s['title']} · 밑줄 {marks} · 정답 {s['answer']} · 해석 {len(s['tr'])}문장")
-    lv = {'기본': 0, '심화': 1, '실전': 2}
+    lv = {'기본': 0, '실력': 1, '심화': 2, '실전': 3}
     rounds.sort(key=lambda r: (lv.get(r['level'], 9), r['round']))
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, 'w', encoding='utf-8') as f:

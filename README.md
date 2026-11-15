@@ -26,11 +26,12 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 데이터: `grammar/data.js` (window.GRAM). 학습지 PDF에서 자동 생성:
   `python3 tools/grammar_pdf.py 학습지.pdf [더.pdf ...]` → 같은 회차는 덮어쓰고 새 회차는 추가 (PyMuPDF 필요)
 - 점수: SET당 STEP1 5 + 밑줄 5개 × (O/X 2 + 고치기·오답 2) = 25, 4 SET = 100
-- 진도: vt_progress (course `grammar`, unit `b01` = 기본 01회), AI 채점: Edge Function `vt-ai` kind `grammar`
+- 난이도 두 가지: **기본**(CEFR A2, unit `b01`~) · **실력**(CEFR B2, unit `s01`~). 레벨·회차는 파일명(`문법STEP학습지_12회_실력_….pdf`)에서 읽음
+- 진도: vt_progress (course `grammar`, unit `b01` = 기본 01회, `s01` = 실력 01회), AI 채점: Edge Function `vt-ai` kind `grammar`
 - 학습법 안내 영상: YouTube BxMEUzZn5tw (`shared/yt.js`의 GRAMMAR)
-- 학습지 PDF (로그인한 사람만): `grammar/files/<b01>-student.bin`(정답 제외), `-full.bin`(정답 포함)은 AES-GCM 암호화본.
-  Edge Function `hub-file`이 승인 학생(문법 수강)·선생님만 확인하고 풀어서 내려줌. 키는 함수 안에만 있음(저장소에 넣지 말 것).
-  새 회차: `GRAM_PDF_KEY=<함수의 키> python3 tools/grammar_pdf.py 학습지.pdf`
+- 학습지 PDF (로그인한 사람만): 사이트가 아니라 **Supabase Storage 비공개 버킷 `hub-files/grammar/<b01|s01>-student.bin`**(정답 제외)·`-full.bin`(정답 포함)에 AES-GCM 암호화본으로 저장.
+  Edge Function `hub-file`이 승인 학생(문법 수강)·선생님만 확인하고 풀어서 내려주고, 내려받기마다 `hub_downloads`에 기록. 키는 함수 안에만 있음(저장소에 넣지 말 것).
+  새 회차: `GRAM_PDF_KEY=<함수의 키> GRAM_OUT=/tmp/gramout python3 tools/grammar_pdf.py 학습지.pdf` → data.js 갱신 + `/tmp/gramout/*.bin`을 Storage `hub-files/grammar/`에 업로드 (대시보드 Storage에서 끌어다 놓아도 됨)
 
 ## 그래머 첫단추 (`/firstbutton/`, 코스 `gfirst`)
 - 데이터·PDF: `GRAM_PDF_KEY=<hub-file 함수의 키> python3 tools/firstbutton_pdf.py 그래머첫단추.pdf`
