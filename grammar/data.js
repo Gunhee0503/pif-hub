@@ -10157,6 +10157,731 @@ window.GRAM = {
    "pdf": true
   },
   {
+   "level": "기본",
+   "round": 29,
+   "sets": [
+    {
+     "set": 113,
+     "title": "주황색 블랙박스",
+     "passage": [
+      {
+       "t": "A flight recorder "
+      },
+      {
+       "t": "painted",
+       "n": 1
+      },
+      {
+       "t": " bright orange is still called a black box. Modern recorders store more data than "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " needed for one flight. It never occurred to the early designers that the colour "
+      },
+      {
+       "t": "would matter",
+       "n": 3
+      },
+      {
+       "t": " to a search team at sea. Rescuers leave the wreck "
+      },
+      {
+       "t": "burning",
+       "n": 4
+      },
+      {
+       "t": " only when they cannot reach the flames. One box now holds "
+      },
+      {
+       "t": "a great many",
+       "n": 5
+      },
+      {
+       "t": " information about the engines, the controls and the voices in the cockpit."
+      }
+     ],
+     "tr": [
+      "밝은 주황색으로 칠해진 비행 기록 장치는 여전히 블랙박스라고 불린다.",
+      "요즘 기록 장치는 한 번의 비행에 필요한 것보다 더 많은 자료를 저장한다.",
+      "초기 설계자들은 그 색이 바다에서 수색팀에게 중요하리라고는 전혀 생각하지 못했다.",
+      "구조대는 불길에 닿을 수 없을 때에만 잔해가 타도록 내버려 둔다.",
+      "이제 상자 하나가 엔진과 조종 장치, 조종석의 목소리에 관한 아주 많은 정보를 담는다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "A flight recorder가 칠해지는 대상이므로 과거분사 painted.",
+       "wrong_ex": "painting"
+      },
+      {
+       "n": 2,
+       "point": "유사관계대명사 than",
+       "ox": "O",
+       "expl": "than이 주어 역할을 겸하는 관계대명사로 쓰였으므로 뒤에 동사가 바로 온다.",
+       "wrong_ex": "it is"
+      },
+      {
+       "n": 3,
+       "point": "시제 일치",
+       "ox": "O",
+       "expl": "주절이 과거(occurred)이므로 종속절도 과거형 would를 쓴다.",
+       "wrong_ex": "will matter"
+      },
+      {
+       "n": 4,
+       "point": "leave + 목적어 + 현재분사",
+       "ox": "O",
+       "expl": "the wreck이 타고 있는 주체이므로 현재분사 burning.",
+       "wrong_ex": "burned"
+      },
+      {
+       "n": 5,
+       "point": "수량형용사 (불가산)",
+       "ox": "X",
+       "expl": "information은 불가산명사이므로 a great deal of로 고친다.",
+       "fix": "a great deal of"
+      }
+     ]
+    },
+    {
+     "set": 114,
+     "title": "삼천 년 된 꿀",
+     "passage": [
+      {
+       "t": "A beekeeper once sent a jar of honey to my brother and "
+      },
+      {
+       "t": "I",
+       "n": 1
+      },
+      {
+       "t": ". Honey "
+      },
+      {
+       "t": "found",
+       "n": 2
+      },
+      {
+       "t": " in Egyptian tombs was still safe to eat after three thousand years. What keeps it safe "
+      },
+      {
+       "t": "is",
+       "n": 3
+      },
+      {
+       "t": " its acid as much as its dryness. Honey never goes bad, but it "
+      },
+      {
+       "t": "does crystallise",
+       "n": 4
+      },
+      {
+       "t": " in a cold kitchen. "
+      },
+      {
+       "t": "Heated",
+       "n": 5
+      },
+      {
+       "t": " slowly in a bowl of water, the jar turns clear again."
+      }
+     ],
+     "tr": [
+      "한 양봉가가 꿀 한 병을 내 형과 나에게 보내 준 적이 있다.",
+      "이집트 무덤에서 발견된 꿀은 삼천 년이 지난 뒤에도 먹을 수 있었다.",
+      "꿀을 상하지 않게 지키는 것은 건조함만큼이나 그 산성이다.",
+      "꿀은 결코 상하지 않지만, 추운 부엌에서는 정말로 결정이 생긴다.",
+      "물을 담은 그릇에 넣어 천천히 데우면 그 병은 다시 맑아진다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사의 목적어 (목적격)",
+       "ox": "X",
+       "expl": "전치사 to의 목적어 자리이므로 me로 고친다.",
+       "fix": "me"
+      },
+      {
+       "n": 2,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "Honey가 발견되는 대상이므로 과거분사 found.",
+       "wrong_ex": "finding"
+      },
+      {
+       "n": 3,
+       "point": "명사절 주어의 수일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What keeps honey safe이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do",
+       "ox": "O",
+       "expl": "일반동사 crystallise를 강조하는 조동사 does.",
+       "wrong_ex": "is crystallise"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "the jar가 데워지는 대상이므로 과거분사 Heated.",
+       "wrong_ex": "Heating"
+      }
+     ]
+    },
+    {
+     "set": 115,
+     "title": "우주에서 자란 상추",
+     "passage": [
+      {
+       "t": "Astronauts "
+      },
+      {
+       "t": "have been growing",
+       "n": 1
+      },
+      {
+       "t": " lettuce on the space station since 2014. The plants, "
+      },
+      {
+       "t": "whose",
+       "n": 2
+      },
+      {
+       "t": " roots sit in clay pillows, never learn which way is up. One crew admitted "
+      },
+      {
+       "t": "to have eaten",
+       "n": 3
+      },
+      {
+       "t": " the first crop before the scientists on the ground could test it. Without gravity, water "
+      },
+      {
+       "t": "clings",
+       "n": 4
+      },
+      {
+       "t": " to the roots in a ball instead of running away. The leaves taste "
+      },
+      {
+       "t": "bitter",
+       "n": 5
+      },
+      {
+       "t": " when the growing lights are left too bright."
+      }
+     ],
+     "tr": [
+      "우주비행사들은 2014년부터 우주정거장에서 상추를 길러 오고 있다.",
+      "뿌리가 점토 베개에 꽂혀 있는 이 식물들은 어느 쪽이 위인지 끝내 알지 못한다.",
+      "한 승무원 팀은 지상의 과학자들이 검사하기도 전에 첫 수확물을 먹어 버렸다고 인정했다.",
+      "중력이 없으면 물은 흘러가지 않고 공 모양으로 뿌리에 들러붙는다.",
+      "재배등을 너무 밝게 켜 두면 잎에서 쓴맛이 난다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료진행",
+       "ox": "O",
+       "expl": "2014년부터 지금까지 이어지는 동작이므로 has[have] been -ing.",
+       "wrong_ex": "are growing"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "The plants와 roots가 소유 관계이므로 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "동명사의 완료형",
+       "ox": "X",
+       "expl": "admit은 동명사를 목적어로 취하고, 먹은 일이 앞서므로 having eaten으로 고친다.",
+       "fix": "having eaten"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 water(불가산, 단수)이므로 clings.",
+       "wrong_ex": "cling"
+      },
+      {
+       "n": 5,
+       "point": "감각동사 + 형용사",
+       "ox": "O",
+       "expl": "taste는 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "bitterly"
+      }
+     ]
+    },
+    {
+     "set": 116,
+     "title": "말이 필요 없는 표지판",
+     "passage": [
+      {
+       "t": "A Japanese designer won a contest in 1979 with a running figure "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " anyone could read without words. Japan was "
+      },
+      {
+       "t": "the first country to adopt",
+       "n": 2
+      },
+      {
+       "t": " the sign, and green was chosen because smoke makes red almost invisible. "
+      },
+      {
+       "t": "Having been tested",
+       "n": 3
+      },
+      {
+       "t": " in smoke rooms for two winters, the design spread to eighty countries. The committee spent two years "
+      },
+      {
+       "t": "to compare",
+       "n": 4
+      },
+      {
+       "t": " twenty designs before it chose this one. Eighty countries now use the same figure, "
+      },
+      {
+       "t": "making",
+       "n": 5
+      },
+      {
+       "t": " it one of the most seen images on earth."
+      }
+     ],
+     "tr": [
+      "한 일본인 디자이너는 1979년, 글자 없이도 누구나 읽을 수 있는 달리는 사람 그림으로 공모전에서 우승했다.",
+      "일본은 이 표지를 가장 먼저 채택한 나라였고, 연기가 빨간색을 거의 보이지 않게 만들기 때문에 초록색이 선택되었다.",
+      "두 번의 겨울 동안 연기 실험실에서 시험을 거친 끝에, 이 디자인은 여든 개 나라로 퍼졌다.",
+      "위원회는 이것을 고르기까지 스무 개의 디자인을 비교하는 데 2년을 썼다.",
+      "이제 여든 개 나라가 같은 그림을 쓰고 있어서, 그것은 지구상에서 가장 많이 보이는 이미지 가운데 하나가 되었다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "주격 관계대명사",
+       "ox": "O",
+       "expl": "선행사 a running figure를 받고 뒤에 주어가 빠져 있으므로 that.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "the first + to부정사",
+       "ox": "O",
+       "expl": "「the + 서수 + 명사 + to부정사」로 '가장 먼저 ~한'을 나타낸다.",
+       "wrong_ex": "the first country adopting"
+      },
+      {
+       "n": 3,
+       "point": "완료 수동 분사구문",
+       "ox": "O",
+       "expl": "시험을 받은 일이 주절보다 앞서므로 「Having been + p.p.」.",
+       "wrong_ex": "Having tested"
+      },
+      {
+       "n": 4,
+       "point": "spend + 시간 + 동명사",
+       "ox": "X",
+       "expl": "「spend + 시간 + 동명사」 구조이므로 comparing으로 고친다.",
+       "fix": "comparing"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 만드는 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      }
+     ]
+    }
+   ],
+   "id": "기본-29",
+   "pdf": true
+  },
+  {
+   "level": "기본",
+   "round": 30,
+   "sets": [
+    {
+     "set": 117,
+     "title": "얼음이 돌려주는 것들",
+     "passage": [
+      {
+       "t": "Every summer the ice in the Alps gives back something "
+      },
+      {
+       "t": "hidden",
+       "n": 1
+      },
+      {
+       "t": " since the Bronze Age. The discoveries "
+      },
+      {
+       "t": "result in",
+       "n": 2
+      },
+      {
+       "t": " a warming that nobody wanted. A leather shoe found in 2003, "
+      },
+      {
+       "t": "which",
+       "n": 3
+      },
+      {
+       "t": " the melting ice had pushed to the surface, still had its laces. Archaeologists now walk the ridges each August, "
+      },
+      {
+       "t": "given that",
+       "n": 4
+      },
+      {
+       "t": " an object left in the open rots within one year. "
+      },
+      {
+       "t": "What is more",
+       "n": 5
+      },
+      {
+       "t": ", the bodies of climbers lost in the 1930s have begun to appear."
+      }
+     ],
+     "tr": [
+      "해마다 여름이면 알프스의 얼음은 청동기 시대부터 숨겨져 있던 것들을 돌려준다.",
+      "이 발견들은 아무도 원하지 않았던 온난화에서 비롯된 것이다.",
+      "2003년에 발견된 가죽 신발은 녹은 얼음이 표면으로 밀어 올린 것인데, 끈이 그대로 있었다.",
+      "밖에 놓인 물건은 1년 안에 썩어 버리기 때문에, 고고학자들은 이제 8월마다 능선을 걷는다.",
+      "게다가 1930년대에 실종된 등반가들의 시신도 나타나기 시작했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "something이 숨겨진 대상이므로 과거분사 hidden.",
+       "wrong_ex": "hiding"
+      },
+      {
+       "n": 2,
+       "point": "result from / result in",
+       "ox": "X",
+       "expl": "발견이 온난화에서 비롯된 것이므로 result from으로 고친다. result in은 '~을 초래하다'이다.",
+       "fix": "result from"
+      },
+      {
+       "n": 3,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "had pushed의 목적어가 빠진 자리이고 선행사 shoe가 있으므로 which.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 4,
+       "point": "접속사 given that",
+       "ox": "O",
+       "expl": "'~을 고려하면'의 뜻으로 뒤에 절을 이끄는 접속사.",
+       "wrong_ex": "giving that"
+      },
+      {
+       "n": 5,
+       "point": "What is more",
+       "ox": "O",
+       "expl": "'게다가'를 뜻하는 관용 표현. 선행사를 포함하는 what을 쓴다.",
+       "wrong_ex": "That is more"
+      }
+     ]
+    },
+    {
+     "set": 118,
+     "title": "느릴 수밖에 없는 동물",
+     "passage": [
+      {
+       "t": "A sloth "
+      },
+      {
+       "t": "hanging",
+       "n": 1
+      },
+      {
+       "t": " from a branch burns a third of the energy a monkey does. Its stomach takes a month to empty, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " is why it cannot afford a faster body. Moths live in its fur, "
+      },
+      {
+       "t": "feeding",
+       "n": 3
+      },
+      {
+       "t": " on the algae that grow along each hair. The algae "
+      },
+      {
+       "t": "are",
+       "n": 4
+      },
+      {
+       "t": " the only green food a sloth can reach without moving. A sloth would rather go hungry "
+      },
+      {
+       "t": "than losing",
+       "n": 5
+      },
+      {
+       "t": " its grip on the branch."
+      }
+     ],
+     "tr": [
+      "나뭇가지에 매달린 나무늘보는 원숭이가 쓰는 에너지의 3분의 1만 태운다.",
+      "위를 비우는 데 한 달이 걸리는데, 그래서 더 빠른 몸을 감당할 수 없다.",
+      "나방들이 그 털 속에 살면서 털마다 자라는 조류를 먹는다.",
+      "그 조류는 나무늘보가 움직이지 않고 닿을 수 있는 유일한 초록 먹이다.",
+      "나무늘보는 가지를 붙든 손을 놓느니 차라리 굶는 쪽을 택한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (주격 관계사 축약)",
+       "ox": "O",
+       "expl": "A sloth which is hanging에서 관계사와 be동사가 생략된 형태.",
+       "wrong_ex": "hangs"
+      },
+      {
+       "n": 2,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "Moths가 먹는 주체이므로 능동의 feeding.",
+       "wrong_ex": "fed"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The algae(복수)이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 5,
+       "point": "would rather A than B",
+       "ox": "X",
+       "expl": "「would rather + 동사원형 + than + 동사원형」이므로 than lose로 고친다.",
+       "fix": "than lose"
+      }
+     ]
+    },
+    {
+     "set": 119,
+     "title": "앉아서 태우는 칼로리",
+     "passage": [
+      {
+       "t": "Sitting",
+       "n": 1
+      },
+      {
+       "t": " still for seven hours, a chess master can burn six thousand calories in one day. Their hearts beat as fast as "
+      },
+      {
+       "t": "those",
+       "n": 2
+      },
+      {
+       "t": " of marathon runners in the last mile. Tournaments "
+      },
+      {
+       "t": "are played",
+       "n": 3
+      },
+      {
+       "t": " now with a doctor somewhere in the building. The hours "
+      },
+      {
+       "t": "during that",
+       "n": 4
+      },
+      {
+       "t": " a player sits without moving are the most expensive ones. Only with a strict sleep schedule "
+      },
+      {
+       "t": "can a player hold",
+       "n": 5
+      },
+      {
+       "t": " a rating above 2700."
+      }
+     ],
+     "tr": [
+      "일곱 시간을 가만히 앉아 있으면서 체스 선수는 하루에 6천 칼로리를 태울 수 있다.",
+      "그들의 심장은 마지막 1마일을 달리는 마라톤 선수의 심장만큼 빠르게 뛴다.",
+      "이제 대회는 건물 어딘가에 의사를 둔 채 치러진다.",
+      "선수가 움직이지 않고 앉아 있는 그 시간이 가장 비싼 시간이다.",
+      "엄격한 수면 일정이 있어야만 선수는 2700 이상의 레이팅을 유지할 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "주어가 앉아 있는 주체이므로 능동의 Sitting.",
+       "wrong_ex": "Sat"
+      },
+      {
+       "n": 2,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 hearts를 대신 받으므로 those.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Tournaments가 치러지는 대상이므로 are played.",
+       "wrong_ex": "play"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "X",
+       "expl": "전치사 뒤에는 관계대명사 that을 쓸 수 없으므로 during which로 고친다.",
+       "fix": "during which"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사구 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a player can hold"
+      }
+     ]
+    },
+    {
+     "set": 120,
+     "title": "달 사진에 별이 없는 이유",
+     "passage": [
+      {
+       "t": "The cameras were set for a surface as bright as a beach at noon, "
+      },
+      {
+       "t": "making",
+       "n": 1
+      },
+      {
+       "t": " the faint stars impossible to record. A sky full of stars "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " simply too dark for such a fast shot. Astronauts found "
+      },
+      {
+       "t": "difficult",
+       "n": 3
+      },
+      {
+       "t": " to see any star at all through a gold visor. The effect is the same "
+      },
+      {
+       "t": "as",
+       "n": 4
+      },
+      {
+       "t": " the one you get when you photograph a street lamp at night. Nowhere in the record "
+      },
+      {
+       "t": "does a single frame show",
+       "n": 5
+      },
+      {
+       "t": " a star behind the astronauts."
+      }
+     ],
+     "tr": [
+      "카메라는 한낮의 해변만큼 밝은 표면에 맞춰져 있었고, 그래서 희미한 별은 기록될 수 없었다.",
+      "별이 가득한 하늘은 그렇게 빠른 촬영에는 그저 너무 어둡다.",
+      "우주비행사들은 금박 가리개 너머로 별을 하나라도 보기가 어렵다는 것을 알았다.",
+      "이 현상은 밤에 가로등을 찍을 때 생기는 것과 똑같다.",
+      "기록 어디에도 우주비행사 뒤로 별이 찍힌 장면은 한 컷도 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 별을 기록할 수 없게 만든 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 A sky(단수)이고 full of stars는 수식어구이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 3,
+       "point": "가목적어 it",
+       "ox": "X",
+       "expl": "found의 진목적어가 to see 이하이므로 found it difficult로 고친다.",
+       "fix": "it difficult"
+      },
+      {
+       "n": 4,
+       "point": "the same as",
+       "ox": "O",
+       "expl": "「the same ~ as」로 비교 대상을 이끈다.",
+       "wrong_ex": "with"
+      },
+      {
+       "n": 5,
+       "point": "Nowhere 도치",
+       "ox": "O",
+       "expl": "부정의 부사구 Nowhere가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a single frame shows"
+      }
+     ]
+    }
+   ],
+   "id": "기본-30",
+   "pdf": true
+  },
+  {
    "level": "실력",
    "round": 1,
    "sets": [
@@ -20308,6 +21033,731 @@ window.GRAM = {
     }
    ],
    "id": "실력-28",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 29,
+   "sets": [
+    {
+     "set": 113,
+     "title": "주황색 블랙박스",
+     "passage": [
+      {
+       "t": "A flight recorder "
+      },
+      {
+       "t": "painted",
+       "n": 1
+      },
+      {
+       "t": " bright orange is still called a black box. Modern recorders store more data than "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " needed for a single flight. It never occurred to the early designers that the colour "
+      },
+      {
+       "t": "would matter",
+       "n": 3
+      },
+      {
+       "t": " to a search team at sea. Rescuers leave the wreck "
+      },
+      {
+       "t": "burning",
+       "n": 4
+      },
+      {
+       "t": " only when the flames cannot be reached. A single box now holds "
+      },
+      {
+       "t": "a great many",
+       "n": 5
+      },
+      {
+       "t": " information about the engines, the controls and the voices in the cockpit."
+      }
+     ],
+     "tr": [
+      "밝은 주황색으로 칠해진 비행 기록 장치는 여전히 블랙박스라고 불린다.",
+      "요즘 기록 장치는 한 번의 비행에 필요한 것보다 더 많은 자료를 저장한다.",
+      "초기 설계자들은 그 색이 바다에서 수색팀에게 중요하리라고는 전혀 생각하지 못했다.",
+      "구조대는 불길에 닿을 수 없을 때에만 잔해가 타도록 내버려 둔다.",
+      "이제 상자 하나가 엔진과 조종 장치, 조종석의 목소리에 관한 아주 많은 정보를 담는다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "A flight recorder가 칠해지는 대상이므로 과거분사 painted.",
+       "wrong_ex": "painting"
+      },
+      {
+       "n": 2,
+       "point": "유사관계대명사 than",
+       "ox": "O",
+       "expl": "than이 주어 역할을 겸하는 관계대명사로 쓰였으므로 뒤에 동사가 바로 온다.",
+       "wrong_ex": "it is"
+      },
+      {
+       "n": 3,
+       "point": "시제 일치",
+       "ox": "O",
+       "expl": "주절이 과거(occurred)이므로 종속절도 과거형 would를 쓴다.",
+       "wrong_ex": "will matter"
+      },
+      {
+       "n": 4,
+       "point": "leave + 목적어 + 현재분사",
+       "ox": "O",
+       "expl": "the wreck이 타고 있는 주체이므로 현재분사 burning.",
+       "wrong_ex": "burned"
+      },
+      {
+       "n": 5,
+       "point": "수량형용사 (불가산)",
+       "ox": "X",
+       "expl": "information은 불가산명사이므로 a great deal of로 고친다.",
+       "fix": "a great deal of"
+      }
+     ]
+    },
+    {
+     "set": 114,
+     "title": "삼천 년 된 꿀",
+     "passage": [
+      {
+       "t": "A beekeeper once sent a jar of honey to my brother and "
+      },
+      {
+       "t": "I",
+       "n": 1
+      },
+      {
+       "t": ". Honey "
+      },
+      {
+       "t": "found",
+       "n": 2
+      },
+      {
+       "t": " in Egyptian tombs was still safe to eat after three thousand years. What keeps it safe "
+      },
+      {
+       "t": "is",
+       "n": 3
+      },
+      {
+       "t": " its acidity as much as its dryness. Honey never spoils, but it "
+      },
+      {
+       "t": "does crystallise",
+       "n": 4
+      },
+      {
+       "t": " in a cold kitchen. "
+      },
+      {
+       "t": "Heated",
+       "n": 5
+      },
+      {
+       "t": " gently in a bowl of water, the jar turns clear again."
+      }
+     ],
+     "tr": [
+      "한 양봉가가 꿀 한 병을 내 형과 나에게 보내 준 적이 있다.",
+      "이집트 무덤에서 발견된 꿀은 삼천 년이 지난 뒤에도 먹을 수 있었다.",
+      "꿀을 상하지 않게 지키는 것은 건조함만큼이나 그 산성이다.",
+      "꿀은 결코 상하지 않지만, 추운 부엌에서는 정말로 결정이 생긴다.",
+      "물을 담은 그릇에 넣어 천천히 데우면 그 병은 다시 맑아진다."
+     ],
+     "answer": 1,
+     "items": [
+      {
+       "n": 1,
+       "point": "전치사의 목적어 (목적격)",
+       "ox": "X",
+       "expl": "전치사 to의 목적어 자리이므로 me로 고친다.",
+       "fix": "me"
+      },
+      {
+       "n": 2,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "Honey가 발견되는 대상이므로 과거분사 found.",
+       "wrong_ex": "finding"
+      },
+      {
+       "n": 3,
+       "point": "명사절 주어의 수일치",
+       "ox": "O",
+       "expl": "주어가 명사절 What keeps honey safe이므로 단수 취급하여 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 4,
+       "point": "강조의 do",
+       "ox": "O",
+       "expl": "일반동사 crystallise를 강조하는 조동사 does.",
+       "wrong_ex": "is crystallise"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (수동)",
+       "ox": "O",
+       "expl": "the jar가 데워지는 대상이므로 과거분사 Heated.",
+       "wrong_ex": "Heating"
+      }
+     ]
+    },
+    {
+     "set": 115,
+     "title": "우주에서 자란 상추",
+     "passage": [
+      {
+       "t": "Astronauts "
+      },
+      {
+       "t": "have been growing",
+       "n": 1
+      },
+      {
+       "t": " lettuce on the space station since 2014. The plants, "
+      },
+      {
+       "t": "whose",
+       "n": 2
+      },
+      {
+       "t": " roots sit in clay pillows, never learn which way is up. One crew admitted "
+      },
+      {
+       "t": "to have eaten",
+       "n": 3
+      },
+      {
+       "t": " the first crop before the scientists on the ground could test it. Without gravity, water "
+      },
+      {
+       "t": "clings",
+       "n": 4
+      },
+      {
+       "t": " to the roots in a ball instead of draining away. The leaves taste "
+      },
+      {
+       "t": "bitter",
+       "n": 5
+      },
+      {
+       "t": " when the growing lights are left too bright."
+      }
+     ],
+     "tr": [
+      "우주비행사들은 2014년부터 우주정거장에서 상추를 길러 오고 있다.",
+      "뿌리가 점토 베개에 꽂혀 있는 이 식물들은 어느 쪽이 위인지 끝내 알지 못한다.",
+      "한 승무원 팀은 지상의 과학자들이 검사하기도 전에 첫 수확물을 먹어 버렸다고 인정했다.",
+      "중력이 없으면 물은 흘러내리지 않고 공 모양으로 뿌리에 들러붙는다.",
+      "재배등을 너무 밝게 켜 두면 잎에서 쓴맛이 난다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "현재완료진행",
+       "ox": "O",
+       "expl": "2014년부터 지금까지 이어지는 동작이므로 has[have] been -ing.",
+       "wrong_ex": "are growing"
+      },
+      {
+       "n": 2,
+       "point": "소유격 관계대명사",
+       "ox": "O",
+       "expl": "The plants와 roots가 소유 관계이므로 whose.",
+       "wrong_ex": "which"
+      },
+      {
+       "n": 3,
+       "point": "동명사의 완료형",
+       "ox": "X",
+       "expl": "admit은 동명사를 목적어로 취하고, 먹은 일이 앞서므로 having eaten으로 고친다.",
+       "fix": "having eaten"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 water(불가산, 단수)이므로 clings.",
+       "wrong_ex": "cling"
+      },
+      {
+       "n": 5,
+       "point": "감각동사 + 형용사",
+       "ox": "O",
+       "expl": "taste는 보어로 형용사를 취한다. 부사는 올 수 없다.",
+       "wrong_ex": "bitterly"
+      }
+     ]
+    },
+    {
+     "set": 116,
+     "title": "말이 필요 없는 표지판",
+     "passage": [
+      {
+       "t": "A Japanese designer won a competition in 1979 with a running figure "
+      },
+      {
+       "t": "that",
+       "n": 1
+      },
+      {
+       "t": " anyone could read without words. Japan was "
+      },
+      {
+       "t": "the first country to adopt",
+       "n": 2
+      },
+      {
+       "t": " the sign, and green was chosen because smoke turns red almost invisible. "
+      },
+      {
+       "t": "Having been tested",
+       "n": 3
+      },
+      {
+       "t": " in smoke chambers for two winters, the design spread to eighty countries. The committee spent two years "
+      },
+      {
+       "t": "to compare",
+       "n": 4
+      },
+      {
+       "t": " twenty entries before it chose this one. Eighty countries now use the same figure, "
+      },
+      {
+       "t": "making",
+       "n": 5
+      },
+      {
+       "t": " it one of the most seen images on earth."
+      }
+     ],
+     "tr": [
+      "한 일본인 디자이너는 1979년, 글자 없이도 누구나 읽을 수 있는 달리는 사람 그림으로 공모전에서 우승했다.",
+      "일본은 이 표지를 가장 먼저 채택한 나라였고, 연기가 빨간색을 거의 보이지 않게 만들기 때문에 초록색이 선택되었다.",
+      "두 번의 겨울 동안 연기 실험실에서 시험을 거친 끝에, 이 디자인은 여든 개 나라로 퍼졌다.",
+      "위원회는 이것을 고르기까지 스무 개의 출품작을 비교하는 데 2년을 썼다.",
+      "이제 여든 개 나라가 같은 그림을 쓰고 있어서, 그것은 지구상에서 가장 많이 보이는 이미지 가운데 하나가 되었다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "주격 관계대명사",
+       "ox": "O",
+       "expl": "선행사 a running figure를 받고 뒤에 주어가 빠져 있으므로 that.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 2,
+       "point": "the first + to부정사",
+       "ox": "O",
+       "expl": "「the + 서수 + 명사 + to부정사」로 '가장 먼저 ~한'을 나타낸다.",
+       "wrong_ex": "the first country adopting"
+      },
+      {
+       "n": 3,
+       "point": "완료 수동 분사구문",
+       "ox": "O",
+       "expl": "시험을 받은 일이 주절보다 앞서므로 「Having been + p.p.」.",
+       "wrong_ex": "Having tested"
+      },
+      {
+       "n": 4,
+       "point": "spend + 시간 + 동명사",
+       "ox": "X",
+       "expl": "「spend + 시간 + 동명사」 구조이므로 comparing으로 고친다.",
+       "fix": "comparing"
+      },
+      {
+       "n": 5,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 만드는 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      }
+     ]
+    }
+   ],
+   "id": "실력-29",
+   "pdf": true
+  },
+  {
+   "level": "실력",
+   "round": 30,
+   "sets": [
+    {
+     "set": 117,
+     "title": "얼음이 돌려주는 것들",
+     "passage": [
+      {
+       "t": "Every summer the Alpine ice gives back something "
+      },
+      {
+       "t": "hidden",
+       "n": 1
+      },
+      {
+       "t": " since the Bronze Age. The discoveries "
+      },
+      {
+       "t": "result in",
+       "n": 2
+      },
+      {
+       "t": " a warming that nobody wanted. A leather shoe found in 2003, "
+      },
+      {
+       "t": "which",
+       "n": 3
+      },
+      {
+       "t": " the melt had pushed to the surface, still held its laces. Archaeologists now walk the ridges each August, "
+      },
+      {
+       "t": "given that",
+       "n": 4
+      },
+      {
+       "t": " a find left in the open rots within a single year. "
+      },
+      {
+       "t": "What is more",
+       "n": 5
+      },
+      {
+       "t": ", the bodies of climbers lost in the 1930s have begun to appear."
+      }
+     ],
+     "tr": [
+      "해마다 여름이면 알프스의 얼음은 청동기 시대부터 숨겨져 있던 것들을 돌려준다.",
+      "이 발견들은 아무도 원하지 않았던 온난화에서 비롯된 것이다.",
+      "2003년에 발견된 가죽 신발은 녹은 얼음이 표면으로 밀어 올린 것인데, 끈이 그대로 남아 있었다.",
+      "밖에 놓인 유물은 1년 안에 썩어 버리기 때문에, 고고학자들은 이제 8월마다 능선을 걷는다.",
+      "게다가 1930년대에 실종된 등반가들의 시신도 나타나기 시작했다."
+     ],
+     "answer": 2,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (수동)",
+       "ox": "O",
+       "expl": "something이 숨겨진 대상이므로 과거분사 hidden.",
+       "wrong_ex": "hiding"
+      },
+      {
+       "n": 2,
+       "point": "result from / result in",
+       "ox": "X",
+       "expl": "발견이 온난화에서 비롯된 것이므로 result from으로 고친다. result in은 '~을 초래하다'이다.",
+       "fix": "result from"
+      },
+      {
+       "n": 3,
+       "point": "목적격 관계대명사",
+       "ox": "O",
+       "expl": "had pushed의 목적어가 빠진 자리이고 선행사 shoe가 있으므로 which.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 4,
+       "point": "접속사 given that",
+       "ox": "O",
+       "expl": "'~을 고려하면'의 뜻으로 뒤에 절을 이끄는 접속사.",
+       "wrong_ex": "giving that"
+      },
+      {
+       "n": 5,
+       "point": "What is more",
+       "ox": "O",
+       "expl": "'게다가'를 뜻하는 관용 표현. 선행사를 포함하는 what을 쓴다.",
+       "wrong_ex": "That is more"
+      }
+     ]
+    },
+    {
+     "set": 118,
+     "title": "느릴 수밖에 없는 동물",
+     "passage": [
+      {
+       "t": "A sloth "
+      },
+      {
+       "t": "hanging",
+       "n": 1
+      },
+      {
+       "t": " from a branch burns a third of the energy a monkey does. Its stomach takes a month to empty, "
+      },
+      {
+       "t": "which",
+       "n": 2
+      },
+      {
+       "t": " is why it cannot afford a faster body. Moths live in its fur, "
+      },
+      {
+       "t": "feeding",
+       "n": 3
+      },
+      {
+       "t": " on the algae that grow along each hair. The algae "
+      },
+      {
+       "t": "are",
+       "n": 4
+      },
+      {
+       "t": " the only green food a sloth can reach without moving. A sloth would rather starve "
+      },
+      {
+       "t": "than losing",
+       "n": 5
+      },
+      {
+       "t": " its grip on the branch."
+      }
+     ],
+     "tr": [
+      "나뭇가지에 매달린 나무늘보는 원숭이가 쓰는 에너지의 3분의 1만 태운다.",
+      "위를 비우는 데 한 달이 걸리는데, 그래서 더 빠른 몸을 감당할 수 없다.",
+      "나방들이 그 털 속에 살면서 털마다 자라는 조류를 먹는다.",
+      "그 조류는 나무늘보가 움직이지 않고 닿을 수 있는 유일한 초록 먹이다.",
+      "나무늘보는 가지를 붙든 손을 놓느니 차라리 굶는 쪽을 택한다."
+     ],
+     "answer": 5,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사 (주격 관계사 축약)",
+       "ox": "O",
+       "expl": "A sloth which is hanging에서 관계사와 be동사가 생략된 형태.",
+       "wrong_ex": "hangs"
+      },
+      {
+       "n": 2,
+       "point": "계속적 용법 관계대명사",
+       "ox": "O",
+       "expl": "앞 절 전체를 선행사로 받는 which. what은 쓸 수 없다.",
+       "wrong_ex": "what"
+      },
+      {
+       "n": 3,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "Moths가 먹는 주체이므로 능동의 feeding.",
+       "wrong_ex": "fed"
+      },
+      {
+       "n": 4,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 The algae(복수)이므로 are.",
+       "wrong_ex": "is"
+      },
+      {
+       "n": 5,
+       "point": "would rather A than B",
+       "ox": "X",
+       "expl": "「would rather + 동사원형 + than + 동사원형」이므로 than lose로 고친다.",
+       "fix": "than lose"
+      }
+     ]
+    },
+    {
+     "set": 119,
+     "title": "앉아서 태우는 칼로리",
+     "passage": [
+      {
+       "t": "Sitting",
+       "n": 1
+      },
+      {
+       "t": " still for seven hours, a grandmaster can burn six thousand calories in a single day. Their hearts beat as fast as "
+      },
+      {
+       "t": "those",
+       "n": 2
+      },
+      {
+       "t": " of marathon runners in the final mile. Tournaments "
+      },
+      {
+       "t": "are played",
+       "n": 3
+      },
+      {
+       "t": " now with a doctor somewhere in the building. The hours "
+      },
+      {
+       "t": "during that",
+       "n": 4
+      },
+      {
+       "t": " a player sits motionless are the most expensive ones. Only with a strict sleep schedule "
+      },
+      {
+       "t": "can a player hold",
+       "n": 5
+      },
+      {
+       "t": " a rating above 2700."
+      }
+     ],
+     "tr": [
+      "일곱 시간을 가만히 앉아 있으면서 체스 그랜드마스터는 하루에 6천 칼로리를 태울 수 있다.",
+      "그들의 심장은 마지막 1마일을 달리는 마라톤 선수의 심장만큼 빠르게 뛴다.",
+      "이제 대회는 건물 어딘가에 의사를 둔 채 치러진다.",
+      "선수가 꼼짝 않고 앉아 있는 그 시간이 가장 비싼 시간이다.",
+      "엄격한 수면 일정이 있어야만 선수는 2700 이상의 레이팅을 유지할 수 있다."
+     ],
+     "answer": 4,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "주어가 앉아 있는 주체이므로 능동의 Sitting.",
+       "wrong_ex": "Sat"
+      },
+      {
+       "n": 2,
+       "point": "지시대명사 those",
+       "ox": "O",
+       "expl": "앞의 복수명사 hearts를 대신 받으므로 those.",
+       "wrong_ex": "that"
+      },
+      {
+       "n": 3,
+       "point": "수동태",
+       "ox": "O",
+       "expl": "Tournaments가 치러지는 대상이므로 are played.",
+       "wrong_ex": "play"
+      },
+      {
+       "n": 4,
+       "point": "전치사 + 관계대명사",
+       "ox": "X",
+       "expl": "전치사 뒤에는 관계대명사 that을 쓸 수 없으므로 during which로 고친다.",
+       "fix": "during which"
+      },
+      {
+       "n": 5,
+       "point": "Only + 부사구 도치",
+       "ox": "O",
+       "expl": "Only가 이끄는 부사구가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a player can hold"
+      }
+     ]
+    },
+    {
+     "set": 120,
+     "title": "달 사진에 별이 없는 이유",
+     "passage": [
+      {
+       "t": "The cameras were set for a surface as bright as a beach at noon, "
+      },
+      {
+       "t": "making",
+       "n": 1
+      },
+      {
+       "t": " the faint stars impossible to record. A sky full of stars "
+      },
+      {
+       "t": "is",
+       "n": 2
+      },
+      {
+       "t": " simply too dim for an exposure of that speed. Astronauts found "
+      },
+      {
+       "t": "difficult",
+       "n": 3
+      },
+      {
+       "t": " to see any star at all through a gold visor. The effect is the same "
+      },
+      {
+       "t": "as",
+       "n": 4
+      },
+      {
+       "t": " the one you get photographing a street lamp at night. Nowhere in the record "
+      },
+      {
+       "t": "does a single frame show",
+       "n": 5
+      },
+      {
+       "t": " a star behind the astronauts."
+      }
+     ],
+     "tr": [
+      "카메라는 한낮의 해변만큼 밝은 표면에 맞춰져 있었고, 그래서 희미한 별은 기록될 수 없었다.",
+      "별이 가득한 하늘은 그만큼 빠른 노출에는 그저 너무 어둡다.",
+      "우주비행사들은 금박 가리개 너머로 별을 하나라도 보기가 어렵다는 것을 알았다.",
+      "이 현상은 밤에 가로등을 찍을 때 생기는 것과 똑같다.",
+      "기록 어디에도 우주비행사 뒤로 별이 찍힌 장면은 한 컷도 없다."
+     ],
+     "answer": 3,
+     "items": [
+      {
+       "n": 1,
+       "point": "분사구문 (능동)",
+       "ox": "O",
+       "expl": "앞 절의 내용이 별을 기록할 수 없게 만든 주체이므로 능동의 making.",
+       "wrong_ex": "made"
+      },
+      {
+       "n": 2,
+       "point": "주어·동사 수 일치",
+       "ox": "O",
+       "expl": "주어는 A sky(단수)이고 full of stars는 수식어구이므로 is.",
+       "wrong_ex": "are"
+      },
+      {
+       "n": 3,
+       "point": "가목적어 it",
+       "ox": "X",
+       "expl": "found의 진목적어가 to see 이하이므로 found it difficult로 고친다.",
+       "fix": "it difficult"
+      },
+      {
+       "n": 4,
+       "point": "the same as",
+       "ox": "O",
+       "expl": "「the same ~ as」로 비교 대상을 이끈다.",
+       "wrong_ex": "with"
+      },
+      {
+       "n": 5,
+       "point": "Nowhere 도치",
+       "ox": "O",
+       "expl": "부정의 부사구 Nowhere가 문두에 오면 조동사와 주어를 도치한다.",
+       "wrong_ex": "a single frame shows"
+      }
+     ]
+    }
+   ],
+   "id": "실력-30",
    "pdf": true
   }
  ]
