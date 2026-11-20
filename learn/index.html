@@ -266,6 +266,15 @@ function render(rows){
       <h3>${comp ? 'COMPASS' : 'BEACON'}</h3><div class="ko">구문의 지도 ${comp ? '기본편' : '심화편'} · 14 Chapters · 42 Units</div>
       <p>준동사부터 도치까지, 수능·내신 1등급을 위한 결정적 구문분석. 반에 맞는 편이 자동으로 열립니다.</p></div>
       <div class="foot"><span class="go">구문의 지도 열기 ↗</span></div></a>`;
+  /* 구문의 지도는 다른 사이트라 로그인이 따로 남음 → 1회용 토큰으로 지금 학생과 같은 학생으로 열리게 */
+  const sa = $('syntax').querySelector('a');
+  sa.onclick = async e => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); if (sa.dataset.busy) return; sa.dataset.busy = '1';
+    let url = sa.href;
+    try { const r = await VT.sb.rpc('hub_handoff_new'); if (!r.error && r.data) url += '#hub=' + r.data; } catch(err){}
+    location.href = url;
+  };
 }
 /* ECHO 수업 구문 다시듣기: 우리 반에 공개된 수업이 있을 때만 얇은 띠로 */
 async function echoStrip(){
