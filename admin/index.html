@@ -227,6 +227,8 @@ function ago(t){ if (!t) return '—'; const d = (Date.now() - new Date(t))/1000
 const teachersOf = code => { const l = D.ct.filter(t => t.class_code === code).map(t => t.email); const c = D.classes.find(x => x.code === code); if (c && c.teacher_email && !l.includes(c.teacher_email)) l.unshift(c.teacher_email); return l; };
 const staffName = e => { const t = STAFFS.find(x => x.email === e); return t ? (t.name || t.email) : e; };
 const coursesOf = s => s.courses || clsOf(s.class_code).courses;
+/* 학생별 구문 편: 따로 정했으면 그것, 아니면 반 설정 */
+const edOf = st => st.edition || clsOf(st.class_code).edition || 'beacon';
 const clsOf = code => D.classes.find(c => c.code === code) || { name: code, courses: [], edition: 'beacon' };
 const errMsg = e => { const m = (e && e.message) || String(e);
   if (/duplicate key|already exists/.test(m)) return '이미 있는 반 코드예요.';
@@ -331,7 +333,7 @@ const DIL_P = 0.7, DIL_R = 0.3, IDLE_DAYS = 7, ACC_MIN = 3;
 function diligence(x){
   const cs = coursesOf(x.s), r = [], cap = v => Math.max(0, Math.min(1, v));
   const lec = (st, m) => { const v = st ? Number(st.score||0) : 0, mx = st && st.max_score ? Number(st.max_score) : m; return mx ? v / mx : 0; };
-  const glv = x.cls.edition === 'compass' ? '기본' : '실력', gN = GR.filter(g => g.level === glv).length || GR.length;
+  const glv = edOf(x.s) === 'compass' ? '기본' : '실력', gN = GR.filter(g => g.level === glv).length || GR.length;
   if (cs.includes('fundamental')) r.push(lec(x.fund, 4));
   if (cs.includes('essential'))   r.push(lec(x.ess, 5));
   if (cs.includes('spectrum'))    r.push(lec(x.spec, 4));
@@ -389,7 +391,7 @@ function renderReport(){
   h += `<div class="tw"><table><tr><th>이름</th><th>반</th><th title="진도율 70% + 최근 학습 30%">성실도</th><th title="Word Matching·문법 STEP 완료 회차의 평균 정답률">점수</th>${COURSES.map(c => `<th style="--c:${c.c}"><span class="dot"></span>${c.name}</th>`).join('')}<th>최근 학습</th></tr>`;
   S.forEach(x => {
     const has = c => coursesOf(x.s).includes(c);
-    const comp = x.cls.edition === 'compass';
+    const comp = edOf(x.s) === 'compass';
     const idle = !x.last ? '<span class="warn">학습 기록 없음</span>' : x.days > IDLE_DAYS ? `<span class="warn">${Math.floor(x.days)}일째 미학습</span>` : '';
     h += `<tr class="cl ${x.tone}" data-id="${x.s.id}"><td>${ranked ? `<span class="rk">${x.rk || '–'}</span>` : ''}<b>${esc(x.s.name)}</b> <span class="muted">${esc(x.s.last4)}</span>${x.s.courses ? ' <span class="ed" style="--c:#86868b" title="이 학생만 따로 정한 수강 코스">개별</span>' : ''}${idle}</td><td class="muted">${esc(x.cls.name)}</td>
       <td><div class="dg" style="--c:${dgc(x.dil)}" title="진도율 ${x.prog}%"><i><u style="width:${x.dil}%"></u></i><b>${x.dil}</b></div></td>
@@ -413,7 +415,7 @@ function bindReportBtns(S){
   $('csv').onclick = () => {
     const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','성실도','진도율(%)','평균정답률(%)','최근학습'];
     const v = r => r ? Number(r.score||0) : 0;
-    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', x.cls.edition === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.dil ?? '', x.prog ?? '', x.acc ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
+    const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', edOf(x.s) === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.dil ?? '', x.prog ?? '', x.acc ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
     const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
     const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([csv], { type:'text/csv' }));
     a.download = `PIF_학습리포트_${new Date().toISOString().slice(0,10)}.csv`; a.click();
@@ -556,11 +558,14 @@ async function openStudent(sid){
   h += `<div class="sec"><h3>반 이동</h3><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
       <select id="mvCls" style="border:1px solid #d2d2d7;border-radius:10px;padding:8px 10px;background:#fff;min-width:240px"><option value="">옮길 반 선택</option>${movable.map(c => `<option value="${esc(c.code)}">${esc(c.name)} · ${esc(c.code)}</option>`).join('')}</select>
       <button class="btn sm" id="mvGo">이동</button></div>
-      <div class="note">학습 기록은 그대로 따라가고, 학생은 다시 로그인할 필요 없어요. 구문의 지도 편(COMPASS/BEACON)과 수강 코스는 새 반 설정을 따릅니다. (이 학생만 따로 정한 코스가 있으면 그대로 유지)</div></div>
+      <div class="note">학습 기록은 그대로 따라가고, 학생은 다시 로그인할 필요 없어요. 구문의 지도 편(COMPASS/BEACON)과 수강 코스는 새 반 설정을 따릅니다. (이 학생만 따로 정한 코스·구문 편이 있으면 그대로 유지)</div></div>
     <div class="sec"><h3>수강 코스 <small>${s.courses ? '이 학생만 따로 지정됨' : '반 설정을 따르는 중'}</small></h3>
       <div class="seg" id="ovMode"><button data-m="class" class="${s.courses ? '' : 'on'}">반 설정 따르기</button><button data-m="custom" class="${s.courses ? 'on' : ''}">이 학생만 따로 정하기</button></div>
-      <div class="chips" id="ovChips" style="margin-top:10px">${COURSES.map(k => `<button class="chip ${eff.includes(k.id)?'on':''}" style="--c:${cCol(k,cls.edition)}" data-course="${k.id}" ${s.courses ? '' : 'disabled'}>${cName(k,cls.edition)}</button>`).join('')}</div>
-      <div class="note">반 설정: ${cls.courses.map(c => cName(COURSES.find(k => k.id === c), cls.edition)).join(', ') || '없음'} <span class="muted">· 구문의 지도 편은 반 설정(${EDC[cls.edition] ? EDC[cls.edition].t + ' ' + EDC[cls.edition].ko : '—'})을 따라요</span></div></div>`;
+      <div class="chips" id="ovChips" style="margin-top:10px">${COURSES.map(k => `<button class="chip ${eff.includes(k.id)?'on':''}" style="--c:${cCol(k,edOf(s))}" data-course="${k.id}" ${s.courses ? '' : 'disabled'}>${cName(k,edOf(s))}</button>`).join('')}</div>
+      <div class="note">반 설정: ${cls.courses.map(c => cName(COURSES.find(k => k.id === c), cls.edition)).join(', ') || '없음'}</div></div>
+    <div class="sec"><h3>구문의 지도 편 <small>${s.edition ? '이 학생만 따로 지정됨' : '반 설정을 따르는 중'}</small></h3>
+      <div class="seg ed" id="edMode"><button data-e="" class="${s.edition ? '' : 'on'}" style="--c:#1d1d1f">반 설정 따르기 (${EDC[cls.edition] ? EDC[cls.edition].t : '—'})</button>${['compass','beacon'].map(e => `<button data-e="${e}" class="${s.edition === e ? 'on' : ''}" style="--c:${EDC[e].c}">${EDC[e].t} ${EDC[e].ko}</button>`).join('')}</div>
+      <div class="note">구문의 지도와 문법 STEP(출제자의 시선) 기본 탭이 이 편으로 열려요. 학생이 다음에 학습 홈에 들어올 때 반영됩니다.</div></div>`;
   // Word Matching
   const M = {}; rows.filter(r => r.course === 'matching').forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (m) M[Number(m[1])] = r; });
   h += `<div class="sec" style="--c:var(--wmp)"><h3><i></i>Word Matching <small>회차를 누르면 답안 전체</small></h3>`;
@@ -573,7 +578,7 @@ async function openStudent(sid){
   h += '</div>';
   // 구문의 지도
   const sy = D.syn.filter(r => r.student_id === sid).sort((a,b) => a.unit_id.localeCompare(b.unit_id));
-  const comp = cls.edition === 'compass';
+  const comp = edOf(s) === 'compass';
   h += `<div class="sec" style="--c:${comp ? 'var(--compass)' : 'var(--beacon)'}"><h3><i></i>구문의 지도 · ${comp ? 'COMPASS 기본' : 'BEACON 심화'} <small>듣기 2회 × 5문장 + 문법·어휘·읽기 통과 = 완료</small></h3>`;
   h += sy.length ? `<div class="ugrid">${sy.map(r => { const u = synUnit(r.data); const id = r.unit_id.replace(/^c-/,'').replace('ch','Ch ').replace('-u',' · U');
       return `<div class="${u.done ? 'done' : 'go'}"><b>${esc(id)}</b>${r.unit_id.startsWith('c-') ? ' <span class="muted">C</span>' : ''}<br>${u.done ? '<span class="ok">완료</span>' : `듣기 ${u.lp}/5`} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`
@@ -636,6 +641,12 @@ async function openStudent(sid){
     if (error) return toast(errMsg(error));
     s.courses = list; toast(list ? `${s.name}: 수강 코스를 따로 정했어요` : `${s.name}: 반 설정으로 되돌렸어요`); render(); openStudent(sid);
   };
+  $('edMode').querySelectorAll('button').forEach(b => b.onclick = async () => {
+    const e = b.dataset.e || null; if (e === (s.edition || null)) return;
+    const { error } = await SB.rpc('vt_set_student_edition', { p_student: sid, p_edition: e });
+    if (error) return toast(errMsg(error));
+    s.edition = e; toast(e ? `${s.name}: 구문의 지도 ${EDC[e].t}로 따로 정했어요` : `${s.name}: 반 설정으로 되돌렸어요`); render(); openStudent(sid);
+  });
   $('ovMode').querySelectorAll('button').forEach(b => b.onclick = () => {
     if (b.dataset.m === 'class') { if (s.courses) saveCourses(null); }
     else if (!s.courses) saveCourses(cls.courses.slice());
@@ -753,7 +764,7 @@ function buildFacts(s, rows, syn, ai, p){
   const mark = t => { const k = kd(t); if (!k) return; all.push(k); if (k >= p.from && k <= p.to) days.add(k); };
   rows.forEach(r => mark(r.updated_at)); syn.forEach(r => mark(r.updated_at)); ai.forEach(a => mark(a.created_at));
   const P = v => { try { return JSON.parse(v); } catch(e) { return v; } };
-  const F = { 학생:{ 이름:s.name, 반:cls.name, 구문의지도_편: cls.edition === 'compass' ? 'COMPASS 기본편' : 'BEACON 심화편' },
+  const F = { 학생:{ 이름:s.name, 반:cls.name, 구문의지도_편: edOf(s) === 'compass' ? 'COMPASS 기본편' : 'BEACON 심화편' },
     기간:{ 시작:p.from, 끝:p.to }, 수강코스: COURSES.filter(c => has(c.id)).map(c => c.name) };
   // Fundamental
   if (has('fundamental')) {
