@@ -79,6 +79,7 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
 .chip{border:1px solid #d2d2d7;background:#fff;border-radius:99px;padding:5px 11px;font-size:12.5px;font-weight:600;color:var(--ink2)}
 .chip.on{border-color:var(--c);background:var(--c);color:#fff}
 .chip:disabled{cursor:default}
+.seg.ed button.on{background:var(--c);color:#fff}
 .seg{display:inline-flex;background:var(--bg);border-radius:99px;padding:3px}
 .seg button{border:0;background:transparent;border-radius:99px;padding:5px 12px;font-size:12.5px;font-weight:600;color:var(--ink2)}
 .seg button.on{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.12)}
@@ -205,6 +206,10 @@ const COURSES = [
   { id:'grammar',     name:'문법 STEP',    c:'var(--gram)' },
   { id:'gfirst',      name:'그래머 첫단추', c:'var(--gfb)' }
 ];
+/* 구문의 지도는 반 설정(edition)에 따라 COMPASS/BEACON 중 하나가 열림 → 코스 칩에 편을 같이 표시 */
+const EDC = { compass:{ t:'COMPASS', ko:'기본', c:'#3d7fc9' }, beacon:{ t:'BEACON', ko:'심화', c:'#cf8417' } };
+const cName = (k, ed) => k.id === 'syntax' && EDC[ed] ? `구문의 지도 · ${EDC[ed].t}` : k.name;
+const cCol  = (k, ed) => k.id === 'syntax' && EDC[ed] ? EDC[ed].c : k.c;
 const FBU = (window.FB && window.FB.units) || [];
 const fbSteps = u => 2 + (u.parts.wa ? 1 : 0) + (u.parts.wb ? 1 : 0) + 2;
 const GR = (window.GRAM && window.GRAM.rounds) || [];
@@ -422,8 +427,8 @@ function renderClasses(){
     const n = D.students.filter(s => s.class_code === c.code).length, dis = IS_OWNER ? '' : 'disabled';
     return `<div class="cc" data-code="${esc(c.code)}"><div class="t"><b>${esc(c.name)}</b><code>${esc(c.code)}</code><span class="n">학생 ${n}명</span></div>
       <div class="row"><span>담당</span>${IS_OWNER ? `<div class="chips">${teachers.map(t => `<button class="chip ${teachersOf(c.code).includes(t.email)?'on':''}" style="--c:#1d1d1f" data-teacher="${esc(t.email)}">${esc(t.name || t.email)}${t.role==='owner'?' (원장)':''}</button>`).join('')}</div>` : `<div>${teachersOf(c.code).map(e => esc(staffName(e))).join(', ') || '미지정'}</div>`}</div>
-      <div class="row"><span>수강 코스</span><div class="chips">${COURSES.map(k => `<button class="chip ${c.courses.includes(k.id)?'on':''}" style="--c:${k.c}" data-course="${k.id}" ${dis}>${k.name}</button>`).join('')}</div></div>
-      <div class="row"><span>구문 편</span><div class="seg" data-k="edition">${['compass','beacon'].map(e => `<button data-e="${e}" class="${c.edition===e?'on':''}" ${dis}>${e==='compass'?'COMPASS 기본':'BEACON 심화'}</button>`).join('')}</div></div>
+      <div class="row"><span>수강 코스</span><div class="chips">${COURSES.map(k => `<button class="chip ${c.courses.includes(k.id)?'on':''}" style="--c:${cCol(k,c.edition)}" data-course="${k.id}" ${dis}>${cName(k,c.edition)}</button>`).join('')}</div></div>
+      <div class="row"><span>구문 편</span><div class="seg ed" data-k="edition">${['compass','beacon'].map(e => `<button data-e="${e}" class="${c.edition===e?'on':''}" style="--c:${EDC[e].c}" ${dis}>${e==='compass'?'COMPASS 기본':'BEACON 심화'}</button>`).join('')}</div></div>
       ${IS_OWNER ? `<div class="foot"><button class="btn sm red" data-del>반 삭제</button></div>` : ''}</div>`;
   };
   let h = `<div class="bar"><div class="note" style="margin:0">반마다 학생이 들을 수 있는 코스를 켜고 끕니다. 꺼진 코스는 학생 화면에서 잠기고 기록도 저장되지 않아요.${IS_OWNER ? '' : ' (반 설정은 원장님만 바꿀 수 있어요)'}</div></div><div class="cgrid">`;
@@ -432,8 +437,8 @@ function renderClasses(){
     <div class="fld"><label>반 이름</label><input id="ncName" placeholder="예: 고1 영동일 A반(월금)"></div>
     <div class="fld"><label>반 코드 <span class="muted">학생이 입력하는 코드 · 영문 대문자/숫자 2~12자</span></label><div style="display:flex;gap:6px"><input id="ncCode" maxlength="12" placeholder="예: YD1A" style="text-transform:uppercase"><button class="btn sm sec" id="ncGen" type="button">자동</button></div></div>
     <div class="fld"><label>담당 선생님 <span class="muted">여러 명 선택 가능</span></label><div class="chips" id="ncT">${teachers.map(t => `<button class="chip" style="--c:#1d1d1f" data-teacher="${esc(t.email)}" type="button">${esc(t.name || t.email)}</button>`).join('')}</div></div>
-    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:4px 0 10px;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">수강 코스</span><div class="chips" id="ncCourses">${COURSES.map(k => `<button class="chip on" style="--c:${k.c}" data-course="${k.id}" type="button">${k.name}</button>`).join('')}</div></div>
-    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">구문 편</span><div class="seg" id="ncEd"><button data-e="compass" type="button">COMPASS 기본</button><button data-e="beacon" class="on" type="button">BEACON 심화</button></div></div>
+    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;margin:4px 0 10px;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">수강 코스</span><div class="chips" id="ncCourses">${COURSES.map(k => `<button class="chip on" style="--c:${cCol(k,'beacon')}" data-course="${k.id}" type="button">${cName(k,'beacon')}</button>`).join('')}</div></div>
+    <div class="row" style="display:grid;grid-template-columns:76px 1fr;gap:8px;align-items:center;font-size:13px"><span style="color:var(--ink2);font-weight:600;font-size:12px">구문 편</span><div class="seg ed" id="ncEd"><button data-e="compass" type="button" style="--c:${EDC.compass.c}">COMPASS 기본</button><button data-e="beacon" class="on" type="button" style="--c:${EDC.beacon.c}">BEACON 심화</button></div></div>
     <div class="foot"><button class="btn sm" id="ncGo">반 만들기</button></div><div class="msg" id="ncMsg"></div></div>`;
   $('body').innerHTML = h + '</div>';
   if (!IS_OWNER) return;
@@ -464,7 +469,11 @@ function renderClasses(){
     };
   });
   document.querySelectorAll('#ncCourses .chip, #ncT .chip').forEach(b => b.onclick = () => b.classList.toggle('on'));
-  document.querySelectorAll('#ncEd button').forEach(b => b.onclick = () => document.querySelectorAll('#ncEd button').forEach(x => x.classList.toggle('on', x === b)));
+  document.querySelectorAll('#ncEd button').forEach(b => b.onclick = () => {
+    document.querySelectorAll('#ncEd button').forEach(x => x.classList.toggle('on', x === b));
+    const sc = document.querySelector('#ncCourses [data-course="syntax"]'), k = COURSES.find(x => x.id === 'syntax');
+    if (sc) { sc.textContent = cName(k, b.dataset.e); sc.style.setProperty('--c', cCol(k, b.dataset.e)); }
+  });
   $('ncCode').oninput = e => { e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,''); };
   $('ncGen').onclick = () => { const ch = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; let s = ''; for (let i = 0; i < 6; i++) s += ch[Math.floor(Math.random()*ch.length)]; $('ncCode').value = s; };
   $('ncGo').onclick = async () => {
@@ -550,8 +559,8 @@ async function openStudent(sid){
       <div class="note">학습 기록은 그대로 따라가고, 학생은 다시 로그인할 필요 없어요. 구문의 지도 편(COMPASS/BEACON)과 수강 코스는 새 반 설정을 따릅니다. (이 학생만 따로 정한 코스가 있으면 그대로 유지)</div></div>
     <div class="sec"><h3>수강 코스 <small>${s.courses ? '이 학생만 따로 지정됨' : '반 설정을 따르는 중'}</small></h3>
       <div class="seg" id="ovMode"><button data-m="class" class="${s.courses ? '' : 'on'}">반 설정 따르기</button><button data-m="custom" class="${s.courses ? 'on' : ''}">이 학생만 따로 정하기</button></div>
-      <div class="chips" id="ovChips" style="margin-top:10px">${COURSES.map(k => `<button class="chip ${eff.includes(k.id)?'on':''}" style="--c:${k.c}" data-course="${k.id}" ${s.courses ? '' : 'disabled'}>${k.name}</button>`).join('')}</div>
-      <div class="note">반 설정: ${cls.courses.map(c => COURSES.find(k => k.id === c).name).join(', ') || '없음'}</div></div>`;
+      <div class="chips" id="ovChips" style="margin-top:10px">${COURSES.map(k => `<button class="chip ${eff.includes(k.id)?'on':''}" style="--c:${cCol(k,cls.edition)}" data-course="${k.id}" ${s.courses ? '' : 'disabled'}>${cName(k,cls.edition)}</button>`).join('')}</div>
+      <div class="note">반 설정: ${cls.courses.map(c => cName(COURSES.find(k => k.id === c), cls.edition)).join(', ') || '없음'} <span class="muted">· 구문의 지도 편은 반 설정(${EDC[cls.edition] ? EDC[cls.edition].t + ' ' + EDC[cls.edition].ko : '—'})을 따라요</span></div></div>`;
   // Word Matching
   const M = {}; rows.filter(r => r.course === 'matching').forEach(r => { const m = /^s(\d\d)$/.exec(r.unit_id); if (m) M[Number(m[1])] = r; });
   h += `<div class="sec" style="--c:var(--wmp)"><h3><i></i>Word Matching <small>회차를 누르면 답안 전체</small></h3>`;
