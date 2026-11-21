@@ -1,7 +1,7 @@
 -- 영동일고 비연계어휘 로드맵(ydvoca) 코스 추가 + 종이 시험 점수 입력
 -- Supabase SQL Editor에서 한 번 실행 (기존 동작은 그대로, 코스 목록에 ydvoca만 추가)
 create or replace function public.vt_save_progress(p_course text, p_unit text, p_data jsonb, p_score numeric default null, p_max numeric default null, p_completed boolean default false)
-returns void language plpgsql security definer set search_path = public as $$
+returns void language plpgsql security definer set search_path to '' as $$
 declare v_sid uuid := public.my_student_id();
 begin
   if v_sid is null then raise exception 'NOT_APPROVED'; end if;
@@ -19,7 +19,7 @@ end $$;
 
 -- 선생님이 종이 리뷰 테스트 점수를 넣음: 통과 판정(A>=9, B>=7)에만 쓰고 문항 분석에는 넣지 않음
 create or replace function public.vt_staff_paper_score(p_student uuid, p_unit text, p_a int, p_b int, p_c int)
-returns jsonb language plpgsql security definer set search_path = public as $$
+returns jsonb language plpgsql security definer set search_path to '' as $$
 declare v_row public.vt_progress; v_d jsonb; v_best jsonb; v_tot int := p_a + p_b + p_c; v_pass boolean := p_a >= 9 and p_b >= 7;
 begin
   if not public.can_manage_student(p_student) then raise exception 'FORBIDDEN'; end if;
@@ -43,3 +43,11 @@ begin
 end $$;
 revoke all on function public.vt_staff_paper_score(uuid, text, int, int, int) from public, anon;
 grant execute on function public.vt_staff_paper_score(uuid, text, int, int, int) to authenticated;
+
+-- 코스 목록 체크 제약에도 ydvoca 추가
+alter table public.vt_progress drop constraint vt_progress_course_check,
+  add constraint vt_progress_course_check check (course = any (array['fundamental','essential','spectrum','matching','grammar','gfirst','ydvoca']));
+alter table public.classes drop constraint classes_courses_check,
+  add constraint classes_courses_check check (courses <@ array['fundamental','essential','spectrum','matching','syntax','grammar','gfirst','ydvoca']);
+alter table public.students drop constraint students_courses_check,
+  add constraint students_courses_check check (courses is null or courses <@ array['fundamental','essential','spectrum','matching','syntax','grammar','gfirst','ydvoca']);
