@@ -279,10 +279,10 @@ function render(rows){
 /* ECHO 수업 구문 다시듣기: 우리 반에 공개된 수업이 있을 때만 얇은 띠로 */
 async function echoStrip(){
   try {
-    const r = await ECHO.call(VT.sb, 'home'); const L = r.lessons || [];
-    if (!L.length) return;
-    const n = L.filter(l => l.status === 'new').length;
-    $('echoNew').textContent = `새 수업 ${n}`; $('echoNew').hidden = !n;
+    const r = await ECHO.call(VT.sb, 'home'); const L = r.lessons || [], X = r.exams || [];
+    if (!L.length && !X.length) return;
+    const n = L.filter(l => l.status === 'new').length, xn = X.filter(x => x.status === 'new').length;
+    $('echoNew').textContent = [n ? `새 수업 ${n}` : '', xn ? `내신 ${xn}` : ''].filter(Boolean).join(' · '); $('echoNew').hidden = !(n || xn);
     $('echoStrip').hidden = false;
   } catch(e) {}
 }

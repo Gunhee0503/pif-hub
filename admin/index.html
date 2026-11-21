@@ -891,13 +891,17 @@ async function echoStudent(s){
   try {
     const r = await ECHO.call(SB, 'admin_student', { student_id: s.id, class_code: s.class_code });
     const L = r.lessons || [], by = {}; (r.listens || []).forEach(x => by[x.lesson_id] = x);
-    if (!L.length) { box.innerHTML = '이 반에 ECHO로 공개된 수업이 아직 없어요.'; return; }
+    const X = r.exams || [], xby = {}; (r.exam_listens || []).forEach(x => xby[x.set_id] = x);
+    const xHtml = X.length ? `<div class="eh" style="margin-top:14px"><b class="w">내신 서술형</b><span style="margin-left:auto">끝까지 들은 세트 <b>${X.filter(x => xby[x.id] && xby[x.id].completed).length} / ${X.length}</b></span></div>
+      <table class="mini"><tr><th>세트</th><th>문장</th><th>기록</th><th>들은 횟수</th><th>마지막</th></tr>${X.map(x => { const y = xby[x.id];
+        return `<tr><td>${esc(x.label)} <span class="muted">${x.year}</span></td><td>${x.count}</td><td>${y ? `<span class="st ${y.completed ? 'done' : ''}">${y.completed ? '끝까지 들음' : '열어 봄'}</span>` : '<span class="muted">—</span>'}</td><td>${y ? y.plays : 0}</td><td class="muted">${y ? ago(y.last_at) : '—'}</td></tr>`; }).join('')}</table>` : '';
+    if (!L.length) { box.className = ''; box.innerHTML = X.length ? xHtml : '<span class="muted">이 반에 ECHO로 공개된 수업이 아직 없어요.</span>'; return; }
     const done = L.filter(l => by[l.id] && by[l.id].completed).length;
     const last = (r.listens || []).map(x => x.last_at).sort().pop();
     box.className = '';
     box.innerHTML = `<div class="eh"><b class="w">ECHO</b><span class="muted">수업 구문 다시듣기</span><span style="margin-left:auto">${last ? '최근 ' + new Date(last).toLocaleDateString('ko-KR',{month:'numeric',day:'numeric'}) + ' · ' : ''}끝까지 들은 수업 <b>${done} / ${L.length}</b></span></div>
       <table class="mini"><tr><th>수업 날짜</th><th>수업</th><th>기록</th><th>들은 횟수</th><th>마지막</th></tr>${L.map(l => { const x = by[l.id];
-        return `<tr><td>${md(l.lesson_date)}</td><td>${esc(l.title)} · ${l.count}문장</td><td>${x ? `<span class="st ${x.completed ? 'done' : ''}">${x.completed ? '끝까지 들음' : '열어 봄'}</span>` : '<span class="muted">—</span>'}</td><td>${x ? x.plays : 0}</td><td class="muted">${x ? ago(x.last_at) : '—'}</td></tr>`; }).join('')}</table>
+        return `<tr><td>${md(l.lesson_date)}</td><td>${esc(l.title)} · ${l.count}문장</td><td>${x ? `<span class="st ${x.completed ? 'done' : ''}">${x.completed ? '끝까지 들음' : '열어 봄'}</span>` : '<span class="muted">—</span>'}</td><td>${x ? x.plays : 0}</td><td class="muted">${x ? ago(x.last_at) : '—'}</td></tr>`; }).join('')}</table>${xHtml}
       <details id="echoCls"><summary>${esc(clsOf(s.class_code).name)} 반 전체 보기</summary><div id="echoClsBox" class="muted" style="margin-top:6px">불러오는 중…</div></details>`;
     $('echoCls').addEventListener('toggle', async () => {
       if (!$('echoCls').open || $('echoCls').dataset.loaded) return; $('echoCls').dataset.loaded = 1;

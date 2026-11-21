@@ -52,6 +52,17 @@ a{color:inherit}
 .sets{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:4px}
 .sets button{border:0;text-align:left;padding:14px;border-radius:16px;display:flex;flex-direction:column;gap:4px;min-height:44px}
 .sets b{font-size:13px}.sets span{font-size:12px;color:var(--ink3)}
+.exams{display:flex;flex-direction:column;gap:10px;margin-bottom:10px}
+.lesson.exam{border-color:#c9dbef;background:linear-gradient(120deg,#f3f8fe,#fff 60%)}
+.lesson.exam .d{width:62px;gap:3px}
+.lesson.exam .d b{font-size:15px;line-height:1.15;text-align:center;font-family:var(--sans);font-weight:800;color:#2f5f93}
+.lesson.exam .d small{font-weight:700;color:#2f5f93}
+.lesson.exam .s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.xcard{padding:12px 14px;border-radius:14px;background:#eef4fb;border:1px solid #d3e2f3;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.xcard .xk{font-size:11px;font-weight:800;color:#2f5f93;letter-spacing:.04em;margin-right:2px}
+.xcard .xt{font-size:12px;font-weight:700;color:#2f5f93;background:#dce8f6;border-radius:6px;padding:3px 7px}
+.xcard .xl{font-size:13px;color:#d08a14;letter-spacing:1px}
+.xcard .xp{flex-basis:100%;font-size:14px;font-weight:700;color:var(--ink);line-height:1.5}
 .empty{padding:28px 6px;color:var(--ink3);line-height:1.7;text-align:center;font-size:14px}
 
 /* 재생 */
@@ -130,6 +141,10 @@ a{color:inherit}
       <div class="tt"><h1>ECHO</h1><p>수업 구문 다시듣기</p></div>
     </div>
     <div class="list">
+      <div id="exSec" hidden>
+        <div class="lh"><h2>내신 서술형</h2><span>학교 시험 대비 주요 구문</span></div>
+        <div id="exams" class="exams"></div>
+      </div>
       <div class="lh"><h2 id="hClass">우리 반 수업</h2><span>최근 수업부터</span></div>
       <div id="lessons"><div class="empty">불러오는 중…</div></div>
       <div class="sets" id="sets" hidden>
@@ -194,8 +209,18 @@ async function loadHome(){
   try { HOME = await call('home'); }
   catch (e) { if (/NOT_APPROVED|NO_SESSION/.test(String(e.message))) { location.replace('/learn/'); return; } $('lessons').innerHTML = `<div class="empty">${esc(errText(e))}</div>`; return; }
   $('hClass').textContent = `${HOME.class_name || '우리 반'} 수업`;
+  const X = HOME.exams || [];
+  $('exSec').hidden = !X.length;
+  $('exams').innerHTML = X.map((x) => {
+    const st = { new: ['new', '새로 올라옴'], opened: ['opened', '열어 봄'], done: ['done', '끝까지 들음'] }[x.status] || ['opened', ''];
+    const short = x.label.replace(x.school + ' ', '');
+    return `<button type="button" class="lesson exam ${x.status === 'new' ? 'new' : ''}" data-x="${x.id}">
+      <div class="d"><small>${esc(x.school)}</small><b>${esc(short.replace('학년 ', '-').replace('학기 ', ' '))}</b><small>${x.year}</small></div>
+      <div class="m"><div class="t">${esc(x.label)}</div><div class="s">${x.count}문장${x.scope ? ' · ' + esc(x.scope.replace(/\s*\n\s*/g, ' / ')) : ''}</div></div>
+      <span class="chip ${st[0]}">${st[1]}</span></button>`;
+  }).join('');
   const L = HOME.lessons || [];
-  if (!L.length) { $('lessons').innerHTML = '<div class="empty">아직 공개된 수업이 없어요.<br>선생님이 수업 구문을 올리면 여기에 나타나요.</div>'; $('sets').hidden = true; return; }
+  if (!L.length) { $('lessons').innerHTML = X.length ? '<div class="empty">아직 공개된 수업 기록은 없어요.</div>' : '<div class="empty">아직 공개된 수업이 없어요.<br>선생님이 수업 구문을 올리면 여기에 나타나요.</div>'; $('sets').hidden = !X.length; if (X.length) { $('allN').textContent = '수업 기록 문장 모아 듣기'; $('starN').textContent = HOME.stars ? `${HOME.stars}문장` : '아직 없어요 · 재생 중 ☆로 표시'; } return; }
   $('lessons').innerHTML = L.map((l, i) => {
     const d = new Date(l.lesson_date + 'T00:00:00');
     const st = { new: ['new', '새 수업'], opened: ['opened', '열어 봄'], done: ['done', '끝까지 들음'] }[l.status] || ['opened', ''];
@@ -210,10 +235,11 @@ async function loadHome(){
   $('starN').textContent = HOME.stars ? `${HOME.stars}문장` : '아직 없어요 · 재생 중 ☆로 표시';
 }
 $('lessons').onclick = (e) => { const b = e.target.closest('[data-id]'); if (b) location.hash = 'l=' + b.dataset.id; };
+$('exams').onclick = (e) => { const b = e.target.closest('[data-x]'); if (b) location.hash = 'x=' + b.dataset.x; };
 $('sets').onclick = (e) => { const b = e.target.closest('[data-set]'); if (!b) return; if (b.dataset.set === 'star' && !HOME.stars) return toast('재생 화면에서 ☆를 눌러 어려운 문장을 모아 보세요.'); location.hash = 'l=' + b.dataset.set; };
 
 /* ---------------- 재생 ---------------- */
-const S = { key: null, lesson: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'once', autoFull: true, sel: 0, peeks: new Set(), intro: null, introDone: false, playing: false, paused: false, completedSent: false, heard: new Set() };
+const S = { key: null, lesson: null, exam: null, list: [], nums: [], idx: 0, mode: 'full', speed: 1, order: 'once', autoFull: true, sel: 0, peeks: new Set(), intro: null, introDone: false, playing: false, paused: false, completedSent: false, heard: new Set() };
 try { const o = JSON.parse(localStorage.getItem('echo:opts') || '{}'); if (o.mode) S.mode = o.mode; if (o.speed) S.speed = o.speed; if (o.order) S.order = o.order; if (o.autoFull === false) S.autoFull = false; } catch (e) {}
 const saveOpts = () => { try { localStorage.setItem('echo:opts', JSON.stringify({ mode: S.mode, speed: S.speed, order: S.order, autoFull: S.autoFull })); } catch (e) {} };
 const V = { cur: -1, hideFrom: null, cue: -1 };
@@ -225,16 +251,22 @@ async function openSet(key){
   stop(); S.key = key; S.idx = 0; S.list = []; S.completedSent = false; S.heard = new Set(); S.sel = 0; S.peeks = new Set();
   $('vHome').hidden = true; $('vPlay').hidden = false; scrollTo(0, 0);
   $('chunks').innerHTML = '<div class="empty">불러오는 중…</div>';
-  const isSet = key === 'all' || key === 'star';
-  S.lesson = isSet ? null : (HOME && HOME.lessons || []).find((l) => l.id === key) || null;
-  $('pSub').textContent = isSet ? (key === 'all' ? '배운 문장 전체' : '별표 문장') : S.lesson ? `${fmtDate(S.lesson.lesson_date)} · ${S.lesson.title}` : '수업';
+  const isSet = key === 'all' || key === 'star', xid = key.startsWith('x:') ? key.slice(2) : null;
+  S.exam = xid ? (HOME && HOME.exams || []).find((x) => x.id === xid) || { id: xid, label: '내신 서술형' } : null;
+  S.lesson = (isSet || xid) ? null : (HOME && HOME.lessons || []).find((l) => l.id === key) || null;
+  $('pSub').textContent = S.exam ? `내신 서술형 · ${S.exam.label}` : isSet ? (key === 'all' ? '배운 문장 전체' : '별표 문장') : S.lesson ? `${fmtDate(S.lesson.lesson_date)} · ${S.lesson.title}` : '수업';
   try {
-    const r = await call('lesson', isSet ? { set: key } : { id: key });
+    const r = await call('lesson', xid ? { exam: xid } : isSet ? { set: key } : { id: key });
     S.list = r.sentences || []; S.nums = r.numbers || []; S.intro = r.intro || null; S.introDone = false;
   } catch (e) { $('chunks').innerHTML = `<div class="empty">${esc(errText(e))}</div>`; return; }
   if (!S.list.length) { $('chunks').innerHTML = '<div class="empty">들을 수 있는 문장이 아직 없어요.</div>'; return; }
-  if (S.lesson) call('log', { lesson_id: S.lesson.id, event: 'open' }).catch(() => {});
+  logEv('open');
   syncModes(); syncSpeed(); draw();
+}
+function logEv(event){
+  if (S.lesson) return call('log', { lesson_id: S.lesson.id, event }).catch(() => {});
+  if (S.exam) return call('log', { exam_id: S.exam.id, event }).catch(() => {});
+  return Promise.resolve();
 }
 function fmtDate(s){ const d = new Date(s + 'T00:00:00'); return `${d.getMonth() + 1}월 ${d.getDate()}일`; }
 function words(t){ return String(t).split(/\s+/).filter(Boolean); }
@@ -251,7 +283,8 @@ function draw(){
   if (V.cur >= 0) S.sel = V.cur;
   const drill = S.mode === 'drill', tap = S.mode !== 'full', ck = curK();
   $('chunks').classList.toggle('tap', tap);
-  $('chunks').innerHTML = s.chunks.map((c, k) => {
+  const xc = (s.point || (s.xtypes || []).length || s.level) ? `<div class="xcard"><span class="xk">서술형</span>${(s.xtypes || []).map((t) => `<span class="xt">${esc(t)}</span>`).join('')}${s.level ? `<span class="xl" aria-label="출제 가능성 ${s.level}">${'★'.repeat(s.level)}${'☆'.repeat(3 - s.level)}</span>` : ''}${s.point ? `<span class="xp">${esc(s.point)}</span>` : ''}</div>` : '';
+  $('chunks').innerHTML = xc + s.chunks.map((c, k) => {
     const cur = k === ck;
     const bg = cur ? `background:${col(k)};box-shadow:0 14px 30px -18px ${col(k)}` : `background:${tint(k, '24')}`;
     let body;
@@ -395,9 +428,10 @@ async function playOne(s, tok){
 }
 function markHeard(){
   S.heard.add(S.idx);
-  if (S.lesson && !S.completedSent && S.heard.size >= S.list.length) {
+  if ((S.lesson || S.exam) && !S.completedSent && S.heard.size >= S.list.length) {
     S.completedSent = true;
-    call('log', { lesson_id: S.lesson.id, event: 'complete' }).then(() => { toast('이 수업 문장을 모두 들었어요.'); const l = HOME && HOME.lessons.find((x) => x.id === S.lesson.id); if (l) l.status = 'done'; }).catch(() => {});
+    const item = S.lesson ? HOME && HOME.lessons.find((x) => x.id === S.lesson.id) : HOME && (HOME.exams || []).find((x) => x.id === S.exam.id);
+    logEv('complete').then(() => { toast(S.exam ? '이 내신 세트 문장을 모두 들었어요.' : '이 수업 문장을 모두 들었어요.'); if (item) item.status = 'done'; }).catch(() => {});
   }
 }
 function shuffled(){ const a = S.list.map((_, i) => i).filter((i) => i !== S.idx); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
@@ -423,7 +457,7 @@ async function run(){
   if (!S.list.length) return;
   unlockAudio();
   const tok = ++P.tok; setPlaying(true);
-  if (S.lesson) call('log', { lesson_id: S.lesson.id, event: 'play' }).catch(() => {});
+  logEv('play');
   let queue = null;
   try {
     if (S.mode === 'drill' && S.intro && !S.introDone) {
@@ -492,8 +526,8 @@ document.addEventListener('keydown', (e) => {
 
 /* ---------------- 이동 ---------------- */
 function route(){
-  const m = /^#l=([\w-]+)$/.exec(location.hash);
-  if (m) return openSet(m[1]);
+  const m = /^#(l|x)=([\w-]+)$/.exec(location.hash);
+  if (m) return openSet(m[1] === 'x' ? 'x:' + m[2] : m[2]);
   stop(); $('vPlay').hidden = true; $('vHome').hidden = false; loadHome();
 }
 addEventListener('hashchange', route);
@@ -504,7 +538,7 @@ addEventListener('hashchange', route);
     const st = await VT.status();
     if (!st || st.status !== 'approved') { location.replace('/learn/'); return; }
   } catch (e) { $('lessons').innerHTML = `<div class="empty">${esc(errText(e))}</div>`; return; }
-  if (/^#l=/.test(location.hash)) await loadHome();
+  if (/^#(l|x)=/.test(location.hash)) await loadHome();
   route();
 })();
 })();
