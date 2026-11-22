@@ -1542,18 +1542,18 @@ body {
     <div class="user-badge" id="user-badge"></div>
     <div class="home-heading-row">
       <div>
-        <div class="section-title">PRACTICE · 연습장</div>
-        <div class="section-heading">연습할 Lesson을 고르세요</div>
+        <div class="section-title">문제로 풀기</div>
+        <div class="section-heading">풀어 볼 Lesson을 고르세요</div>
       </div>
       <button class="info-btn" onclick="showCompletionGuide()" aria-label="완료 기준 안내">
         <span class="info-icon">ℹ️</span>
         <span class="info-text">완료 기준</span>
       </button>
     </div>
-    <div class="bc-note hidden" id="bc-note">이 앱은 <b>배운 단어를 바로 풀어 보는 연습장</b>이에요. 개념 강의는 BASE CAMP에서 들어요.</div>
+    <div class="bc-note hidden" id="bc-note">이 앱은 <b>문제를 풀면서 익히는 곳</b>이에요. 교재 대신 <b>강의로 듣고</b> 싶다면 BASE CAMP를 이용하세요. 둘은 따로따로 해도 돼요.</div>
     <a class="bc-cta hidden" id="bc-cta" href="/ydvoca/">
       <span class="bc-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6 3 20h18L12 6z"/><path d="M12 6v14M9.5 20 12 15l2.5 5"/><path d="M12 3l4 1.5L12 6"/></svg></span>
-      <span><div class="bc-t">어휘요약문 BASE CAMP <span class="bc-k">강의실</span></div><div class="bc-s">개념 영상 · 교재로 제대로 배우고, 리뷰 테스트로 통과</div></span>
+      <span><div class="bc-t">어휘요약문 BASE CAMP <span class="bc-k">강의로 듣기</span></div><div class="bc-s">교재 대신 영상 강의로 듣고 배우는 곳 · 리뷰 테스트 · 요약문</div></span>
       <span class="bc-go">›</span>
     </a>
     <div class="lesson-grid" id="lesson-grid"></div>
@@ -3106,7 +3106,7 @@ function selectLesson(key) {
   }
   // 어휘요약문 BASE CAMP 같은 강 바로가기
   var bl = $('bc-lesson'), n = String(key).replace('lesson', '');
-  if (bl) { bl.classList.toggle('hidden', !hasBaseCamp()); bl.href = '/ydvoca/#/f' + n; $('bc-lesson-t').textContent = n + '강 강의 다시 듣기 · BASE CAMP'; }
+  if (bl) { bl.classList.toggle('hidden', !hasBaseCamp()); bl.href = '/ydvoca/#/f' + n; $('bc-lesson-t').textContent = n + '강 강의로 듣기 · BASE CAMP'; }
   // 각 Part의 완료 상태 뱃지 업데이트
   updatePartStatusBadges(key);
   // 강의 선택 시 먼저 개념 요약 화면으로
