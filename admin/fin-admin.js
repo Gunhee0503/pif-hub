@@ -58,9 +58,20 @@ function finPaper(s, sid){
     if (error) return toast(errMsg(error));
     toast(v >= 70 ? '저장했어요 · 통과' : '저장했어요 · 재시험'); closeDrawer(); load(); };
 }
+const finaGet = rows => u => { const r = rows.find(x => x.course === 'ydvoca' && x.unit_id === u); return (r && r.data) || {}; };
+function finCumH(rows){
+  const { out, gone } = finPoolOf(finaGet(rows));
+  return `<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:8px 0 4px"><button class="btn sm" data-fincumprint ${out.length ? '' : 'disabled'}>누적 오답 시험지 출력 (자주 틀린 문항 ${out.length}개)</button>
+    <span class="muted" style="font-size:12px">모든 시즌에서 지금도 틀린 채 남았거나 2번 이상 틀린 문항 · 학생이 '완성'으로 뺀 ${gone.length}문항 제외 · 정답·해설 쪽 포함</span></div>`;
+}
+function finCumBind(s, rows){
+  const b = document.querySelector('[data-fincumprint]'); if (!b) return;
+  b.onclick = () => { const it = finPoolOf(finaGet(rows)).out;
+    if (!finPrintSheet({ name: s.name, title: '누적 오답 테스트', items: it, key: 'teacher' })) toast('팝업이 막혀 있어요. 팝업을 허용해 주세요.'); };
+}
 function finStudentH(rows){
   if (!FINA.length) return '';
-  return FINA.filter((S1, i) => i === 0 || S1.rounds.some(R => finaCell(rows, S1.id, R).done || finaCell(rows, S1.id, R).att)).map(S1 => `<div class="sec" style="--c:var(--yd)"><h3><i></i>피날레 FINALE <small>${esc(S1.name)} · 100점 만점 · 통과 70점 이상</small></h3>
+  return finCumH(rows) + FINA.filter((S1, i) => i === 0 || S1.rounds.some(R => finaCell(rows, S1.id, R).done || finaCell(rows, S1.id, R).att)).map(S1 => `<div class="sec" style="--c:var(--yd)"><h3><i></i>피날레 FINALE <small>${esc(S1.name)} · 100점 만점 · 통과 70점 이상</small></h3>
     <table class="mini"><tr><th>회차</th><th>테스트</th><th>최고점</th><th>응시</th><th>연습</th><th>오답</th><th>최근</th></tr>${S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), b = c.d.best, pp = (c.d.paper || []).length;
       return `<tr><td><b>${R.r}회</b></td><td>${c.d.passed ? '<span class="ok">통과</span>' : c.att ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
         <td>${b ? `<b>${b.score}</b>` : '—'}</td><td>${(c.d.attempts || []).length}회${(c.d.attempts || []).some(a => a.gl === 0) ? ` <span class="muted">(2차 ${(c.d.attempts || []).filter(a => a.gl === 0).length})</span>` : ''}${pp ? ` <span class="muted">+ 종이 ${pp}</span>` : ''}</td>

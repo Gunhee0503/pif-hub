@@ -210,6 +210,7 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
 <script src="/ydvoca/otw.js"></script>
 <script src="/admin/otw-admin.js"></script>
 <script src="/ydvoca/finale.js"></script>
+<script src="/ydvoca/fin-print.js"></script>
 <script src="/admin/fin-admin.js"></script>
 <script src="/admin/diag.js"></script>
 <script>
@@ -667,6 +668,7 @@ async function openStudent(sid){
   $('echoSec').addEventListener('toggle', () => { if ($('echoSec').open && !$('echoSec').dataset.loaded) { $('echoSec').dataset.loaded = 1; echoStudent(s); } });
   studentReport(s, rows);
   if (dgD) DG.bindCard(s, dgD);
+  finCumBind(s, rows);
   SB.from('hub_downloads').select('file,course,created_at').eq('student_id', s.id).order('created_at', { ascending:false }).limit(40).then(r => {
     const el = $('dlLog'); if (!el) return; const L = r.data || [];
     el.innerHTML = L.length ? `<b style="color:var(--ink)">자료 내려받기 ${L.length}${L.length === 40 ? '+' : ''}회</b><table class="mini" style="margin-top:6px"><tr><th>자료</th><th>내려받은 때</th></tr>${L.map(d => `<tr><td>${esc(fileLabel(d.file))}</td><td class="muted">${new Date(d.created_at).toLocaleString('ko-KR')}</td></tr>`).join('')}</table>` : '자료 내려받기 기록 없음'; });

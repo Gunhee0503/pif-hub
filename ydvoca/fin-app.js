@@ -45,26 +45,15 @@ function finCurSeason(){
 }
 
 /* ---------- 누적 오답 (지난 시즌) ---------- */
-function finPool(upto){                       // upto 시즌 앞의 모든 시즌에서 자주 틀린 문항
-  const idx = FIND.seasons.findIndex(s => s.id === upto), rm = data('fin-cum').rm || {}, out = [], gone = [];
-  FIND.seasons.slice(0, Math.max(0, idx)).forEach(S => S.rounds.forEach(R => {
-    const u = finU(S.id, R.r), p = data(u + '-p'), st = p.st || {}, wc = p.wc || {}, at = data(u + '-test').attempts || [];
-    R.qs.forEach(q => { const ks = Object.keys(q.bl); let n = 0, open = false;
-      ks.forEach(k => { const id = q.id + k, c = (wc[id] || 0) + at.filter(a => a.items && a.items[id] === 0).length; n = Math.max(n, c); if (st[id] === 0) open = true; });
-      if (!(open || n >= 2)) return;
-      const it = { key: S.id + 'r' + R.r + ':' + q.id, S, R, q, n: Math.max(n, 1), open };
-      (rm[it.key] ? gone : out).push(it); });
-  }));
-  out.sort((a, b) => b.n - a.n || (b.open - a.open));
-  return { out, gone };
-}
+function finPool(upto){ return finPoolOf(data, upto); }      // fin-print.js
+function finCumPrint(list){ if (!finPrintSheet({ name: '', title: '누적 오답 테스트', items: list, key: 'student' })) toast('팝업이 막혀 있어요. 팝업을 허용해 주세요.'); }
 function finCumCard(S){
   const idx = FIND.seasons.findIndex(s => s.id === S.id); if (idx < 1) return '';
   const prev = FIND.seasons.slice(0, idx).map(x => x.name).join(' · '), { out, gone } = finPool(S.id), h = data('fin-cum').hist || [], last = h.slice(-1)[0];
   return `<div class="card fcum"><h2><span class="no">↺</span>누적 오답 테스트<span class="role apply">${esc(prev)}</span></h2>
     <p class="d">지난 시즌에서 <b>자주 틀린 문항</b>(지금도 틀린 채 남았거나 2번 이상 틀린 문항)만 모았어요. 풀어 보고 <b>완성한 단어는 직접 골라 빼요.</b></p>
     <div class="res" style="grid-template-columns:1fr 1fr 1fr"><div><i>남은 문항</i><b>${out.length}</b></div><div><i>완성해서 뺌</i><b>${gone.length}</b></div><div class="x"><i>최근</i><b style="font-size:18px">${last ? last.ok + '/' + last.n : '—'}</b></div></div>
-    <div class="row">${out.length ? `<a class="b or" href="#/fin/cum/${S.id}">누적 오답 테스트 보기 (${Math.min(out.length, 20)}문항)</a>` : '<span class="note" style="flex:1">지난 시즌에 모인 오답이 없어요. 좋아요!</span>'}${gone.length ? `<a class="b" href="#/fin/cum/${S.id}/done">뺀 단어 ${gone.length}개</a>` : ''}</div></div>`;
+    <div class="row">${out.length ? `<a class="b or" href="#/fin/cum/${S.id}">누적 오답 테스트 보기 (${Math.min(out.length, 20)}문항)</a>` : '<span class="note" style="flex:1">지난 시즌에 모인 오답이 없어요. 좋아요!</span>'}${out.length ? `<button class="b" type="button" data-cumprint="${S.id}">🖨 시험지 출력</button>` : ''}${gone.length ? `<a class="b" href="#/fin/cum/${S.id}/done">뺀 단어 ${gone.length}개</a>` : ''}</div></div>`;
 }
 
 /* ---------- 시즌 안내 팝업 ---------- */
@@ -90,6 +79,7 @@ function finBindHome(){
   $app.querySelectorAll('[data-fseason]').forEach(b => b.onclick = () => { try { localStorage.setItem('pif_fin_season', b.dataset.fseason); } catch(e){}
     const y = scrollY; home(); scrollTo(0, y); });
   $app.querySelectorAll('[data-fnotice]').forEach(b => b.onclick = finNotice);
+  $app.querySelectorAll('[data-cumprint]').forEach(b => b.onclick = () => finCumPrint(finPool(b.dataset.cumprint).out.slice(0, 20)));
   let seen = false; try { seen = localStorage.getItem(FIN_NOTICE) === '1'; } catch(e){}
   if (FULL && !seen) setTimeout(finNotice, 400);
 }
@@ -276,10 +266,11 @@ function finCum(sid, sub){
   h += `<div class="note">지난 시즌에서 자주 틀린 <b>${out.length}문항</b> 중 많이 틀린 순서로 <b>${list.length}문항</b>을 섞었어요. 다 쓰고 <b>채점하기</b>를 누르면 정답·해설이 보여요. 그다음 <b>완성한 문항만 골라 빼요.</b></div>`;
   h += finGlBar();
   list.forEach((it, i) => h += finQ(it.q, i + 1, {}, { check: false, gloss: true, pts: finPts(it.R), tag: `${it.S.name} · ${it.R.r}회 ${it.q.no}번 · 틀린 횟수 ${it.n}`, pfx: it.key }).replace(/data-id="(q\d\dX?[A-DX]?)"/g, `data-id="${it.key}|$1"`).replace(`data-q="${it.q.id}"`, `data-q="${it.key}"`));
-  h += `<div class="sticky"><button class="b main" id="cumGrade">채점하기</button><a class="b" href="#/">나가기</a></div>`;
+  h += `<div class="sticky"><button class="b main" id="cumGrade">채점하기</button><button class="b" id="cumPrint" type="button">🖨 출력</button><a class="b" href="#/">나가기</a></div>`;
   $app.innerHTML = h; scrollTo(0, 0); finGlBind();
   $app.querySelectorAll('input.blank').forEach(inp => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); const all = [...$app.querySelectorAll('input.blank')], nx = all[all.indexOf(inp) + 1]; if (nx) nx.focus(); } });
   document.getElementById('cumGrade').onclick = finCumGrade;
+  document.getElementById('cumPrint').onclick = () => finCumPrint(list);
 }
 async function finCumGrade(){
   const { sid, list } = FC, cd = data('fin-cum'); cd.rm = cd.rm || {};
