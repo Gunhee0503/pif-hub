@@ -18,6 +18,8 @@ const FULL = VT.allowed('ydvoca');</script>
 <script src="data.js"></script>
 <script src="otw.js"></script>
 <script src="otw-app.js"></script>
+<script src="finale.js"></script>
+<script src="fin-app.js"></script>
 <style>
 :root{--dk:#163A32;--tl:#0B6E62;--mint:#D6EDE5;--mint2:#EEF7F3;--or:#B24A1E;--orbg:#FBEEE6;--cream:#F5F0E7;--en:'Oswald',var(--sans);
   --paper:#f4f6f5;--card:#fff;--line:#d7e3de;--ink:#1C2B27;--ink2:#56615D}
@@ -167,6 +169,25 @@ select.pick.ok{border-color:var(--tl);background:var(--mint2)} select.pick.bad{b
 .onote{margin:8px 0 4px;background:var(--cream);border-radius:12px;padding:8px 12px;font-size:13px;line-height:1.65}
 .onote summary{cursor:pointer;font-weight:800;color:var(--or)} .onote .h{font-weight:800;margin-top:6px} .onote .tr{display:grid;grid-template-columns:1fr 1fr;gap:10px} .onote hr{border:0;border-top:1px dashed var(--line)}
 .q b.gap{letter-spacing:.1em;color:var(--or)}
+/* FINALE */
+.dual .dc.finc{background:#1E3F2E;color:#EFE0BE} .dual .finc b{color:#fff} .dual .finc .k{background:#C8582A;color:#fff}
+.lc.fin .n{color:#1E3F2E}
+.fq2 .fh{display:flex;gap:8px;align-items:flex-start;margin-bottom:6px} .fq2 .fi{font-size:13px;line-height:1.6;color:var(--ink2);word-break:keep-all} .fq2 .fi b{color:var(--or);white-space:nowrap}
+.fq2 .ft{font:700 15px/1.35 Georgia,'Times New Roman',serif;color:var(--dk);margin:4px 0 4px 34px}
+.fq2 .fp{font:400 15.5px/1.75 Georgia,'Times New Roman',serif;margin-left:34px;color:var(--ink)}
+.fq2 .fa2{text-align:center;color:var(--or);font-size:12px;margin:6px 0}
+.fq2 .fs{margin-left:34px;background:var(--cream);border-left:5px solid var(--dk);border-radius:10px;padding:9px 12px;font:400 15.5px/1.8 Georgia,serif}
+.fq2 .fs .fg{font:400 12.5px/1.55 var(--sans);color:var(--ink2);margin-top:2px}
+.fq2 .fbl{display:inline-block;min-width:54px;border-bottom:1.6px solid var(--dk);text-align:center;font:600 12px var(--en);color:var(--or);margin:0 3px}
+.fq2 .frows{margin:10px 0 0 34px;display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+.fq2 .frow{display:flex;align-items:center;gap:8px;flex-wrap:wrap} .fq2 .fk{font:600 14px var(--en);color:var(--dk);width:30px}
+.fq2 .fl{font-size:12px;color:var(--ink2)} .fq2 .fck{margin-left:38px;border:1px solid var(--line);background:#fff;border-radius:8px;padding:4px 14px;font-size:13px;font-weight:700;color:var(--tl)}
+.fq2 .blank{max-width:70vw}
+.fq2 .fbx{margin-left:34px} .fq2 .fbx .fb{margin-left:0}
+.fq2 .oex{margin-left:0} .fq2 .oex i{width:40px}
+.fq2 .fxb{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin:6px 0} .fq2 .fxm b{color:var(--or)} .fq2 .fen{font-family:Georgia,serif;font-style:italic}
+.fq2 .oex>div:not(.fxb),.fq2 .fxb>div{display:flex;gap:6px} .fq2 .oex i{flex:none}
+.frq{font-size:11px;font-weight:800;color:#fff;background:var(--tl);border-radius:4px;padding:1px 6px}
 </style>
 </head>
 <body>
@@ -213,8 +234,8 @@ function home(){
     <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="yd-book" data-name="보카트리_Fundamental_개정판_전체"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>교재 전체 PDF</button>${VT.allowed('fundamental') ? '<a class="b app" href="/fundamental/"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱에서 연습하기</span><span class="go">›</span></a>' : ''}</div>
     <div class="sec"><b>STEP 2 · ON THE WAY</b><span>시험 범위 어휘 · 1등급으로 가는 하이패스</span></div>
     ${otwHome()}
-    <div class="sec"><b>STEP 3 · FINALE</b><span>요약문 어휘 완성</span></div>
-    <div class="soon">${FULL ? '<b>Season 1 · Season 2</b><br>온더웨이 다음 단계예요. 준비되는 대로 열려요.' : '<b>🔒 내신 어휘요약문 반 전용</b><br>온더웨이 다음 단계예요.'}</div>`;
+    <div class="sec"><b>STEP 3 · FINALE</b><span>요약문 어휘 실전 · 피날레는 실전완성</span></div>
+    ${finHome()}`;
   bindDl(); otwBindHome();
 }
 function bindDl(){ $app.querySelectorAll('[data-dl]').forEach(b => b.onclick = async () => { b.disabled = true; const t = b.innerHTML; b.textContent = '받는 중…';
@@ -395,6 +416,7 @@ function route(){
   const [, id, sub] = (location.hash || '#/').split('/'), l = L.find(x => x.id === id);
   Object.values(PLAYERS).forEach(p => { try { clearInterval(p._t); } catch(e){} });
   if (id === 'otw') return otwRoute((location.hash || '').split('/').slice(2));
+  if (id === 'fin') return finRoute((location.hash || '').split('/').slice(2));
   if (!l) return home();
   if (sub === 'test') return startTest(l, 'main');
   if (sub === 'retest') return startTest(l, 're');

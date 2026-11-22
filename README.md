@@ -64,3 +64,12 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 통과: **Part 1 동의어·반의어 70% 이상(20문항 중 14개)**. 점수는 전체 맞은 개수 ÷ 문항 수 × 100. 재시험은 문항·묶음 순서를 섞음
 - 종이 시험: 관리자 → `vt_staff_otw_paper` RPC (Part별 맞은 개수·문항 수 → 100점 환산·통과 자동 계산)
 - 파일(`ydvoca/files/otw-*.bin`, AES-GCM, hub-file 함수가 풀어 줌): `otw-book` 교재, `otw-t1`~`t7` 리뷰 테스트지(학생도), `otw-a1`~`a7` 정답지(선생님만)
+
+## 어휘요약문 로드맵 STEP 3 · 피날레 FINALE (`/ydvoca/#/fin/s1/1`)
+- 어휘요약문 반(ydvoca) 전용. Season 1 실전연습 1~7회(회차당 20문항, 요약문 어휘완성), 잠금 없음. 영상 없이 연습·리뷰 테스트·오답 중심 (관리자 영상 표에서 회차별 해설 영상을 선택으로 붙일 수 있음, unit `fin-s1rN`)
+- 데이터: `ydvoca/finale.js` (window.FIN) — 교재 리마스터 데이터와 문항별 상세 해설(풀이 흐름·빈칸별 뜻·지문 근거·포인트)을 `export_fin.py`로 생성. 앱 코드: `ydvoca/fin-app.js`(otw-app.js의 채점 함수 사용), 관리자: `admin/fin-admin.js`
+- 진도: unit `s1r1-p`(연습: 빈칸별 맞음 1 / 틀림 0 — `q01A` 형식), `s1r1-test`(리뷰 테스트 attempts·best·passed·paper)
+- 배점: 100점 만점 · 문항당 100/문항 수(5점) · 빈칸 2개 문항은 빈칸마다 절반. **통과 70점 이상**. 재시험은 문항 순서를 섞음
+- 채점: 첫 글자 빼고 써도 정답, (s) 붙여도 정답, 복수 정답(transmission / contagion 등)·judgement/judgment 모두 인정
+- 종이 시험: 관리자 → `vt_staff_fin_paper` RPC (점수 0~100, 0.5점 단위 → 통과 자동)
+- 파일(`ydvoca/files/fin-*.bin`): `fin-book` 교재(이미지 압축본), `fin-t1`~`t7` 리뷰 테스트지(학생도), `fin-a1`~`a7` 정답·해설지(선생님만)
