@@ -189,6 +189,11 @@ select.pick.ok{border-color:var(--tl);background:var(--mint2)} select.pick.bad{b
 .fq2 .fxb{background:#fff;border:1px solid var(--line);border-radius:10px;padding:7px 10px;margin:6px 0} .fq2 .fxm b{color:var(--or)} .fq2 .fen{font-family:Georgia,serif;font-style:italic}
 .fq2 .oex>div:not(.fxb),.fq2 .fxb>div{display:flex;gap:6px} .fq2 .oex i{flex:none}
 .frq{font-size:11px;font-weight:800;color:#fff;background:var(--tl);border-radius:4px;padding:1px 6px}
+.asgc{border:2px solid #6B7B2C;background:#FAFBF2} .asgc h2 .no{background:#6B7B2C}
+.asg{display:flex;gap:10px;align-items:center;border-top:1px solid #E6E9D8;padding:10px 0} .asg .t{flex:1;font-size:14px} .asg .due{font-size:12px;color:#B24A1E;margin-left:6px;font-weight:700}
+.asg .nt{font-size:12.5px;color:var(--ink2);margin-top:2px} .asg .bt{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end} .asg.done .t b{color:var(--ink2);text-decoration:line-through}
+.b.sm{padding:6px 12px;font-size:13px}
+.asgc details summary{cursor:pointer;font-size:13px;color:var(--ink2);margin-top:8px}
 </style>
 </head>
 <body>
@@ -203,6 +208,7 @@ const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp
 const NUMS = ['①','②','③','④','⑤'];
 const pad = n => String(n).padStart(2, '0');
 const P = {};            // unit_id → row
+let ASG = [];             // 선생님 처방 (hub_assignments)
 const VID = {};          // unit → {video_id, chapters}
 function toast(t){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('on'), 2600); }
 const data = u => (P[u] && P[u].data) || {};
@@ -211,6 +217,7 @@ async function save(u, d, opt){ P[u] = Object.assign({}, P[u], { data: d, score:
 async function loadAll(){
   try { (await VT.load(C)).forEach(r => P[r.unit_id] = r); } catch(e){}
   try { const r = await VT.sb.from('hub_videos').select('unit,video_id,chapters').eq('course', C); (r.data || []).forEach(v => { if (v.video_id) VID[v.unit] = v; }); } catch(e){}
+  try { const r = await VT.sb.from('hub_assignments').select('id,title,link,note,due,done_at,created_at').eq('course', C).order('created_at', { ascending: false }).limit(20); ASG = r.data || []; } catch(e){ ASG = []; }
 }
 /* ---------- 상태 요약 ---------- */
 function stat(l){
@@ -219,6 +226,19 @@ function stat(l){
   return { passed: !!t.passed, best: t.best, attempts: (t.attempts || []).length + (t.paper || []).length, vc: (v.c || {}).done, vs: (v.s || {}).done, tries, nq };
 }
 /* ---------- 홈 ---------- */
+function asgH(){
+  const open = ASG.filter(a => !a.done_at), done = ASG.filter(a => a.done_at).slice(0, 3);
+  if (!open.length && !done.length) return '';
+  const row = a => `<div class="asg ${a.done_at ? 'done' : ''}"><div class="t"><b>${esc(a.title)}</b>${a.due ? `<span class="due">~ ${a.due.slice(5).replace('-', '/')}</span>` : ''}${a.note ? `<div class="nt">${esc(a.note)}</div>` : ''}</div>
+    <div class="bt">${a.link && !a.done_at ? `<a class="b main sm" href="${esc(a.link.replace(/^\/ydvoca\//, ''))}">하러 가기</a>` : ''}<button class="b sm" data-asg="${a.id}" data-done="${a.done_at ? 0 : 1}">${a.done_at ? '되돌리기' : '다 했어요'}</button></div></div>`;
+  return `<div class="card asgc"><h2><span class="no">✍</span>선생님 처방${open.length ? ` <span class="pill re" style="margin-left:6px">${open.length}개 남음</span>` : ''}</h2>
+    <p class="d">선생님이 내 진단을 보고 보낸 과제예요. 마치면 <b>다 했어요</b>를 눌러 주세요.</p>${open.map(row).join('')}${done.length ? `<details><summary>끝낸 처방 ${ASG.filter(a => a.done_at).length}개</summary>${done.map(row).join('')}</details>` : ''}</div>`;
+}
+function bindAsg(){ $app.querySelectorAll('[data-asg]').forEach(b => b.onclick = async () => { b.disabled = true;
+  const { error } = await VT.sb.rpc('hub_assignment_done', { p_id: b.dataset.asg, p_done: b.dataset.done === '1' });
+  if (error) { toast('저장하지 못했어요.'); b.disabled = false; return; }
+  const a = ASG.find(x => x.id === b.dataset.asg); a.done_at = b.dataset.done === '1' ? new Date().toISOString() : null; toast(a.done_at ? '잘했어요! 선생님께 완료로 보여요.' : '되돌렸어요.'); home(); }); }
+
 function home(){
   const lc = L.map(l => { const s = stat(l);
     const tp = s.passed ? '<span class="pill pass">테스트 통과</span>' : s.attempts ? `<span class="pill re">재시험 · 최고 ${s.best ? s.best.total : 0}/30</span>` : '<span class="pill">테스트</span>';
@@ -228,6 +248,7 @@ function home(){
   $app.innerHTML = `<div class="hero olv"><div class="rings"></div><div class="e">VOCA · SUMMARY ROADMAP</div>
     <h1>어휘요약문 로드맵</h1><p>① 핵심 어원 구축 (BASE CAMP) ② 동/반의어 어형변화 훈련 (온더웨이) ③ 요약문 실전완성 (피날레).<br>순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
     <div class="steps"><span><b>STEP 1</b>BASE CAMP · ${done}/4 통과</span><span><b>STEP 2</b>온더웨이 On the Way</span><span><b>STEP 3</b>피날레 Finale</span></div></div>
+    ${asgH()}
     ${FULL ? `<button class="mapstrip" type="button" onclick="document.getElementById('mapOv').hidden=false"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 10-6 10-12V3"/><path d="M17 21c0-5-6-6-8-9" stroke="#7FC4B0"/></svg></span><span class="mt"><b>어휘 로드맵 지도</b><small>보카트리 앱 로드맵 · 어휘요약문 로드맵 한눈에 보기</small></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>` : ''}
     <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>보카트리 Fundamental 1~4강</span></div>
     <div class="dual" style="grid-template-columns:1fr"><div class="dc bc"><b>⛺ BASE CAMP · 강의<span class="k">영상강의 온라인 학습실</span></b>보카트리 Fundamental 1~4강을 영상강의로 듣고, 리뷰 테스트와 요약문 서술형으로 <b style="display:inline;font-size:inherit">내신 실전까지</b> 연결해요.</div></div>
@@ -237,7 +258,7 @@ function home(){
     ${otwHome()}
     <div class="sec"><b>STEP 3 · FINALE</b><span>요약문 어휘 실전 · 피날레는 실전완성</span></div>
     ${finHome()}`;
-  bindDl(); otwBindHome();
+  bindDl(); otwBindHome(); bindAsg();
 }
 function bindDl(){ $app.querySelectorAll('[data-dl]').forEach(b => b.onclick = async () => { b.disabled = true; const t = b.innerHTML; b.textContent = '받는 중…';
   try { await VT.download(b.dataset.dl, 'student', b.dataset.name + '.pdf'); } catch(e){ toast(e.code === 'NO_FILE' ? '아직 준비 중인 자료예요.' : e.code === 'COURSE_LOCKED' ? '우리 반에서 열리지 않은 과정이에요.' : '내려받지 못했어요. 잠시 뒤 다시 해 주세요.'); }

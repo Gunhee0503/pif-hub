@@ -145,6 +145,21 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
 .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;padding:9px 14px;border-radius:10px;font-size:13px;z-index:99;opacity:0;transition:opacity .2s;pointer-events:none}
 .toast.on{opacity:.94}
 @media(max-width:900px){.kpis{grid-template-columns:repeat(2,1fr)}.sgrid{grid-template-columns:repeat(5,1fr)}header .me{display:none}header .in{gap:10px}}
+.dgx .dg-sum{background:#F4F6EA;border:1.5px solid #6B7B2C;border-radius:12px;padding:10px 12px;font-size:13.5px;line-height:1.6}
+.dg-flags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.dg-flags span{background:#FDECEA;color:#B03A2E;border-radius:99px;padding:2px 9px;font-size:12px;font-weight:700}
+.dg-h{font-weight:800;font-size:13.5px;margin:14px 0 6px}.dg-h .muted{font-weight:500;font-size:12px}
+.dg-bar{display:flex;height:14px;border-radius:99px;overflow:hidden;background:#eee}.dg-bar i{display:block;height:100%}
+.dg-leg{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;margin-top:6px}.dg-leg b{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
+.dg-p{height:8px;border-radius:99px;background:#eee;overflow:hidden}.dg-p i{display:block;height:100%}
+.dg-fr{font-size:10.5px;font-weight:800;color:#fff;background:#2F6B52;border-radius:4px;padding:1px 5px}
+.dg-pr{display:flex;align-items:center;gap:10px;border:1px solid #E1E4D3;border-radius:10px;padding:8px 10px;margin-bottom:6px}.dg-pr>div{flex:1;font-size:13px}.dg-pr .muted{font-size:12px}
+.dg-new{display:flex;gap:6px;margin-top:6px}.dg-new input{border:1px solid #d2d2d7;border-radius:10px;padding:7px 10px}.dg-new input:first-child{flex:1}
+.dg-as{display:flex;gap:8px;align-items:flex-start;border-bottom:1px solid #f0f0f0;padding:6px 0;font-size:13px}.dg-as>div{flex:1}.dg-as.done b{color:#6e6e73}
+.hmap{border-collapse:separate;border-spacing:2px}.hmap th{font-size:11px;padding:4px 2px;text-align:center}.hmap th.otw{color:#C8582A}.hmap th.fin{color:#6B7B2C}.hmap th.gs,.hmap td.gs{border-left:2px solid #ccc}
+.hmap td.nm{white-space:nowrap;padding-right:8px}.hmap td.hm{width:34px;height:28px;text-align:center;font-size:11px;font-weight:700;border-radius:5px;color:#fff}
+.hmap td.ok{background:#4E9A72}.hmap td.re{background:#E3A23B}.hmap td.bad{background:#D0533F}.hmap td.no{background:#E7E9E6;color:#9aa}
+.dg-warn{color:#D0533F;font-weight:800;cursor:help}
+.dg-box{border:1.5px solid #6B7B2C;border-radius:12px;padding:10px 14px;margin:12px 0;font-size:13.5px;line-height:1.7;background:#FAFBF4}
 </style>
 </head>
 <body>
@@ -196,6 +211,7 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
 <script src="/admin/otw-admin.js"></script>
 <script src="/ydvoca/finale.js"></script>
 <script src="/admin/fin-admin.js"></script>
+<script src="/admin/diag.js"></script>
 <script>
 'use strict';
 const SB = VT.sb, $ = id => document.getElementById(id);
@@ -624,6 +640,8 @@ async function openStudent(sid){
         <td>${vd.c ? (vd.c.done ? '개념 ✓' : `개념 ${vd.c.pct}%`) : '<span class="muted">개념 –</span>'} ${vd.s ? (vd.s.done ? '· 해설 ✓' : `· 해설 ${vd.s.pct}%`) : ''}</td>
         <td>${tr}/${nq}</td><td class="muted">${t ? ago(t.updated_at) : '—'}</td></tr>`; }).join('')}</table></div>`;
   }
+  let dgD = null;
+  if (has('ydvoca') || rows.some(r => r.course === 'ydvoca' && /^s\d+[dr]\d/.test(r.unit_id))) { dgD = DG.student(rows); h += DG.cardH(s, dgD); }
   if (has('ydvoca') || rows.some(r => r.course === 'ydvoca' && /^s\d+d\d/.test(r.unit_id))) h += otwStudentH(rows);
   if (has('ydvoca') || rows.some(r => r.course === 'ydvoca' && /^s\d+r\d/.test(r.unit_id))) h += finStudentH(rows);
   // Fundamental
@@ -648,6 +666,7 @@ async function openStudent(sid){
   $('drawer').innerHTML = h;
   $('echoSec').addEventListener('toggle', () => { if ($('echoSec').open && !$('echoSec').dataset.loaded) { $('echoSec').dataset.loaded = 1; echoStudent(s); } });
   studentReport(s, rows);
+  if (dgD) DG.bindCard(s, dgD);
   SB.from('hub_downloads').select('file,course,created_at').eq('student_id', s.id).order('created_at', { ascending:false }).limit(40).then(r => {
     const el = $('dlLog'); if (!el) return; const L = r.data || [];
     el.innerHTML = L.length ? `<b style="color:var(--ink)">자료 내려받기 ${L.length}${L.length === 40 ? '+' : ''}회</b><table class="mini" style="margin-top:6px"><tr><th>자료</th><th>내려받은 때</th></tr>${L.map(d => `<tr><td>${esc(fileLabel(d.file))}</td><td class="muted">${new Date(d.created_at).toLocaleString('ko-KR')}</td></tr>`).join('')}</table>` : '자료 내려받기 기록 없음'; });
@@ -799,6 +818,8 @@ async function renderYD(){
     <div class="kpis" style="grid-template-columns:repeat(6,1fr)"><div class="kpi"><small>학생</small><b>${S.length}명</b></div>
     ${YDL.map(l => `<div class="kpi"><small>${l.no}강 통과</small><b>${passN(l)}<i> / ${S.length}</i></b></div>`).join('')}
     <div class="kpi"><small>최근 7일 학습</small><b>${S.filter(s => { const t = lastOf(per(s)); return t && new Date(t) > week; }).length}명</b></div></div>`;
+  { const c0 = cls.find(c => c.code === YD_F.cls) || {}, S2 = S.filter(s => (coursesOf(s) || []).includes('ydvoca') || (c0.courses || []).includes('ydvoca'));
+    if (S2.length) h += DG.classH(S2, per) + '<h3 style="margin:30px 0 6px;font-size:18px">STEP 1 · BASE CAMP</h3>'; }
   h += `<div class="tw"><table><tr><th>이름</th>${YDL.map(l => `<th>${l.no}강 <span class="muted" style="font-weight:500">${esc(l.title)}</span></th>`).join('')}<th>최근 학습</th><th>종이 시험</th></tr>`;
   S.forEach(s => { const rows = per(s), last = lastOf(rows), days = last ? (Date.now() - new Date(last)) / 86400000 : Infinity;
     h += `<tr><td><b>${esc(s.name)}</b> <span class="muted">${esc(s.last4)}</span>${days > 3 ? `<span class="warn">${last ? Math.floor(days) + '일째 미학습' : '기록 없음'}</span>` : ''}</td>`;
@@ -822,7 +843,7 @@ async function renderYD(){
   if ((cObj.courses || []).includes('ydvoca') || S.some(s => (coursesOf(s) || []).includes('ydvoca'))) h += otwAdminH(S.filter(s => (coursesOf(s) || []).includes('ydvoca') || (cObj.courses || []).includes('ydvoca')), per);
   if ((cObj.courses || []).includes('ydvoca') || S.some(s => (coursesOf(s) || []).includes('ydvoca'))) h += finAdminH(S.filter(s => (coursesOf(s) || []).includes('ydvoca') || (cObj.courses || []).includes('ydvoca')), per);
   $('body').innerHTML = h + ydVideoH();
-  otwAdminBind(); finAdminBind();
+  otwAdminBind(); finAdminBind(); DG.bindClass();
   $('ydCls').onchange = e => { YD_F.cls = e.target.value; localStorage.setItem('pifhub_admin_ydcls', YD_F.cls); renderYD(); };
   $('ydRe').onclick = () => load();
   document.querySelectorAll('[data-paper]').forEach(b => b.onclick = () => ydPaper(D.students.find(x => x.id === b.dataset.paper)));
@@ -952,6 +973,7 @@ function buildFacts(s, rows, syn, ai, p){
       return { 강: `${l.no}강 ${l.title}`, 통과: !!d.passed, 최고점: d.best ? `A ${d.best.A} · B ${d.best.B} · C ${d.best.C} (${d.best.total}/30)` : '미응시', 기간내_응시: inp.map(a => `${a.set === 're' ? '재시험' : '1차'} A${a.A} B${a.B} C${a.C}${a.passed ? ' 통과' : ''}`) }; });
     if (has('ydvoca')) F.온더웨이 = otwReport(rows, inP, p, mark);
     if (has('ydvoca')) F.피날레 = finReport(rows, inP, p, mark);
+    if (has('ydvoca')) { const dg = DG.facts(rows); if (dg) F.내신진단 = dg; }
   }
   const last = all.sort().pop();
   F.활동 = { 기간내_학습한_날수: days.size, 마지막_학습일: last || '기록 없음', 기간내_AI피드백_사용: ai.filter(a => inP(a.created_at, p)).length };

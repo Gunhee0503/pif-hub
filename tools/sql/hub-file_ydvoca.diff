@@ -1,0 +1,19 @@
+--- hub-file/index.ts (현재 v4)
++++ hub-file/index.ts (영동일고 로드맵 교재 PDF 추가)
+@@
+   const mg = /^gram-([a-z]\d\d)$/.exec(file);
+   const mf = /^fb-(ch(?:0[1-9]|10|x[1-3])|book|v-(?:u[0-9a-z]{2,3}|intro|onepage))$/.exec(file);
++  const my = /^yd-(f[1-4]|book)$/.exec(file);                       // 영동일고 로드맵: 보카트리 Fundamental 강별·전체 교재
+   const isView = !!mf && mf[1].startsWith("v-");
+-  if (!mg && !mf) return json({ error: "BAD_FILE" }, 400);
+-  const course = mg ? "grammar" : "gfirst";
++  if (!mg && !mf && !my) return json({ error: "BAD_FILE" }, 400);
++  const course = mg ? "grammar" : my ? "ydvoca" : "gfirst";
+@@
+-  } else {
++  } else if (my) {
++    const r = await fetch(SITE + `/ydvoca/files/${file}.bin`);
++    if (!r.ok) return json({ error: "NO_FILE" }, 404);
++    buf = new Uint8Array(await r.arrayBuffer());
++  } else {
+     const r = await fetch(SITE + `/firstbutton/files/${mf![1]}.bin`);
