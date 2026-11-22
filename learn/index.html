@@ -269,8 +269,8 @@ function render(rows){
     const yr = rows.filter(r => r.course === 'ydvoca'), pass = ['f1','f2','f3','f4'].filter(l => yr.some(r => r.unit_id === l + '-test' && r.completed)).length;
     const otwP = [1,2,3,4,5,6,7].filter(d => yr.some(r => r.unit_id === 's1d' + d + '-test' && r.completed)).length, finP = [1,2,3,4,5,6,7].filter(d => yr.some(r => r.unit_id === 's1r' + d + '-test' && r.completed)).length;
     $('ydBox').innerHTML = `<div class="olive"><div class="grp"><span class="olt">내신</span><b>내신 · 어휘요약문</b><span>BASE CAMP → 온더웨이 → 피날레</span></div>
-      <div class="ydrow"><a class="course wide" href="/ydvoca/" style="--c:#0B6E62"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">어휘요약문 BASE CAMP → 온더웨이 → 피날레</div>
-      <p>STEP 1 BASE CAMP 영상강의 4강 → STEP 2 온더웨이 Day 1~7 → STEP 3 피날레 1~7회. 단계마다 연습 · 리뷰 테스트 · 오답 정리로 내신 실전까지 이어져요.</p></div>
+      <div class="ydrow"><a class="course wide" href="/ydvoca/" style="--c:#0B6E62"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">내신대비 어휘요약문 단계별 학습구성</div>
+      <p>보카트리(Fundamental : 핵심어원 4강) → 온더웨이(동의어, 반의어, 어형변화 7강) → 피날레(실전완성 7강)</p></div>
       <div class="foot"><div class="bar"><i style="width:${(pass + otwP + finP) / 18 * 100}%"></i></div><div class="stat"><span>BASE CAMP <b>${pass}</b>/4 · 온더웨이 <b>${otwP}</b>/7 · 피날레 <b>${finP}</b>/7 통과</span><span></span></div></div></a>
       <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()"><img src="/img/roadmap-two-paths-thumb.webp" alt=""><span><span class="mk">참고</span><b>어휘 로드맵 지도${seen ? '' : '<span class="new" id="mapNew">NEW</span>'}</b><small>두 로드맵이 어디서 갈라지는지 한눈에</small></span></button></div></div>`;
   } else $('ydBox').innerHTML = '';
