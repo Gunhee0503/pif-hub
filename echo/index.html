@@ -213,10 +213,10 @@ async function loadHome(){
   $('exSec').hidden = !X.length;
   $('exams').innerHTML = X.map((x) => {
     const st = { new: ['new', '새로 올라옴'], opened: ['opened', '열어 봄'], done: ['done', '끝까지 들음'] }[x.status] || ['opened', ''];
-    const short = x.label.replace(x.school + ' ', '');
+    const short = (x.base || x.label).replace(x.school + ' ', '');
     return `<button type="button" class="lesson exam ${x.status === 'new' ? 'new' : ''}" data-x="${x.id}">
       <div class="d"><small>${esc(x.school)}</small><b>${esc(short.replace('학년 ', '-').replace('학기 ', ' '))}</b><small>${x.year}</small></div>
-      <div class="m"><div class="t">${esc(x.label)}</div><div class="s">${x.count}문장${x.scope ? ' · ' + esc(x.scope.replace(/\s*\n\s*/g, ' / ')) : ''}</div></div>
+      <div class="m"><div class="t">${esc(x.name || x.base || x.label)}</div><div class="s">${x.count}문장${x.scope ? ' · ' + esc(x.scope.replace(/\s*\n\s*/g, ' / ')) : ''}</div></div>
       <span class="chip ${st[0]}">${st[1]}</span></button>`;
   }).join('');
   const L = HOME.lessons || [];
