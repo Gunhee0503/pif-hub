@@ -1555,7 +1555,7 @@ body {
         <span class="info-text">완료 기준</span>
       </button>
     </div>
-    <div class="bc-note hidden" id="bc-note"><b>보카트리 앱 로드맵</b>(Fundamental › Essential › Spectrum)의 첫 단계예요. 문제풀이 트레이닝으로 어휘 기본기를 다져요.<br><button type="button" class="bc-map" onclick="document.getElementById('mapOv').classList.remove('hidden')">🗺 어휘 로드맵 지도 보기</button></div>
+    <div class="bc-note hidden" id="bc-note"><b>보카트리 앱 로드맵</b>(Fundamental › Essential › Spectrum)의 첫 단계예요. 문제풀이 트레이닝으로 어휘 기본기를 다져요.<br><button type="button" class="bc-map hidden" id="bc-map" onclick="document.getElementById('mapOv').classList.remove('hidden')">🗺 어휘 로드맵 지도 보기</button></div>
     <div class="mapov hidden" id="mapOv" onclick="if(event.target===this)this.classList.add('hidden')"><button type="button" class="x" aria-label="닫기" onclick="document.getElementById('mapOv').classList.add('hidden')">×</button><img src="/img/roadmap-two-paths.webp" alt="어휘 로드맵 지도" loading="lazy"></div>
     <a class="bc-cta hidden" id="bc-cta" href="/ydvoca/">
       <span class="bc-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6 3 20h18L12 6z"/><path d="M12 6v14M9.5 20 12 15l2.5 5"/><path d="M12 3l4 1.5L12 6"/></svg></span>
@@ -3042,13 +3042,17 @@ function init() {
   }
   else showScreen('screen-login');
   // 반 코스가 바뀌었을 수 있으니 서버 기준으로 BASE CAMP 바로가기 다시 확인
-  try { if (window.VT && VT.access) VT.access().then(function () { var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp()); var bl = $('bc-lesson'); if (bl) bl.classList.toggle('hidden', !hasBaseCamp()); }).catch(function () {}); } catch (e) {}
+  try { if (window.VT && VT.access) VT.access().then(function () { var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp()); var bm = $('bc-map'); if (bm) bm.classList.toggle('hidden', !hasYdClass()); var bl = $('bc-lesson'); if (bl) bl.classList.toggle('hidden', !hasBaseCamp()); }).catch(function () {}); } catch (e) {}
 }
 
 // Lesson 카드 렌더링 (완료 상태 뱃지 포함, 매번 호출 가능)
 // 어휘요약문 BASE CAMP 바로가기를 보여 줄지 (PIF Hub로 들어온 학생)
 function hasBaseCamp() {
   try { var m = window.VT && VT.me(); return !!m; } catch (e) { return false; }   // Hub로 들어온 학생이면 누구나 (BASE CAMP는 Fundamental 수강생에게 열림)
+}
+// 어휘요약문 반(ydvoca)으로 배정된 학생인지 — 어휘 로드맵 지도는 이 반 전용
+function hasYdClass() {
+  try { var m = window.VT && VT.me(); return !!(m && m.courses && m.courses.indexOf('ydvoca') >= 0); } catch (e) { return false; }
 }
 function renderLessonGrid() {
   const grid = $('lesson-grid');
@@ -3091,7 +3095,7 @@ function showHome() {
     <button class="logout" onclick="logoutStudent()">로그아웃</button>
   `;
   showScreen('screen-home');
-  var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp());
+  var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp()); var bm = $('bc-map'); if (bm) bm.classList.toggle('hidden', !hasYdClass());
   // Lesson 카드 다시 렌더링 (완료 뱃지 업데이트)
   renderLessonGrid();
   // 리포트 버튼 상태 업데이트 (4개 Lesson 완료 여부 체크)

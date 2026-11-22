@@ -110,7 +110,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 @media(max-width:699px){.course.syn .stx{max-width:none}.course.syn .sart{position:relative;width:auto;height:190px;margin:-22px -22px 14px;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}}
 @media(min-width:700px){.wide{display:grid;grid-template-columns:1.1fr 1fr;gap:10px 28px;align-items:center}.wide .foot{grid-column:2;grid-row:1/4}}
 
-.mapcard{display:grid;grid-template-columns:118px 1fr auto;gap:14px;align-items:center;width:100%;max-width:640px;padding:10px 16px 10px 10px;margin:0 0 30px;border:0;border-radius:18px;background:#fff;color:inherit;text-align:left;box-shadow:0 10px 40px -20px rgba(0,0,0,.18);cursor:pointer;font:inherit;border-left:5px solid #0B6E62}
+.mapcard{display:grid;grid-template-columns:118px 1fr auto;gap:14px;align-items:center;width:100%;padding:10px 16px 10px 10px;margin:0 0 34px;border:0;border-radius:18px;background:#fff;color:inherit;text-align:left;box-shadow:0 10px 40px -20px rgba(0,0,0,.18);cursor:pointer;font:inherit;border-left:5px solid #0B6E62}
 .mapcard img{width:118px;height:118px;object-fit:cover;object-position:50% 20%;border-radius:12px;background:#EFEFEC}
 .mapcard .mk{font-size:11px;font-weight:800;letter-spacing:.12em;color:#0B6E62}
 .mapcard b{display:block;font-size:17px;font-weight:800;margin:3px 0 4px}
@@ -188,12 +188,6 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
     <div class="gb"><button data-t="g">과제 검사 기준</button><button data-t="n">어휘 정리 노트 작성법</button><button data-t="r">교재 로드맵</button></div>
   </div>
 
-  <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()">
-    <img src="/img/roadmap-two-paths-thumb.webp" alt="" width="118" height="118">
-    <span><span class="mk">VOCA ROADMAP MAP</span><b>어휘 로드맵 지도<span class="new" id="mapNew">NEW</span></b><small>보카트리 앱 로드맵과 어휘요약문 로드맵, 어디가 같고 어디서 갈라질까? 내게 맞는 길을 확인해 보세요.</small></span>
-    <span class="go">지도 보기 ›</span>
-  </button>
-  <script>try{if(localStorage.getItem('vt_map_seen'))document.getElementById('mapNew').remove()}catch(e){}</script>
   <div class="mapov" id="mapOv" hidden onclick="if(event.target===this)this.hidden=true"><button type="button" aria-label="닫기" onclick="document.getElementById('mapOv').hidden=true">×</button><img src="/img/roadmap-two-paths.webp" alt="어휘 로드맵 지도: 보카트리 Fundamental 1~4강에서 출발해 어휘요약문 로드맵(BASE CAMP·온더웨이·피날레)과 보카트리 앱 로드맵(Fundamental·Essential·Spectrum)으로 갈라지는 두 갈래 길" loading="lazy"></div>
   <div class="grp"><b>보카트리 앱 로드맵 · VocaTree</b><span>Fundamental › Essential › Spectrum · 문제풀이 트레이닝으로 어휘 기본기</span></div>
   <div class="grid" id="vocab"></div>
@@ -261,11 +255,13 @@ async function enter(st){
 function render(rows){
   /* 어휘요약문 로드맵: 반에 열려 있을 때만 맨 위에 고정 */
   if (OPEN && OPEN.includes('ydvoca')) {
+    let seen = false; try { seen = !!localStorage.getItem('vt_map_seen'); } catch (e) {}
     const yr = rows.filter(r => r.course === 'ydvoca'), pass = ['f1','f2','f3','f4'].filter(l => yr.some(r => r.unit_id === l + '-test' && r.completed)).length;
     $('ydBox').innerHTML = `<div class="grp"><b>내신 · 어휘요약문</b><span>BASE CAMP → 온더웨이 → 피날레</span></div>
-      <a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin-bottom:34px"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">어휘요약문 BASE CAMP → 온더웨이 → 피날레</div>
+      <a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin-bottom:12px"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">어휘요약문 BASE CAMP → 온더웨이 → 피날레</div>
       <p>강마다 개념 영상 → 교재 → 리뷰 테스트(A·B·C) → 요약문 서술형(선택). 리뷰 테스트는 A 9개 · B 7개 이상이면 통과예요.</p></div>
-      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과 (BASE CAMP)</span><span></span></div></div></a>`;
+      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과 (BASE CAMP)</span><span></span></div></div></a>
+      <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()"><img src="/img/roadmap-two-paths-thumb.webp" alt="" width="118" height="118"><span><span class="mk">VOCA ROADMAP MAP</span><b>어휘 로드맵 지도${seen ? '' : '<span class="new" id="mapNew">NEW</span>'}</b><small>보카트리 앱 로드맵과 어휘요약문 로드맵, 어디가 같고 어디서 갈라질까? 내게 맞는 길을 확인해 보세요.</small></span><span class="go">지도 보기 ›</span></button>`;
   } else $('ydBox').innerHTML = '';
   /* 어휘요약문 BASE CAMP: 보카트리 Fundamental 수강생 누구나 (어휘요약문 반은 위 로드맵 카드로) */
   const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
