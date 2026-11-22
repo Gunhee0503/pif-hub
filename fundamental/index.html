@@ -3036,9 +3036,9 @@ function init() {
 }
 
 // Lesson 카드 렌더링 (완료 상태 뱃지 포함, 매번 호출 가능)
-// 어휘요약문 BASE CAMP가 열린 반인지 (PIF Hub 로그인 정보 기준)
+// 어휘요약문 BASE CAMP 바로가기를 보여 줄지 (PIF Hub로 들어온 학생)
 function hasBaseCamp() {
-  try { var m = window.VT && VT.me(); return !!(m && m.courses && m.courses.indexOf('ydvoca') >= 0); } catch (e) { return false; }
+  try { var m = window.VT && VT.me(); return !!m; } catch (e) { return false; }   // Hub로 들어온 학생이면 누구나 (BASE CAMP는 Fundamental 수강생에게 열림)
 }
 function renderLessonGrid() {
   const grid = $('lesson-grid');

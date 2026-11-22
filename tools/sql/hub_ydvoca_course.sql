@@ -51,3 +51,22 @@ alter table public.classes drop constraint classes_courses_check,
   add constraint classes_courses_check check (courses <@ array['fundamental','essential','spectrum','matching','syntax','grammar','gfirst','ydvoca']);
 alter table public.students drop constraint students_courses_check,
   add constraint students_courses_check check (courses is null or courses <@ array['fundamental','essential','spectrum','matching','syntax','grammar','gfirst','ydvoca']);
+
+-- 어휘요약문 BASE CAMP(f1~f4 단원)는 보카트리 Fundamental 수강생에게도 열림. STEP 2·3 단원은 ydvoca 반 전용
+create or replace function public.vt_save_progress(p_course text, p_unit text, p_data jsonb, p_score numeric default null, p_max numeric default null, p_completed boolean default false)
+returns void language plpgsql security definer set search_path to '' as $$
+declare v_sid uuid := public.my_student_id(); v_ok text[];
+begin
+  if v_sid is null then raise exception 'NOT_APPROVED'; end if;
+  if p_course not in ('fundamental','essential','spectrum','matching','grammar','gfirst','ydvoca') then raise exception 'BAD_COURSE'; end if;
+  if p_unit !~ '^[a-z0-9_-]{1,40}$' then raise exception 'BAD_UNIT'; end if;
+  if octet_length(p_data::text) > 80000 then raise exception 'TOO_LARGE'; end if;
+  v_ok := case when p_course = 'ydvoca' and p_unit ~ '^f[1-4]-' then array['ydvoca','fundamental'] else array[p_course] end;
+  if not exists (select 1 from public.students s join public.classes c on c.code = s.class_code
+                 where s.id = v_sid and coalesce(s.courses, c.courses) && v_ok) then raise exception 'COURSE_LOCKED'; end if;
+  insert into public.vt_progress(student_id, course, unit_id, data, score, max_score, completed, updated_at)
+  values (v_sid, p_course, p_unit, p_data, p_score, p_max, coalesce(p_completed,false), now())
+  on conflict (student_id, course, unit_id) do update
+    set data = excluded.data, score = excluded.score, max_score = excluded.max_score,
+        completed = public.vt_progress.completed or excluded.completed, updated_at = now();
+end $$;

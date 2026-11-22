@@ -409,7 +409,7 @@ function renderReport(){
       <td class="num">${has('syntax') ? `<span class="ed" style="--c:${comp?'var(--compass)':'var(--beacon)'}">${comp?'C':'B'}</span> <b>${x.synDone}</b>/${SYN_READY}${x.synGo ? ` <span class="muted">· 진행 ${x.synGo}</span>` : ''}` : locked}</td>
       <td class="num">${has('grammar') ? `<b>${x.gDone}</b>/${GR.length}${x.gAvg != null ? ` <span class="muted">· ${x.gAvg}점</span>` : ''}${x.gGo ? ` <span class="muted">· 진행 ${x.gGo}</span>` : ''}` : locked}</td>
       <td class="num">${has('gfirst') ? `<b>${x.fbDone}</b>/${FBU.length}${x.fbGo ? ` <span class="muted">· 진행 ${x.fbGo}</span>` : ''}${x.fbDiag != null ? ` <span class="muted">· 진단 ${x.fbDiag}</span>` : ''}` : locked}</td>
-      <td class="num">${has('ydvoca') ? `<b>${x.ydPass}</b>/4 통과${x.ydGo ? ` <span class="muted">· 재시험 ${x.ydGo}</span>` : ''}` : locked}</td>
+      <td class="num">${has('ydvoca') || has('fundamental') ? `<b>${x.ydPass}</b>/4 통과${x.ydGo ? ` <span class="muted">· 재시험 ${x.ydGo}</span>` : ''}` : locked}</td>
       <td class="muted">${ago(x.last)}</td></tr>`;
   });
   $('body').innerHTML = h + `</table></div><div class="note">구문의 지도 B = BEACON(심화), C = COMPASS(기본). 숫자는 완료 유닛 / 현재 공개 유닛(${SYN_READY}). 학생을 누르면 코스별 상세 기록을 볼 수 있어요.<br>성실도 = 수강 코스 진도율 70% + 최근 학습 30%(오늘 100% → 14일 뒤 0%). 점수 = Word Matching·문법 STEP 완료 회차의 평균 정답률(${ACC_MIN}회차 이상부터 순위). 순위는 반을 하나 고르면 보이며, 관리자 화면에만 표시돼요.</div>`;
@@ -778,17 +778,18 @@ function ydItemText(l, id, set){                          // 문항 번호 → �
   const q = B2[n - 5]; return q.parts.map(p => typeof p === 'string' ? p : '[' + p.a + ']').join('');
 }
 async function renderYD(){
-  const cls = D.classes.filter(c => (c.courses || []).includes('ydvoca') || D.students.some(s => s.class_code === c.code && (s.courses || []).includes('ydvoca')));
+  const bcC = a => (a || []).includes('ydvoca') || (a || []).includes('fundamental');   // BASE CAMP는 Fundamental 수강반에도 열림
+  const cls = D.classes.filter(c => bcC(c.courses) || D.students.some(s => s.class_code === c.code && bcC(s.courses)));
   if (!cls.length) { $('body').innerHTML = `<div class="empty">아직 어휘요약문 로드맵이 열린 반이 없어요.<br><span class="muted">반·수강 관리에서 해당 반의 수강 코스에 <b>어휘요약문 로드맵</b>을 켜 주세요.</span></div>` + ydVideoH(); bindYdVideo(); return; }
   if (!cls.some(c => c.code === YD_F.cls)) YD_F.cls = cls[0].code;
-  const S = D.students.filter(s => s.class_code === YD_F.cls && coursesOf(s).includes('ydvoca'));
+  const S = D.students.filter(s => s.class_code === YD_F.cls && bcC(coursesOf(s)));
   const ids = S.map(s => s.id);
   $('body').innerHTML = '<div class="empty">불러오는 중…</div>';
   const r = ids.length ? await SB.from('vt_progress').select('student_id,unit_id,data,score,max_score,completed,updated_at').eq('course', 'ydvoca').in('student_id', ids) : { data: [] };
   const R = r.data || [], week = Date.now() - 7 * 86400000;
   const per = s => R.filter(x => x.student_id === s.id), lastOf = rows => rows.map(x => x.updated_at).sort().pop();
   const passN = l => S.filter(s => { const t = ydRow(per(s), l.id + '-test'); return t && t.completed; }).length;
-  let h = `<div class="bar"><select id="ydCls">${cls.map(c => `<option value="${esc(c.code)}" ${c.code === YD_F.cls ? 'selected' : ''}>${esc(c.name)} · ${esc(c.code)}</option>`).join('')}</select><span class="sp"></span><button class="btn sm sec" id="ydRe">새로고침</button></div>
+  let h = `<div class="bar"><select id="ydCls">${cls.map(c => `<option value="${esc(c.code)}" ${c.code === YD_F.cls ? 'selected' : ''}>${esc(c.name)} · ${esc(c.code)}${(c.courses || []).includes('ydvoca') ? ' · 로드맵 전체' : ' · BASE CAMP'}</option>`).join('')}</select><span class="sp"></span><button class="btn sm sec" id="ydRe">새로고침</button></div>
     <div class="kpis" style="grid-template-columns:repeat(6,1fr)"><div class="kpi"><small>학생</small><b>${S.length}명</b></div>
     ${YDL.map(l => `<div class="kpi"><small>${l.no}강 통과</small><b>${passN(l)}<i> / ${S.length}</i></b></div>`).join('')}
     <div class="kpi"><small>최근 7일 학습</small><b>${S.filter(s => { const t = lastOf(per(s)); return t && new Date(t) > week; }).length}명</b></div></div>`;
@@ -930,7 +931,7 @@ function buildFacts(s, rows, syn, ai, p){
     F.그래머첫단추 = { 누적_완료단원: `${fr.filter(r => r.completed).length}/${FBU.length}`, 기간내_학습단원: touched,
       종합진단: at.map(a => ({ 날짜: kd(a.at), 점수: `${a.score}/30`, BASIC: `${a.basic}/20`, Beyond: `${a.beyond}/10`, 기간내: inP(a.at, p), 다시볼단원: [...new Set(a.wrong.map(w => w.unit))] })).slice(-3) };
   }
-  if (has('ydvoca')) {
+  if (has('ydvoca') || rows.some(r => r.course === 'ydvoca')) {
     F.어휘요약문로드맵 = YDL.map(l => { const t = rows.find(r => r.course === 'ydvoca' && r.unit_id === l.id + '-test'), d = (t && t.data) || {};
       (d.attempts || []).forEach(a => mark(a.at));
       const inp = (d.attempts || []).filter(a => inP(a.at, p));

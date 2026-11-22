@@ -171,6 +171,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 
   <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
   <div class="grid" id="vocab"></div>
+  <div id="bcBox"></div>
 
   <div class="grp"><b>영상 · 다의어 한방에!</b><span>보카트리 유튜브 시리즈</span></div>
   <div class="ytcard">
@@ -223,7 +224,7 @@ async function enter(st){
   VT.setMe(st); EDITION = st.edition || 'beacon';
   try { const a = await VT.access(); if (a) { OPEN = a.courses; EDITION = a.edition || EDITION; } } catch(e){}
   const nextCourse = NEXT && (Object.keys(VT.COURSES).find(k => VT.COURSES[k].path === NEXT) || NEXT.replace(/\//g,''));
-  if (NEXT && (!OPEN || OPEN.includes(nextCourse))) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
+  if (NEXT && (!OPEN || OPEN.includes(nextCourse) || (nextCourse === 'ydvoca' && OPEN.includes('fundamental')))) { try { await VT.pull(); } catch(e){} location.replace(NEXT); return; }
   if (NEXT || LOCKED_Q) showLockNote(nextCourse || LOCKED_Q);
   $('hName').textContent = st.name; $('hClass').textContent = st.class_name;
   $('hHello').textContent = `${st.name} 님, 오늘도 한 걸음.`;
@@ -240,6 +241,14 @@ function render(rows){
       <p>강마다 개념 영상 → 교재 → 리뷰 테스트(A·B·C) → 요약문 서술형(선택). 리뷰 테스트는 A 9개 · B 7개 이상이면 통과예요.</p></div>
       <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과 (BASE CAMP)</span><span></span></div></div></a>`;
   } else $('ydBox').innerHTML = '';
+  /* 어휘요약문 BASE CAMP: 보카트리 Fundamental 수강생 누구나 (어휘요약문 반은 위 로드맵 카드로) */
+  const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
+  if (bcOpen) {
+    const pass = ['f1','f2','f3','f4'].filter(l => rows.some(r => r.course === 'ydvoca' && r.unit_id === l + '-test' && r.completed)).length;
+    $('bcBox').innerHTML = `<a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">NEW</span><div><div class="lv">VOCA TREE FUNDAMENTAL · NEXT</div><h3>⛺ 어휘요약문 BASE CAMP</h3><div class="ko">보카트리 Fundamental 1~4강 · 영상 · 리뷰 테스트 · 요약문</div>
+      <p>Fundamental로 익힌 단어를 강의 영상으로 정리하고, 리뷰 테스트와 요약문 서술형으로 실전에 써 봐요.</p></div>
+      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과</span><span></span></div></div></a>`;
+  } else $('bcBox').innerHTML = '';
   $('vocab').innerHTML = CARDS.map(c => {
     const C = VT.COURSES[c.id]; let done = 0, max = 0, extra = '';
     if (c.id === 'matching') {
