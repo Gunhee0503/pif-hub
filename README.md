@@ -77,7 +77,7 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 배점: 100점 만점 · 문항당 100/문항 수(5점) · 빈칸 2개 문항은 빈칸마다 절반. **통과 70점 이상**. 재시험은 문항 순서를 섞음
 - 채점: 첫 글자 빼고 써도 정답, (s) 붙여도 정답, 복수 정답(transmission / contagion 등)·judgement/judgment 모두 인정
 - 종이 시험: 관리자 → `vt_staff_fin_paper` RPC (점수 0~100, 0.5점 단위 → 통과 자동)
-- 파일(`ydvoca/files/fin-*.bin`): Season 1 `fin-book` 교재(이미지 압축본), `fin-t1`~`t7` 리뷰 테스트지(학생도), `fin-a1`~`a7` 정답·해설지(선생님만) · Season 2 `fin-s2-book`, `fin-s2-t1`~`t7` 리뷰 테스트지, `fin-s2-a1`~`a7` 정답·해설지(선생님만), 누적 오답 진도 unit `fin-cum`
+- 파일(`ydvoca/files/fin-*.bin`): Season 1 `fin-book` 교재(이미지 압축본), `fin-t1`~`t7` 리뷰 테스트지(학생도), `fin-a1`~`a7` 정답·해설지(선생님만) · Season 2·3 `fin-s2-book`·`fin-s3-book`, `fin-sN-t1`~`t7` 리뷰 테스트지, `fin-sN-a1`~`a7` 정답·해설지(선생님만), 누적 오답 진도 unit `fin-cum`
 
 ## 내신 진단 · 처방 (어휘요약문 로드맵)
 
