@@ -122,6 +122,12 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 .mapcard small{display:block;font-size:12px;line-height:1.45;color:#6e6e73;margin:2px 2px 0}
 .mapcard .new{display:inline-block;margin-left:5px;font-size:9.5px;font-weight:800;color:#fff;background:#d2416b;border-radius:99px;padding:2px 6px;vertical-align:2px}
 @media (max-width:560px){.ydrow{grid-template-columns:minmax(0,1fr) 118px;gap:8px}.mapcard{padding:8px;border-radius:18px}.mapcard img{height:84px;border-radius:11px}.mapcard small{display:none}.mapcard b{font-size:13px}}
+/* 내신 · 어휘요약문 로드맵 — 올리브 테두리로 다른 메뉴와 구분 */
+.olive{--ol:#6B7B2C;border:2.5px solid var(--ol);border-radius:26px;padding:16px 16px 18px;margin:0 0 34px;background:linear-gradient(180deg,rgba(107,123,44,.07),rgba(107,123,44,.02));position:relative}
+.olive .grp{margin-bottom:12px} .olive .grp b{color:#3F4A12}
+.olive .grp .olt{font-size:11px;font-weight:800;letter-spacing:.06em;color:#fff;background:var(--ol);border-radius:99px;padding:3px 9px;align-self:center}
+.olive .ydrow{margin:0} .olive>.course.wide{margin:0!important}
+@media (max-width:560px){.olive{padding:12px 10px 12px;border-radius:20px}}
 /* 어휘 로드맵 지도 (두 갈래 길) */
 .mapstrip{display:flex;align-items:center;gap:12px;width:100%;max-width:460px;min-height:56px;padding:8px 14px 8px 10px;margin:0 0 14px;border:0;border-radius:16px;background:#fff;color:inherit;text-align:left;box-shadow:0 10px 40px -20px rgba(0,0,0,.18);cursor:pointer;font:inherit}
 .mapstrip .mi{width:40px;height:40px;border-radius:11px;flex:none;background:#163A32;display:flex;align-items:center;justify-content:center}
@@ -261,19 +267,20 @@ function render(rows){
   if (OPEN && OPEN.includes('ydvoca')) {
     let seen = false; try { seen = !!localStorage.getItem('vt_map_seen'); } catch (e) {}
     const yr = rows.filter(r => r.course === 'ydvoca'), pass = ['f1','f2','f3','f4'].filter(l => yr.some(r => r.unit_id === l + '-test' && r.completed)).length;
-    $('ydBox').innerHTML = `<div class="grp"><b>내신 · 어휘요약문</b><span>BASE CAMP → 온더웨이 → 피날레</span></div>
+    const otwP = [1,2,3,4,5,6,7].filter(d => yr.some(r => r.unit_id === 's1d' + d + '-test' && r.completed)).length, finP = [1,2,3,4,5,6,7].filter(d => yr.some(r => r.unit_id === 's1r' + d + '-test' && r.completed)).length;
+    $('ydBox').innerHTML = `<div class="olive"><div class="grp"><span class="olt">내신</span><b>내신 · 어휘요약문</b><span>BASE CAMP → 온더웨이 → 피날레</span></div>
       <div class="ydrow"><a class="course wide" href="/ydvoca/" style="--c:#0B6E62"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">어휘요약문 BASE CAMP → 온더웨이 → 피날레</div>
-      <p>강마다 개념 영상 → 교재 → 리뷰 테스트(A·B·C) → 요약문 서술형(선택). 리뷰 테스트는 A 9개 · B 7개 이상이면 통과예요.</p></div>
-      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과 (BASE CAMP)</span><span></span></div></div></a>
-      <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()"><img src="/img/roadmap-two-paths-thumb.webp" alt=""><span><span class="mk">참고</span><b>어휘 로드맵 지도${seen ? '' : '<span class="new" id="mapNew">NEW</span>'}</b><small>두 로드맵이 어디서 갈라지는지 한눈에</small></span></button></div>`;
+      <p>STEP 1 BASE CAMP 영상강의 4강 → STEP 2 온더웨이 Day 1~7 → STEP 3 피날레 1~7회. 단계마다 연습 · 리뷰 테스트 · 오답 정리로 내신 실전까지 이어져요.</p></div>
+      <div class="foot"><div class="bar"><i style="width:${(pass + otwP + finP) / 18 * 100}%"></i></div><div class="stat"><span>BASE CAMP <b>${pass}</b>/4 · 온더웨이 <b>${otwP}</b>/7 · 피날레 <b>${finP}</b>/7 통과</span><span></span></div></div></a>
+      <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()"><img src="/img/roadmap-two-paths-thumb.webp" alt=""><span><span class="mk">참고</span><b>어휘 로드맵 지도${seen ? '' : '<span class="new" id="mapNew">NEW</span>'}</b><small>두 로드맵이 어디서 갈라지는지 한눈에</small></span></button></div></div>`;
   } else $('ydBox').innerHTML = '';
   /* 어휘요약문 BASE CAMP: 보카트리 Fundamental 수강생 누구나 (어휘요약문 반은 위 로드맵 카드로) */
   const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
   if (bcOpen) {
     const pass = ['f1','f2','f3','f4'].filter(l => rows.some(r => r.course === 'ydvoca' && r.unit_id === l + '-test' && r.completed)).length;
-    $('bcBox').innerHTML = `<div class="grp"><b>어휘요약문 로드맵</b><span>영상강의로 듣고 내신 실전까지</span></div><a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">강의</span><div><div class="lv">STEP 1 · 보카트리 Fundamental 1~4강</div><h3>⛺ BASE CAMP · 강의</h3><div class="ko">영상강의 온라인 학습실</div>
+    $('bcBox').innerHTML = `<div class="olive"><div class="grp"><span class="olt">내신</span><b>어휘요약문 로드맵</b><span>영상강의로 듣고 내신 실전까지</span></div><a class="course wide" href="/ydvoca/" style="--c:#0B6E62"><span class="tag">강의</span><div><div class="lv">STEP 1 · 보카트리 Fundamental 1~4강</div><h3>⛺ BASE CAMP · 강의</h3><div class="ko">영상강의 온라인 학습실</div>
       <p>영상강의로 듣고, 리뷰 테스트와 요약문 서술형으로 내신 실전까지 연결해요.</p></div>
-      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과</span><span></span></div></div></a>`;
+      <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과</span><span></span></div></div></a></div>`;
   } else $('bcBox').innerHTML = '';
   $('vocab').innerHTML = CARDS.map(c => {
     const C = VT.COURSES[c.id]; let done = 0, max = 0, extra = '';
