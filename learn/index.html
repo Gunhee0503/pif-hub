@@ -169,7 +169,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
     <div class="gb"><button data-t="g">과제 검사 기준</button><button data-t="n">어휘 정리 노트 작성법</button><button data-t="r">교재 로드맵</button></div>
   </div>
 
-  <div class="grp"><b>어휘 · VocaTree</b><span>하나의 뿌리에서, 여러 의미로</span></div>
+  <div class="grp"><b>보카트리 로드맵 · VocaTree</b><span>Fundamental › Essential › Spectrum · 문제풀이 트레이닝으로 어휘 기본기</span></div>
   <div class="grid" id="vocab"></div>
   <div id="bcBox"></div>
 
@@ -212,7 +212,7 @@ let EDITION = 'beacon', OPEN = null;
 const LOCKED_Q = new URLSearchParams(location.search).get('locked');
 
 const CARDS = [
-  { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', tag:'문제로 풀기', desc:'어원으로 단어를 문제로 풀면서 익히는 앱. 어휘 추리력 · 단어 브릿지 · 예문 빈칸으로 의미를 스스로 추론합니다.', unit:'강 완료' },
+  { id:'fundamental', lv:'STEP 01 · 기초', c:'#2f7d6d', desc:'영어 어휘의 뿌리를 이해하는 첫 단계. 가장 필수적인 어원으로 단어의 구조를 분석하고 의미를 스스로 추론합니다.', unit:'강 완료' },
   { id:'essential',   lv:'STEP 02 · 핵심', c:'#b07a22', desc:'어원을 활용해 어휘 추론력을 확장하는 핵심 단계. 가성비 높은 핵심 어원으로 단어를 나누고 쪼개고 다시 조합합니다.', unit:'강 완료' },
   { id:'spectrum',    lv:'STEP 03 · 심화', c:'#7a4fa3', desc:'의미의 깊이와 차이를 이해하는 심화 단계. 게르만어·라틴어 대응과 동족어로 뉘앙스·강도·격식의 차이까지 익힙니다.', unit:'강 통과' },
   { id:'matching',    lv:'부록 · APPENDIX', c:'#d2416b', desc:'암기한 뜻이 통하지 않는 순간, 진짜 어휘력이 시작됩니다. 핵심 다의어 100개를 핵심 이미지(Core Image)로 꿰뚫는 실전 훈련, AI 코칭.', unit:'회차 완료', tag:'NEW' }
@@ -245,8 +245,8 @@ function render(rows){
   const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
   if (bcOpen) {
     const pass = ['f1','f2','f3','f4'].filter(l => rows.some(r => r.course === 'ydvoca' && r.unit_id === l + '-test' && r.completed)).length;
-    $('bcBox').innerHTML = `<a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">강의로 듣기</span><div><div class="lv">LISTEN · 보카트리 Fundamental 1~4강</div><h3>⛺ 어휘요약문 BASE CAMP</h3><div class="ko">보카트리 Fundamental과 같은 교재 · 강의로 듣고 배우는 곳</div>
-      <p>개념 강의를 듣고 리뷰 테스트와 요약문까지. 문제로 푸는 보카트리 Fundamental 앱과는 따로따로 해도 돼요.</p></div>
+    $('bcBox').innerHTML = `<div class="grp"><b>어휘요약문 로드맵</b><span>영상강의로 듣고 내신 실전까지</span></div><a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">강의</span><div><div class="lv">STEP 1 · 보카트리 Fundamental 1~4강</div><h3>⛺ BASE CAMP · 강의</h3><div class="ko">영상강의 온라인 학습실</div>
+      <p>영상강의로 듣고, 리뷰 테스트와 요약문 서술형으로 내신 실전까지 연결해요.</p></div>
       <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과</span><span></span></div></div></a>`;
   } else $('bcBox').innerHTML = '';
   $('vocab').innerHTML = CARDS.map(c => {
