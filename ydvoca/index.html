@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>영동일고 비연계어휘 로드맵 | PIF Learning Hub</title>
+<title>어휘요약문 로드맵 | PIF Learning Hub</title>
 <meta name="theme-color" content="#163A32">
 <link rel="icon" type="image/png" sizes="32x32" href="/img/icons/favicon-32.png">
 <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png">
@@ -139,7 +139,7 @@ function home(){
       <div class="ic"><span class="pill ${s.vc ? 'on' : ''}">영상${s.vc ? ' ✓' : ''}</span>${tp}<span class="pill ${s.tries ? 'on' : ''}">요약문 ${s.tries}/${s.nq}</span></div></a>`; }).join('');
   const done = L.filter(l => stat(l).passed).length;
   $app.innerHTML = `<div class="hero"><div class="rings"></div><div class="e">YEONGDONGIL · VOCA ROADMAP</div>
-    <h1>영동일고 비연계어휘 대비 로드맵</h1><p>어원으로 단어를 잡고(보카트리) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
+    <h1>어휘요약문 로드맵</h1><p>어원으로 단어를 잡고(보카트리) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
     <div class="steps"><span><b>STEP 1</b>보카트리 Fundamental · ${done}/4 통과</span><span><b>STEP 2</b>온더웨이 On the Way</span><span><b>STEP 3</b>피날레 Finale</span></div></div>
     <div class="sec"><b>STEP 1 · VOCA TREE FUNDAMENTAL</b><span>1~4강 · 강마다 영상 → 교재 → 리뷰 테스트 → 요약문(선택)</span></div>
     <div class="grid">${lc}</div>
@@ -201,7 +201,7 @@ function lesson(l){
       <div class="row"><button class="b" data-dl="yd-${l.id}" data-name="보카트리_Fundamental_${+l.no}강">⬇ ${+l.no}강 교재 PDF</button>${VT.allowed('fundamental') ? '<a class="b" href="/fundamental/">단어 카드 연습</a>' : ''}</div></div>
     ${testCard}
     <div class="card"><h2><span class="no">04</span>요약문 서술형 <span class="pill">선택 · 점수 없음</span></h2>
-      <p class="d">영동일고 요약문 서술형은 처음엔 어려울 수 있어요. 점수에 들어가지 않으니 해설 영상을 보고, 힌트를 열어 가며 천천히 풀어 보세요.</p>
+      <p class="d">내신 요약문 서술형은 처음엔 어려울 수 있어요. 점수에 들어가지 않으니 해설 영상을 보고, 힌트를 열어 가며 천천히 풀어 보세요.</p>
       <div class="row"><a class="b main" href="#/${l.id}/sum">요약문 연습 (${s.tries}/${s.nq})</a></div></div>`;
   bindDl(); mountVideos();
 }

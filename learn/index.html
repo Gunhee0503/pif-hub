@@ -232,11 +232,11 @@ async function enter(st){
   try { render(await VT.load()); } catch(e){}
 }
 function render(rows){
-  /* 영동일고 비연계어휘 로드맵: 반에 열려 있을 때만 맨 위에 고정 */
+  /* 어휘요약문 로드맵: 반에 열려 있을 때만 맨 위에 고정 */
   if (OPEN && OPEN.includes('ydvoca')) {
     const yr = rows.filter(r => r.course === 'ydvoca'), pass = ['f1','f2','f3','f4'].filter(l => yr.some(r => r.unit_id === l + '-test' && r.completed)).length;
-    $('ydBox').innerHTML = `<div class="grp"><b>내신 · 영동일고 비연계어휘</b><span>보카트리 → 온더웨이 → 피날레</span></div>
-      <a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin-bottom:34px"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>영동일고 비연계어휘 대비 로드맵</h3><div class="ko">보카트리 Fundamental → 온더웨이 → 피날레</div>
+    $('ydBox').innerHTML = `<div class="grp"><b>내신 · 어휘요약문</b><span>보카트리 → 온더웨이 → 피날레</span></div>
+      <a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin-bottom:34px"><span class="tag">우리 반</span><div><div class="lv">ROADMAP · STEP 1 → 3</div><h3>어휘요약문 로드맵</h3><div class="ko">보카트리 Fundamental → 온더웨이 → 피날레</div>
       <p>강마다 개념 영상 → 교재 → 리뷰 테스트(A·B·C) → 요약문 서술형(선택). 리뷰 테스트는 A 9개 · B 7개 이상이면 통과예요.</p></div>
       <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과 (STEP 1)</span><span></span></div></div></a>`;
   } else $('ydBox').innerHTML = '';
@@ -296,7 +296,7 @@ async function echoStrip(){
     $('echoStrip').hidden = false;
   } catch(e) {}
 }
-function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP', gfirst:'그래머 첫단추', ydvoca:'영동일고 비연계어휘' }[c]; if (!n) return;
+function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP', gfirst:'그래머 첫단추', ydvoca:'어휘요약문 로드맵' }[c]; if (!n) return;
   $('lockNote').textContent = `🔒 ${n}은(는) 우리 반에서 아직 열리지 않은 코스예요. 담당 선생님께 문의해 주세요.`; $('lockNote').hidden = false; }
 function showPending(st){
   only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');

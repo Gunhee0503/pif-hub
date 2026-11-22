@@ -172,7 +172,7 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
       <button data-t="reports">AI 리포트</button>
       <button data-t="media">영상·자료</button>
       <button data-t="words">단어·문법 분석</button>
-      <button data-t="yd">영동일고 로드맵</button>
+      <button data-t="yd">어휘요약문 로드맵</button>
       <button data-t="staff" id="tabStaff" hidden>선생님</button>
       <a class="ext" href="https://pif-consultcard.vercel.app/" target="_blank" rel="noopener" title="PIF 상담카드 (새 창)">PIF 상담카드 ↗</a>
     </nav>
@@ -207,7 +207,7 @@ const COURSES = [
   { id:'syntax',      name:'구문의 지도',  c:'#1d1d1f' },
   { id:'grammar',     name:'문법 STEP',    c:'var(--gram)' },
   { id:'gfirst',      name:'그래머 첫단추', c:'var(--gfb)' },
-  { id:'ydvoca',      name:'영동일고 로드맵', c:'var(--yd)' }
+  { id:'ydvoca',      name:'어휘요약문 로드맵', c:'var(--yd)' }
 ];
 /* 구문의 지도는 반 설정(edition)에 따라 COMPASS/BEACON 중 하나가 열림 → 코스 칩에 편을 같이 표시 */
 const EDC = { compass:{ t:'COMPASS', ko:'기본', c:'#3d7fc9' }, beacon:{ t:'BEACON', ko:'심화', c:'#cf8417' } };
@@ -420,7 +420,7 @@ function renderReport(){
 function bindReportBtns(S){
   $('reload').onclick = load;
   $('csv').onclick = () => {
-    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','영동일고통과(강)','성실도','진도율(%)','평균정답률(%)','최근학습'];
+    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','어휘요약문통과(강)','성실도','진도율(%)','평균정답률(%)','최근학습'];
     const v = r => r ? Number(r.score||0) : 0;
     const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', edOf(x.s) === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.ydPass, x.dil ?? '', x.prog ?? '', x.acc ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
     const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
@@ -610,9 +610,9 @@ async function openStudent(sid){
       return `<div class="${r.completed ? 'done' : 'go'}"><b>${esc(u.no)}</b> ${esc(u.title)}<br>${r.completed ? '<span class="ok">완료</span>' : `${esc(d.prog || '')} 단계`}${q.graded ? ` · 실전 ${q.score}/${q.max}` : ''}${d.rv && d.rv.total ? ` · Review ${d.rv.ok}/${d.rv.total}` : ''}${wb.total ? ` · B ${wb.ok}/${wb.total}` : ''}${d.checksSaved ? ` · 자가체크 ${ck}/${u.checks.length}` : ''} · <span class="muted">${ago(r.updated_at)}</span></div>`; }).join('')}</div>`;
   } else h += lockH;
   h += `<div id="dlLog" class="muted" style="margin-top:10px">자료 내려받기 기록 불러오는 중…</div></div>`;
-  // 영동일고 로드맵
+  // 어휘요약문 로드맵
   if (has('ydvoca') || rows.some(r => r.course === 'ydvoca')) {
-    h += `<div class="sec" style="--c:var(--yd)"><h3><i></i>영동일고 비연계어휘 로드맵 <small>리뷰 테스트 = A·B·C 각 10 · ★ 보너스 5 · 통과 A≥9 · B≥7</small></h3>`;
+    h += `<div class="sec" style="--c:var(--yd)"><h3><i></i>어휘요약문 로드맵 <small>리뷰 테스트 = A·B·C 각 10 · ★ 보너스 5 · 통과 A≥9 · B≥7</small></h3>`;
     h += `<table class="mini"><tr><th>강</th><th>테스트</th><th>최고 A·B·C·★</th><th>응시</th><th>영상</th><th>요약문</th><th>최근</th></tr>${YDL.map(l => { const t = ydRow(rows, l.id + '-test'), v = ydRow(rows, l.id + '-v'), sm = ydRow(rows, l.id + '-sum');
       const d = (t && t.data) || {}, b = d.best, n = (d.attempts || []).length, pp = (d.paper || []).length, vd = (v && v.data) || {}, nq = l.exams.reduce((a, e) => a + e.qs.length, 0), tr = Object.keys(((sm && sm.data) || {}).tries || {}).length;
       return `<tr><td><b>${l.no}</b> ${esc(l.title)}</td><td>${d.passed ? '<span class="ok">통과</span>' : n || pp ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
@@ -764,7 +764,7 @@ async function renderMedia(){
   });
 }
 
-/* ---------- 영동일고 비연계어휘 로드맵 ---------- */
+/* ---------- 어휘요약문 로드맵 ---------- */
 const YDL = (window.YD && window.YD.lessons) || [];
 const ydRow = (rows, u) => rows.find(r => r.course === 'ydvoca' && r.unit_id === u);
 const YD_F = { cls: localStorage.getItem('pifhub_admin_ydcls') || '' };
@@ -779,7 +779,7 @@ function ydItemText(l, id, set){                          // 문항 번호 → �
 }
 async function renderYD(){
   const cls = D.classes.filter(c => (c.courses || []).includes('ydvoca') || D.students.some(s => s.class_code === c.code && (s.courses || []).includes('ydvoca')));
-  if (!cls.length) { $('body').innerHTML = `<div class="empty">아직 영동일고 로드맵이 열린 반이 없어요.<br><span class="muted">반·수강 관리에서 영동일고 내신반의 수강 코스에 <b>영동일고 로드맵</b>을 켜 주세요.</span></div>` + ydVideoH(); bindYdVideo(); return; }
+  if (!cls.length) { $('body').innerHTML = `<div class="empty">아직 어휘요약문 로드맵이 열린 반이 없어요.<br><span class="muted">반·수강 관리에서 해당 반의 수강 코스에 <b>어휘요약문 로드맵</b>을 켜 주세요.</span></div>` + ydVideoH(); bindYdVideo(); return; }
   if (!cls.some(c => c.code === YD_F.cls)) YD_F.cls = cls[0].code;
   const S = D.students.filter(s => s.class_code === YD_F.cls && coursesOf(s).includes('ydvoca'));
   const ids = S.map(s => s.id);
@@ -834,7 +834,7 @@ function ydPaper(s){
     toast(A >= 9 && B >= 7 ? '저장했어요 · 통과' : '저장했어요 · 재시험'); closeDrawer(); load(); };
 }
 function ydVideoH(){
-  return `<h3 style="margin:30px 0 6px;font-size:18px">영동일고 로드맵 · 강의 영상</h3>
+  return `<h3 style="margin:30px 0 6px;font-size:18px">어휘요약문 로드맵 · 강의 영상</h3>
     <div class="note" style="margin:0 0 12px">강마다 개념 강의와 요약문 해설 강의를 따로 넣어요. 유튜브 링크를 붙여 넣고 저장하면 학생 화면에 바로 나와요(일부 공개 영상도 됩니다). 장면별 시작 시간은 한 줄에 하나씩 <b>0:00 규칙</b>처럼 적어요.</div>
     <div class="tw"><table id="ydV"><tr><th>강</th><th>종류</th><th>유튜브 링크</th><th>장면별 시작 시간</th><th></th></tr>${YDL.flatMap(l => [['concept', '개념 강의'], ['summary', '요약문 해설']].map(([k, t]) =>
       `<tr><td><b>${l.no}</b> ${esc(l.title)}</td><td>${t}</td><td><input class="vin" data-u="${l.id}-${k}" style="width:100%;min-width:200px" placeholder="https://youtu.be/…"></td>
@@ -931,7 +931,7 @@ function buildFacts(s, rows, syn, ai, p){
       종합진단: at.map(a => ({ 날짜: kd(a.at), 점수: `${a.score}/30`, BASIC: `${a.basic}/20`, Beyond: `${a.beyond}/10`, 기간내: inP(a.at, p), 다시볼단원: [...new Set(a.wrong.map(w => w.unit))] })).slice(-3) };
   }
   if (has('ydvoca')) {
-    F.영동일고로드맵 = YDL.map(l => { const t = rows.find(r => r.course === 'ydvoca' && r.unit_id === l.id + '-test'), d = (t && t.data) || {};
+    F.어휘요약문로드맵 = YDL.map(l => { const t = rows.find(r => r.course === 'ydvoca' && r.unit_id === l.id + '-test'), d = (t && t.data) || {};
       (d.attempts || []).forEach(a => mark(a.at));
       const inp = (d.attempts || []).filter(a => inP(a.at, p));
       return { 강: `${l.no}강 ${l.title}`, 통과: !!d.passed, 최고점: d.best ? `A ${d.best.A} · B ${d.best.B} · C ${d.best.C} (${d.best.total}/30)` : '미응시', 기간내_응시: inp.map(a => `${a.set === 're' ? '재시험' : '1차'} A${a.A} B${a.B} C${a.C}${a.passed ? ' 통과' : ''}`) }; });
