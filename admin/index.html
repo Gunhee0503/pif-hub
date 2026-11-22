@@ -420,7 +420,7 @@ function renderReport(){
 function bindReportBtns(S){
   $('reload').onclick = load;
   $('csv').onclick = () => {
-    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','어휘요약문통과(강)','성실도','진도율(%)','평균정답률(%)','최근학습'];
+    const head = ['반','반코드','이름','뒷번호','Fundamental(강)','Essential(강)','Spectrum(강)','WordMatching완료','WordMatching평균','구문편','구문완료유닛','문법STEP완료','문법STEP평균','첫단추완료단원','첫단추진단','BASE CAMP통과(강)','성실도','진도율(%)','평균정답률(%)','최근학습'];
     const v = r => r ? Number(r.score||0) : 0;
     const rows = S.map(x => [x.cls.name, x.cls.code, x.s.name, x.s.last4, v(x.fund), v(x.ess), v(x.spec), x.mDone, x.mAvg ?? '', edOf(x.s) === 'compass' ? 'COMPASS' : 'BEACON', x.synDone, x.gDone, x.gAvg ?? '', x.fbDone, x.fbDiag ?? '', x.ydPass, x.dil ?? '', x.prog ?? '', x.acc ?? '', x.last ? new Date(x.last).toLocaleString('ko-KR') : '']);
     const csv = '﻿' + [head].concat(rows).map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n');
@@ -612,7 +612,7 @@ async function openStudent(sid){
   h += `<div id="dlLog" class="muted" style="margin-top:10px">자료 내려받기 기록 불러오는 중…</div></div>`;
   // 어휘요약문 로드맵
   if (has('ydvoca') || rows.some(r => r.course === 'ydvoca')) {
-    h += `<div class="sec" style="--c:var(--yd)"><h3><i></i>어휘요약문 로드맵 <small>리뷰 테스트 = A·B·C 각 10 · ★ 보너스 5 · 통과 A≥9 · B≥7</small></h3>`;
+    h += `<div class="sec" style="--c:var(--yd)"><h3><i></i>어휘요약문 BASE CAMP <small>리뷰 테스트 = A·B·C 각 10 · ★ 보너스 5 · 통과 A≥9 · B≥7</small></h3>`;
     h += `<table class="mini"><tr><th>강</th><th>테스트</th><th>최고 A·B·C·★</th><th>응시</th><th>영상</th><th>요약문</th><th>최근</th></tr>${YDL.map(l => { const t = ydRow(rows, l.id + '-test'), v = ydRow(rows, l.id + '-v'), sm = ydRow(rows, l.id + '-sum');
       const d = (t && t.data) || {}, b = d.best, n = (d.attempts || []).length, pp = (d.paper || []).length, vd = (v && v.data) || {}, nq = l.exams.reduce((a, e) => a + e.qs.length, 0), tr = Object.keys(((sm && sm.data) || {}).tries || {}).length;
       return `<tr><td><b>${l.no}</b> ${esc(l.title)}</td><td>${d.passed ? '<span class="ok">통과</span>' : n || pp ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
