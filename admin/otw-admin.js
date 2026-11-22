@@ -13,7 +13,7 @@ function otwaCell(rows, sid, D){
 function otwAdminH(S, per){
   if (!OTWA.length) return '';
   const S1 = OTWA[0];
-  let h = `<h3 style="margin:30px 0 6px;font-size:18px">STEP 2 · 온더웨이 ON THE WAY <small class="muted" style="font-weight:500;font-size:13px">${esc(S1.name)} · 통과 = Part 1 동의어·반의어 70% 이상 (14/20) · 점수 = 맞은 개수 100점 환산</small></h3>`;
+  let h = `<h3 style="margin:30px 0 6px;font-size:18px">STEP 2 · 온더웨이 ON THE WAY <small class="muted" style="font-weight:500;font-size:13px">Day 1~7 · 통과 = Part 1 동의어·반의어 70% 이상 (14/20) · 점수 = 맞은 개수 100점 환산</small></h3>`;
   h += `<div class="kpis" style="grid-template-columns:repeat(7,1fr)">${S1.days.map(D => `<div class="kpi"><small>Day ${D.d} 통과</small><b>${S.filter(s => otwaCell(per(s), S1.id, D).d.passed).length}<i> / ${S.length}</i></b></div>`).join('')}</div>`;
   h += `<div class="tw"><table><tr><th>이름</th>${S1.days.map(D => `<th>Day ${String(D.d).padStart(2, '0')}</th>`).join('')}<th>종이 시험</th></tr>`;
   S.forEach(s => { const rows = per(s);
@@ -23,7 +23,7 @@ function otwAdminH(S, per){
       + `<td><button class="btn sm sec" data-otwpaper="${s.id}">점수 입력</button></td></tr>`; });
   h += `</table></div><div class="note">연습은 칸마다 채점한 개수, 오답은 지금 틀린 채로 남은 문항 수예요(연습·앱 시험 결과 모두 반영). 종이 시험 점수는 Part별 맞은 개수로 넣으면 100점 환산·통과가 자동 계산돼요.</div>`;
   h += `<div class="sec2" style="margin-top:12px"><b>온더웨이 자료</b> <span class="muted">시험지는 학생도 받을 수 있고, 정답지는 선생님만 받아요.</span>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><button class="btn sm sec" data-otwdl="otw-book" data-nm="On_The_Way_Season1_교재">교재 전체</button>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><button class="btn sm sec" data-otwdl="otw-book" data-nm="On_The_Way_교재">교재 전체</button>
     ${S1.days.map(D => `<span style="display:inline-flex;gap:3px"><button class="btn sm sec" data-otwdl="otw-t${D.d}" data-nm="On_The_Way_REVIEW_TEST_Day${D.d}">Day ${D.d} 시험지</button><button class="btn sm" data-otwdl="otw-a${D.d}" data-nm="On_The_Way_REVIEW_TEST_Day${D.d}_정답">정답</button></span>`).join('')}</div></div>`;
   return h;
 }
@@ -56,7 +56,7 @@ function otwPaper(s){
 function otwStudentH(rows){
   if (!OTWA.length) return '';
   const S1 = OTWA[0];
-  return `<div class="sec" style="--c:var(--yd)"><h3><i></i>온더웨이 ON THE WAY <small>${esc(S1.name)} · 통과 = Part 1 70% 이상 · 점수 100점 환산</small></h3>
+  return `<div class="sec" style="--c:var(--yd)"><h3><i></i>온더웨이 ON THE WAY <small>Day 1~7 · 통과 = Part 1 70% 이상 · 점수 100점 환산</small></h3>
     <table class="mini"><tr><th>Day</th><th>테스트</th><th>최고 P1·P2·P3</th><th>점수</th><th>응시</th><th>연습</th><th>오답</th><th>최근</th></tr>${S1.days.map(D => { const c = otwaCell(rows, S1.id, D), b = c.d.best, pp = (c.d.paper || []).length;
       return `<tr><td><b>Day ${String(D.d).padStart(2, '0')}</b></td><td>${c.d.passed ? '<span class="ok">통과</span>' : c.att ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
         <td>${b ? `${b.c[0]}/${c.n[0]} · ${b.c[1]}/${c.n[1]} · ${b.c[2]}/${c.n[2]}` : '—'}</td><td>${b ? `<b>${b.score}</b>` : '—'}</td><td>${(c.d.attempts || []).length}회${pp ? ` <span class="muted">+ 종이 ${pp}</span>` : ''}</td>

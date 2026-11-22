@@ -57,7 +57,7 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 교재 표지: `assets/books/*.webp` (교재선정 가이드 PDF에서 잘라냄)
 
 ## 어휘요약문 로드맵 STEP 2 · 온더웨이 ON THE WAY (`/ydvoca/#/otw/s1/1`)
-- 어휘요약문 반(ydvoca) 전용. Season 1 Day 01~07, 잠금 없음. 영상 강의 없이 연습·리뷰 테스트·오답 중심 (관리자 '어휘요약문 로드맵' 탭 영상 표에서 Day별 해설 영상을 선택으로 붙일 수 있음, unit `otw-s1dN`)
+- 어휘요약문 반(ydvoca) 전용. 시즌 없는 단편(한 권) Day 01~07, 잠금 없음 (내부 진도 id만 `s1`). 영상 강의 없이 연습·리뷰 테스트·오답 중심 (관리자 '어휘요약문 로드맵' 탭 영상 표에서 Day별 해설 영상을 선택으로 붙일 수 있음, unit `otw-s1dN`)
 - 데이터: `ydvoca/otw.js` (window.OTW) — 교재 리마스터 데이터(final.json)와 Part 1 해설(expl.py)에서 `export_otw.py`로 생성. 앱 코드: `ydvoca/otw-app.js`, 관리자: `admin/otw-admin.js`
 - 진도: vt_progress course `ydvoca`, unit `s1d1-p`(연습: 문항별 맞음 1 / 틀림 0 — 연습·오답·앱 시험 결과 모두 반영, 오답 목록 = 0), `s1d1-test`(리뷰 테스트 attempts·best·passed·paper)
 - 채점: 직접 쓰기, 대소문자·띄어쓰기 무시, (ed)·(s) 어미는 붙여 써도 정답, Part 1은 앞글자 빼고 써도 정답
@@ -66,13 +66,17 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 파일(`ydvoca/files/otw-*.bin`, AES-GCM, hub-file 함수가 풀어 줌): `otw-book` 교재, `otw-t1`~`t7` 리뷰 테스트지(학생도), `otw-a1`~`a7` 정답지(선생님만)
 
 ## 어휘요약문 로드맵 STEP 3 · 피날레 FINALE (`/ydvoca/#/fin/s1/1`)
-- 어휘요약문 반(ydvoca) 전용. Season 1 실전연습 1~7회(회차당 20문항, 요약문 어휘완성), 잠금 없음. 영상 없이 연습·리뷰 테스트·오답 중심 (관리자 영상 표에서 회차별 해설 영상을 선택으로 붙일 수 있음, unit `fin-s1rN`)
+- **시즌제** — 1학기·2학기 구분 없이 Season 1 → 2 → … 로 계속 추가. 시즌마다 실전연습 1~7회(회차당 20문항). Season 2는 19번 <보기>에서 들어갈 수 없는 단어 고르기(`bogi`), 20번 지문 속 빈칸(`inpas`) 포함
+- 새 시즌 추가: `export_fin.py`에 시즌 데이터 추가 → `finale.js`, 파일은 `fin-s<N>-book` · `fin-s<N>-t1~7`(문항만) · `fin-s<N>-a1~7`(정답·해설 포함). hub-file 함수는 `fin-s2`~`fin-s9`를 받음, 종이 시험 RPC는 `s1~s9`
+- **누적 오답 테스트** (`#/fin/cum/s2`): Season N 화면에서 Season 1~N-1의 자주 틀린 문항(지금도 틀린 채 남은 빈칸이 있거나 어떤 빈칸을 2번 이상 틀린 문항 — 리뷰 테스트 오답 + 연습 `wc` 틀린 횟수)을 많이 틀린 순서로 20문항씩. 채점 후 학생이 '완성!'을 체크해 직접 빼고(`fin-cum.rm`), '뺀 단어'에서 다시 넣기. 결과는 그 회차 연습 기록(st·wc)에도 반영
+- 시즌 안내 팝업(localStorage `pif_fin_notice_v1`, 홈의 'ⓘ 시즌 안내'로 다시 보기)
+- 어휘요약문 반(ydvoca) 전용. 잠금 없음. 영상 없이 연습·리뷰 테스트·오답 중심 (관리자 영상 표에서 회차별 해설 영상을 선택으로 붙일 수 있음, unit `fin-s1rN`)
 - 데이터: `ydvoca/finale.js` (window.FIN) — 교재 리마스터 데이터와 문항별 상세 해설(풀이 흐름·빈칸별 뜻·지문 근거·포인트)을 `export_fin.py`로 생성. 앱 코드: `ydvoca/fin-app.js`(otw-app.js의 채점 함수 사용), 관리자: `admin/fin-admin.js`
-- 진도: unit `s1r1-p`(연습: 빈칸별 맞음 1 / 틀림 0 — `q01A` 형식), `s1r1-test`(리뷰 테스트 attempts·best·passed·paper)
+- 진도: unit `s1r1-p`(연습: 빈칸별 맞음 1 / 틀림 0 — `q01A` 형식, `wc` 틀린 횟수), `s1r1-test`(리뷰 테스트 attempts·best·passed·paper)
 - 배점: 100점 만점 · 문항당 100/문항 수(5점) · 빈칸 2개 문항은 빈칸마다 절반. **통과 70점 이상**. 재시험은 문항 순서를 섞음
 - 채점: 첫 글자 빼고 써도 정답, (s) 붙여도 정답, 복수 정답(transmission / contagion 등)·judgement/judgment 모두 인정
 - 종이 시험: 관리자 → `vt_staff_fin_paper` RPC (점수 0~100, 0.5점 단위 → 통과 자동)
-- 파일(`ydvoca/files/fin-*.bin`): `fin-book` 교재(이미지 압축본), `fin-t1`~`t7` 리뷰 테스트지(학생도), `fin-a1`~`a7` 정답·해설지(선생님만)
+- 파일(`ydvoca/files/fin-*.bin`): Season 1 `fin-book` 교재(이미지 압축본), `fin-t1`~`t7` 리뷰 테스트지(학생도), `fin-a1`~`a7` 정답·해설지(선생님만) · Season 2 `fin-s2-book`, `fin-s2-t1`~`t7`, `fin-s2-a1`~`a7`, 누적 오답 진도 unit `fin-cum`
 
 ## 내신 진단 · 처방 (어휘요약문 로드맵)
 

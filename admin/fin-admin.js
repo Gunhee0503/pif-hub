@@ -8,32 +8,42 @@ function finaCell(rows, sid, R){
   const wrong = R.qs.filter(q => Object.keys(q.bl).some(k => st[q.id + k] === 0)).length;
   return { d, done, wrong, n: R.qs.length, att: (d.attempts || []).length + (d.paper || []).length, last: [t, p].filter(Boolean).map(x => x.updated_at).sort().pop() };
 }
+const finaFile = (S1, f) => 'fin-' + (S1.files ? S1.files + '-' : '') + f;
 function finAdminH(S, per){
   if (!FINA.length) return '';
-  const S1 = FINA[0];
-  let h = `<h3 style="margin:30px 0 6px;font-size:18px">STEP 3 · 피날레 FINALE <small class="muted" style="font-weight:500;font-size:13px">${esc(S1.name)} · 100점 만점 · 문항당 5점 · 통과 = ${(window.FIN && window.FIN.pass) || 70}점 이상</small></h3>`;
+  let h = `<h3 style="margin:30px 0 6px;font-size:18px">STEP 3 · 피날레 FINALE <small class="muted" style="font-weight:500;font-size:13px">시즌제(학기 구분 없음) · 100점 만점 · 문항당 5점 · 통과 = ${(window.FIN && window.FIN.pass) || 70}점 이상</small></h3>`;
+  FINA.forEach(S1 => { h += finAdminSeason(S1, S, per); });
+  const cum = S.map(s => { const r = per(s).find(x => x.course === 'ydvoca' && x.unit_id === 'fin-cum'), d = (r && r.data) || {}, hs = d.hist || [];
+    return hs.length || Object.keys(d.rm || {}).length ? `<tr><td><b>${esc(s.name)}</b></td><td>${hs.length}회</td><td>${hs.length ? hs[hs.length - 1].ok + '/' + hs[hs.length - 1].n : '—'}</td><td>${Object.keys(d.rm || {}).length}문항</td><td class="muted">${r ? ago(r.updated_at) : ''}</td></tr>` : ''; }).join('');
+  h += `<div class="sec2" style="margin-top:12px"><b>누적 오답 테스트</b> <span class="muted">지난 시즌의 자주 틀린 문항(지금도 틀린 채 남았거나 2번 이상 틀린 문항). 학생이 '완성'으로 직접 뺀 문항 수예요.</span>
+    ${cum ? `<div class="tw" style="margin-top:6px"><table><tr><th>이름</th><th>응시</th><th>최근</th><th>완성해서 뺌</th><th>최근 기록</th></tr>${cum}</table></div>` : '<div class="muted" style="margin-top:6px">아직 응시한 학생이 없어요.</div>'}</div>`;
+  return h;
+}
+function finAdminSeason(S1, S, per){
+  let h = `<h4 style="margin:18px 0 6px;font-size:15px">${esc(S1.name)}</h4>`;
   h += `<div class="kpis" style="grid-template-columns:repeat(7,1fr)">${S1.rounds.map(R => `<div class="kpi"><small>${R.r}회 통과</small><b>${S.filter(s => finaCell(per(s), S1.id, R).d.passed).length}<i> / ${S.length}</i></b></div>`).join('')}</div>`;
   h += `<div class="tw"><table><tr><th>이름</th>${S1.rounds.map(R => `<th>${R.r}회</th>`).join('')}<th>종이 시험</th></tr>`;
   S.forEach(s => { const rows = per(s);
     h += `<tr><td><b>${esc(s.name)}</b> <span class="muted">${esc(s.last4)}</span></td>` + S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), b = c.d.best;
       return `<td>${c.d.passed ? '<span class="ok">통과</span>' : c.att ? '<span class="warn" style="margin:0">재시험</span>' : '<span class="muted">미응시</span>'}${b ? ` <b>${b.score}</b><span class="muted">점</span>` : ''}
         <div class="muted" style="font-size:11.5px;margin-top:3px">연습 ${c.done}/${c.n}${c.wrong ? ` · 오답 ${c.wrong}` : ''}</div></td>`; }).join('')
-      + `<td><button class="btn sm sec" data-finpaper="${s.id}">점수 입력</button></td></tr>`; });
+      + `<td><button class="btn sm sec" data-finpaper="${s.id}" data-fins="${S1.id}">점수 입력</button></td></tr>`; });
   h += `</table></div><div class="note">연습은 한 번이라도 채점한 문항 수, 오답은 지금 틀린 채로 남은 문항 수예요. 종이 시험은 채점한 점수(100점 만점, 0.5점 단위)를 넣으면 통과가 자동 계산돼요.</div>`;
-  h += `<div class="sec2" style="margin-top:12px"><b>피날레 자료</b> <span class="muted">시험지는 학생도 받을 수 있고, 정답지는 선생님만 받아요.</span>
-    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><button class="btn sm sec" data-findl="fin-book" data-nm="FINALE_Season1_교재">교재 전체</button>
-    ${S1.rounds.map(R => `<span style="display:inline-flex;gap:3px"><button class="btn sm sec" data-findl="fin-t${R.r}" data-nm="FINALE_REVIEW_TEST_Round${R.r}">${R.r}회 시험지</button><button class="btn sm" data-findl="fin-a${R.r}" data-nm="FINALE_REVIEW_TEST_Round${R.r}_정답">정답</button></span>`).join('')}</div></div>`;
+  const nm = 'FINALE_' + S1.name.replace(' ', '');
+  h += `<div class="sec2" style="margin-top:12px"><b>${esc(S1.name)} 자료</b> <span class="muted">시험지는 학생도 받을 수 있고, 정답지는 선생님만 받아요.</span>
+    <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px"><button class="btn sm sec" data-findl="${finaFile(S1, 'book')}" data-nm="${nm}_교재">교재 전체</button>
+    ${S1.rounds.map(R => `<span style="display:inline-flex;gap:3px"><button class="btn sm sec" data-findl="${finaFile(S1, 't' + R.r)}" data-nm="${nm}_Round${R.r}">${R.r}회 시험지</button><button class="btn sm" data-findl="${finaFile(S1, 'a' + R.r)}" data-nm="${nm}_Round${R.r}_정답">정답</button></span>`).join('')}</div></div>`;
   return h;
 }
 function finAdminBind(){
-  document.querySelectorAll('[data-finpaper]').forEach(b => b.onclick = () => finPaper(D.students.find(x => x.id === b.dataset.finpaper)));
+  document.querySelectorAll('[data-finpaper]').forEach(b => b.onclick = () => finPaper(D.students.find(x => x.id === b.dataset.finpaper), b.dataset.fins));
   document.querySelectorAll('[data-findl]').forEach(b => b.onclick = async () => { b.disabled = true;
     try { await VT.download(b.dataset.findl, 'full', b.dataset.nm + '.pdf'); } catch(e){ toast(e.code === 'NO_FILE' ? '아직 올라가지 않은 파일이에요.' : '내려받지 못했어요.'); }
     b.disabled = false; });
 }
-function finPaper(s){
-  const S1 = FINA[0];
-  $('drawer').innerHTML = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)} · 피날레 종이 시험</h2>
+function finPaper(s, sid){
+  const S1 = FINA.find(x => x.id === sid) || FINA[0];
+  $('drawer').innerHTML = `<button class="x" onclick="closeDrawer()">✕</button><h2>${esc(s.name)} · 피날레 ${esc(S1.name)} 종이 시험</h2>
     <div class="note">수업에서 종이로 본 리뷰 테스트 점수를 넣어요. 문항당 5점, 빈칸 2개 문항은 빈칸마다 2.5점이에요. 70점 이상이면 통과로 기록돼요.</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0">
       <label>회차<select id="fpR" style="width:100%">${S1.rounds.map(R => `<option value="${R.r}">${R.r}회</option>`).join('')}</select></label>
@@ -50,17 +60,15 @@ function finPaper(s){
 }
 function finStudentH(rows){
   if (!FINA.length) return '';
-  const S1 = FINA[0];
-  return `<div class="sec" style="--c:var(--yd)"><h3><i></i>피날레 FINALE <small>${esc(S1.name)} · 100점 만점 · 통과 70점 이상</small></h3>
+  return FINA.filter((S1, i) => i === 0 || S1.rounds.some(R => finaCell(rows, S1.id, R).done || finaCell(rows, S1.id, R).att)).map(S1 => `<div class="sec" style="--c:var(--yd)"><h3><i></i>피날레 FINALE <small>${esc(S1.name)} · 100점 만점 · 통과 70점 이상</small></h3>
     <table class="mini"><tr><th>회차</th><th>테스트</th><th>최고점</th><th>응시</th><th>연습</th><th>오답</th><th>최근</th></tr>${S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), b = c.d.best, pp = (c.d.paper || []).length;
       return `<tr><td><b>${R.r}회</b></td><td>${c.d.passed ? '<span class="ok">통과</span>' : c.att ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
         <td>${b ? `<b>${b.score}</b>` : '—'}</td><td>${(c.d.attempts || []).length}회${(c.d.attempts || []).some(a => a.gl === 0) ? ` <span class="muted">(2차 ${(c.d.attempts || []).filter(a => a.gl === 0).length})</span>` : ''}${pp ? ` <span class="muted">+ 종이 ${pp}</span>` : ''}</td>
-        <td>${c.done}/${c.n}</td><td>${c.wrong || '—'}</td><td class="muted">${c.last ? ago(c.last) : '—'}</td></tr>`; }).join('')}</table></div>`;
+        <td>${c.done}/${c.n}</td><td>${c.wrong || '—'}</td><td class="muted">${c.last ? ago(c.last) : '—'}</td></tr>`; }).join('')}</table></div>`).join('');
 }
 function finReport(rows, inP, p, mark){
   if (!FINA.length) return null;
-  const S1 = FINA[0];
-  return S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), at = c.d.attempts || []; at.forEach(a => mark(a.at));
-    return { 회차: R.r, 통과: !!c.d.passed, 최고점: c.d.best ? `${c.d.best.score}점` : '미응시', 연습: `${c.done}/${c.n}`, 남은오답: c.wrong,
-      기간내_응시: at.filter(a => inP(a.at, p)).map(a => `${a.set === 're' ? '재시험' : '1차'} ${a.score}점${a.passed ? ' 통과' : ''}`) }; });
+  return FINA.flatMap(S1 => S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), at = c.d.attempts || []; at.forEach(a => mark(a.at));
+    return (S1 !== FINA[0] && !c.done && !at.length) ? null : { 시즌: S1.name, 회차: R.r, 통과: !!c.d.passed, 최고점: c.d.best ? `${c.d.best.score}점` : '미응시', 연습: `${c.done}/${c.n}`, 남은오답: c.wrong,
+      기간내_응시: at.filter(a => inP(a.at, p)).map(a => `${a.set === 're' ? '재시험' : '1차'} ${a.score}점${a.passed ? ' 통과' : ''}`) }; })).filter(Boolean);
 }

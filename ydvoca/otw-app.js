@@ -47,16 +47,15 @@ function otwStat(sid, D){
 /* ---------- 로드맵 홈의 STEP 2 ---------- */
 function otwHome(){
   if (!FULL) return `<div class="soon"><b>🔒 내신 어휘요약문 반 전용</b><br>학교 시험 범위에 맞춘 단계라 내신반에서 열려요. BASE CAMP는 누구나 끝까지 할 수 있어요.</div>`;
-  const sid = sessionStorage.getItem('otw_season') || 's1', S = otwSeason(sid);
-  const tabs = `<div class="otabs">${OTWD.seasons.map(s => `<button class="${s.id === S.id ? 'on' : ''}" data-season="${s.id}">${esc(s.name)} <small>${esc(s.sub || '')}</small></button>`).join('')}<button disabled>Season 2 <small>2학기 · 준비 중</small></button></div>`;
+  const S = otwSeason('s1');               // 온더웨이는 시즌 없이 한 권(단편) — 내부 진도 id는 s1 그대로
   const cards = S.days.map(D => { const s = otwStat(S.id, D), n = otwN(D);
     const tp = s.passed ? `<span class="pill pass">통과${s.best ? ' · ' + s.best.score + '점' : ''}</span>` : s.att ? `<span class="pill re">재시험${s.best ? ' · 최고 ' + s.best.score + '점' : ''}</span>` : '<span class="pill">테스트</span>';
     return `<a class="lc otw" href="#/otw/${S.id}/${D.d}"><div class="n">DAY ${pad(D.d)}</div><div class="s" style="min-height:0;margin-top:6px">동·반 ${n[0]} · 혼동 ${n[1]} · 어형 ${n[2]}</div>
       <div class="bar"><i style="width:${Math.round(s.done / s.tot * 100)}%"></i></div>
       <div class="ic"><span class="pill ${s.done ? 'on' : ''}">연습 ${s.done}/${s.tot}</span>${tp}${s.wrong ? `<span class="pill re">오답 ${s.wrong}</span>` : ''}</div></a>`; }).join('');
   return `<div class="dual" style="grid-template-columns:1fr"><div class="dc otwc"><b>🏃 ON THE WAY · Day별 회독<span class="k">연습 + 리뷰 테스트</span></b>교재 문항을 앱에서 <b style="display:inline;font-size:inherit">직접 써 보며</b> 회독하고, 리뷰 테스트로 확인해요. 통과 기준은 <b style="display:inline;font-size:inherit">Part 1 동의어·반의어 70점(20문항 중 14개) 이상</b>. 영상 없이 문제와 해설로 공부하는 단계예요.</div></div>
-    ${tabs}<div class="grid otwg">${cards}</div>
-    <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="otw-book" data-name="On_The_Way_Season1_교재">${OTW_PDF}교재 전체 PDF</button></div>`;
+    <div class="grid otwg">${cards}</div>
+    <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="otw-book" data-name="On_The_Way_교재">${OTW_PDF}교재 전체 PDF</button></div>`;
 }
 const OTW_PDF = '<svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>';
 function otwBindHome(){ $app.querySelectorAll('[data-season]').forEach(b => b.onclick = () => { sessionStorage.setItem('otw_season', b.dataset.season); home(); }); }
@@ -69,8 +68,8 @@ function otwDayPage(sid, D){
   let k = 0; const N = () => pad(++k);
   const partBar = p => { const ids = otwItems(D, p).map(i => i.id), st = data(u + '-p').st || {}, dn = ids.filter(i => i in st).length, ok = ids.filter(i => st[i] === 1).length;
     return `<a class="pp" href="#/otw/${sid}/${D.d}/practice/${p}"><span class="k">PART ${pad(p)}</span><span class="t">${OTW_PARTS[p][0]}</span><span class="g"><i style="width:${Math.round(ok / ids.length * 100)}%"></i></span><span class="c">${ok}/${ids.length}${dn > ok ? ` <em>✗${dn - ok}</em>` : ''}</span></a>`; };
-  $app.innerHTML = `<div class="top"><button onclick="location.hash='#/'">‹ 로드맵</button><div class="t">ON THE WAY · ${esc(otwSeason(sid).name.toUpperCase())}</div></div>
-    <div class="hero otwh" style="padding:20px 22px"><div class="rings"></div><div class="e">STEP 2 · ON THE WAY · ${esc(otwSeason(sid).name)}</div><h1>DAY ${pad(D.d)}</h1><p>동의어·반의어 ${n[0]} · 혼동어휘 ${n[1]} · 어형변화 ${n[2]} — 모두 ${s.tot}문항</p></div>
+  $app.innerHTML = `<div class="top"><button onclick="location.hash='#/'">‹ 로드맵</button><div class="t">ON THE WAY</div></div>
+    <div class="hero otwh" style="padding:20px 22px"><div class="rings"></div><div class="e">STEP 2 · ON THE WAY</div><h1>DAY ${pad(D.d)}</h1><p>동의어·반의어 ${n[0]} · 혼동어휘 ${n[1]} · 어형변화 ${n[2]} — 모두 ${s.tot}문항</p></div>
     ${vid ? `<div class="card"><h2><span class="no">${N()}</span>해설 영상<span class="role learn">선택</span></h2><div class="vbox"><iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&playsinline=1" style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div></div>` : ''}
     <div class="card practice"><h2><span class="no">${N()}</span>연습 · 교재 풀기<span class="role practice">PRACTICE</span></h2>
       <p class="d">교재 문항을 그대로 직접 써 봐요. 칸마다 <b>확인</b>(또는 Enter)을 누르면 바로 채점되고, Part 1은 뜻·대체 단어·해석·TIP 해설이 펼쳐져요. 쓴 답은 저장돼서 이어서 할 수 있어요.</p>

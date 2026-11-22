@@ -180,6 +180,22 @@ select.pick.ok{border-color:var(--tl);background:var(--mint2)} select.pick.bad{b
 .fq2 .fs{margin-left:34px;background:var(--cream);border-left:5px solid var(--dk);border-radius:10px;padding:9px 12px;font:400 15.5px/1.8 Georgia,serif}
 .fq2 .fs .fg{font:400 12.5px/1.55 var(--sans);color:var(--ink2);margin-top:2px}
 .nogl .fq2 .fs .fg{display:none}
+.fq2 .fsrc{display:inline-block;margin:0 0 4px 34px;font:600 11.5px var(--sans);color:#fff;background:var(--dk);border-radius:99px;padding:3px 10px}
+.fq2 .fbogi{margin:8px 0 0 34px;border:1.5px dashed var(--dk);border-radius:10px;padding:8px 10px 4px;background:#fff}
+.fq2 .fbogi b{font:700 12px var(--sans);color:var(--or);margin-right:6px} .fq2 .fbogi span{display:inline-block;border:1.3px solid var(--dk);padding:2px 10px;margin:0 6px 5px 0;font:600 14px Georgia,serif;color:var(--dk);border-radius:6px}
+.frq.ft2{background:#EEF1F8;color:#2C3A63}
+.fdone{display:flex;gap:8px;align-items:center;margin:8px 0 0 40px;padding:9px 12px;border-radius:12px;background:#F3F1EA;font-size:13.5px;cursor:pointer} .fdone.ok{background:#E8F4EA} .fdone b{color:var(--dk)} .fdone input{width:18px;height:18px}
+.fcum{border:2px solid #C93A2E;background:#FFF7F5} .fcum h2 .no{background:#C93A2E}
+.fcrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap} .fcrow .s{flex:1}
+.otabs .fni{margin-left:auto;background:transparent;border-style:dashed;color:var(--dk)}
+.fnov{position:fixed;inset:0;z-index:60;background:rgba(15,20,35,.55);display:flex;align-items:center;justify-content:center;padding:18px;animation:fnin .18s ease}
+@keyframes fnin{from{opacity:0}to{opacity:1}}
+.fnbox{background:#fff;border-radius:20px;max-width:440px;width:100%;padding:20px 20px 18px;box-shadow:0 20px 60px rgba(0,0,0,.3);max-height:92vh;overflow:auto}
+.fnh{display:flex;flex-direction:column;gap:2px;margin-bottom:12px} .fnh span{font:600 11px var(--en);letter-spacing:.2em;color:#C93A2E} .fnh b{font:800 21px var(--sans);color:var(--dk)}
+.fnl{list-style:none;margin:0 0 12px;padding:0;counter-reset:fn} .fnl li{counter-increment:fn;display:grid;grid-template-columns:28px 1fr;gap:2px 10px;padding:10px 0;border-top:1px solid var(--line)}
+.fnl li:before{content:counter(fn);grid-row:span 2;width:26px;height:26px;border-radius:50%;background:var(--dk);color:#fff;font:700 13px var(--sans);display:flex;align-items:center;justify-content:center}
+.fnl b{font:700 15px var(--sans);color:var(--dk)} .fnl span{font-size:13.5px;line-height:1.55;color:var(--ink2)} .fnl em{font-style:normal;font-weight:700;color:#C93A2E}
+.fnflow{display:flex;align-items:center;justify-content:center;gap:6px;margin:0 0 14px;flex-wrap:wrap} .fnflow span{background:#141B2E;color:#F5EBDA;border-radius:99px;padding:5px 11px;font:600 12.5px var(--sans)} .fnflow i{font-style:normal;color:#C93A2E;font-weight:800}
 .glbar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 14px;font-size:13px;color:var(--ink2)} .glbar span{margin-right:4px;font-weight:700}
 .glbar button{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;font-size:13px;font-weight:700;color:var(--ink2)} .glbar button.on{background:#55621F;border-color:#55621F;color:#fff} .glbar button:disabled{opacity:.6}
 .fq2 .fbl{display:inline-block;min-width:54px;border-bottom:1.6px solid var(--dk);text-align:center;font:600 12px var(--en);color:var(--or);margin:0 3px}
@@ -259,9 +275,9 @@ function home(){
     <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="yd-book" data-name="보카트리_Fundamental_개정판_전체"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>교재 전체 PDF</button>${VT.allowed('fundamental') ? '<a class="b app" href="/fundamental/"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱에서 연습하기</span><span class="go">›</span></a>' : ''}</div>
     <div class="sec"><b>STEP 2 · ON THE WAY</b><span>시험 범위 어휘 · 1등급으로 가는 하이패스</span></div>
     ${otwHome()}
-    <div class="sec"><b>STEP 3 · FINALE</b><span>요약문 어휘 실전 · 피날레는 실전완성</span></div>
+    <div class="sec"><b>STEP 3 · FINALE</b><span>시즌제 실전 · 피날레 실전완성</span></div>
     ${finHome()}`;
-  bindDl(); otwBindHome(); bindAsg();
+  bindDl(); otwBindHome(); finBindHome(); bindAsg();
 }
 function bindDl(){ $app.querySelectorAll('[data-dl]').forEach(b => b.onclick = async () => { b.disabled = true; const t = b.innerHTML; b.textContent = '받는 중…';
   try { await VT.download(b.dataset.dl, 'student', b.dataset.name + '.pdf'); } catch(e){ toast(e.code === 'NO_FILE' ? '아직 준비 중인 자료예요.' : e.code === 'COURSE_LOCKED' ? '우리 반에서 열리지 않은 과정이에요.' : '내려받지 못했어요. 잠시 뒤 다시 해 주세요.'); }
