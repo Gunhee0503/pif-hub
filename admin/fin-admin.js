@@ -54,7 +54,7 @@ function finStudentH(rows){
   return `<div class="sec" style="--c:var(--yd)"><h3><i></i>피날레 FINALE <small>${esc(S1.name)} · 100점 만점 · 통과 70점 이상</small></h3>
     <table class="mini"><tr><th>회차</th><th>테스트</th><th>최고점</th><th>응시</th><th>연습</th><th>오답</th><th>최근</th></tr>${S1.rounds.map(R => { const c = finaCell(rows, S1.id, R), b = c.d.best, pp = (c.d.paper || []).length;
       return `<tr><td><b>${R.r}회</b></td><td>${c.d.passed ? '<span class="ok">통과</span>' : c.att ? '<span class="warn">재시험</span>' : '<span class="muted">미응시</span>'}</td>
-        <td>${b ? `<b>${b.score}</b>` : '—'}</td><td>${(c.d.attempts || []).length}회${pp ? ` <span class="muted">+ 종이 ${pp}</span>` : ''}</td>
+        <td>${b ? `<b>${b.score}</b>` : '—'}</td><td>${(c.d.attempts || []).length}회${(c.d.attempts || []).some(a => a.gl === 0) ? ` <span class="muted">(2차 ${(c.d.attempts || []).filter(a => a.gl === 0).length})</span>` : ''}${pp ? ` <span class="muted">+ 종이 ${pp}</span>` : ''}</td>
         <td>${c.done}/${c.n}</td><td>${c.wrong || '—'}</td><td class="muted">${c.last ? ago(c.last) : '—'}</td></tr>`; }).join('')}</table></div>`;
 }
 function finReport(rows, inP, p, mark){

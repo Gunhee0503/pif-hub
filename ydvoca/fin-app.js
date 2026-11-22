@@ -97,6 +97,14 @@ function finFeedback(q, res, showEx){
   ks.forEach(k => { const inp = $app.querySelector(`input[data-id="${q.id + k}"]`); if (inp) { inp.classList.remove('ok', 'bad'); inp.classList.add(res[k] ? 'ok' : 'bad'); } });
 }
 
+/* ---------- 1차 (우리말 해석 있음) / 2차 (해석 없음) ---------- */
+function finGl(){ try { return localStorage.getItem('pif_fin_gloss') !== '0'; } catch(e){ return true; } }
+function finGlBar(){ const on = finGl();
+  return `<div class="glbar"><span>요약문 우리말 해석</span><button class="${on ? 'on' : ''}" data-gl="1">1차 · 해석 있음</button><button class="${on ? '' : 'on'}" data-gl="0">2차 · 해석 없음</button></div>`; }
+function finGlBind(){ $app.classList.toggle('nogl', !finGl());
+  $app.querySelectorAll('[data-gl]').forEach(b => b.onclick = () => { try { localStorage.setItem('pif_fin_gloss', b.dataset.gl); } catch(e){}
+    $app.querySelectorAll('[data-gl]').forEach(x => x.classList.toggle('on', x.dataset.gl === b.dataset.gl)); $app.classList.toggle('nogl', b.dataset.gl === '0');
+    toast(b.dataset.gl === '1' ? '1차 · 요약문 해석을 보여 줘요.' : '2차 · 요약문 해석 없이 풀어요.'); }); }
 /* ---------- 연습 · 오답 ---------- */
 let FP = null, fpT = null;
 function finSavePractice(){
@@ -113,10 +121,11 @@ function finPractice(sid, R, mode){
   if (!list.length) h += `<div class="banner ok">남은 오답이 없어요. 잘했어요!</div><div class="row"><a class="b main" href="#/fin/${sid}/${R.r}">회차 화면으로</a></div>`;
   else {
     h += `<div class="note">빈칸마다 <b>주어진 첫 글자</b>로 시작해 <b>철자 수</b>에 맞춰 1단어로 써요. 첫 글자는 빼고 써도 돼요. 문항마다 <b>확인</b>을 누르면 정답·기출 출처·해석이 보여요.${mode === 'wrong' ? ` 틀렸던 <b>${list.length}문항</b>이에요.` : ''}</div>`;
+    h += finGlBar();
     h += list.map(q => finQ(q, q.no, mode === 'wrong' ? {} : d.ans, { check: true, gloss: true, pts })).join('');
     h += `<div class="sticky"><button class="b main" id="ckAll">모두 확인</button><a class="b" href="#/fin/${sid}/${R.r}">회차 화면으로</a></div>`;
   }
-  $app.innerHTML = h; scrollTo(0, 0);
+  $app.innerHTML = h; scrollTo(0, 0); finGlBind();
   if (mode !== 'wrong') list.forEach(q => { const ks = Object.keys(q.bl); if (ks.some(k => (q.id + k) in d.st)) { const res = {}; ks.forEach(k => res[k] = d.st[q.id + k] === 1); finFeedback(q, res, true); } });
   const check = qid => { const q = R.qs.find(x => x.id === qid), res = {}; let any = false;
     Object.keys(q.bl).forEach(k => { const inp = $app.querySelector(`input[data-id="${qid + k}"]`), v = inp.value; if (v.trim()) any = true;
@@ -141,9 +150,10 @@ function finTest(sid, R, set){
   FT = { sid, R, set, seed };
   let h = `<div class="top"><button onclick="if(confirm('저장하지 않고 나갈까요? 지금까지 쓴 답은 저장되지 않아요.'))location.hash='#/fin/${sid}/${R.r}'">‹ 저장하지 않고 나가기</button><div class="t">ROUND ${pad(R.r)} · ${re ? '재시험' : '리뷰 테스트'}</div></div>
     <div class="note"><b>100점 만점</b> · 문항당 ${pts}점(빈칸 2개 문항은 빈칸마다 ${pts / 2}점) · <b>${finPass()}점 이상 통과</b>. 첫 글자는 빼고 써도 돼요. 다 쓰면 맨 아래 <b>채점하기</b>.</div>`;
+  h += finGlBar();
   (re ? otwShuffle(R.qs, r) : R.qs).forEach((q, i) => h += finQ(q, i + 1, {}, { check: false, gloss: true, pts }));
   h += `<div class="sticky"><button class="b main" id="grade">채점하기</button></div>`;
-  $app.innerHTML = h; scrollTo(0, 0);
+  $app.innerHTML = h; scrollTo(0, 0); finGlBind();
   $app.querySelectorAll('input.blank').forEach(inp => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); const all = [...$app.querySelectorAll('input.blank')], nx = all[all.indexOf(inp) + 1]; if (nx) nx.focus(); } });
   document.getElementById('grade').onclick = finGrade;
 }
@@ -153,9 +163,9 @@ async function finGrade(){
   if (empty && !confirm(`아직 비어 있는 칸이 ${empty}개 있어요. 그래도 채점할까요?`)) return;
   const items = {}, ans = {};
   R.qs.forEach(q => { const res = {}; Object.keys(q.bl).forEach(k => { const v = $app.querySelector(`input[data-id="${q.id + k}"]`).value; res[k] = finOk(q, k, v); items[q.id + k] = res[k] ? 1 : 0; ans[q.id + k] = v; }); finFeedback(q, res, false); });
-  $app.querySelectorAll('input').forEach(x => x.disabled = true);
+  $app.querySelectorAll('input').forEach(x => x.disabled = true); $app.querySelectorAll('[data-gl]').forEach(x => x.disabled = true);
   const score = finScore(R, items), passed = score >= finPass();
-  const tu = u + '-test', d = data(tu), list = (d.attempts || []).concat([{ at: Date.now(), set, score, passed, items, ans, seed }]).slice(-12);
+  const tu = u + '-test', d = data(tu), list = (d.attempts || []).concat([{ at: Date.now(), set, score, passed, items, ans, seed, gl: finGl() ? 1 : 0 }]).slice(-12);
   const best = [d.best, { score }].filter(Boolean).sort((a, b) => b.score - a.score)[0];
   const nd = Object.assign({}, d, { attempts: list, best, passed: !!d.passed || passed });
   const g = document.getElementById('grade'); g.disabled = true; g.textContent = '저장하는 중…';
