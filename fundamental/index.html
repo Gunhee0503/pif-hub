@@ -663,6 +663,9 @@ body {
 .bc-cta .bc-t{font-weight:800;font-size:15.5px;letter-spacing:-.2px}
 .bc-cta .bc-s{font-size:12.5px;opacity:.82;margin-top:2px}
 .bc-cta .bc-go{margin-left:auto;font-size:22px;opacity:.8}
+.bc-k{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;padding:3px 7px;border-radius:99px;background:rgba(255,255,255,.18);vertical-align:2px}
+.bc-note{margin:2px 0 10px;padding:10px 12px;border-radius:12px;background:#eef1f7;color:#334155;font-size:13px;line-height:1.55}
+.bc-note b{color:#1e293b}
 .bc-mini{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:8px 12px;border-radius:11px;background:#e6f3ef;color:#0B6E62;font-weight:800;font-size:13.5px;text-decoration:none;border:1px solid #b9ddd2}
 .report-cta {
   display: flex;
@@ -1539,17 +1542,18 @@ body {
     <div class="user-badge" id="user-badge"></div>
     <div class="home-heading-row">
       <div>
-        <div class="section-title">STEP 1</div>
-        <div class="section-heading">강의를 선택하세요</div>
+        <div class="section-title">PRACTICE · 연습장</div>
+        <div class="section-heading">연습할 Lesson을 고르세요</div>
       </div>
       <button class="info-btn" onclick="showCompletionGuide()" aria-label="완료 기준 안내">
         <span class="info-icon">ℹ️</span>
         <span class="info-text">완료 기준</span>
       </button>
     </div>
+    <div class="bc-note hidden" id="bc-note">이 앱은 <b>배운 단어를 바로 풀어 보는 연습장</b>이에요. 개념 강의는 BASE CAMP에서 들어요.</div>
     <a class="bc-cta hidden" id="bc-cta" href="/ydvoca/">
       <span class="bc-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6 3 20h18L12 6z"/><path d="M12 6v14M9.5 20 12 15l2.5 5"/><path d="M12 3l4 1.5L12 6"/></svg></span>
-      <span><div class="bc-t">어휘요약문 BASE CAMP</div><div class="bc-s">강의 영상 · 리뷰 테스트 · 요약문 서술형</div></span>
+      <span><div class="bc-t">어휘요약문 BASE CAMP <span class="bc-k">강의실</span></div><div class="bc-s">개념 영상 · 교재로 제대로 배우고, 리뷰 테스트로 통과</div></span>
       <span class="bc-go">›</span>
     </a>
     <div class="lesson-grid" id="lesson-grid"></div>
@@ -3032,7 +3036,7 @@ function init() {
   }
   else showScreen('screen-login');
   // 반 코스가 바뀌었을 수 있으니 서버 기준으로 BASE CAMP 바로가기 다시 확인
-  try { if (window.VT && VT.access) VT.access().then(function () { var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bl = $('bc-lesson'); if (bl) bl.classList.toggle('hidden', !hasBaseCamp()); }).catch(function () {}); } catch (e) {}
+  try { if (window.VT && VT.access) VT.access().then(function () { var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp()); var bl = $('bc-lesson'); if (bl) bl.classList.toggle('hidden', !hasBaseCamp()); }).catch(function () {}); } catch (e) {}
 }
 
 // Lesson 카드 렌더링 (완료 상태 뱃지 포함, 매번 호출 가능)
@@ -3081,7 +3085,7 @@ function showHome() {
     <button class="logout" onclick="logoutStudent()">로그아웃</button>
   `;
   showScreen('screen-home');
-  var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp());
+  var bc = $('bc-cta'); if (bc) bc.classList.toggle('hidden', !hasBaseCamp()); var bn = $('bc-note'); if (bn) bn.classList.toggle('hidden', !hasBaseCamp());
   // Lesson 카드 다시 렌더링 (완료 뱃지 업데이트)
   renderLessonGrid();
   // 리포트 버튼 상태 업데이트 (4개 Lesson 완료 여부 체크)
@@ -3102,7 +3106,7 @@ function selectLesson(key) {
   }
   // 어휘요약문 BASE CAMP 같은 강 바로가기
   var bl = $('bc-lesson'), n = String(key).replace('lesson', '');
-  if (bl) { bl.classList.toggle('hidden', !hasBaseCamp()); bl.href = '/ydvoca/#/f' + n; $('bc-lesson-t').textContent = n + '강 어휘요약문 BASE CAMP'; }
+  if (bl) { bl.classList.toggle('hidden', !hasBaseCamp()); bl.href = '/ydvoca/#/f' + n; $('bc-lesson-t').textContent = n + '강 강의 다시 듣기 · BASE CAMP'; }
   // 각 Part의 완료 상태 뱃지 업데이트
   updatePartStatusBadges(key);
   // 강의 선택 시 먼저 개념 요약 화면으로

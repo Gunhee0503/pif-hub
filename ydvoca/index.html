@@ -59,6 +59,19 @@ body{background:var(--paper)}
 .b{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 14px;font-size:14px;font-weight:700;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
 .b.main{background:var(--dk);border-color:var(--dk);color:#fff} .b.or{background:var(--or);border-color:var(--or);color:#fff}
 .b:disabled{opacity:.5}
+.role{margin-left:auto;font:700 10.5px/1 var(--en);letter-spacing:.08em;padding:5px 8px;border-radius:99px;white-space:nowrap}
+.role.learn{background:var(--mint2);color:var(--tl)} .role.practice{background:#e7ebf3;color:#1e293b} .role.check{background:var(--orbg);color:var(--or)} .role.apply{background:#eef2f0;color:#56615d}
+.card.practice{border-color:#c9d1e0;background:#f7f9fc}
+.dual{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 12px}
+.dual .dc{border-radius:14px;padding:13px 14px;font-size:12.5px;line-height:1.55;color:var(--ink2)}
+.dual .dc b{display:flex;align-items:center;gap:7px;font-size:14px;color:var(--ink);margin-bottom:4px}
+.dual .dc.bc{background:var(--mint2)} .dual .dc.app{background:#eef1f7}
+.dual .dc img{width:22px;height:22px;border-radius:6px}
+.dual .k{display:inline-block;font:700 10.5px/1 var(--en);letter-spacing:.08em;padding:4px 7px;border-radius:99px;margin-left:auto}
+.dual .bc .k{background:#fff;color:var(--tl)} .dual .app .k{background:#fff;color:#1e293b}
+.flow{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:12.5px;font-weight:700;color:var(--ink2);margin:2px 0 12px}
+.flow span{background:#fff;border:1px solid var(--line);border-radius:99px;padding:5px 10px} .flow i{font-style:normal;color:#9aa5a1}
+@media (max-width:520px){.dual{grid-template-columns:1fr}}
 .b .ic{flex:none} .b.pdf{border-color:var(--tl);color:var(--tl)}
 .b.app{background:#1e293b;border-color:#1e293b;color:#fff;padding:7px 12px 7px 7px}
 .b.app .ai{width:26px;height:26px;border-radius:7px;flex:none;background:#fff}
@@ -148,7 +161,9 @@ function home(){
   $app.innerHTML = `<div class="hero"><div class="rings"></div><div class="e">VOCA · SUMMARY ROADMAP</div>
     <h1>어휘요약문 로드맵</h1><p>어원으로 단어를 잡고(보카트리) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
     <div class="steps"><span><b>STEP 1</b>BASE CAMP · ${done}/4 통과</span><span><b>STEP 2</b>온더웨이 On the Way</span><span><b>STEP 3</b>피날레 Finale</span></div></div>
-    <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>보카트리 Fundamental 1~4강 기반 · 강마다 영상 → 교재 → 리뷰 테스트 → 요약문(선택)</span></div>
+    <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>강의실 · 보카트리 Fundamental 1~4강을 강의로 제대로 배우는 곳</span></div>
+    <div class="dual"><div class="dc bc"><b>⛺ BASE CAMP<span class="k">강의실</span></b>개념 영상과 교재로 <b style="display:inline;font-size:inherit">제대로 배우고</b>, 리뷰 테스트로 강을 통과해요.</div>${VT.allowed('fundamental') ? `<div class="dc app"><b><img class="ai" src="/fundamental/icon-192.png" alt="">Fundamental 앱<span class="k">연습장</span></b>배운 단어를 <b style="display:inline;font-size:inherit">바로 풀어 보는</b> 곳. 언제든 가볍게 반복해요.</div>` : ''}</div>
+    <div class="flow"><span>① 배우기 · BASE CAMP</span><i>→</i>${VT.allowed('fundamental') ? '<span>② 바로 풀어보기 · 앱</span><i>→</i>' : ''}<span>${VT.allowed('fundamental') ? '③' : '②'} 통과 확인 · 리뷰 테스트</span></div>
     <div class="grid">${lc}</div>
     <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="yd-book" data-name="보카트리_Fundamental_개정판_전체"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>교재 전체 PDF</button>${VT.allowed('fundamental') ? '<a class="b app" href="/fundamental/"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱 바로가기</span><span class="go">›</span></a>' : ''}</div>
     <div class="sec"><b>STEP 2 · ON THE WAY</b><span>시험 범위 자투리 어휘</span></div>
@@ -195,21 +210,27 @@ function mark(l, k, pct){
 function lesson(l){
   const s = stat(l), t = data(l.id + '-test'), last = (t.attempts || []).slice(-1)[0], paper = (t.paper || []).slice(-1)[0];
   const best = t.best;
-  const testCard = `<div class="card"><h2><span class="no">03</span>리뷰 테스트</h2>
-    <p class="d">A 필수 10 · B 적용 10 · C 확장 10 = 30점, ★ 도전 5문항은 보너스예요. <b>A 9개 이상 · B 7개 이상</b>이면 통과! 재시험은 B 문장이 바뀌고 A·C 보기 순서가 섞여요.</p>
+  const APP = VT.allowed('fundamental');
+  let k = 0; const N = () => String(++k).padStart(2, '0');
+  const videoCard = `<div class="card"><h2><span class="no">${N()}</span>개념 영상<span class="role learn">LEARN · 배우기</span></h2><p class="d">규칙 한 쪽과 핵심 단어, 한 단어 두 얼굴(ONE WORD)까지. 끝까지 보면 시청 완료로 기록돼요.</p>${videoBlock(l, 'c')}</div>`;
+  const bookCard = `<div class="card"><h2><span class="no">${N()}</span>교재<span class="role learn">LEARN · 배우기</span></h2><p class="d">교재 ${l.pages[0]}~${l.pages[1]}쪽. 영상을 보며 같이 펼쳐 두면 좋아요. 인쇄해서 써도 돼요.</p>
+      <div class="row"><button class="b pdf" data-dl="yd-${l.id}" data-name="보카트리_Fundamental_${+l.no}강"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>${+l.no}강 교재 PDF</button></div></div>`;
+  const appCard = APP ? `<div class="card practice"><h2><span class="no" style="background:#1e293b">${N()}</span>바로 풀어보기<span class="role practice">PRACTICE · 연습</span></h2>
+      <p class="d">보카트리 Fundamental 앱은 <b>배운 단어를 바로 풀어 보는 연습장</b>이에요. 어휘 추리력 · 단어 브릿지 · 예문 빈칸을 몇 번이고 다시 풀 수 있어요. 앱 점수는 연습 기록이고, 강 통과는 다음 리뷰 테스트로 정해져요.</p>
+      <div class="row"><a class="b app" href="/fundamental/?lesson=lesson${+l.no}"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱 바로가기</span><span class="go">›</span></a></div></div>` : '';
+  const testCard = `<div class="card"><h2><span class="no">${N()}</span>리뷰 테스트<span class="role check">CHECK · 통과 확인</span></h2>
+    <p class="d">이 강을 제대로 배웠는지 확인하는 시험이에요. A 필수 10 · B 적용 10 · C 확장 10 = 30점, ★ 도전 5문항은 보너스예요. <b>A 9개 이상 · B 7개 이상</b>이면 통과! 재시험은 B 문장이 바뀌고 A·C 보기 순서가 섞여요.</p>
     ${best ? `<div class="res"><div><i>A 필수</i><b>${best.A}</b>/10</div><div><i>B 적용</i><b>${best.B}</b>/10</div><div><i>C 확장</i><b>${best.C}</b>/10</div><div class="x"><i>★ 보너스</i><b>${best.X}</b>/5</div></div>` : ''}
     ${s.passed ? '<div class="banner ok">통과했어요! 틀린 문제는 결과 화면에서 다시 확인해 보세요.</div>' : s.attempts ? '<div class="banner no">아직 통과 전이에요. 재시험으로 다시 도전해 보세요.</div>' : ''}
     ${paper ? `<div class="note" style="margin-bottom:10px">종이 시험 기록 · A ${paper.A} · B ${paper.B} · C ${paper.C} (${new Date(paper.at).toLocaleDateString('ko-KR')})</div>` : ''}
     <div class="row"><a class="b main" href="#/${l.id}/test">${(t.attempts || []).length ? '1차 시험 다시 보기' : '시험 보기'}</a>${(t.attempts || []).length || paper ? `<a class="b or" href="#/${l.id}/retest">재시험 (B 다른 문장)</a>` : ''}${last ? `<a class="b" href="#/${l.id}/result">지난 결과 보기</a>` : ''}</div></div>`;
-  $app.innerHTML = `<div class="top"><button onclick="location.hash='#/'">‹ 로드맵</button><div class="t">LESSON ${l.no}</div></div>
-    <div class="hero" style="padding:20px 22px"><div class="rings"></div><div class="e">어휘요약문 BASE CAMP · ${l.no}</div><h1>${esc(l.title)}</h1><p>${esc(l.sub)}</p></div>
-    <div class="card"><h2><span class="no">01</span>개념 영상</h2><p class="d">규칙 한 쪽과 핵심 단어, 한 단어 두 얼굴(ONE WORD)까지. 끝까지 보면 시청 완료로 기록돼요.</p>${videoBlock(l, 'c')}</div>
-    <div class="card"><h2><span class="no">02</span>교재 · 단어</h2><p class="d">교재 ${l.pages[0]}~${l.pages[1]}쪽. 인쇄해서 쓰거나 화면으로 보세요. 단어 문제는 보카트리 Fundamental 앱에서 같은 강을 풀어요.</p>
-      <div class="row"><button class="b pdf" data-dl="yd-${l.id}" data-name="보카트리_Fundamental_${+l.no}강"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>${+l.no}강 교재 PDF</button>${VT.allowed('fundamental') ? `<a class="b app" href="/fundamental/?lesson=lesson${+l.no}"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱 바로가기</span><span class="go">›</span></a>` : ''}</div></div>
-    ${testCard}
-    <div class="card"><h2><span class="no">04</span>요약문 서술형 <span class="pill">선택 · 점수 없음</span></h2>
+  const sumCard = `<div class="card"><h2><span class="no">${N()}</span>요약문 서술형<span class="role apply">APPLY · 실전 · 선택</span></h2>
       <p class="d">내신 요약문 서술형은 처음엔 어려울 수 있어요. 점수에 들어가지 않으니 해설 영상을 보고, 힌트를 열어 가며 천천히 풀어 보세요.</p>
       <div class="row"><a class="b main" href="#/${l.id}/sum">요약문 연습 (${s.tries}/${s.nq})</a></div></div>`;
+  $app.innerHTML = `<div class="top"><button onclick="location.hash='#/'">‹ 로드맵</button><div class="t">LESSON ${l.no}</div></div>
+    <div class="hero" style="padding:20px 22px"><div class="rings"></div><div class="e">어휘요약문 BASE CAMP · ${l.no}</div><h1>${esc(l.title)}</h1><p>${esc(l.sub)}</p></div>
+    <div class="flow" style="margin-top:12px"><span>배우기</span><i>→</i>${APP ? '<span>바로 풀어보기</span><i>→</i>' : ''}<span>통과 확인</span><i>→</i><span>실전 (선택)</span></div>
+    ${videoCard}${bookCard}${appCard}${testCard}${sumCard}`;
   bindDl(); mountVideos();
 }
 /* ---------- 리뷰 테스트 ---------- */
@@ -222,7 +243,7 @@ function startTest(l, set){
   T = { l, set, seed, A: tt.A.map(q => set === 're' ? shuffled(q.o.length, r) : [0, 1, 2, 3]), bank: set === 're' ? shuffled(tt.bank.length, r) : [...tt.bank.keys()] };
   const B1 = set === 're' ? tt.R1 : tt.B1, B2 = set === 're' ? tt.R2 : tt.B2;
   const st = (k, c, title, dd, sc) => `<div class="st" style="--c:${c}"><span class="k">${k}</span><span class="tt">${title}</span><span class="dd">${dd}</span><span style="margin-left:auto;font:500 14px var(--en);color:${c}">${sc}</span></div>`;
-  let h = `<div class="top"><button onclick="if(confirm('시험을 그만둘까요? 쓴 답은 저장되지 않아요.'))location.hash='#/${l.id}'">‹ 그만두기</button><div class="t">LESSON ${l.no} · ${set === 're' ? '재시험' : '리뷰 테스트'}</div></div>
+  let h = `<div class="top"><button onclick="if(confirm('저장하지 않고 나갈까요? 지금까지 쓴 답은 저장되지 않아요.'))location.hash='#/${l.id}'">‹ 저장하지 않고 나가기</button><div class="t">LESSON ${l.no} · ${set === 're' ? '재시험' : '리뷰 테스트'}</div></div>
     <div class="note"><b>통과 기준</b> A 9개 이상 · B 7개 이상. 해석 없이 조각 힌트만 보고 풀어요. 다 풀면 맨 아래 <b>채점하기</b>를 누르세요.</div>`;
   h += st('A', 'var(--tl)', '필수 · 뜻 고르기', '교재 ★필수 단어', '/ 10');
   h += tt.A.map((q, i) => `<div class="q" style="--c:var(--tl)" data-q="A${i}"><span class="qn">${pad(i + 1)}</span><span class="s">${mk(q.s)}</span><span class="hint">${esc(q.hint)}</span>
