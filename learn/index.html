@@ -110,6 +110,14 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
 @media(max-width:699px){.course.syn .stx{max-width:none}.course.syn .sart{position:relative;width:auto;height:190px;margin:-22px -22px 14px;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}}
 @media(min-width:700px){.wide{display:grid;grid-template-columns:1.1fr 1fr;gap:10px 28px;align-items:center}.wide .foot{grid-column:2;grid-row:1/4}}
 
+.mapcard{display:grid;grid-template-columns:118px 1fr auto;gap:14px;align-items:center;width:100%;max-width:640px;padding:10px 16px 10px 10px;margin:0 0 30px;border:0;border-radius:18px;background:#fff;color:inherit;text-align:left;box-shadow:0 10px 40px -20px rgba(0,0,0,.18);cursor:pointer;font:inherit;border-left:5px solid #0B6E62}
+.mapcard img{width:118px;height:118px;object-fit:cover;object-position:50% 20%;border-radius:12px;background:#EFEFEC}
+.mapcard .mk{font-size:11px;font-weight:800;letter-spacing:.12em;color:#0B6E62}
+.mapcard b{display:block;font-size:17px;font-weight:800;margin:3px 0 4px}
+.mapcard small{display:block;font-size:12.5px;line-height:1.5;opacity:.75}
+.mapcard .new{display:inline-block;margin-left:6px;font-size:10.5px;font-weight:800;color:#fff;background:#d2416b;border-radius:99px;padding:2px 7px;vertical-align:2px}
+.mapcard .go{font-size:13px;font-weight:800;color:#0B6E62;white-space:nowrap}
+@media (max-width:520px){.mapcard{grid-template-columns:92px 1fr}.mapcard img{width:92px;height:92px}.mapcard .go{display:none}}
 /* 어휘 로드맵 지도 (두 갈래 길) */
 .mapstrip{display:flex;align-items:center;gap:12px;width:100%;max-width:460px;min-height:56px;padding:8px 14px 8px 10px;margin:0 0 14px;border:0;border-radius:16px;background:#fff;color:inherit;text-align:left;box-shadow:0 10px 40px -20px rgba(0,0,0,.18);cursor:pointer;font:inherit}
 .mapstrip .mi{width:40px;height:40px;border-radius:11px;flex:none;background:#163A32;display:flex;align-items:center;justify-content:center}
@@ -180,7 +188,12 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
     <div class="gb"><button data-t="g">과제 검사 기준</button><button data-t="n">어휘 정리 노트 작성법</button><button data-t="r">교재 로드맵</button></div>
   </div>
 
-  <button class="mapstrip" type="button" onclick="document.getElementById('mapOv').hidden=false"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 10-6 10-12V3"/><path d="M17 21c0-5-6-6-8-9" stroke="#7FC4B0"/></svg></span><span class="mt"><b>어휘 로드맵 지도</b><small>보카트리 앱 로드맵 · 어휘요약문 로드맵 한눈에 보기</small></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()">
+    <img src="/img/roadmap-two-paths-thumb.webp" alt="" width="118" height="118">
+    <span><span class="mk">VOCA ROADMAP MAP</span><b>어휘 로드맵 지도<span class="new" id="mapNew">NEW</span></b><small>보카트리 앱 로드맵과 어휘요약문 로드맵, 어디가 같고 어디서 갈라질까? 내게 맞는 길을 확인해 보세요.</small></span>
+    <span class="go">지도 보기 ›</span>
+  </button>
+  <script>try{if(localStorage.getItem('vt_map_seen'))document.getElementById('mapNew').remove()}catch(e){}</script>
   <div class="mapov" id="mapOv" hidden onclick="if(event.target===this)this.hidden=true"><button type="button" aria-label="닫기" onclick="document.getElementById('mapOv').hidden=true">×</button><img src="/img/roadmap-two-paths.webp" alt="어휘 로드맵 지도: 보카트리 Fundamental 1~4강에서 출발해 어휘요약문 로드맵(BASE CAMP·온더웨이·피날레)과 보카트리 앱 로드맵(Fundamental·Essential·Spectrum)으로 갈라지는 두 갈래 길" loading="lazy"></div>
   <div class="grp"><b>보카트리 앱 로드맵 · VocaTree</b><span>Fundamental › Essential › Spectrum · 문제풀이 트레이닝으로 어휘 기본기</span></div>
   <div class="grid" id="vocab"></div>

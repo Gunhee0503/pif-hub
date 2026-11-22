@@ -666,6 +666,11 @@ body {
 .bc-k{display:inline-block;margin-left:6px;font-size:11px;font-weight:800;padding:3px 7px;border-radius:99px;background:rgba(255,255,255,.18);vertical-align:2px}
 .bc-note{margin:2px 0 10px;padding:10px 12px;border-radius:12px;background:#eef1f7;color:#334155;font-size:13px;line-height:1.55}
 .bc-note b{color:#1e293b}
+.bc-map{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 10px;border-radius:9px;border:1px solid #c9d1e0;background:#fff;color:#1e293b;font-weight:800;font-size:12.5px;cursor:pointer}
+.mapov{position:fixed;inset:0;z-index:1000;background:rgba(12,20,18,.82);display:flex;justify-content:center;overflow:auto;padding:56px 12px 24px}
+.mapov.hidden{display:none !important}
+.mapov img{width:100%;max-width:700px;height:auto;border-radius:14px;align-self:flex-start}
+.mapov .x{position:fixed;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:22px;line-height:1;cursor:pointer}
 .bc-mini{display:inline-flex;align-items:center;gap:7px;margin-top:10px;padding:8px 12px;border-radius:11px;background:#e6f3ef;color:#0B6E62;font-weight:800;font-size:13.5px;text-decoration:none;border:1px solid #b9ddd2}
 .report-cta {
   display: flex;
@@ -1550,7 +1555,8 @@ body {
         <span class="info-text">완료 기준</span>
       </button>
     </div>
-    <div class="bc-note hidden" id="bc-note"><b>보카트리 앱 로드맵</b>(Fundamental › Essential › Spectrum)의 첫 단계예요. 문제풀이 트레이닝으로 어휘 기본기를 다져요.</div>
+    <div class="bc-note hidden" id="bc-note"><b>보카트리 앱 로드맵</b>(Fundamental › Essential › Spectrum)의 첫 단계예요. 문제풀이 트레이닝으로 어휘 기본기를 다져요.<br><button type="button" class="bc-map" onclick="document.getElementById('mapOv').classList.remove('hidden')">🗺 어휘 로드맵 지도 보기</button></div>
+    <div class="mapov hidden" id="mapOv" onclick="if(event.target===this)this.classList.add('hidden')"><button type="button" class="x" aria-label="닫기" onclick="document.getElementById('mapOv').classList.add('hidden')">×</button><img src="/img/roadmap-two-paths.webp" alt="어휘 로드맵 지도" loading="lazy"></div>
     <a class="bc-cta hidden" id="bc-cta" href="/ydvoca/">
       <span class="bc-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 6 3 20h18L12 6z"/><path d="M12 6v14M9.5 20 12 15l2.5 5"/><path d="M12 3l4 1.5L12 6"/></svg></span>
       <span><div class="bc-t">BASE CAMP · 강의 <span class="bc-k">어휘요약문 로드맵</span></div><div class="bc-s">영상강의 온라인 학습실 · 같은 1~4강을 강의로 들어요</div></span>
