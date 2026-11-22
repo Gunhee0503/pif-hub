@@ -192,6 +192,8 @@ tr.top:hover td{background:#e6f5ea}tr.low:hover td{background:#fbe5e5}
 <script src="/grammar/data.js"></script>
 <script src="/firstbutton/data.js"></script>
 <script src="/ydvoca/data.js"></script>
+<script src="/ydvoca/otw.js"></script>
+<script src="/admin/otw-admin.js"></script>
 <script>
 'use strict';
 const SB = VT.sb, $ = id => document.getElementById(id);
@@ -620,6 +622,7 @@ async function openStudent(sid){
         <td>${vd.c ? (vd.c.done ? '개념 ✓' : `개념 ${vd.c.pct}%`) : '<span class="muted">개념 –</span>'} ${vd.s ? (vd.s.done ? '· 해설 ✓' : `· 해설 ${vd.s.pct}%`) : ''}</td>
         <td>${tr}/${nq}</td><td class="muted">${t ? ago(t.updated_at) : '—'}</td></tr>`; }).join('')}</table></div>`;
   }
+  if (has('ydvoca') || rows.some(r => r.course === 'ydvoca' && /^s\d+d\d/.test(r.unit_id))) h += otwStudentH(rows);
   // Fundamental
   const fr = rows.filter(r => r.course === 'fundamental' && r.unit_id !== 'state').sort((a,b) => a.unit_id.localeCompare(b.unit_id));
   h += `<div class="sec" style="--c:var(--fund)"><h3><i></i>Fundamental</h3>`;
@@ -812,7 +815,10 @@ async function renderYD(){
   h += list.length ? `<div class="tw"><table><tr><th>강</th><th>문항</th><th>문제</th><th>응시</th><th>오답률</th><th></th></tr>${list.slice(0, 40).map(x => { const rate = Math.round(x.w / x.n * 100);
       return `<tr><td>${x.l.no}강</td><td><b>${x.id}</b></td><td style="max-width:420px">${esc(ydItemText(x.l, x.id))}</td><td class="num">${x.n}</td><td class="num"><b style="color:${rate >= 60 ? 'var(--bad)' : rate >= 40 ? '#b07a22' : 'inherit'}">${rate}%</b></td>
         <td>${x.n >= 5 && rate >= 60 && x.id[0] !== 'X' ? '<span class="warn" style="margin:0">도전 이동 검토</span>' : ''}</td></tr>`; }).join('')}</table></div>` : '<div class="empty">아직 앱 응시 기록이 없어요.</div>';
+  const cObj = cls.find(c => c.code === YD_F.cls) || {};
+  if ((cObj.courses || []).includes('ydvoca') || S.some(s => (coursesOf(s) || []).includes('ydvoca'))) h += otwAdminH(S.filter(s => (coursesOf(s) || []).includes('ydvoca') || (cObj.courses || []).includes('ydvoca')), per);
   $('body').innerHTML = h + ydVideoH();
+  otwAdminBind();
   $('ydCls').onchange = e => { YD_F.cls = e.target.value; localStorage.setItem('pifhub_admin_ydcls', YD_F.cls); renderYD(); };
   $('ydRe').onclick = () => load();
   document.querySelectorAll('[data-paper]').forEach(b => b.onclick = () => ydPaper(D.students.find(x => x.id === b.dataset.paper)));
@@ -839,7 +845,9 @@ function ydVideoH(){
     <div class="note" style="margin:0 0 12px">강마다 개념 강의와 요약문 해설 강의를 따로 넣어요. 유튜브 링크를 붙여 넣고 저장하면 학생 화면에 바로 나와요(일부 공개 영상도 됩니다). 장면별 시작 시간은 한 줄에 하나씩 <b>0:00 규칙</b>처럼 적어요.</div>
     <div class="tw"><table id="ydV"><tr><th>강</th><th>종류</th><th>유튜브 링크</th><th>장면별 시작 시간</th><th></th></tr>${YDL.flatMap(l => [['concept', '개념 강의'], ['summary', '요약문 해설']].map(([k, t]) =>
       `<tr><td><b>${l.no}</b> ${esc(l.title)}</td><td>${t}</td><td><input class="vin" data-u="${l.id}-${k}" style="width:100%;min-width:200px" placeholder="https://youtu.be/…"></td>
-       <td><textarea class="vch" data-u="${l.id}-${k}" rows="2" style="width:100%;min-width:180px;font:inherit;font-size:12.5px" placeholder="0:00 규칙"></textarea></td><td><button class="btn sm" data-ysave="${l.id}-${k}">저장</button></td></tr>`)).join('')}</table></div>`;
+       <td><textarea class="vch" data-u="${l.id}-${k}" rows="2" style="width:100%;min-width:180px;font:inherit;font-size:12.5px" placeholder="0:00 규칙"></textarea></td><td><button class="btn sm" data-ysave="${l.id}-${k}">저장</button></td></tr>`)).join('')}${OTWA.length ? OTWA[0].days.map(D => { const u = 'otw-' + OTWA[0].id + 'd' + D.d;
+      return `<tr><td><b>온더웨이</b> Day ${String(D.d).padStart(2, '0')}</td><td>해설 영상 <span class="muted">(선택)</span></td><td><input class="vin" data-u="${u}" style="width:100%;min-width:200px" placeholder="비워 두면 영상 칸이 안 보여요"></td>
+       <td><textarea class="vch" data-u="${u}" rows="2" style="width:100%;min-width:180px;font:inherit;font-size:12.5px"></textarea></td><td><button class="btn sm" data-ysave="${u}">저장</button></td></tr>`; }).join('') : ''}</table></div>`;
 }
 async function bindYdVideo(){
   const r = await SB.from('hub_videos').select('*').eq('course', 'ydvoca');
@@ -936,6 +944,7 @@ function buildFacts(s, rows, syn, ai, p){
       (d.attempts || []).forEach(a => mark(a.at));
       const inp = (d.attempts || []).filter(a => inP(a.at, p));
       return { 강: `${l.no}강 ${l.title}`, 통과: !!d.passed, 최고점: d.best ? `A ${d.best.A} · B ${d.best.B} · C ${d.best.C} (${d.best.total}/30)` : '미응시', 기간내_응시: inp.map(a => `${a.set === 're' ? '재시험' : '1차'} A${a.A} B${a.B} C${a.C}${a.passed ? ' 통과' : ''}`) }; });
+    if (has('ydvoca')) F.온더웨이 = otwReport(rows, inP, p, mark);
   }
   const last = all.sort().pop();
   F.활동 = { 기간내_학습한_날수: days.size, 마지막_학습일: last || '기록 없음', 기간내_AI피드백_사용: ai.filter(a => inP(a.created_at, p)).length };

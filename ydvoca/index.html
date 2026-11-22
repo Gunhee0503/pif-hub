@@ -16,6 +16,8 @@
 if (VT.gate(null) && !VT.allowed('ydvoca') && !VT.allowed('fundamental')) { location.replace('/learn/?locked=ydvoca'); document.documentElement.style.display = 'none'; }
 const FULL = VT.allowed('ydvoca');</script>
 <script src="data.js"></script>
+<script src="otw.js"></script>
+<script src="otw-app.js"></script>
 <style>
 :root{--dk:#163A32;--tl:#0B6E62;--mint:#D6EDE5;--mint2:#EEF7F3;--or:#B24A1E;--orbg:#FBEEE6;--cream:#F5F0E7;--en:'Oswald',var(--sans);
   --paper:#f4f6f5;--card:#fff;--line:#d7e3de;--ink:#1C2B27;--ink2:#56615D}
@@ -133,6 +135,38 @@ select.pick.ok{border-color:var(--tl);background:var(--mint2)} select.pick.bad{b
 .mapov[hidden]{display:none}
 .mapov img{width:100%;max-width:700px;height:auto;border-radius:14px;align-self:flex-start;box-shadow:0 20px 60px rgba(0,0,0,.4)}
 .mapov button{position:fixed;top:12px;right:12px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;font-size:22px;line-height:1;cursor:pointer}
+/* ON THE WAY */
+.dual .dc.otwc{background:var(--orbg)} .dual .otwc .k{background:#fff;color:var(--or)}
+.otabs{display:flex;gap:6px;margin:0 0 10px;flex-wrap:wrap;position:sticky;top:0;z-index:5;background:var(--paper);padding:6px 0}
+.otabs button,.otabs a{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 13px;font:600 13px var(--sans);color:var(--ink2);text-decoration:none}
+.otabs .on{background:var(--dk);border-color:var(--dk);color:#fff} .grid.otwg{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+@media(max-width:520px){.otabs small{display:none}} .otabs small{font-weight:500;opacity:.75;margin-left:3px} .otabs button:disabled{opacity:.55}
+.lc.otw .n{font:500 26px/1 var(--en);color:var(--or);letter-spacing:.04em}
+.lc .bar,.pps .g{display:block;height:6px;border-radius:99px;background:#eef2f0;overflow:hidden;margin-top:8px} .lc .bar i,.pps .g i{display:block;height:100%;background:var(--tl)}
+.pps{display:grid;gap:6px} .pps .pp{display:grid;grid-template-columns:64px 1fr 1.2fr auto;align-items:center;gap:10px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;text-decoration:none;color:var(--ink)}
+.pps .pp .k{font:600 12px var(--en);letter-spacing:.12em;color:var(--or)} .pps .pp .t{font-weight:800;font-size:14px} .pps .pp .g{margin:0} .pps .pp .c{font:500 13px var(--en);color:var(--ink2)} .pps .pp em{font-style:normal;color:var(--or)}
+@media(max-width:520px){.pps .pp{grid-template-columns:56px 1fr auto}.pps .pp .g{display:none}}
+.otwh{background:#1E3F2E} .otwh .e{color:#F2C79A}
+.oq{padding:12px 0;border-bottom:1px solid var(--line)}
+.oq .no{font:500 15px/1 var(--en);color:#fff;background:var(--dk);border-radius:6px;padding:4px 7px;margin-right:8px;display:inline-block;min-width:26px;text-align:center}
+.o1 .src{display:flex;align-items:flex-start;gap:4px;font-size:15.5px;line-height:2}
+.o1 .src .s{flex:1} .o1 .lab{font-size:11px;font-weight:800;color:#fff;border-radius:99px;padding:3px 9px;margin-top:6px;white-space:nowrap} .o1 .lab.ant{background:var(--or)} .o1 .lab.syn{background:var(--tl)}
+.o1 .alts{margin:4px 0 0 40px;font-size:13.5px;line-height:1.7;color:var(--ink2)} .o1 .alts div:before{content:'➜ ';color:var(--or)} .o1 .alts b{color:var(--ink);border-bottom:2px solid var(--or)}
+.o1 .alts .nt{font-size:12px;color:#7b8783} .o1 .alts .nt:before{content:'· '}
+.o2{display:flex;gap:4px;align-items:flex-start} .o2 .c{flex:1} .o2 .no{margin-top:5px} .o2 .en{font-size:15.5px;line-height:2} .o2 .tag{font:600 10.5px var(--en);color:var(--tl);border:1px solid var(--tl);border-radius:4px;padding:1px 5px;letter-spacing:.06em}
+.o2 .hint{font-weight:700;color:var(--or);margin-left:2px} .o2 .ko b{color:var(--ink);border-bottom:1.5px solid var(--or);font-weight:700}
+.oin{display:inline-flex;align-items:center;gap:4px;white-space:nowrap} .oin .ck{border:1px solid var(--line);background:#fff;border-radius:8px;padding:2px 8px;font-size:12px;font-weight:700;color:var(--tl)}
+.oin .blank{max-width:62vw}
+.fbx .fb{margin-left:40px} .o2 .fbx .fb{margin-left:0}
+.oex{margin:6px 0 0 40px;background:var(--cream);border-radius:12px;padding:10px 12px;font-size:13px;line-height:1.65}
+.oex i{font:600 11px var(--en);font-style:normal;letter-spacing:.1em;color:var(--or);display:inline-block;width:52px} .oex .tip{color:var(--ink2)}
+.ogh{display:flex;align-items:center;gap:8px;margin:18px 0 6px;font-size:12.5px;color:var(--ink2)} .ogh .chip{background:var(--dk);color:#fff;font-weight:700;border-radius:6px;padding:3px 8px;white-space:nowrap}
+.obogi{display:flex;flex-wrap:wrap;gap:6px;align-items:center;border:1.5px solid var(--dk);border-radius:12px;padding:8px 10px;background:#fff;margin-bottom:4px}
+.obogi .k{background:var(--or);color:#fff;font-weight:800;font-size:12px;border-radius:6px;padding:3px 8px} .obogi span:not(.k){font-weight:700;font-size:14px;padding:0 6px}
+.obogi.sm{margin-top:10px;padding:5px 8px} .obogi.sm span:not(.k){font-size:13px}
+.onote{margin:8px 0 4px;background:var(--cream);border-radius:12px;padding:8px 12px;font-size:13px;line-height:1.65}
+.onote summary{cursor:pointer;font-weight:800;color:var(--or)} .onote .h{font-weight:800;margin-top:6px} .onote .tr{display:grid;grid-template-columns:1fr 1fr;gap:10px} .onote hr{border:0;border-top:1px dashed var(--line)}
+.q b.gap{letter-spacing:.1em;color:var(--or)}
 </style>
 </head>
 <body>
@@ -177,11 +211,11 @@ function home(){
     <div class="dual" style="grid-template-columns:1fr"><div class="dc bc"><b>⛺ BASE CAMP · 강의<span class="k">영상강의 온라인 학습실</span></b>보카트리 Fundamental 1~4강을 영상강의로 듣고, 리뷰 테스트와 요약문 서술형으로 <b style="display:inline;font-size:inherit">내신 실전까지</b> 연결해요.</div></div>
         <div class="grid">${lc}</div>
     <div class="row" style="margin-top:10px"><button class="b pdf" data-dl="yd-book" data-name="보카트리_Fundamental_개정판_전체"><svg class="ic" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M12 11v6M9.5 14.5 12 17l2.5-2.5"/></svg>교재 전체 PDF</button>${VT.allowed('fundamental') ? '<a class="b app" href="/fundamental/"><img class="ai" src="/fundamental/icon-192.png" alt=""><span>보카트리 Fundamental 앱에서 연습하기</span><span class="go">›</span></a>' : ''}</div>
-    <div class="sec"><b>STEP 2 · ON THE WAY</b><span>시험 범위 자투리 어휘</span></div>
-    <div class="soon">${FULL ? '<b>Season 1 (1학기) · Season 2 (2학기)</b><br>자료를 정리하고 있어요. 열리면 이 자리에 Day별로 나타나요.' : '<b>🔒 내신 어휘요약문 반 전용</b><br>학교 시험 범위에 맞춘 단계라 내신반에서 열려요. BASE CAMP는 누구나 끝까지 할 수 있어요.'}</div>
+    <div class="sec"><b>STEP 2 · ON THE WAY</b><span>시험 범위 어휘 · 1등급으로 가는 하이패스</span></div>
+    ${otwHome()}
     <div class="sec"><b>STEP 3 · FINALE</b><span>요약문 어휘 완성</span></div>
     <div class="soon">${FULL ? '<b>Season 1 · Season 2</b><br>온더웨이 다음 단계예요. 준비되는 대로 열려요.' : '<b>🔒 내신 어휘요약문 반 전용</b><br>온더웨이 다음 단계예요.'}</div>`;
-  bindDl();
+  bindDl(); otwBindHome();
 }
 function bindDl(){ $app.querySelectorAll('[data-dl]').forEach(b => b.onclick = async () => { b.disabled = true; const t = b.innerHTML; b.textContent = '받는 중…';
   try { await VT.download(b.dataset.dl, 'student', b.dataset.name + '.pdf'); } catch(e){ toast(e.code === 'NO_FILE' ? '아직 준비 중인 자료예요.' : e.code === 'COURSE_LOCKED' ? '우리 반에서 열리지 않은 과정이에요.' : '내려받지 못했어요. 잠시 뒤 다시 해 주세요.'); }
@@ -360,6 +394,7 @@ function summary(l){
 function route(){
   const [, id, sub] = (location.hash || '#/').split('/'), l = L.find(x => x.id === id);
   Object.values(PLAYERS).forEach(p => { try { clearInterval(p._t); } catch(e){} });
+  if (id === 'otw') return otwRoute((location.hash || '').split('/').slice(2));
   if (!l) return home();
   if (sub === 'test') return startTest(l, 'main');
   if (sub === 'retest') return startTest(l, 're');

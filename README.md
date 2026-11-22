@@ -56,3 +56,11 @@ PIF영어 어휘·구문 학습 앱을 하나의 주소와 하나의 계정으�
 - 랜딩: 로드맵 섹션 + 학습 방법 아래 검사 기준 요약·노트 작성법(펼치기). 학생 홈: 상단 카드 → 모달(검사 기준 전체/노트/로드맵)
 - 교재 표지: `assets/books/*.webp` (교재선정 가이드 PDF에서 잘라냄)
 
+## 어휘요약문 로드맵 STEP 2 · 온더웨이 ON THE WAY (`/ydvoca/#/otw/s1/1`)
+- 어휘요약문 반(ydvoca) 전용. Season 1 Day 01~07, 잠금 없음. 영상 강의 없이 연습·리뷰 테스트·오답 중심 (관리자 '어휘요약문 로드맵' 탭 영상 표에서 Day별 해설 영상을 선택으로 붙일 수 있음, unit `otw-s1dN`)
+- 데이터: `ydvoca/otw.js` (window.OTW) — 교재 리마스터 데이터(final.json)와 Part 1 해설(expl.py)에서 `export_otw.py`로 생성. 앱 코드: `ydvoca/otw-app.js`, 관리자: `admin/otw-admin.js`
+- 진도: vt_progress course `ydvoca`, unit `s1d1-p`(연습: 문항별 맞음 1 / 틀림 0 — 연습·오답·앱 시험 결과 모두 반영, 오답 목록 = 0), `s1d1-test`(리뷰 테스트 attempts·best·passed·paper)
+- 채점: 직접 쓰기, 대소문자·띄어쓰기 무시, (ed)·(s) 어미는 붙여 써도 정답, Part 1은 앞글자 빼고 써도 정답
+- 통과: **Part 1 동의어·반의어 70% 이상(20문항 중 14개)**. 점수는 전체 맞은 개수 ÷ 문항 수 × 100. 재시험은 문항·묶음 순서를 섞음
+- 종이 시험: 관리자 → `vt_staff_otw_paper` RPC (Part별 맞은 개수·문항 수 → 100점 환산·통과 자동 계산)
+- 파일(`ydvoca/files/otw-*.bin`, AES-GCM, hub-file 함수가 풀어 줌): `otw-book` 교재, `otw-t1`~`t7` 리뷰 테스트지(학생도), `otw-a1`~`a7` 정답지(선생님만)
