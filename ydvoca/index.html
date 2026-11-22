@@ -159,9 +159,9 @@ function home(){
       <div class="ic"><span class="pill ${s.vc ? 'on' : ''}">영상${s.vc ? ' ✓' : ''}</span>${tp}<span class="pill ${s.tries ? 'on' : ''}">요약문 ${s.tries}/${s.nq}</span></div></a>`; }).join('');
   const done = L.filter(l => stat(l).passed).length;
   $app.innerHTML = `<div class="hero"><div class="rings"></div><div class="e">VOCA · SUMMARY ROADMAP</div>
-    <h1>어휘요약문 로드맵</h1><p>어원으로 단어를 잡고(보카트리) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
+    <h1>어휘요약문 로드맵</h1><p>어원으로 단어를 잡고(BASE CAMP) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
     <div class="steps"><span><b>STEP 1</b>BASE CAMP · ${done}/4 통과</span><span><b>STEP 2</b>온더웨이 On the Way</span><span><b>STEP 3</b>피날레 Finale</span></div></div>
-    <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>보카트리 Fundamental 1~4강을 강의로 듣고 배우는 곳</span></div>
+    <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>보카트리 Fundamental과 같은 교재(1~4강)를 강의로 듣고 배우는 곳</span></div>
     <div class="dual"><div class="dc bc"><b>⛺ BASE CAMP<span class="k">강의로 듣기</span></b>교재 대신 <b style="display:inline;font-size:inherit">영상 강의로 듣고</b> 배우고 싶은 학생을 위한 곳. 리뷰 테스트와 요약문까지 여기서 해요.</div>${VT.allowed('fundamental') ? `<div class="dc app"><b><img class="ai" src="/fundamental/icon-192.png" alt="">Fundamental 앱<span class="k">문제로 풀기</span></b><b style="display:inline;font-size:inherit">문제를 풀면서</b> 익히고 싶은 학생을 위한 곳. 어휘 추리력 · 단어 브릿지 · 예문 빈칸.</div>` : ''}</div>
     ${VT.allowed('fundamental') ? '<div class="note" style="margin:0 0 12px">둘은 <b>따로따로</b> 해도 돼요. 나에게 맞는 방식 하나만 해도 되고, 순서 상관없이 둘 다 해도 좋아요.</div>' : ''}
     <div class="grid">${lc}</div>

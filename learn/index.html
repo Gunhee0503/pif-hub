@@ -245,7 +245,7 @@ function render(rows){
   const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
   if (bcOpen) {
     const pass = ['f1','f2','f3','f4'].filter(l => rows.some(r => r.course === 'ydvoca' && r.unit_id === l + '-test' && r.completed)).length;
-    $('bcBox').innerHTML = `<a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">강의로 듣기</span><div><div class="lv">LISTEN · 보카트리 Fundamental 1~4강</div><h3>⛺ 어휘요약문 BASE CAMP</h3><div class="ko">교재 대신 강의로 듣고 배우는 곳</div>
+    $('bcBox').innerHTML = `<a class="course wide" href="/ydvoca/" style="--c:#0B6E62;margin:-6px 0 30px"><span class="tag">강의로 듣기</span><div><div class="lv">LISTEN · 보카트리 Fundamental 1~4강</div><h3>⛺ 어휘요약문 BASE CAMP</h3><div class="ko">보카트리 Fundamental과 같은 교재 · 강의로 듣고 배우는 곳</div>
       <p>개념 강의를 듣고 리뷰 테스트와 요약문까지. 문제로 푸는 보카트리 Fundamental 앱과는 따로따로 해도 돼요.</p></div>
       <div class="foot"><div class="bar"><i style="width:${pass / 4 * 100}%"></i></div><div class="stat"><span><b>${pass}</b> / 4 강 통과</span><span></span></div></div></a>`;
   } else $('bcBox').innerHTML = '';
