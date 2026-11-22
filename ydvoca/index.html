@@ -32,6 +32,7 @@ body{background:var(--paper)}
 .hero .e{font:500 12px/1 var(--en);letter-spacing:.28em;color:#A9D3C6}
 .hero h1{font:700 26px/1.3 var(--sans);margin:10px 0 6px;letter-spacing:-.02em}
 .hero p{margin:0;font-size:14px;line-height:1.65;color:#C9E3DA}
+.hero.olv{background:#55621F} .hero.olv .e{color:#DDE5A9} .hero.olv p{color:#ECEFD6}
 .hero .rings{position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;box-shadow:0 0 0 14px rgba(255,255,255,.04),0 0 0 32px rgba(255,255,255,.035),0 0 0 54px rgba(255,255,255,.03)}
 .steps{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
 .steps span{font-size:12.5px;padding:6px 11px;border-radius:99px;background:rgba(255,255,255,.1)}
@@ -224,8 +225,8 @@ function home(){
     return `<a class="lc" href="#/${l.id}"><div class="n">${l.no}</div><div class="tt">${esc(l.title)}</div><div class="s">${esc(l.sub)}</div>
       <div class="ic"><span class="pill ${s.vc ? 'on' : ''}">영상${s.vc ? ' ✓' : ''}</span>${tp}<span class="pill ${s.tries ? 'on' : ''}">요약문 ${s.tries}/${s.nq}</span></div></a>`; }).join('');
   const done = L.filter(l => stat(l).passed).length;
-  $app.innerHTML = `<div class="hero"><div class="rings"></div><div class="e">VOCA · SUMMARY ROADMAP</div>
-    <h1>어휘요약문 로드맵</h1><p>어원으로 단어를 잡고(BASE CAMP) → 시험 범위 어휘를 채우고(온더웨이) → 요약문 어휘로 마무리(피날레). 순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
+  $app.innerHTML = `<div class="hero olv"><div class="rings"></div><div class="e">VOCA · SUMMARY ROADMAP</div>
+    <h1>어휘요약문 로드맵</h1><p>① 핵심 어원 구축 (BASE CAMP) ② 동/반의어 어형변화 훈련 (온더웨이) ③ 요약문 실전완성 (피날레).<br>순서대로 하되, 필요한 단계는 언제든 열어 볼 수 있어요.</p>
     <div class="steps"><span><b>STEP 1</b>BASE CAMP · ${done}/4 통과</span><span><b>STEP 2</b>온더웨이 On the Way</span><span><b>STEP 3</b>피날레 Finale</span></div></div>
     ${FULL ? `<button class="mapstrip" type="button" onclick="document.getElementById('mapOv').hidden=false"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F5C518" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 21c0-6 10-6 10-12V3"/><path d="M17 21c0-5-6-6-8-9" stroke="#7FC4B0"/></svg></span><span class="mt"><b>어휘 로드맵 지도</b><small>보카트리 앱 로드맵 · 어휘요약문 로드맵 한눈에 보기</small></span><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#86868b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>` : ''}
     <div class="sec"><b>STEP 1 · 어휘요약문 BASE CAMP</b><span>보카트리 Fundamental 1~4강</span></div>
