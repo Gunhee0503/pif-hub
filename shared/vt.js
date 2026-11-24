@@ -15,7 +15,8 @@
     matching:    { name: 'Word Matching', ko: '어휘 매칭 훈련',  path: '/matching/',    prefixes: ['vtm_'], native: true },
     grammar:     { name: 'Grammar STEP',  ko: '문법 · 출제자의 시선', path: '/grammar/', prefixes: ['vtg_'], native: true },
     gfirst:      { name: 'Grammar 첫단추', ko: '문법 · 그래머 첫단추', path: '/firstbutton/', prefixes: ['vtf_'], native: true },
-    ydvoca:      { name: '어휘요약문', ko: '어휘요약문 로드맵', path: '/ydvoca/', prefixes: ['vty_'], native: true }
+    ydvoca:      { name: '어휘요약문', ko: '어휘요약문 로드맵', path: '/ydvoca/', prefixes: ['vty_'], native: true },
+    naesin:      { name: '내신 동형모의고사', ko: '내신 동형모의고사', path: '/naesin/', prefixes: ['vtn_'], native: true }
   };
   var LS = (function () { try { var k = '__vt'; localStorage.setItem(k, 1); localStorage.removeItem(k); return localStorage; } catch (e) { return null; } })();
   var rawSet = LS ? Storage.prototype.setItem : null;

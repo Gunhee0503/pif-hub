@@ -197,6 +197,7 @@ h1{font-size:clamp(30px,4.4vw,44px);font-weight:750;letter-spacing:-.045em;line-
   </a>
 
   <div id="ydBox"></div>
+  <div id="nxBox"></div>
 
   <div class="gcard" id="ssGuide">
     <div class="gt"><b>독해 과제 가이드</b><small>정답률이 아니라 <u>학습 과정</u>으로 검사해요 · A+ 받는 법</small></div>
@@ -241,7 +242,7 @@ document.querySelectorAll('#ssGuide [data-t]').forEach(b => b.onclick = () => PI
 const VIEWS = ['boot','login','pending','home'];
 function only(v){ VIEWS.forEach(k => $('v-'+k).hidden = k !== v); scrollTo(0,0); }
 function say(id,t,ok){ const el=$(id); el.textContent=t||''; el.className='msg'+(t?(ok?' ok':' err'):''); }
-const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching|grammar|firstbutton|ydvoca)\/$/.test(n) ? n : null; })();
+const NEXT = (() => { const n = new URLSearchParams(location.search).get('next'); return n && /^\/(fundamental|essential|spectrum|matching|grammar|firstbutton|ydvoca|naesin)\/$/.test(n) ? n : null; })();
 const BEACON_URL = 'https://syntax-beacon.vercel.app/';
 let EDITION = 'beacon', OPEN = null;
 const LOCKED_Q = new URLSearchParams(location.search).get('locked');
@@ -279,6 +280,15 @@ function render(rows){
       <div class="foot"><div class="bar"><i style="width:${(pass + otwP + finP) / 18 * 100}%"></i></div><div class="stat"><span>BASE CAMP <b>${pass}</b>/4 · 온더웨이 <b>${otwP}</b>/7 · 피날레 <b>${finP}</b>/7 통과</span><span></span></div></div></a>
       <button class="mapcard" type="button" id="mapCard" onclick="document.getElementById('mapOv').hidden=false;try{localStorage.setItem('vt_map_seen','1')}catch(e){};var n=document.getElementById('mapNew');if(n)n.remove()"><img src="/img/roadmap-two-paths-thumb.webp" alt=""><span><span class="mk">참고</span><b>어휘 로드맵 지도${seen ? '' : '<span class="new" id="mapNew">NEW</span>'}</b><small>두 로드맵이 어디서 갈라지는지 한눈에</small></span></button></div></div>`;
   } else $('ydBox').innerHTML = '';
+  /* 내신 동형모의고사: 반에 열려 있을 때만 */
+  if (OPEN && OPEN.includes('naesin')) {
+    const nr = rows.filter(r => r.course === 'naesin' && /^mk-/.test(r.unit_id)), best = nr.filter(r => r.score != null).map(r => Number(r.score));
+    let left = 0; try { left = NXL(nr); } catch (e) {}
+    $('nxBox').innerHTML = `<div class="olive" style="--ol:#1B2A4A;background:linear-gradient(180deg,rgba(27,42,74,.07),rgba(27,42,74,.02))"><div class="grp"><span class="olt">내신</span><b style="color:#1B2A4A">내신 동형모의고사</b><span>실전처럼 풀고, 틀린 문제는 맞힐 때까지</span></div>
+      <a class="course wide" href="/naesin/" style="--c:#1B2A4A"><span class="tag">우리 반</span><div><div class="lv">MOCK EXAM · 객관식 / 서답형</div><h3>내신 동형모의고사</h3><div class="ko">실전 50분 · 객관식만 · 서답형만 · 누적 오답 테스트</div>
+      <p>서답형은 정답을 입력하면 바로 채점과 해설이 나와요. 틀린 문제는 오답노트에 모이고, 다른 날 다시 맞히면 빠져요.</p></div>
+      <div class="foot"><div class="bar"><i style="width:${best.length ? Math.round(best.reduce((a, v) => a + v, 0) / best.length) : 0}%"></i></div><div class="stat"><span>${nr.length ? `<b>${nr.length}</b>회분 풀이${best.length ? ` · 실전 최고 평균 <b>${Math.round(best.reduce((a, v) => a + v, 0) / best.length)}</b>점` : ''}` : '아직 푼 시험이 없어요'}</span><span>${left ? `남은 오답 <b>${left}</b>` : ''}</span></div></div></a></div>`;
+  } else $('nxBox').innerHTML = '';
   /* 어휘요약문 BASE CAMP: 보카트리 Fundamental 수강생 누구나 (어휘요약문 반은 위 로드맵 카드로) */
   const bcOpen = !(OPEN && OPEN.includes('ydvoca')) && (!OPEN || OPEN.includes('fundamental'));
   if (bcOpen) {
@@ -343,7 +353,16 @@ async function echoStrip(){
     $('echoStrip').hidden = false;
   } catch(e) {}
 }
-function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP', gfirst:'그래머 첫단추', ydvoca:'어휘요약문 로드맵' }[c]; if (!n) return;
+/* 남은 동형모의고사 오답 수 (자세한 규칙은 /naesin/nx-core.js · 선생님 판정 전 확인 요청은 맞은 것으로) */
+function NXL(nr){
+  let n = 0;
+  nr.forEach(r => { const d = r.data || {}, ev = d.ev || {}, dn = d.dn || {};
+    Object.keys(ev).forEach(k => { const L = ev[k]; let lw = '';
+      L.forEach(e => { if (e[1] === 0 && e[0] > lw) lw = e[0]; });
+      if (lw && !L.some(e => e[1] !== 0 && e[0] > lw) && !(dn[k] && dn[k] >= lw)) n++; }); });
+  return n;
+}
+function showLockNote(c){ const n = { fundamental:'Fundamental', essential:'Essential', spectrum:'Spectrum', matching:'Word Matching', grammar:'문법 STEP', gfirst:'그래머 첫단추', ydvoca:'어휘요약문 로드맵', naesin:'내신 동형모의고사' }[c]; if (!n) return;
   $('lockNote').textContent = `🔒 ${n}은(는) 우리 반에서 아직 열리지 않은 코스예요. 담당 선생님께 문의해 주세요.`; $('lockNote').hidden = false; }
 function showPending(st){
   only('pending'); $('pdWho').textContent = `${st.name} · ${st.class_name} (${st.class_code})`; say('pdMsg','');
