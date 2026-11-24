@@ -144,7 +144,11 @@
     var qs = items.map(function (it, i) {
       var q = NX.item(it.exam, it.key), lines = '';
       if (it.key[0] === 'm') lines = '<div class="omr">' + NX.CIRC.map(function (c) { return '<span>' + c + '</span>'; }).join('') + '</div>';
-      else lines = NX.parts(q).map(function (p) {
+      else lines = NX.parts(q).map(function (p, i) {
+        var bl = q.kind === 'blank' && q.blanks[i];
+        if (bl && bl.first) { var pre = o.hint === false ? '' : bl.first, bx = '';
+          for (var j = 0; j < bl.len - pre.length; j++) bx += '<u></u>';
+          return '<div class="ln"><b>' + e(p) + '</b><span class="bx">' + (pre ? '<u class="f">' + e(pre) + '</u>' : '') + bx + '</span></div>'; }
         return q.kind === 'blank' ? '<div class="ln"><b>' + e(p) + '</b><span></span></div>'
           : q.kind === 'fix' ? '<div class="ln"><b>' + e(p) + '</b><span></span><i>→</i><span></span></div>'
           : '<div class="ln"><b>' + e(p) + '</b><em>번호</em><span class="sm"></span><em>틀린 단어</em><span></span></div>';
@@ -165,7 +169,7 @@
       '.hd .m{margin-left:auto;text-align:right;font-size:11px;color:#5B6478;line-height:1.5}.box{display:flex;gap:8px;margin-bottom:10px}.box div{flex:1;border:1.5px solid #1B2A4A;padding:6px 10px}.box b{margin-right:6px}' +
       '.q{padding:8px 0 12px;border-bottom:1px solid #D5DAE5}.qh{display:flex;align-items:center;gap:8px;margin-bottom:6px;break-after:avoid}.ans{break-inside:avoid}.n{flex:none;width:24px;height:24px;background:#1B2A4A;color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:4px}' +
       '.src{font-size:11px;color:#C2412D;font-weight:700}.q img{display:block;width:100%;max-width:470px;margin:0 auto 4px;break-inside:avoid}' +
-      '.ans{margin:6px 0 0 32px}.ln{display:flex;align-items:flex-end;gap:8px;padding:5px 0}.ln b{width:54px;color:#1B2A4A;font-size:12px}.ln span{flex:1;border-bottom:1.3px solid #1B2A4A;height:20px;max-width:240px}.ln span.sm{max-width:50px}.ln em{font-style:normal;font-size:10.5px;color:#5B6478}.ln i{font-style:normal}' +
+      '.ans{margin:6px 0 0 32px}.ln{display:flex;align-items:flex-end;gap:8px;padding:5px 0}.ln b{width:54px;color:#1B2A4A;font-size:12px}.ln span{flex:1;border-bottom:1.3px solid #1B2A4A;height:20px;max-width:240px}.ln span.sm{max-width:50px}.ln span.bx{border:0;height:auto;max-width:none;display:flex;gap:3px}.bx u{display:inline-flex;width:20px;height:22px;border:1.2px solid #1B2A4A;border-radius:3px;text-decoration:none;align-items:center;justify-content:center;font-weight:700;font-size:13px}.bx u.f{background:#EEF2F9}.ln em{font-style:normal;font-size:10.5px;color:#5B6478}.ln i{font-style:normal}' +
       '.omr{display:flex;gap:12px;font-size:17px;color:#1B2A4A}.key{page-break-before:always}.key h2{font-size:16px;color:#1B2A4A;border-bottom:2px solid #1B2A4A;padding-bottom:5px}' +
       '.kr{display:flex;gap:8px;padding:5px 0;border-bottom:1px dotted #D5DAE5;break-inside:avoid}.kr>i{font-style:normal;color:#C2412D;font-weight:700;width:22px;flex:none}.kr b{color:#1B2A4A;font-size:12.5px}.ks{font-size:10.5px;color:#5B6478}.nt{font-size:11px;color:#5B6478}' +
       '.kx{font-size:11px;line-height:1.55;margin-top:2px;color:#333}.kx i{font-style:normal;font-weight:700;color:#C2412D}.kg{columns:' + (o.teacher ? 1 : 2) + ';column-gap:22px}' +
