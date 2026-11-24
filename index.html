@@ -39,6 +39,9 @@ a{color:inherit;text-decoration:none}
 .logo img{height:15px}
 .logo span{color:var(--ink2);font-weight:500}
 .nav ul{display:flex;gap:30px;list-style:none;font-size:13px;color:#424245;margin-left:auto}
+.nav .nb-nav{margin-left:-14px;height:26px}
+.nav .logo span{white-space:nowrap}
+.nblog{display:inline-flex;align-items:center;justify-content:center;height:28px;padding:0 10px;border-radius:8px;background:#03c75a;color:#fff!important;font:800 12.5px/1 -apple-system,BlinkMacSystemFont,"Pretendard",sans-serif;letter-spacing:-.2px;text-decoration:none;flex-shrink:0;transition:filter .15s}.nblog:hover{filter:brightness(.93)}
 .nav .cta{font-size:12.5px;font-weight:600;background:var(--ink);color:#fff;padding:7px 15px;border-radius:99px}
 .burger{display:none;cursor:pointer;margin-left:auto;width:22px;height:12px;position:relative}
 .burger::before,.burger::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:var(--ink);border-radius:2px}
@@ -342,7 +345,7 @@ footer a{color:#424245}
 
 /* responsive */
 @media (max-width:900px){
-  .nav ul,.nav .cta{display:none}.burger{display:block}
+  .nav ul,.nav .cta{display:none}.burger{display:block}.nav .nb-nav{margin-left:auto}.nav .burger{margin-left:0}
   .hero{padding-top:64px}
   .stage{height:470px;margin-top:48px}
   .film{margin-top:52px;border-radius:24px}
@@ -396,6 +399,7 @@ footer a{color:#424245}
 <nav class="nav"><div class="wrap">
   <a class="logo" href="/"><img src="img/pif_logo.png" alt="PIF"><span>Learning Hub</span></a>
   <ul><li><a href="#vocatree">VocaTree</a></li><li><a href="#syntax">구문의 지도</a></li><li><a href="#grammar">문법</a></li><li><a href="#selfstudy">자기주도 학습</a></li><li><a href="/admin/">선생님</a></li></ul>
+  <a class="nblog nb-nav" href="https://blog.naver.com/pifedu_jamsil" target="_blank" rel="noopener" title="PIF영어 잠실관 네이버 블로그" aria-label="PIF영어 잠실관 네이버 블로그"><span>blog</span></a>
   <a class="cta" href="/learn/">로그인</a>
   <a class="burger" href="/learn/" aria-label="로그인"></a>
 </div></nav>
@@ -592,7 +596,7 @@ footer a{color:#424245}
 
 <footer><div class="wrap">
   <span><img src="img/pif_logo.png" alt="PIF EDUCATION"></span>
-  <span>PIF영어 잠실관 · 문의 <a href="tel:025557229">02-555-7229</a> · <a href="tel:01095467229">010-9546-7229</a></span>
+  <span>PIF영어 잠실관 · 문의 <a href="tel:025557229">02-555-7229</a> · <a href="tel:01095467229">010-9546-7229</a> · <a href="https://blog.naver.com/pifedu_jamsil" target="_blank" rel="noopener">네이버 블로그</a></span>
   <span>© 2026 PIF EDUCATION. All rights reserved.</span>
 </div></footer>
 <script>
