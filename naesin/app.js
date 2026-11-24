@@ -9,19 +9,13 @@ const C = 'naesin', $app = document.getElementById('app'), esc = NX.esc, CIRC = 
 const ME = VT.me() || {};
 let EXAMS = [], REV = {}, TIMER = null, LOADED = false;
 const P = {};          // unit_id → row
-/* 앞글자 힌트: 켜면 첫 글자 칸이 채워져 있고 나머지 글자 수만큼 네모 칸, 끄면 글자 수만큼 빈 칸 */
-const HINT = () => { try { return localStorage.getItem('nx_hint') !== 'off'; } catch (x) { return true; } };
-function hintBar(){ const on = HINT();
-  return `<div class="hintb"><span>앞글자 힌트</span><button type="button" data-hint="on" class="${on ? 'on' : ''}">켜기 <small>c□□□</small></button><button type="button" data-hint="off" class="${on ? '' : 'on'}">끄기 <small>□□□□</small></button></div>`; }
+/* 서답형 빈칸: 앞글자 칸 + 남은 글자 수만큼 네모 칸 */
 function paintBox(inp){
   const v = inp.value.replace(/\s+/g, ''); if (v !== inp.value) inp.value = v;
   const cs = inp.parentNode.querySelectorAll('.c:not(.f)'), act = document.activeElement === inp;
   cs.forEach((c, j) => { c.textContent = v[j] || ''; c.classList.toggle('cur', act && j === Math.min(v.length, cs.length - 1)); });
 }
 ['input', 'focusin', 'focusout', 'keyup', 'click'].forEach(t => document.addEventListener(t, ev => { const i = ev.target; if (i && i.matches && i.matches('.lbx input')) setTimeout(() => paintBox(i), 0); }, true));
-document.addEventListener('click', ev => { const b = ev.target.closest('[data-hint]'); if (!b) return;
-  try { localStorage.setItem('nx_hint', b.dataset.hint); } catch (x) {}
-  toast(b.dataset.hint === 'on' ? '앞글자 힌트를 켰어요.' : '앞글자 없이 글자 수 칸만 보여요.'); route(); });
 function toast(t, ms){ const el = document.getElementById('toast'); el.textContent = t; el.classList.add('on'); clearTimeout(toast._t); toast._t = setTimeout(() => el.classList.remove('on'), ms || 2600); }
 const getD = id => { const u = 'mk-' + id; if (!P[u]) P[u] = { unit_id: u, data: NX.blank() }; P[u].data = NX.fix(P[u].data); return P[u].data; };
 const examOf = id => EXAMS.find(e => e.id === id);
@@ -66,7 +60,7 @@ window.addEventListener('hashchange', route);
 /* ---------- 처음 화면 ---------- */
 const HOW = `<div class="e">HOW IT WORKS</div><h3>동형모의고사, 이렇게 공부해요</h3><ol>
   <li><b>세 가지로 풀 수 있어요</b><span><em>실전</em>(50분, 전체) · <em>객관식만</em> · <em>서답형만</em> 중 골라서 풀어요.</span></li>
-  <li><b>서답형은 바로 채점 + 해설</b><span>서답형만 풀기에서는 한 문제씩 <em>정답 확인</em>을 누르면 채점과 해설이 바로 나와요. 빈칸은 <em>글자 수만큼 네모 칸</em>이 있고, 실력이 붙으면 <em>앞글자 힌트</em>를 끄고 풀어 보세요.</span></li>
+  <li><b>서답형은 바로 채점 + 해설</b><span>서답형만 풀기에서는 한 문제씩 <em>정답 확인</em>을 누르면 채점과 해설이 바로 나와요. 빈칸은 <em>글자 수만큼 네모 칸</em>에 써요.</span></li>
   <li><b>틀린 문제는 오답노트로</b><span>틀린 문제는 자동으로 모여요. <em>서답형 오답만</em>, <em>객관식 오답만</em> 골라 다시 풀 수 있어요.</span></li>
   <li><b>졸업 조건</b><span>틀린 날이 아닌 <em>다른 날</em>에 다시 맞히면 오답노트에서 빠져요. 완전히 외운 문제는 <em>직접 빼기</em>도 돼요.</span></li>
   <li><b>내 답도 맞는 것 같으면</b><span>표현이 조금 다른 답은 <em>선생님 확인 요청</em>을 누르세요. 선생님이 인정하면 점수와 오답노트에 반영돼요.</span></li></ol>`;
@@ -124,7 +118,7 @@ function saIns(q, a, res){
   if (q.kind === 'blank') q.blanks.forEach((b, i) => {
     const full = String(a[i] || '');
     if (!b.first) { h += `<div class="r"><b>(${b.k})</b><input data-i="${i}" ${IA} class="${cls(i)}" value="${esc(full)}" placeholder="단어" ${D0}></div>`; return; }   // 영작: 원래 시험처럼 빈칸만
-    const pre = HINT() ? b.first : '', n = Math.max(1, b.len - pre.length);
+    const pre = b.first, n = Math.max(1, b.len - pre.length);
     const typed = (pre && full.toLowerCase().startsWith(pre.toLowerCase()) ? full.slice(pre.length) : full).slice(0, n);
     h += `<div class="r"><b>(${b.k})</b><div class="lbx ${cls(i)} ${b.len >= 13 ? 'sm' : ''}">${pre ? `<span class="c f">${esc(pre)}</span>` : ''}${Array.from({ length: n }, (_, j) => `<span class="c">${esc(typed[j] || '')}</span>`).join('')}
       <input data-i="${i}" data-pre="${esc(pre)}" maxlength="${n}" ${IA} value="${esc(typed)}" ${D0} aria-label="(${b.k}) ${b.len}글자${pre ? ', ' + esc(pre) + '로 시작' : ''}"></div></div>`; });
@@ -187,7 +181,6 @@ async function viewExam(id, mode){
   let h = `<div class="top"><button id="quit">‹ 나가기</button><div class="t">${esc(shortT(e))} · ${MODE[mode]}</div></div>`;
   if (!fresh) h += `<div class="banner">이어서 푸는 중이에요 (${new Date(dr.start).toLocaleString('ko-KR')} 시작). <button class="b sm" id="restart" style="margin-left:6px">처음부터</button></div>`;
   if (mode === 'sa') h += '<div class="banner">한 문제씩 답을 쓰고 <b>정답 확인</b>을 누르면 바로 채점과 해설이 나와요. 다 풀면 아래 <b>끝내기</b>로 기록을 남겨요.</div>';
-  if (keys.some(k => k[0] === 's')) h += hintBar();
   h += `<div class="navs" id="navs"></div>`;
   ['mc', 'sa'].forEach(s => {
     const ks = keys.filter(k => k[0] === s[0]); if (!ks.length) return;
@@ -238,7 +231,7 @@ async function viewExam(id, mode){
       const ck = keys.filter(k => dr.chk[k]); if (!ck.length) { try { localStorage.removeItem(dk(id, mode)); } catch (x) {} location.hash = '#/'; return; }
       if (ck.length < keys.length && !confirm(`${keys.length - ck.length}문항은 아직 확인하지 않았어요. 확인한 ${ck.length}문항만 기록하고 끝낼까요?`)) return;
       const d = getD(id), a = {}; let g = 0, m = 0; ck.forEach(k => { a[k] = dr.chk[k].a; g += dr.chk[k].r.got; m += dr.chk[k].r.max; });
-      const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(g), mx: NX.r1(m), mc: [0, 0], sa: [NX.r1(g), NX.r1(m)], a, nh: HINT() ? 0 : 1 };
+      const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(g), mx: NX.r1(m), mc: [0, 0], sa: [NX.r1(g), NX.r1(m)], a };
       Object.keys(d.cl).forEach(c => { if (d.cl[c].t === 0 && ck.includes(d.cl[c].k)) d.cl[c].t = att.at; });
       pushAtt(d, att); save(id, true); try { localStorage.removeItem(dk(id, mode)); } catch (x) {}
       location.hash = `#/r/${id}/${d.att.length - 1}`; return;
@@ -249,7 +242,7 @@ async function viewExam(id, mode){
     const d = getD(id); let mg = 0, mm = 0, sg = 0, sm = 0; const a = {};
     keys.forEach(k => { const r = NX.grade(ex, k, dr.a[k]); a[k] = dr.a[k] == null ? null : dr.a[k];
       if (k[0] === 'm') { mg += r.got; mm += r.max; } else { sg += r.got; sm += r.max; } NX.pushEv(d, k, r.ok); });
-    const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(mg + sg), mx: NX.r1(mm + sm), mc: [NX.r1(mg), NX.r1(mm)], sa: [NX.r1(sg), NX.r1(sm)], a, nh: HINT() ? 0 : 1 };
+    const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(mg + sg), mx: NX.r1(mm + sm), mc: [NX.r1(mg), NX.r1(mm)], sa: [NX.r1(sg), NX.r1(sm)], a };
     pushAtt(d, att); save(id, true); try { localStorage.removeItem(dk(id, mode)); } catch (x) {}
     stopTimer(); location.hash = `#/r/${id}/${d.att.length - 1}`;
   };
@@ -272,7 +265,7 @@ async function viewResult(id, i){
   let ex; try { ex = await bundle(id); } catch (err) { return bundleErr(err); }
   const keys = Object.keys(att.a), sc = NX.attScore(d, att, REV), mm = Math.floor((att.sec || 0) / 60);
   const ok = keys.filter(k => NX.grade(ex, k, att.a[k]).ok).length;
-  let h = `<div class="top"><a href="#/">‹ 목록</a><div class="t">${esc(shortT(e))} · ${MODE[att.mode] || ''} 결과${att.nh ? ' · 앞글자 없이' : ''}</div></div>
+  let h = `<div class="top"><a href="#/">‹ 목록</a><div class="t">${esc(shortT(e))} · ${MODE[att.mode] || ''} 결과</div></div>
     <div class="res"><div class="big"><i>${MODE[att.mode] || ''} 점수</i><b>${sc}<small> / ${att.mx}</small></b></div>
       ${att.mc[1] ? `<div><i>객관식</i><b>${att.mc[0]}<small>/${att.mc[1]}</small></b></div>` : ''}${att.sa[1] ? `<div><i>서답형</i><b>${att.sa[0]}<small>/${att.sa[1]}</small></b></div>` : ''}
       <div><i>맞힌 문항</i><b>${ok}<small>/${keys.length}</small></b></div><div><i>걸린 시간</i><b>${mm}<small>분</small></b></div></div>
@@ -322,7 +315,7 @@ async function viewNotes(type){
 async function printNotes(N, type){
   toast('시험지를 만드는 중…');
   try { const ids = [...new Set(N.map(x => x.ex))]; await Promise.all(ids.map(bundle));
-    NX.printSheet(N.map(x => ({ exam: EXC[x.ex], key: x.key, n: x.st.wrong })), { name: ME.name, title: ({ sa: '서답형', mc: '객관식', all: '' })[type] + ' 누적 오답 테스트', hint: HINT() });
+    NX.printSheet(N.map(x => ({ exam: EXC[x.ex], key: x.key, n: x.st.wrong })), { name: ME.name, title: ({ sa: '서답형', mc: '객관식', all: '' })[type] + ' 누적 오답 테스트' });
   } catch (e) { toast('시험지를 불러오지 못했어요.'); }
 }
 
@@ -337,7 +330,7 @@ async function viewCum(type, scope){
   const today = NX.today();
   let h = `<div class="top"><a href="#/">‹ 목록</a><div class="t">누적 오답 테스트 · ${esc(ttl)}</div></div>
     <div class="banner">${N.length}문항 · 한 문제씩 풀고 <b>정답 확인</b>을 눌러요. 틀린 날이 아닌 <b>다른 날</b> 맞히면 오답노트에서 빠져요.</div>
-    <div class="flt">${[['sa', '서답형'], ['mc', '객관식'], ['all', '전체']].map(([k, t]) => `<button data-t="${k}" class="${k === type ? 'on' : ''}">${t}</button>`).join('')}<button id="prt" style="margin-left:auto">인쇄</button></div>${N.some(x => x.key[0] === 's') ? hintBar() : ''}`;
+    <div class="flt">${[['sa', '서답형'], ['mc', '객관식'], ['all', '전체']].map(([k, t]) => `<button data-t="${k}" class="${k === type ? 'on' : ''}">${t}</button>`).join('')}<button id="prt" style="margin-left:auto">인쇄</button></div>`;
   N.forEach((x, i) => { const ex = EXC[x.ex], q = NX.item(ex, x.key);
     h += `<div class="q" data-ex="${x.ex}" data-key="${x.key}">${qHead(q, x.key, `<span class="pill ac">${esc(shortT(examOf(x.ex)))} · 틀린 ${x.st.wrong}번</span>`)}${imgs(q)}
       ${x.key[0] === 'm' ? mcOpts() : saIns(q)}<div class="chk"><button class="b main sm" data-check>정답 확인</button><button class="b sm gh" data-out>다 외웠어요 · 빼기</button></div></div>`; });
