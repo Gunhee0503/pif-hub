@@ -45,6 +45,7 @@ function stopTimer(){ if (TIMER) { clearInterval(TIMER); TIMER = null; } }
 
 /* ---------- 라우터 ---------- */
 async function route(){
+  if (LEAVE) { try { LEAVE(true); } catch (x) {} LEAVE = null; }
   stopTimer(); document.querySelectorAll('.bar').forEach(b => b.remove()); $app.onclick = $app.oninput = $app.onchange = null;
   if (!LOADED) { try { await loadAll(); } catch (e) { $app.innerHTML = '<div class="empty">불러오지 못했어요. 인터넷 연결을 확인하고 새로고침해 주세요.</div>'; return; } }
   const h = location.hash.replace(/^#\/?/, '').split('/');
@@ -52,7 +53,7 @@ async function route(){
   if (h[0] === 'x' && examOf(h[1])) return viewExam(h[1], h[2] || 'full');
   if (h[0] === 'r' && examOf(h[1])) return viewResult(h[1], +h[2]);
   if (h[0] === 'n') return viewNotes(h[1] || 'sa');
-  if (h[0] === 'c') return viewCum(h[1] || 'sa', h[2] || 'all');
+  if (h[0] === 'c') return viewCum(h[1] || 'sa', h[2] || 'all', h[3] === 'today');
   viewHome();
 }
 window.addEventListener('hashchange', route);
@@ -71,7 +72,7 @@ function howPop(){
   document.body.appendChild(p);
 }
 function viewHome(){
-  const N = noteList(), sa = N.filter(x => x.key[0] === 's').length, mc = N.length - sa;
+  const N = noteList(), sa = N.filter(x => x.key[0] === 's').length, mc = N.length - sa, td = N.filter(x => x.st.last && x.st.last[0] === NX.today()).length;
   let h = `<div class="top"><a href="/learn/">‹ 내 학습</a><div class="t">NAESIN · MOCK EXAM</div></div>
   <div class="hero"><div class="e">내신 동형모의고사</div><h1>${esc(EXAMS[0] ? EXAMS[0].school + ' ' + (EXAMS[0].grade || '') + '학년' : '')} 내신 실전 대비</h1>
     <p>선생님이 올린 동형모의고사를 실전처럼 풀고, 틀린 문제는 다른 날 다시 맞힐 때까지 누적 테스트로 반복해요.</p>
@@ -79,7 +80,7 @@ function viewHome(){
   if (!EXAMS.length) { $app.innerHTML = h + '<div class="empty">아직 열린 동형모의고사가 없어요.<br>선생님이 시험을 올리면 여기에 나타나요.</div>'; bindHow(); return; }
   h += `<div class="card cum"><h2><i>REVIEW</i>누적 오답 테스트</h2>
     <p class="d">지금까지 틀린 문제만 모았어요. 틀린 날이 아닌 <b>다른 날</b> 다시 맞히면 빠지고, 다 외운 문제는 직접 뺄 수 있어요.</p>
-    <div class="cnt"><div><i>서답형 오답</i><b>${sa}</b></div><div><i>객관식 오답</i><b>${mc}</b></div><div><i>전체</i><b>${N.length}</b></div></div>
+    <div class="cnt"><div><i>서답형 오답</i><b>${sa}</b></div><div><i>객관식 오답</i><b>${mc}</b></div><div><i>전체</i><b>${N.length}</b></div></div>${td ? `<p class="d" style="margin:-4px 0 10px">오늘 이미 푼 ${td}문항은 다시 풀기에서 빠지고, 다른 날 다시 나와요.</p>` : ''}
     <div class="row"><a class="b ac" href="#/c/sa/all" ${sa ? '' : 'aria-disabled="true" style="opacity:.45;pointer-events:none"'}>서답형 오답 풀기</a>
       <a class="b main" href="#/c/mc/all" ${mc ? '' : 'aria-disabled="true" style="opacity:.45;pointer-events:none"'}>객관식 오답 풀기</a>
       <a class="b" href="#/n">오답노트 보기</a></div></div>
@@ -87,11 +88,11 @@ function viewHome(){
   EXAMS.forEach((e, i) => {
     const d = getD(e.id), b = NX.best(d, REV), na = d.att.length, last = d.att[na - 1];
     const ne = N.filter(x => x.ex === e.id), nsa = ne.filter(x => x.key[0] === 's').length;
-    const draft = ['full', 'mc', 'sa'].filter(m => { try { return !!localStorage.getItem(dk(e.id, m)); } catch (x) { return false; } });
+    const draft = ['full', 'mc', 'sa'].filter(m => DR.has(e.id, m)), half = d.att.some(a => a.mode === 'sa' && !a.x && Object.keys(a.a || {}).length < (e.n_sa || 10));
     h += `<div class="ex"><div class="h"><span class="n">${pad2(i + 1, e)}<small>회</small></span><span class="tt">${esc((e.title || '').replace(/\s*\d+회$/, ''))}</span></div>
       <div class="rg">${esc(e.range_ko || e.range || '')}</div>
       <div class="sc">${b != null ? `<span class="pill on">실전 최고 ${b}점</span>` : '<span class="pill">실전 미응시</span>'}${ne.length ? `<span class="pill ac">오답 ${ne.length}${nsa ? ` · 서답 ${nsa}` : ''}</span>` : na ? '<span class="pill ok">오답 없음</span>' : ''}
-        ${draft.length ? '<span class="pill" style="background:#FFF4DD;color:#7A5300">이어 풀기 있음</span>' : ''}</div>
+        ${draft.length || half ? `<span class="pill" style="background:#FFF4DD;color:#7A5300">이어 풀기 · ${(draft.length ? draft : ['sa']).map(m => MODE[m]).join(', ')}</span>` : ''}</div>
       <div class="bt"><a class="b main" href="#/x/${e.id}/full">실전<small>${esc(e.minutes || 50)}분 · 전체</small></a><a class="b" href="#/x/${e.id}/mc">객관식만<small>${e.n_mc || ''}문항</small></a><a class="b" href="#/x/${e.id}/sa">서답형만<small>바로 채점</small></a></div>
       ${last ? `<a class="last" href="#/r/${e.id}/${na - 1}">지난 결과 · <b>${({ full: '실전', mc: '객관식', sa: '서답형' })[last.mode] || ''} ${NX.attScore(d, last, REV)}</b>/${last.mx}점 · ${new Date(last.at).toLocaleDateString('ko-KR')} ›</a>` : ''}</div>`;
   });
@@ -167,44 +168,76 @@ function bundleErr(e){
 /* ---------- 풀기 ---------- */
 const dk = (id, mode) => `nx_dr_${ME.sid}_${id}_${mode}`;
 const MODE = { full: '실전', mc: '객관식만', sa: '서답형만' };
+/* 풀던 답(이어 풀기): 이 기기 + 서버(진도 data.dr)에 함께 저장 → 카톡 안 브라우저·다른 기기에서도 이어짐. 더 최근 것을 씀 */
+const DR = {
+  get(id, mode){ let l = null; try { l = JSON.parse(localStorage.getItem(dk(id, mode)) || 'null'); } catch (x) {}
+    const sv = (getD(id).dr || {})[mode] || null; if (!l) return sv; if (!sv) return l; return (sv.up || 0) > (l.up || 0) ? sv : l; },
+  put(id, mode, dr, now){ dr.up = Date.now(); try { localStorage.setItem(dk(id, mode), JSON.stringify(dr)); } catch (x) {}
+    const d = getD(id); d.dr = d.dr || {}; d.dr[mode] = dr; save(id, now); },
+  del(id, mode){ try { localStorage.removeItem(dk(id, mode)); } catch (x) {} const d = getD(id); if (d.dr) delete d.dr[mode]; },
+  has(id, mode){ return !!DR.get(id, mode); }
+};
+let LEAVE = null;   // 화면을 떠날 때 (걸린 시간 저장)
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden' && LEAVE) LEAVE(true); });
 async function viewExam(id, mode){
   if (!MODE[mode]) mode = 'full';
   const e = examOf(id);
   $app.innerHTML = `<div class="top"><a href="#/">‹ 목록</a><div class="t">${esc(shortT(e))} · ${MODE[mode]}</div></div><div class="empty">시험지를 불러오는 중…</div>`;
   let ex; try { ex = await bundle(id); } catch (err) { return bundleErr(err); }
   if (location.hash !== `#/x/${id}/${mode}`) return;
-  let dr = null; try { dr = JSON.parse(localStorage.getItem(dk(id, mode)) || 'null'); } catch (x) {}
-  const fresh = !dr; if (!dr) dr = { start: Date.now(), a: {}, chk: {} };
-  const keep = () => { try { localStorage.setItem(dk(id, mode), JSON.stringify(dr)); } catch (x) {} };
-  if (fresh) keep();
-  const keys = NX.keys(ex, mode === 'full' ? 'all' : mode), limit = (ex.minutes || e.minutes || 50) * 60000;
+  const keys = NX.keys(ex, mode === 'full' ? 'all' : mode), limit = (ex.minutes || e.minutes || 50) * 60000, d0 = getD(id);
+  let dr = DR.get(id, mode), note = '';
+  if (dr) note = `이어서 푸는 중이에요. ${mode === 'sa' ? '이미 확인한 문제는 접어 두었어요.' : '이미 고른 답은 그대로 있어요.'}`;
+  else if (mode === 'sa') {   // 지난번 서답형만 풀기를 중간에 끝냈으면 → 남은 문항부터
+    const last = d0.att.filter(a => a.mode === 'sa' && !a.x).pop(), done = last ? keys.filter(k => last.a[k] != null) : [];
+    if (last && done.length && done.length < keys.length) {
+      dr = { start: Date.now(), used: last.sec ? last.sec * 1000 : 0, a: {}, chk: {}, rec: done, from: last.at };
+      done.forEach(k => { dr.chk[k] = { a: last.a[k], r: NX.gradeSA(NX.item(ex, k), last.a[k]) }; });
+      last.x = 1;
+      note = `지난번(${new Date(last.at).toLocaleDateString('ko-KR')})에 푼 ${done.length}문항은 접어 두고, 남은 ${keys.length - done.length}문항부터 이어서 풀어요.`;
+    }
+  }
+  const fresh = !dr; if (!dr) dr = { start: Date.now(), used: 0, a: {}, chk: {} };
+  dr.a = dr.a || {}; dr.chk = dr.chk || {}; if (dr.used == null) dr.used = 0;
+  let t0 = Date.now(), over = false;
+  const used = () => dr.used + (Date.now() - t0);
+  const keep = now => { if (over) return; dr.used = used(); t0 = Date.now(); DR.put(id, mode, dr, now); };
+  const touched = () => Object.keys(dr.chk).length || keys.some(k => NX.answered(k, dr.a[k]));
+  if (!fresh) keep(true);
+  LEAVE = now => { if (!over && touched()) keep(now); };
   let h = `<div class="top"><button id="quit">‹ 나가기</button><div class="t">${esc(shortT(e))} · ${MODE[mode]}</div></div>`;
-  if (!fresh) h += `<div class="banner">이어서 푸는 중이에요 (${new Date(dr.start).toLocaleString('ko-KR')} 시작). <button class="b sm" id="restart" style="margin-left:6px">처음부터</button></div>`;
-  if (mode === 'sa') h += '<div class="banner">한 문제씩 답을 쓰고 <b>정답 확인</b>을 누르면 바로 채점과 해설이 나와요. 다 풀면 아래 <b>끝내기</b>로 기록을 남겨요.</div>';
+  if (!fresh) h += `<div class="banner">${note} <button class="b sm" id="restart" style="margin-left:6px">처음부터 다시</button></div>`;
+  if (mode === 'sa') h += '<div class="banner">한 문제씩 답을 쓰고 <b>정답 확인</b>을 누르면 바로 채점과 해설이 나와요. 중간에 나가도 확인한 문제는 남아 있어요. 다 풀면 아래 <b>끝내기</b>로 기록을 남겨요.</div>';
+  if (mode === 'full') h += '<div class="banner">중간에 나가면 시계가 멈추고, 다시 들어오면 남은 시간부터 이어져요.</div>';
   h += `<div class="navs" id="navs"></div>`;
+  const doneCard = (k, q, ck) => `<div class="q qd" id="q-${k}" data-key="${k}"><div class="qh"><span class="qn">서답형 ${q.no}</span>${q.type ? `<span class="qt">${esc(q.type)}</span>` : ''}<span class="pill ${ck.r.ok ? 'ok' : 'ac'}">${ck.r.ok ? '✓ 맞음' : ck.r.got > 0 ? '△ 부분 정답' : '✗ 틀림'} · ${ck.r.got}/${ck.r.max}</span></div>
+    <details><summary>푼 문제 · 해설 다시 보기</summary>${imgs(q)}${saIns(q, ck.a, ck.r)}${fbSA(q, ck.r)}${expH(q, k)}${ck.r.ok ? '' : claimH(id, getD(id), k, null)}</details></div>`;
   ['mc', 'sa'].forEach(s => {
     const ks = keys.filter(k => k[0] === s[0]); if (!ks.length) return;
     const tot = NX.r1(ks.reduce((a, k) => a + NX.item(ex, k).pts, 0));
     h += `<div class="sh"><span class="k">${s === 'mc' ? 'PART 1' : 'PART 2'}</span><b>${s === 'mc' ? '객관식' : '서답형'}</b><span>${ks.length}문항 · ${tot}점</span></div>`;
-    ks.forEach(k => { const q = NX.item(ex, k), a = dr.a[k], ck = dr.chk[k];
+    ks.forEach(k => { const q = NX.item(ex, k), a = dr.a[k], ck = mode === 'sa' && dr.chk[k];
+      if (ck) { h += doneCard(k, q, ck); return; }
       h += `<div class="q" id="q-${k}" data-key="${k}">${qHead(q, k)}${imgs(q)}`;
       if (k[0] === 'm') h += mcOpts(a);
-      else { h += saIns(q, ck ? ck.a : a, ck ? ck.r : null);
-        if (mode === 'sa') h += ck ? fbSA(q, ck.r) + expH(q, k) + (ck.r.ok ? '' : claimH(id, getD(id), k, null)) : '<div class="chk"><button class="b main sm" data-check>정답 확인</button></div>'; }
+      else { h += saIns(q, a, null); if (mode === 'sa') h += '<div class="chk"><button class="b main sm" data-check>정답 확인</button></div>'; }
       h += '</div>'; });
   });
   $app.innerHTML = h;
   const bar = document.createElement('div'); bar.className = 'bar';
   bar.innerHTML = `<div class="in">${mode === 'full' ? '<span class="tm" id="tm"></span>' : ''}<span class="st" id="st"></span><button class="b ${mode === 'sa' ? 'main' : 'ac'}" id="sub">${mode === 'sa' ? '끝내기' : '제출하고 채점'}</button></div>`;
   document.body.appendChild(bar);
+  const isDone = k => mode === 'sa' ? !!dr.chk[k] : NX.answered(k, dr.a[k]);
   const nav = () => {
-    const done = keys.filter(k => mode === 'sa' ? dr.chk[k] : NX.answered(k, dr.a[k])).length;
+    if (over || !document.getElementById('st') || !document.getElementById('navs')) return;
+    const done = keys.filter(isDone).length;
     document.getElementById('st').textContent = mode === 'sa' ? `확인 ${done} / ${keys.length}` : `답한 문항 ${done} / ${keys.length}`;
-    const g = s => keys.filter(k => k[0] === s).map(k => { const c = dr.chk[k]; const cls = c ? (c.r.ok ? 'ok' : 'bad') : (mode !== 'sa' && NX.answered(k, dr.a[k])) ? 'on' : '';
+    const g = s => keys.filter(k => k[0] === s).map(k => { const c = mode === 'sa' && dr.chk[k]; const cls = c ? (c.r.ok ? 'ok' : 'bad') : (mode !== 'sa' && NX.answered(k, dr.a[k])) ? 'on' : '';
       return `<a href="#q-${k}" class="${cls}" data-go="${k}">${k.slice(1)}</a>`; }).join('');
     document.getElementById('navs').innerHTML = (keys.some(k => k[0] === 'm') ? '<span class="lb">객관식</span>' + g('m') : '') + (keys.some(k => k[0] === 's') ? '<span class="lb" style="margin-left:6px">서답형</span>' + g('s') : '');
   };
   nav();
+  if (!fresh) { const first = keys.find(k => !isDone(k)); if (first) setTimeout(() => { const el = document.getElementById('q-' + first); if (el) el.scrollIntoView({ block: 'start' }); }, 150); }
   document.getElementById('navs').onclick = ev => { const a = ev.target.closest('[data-go]'); if (!a) return; ev.preventDefault(); document.getElementById('q-' + a.dataset.go).scrollIntoView({ behavior: 'smooth', block: 'start' }); };
   $app.onclick = ev => {
     const card = ev.target.closest('.q'); if (!card) return; const k = card.dataset.key, q = NX.item(ex, k);
@@ -212,8 +245,8 @@ async function viewExam(id, mode){
     if (ob && !ob.disabled) { dr.a[k] = +ob.dataset.v; keep(); card.querySelectorAll('.opts button').forEach(b => b.classList.toggle('sel', b === ob)); nav(); return; }
     if (ev.target.closest('[data-check]')) {
       const a = readSA(card, q); if (!NX.answered(k, a)) return toast('답을 먼저 써 주세요.');
-      const r = NX.gradeSA(q, a); dr.chk[k] = { a, r }; keep();
-      const d = getD(id); NX.pushEv(d, k, r.ok); save(id);
+      const r = NX.gradeSA(q, a); dr.chk[k] = { a, r };
+      const d = getD(id); NX.pushEv(d, k, r.ok); keep(true);
       card.outerHTML = `<div class="q" id="q-${k}" data-key="${k}">${qHead(q, k)}${imgs(q)}${saIns(q, a, r)}${fbSA(q, r)}${expH(q, k)}${r.ok ? '' : claimH(id, d, k, null)}</div>`;
       nav(); return;
     }
@@ -222,19 +255,26 @@ async function viewExam(id, mode){
   };
   $app.oninput = $app.onchange = ev => {
     const card = ev.target.closest('.q'); if (!card) return; const k = card.dataset.key;
-    if (k[0] === 's' && !dr.chk[k]) { dr.a[k] = readSA(card, NX.item(ex, k)); keep(); clearTimeout(nav._t); nav._t = setTimeout(nav, 300); }
+    if (k[0] === 's' && !dr.chk[k]) { dr.a[k] = readSA(card, NX.item(ex, k)); clearTimeout(nav._t); nav._t = setTimeout(() => { keep(); nav(); }, 400); }
   };
-  document.getElementById('quit').onclick = () => { if (mode === 'sa' || confirm('나갈까요? 쓴 답은 이 기기에 남아 있어서 나중에 이어서 풀 수 있어요.')) location.hash = '#/'; };
-  const rs = document.getElementById('restart'); if (rs) rs.onclick = () => { if (!confirm('처음부터 다시 풀까요? 지금까지 쓴 답은 지워져요.')) return; try { localStorage.removeItem(dk(id, mode)); } catch (x) {} route(); };
+  document.getElementById('quit').onclick = () => { location.hash = '#/'; toast('풀던 답은 저장돼 있어요. 다음에 이어서 풀 수 있어요.'); };
+  const rs = document.getElementById('restart'); if (rs) rs.onclick = () => { if (!confirm('처음부터 다시 풀까요? 지금까지 쓴 답은 지워져요.')) return; over = true; DR.del(id, mode); save(id, true); route(); };
+  const finish = () => { over = true; LEAVE = null; clearTimeout(nav._t); DR.del(id, mode); };
   const submit = auto => {
     if (mode === 'sa') {
-      const ck = keys.filter(k => dr.chk[k]); if (!ck.length) { try { localStorage.removeItem(dk(id, mode)); } catch (x) {} location.hash = '#/'; return; }
-      if (ck.length < keys.length && !confirm(`${keys.length - ck.length}문항은 아직 확인하지 않았어요. 확인한 ${ck.length}문항만 기록하고 끝낼까요?`)) return;
-      const d = getD(id), a = {}; let g = 0, m = 0; ck.forEach(k => { a[k] = dr.chk[k].a; g += dr.chk[k].r.got; m += dr.chk[k].r.max; });
-      const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(g), mx: NX.r1(m), mc: [0, 0], sa: [NX.r1(g), NX.r1(m)], a };
+      const ck = keys.filter(k => dr.chk[k]), rec = dr.rec || [], nw = ck.filter(k => !rec.includes(k));
+      if (!nw.length) { finish(); save(id, true); location.hash = '#/'; return; }
+      if (ck.length < keys.length && !confirm(`${keys.length - ck.length}문항은 아직 풀지 않았어요.\n지금까지 푼 ${ck.length}문항만 기록하고 끝낼까요?\n(취소하고 그냥 나가면 나중에 이어서 풀 수 있어요)`)) return;
+      const d = getD(id), sec = Math.round(used() / 1000);
+      let att = dr.from && d.att.find(x => x.at === dr.from);
+      if (att) { nw.forEach(k => att.a[k] = dr.chk[k].a); att.x = 1; }
+      else { att = { at: Date.now(), mode, a: {} }; ck.forEach(k => att.a[k] = dr.chk[k].a); pushAtt(d, att); }
+      let g = 0, m = 0; Object.keys(att.a).forEach(k => { const r = NX.gradeSA(NX.item(ex, k), att.a[k]); g += r.got; m += r.max; });
+      Object.assign(att, { sec, sc: NX.r1(g), mx: NX.r1(m), mc: [0, 0], sa: [NX.r1(g), NX.r1(m)] });
+      if (att.a && Object.keys(att.a).length < keys.length) delete att.x;   // 아직 남았으면 다음에 또 이어 풀기
       Object.keys(d.cl).forEach(c => { if (d.cl[c].t === 0 && ck.includes(d.cl[c].k)) d.cl[c].t = att.at; });
-      pushAtt(d, att); save(id, true); try { localStorage.removeItem(dk(id, mode)); } catch (x) {}
-      location.hash = `#/r/${id}/${d.att.length - 1}`; return;
+      finish(); save(id, true);
+      location.hash = `#/r/${id}/${d.att.indexOf(att)}`; return;
     }
     const left = keys.filter(k => !NX.answered(k, dr.a[k])).length;
     if (!auto && left && !confirm(`아직 ${left}문항에 답하지 않았어요. 그래도 제출할까요?`)) return;
@@ -242,16 +282,17 @@ async function viewExam(id, mode){
     const d = getD(id); let mg = 0, mm = 0, sg = 0, sm = 0; const a = {};
     keys.forEach(k => { const r = NX.grade(ex, k, dr.a[k]); a[k] = dr.a[k] == null ? null : dr.a[k];
       if (k[0] === 'm') { mg += r.got; mm += r.max; } else { sg += r.got; sm += r.max; } NX.pushEv(d, k, r.ok); });
-    const att = { at: Date.now(), mode, sec: Math.round((Date.now() - dr.start) / 1000), sc: NX.r1(mg + sg), mx: NX.r1(mm + sm), mc: [NX.r1(mg), NX.r1(mm)], sa: [NX.r1(sg), NX.r1(sm)], a };
-    pushAtt(d, att); save(id, true); try { localStorage.removeItem(dk(id, mode)); } catch (x) {}
+    const att = { at: Date.now(), mode, sec: Math.round(Math.min(used(), mode === 'full' ? limit : Infinity) / 1000), sc: NX.r1(mg + sg), mx: NX.r1(mm + sm), mc: [NX.r1(mg), NX.r1(mm)], sa: [NX.r1(sg), NX.r1(sm)], a };
+    pushAtt(d, att); finish(); save(id, true);
     stopTimer(); location.hash = `#/r/${id}/${d.att.length - 1}`;
   };
   document.getElementById('sub').onclick = () => submit(false);
   if (mode === 'full') {
-    const tm = document.getElementById('tm');
-    const tick = () => { const left = limit - (Date.now() - dr.start);
+    const tm = document.getElementById('tm'); let n = 0;
+    const tick = () => { if (!tm.isConnected) return stopTimer(); const left = limit - used();
       if (left <= 0) { stopTimer(); tm.textContent = '00:00'; toast('시간이 끝났어요. 자동으로 제출해요.', 3500); return submit(true); }
-      const s = Math.ceil(left / 1000); tm.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); tm.classList.toggle('warn', s <= 300); };
+      const s = Math.ceil(left / 1000); tm.textContent = String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); tm.classList.toggle('warn', s <= 300);
+      if (++n % 20 === 0) keep(); };
     tick(); TIMER = setInterval(tick, 1000);
   }
 }
@@ -320,16 +361,18 @@ async function printNotes(N, type){
 }
 
 /* ---------- 누적 오답 테스트 ---------- */
-async function viewCum(type, scope){
+async function viewCum(type, scope, withToday){
   const pick = x => (type === 'all' || x.key[0] === type[0]) && (scope === 'all' || x.ex === scope);
-  const N = noteList().filter(pick);
+  const today = NX.today(), doneToday = x => x.st.last && x.st.last[0] === today;   // 오늘 이미 푼 문제
+  const ALL = noteList().filter(pick), TD = ALL.filter(doneToday), N = withToday ? ALL : ALL.filter(x => !doneToday(x));
+  if (!N.length && TD.length) { $app.innerHTML = `<div class="top"><a href="#/">‹ 목록</a><div class="t">누적 오답 테스트</div></div>
+    <div class="empty">오늘 풀 오답은 다 풀었어요. 🎉<br>오늘 푼 ${TD.length}문항은 <b>다른 날</b> 다시 맞히면 오답노트에서 빠져요.<br><br><a class="b" href="#/c/${type}/${scope}/today">오늘 푼 문제도 다시 풀기</a></div>`; return; }
   const ttl = (scope === 'all' ? '' : shortT(examOf(scope) || {}) + ' · ') + ({ sa: '서답형', mc: '객관식', all: '전체' })[type] + ' 오답';
   if (!N.length) { $app.innerHTML = `<div class="top"><a href="#/">‹ 목록</a><div class="t">누적 오답 테스트</div></div><div class="empty">다시 풀 오답이 없어요. 🎉</div>`; return; }
   $app.innerHTML = `<div class="top"><a href="#/">‹ 목록</a><div class="t">${esc(ttl)}</div></div><div class="empty">문제를 모으는 중…</div>`;
   try { await Promise.all([...new Set(N.map(x => x.ex))].map(bundle)); } catch (err) { return bundleErr(err); }
-  const today = NX.today();
   let h = `<div class="top"><a href="#/">‹ 목록</a><div class="t">누적 오답 테스트 · ${esc(ttl)}</div></div>
-    <div class="banner">${N.length}문항 · 한 문제씩 풀고 <b>정답 확인</b>을 눌러요. 틀린 날이 아닌 <b>다른 날</b> 맞히면 오답노트에서 빠져요.</div>
+    <div class="banner">${N.length}문항 · 한 문제씩 풀고 <b>정답 확인</b>을 눌러요. 틀린 날이 아닌 <b>다른 날</b> 맞히면 오답노트에서 빠져요.${!withToday && TD.length ? `<br>오늘 이미 푼 ${TD.length}문항은 빼고 보여줘요. <a href="#/c/${type}/${scope}/today" style="font-weight:700">같이 보기</a>` : ''}</div>
     <div class="flt">${[['sa', '서답형'], ['mc', '객관식'], ['all', '전체']].map(([k, t]) => `<button data-t="${k}" class="${k === type ? 'on' : ''}">${t}</button>`).join('')}<button id="prt" style="margin-left:auto">인쇄</button></div>`;
   N.forEach((x, i) => { const ex = EXC[x.ex], q = NX.item(ex, x.key);
     h += `<div class="q" data-ex="${x.ex}" data-key="${x.key}">${qHead(q, x.key, `<span class="pill ac">${esc(shortT(examOf(x.ex)))} · 틀린 ${x.st.wrong}번</span>`)}${imgs(q)}
