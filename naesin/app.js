@@ -118,7 +118,7 @@ function saIns(q, a, res){
   let h = '<div class="ins">';
   if (q.kind === 'blank') q.blanks.forEach((b, i) => {
     const full = String(a[i] || '');
-    if (!b.first) { h += `<div class="r"><b>(${b.k})</b><input data-i="${i}" ${IA} class="${cls(i)}" value="${esc(full)}" placeholder="단어" ${D0}></div>`; return; }   // 영작: 원래 시험처럼 빈칸만
+    if (!b.first) { h += `<div class="r"><b>${NX.bk(b.k)}</b><input data-i="${i}" ${IA} class="${cls(i)}" value="${esc(full)}" placeholder="단어" ${D0}></div>`; return; }   // 영작: 원래 시험처럼 빈칸만
     const pre = b.first, n = Math.max(1, b.len - pre.length);
     const typed = (pre && full.toLowerCase().startsWith(pre.toLowerCase()) ? full.slice(pre.length) : full).slice(0, n);
     h += `<div class="r"><b>(${b.k})</b><div class="lbx ${cls(i)} ${b.len >= 13 ? 'sm' : ''}">${pre ? `<span class="c f">${esc(pre)}</span>` : ''}${Array.from({ length: n }, (_, j) => `<span class="c">${esc(typed[j] || '')}</span>`).join('')}
@@ -144,7 +144,7 @@ function expH(q, key){
 function fbSA(q, res){
   const mark = res.ok ? 'ok' : res.got > 0 ? 'mid' : 'bad', parts = NX.parts(q), ans = NX.answerText(q);
   return `<div class="fb ${mark}"><b>${res.ok ? '정답이에요!' : res.got > 0 ? '부분 정답' : '아쉬워요'}</b> · ${res.got} / ${res.max}점<br>
-    ${parts.map((p, i) => `${res.parts[i] ? '✓' : '✗'} ${esc(p)} <span class="ans">${esc(ans[i].replace(/^\([A-Z]\)\s*/, ''))}</span>`).join('<br>')}</div>`;
+    ${parts.map((p, i) => `${res.parts[i] ? '✓' : '✗'} ${esc(p)} <span class="ans">${esc(ans[i].replace(/^(\([A-Z]\)|정답)\s*/, ''))}</span>`).join('<br>')}</div>`;
 }
 function claimH(id, d, key, att){
   const c = Object.keys(d.cl).map(k => Object.assign({ id: k }, d.cl[k])).filter(c => c.k === key && (att ? c.t === att.at : true)).pop();

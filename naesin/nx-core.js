@@ -38,19 +38,20 @@
   }
   NX.norm = norm;
   function hasWord(hay, needle) { return needle && (' ' + hay + ' ').indexOf(' ' + needle + ' ') >= 0; }
+  NX.bk = function (k) { return k.length === 1 ? '(' + k + ')' : k; };   // (A) · '정답'(칸이 하나뿐인 유형)
   NX.parts = function (q) {          // 서답형 칸 이름
-    if (q.kind === 'blank') return q.blanks.map(function (b) { return '(' + b.k + ')'; });
+    if (q.kind === 'blank') return q.blanks.map(function (b) { return NX.bk(b.k); });
     if (q.kind === 'fix') return q.fix.map(function (_, i) { return '어법 ' + (i + 1); });
     return q.wrong.map(function (_, i) { return '오류 ' + (i + 1); });
   };
   NX.answerText = function (q) {      // 정답 글
-    if (q.kind === 'blank') return q.blanks.map(function (b) { return '(' + b.k + ') ' + b.acc.join(' / '); });
+    if (q.kind === 'blank') return q.blanks.map(function (b) { return NX.bk(b.k) + ' ' + b.acc.join(' / '); });
     if (q.kind === 'fix') return q.fix.map(function (f) { return f.w + ' → ' + f.c.join(' / '); });
     return q.wrong.map(function (w) { return NX.CIRC[w.n - 1] + ' ' + w.w + (w.c ? ' (→ ' + w.c + ')' : ''); });
   };
   NX.myText = function (q, a) {
     a = a || [];
-    if (q.kind === 'blank') return q.blanks.map(function (b, i) { return '(' + b.k + ') ' + (a[i] || '—'); });
+    if (q.kind === 'blank') return q.blanks.map(function (b, i) { return NX.bk(b.k) + ' ' + (a[i] || '—'); });
     if (q.kind === 'fix') return q.fix.map(function (_, i) { var r = a[i] || []; return (r[0] || '—') + ' → ' + (r[1] || '—'); });
     return q.wrong.map(function (_, i) { var r = a[i] || []; return (r[0] ? NX.CIRC[r[0] - 1] : '—') + ' ' + (r[1] || '—'); });
   };
